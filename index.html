@@ -1,228 +1,218 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Грузоперевозки Астана</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/feather-icons"></script>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Rubik', sans-serif;
     }
+
     body {
-      background-color: #f9fafb;
-      color: #222;
+      font-family: 'Inter', sans-serif;
       line-height: 1.6;
+      color: #1f1f1f;
+      background-color: #fff;
     }
-    header {
-      background: #ffffff url('https://cdn.pixabay.com/photo/2017/01/31/13/14/delivery-2023955_1280.png') no-repeat center center;
-      background-size: cover;
-      padding: 4rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #00416A;
-    }
-    .section {
-      background: #fff;
-      margin: 2rem auto;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      max-width: 960px;
-    }
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #00416A;
-    }
-    .service-item {
+
+    header.hero {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background: #f2f2f2 url('https://raw.githubusercontent.com/kerthin/gza-assets/main/header-banner.svg') center bottom no-repeat;
+      background-size: contain;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .hero-overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1rem 2rem;
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .hero-overlay h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-overlay p {
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
       margin-bottom: 1rem;
     }
-    .service-item img {
-      width: 36px;
-      height: 36px;
-      margin-right: 1rem;
+
+    .services ul,
+    .features ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
     }
-    .price-table {
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .features i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
       overflow-x: auto;
     }
-    .price-table th, .price-table td {
-      border: 1px solid #ccc;
-      padding: 1rem;
+
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
       text-align: left;
       white-space: nowrap;
     }
-    .price-table th {
-      background-color: #00416A;
-      color: #fff;
-    }
-    .floating-btn {
-      position: fixed;
-      right: 20px;
-      background-color: #00416A;
-      color: #fff;
-      padding: 14px;
-      border-radius: 50%;
-      font-size: 18px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    .btn-whatsapp {
-      bottom: 140px;
-      background-color: #25D366;
-    }
-    .btn-call {
-      bottom: 80px;
-    }
-    .btn-reviews {
-      bottom: 20px;
-    }
-    .reviews-panel {
-      position: fixed;
-      right: -320px;
-      top: 0;
-      width: 300px;
-      height: 100%;
-      background-color: #fefefe;
-      box-shadow: -4px 0 10px rgba(0,0,0,0.2);
-      padding: 1rem;
-      transition: right 0.3s;
-      z-index: 999;
-    }
-    .reviews-panel.open {
-      right: 0;
-    }
-    .close-reviews {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    .review {
+
+    .reviews {
       margin-top: 2rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1rem;
     }
+
     .footer {
+      background: #f8f8f8;
       text-align: center;
       padding: 2rem 1rem 1rem;
       font-size: 0.9rem;
-      color: #777;
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .floating-buttons a {
+      background: #1f1f1f;
+      color: white;
+      padding: 0.6rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Грузоперевозки Астана</h1>
-    <p>Быстро, качественно, надёжно</p>
+  <header class="hero">
+    <div class="hero-overlay">
+      <h1>Грузоперевозки Астана</h1>
+      <p>Быстро, аккуратно, с гарантией</p>
+    </div>
   </header>
 
-  <div class="section">
+  <section>
     <h2>Наши услуги</h2>
-    <div class="service-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Переезд">
-      <span>Переезды квартир, офисов, складов</span>
-    </div>
-    <div class="service-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/3585/3585575.png" alt="Комплексная услуга">
-      <span>Комплексная услуга с погрузкой и разгрузкой</span>
-    </div>
-    <div class="service-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1705/1705480.png" alt="Мусор">
-      <span>Вывоз строительного и бытового мусора</span>
-    </div>
-    <div class="service-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2561/2561274.png" alt="Грузчики">
-      <span>Услуги грузчиков</span>
-    </div>
-  </div>
+    <ul class="services">
+      <li>Квартирные и офисные переезды</li>
+      <li>Вывоз строительного и бытового мусора</li>
+      <li>Доставка мебели и техники</li>
+      <li>Услуга грузчиков от 2500₸</li>
+      <li>Комплексные перевозки</li>
+    </ul>
+  </section>
 
-  <div class="section">
-    <h2>Цены на первый квартал 2025</h2>
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th>Услуга</th>
-          <th>Цена от</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Переезд (1 час)</td>
-          <td>6 000 ₸</td>
-        </tr>
-        <tr>
-          <td>Комплексная услуга с двумя грузчиками</td>
-          <td>12 000 ₸</td>
-        </tr>
-        <tr>
-          <td>Вывоз строительного и бытового мусора</td>
-          <td>15 000 ₸</td>
-        </tr>
-        <tr>
-          <td>Услуги грузчиков (1 час)</td>
-          <td>2 500 ₸</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <section>
+    <h2>Примерные цены</h2>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Услуга</th>
+            <th>Цена</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Квартирный переезд</td><td>от 8000₸</td></tr>
+          <tr><td>Офисный переезд</td><td>от 10000₸</td></tr>
+          <tr><td>Вывоз мусора</td><td>от 6000₸</td></tr>
+          <tr><td>Услуги грузчиков</td><td>от 2500₸/час</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-  <div class="reviews-panel" id="reviewsPanel">
-    <button class="close-reviews" onclick="toggleReviews()">✖</button>
-    <h3>Отзывы клиентов</h3>
-    <div class="review">
-      <strong>Ержан А.</strong>
-      Отличный сервис, приехали вовремя, всё аккуратно!
+  <section class="features">
+    <div>
+      <i data-feather="briefcase"></i>
+      <p><strong>4+ лет на рынке</strong></p>
     </div>
-    <div class="review">
-      <strong>Мади К.</strong>
-      Пользовался их услугами при переезде — всё на уровне.
+    <div>
+      <i data-feather="check-circle"></i>
+      <p><strong>500+ заказов</strong></p>
     </div>
-    <div class="review">
-      <strong>Ануар Б.</strong>
-      Быстро, чисто, профессионально. Рекомендую!
+    <div>
+      <i data-feather="star"></i>
+      <p><strong>Отзывы клиентов</strong></p>
     </div>
-    <div class="review">
-      <strong>Гульнара С.</strong>
-      Вежливые водители, вещи перевезли бережно.
-    </div>
-  </div>
+  </section>
 
-  <a href="https://wa.me/77767469606" class="floating-btn btn-whatsapp">💬</a>
-  <a href="tel:+77767469606" class="floating-btn btn-call">📞</a>
-  <button class="floating-btn btn-reviews" onclick="toggleReviews()">⭐</button>
+  <section class="reviews">
+    <h2>Отзывы</h2>
+    <p>Все понравилось, быстро и качественно. – Айгуль</p>
+    <p>Отличный сервис! Буду обращаться еще. – Руслан</p>
+  </section>
+
+  <section>
+    <h2>Почему выбирают нас</h2>
+    <ul class="features">
+      <li>Надежность и пунктуальность</li>
+      <li>Опытные водители и грузчики</li>
+      <li>Работаем ежедневно с 8 до 22</li>
+    </ul>
+  </section>
 
   <div class="footer">
-    Работаем ежедневно с 8:00 до 22:00<br>
-    © Грузоперевозки Астана 2025 — Все права защищены
+    <p>Грузоперевозки Астана 2025 — все права защищены</p>
+  </div>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/77767469606" target="_blank" title="WhatsApp"><i data-feather="message-circle"></i></a>
+    <a href="tel:+77767469606" title="Позвонить"><i data-feather="phone"></i></a>
+    <a href="#reviews" title="Отзывы"><i data-feather="star"></i></a>
   </div>
 
   <script>
-    function toggleReviews() {
-      const panel = document.getElementById('reviewsPanel');
-      panel.classList.toggle('open');
-    }
+    feather.replace();
   </script>
 </body>
+
 </html>
