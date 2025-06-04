@@ -2,279 +2,227 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Грузоперевозки Астана</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Rubik', sans-serif;
     }
     body {
-      margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background: linear-gradient(135deg, #e0e6f2, #ffffff);
-      color: #2a2a2a;
+      background-color: #f9fafb;
+      color: #222;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
     header {
-      background-color: #1f3a93;
-      color: #fff;
-      padding: 1.8rem 1rem;
+      background: #ffffff url('https://cdn.pixabay.com/photo/2017/01/31/13/14/delivery-2023955_1280.png') no-repeat center center;
+      background-size: cover;
+      padding: 4rem 1rem;
       text-align: center;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    header h1 {
-      font-weight: 700;
-      font-size: 2.4rem;
-      margin-bottom: 0.3rem;
-      letter-spacing: 1px;
-    }
-    header p {
-      font-weight: 500;
-      font-size: 1.1rem;
-      opacity: 0.85;
-      margin-top: 0;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.8rem 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 12px rgb(0 0 0 / 0.05);
-    }
-    h2 {
+    h1 {
+      font-size: 2.5rem;
       font-weight: 600;
-      font-size: 1.7rem;
-      margin-bottom: 1.3rem;
-      border-bottom: 3px solid #1f3a93;
-      padding-bottom: 0.3rem;
-      letter-spacing: 0.03em;
-      color: #1f3a93;
+      color: #00416A;
     }
-    /* Услуги */
+    .section {
+      background: #fff;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      max-width: 960px;
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #00416A;
+    }
     .service-item {
       display: flex;
       align-items: center;
-      margin-bottom: 1.1rem;
-      gap: 1rem;
-      font-size: 1.1rem;
-      color: #3c3c3c;
+      margin-bottom: 1rem;
     }
-    .service-item svg {
-      flex-shrink: 0;
+    .service-item img {
       width: 36px;
       height: 36px;
-      fill: #1f3a93;
+      margin-right: 1rem;
     }
-    /* Таблица */
-    table {
+    .price-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 0.8rem;
-      table-layout: fixed;
+      margin-top: 1rem;
+      overflow-x: auto;
     }
-    th, td {
-      padding: 14px 16px;
-      border: 1px solid #cbd2db;
+    .price-table th, .price-table td {
+      border: 1px solid #ccc;
+      padding: 1rem;
       text-align: left;
-      font-weight: 500;
-      color: #2a2a2a;
       white-space: nowrap;
     }
-    th {
-      background-color: #1f3a93;
+    .price-table th {
+      background-color: #00416A;
       color: #fff;
-      font-weight: 600;
-    }
-    tbody tr:hover {
-      background-color: #f0f4ff;
-    }
-    /* Обеспечить горизонтальный скролл на мобилках */
-    .table-wrapper {
-      overflow-x: auto;
-      margin-top: 1rem;
-    }
-
-    /* Кнопки звонка, WhatsApp, отзывы */
-    .floating-btns {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      z-index: 10000;
     }
     .floating-btn {
-      background-color: #1f3a93;
+      position: fixed;
+      right: 20px;
+      background-color: #00416A;
+      color: #fff;
+      padding: 14px;
       border-radius: 50%;
-      width: 52px;
-      height: 52px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      box-shadow: 0 3px 8px rgba(31, 58, 147, 0.4);
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      border: none;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
     }
-    .floating-btn:hover {
-      background-color: #1450b2;
-    }
-    .floating-btn.whatsapp {
+    .btn-whatsapp {
+      bottom: 140px;
       background-color: #25D366;
     }
-    .floating-btn.whatsapp:hover {
-      background-color: #1da851;
+    .btn-call {
+      bottom: 80px;
     }
-    /* Иконки SVG стили */
-    .icon {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
+    .btn-reviews {
+      bottom: 20px;
     }
-
-    /* Панель отзывов */
     .reviews-panel {
       position: fixed;
       right: -320px;
       top: 0;
       width: 300px;
-      height: 100vh;
-      background-color: #fff;
-      box-shadow: -5px 0 15px rgb(0 0 0 / 0.15);
-      padding: 1.4rem 1.6rem 1.6rem;
-      transition: right 0.4s ease;
-      overflow-y: auto;
-      z-index: 9999;
-      border-radius: 8px 0 0 8px;
+      height: 100%;
+      background-color: #fefefe;
+      box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+      padding: 1rem;
+      transition: right 0.3s;
+      z-index: 999;
     }
     .reviews-panel.open {
       right: 0;
     }
     .close-reviews {
       position: absolute;
-      right: 12px;
-      top: 12px;
+      top: 10px;
+      right: 10px;
       background: none;
       border: none;
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 20px;
       cursor: pointer;
-      color: #1f3a93;
-      padding: 0;
-      line-height: 1;
-    }
-    .reviews-panel h3 {
-      margin-bottom: 1rem;
-      font-weight: 700;
-      color: #1f3a93;
     }
     .review {
-      border-bottom: 1px solid #cbd2db;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ccc;
       padding-bottom: 1rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      color: #444;
     }
-    .review:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    .review strong {
-      display: block;
-      margin-bottom: 0.3rem;
-      color: #1f3a93;
-      font-weight: 600;
-    }
-
-    /* Блок графика работы и тезисов */
-    .info-blocks {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-    .info-block {
-      background: #f9fbff;
-      border-radius: 10px;
-      box-shadow: 0 3px 7px rgb(31 58 147 / 0.1);
-      padding: 1.6rem 1.8rem;
-      flex: 1 1 280px;
-      color: #2a2a2a;
-    }
-    .info-block h3 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      color: #1f3a93;
-      font-weight: 700;
-      font-size: 1.3rem;
-    }
-    .work-schedule p {
-      font-size: 1.05rem;
-      margin: 0.3rem 0;
-    }
-    .theses-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-    .theses-list li {
-      margin-bottom: 0.8rem;
-      font-weight: 500;
-      position: relative;
-      padding-left: 20px;
-      color: #3a3a3a;
-    }
-    .theses-list li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      color: #1f3a93;
-      font-weight: 700;
-    }
-
-    /* Футер */
-    footer {
+    .footer {
       text-align: center;
-      padding: 1.3rem 1rem;
-      color: #666;
+      padding: 2rem 1rem 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #ddd;
-      background: #f7f9fc;
-      letter-spacing: 0.02em;
+      color: #777;
     }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Грузоперевозки Астана</h1>
+    <p>Быстро, качественно, надёжно</p>
+  </header>
 
-    /* Отступы между текстами для всего сайта */
-    p, li, td, th, span {
-      margin-bottom: 0.5rem;
+  <div class="section">
+    <h2>Наши услуги</h2>
+    <div class="service-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Переезд">
+      <span>Переезды квартир, офисов, складов</span>
+    </div>
+    <div class="service-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/3585/3585575.png" alt="Комплексная услуга">
+      <span>Комплексная услуга с погрузкой и разгрузкой</span>
+    </div>
+    <div class="service-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/1705/1705480.png" alt="Мусор">
+      <span>Вывоз строительного и бытового мусора</span>
+    </div>
+    <div class="service-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2561/2561274.png" alt="Грузчики">
+      <span>Услуги грузчиков</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Цены на первый квартал 2025</h2>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Услуга</th>
+          <th>Цена от</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Переезд (1 час)</td>
+          <td>6 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Комплексная услуга с двумя грузчиками</td>
+          <td>12 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Вывоз строительного и бытового мусора</td>
+          <td>15 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Услуги грузчиков (1 час)</td>
+          <td>2 500 ₸</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="reviews-panel" id="reviewsPanel">
+    <button class="close-reviews" onclick="toggleReviews()">✖</button>
+    <h3>Отзывы клиентов</h3>
+    <div class="review">
+      <strong>Ержан А.</strong>
+      Отличный сервис, приехали вовремя, всё аккуратно!
+    </div>
+    <div class="review">
+      <strong>Мади К.</strong>
+      Пользовался их услугами при переезде — всё на уровне.
+    </div>
+    <div class="review">
+      <strong>Ануар Б.</strong>
+      Быстро, чисто, профессионально. Рекомендую!
+    </div>
+    <div class="review">
+      <strong>Гульнара С.</strong>
+      Вежливые водители, вещи перевезли бережно.
+    </div>
+  </div>
+
+  <a href="https://wa.me/77767469606" class="floating-btn btn-whatsapp">💬</a>
+  <a href="tel:+77767469606" class="floating-btn btn-call">📞</a>
+  <button class="floating-btn btn-reviews" onclick="toggleReviews()">⭐</button>
+
+  <div class="footer">
+    Работаем ежедневно с 8:00 до 22:00<br>
+    © Грузоперевозки Астана 2025 — Все права защищены
+  </div>
+
+  <script>
+    function toggleReviews() {
+      const panel = document.getElementById('reviewsPanel');
+      panel.classList.toggle('open');
     }
-
-    /* Мобильная адаптация */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      .service-item {
-        font-size: 1rem;
-      }
-      .info-blocks {
-        flex-direction: column;
-      }
-      .floating-btns {
-        flex-direction: row;
-        right:
+  </script>
+</body>
+</html>
