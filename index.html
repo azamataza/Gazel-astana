@@ -1,218 +1,369 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Грузоперевозки Астана</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/feather-icons"></script>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Грузоперевозки Астана - Надежно и Быстро</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- Общие стили и сброс --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: #1f1f1f;
-      background-color: #fff;
-    }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f4f8; /* Очень светлый серый/голубой */
+            color: #333;
+            line-height: 1.7;
+        }
 
-    header.hero {
-      position: relative;
-      width: 100%;
-      height: 220px;
-      background: #f2f2f2 url('https://raw.githubusercontent.com/kerthin/gza-assets/main/header-banner.svg') center bottom no-repeat;
-      background-size: contain;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
+        /* --- Шапка с фоновым изображением --- */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1594034874378-b118b63e80c4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-    .hero-overlay {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 1rem 2rem;
-      border-radius: 12px 12px 0 0;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
-      text-align: center;
-    }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2em; /* Крупнее заголовок */
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
 
-    .hero-overlay h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+        header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
 
-    .hero-overlay p {
-      font-size: 1.1rem;
-    }
+        .cta-button {
+            display: inline-block;
+            background-color: #ff9900; /* Яркий оранжевый */
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px; /* Скругленная кнопка */
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
-    section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
+        .cta-button:hover {
+            background-color: #e68a00;
+            transform: translateY(-3px);
+        }
 
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
+        /* --- Общие стили секций --- */
+        .section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-    .services ul,
-    .features ul {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      gap: 1rem;
-    }
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1a237e; /* Темно-синий */
+            position: relative;
+            padding-bottom: 10px;
+        }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      text-align: center;
-    }
+        .section h2::after { /* Подчеркивание для заголовков */
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #007bff; /* Синий акцент */
+            border-radius: 5px;
+        }
 
-    .features i {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
+        /* --- Стили для карточек услуг --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px; /* Больший отступ между карточками */
+            justify-content: center;
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      overflow-x: auto;
-    }
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
 
-    th, td {
-      padding: 0.75rem;
-      border: 1px solid #ddd;
-      text-align: left;
-      white-space: nowrap;
-    }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
 
-    .reviews {
-      margin-top: 2rem;
-    }
+        .card .icon {
+            font-size: 3em;
+            color: #007bff; /* Синий акцент для иконок */
+            margin-bottom: 15px;
+        }
 
-    .footer {
-      background: #f8f8f8;
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-      font-size: 0.9rem;
-    }
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
 
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
+        .card p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 8px;
+        }
 
-    .floating-buttons a {
-      background: #1f1f1f;
-      color: white;
-      padding: 0.6rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-  </style>
+        .card .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #ff9900; /* Оранжевая цена */
+            margin-top: 15px;
+        }
+
+        /* --- Стили для преимуществ --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background: #e3f2fd; /* Светло-голубой фон */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            background-color: #cce7ff; /* Чуть темнее при наведении */
+            transform: translateY(-5px);
+        }
+
+        .feature-item .icon {
+            font-size: 3.5em;
+            color: #28a745; /* Зеленый для иконок преимуществ */
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: #1a237e;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* --- Стили для контактов --- */
+        .contact-section {
+            background-color: #fff8e1; /* Очень светлый желтый */
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #f0e0b3;
+            box-shadow: inset 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-section h2 {
+            color: #d39e00; /* Золотистый/желтый для заголовка */
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .contact-info p strong {
+            color: #1a237e;
+            font-size: 1.1em;
+        }
+
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* --- Подвал --- */
+        footer {
+            background-color: #212529; /* Темно-серый */
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Медиа-запросы для адаптивности --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 15px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.2em;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            .section {
+                padding: 40px 15px;
+            }
+            .section h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .card {
+                padding: 20px;
+            }
+            .card h3 {
+                font-size: 1.5em;
+            }
+            .feature-item h3 {
+                font-size: 1.8em;
+            }
+            .contact-section {
+                padding: 40px 15px;
+            }
+            .contact-info p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .cta-button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+            .card h3 {
+                font-size: 1.3em;
+            }
+            .feature-item h3 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header class="hero">
-    <div class="hero-overlay">
-      <h1>Грузоперевозки Астана</h1>
-      <p>Быстро, аккуратно, с гарантией</p>
-    </div>
-  </header>
+    <header>
+        <h1>Грузоперевозки по Астане</h1>
+        <p>Надежно, быстро и профессионально. Доставим ваш груз точно в срок!</p>
+        <a href="tel:+77767469606" class="cta-button">Позвонить сейчас! +7 776 746 96 06</a>
+    </header>
 
-  <section>
-    <h2>Наши услуги</h2>
-    <ul class="services">
-      <li>Квартирные и офисные переезды</li>
-      <li>Вывоз строительного и бытового мусора</li>
-      <li>Доставка мебели и техники</li>
-      <li>Услуга грузчиков от 2500₸</li>
-      <li>Комплексные перевозки</li>
-    </ul>
-  </section>
+    <section class="section">
+        <h2>Наши услуги</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <i class="fas fa-city icon"></i> <h3>Городские перевозки</h3>
+                <p>Быстрая и безопасная доставка грузов в пределах Астаны. От мелких посылок до крупногабаритных предметов.</p>
+                <p class="price">от 8 000 тг</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-home icon"></i> <h3>Квартирные и офисные переезды</h3>
+                <p>Организуем аккуратный и оперативный переезд вашей квартиры или офиса под ключ. Погрузка, разгрузка, транспортировка.</p>
+                <p class="price">от 12 000 тг</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hammer icon"></i> <h3>Доставка строительных материалов</h3>
+                <p>Перевозка стройматериалов любого объема и веса. Гарантируем сохранность и своевременность доставки на объект.</p>
+                <p class="price">от 10 000 тг</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-dumpster icon"></i> <h3>Вывоз мусора</h3>
+                <p>Оперативный вывоз строительного и бытового мусора. Работаем чисто и эффективно, соблюдая все нормы.</p>
+                <p class="price">от 7 000 тг</p>
+            </div>
+            </div>
+    </section>
 
-  <section>
-    <h2>Примерные цены</h2>
-    <div style="overflow-x: auto;">
-      <table>
-        <thead>
-          <tr>
-            <th>Услуга</th>
-            <th>Цена</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Квартирный переезд</td><td>от 8000₸</td></tr>
-          <tr><td>Офисный переезд</td><td>от 10000₸</td></tr>
-          <tr><td>Вывоз мусора</td><td>от 6000₸</td></tr>
-          <tr><td>Услуги грузчиков</td><td>от 2500₸/час</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <section class="section">
+        <h2>Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-award icon"></i> <h3>Более 4 лет на рынке</h3>
+                <p>Накопленный опыт позволяет решать задачи любой сложности.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-truck-fast icon"></i> <h3>Более 500 заказов</h3>
+                <p>Успешно выполненных перевозок и довольных клиентов.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-clock icon"></i> <h3>Работаем с 8:00 до 22:00</h3>
+                <p>Ежедневно, без выходных и праздников для вашего удобства.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-user-tie icon"></i> <h3>Профессиональные водители</h3>
+                <p>Опытные и ответственные сотрудники, гарантирующие безопасность вашего груза.</p>
+            </div>
+        </div>
+    </section>
 
-  <section class="features">
-    <div>
-      <i data-feather="briefcase"></i>
-      <p><strong>4+ лет на рынке</strong></p>
-    </div>
-    <div>
-      <i data-feather="check-circle"></i>
-      <p><strong>500+ заказов</strong></p>
-    </div>
-    <div>
-      <i data-feather="star"></i>
-      <p><strong>Отзывы клиентов</strong></p>
-    </div>
-  </section>
+    <section class="contact-section">
+        <h2>Свяжитесь с нами!</h2>
+        <div class="contact-info">
+            <p>Телефон: <strong><a href="tel:+77767469606">+7 776 746 96 06</a></strong></p>
+            <p>Город: Астана</p>
+            <p>Мы готовы помочь вам с любыми грузоперевозками!</p>
+        </div>
+    </section>
 
-  <section class="reviews">
-    <h2>Отзывы</h2>
-    <p>Все понравилось, быстро и качественно. – Айгуль</p>
-    <p>Отличный сервис! Буду обращаться еще. – Руслан</p>
-  </section>
-
-  <section>
-    <h2>Почему выбирают нас</h2>
-    <ul class="features">
-      <li>Надежность и пунктуальность</li>
-      <li>Опытные водители и грузчики</li>
-      <li>Работаем ежедневно с 8 до 22</li>
-    </ul>
-  </section>
-
-  <div class="footer">
-    <p>Грузоперевозки Астана 2025 — все права защищены</p>
-  </div>
-
-  <div class="floating-buttons">
-    <a href="https://wa.me/77767469606" target="_blank" title="WhatsApp"><i data-feather="message-circle"></i></a>
-    <a href="tel:+77767469606" title="Позвонить"><i data-feather="phone"></i></a>
-    <a href="#reviews" title="Отзывы"><i data-feather="star"></i></a>
-  </div>
-
-  <script>
-    feather.replace();
-  </script>
+    <footer>
+        &copy; 2025 Грузоперевозки Астана. Все права защищены.
+    </footer>
 </body>
-
 </html>
