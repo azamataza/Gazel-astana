@@ -2,81 +2,186 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Грузоперевозки Астана</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Грузоперевозки Астана | Быстро и Надёжно</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1f2937; line-height: 1.6; }
-    header { background: #0ea5e9; color: white; padding: 40px 20px; text-align: center; }
-    header h1 { font-size: 32px; margin-bottom: 10px; }
-    header p { font-size: 18px; }
-    .container { max-width: 960px; margin: 0 auto; padding: 20px; }
-    .section { margin-bottom: 40px; background: white; padding: 20px; border-radius: 16px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
-    h2 { font-size: 24px; margin-bottom: 16px; color: #0f172a; }
-    ul { list-style: none; padding-left: 0; }
-    ul li { margin-bottom: 10px; padding-left: 24px; position: relative; }
-    ul li::before { content: "✔"; color: #10b981; position: absolute; left: 0; top: 0; }
-    .buttons a {
-      display: inline-block;
-      background: #0ea5e9;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-right: 10px;
-      margin-top: 10px;
-      transition: background 0.3s;
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f0f9ff;
+      color: #0f172a;
     }
-    .buttons a:hover { background: #0284c7; }
+    header {
+      background: #0284c7;
+      padding: 30px 20px;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 24px;
+      margin: 0;
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+    .btn {
+      background: #14b8a6;
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn:hover {
+      background: #0d9488;
+    }
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #0369a1;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .service {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .service:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgb(0 0 0 / 0.1);
+    }
+    .service-icon {
+      font-size: 48px;
+      color: #14b8a6;
+      margin-bottom: 12px;
+    }
+    .service-title {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .prices {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.05);
+      margin-bottom: 40px;
+    }
+    .prices table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .prices th, .prices td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e0e7ff;
+      text-align: left;
+    }
+    .prices th {
+      background: #e0f2fe;
+      font-weight: 700;
+      color: #0369a1;
+    }
     footer {
       text-align: center;
+      padding: 24px 20px;
       font-size: 14px;
-      color: #6b7280;
+      color: #64748b;
+      background: #f1f5f9;
       margin-top: 40px;
-      padding: 20px;
     }
-    .price-box {
-      border: 1px dashed #94a3b8;
-      padding: 10px;
-      margin-top: 10px;
-      font-style: italic;
-      color: #475569;
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .buttons {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Грузоперевозки в Астане</h1>
-    <p>Быстро, качественно и недорого</p>
+    <h1>Грузоперевозки Астана</h1>
+    <div class="buttons">
+      <a href="tel:+77767469606" class="btn">📞 Позвонить</a>
+      <a href="https://wa.me/77767469606" target="_blank" class="btn">💬 WhatsApp</a>
+    </div>
   </header>
-
-  <div class="container">
-    <section class="section">
+  <main>
+    <section>
       <h2>Наши услуги</h2>
-      <ul>
-        <li>Квартирные и офисные переезды</li>
-        <li>Перевозка мебели, бытовой техники, стройматериалов</li>
-        <li>Складские переезды</li>
-        <li>Вывоз строительного и бытового мусора</li>
-        <li>Услуги грузчиков</li>
-        <li>Срочные и ночные перевозки</li>
-        <li>Работа по Астане и пригородам</li>
-      </ul>
-      <div class="price-box">Цены уточняйте по телефону. Можно выставить точные тарифы в админке.</div>
-    </section>
-
-    <section class="section">
-      <h2>Контакты</h2>
-      <p><strong>Телефон:</strong> <a href="tel:+77767469606">+7 776 746 96 06</a></p>
-      <p><strong>Email:</strong> turkestanvshiaza@gmail.com</p>
-      <div class="buttons">
-        <a href="https://wa.me/77767469606" target="_blank">WhatsApp</a>
-        <a href="tel:+77767469606">Позвонить</a>
+      <div class="services">
+        <div class="service">
+          <div class="service-icon">🚚</div>
+          <div class="service-title">Переезды (офисные, квартирные)</div>
+          <div>Перевозка мебели и личных вещей по Астане и области</div>
+        </div>
+        <div class="service">
+          <div class="service-icon">📦</div>
+          <div class="service-title">Перевозка грузов</div>
+          <div>Стройматериалы, бытовая техника, товары</div>
+        </div>
+        <div class="service">
+          <div class="service-icon">🗑️</div>
+          <div class="service-title">Вывоз мусора</div>
+          <div>Бытовой и строительный мусор, быстро и чисто</div>
+        </div>
+        <div class="service">
+          <div class="service-icon">💪</div>
+          <div class="service-title">Услуги грузчиков</div>
+          <div>Погрузка и разгрузка любой сложности</div>
+        </div>
       </div>
     </section>
-  </div>
-
+    <section class="prices">
+      <h2>Примерные цены</h2>
+      <table>
+        <thead>
+          <tr><th>Услуга</th><th>Цена</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Переезд (1 час)</td><td>от 3000 тг</td></tr>
+          <tr><td>Перевозка грузов (1 час)</td><td>от 2500 тг</td></tr>
+          <tr><td>Вывоз мусора (за 1 куб.м.)</td><td>от 2000 тг</td></tr>
+          <tr><td>Услуги грузчиков (1 час)</td><td>от 2000 тг</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Контакты</h2>
+      <p>Телефон: <a href="tel:+77767469606">+7 776 746 96 06</a></p>
+      <p>Email: turkestanvshiaza@gmail.com</p>
+    </section>
+  </main>
   <footer>
     © 2025 Gazel-Astana.kz — Все права защищены
   </footer>
