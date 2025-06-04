@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- Общие стили и сброс --- */
         * {
@@ -21,6 +22,7 @@
             background-color: #f0f4f8; /* Очень светлый серый/голубой */
             color: #333;
             line-height: 1.7;
+            overflow-x: hidden; /* Предотвращает горизонтальную прокрутку, если что-то выйдет за край */
         }
 
         /* --- Шапка с фоновым изображением --- */
@@ -31,6 +33,9 @@
             text-align: center;
             position: relative;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-attachment: fixed; /* Параллакс-эффект */
+            background-position: center 20%;
+            overflow: hidden; /* Скрывает все, что выходит за пределы header */
         }
 
         header h1 {
@@ -38,6 +43,7 @@
             font-size: 3.2em; /* Крупнее заголовок */
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 1s ease-out; /* Анимация появления */
         }
 
         header p {
@@ -45,6 +51,7 @@
             opacity: 0.95;
             max-width: 700px;
             margin: 0 auto 30px auto;
+            animation: fadeInUp 1s ease-out 0.3s; /* Анимация появления с задержкой */
         }
 
         .cta-button {
@@ -57,13 +64,15 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite alternate; /* Эффект пульсации */
         }
 
         .cta-button:hover {
             background-color: #e68a00;
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Усиленная тень при наведении */
         }
 
         /* --- Общие стили секций --- */
@@ -125,6 +134,11 @@
             font-size: 3em;
             color: #007bff; /* Синий акцент для иконок */
             margin-bottom: 15px;
+            transition: transform 0.3s ease; /* Анимация для иконки */
+        }
+
+        .card:hover .icon { /* Анимация при наведении на карточку */
+            transform: scale(1.1); /* Немного увеличиваем иконку */
         }
 
         .card h3 {
@@ -156,6 +170,7 @@
             text-align: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             margin: 40px 0; /* Отступы сверху и снизу */
+            animation: fadeInUp 1s ease-out; /* Анимация появления */
         }
 
         .mid-cta-section h2 {
@@ -212,6 +227,11 @@
             font-size: 3.5em;
             color: #28a745; /* Зеленый для иконок преимуществ */
             margin-bottom: 15px;
+            transition: transform 0.3s ease; /* Анимация для иконки */
+        }
+
+        .feature-item:hover .icon { /* Анимация при наведении */
+            transform: rotate(10deg); /* Поворот иконки */
         }
 
         .feature-item h3 {
@@ -308,7 +328,7 @@
             font-size: 1.8em;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; /* Добавлена прозрачность */
         }
         
         .floating-btn.whatsapp {
@@ -321,7 +341,7 @@
 
         .floating-btn:hover {
             transform: translateY(-3px);
-            opacity: 0.9;
+            opacity: 0.9; /* Небольшая прозрачность при наведении */
         }
 
         /* --- Модальное окно отзывов --- */
@@ -338,6 +358,13 @@
             align-items: center;
             padding: 20px;
             overflow-y: auto; /* Для скролла, если отзывов много */
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 0.3s ease; /* Плавное появление */
+        }
+
+        .modal-overlay.is-active { /* Класс для активного состояния */
+            display: flex; /* Показываем модальное окно */
+            opacity: 1; /* Делаем видимым */
         }
 
         .modal-content {
@@ -349,6 +376,12 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
             position: relative;
             text-align: left; /* Вернуть выравнивание текста внутри модального окна */
+            transform: scale(0.95); /* Начальный масштаб */
+            transition: transform 0.3s ease; /* Плавное масштабирование */
+        }
+
+        .modal-overlay.is-active .modal-content { /* Активное состояние */
+            transform: scale(1); /* Возвращаем к нормальному масштабу */
         }
 
         .modal-close-btn {
@@ -486,6 +519,13 @@
             overflow-y: auto;
             padding: 80px 20px;
             text-align: left;
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 0.3s ease; /* Плавное появление */
+        }
+
+        .info-section.is-active { /* Класс для активного состояния */
+            display: block; /* Показываем */
+            opacity: 1; /* Делаем видимым */
         }
 
         .info-section .content {
@@ -495,6 +535,12 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-20px); /* Начальное положение немного выше */
+            transition: transform 0.3s ease; /* Плавное перемещение */
+        }
+
+        .info-section.is-active .content { /* Активное состояние */
+            transform: translateY(0); /* Возвращаем в нормальное положение */
         }
 
         .info-section h2 {
@@ -531,6 +577,77 @@
             color: #333;
         }
 
+        /* --- Анимации --- */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        /* --- Стили для загрузочного значка --- */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader {
+            width: 80px; /* Увеличим размер */
+            height: 80px; /* Увеличим размер */
+            border: 8px solid #f3f3f3; /* Светлая часть */
+            border-top: 8px solid #007bff; /* Цветная часть */
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
 
         /* --- Медиа-запросы для адаптивности --- */
         @media (max-width: 768px) {
@@ -635,37 +752,46 @@
     </style>
 </head>
 <body>
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+    </div>
+
     <header>
         <h1>Грузоперевозки по Астане</h1>
         <p>Надежно, быстро и профессионально. Доставим ваш груз точно в срок!</p>
-        <a href="tel:+77767469606" class="cta-button">Позвонить сейчас! +7 776 746 96 06</a>
+        <a href="tel:+77767469606" class="cta-button">Позвонить сейчас!</a>
     </header>
 
-    <section class="section">
-        <h2>Наши услуги</h2>
+    <section class="section" id="services">
+        <h2 data-aos="fade-up">Наши услуги</h2>
         <div class="cards-grid">
-            <div class="card">
-                <i class="fas fa-city icon"></i> <h3>Городские перевозки</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="50">
+                <i class="fas fa-city icon"></i>
+                <h3>Городские перевозки</h3>
                 <p>Быстрая и безопасная доставка грузов в пределах Астаны. От мелких посылок до крупногабаритных предметов.</p>
                 <p class="price">от 7 000 тг/час</p>
             </div>
-            <div class="card">
-                <i class="fas fa-home icon"></i> <h3>Квартирные и офисные переезды</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="150">
+                <i class="fas fa-home icon"></i>
+                <h3>Квартирные и офисные переезды</h3>
                 <p>Организуем аккуратный и оперативный переезд вашей квартиры или офиса под ключ. Погрузка, разгрузка, транспортировка.</p>
                 <p class="price">от 12 000 тг</p>
             </div>
-            <div class="card">
-                <i class="fas fa-hammer icon"></i> <h3>Доставка строительных материалов</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="250">
+                <i class="fas fa-hammer icon"></i>
+                <h3>Доставка строительных материалов</h3>
                 <p>Перевозка стройматериалов любого объема и веса. Гарантируем сохранность и своевременность доставки на объект.</p>
                 <p class="price">от 6 000 тг/час</p>
             </div>
-            <div class="card">
-                <i class="fas fa-dumpster icon"></i> <h3>Вывоз мусора</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="350">
+                <i class="fas fa-dumpster icon"></i>
+                <h3>Вывоз мусора</h3>
                 <p>Оперативный вывоз строительного и бытового мусора. Работаем чисто и эффективно, соблюдая все нормы.</p>
                 <p class="price">от 15 000 тг</p>
             </div>
-            <div class="card">
-                <i class="fas fa-people-carry-box icon"></i> <h3>Услуги грузчиков</h3>
+             <div class="card" data-aos="fade-up" data-aos-delay="450">
+                <i class="fas fa-people-carry-box icon"></i>
+                <h3>Услуги грузчиков</h3>
                 <p>Профессиональные грузчики для погрузки, разгрузки и перемещения любых видов грузов. Работаем быстро и аккуратно.</p>
                 <p class="price">от 2 500 тг/час <br>(обсуждается)</p>
             </div>
@@ -675,35 +801,39 @@
     <section class="mid-cta-section">
         <h2>Нужна срочная перевозка или переезд?</h2>
         <p>Не откладывайте! Позвоните нам прямо сейчас, и мы рассчитаем стоимость!</p>
-        <a href="tel:+77767469606" class="cta-button">Сделать звонок! +7 776 746 96 06</a>
+        <a href="tel:+77767469606" class="cta-button">Сделать звонок!</a>
     </section>
 
-    <section class="section">
-        <h2>Почему выбирают нас</h2>
+    <section class="section" id="features">
+        <h2 data-aos="fade-up">Почему выбирают нас</h2>
         <div class="features-grid">
-            <div class="feature-item">
-                <i class="fas fa-award icon"></i> <h3>Более 4 лет на рынке</h3>
+            <div class="feature-item" data-aos="zoom-in">
+                <i class="fas fa-award icon"></i>
+                <h3>Более 4 лет на рынке</h3>
                 <p>Накопленный опыт позволяет решать задачи любой сложности.</p>
             </div>
-            <div class="feature-item">
-                <i class="fas fa-truck-fast icon"></i> <h3>Более 500 заказов</h3>
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-truck-fast icon"></i>
+                <h3>Более 500 заказов</h3>
                 <p>Успешно выполненных перевозок и довольных клиентов.</p>
             </div>
-            <div class="feature-item">
-                <i class="fas fa-clock icon"></i> <h3>Работаем с 8:00 до 22:00</h3>
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-clock icon"></i>
+                <h3>Работаем с 8:00 до 22:00</h3>
                 <p>Ежедневно, без выходных и праздников для вашего удобства.</p>
             </div>
-            <div class="feature-item">
-                <i class="fas fa-user-tie icon"></i> <h3>Профессиональные водители</h3>
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-user-tie icon"></i>
+                <h3>Профессиональные водители</h3>
                 <p>Опытные и ответственные сотрудники, гарантирующие безопасность вашего груза.</p>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
-        <h2>Свяжитесь с нами!</h2>
+    <section class="contact-section" id="contact">
+        <h2 data-aos="fade-up">Свяжитесь с нами!</h2>
         <div class="contact-info">
-            <p>Телефон: <strong><a href="tel:+77767469606">+7 776 746 96 06</a></strong></p>
+            <p>Телефон: <strong><a href="tel:+77767469606">Нажмите, чтобы позвонить</a></strong></p>
             <p>Город: Астана</p>
             <p>Мы готовы помочь вам с любыми грузоперевозками!</p>
         </div>
@@ -912,8 +1042,34 @@
     </div>
 
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Инициализация AOS
+            AOS.init({
+                duration: 1000, // Продолжительность анимации в мс
+                once: true, // Анимация будет проигрываться только один раз при появлении
+                offset: 100, // Срабатывание за 100px до достижения элемента
+            });
+
+            // Плавная прокрутка для якорей (дополнительно к CSS scroll-behavior: smooth;)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId.length > 1) { // Убедимся, что это не просто #
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
             // Модальное окно отзывов
             const reviewsModal = document.getElementById('reviews-modal');
             const openReviewsBtn = document.getElementById('open-reviews-modal');
@@ -924,16 +1080,19 @@
             const reviewTextInput = document.getElementById('review-text-input');
 
             openReviewsBtn.addEventListener('click', () => {
-                reviewsModal.style.display = 'flex';
+                reviewsModal.classList.add('is-active');
+                document.body.style.overflow = 'hidden'; // Запретить прокрутку основного контента
             });
 
             closeReviewsBtn.addEventListener('click', () => {
-                reviewsModal.style.display = 'none';
+                reviewsModal.classList.remove('is-active');
+                document.body.style.overflow = ''; // Разрешить прокрутку
             });
 
             reviewsModal.addEventListener('click', (e) => {
                 if (e.target === reviewsModal) {
-                    reviewsModal.style.display = 'none';
+                    reviewsModal.classList.remove('is-active');
+                    document.body.style.overflow = '';
                 }
             });
 
@@ -964,12 +1123,12 @@
             const termsCloseBtn = document.getElementById('terms-close-btn');
 
             function openInfoSection(section) {
-                section.style.display = 'block';
+                section.classList.add('is-active');
                 document.body.style.overflow = 'hidden'; // Запретить прокрутку основного контента
             }
 
             function closeInfoSection(section) {
-                section.style.display = 'none';
+                section.classList.remove('is-active');
                 document.body.style.overflow = ''; // Разрешить прокрутку
             }
 
@@ -1001,6 +1160,12 @@
                 if (e.target === termsOfServiceSection) {
                     closeInfoSection(termsOfServiceSection);
                 }
+            });
+
+            // Загрузочный значок
+            const loader = document.getElementById('loader');
+            window.addEventListener('load', () => {
+                loader.classList.add('loaded');
             });
         });
     </script>
