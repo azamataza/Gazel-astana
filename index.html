@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Грузоперевозки Астана</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -13,13 +15,13 @@
       font-family: 'Rubik', sans-serif;
     }
     body {
-      background: url('https://images.unsplash.com/photo-1617103908964-0a4b453dd84e?auto=format&fit=crop&w=1740&q=80') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1607083206173-fb3755a9c0db?auto=format&fit=crop&w=1740&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #222;
     }
     header {
       background-color: rgba(255, 255, 255, 0.95);
-      padding: 1.5rem;
+      padding: 1rem;
       text-align: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
@@ -27,11 +29,15 @@
       font-size: 2rem;
       font-weight: 600;
     }
+    p.subtitle {
+      font-size: 1rem;
+      color: #555;
+    }
     .section {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.9);
       margin: 1rem;
-      padding: 1.5rem;
-      border-radius: 16px;
+      padding: 1rem;
+      border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .section h2 {
@@ -44,8 +50,8 @@
       margin-bottom: 1rem;
     }
     .service-item img {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       margin-right: 1rem;
     }
     .price-table {
@@ -57,40 +63,39 @@
       border: 1px solid #ccc;
       padding: 1rem;
       text-align: left;
+      white-space: nowrap;
     }
     .price-table th {
-      background-color: #0077b6;
+      background-color: #00416A;
       color: #fff;
     }
-
-    /* Floating Buttons */
     .floating-btn {
       position: fixed;
-      bottom: 20px;
-      width: 48px;
-      height: 48px;
-      background-color: #0077b6;
+      right: 20px;
+      background-color: #00416A;
       color: #fff;
+      padding: 12px;
       border-radius: 50%;
+      font-size: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      text-decoration: none;
       z-index: 1000;
     }
-    .btn-call { left: 20px; }
     .btn-whatsapp {
-      left: 90px;
+      bottom: 100px;
       background-color: #25D366;
     }
-    .btn-reviews {
-      right: 20px;
-      background-color: #ff9800;
+    .btn-call {
+      bottom: 60px;
     }
-
-    /* Reviews Panel */
+    .btn-reviews {
+      bottom: 20px;
+      background-color: #FFCC00;
+      color: #000;
+    }
     .reviews-panel {
       position: fixed;
       right: -320px;
@@ -127,31 +132,45 @@
       display: block;
       margin-bottom: 0.5rem;
     }
+    .badges {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .badge {
+      background: #eee;
+      border-radius: 8px;
+      padding: 1rem;
+      flex: 1;
+      margin: 0 0.5rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Грузоперевозки Астана</h1>
-    <p>Быстро, надёжно, профессионально</p>
+    <p class="subtitle">Быстро, качественно, надёжно</p>
+    <p class="subtitle">Работаем ежедневно с 08:00 до 22:00</p>
   </header>
 
   <div class="section">
     <h2>Наши услуги</h2>
     <div class="service-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="переезд">
+      <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="move">
       <span>Переезды квартир, офисов, складов</span>
     </div>
     <div class="service-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/3063/3063827.png" alt="грузчики">
-      <span>Комплексная услуга: встреча, погрузка, доставка</span>
+      <img src="https://cdn-icons-png.flaticon.com/512/2601/2601971.png" alt="delivery">
+      <span>Комплексная услуга по встрече и доставке с грузчиками</span>
     </div>
     <div class="service-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/679/679699.png" alt="мусор">
+      <img src="https://cdn-icons-png.flaticon.com/512/1705/1705480.png" alt="trash">
       <span>Вывоз строительного и бытового мусора</span>
     </div>
     <div class="service-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" alt="носильщик">
-      <span>Услуги грузчиков (помесячно, почасово)</span>
+      <img src="https://cdn-icons-png.flaticon.com/512/2561/2561274.png" alt="loader">
+      <span>Услуги грузчиков</span>
     </div>
   </div>
 
@@ -174,15 +193,40 @@
           <td>12 000 ₸</td>
         </tr>
         <tr>
-          <td>Вывоз строительного мусора</td>
+          <td>Вывоз строительного и бытового мусора</td>
           <td>15 000 ₸</td>
         </tr>
         <tr>
           <td>Услуги грузчиков (1 час)</td>
-          <td>3 000 ₸</td>
+          <td>2 500 ₸</td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="section">
+    <h2>Почему выбирают нас</h2>
+    <ul>
+      <li>✅ Пунктуальность и честные цены</li>
+      <li>✅ Ответственность за ваш груз</li>
+      <li>✅ Опытные, вежливые грузчики</li>
+      <li>✅ Без скрытых доплат</li>
+    </ul>
+  </div>
+
+  <div class="badges">
+    <div class="badge">
+      <strong>10+ лет</strong>
+      <p>на рынке</p>
+    </div>
+    <div class="badge">
+      <strong>500+</strong>
+      <p>успешных переездов</p>
+    </div>
+    <div class="badge">
+      <strong>3</strong>
+      <p>машины в автопарке</p>
+    </div>
   </div>
 
   <div class="reviews-panel" id="reviewsPanel">
@@ -200,12 +244,19 @@
       <strong>Ануар Б.</strong>
       Быстро, чисто, профессионально. Рекомендую!
     </div>
+    <div class="review">
+      <strong>Санжар Н.</strong>
+      Очень доволен работой, всё как договорились.
+    </div>
   </div>
 
-  <!-- Плавающие кнопки -->
-  <a href="tel:+77767469606" class="floating-btn btn-call" title="Позвонить">📞</a>
-  <a href="https://wa.me/77767469606" class="floating-btn btn-whatsapp" title="WhatsApp">💬</a>
-  <button class="floating-btn btn-reviews" onclick="toggleReviews()" title="Отзывы">⭐</button>
+  <a href="https://wa.me/77767469606" class="floating-btn btn-whatsapp">💬</a>
+  <a href="tel:+77767469606" class="floating-btn btn-call">📞</a>
+  <button class="floating-btn btn-reviews" onclick="toggleReviews()">⭐</button>
+
+  <footer style="text-align: center; color: #333; margin-top: 3rem; padding: 2rem 0; font-size: 0.9rem;">
+    © Грузоперевозки Астана, 2025 — Все права защищены
+  </footer>
 
   <script>
     function toggleReviews() {
