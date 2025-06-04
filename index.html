@@ -4,216 +4,208 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Грузоперевозки Астана</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: #f7f7f7 url('https://images.unsplash.com/photo-1590608897129-79da98d159b3?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      padding: 0;
+      font-family: 'Rubik', sans-serif;
+    }
+    body {
+      background: url('https://images.unsplash.com/photo-1617103908964-0a4b453dd84e?auto=format&fit=crop&w=1740&q=80') no-repeat center center fixed;
       background-size: cover;
-      color: #333;
+      color: #222;
     }
     header {
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 1.5rem;
       text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
     }
-    header p {
-      font-size: 1.2rem;
+    .section {
+      background: rgba(255, 255, 255, 0.95);
+      margin: 1rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    section {
-      background-color: rgba(255, 255, 255, 0.9);
-      margin: 2rem auto;
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 800px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    .service {
-      width: 48%;
+    .section h2 {
+      font-size: 1.5rem;
       margin-bottom: 1rem;
+    }
+    .service-item {
       display: flex;
       align-items: center;
+      margin-bottom: 1rem;
     }
-    .service img {
-      width: 50px;
+    .service-item img {
+      width: 40px;
+      height: 40px;
       margin-right: 1rem;
     }
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .floating-buttons a {
-      background-color: #28a745;
-      color: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .floating-buttons a i {
-      margin-right: 8px;
-    }
-    table {
+    .price-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 1rem;
     }
-    th, td {
-      border: 1px solid #ddd;
+    .price-table th, .price-table td {
+      border: 1px solid #ccc;
       padding: 1rem;
       text-align: left;
     }
-    th {
-      background-color: #343a40;
-      color: white;
+    .price-table th {
+      background-color: #0077b6;
+      color: #fff;
     }
+
+    /* Floating Buttons */
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      width: 48px;
+      height: 48px;
+      background-color: #0077b6;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      text-decoration: none;
+      z-index: 1000;
+    }
+    .btn-call { left: 20px; }
+    .btn-whatsapp {
+      left: 90px;
+      background-color: #25D366;
+    }
+    .btn-reviews {
+      right: 20px;
+      background-color: #ff9800;
+    }
+
+    /* Reviews Panel */
     .reviews-panel {
       position: fixed;
+      right: -320px;
       top: 0;
-      right: -400px;
-      width: 350px;
-      height: 100vh;
-      background: #ffffff;
-      box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-      padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-      transition: right 0.4s ease;
+      width: 300px;
+      height: 100%;
+      background-color: #fefefe;
+      box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+      padding: 1rem;
+      transition: right 0.3s;
       z-index: 999;
-      overflow-y: auto;
     }
     .reviews-panel.open {
       right: 0;
     }
+    .close-reviews {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
     .review {
-      margin-bottom: 1.5rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1rem;
+    }
+    .review:last-child {
+      border-bottom: none;
     }
     .review strong {
       display: block;
-      margin-bottom: 0.3rem;
-    }
-    .reviews-toggle {
-      position: fixed;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #007bff;
-      color: white;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      z-index: 1000;
-      border-radius: 5px 0 0 5px;
-      font-weight: bold;
-    }
-    .reviews-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: #888;
-      transition: color 0.3s;
-    }
-    .reviews-close:hover {
-      color: #000;
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Грузоперевозки Астана</h1>
-    <p>Быстро и качественно: переезды, вывоз мусора, услуги грузчиков</p>
+    <p>Быстро, надёжно, профессионально</p>
   </header>
 
-  <section>
+  <div class="section">
     <h2>Наши услуги</h2>
-    <div class="services">
-      <div class="service">
-        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046871.png" alt="">
-        <span>Квартирные и офисные переезды</span>
-      </div>
-      <div class="service">
-        <img src="https://cdn-icons-png.flaticon.com/512/1466/1466437.png" alt="">
-        <span>Комплексная услуга: встреча и доставка с грузчиками</span>
-      </div>
-      <div class="service">
-        <img src="https://cdn-icons-png.flaticon.com/512/565/565547.png" alt="">
-        <span>Вывоз строительного и бытового мусора</span>
-      </div>
-      <div class="service">
-        <img src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png" alt="">
-        <span>Услуги опытных грузчиков</span>
-      </div>
+    <div class="service-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="переезд">
+      <span>Переезды квартир, офисов, складов</span>
     </div>
-  </section>
-
-  <section>
-    <h2>Цены на первый квартал 2025 года</h2>
-    <table>
-      <tr>
-        <th>Услуга</th>
-        <th>Цена</th>
-      </tr>
-      <tr>
-        <td>Переезд (1 час)</td>
-        <td>от 6000 ₸</td>
-      </tr>
-      <tr>
-        <td>Комплексная услуга с двумя грузчиками (1 час)</td>
-        <td>от 12000 ₸</td>
-      </tr>
-      <tr>
-        <td>Вывоз строительного мусора</td>
-        <td>от 15000 ₸</td>
-      </tr>
-      <tr>
-        <td>Услуги грузчиков (1 час)</td>
-        <td>от 3000 ₸</td>
-      </tr>
-    </table>
-  </section>
-
-  <div class="floating-buttons">
-    <a href="tel:+77767469606"><i class="fas fa-phone"></i> Позвонить</a>
-    <a href="https://wa.me/77767469606" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <div class="service-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/3063/3063827.png" alt="грузчики">
+      <span>Комплексная услуга: встреча, погрузка, доставка</span>
+    </div>
+    <div class="service-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/679/679699.png" alt="мусор">
+      <span>Вывоз строительного и бытового мусора</span>
+    </div>
+    <div class="service-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" alt="носильщик">
+      <span>Услуги грузчиков (помесячно, почасово)</span>
+    </div>
   </div>
 
-  <div class="reviews-toggle" onclick="toggleReviews()">Отзывы</div>
+  <div class="section">
+    <h2>Цены на первый квартал 2025</h2>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Услуга</th>
+          <th>Цена от</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Переезд (1 час)</td>
+          <td>6 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Комплексная услуга с двумя грузчиками</td>
+          <td>12 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Вывоз строительного мусора</td>
+          <td>15 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Услуги грузчиков (1 час)</td>
+          <td>3 000 ₸</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="reviews-panel" id="reviewsPanel">
-    <div class="reviews-close" onclick="toggleReviews()" title="Закрыть отзывы">&times;</div>
+    <button class="close-reviews" onclick="toggleReviews()">✖</button>
     <h3>Отзывы клиентов</h3>
     <div class="review">
-      <strong>Айбек Т. (15.03.2024)</strong>
-      Очень быстро и аккуратно перевезли мебель. Спасибо!
+      <strong>Ержан А.</strong>
+      Отличный сервис, приехали вовремя, всё аккуратно!
     </div>
     <div class="review">
-      <strong>Назгуль А. (22.04.2024)</strong>
-      Заказала вывоз мусора — приехали вовремя, всё чисто. Рекомендую!
+      <strong>Мади К.</strong>
+      Пользовался их услугами при переезде — всё на уровне.
     </div>
     <div class="review">
-      <strong>Ербол Ж. (05.05.2024)</strong>
-      Переезд прошёл без проблем, ребята молодцы!
+      <strong>Ануар Б.</strong>
+      Быстро, чисто, профессионально. Рекомендую!
     </div>
   </div>
+
+  <!-- Плавающие кнопки -->
+  <a href="tel:+77767469606" class="floating-btn btn-call" title="Позвонить">📞</a>
+  <a href="https://wa.me/77767469606" class="floating-btn btn-whatsapp" title="WhatsApp">💬</a>
+  <button class="floating-btn btn-reviews" onclick="toggleReviews()" title="Отзывы">⭐</button>
 
   <script>
     function toggleReviews() {
