@@ -148,6 +148,43 @@
             margin-top: 15px;
         }
 
+        /* --- Стили для среднего CTA блока --- */
+        .mid-cta-section {
+            background-color: #1a237e; /* Темно-синий фон */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 40px 0; /* Отступы сверху и снизу */
+        }
+
+        .mid-cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em; /* Крупнее, чем обычные заголовки секций */
+            margin-bottom: 25px;
+            color: white; /* Белый текст для контраста */
+            position: relative; /* Для подчеркивания */
+            padding-bottom: 10px;
+        }
+
+        .mid-cta-section h2::after { /* Подчеркивание для заголовка */
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px; /* Чуть шире */
+            height: 5px; /* Чуть толще */
+            background-color: #ff9900; /* Оранжевое подчеркивание */
+            border-radius: 5px;
+        }
+
+        .mid-cta-section p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
         /* --- Стили для преимуществ --- */
         .features-grid {
             display: grid;
@@ -546,6 +583,15 @@
                 height: 50px;
                 font-size: 1.6em;
             }
+            .mid-cta-section {
+                padding: 40px 15px;
+            }
+            .mid-cta-section h2 {
+                font-size: 2em;
+            }
+            .mid-cta-section p {
+                font-size: 1.2em;
+            }
             .info-section {
                 padding: 60px 15px;
             }
@@ -578,6 +624,12 @@
                 width: 45px;
                 height: 45px;
                 font-size: 1.4em;
+            }
+            .mid-cta-section h2 {
+                font-size: 1.8em;
+            }
+            .mid-cta-section p {
+                font-size: 1em;
             }
         }
     </style>
@@ -618,6 +670,12 @@
                 <p class="price">от 2 500 тг/час <br>(обсуждается)</p>
             </div>
         </div>
+    </section>
+
+    <section class="mid-cta-section">
+        <h2>Нужна срочная перевозка или переезд?</h2>
+        <p>Не откладывайте! Позвоните нам прямо сейчас, и мы рассчитаем стоимость!</p>
+        <a href="tel:+77767469606" class="cta-button">Сделать звонок! +7 776 746 96 06</a>
     </section>
 
     <section class="section">
