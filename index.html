@@ -262,7 +262,7 @@
 
         .contact-info p {
             font-size: 1.3em;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Уменьшим отступ для P, чтобы кнопка была ближе */
             color: #444;
         }
 
@@ -270,18 +270,27 @@
             color: #1a237e;
             font-size: 1.1em;
         }
-
-        .contact-info a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+        
+        /* Новые стили для контактной кнопки */
+        .contact-call-button {
+            margin-top: 25px; /* Отступ сверху от текста */
+            font-size: 1.4em; /* Крупнее для акцента */
+            padding: 18px 40px; /* Больше отступов */
+            background-color: #ff9900; /* Яркий оранжевый */
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); /* Оранжевая тень для эффекта "горения" */
+            animation: pulse-orange 2s infinite alternate; /* Анимация пульсации */
         }
 
-        .contact-info a:hover {
-            color: #0056b3;
-            text-decoration: underline;
+        .contact-call-button i {
+            margin-right: 10px; /* Отступ справа от иконки */
         }
+
+        .contact-call-button:hover {
+            background-color: #e68a00; /* Темнее оранжевый при наведении */
+            transform: translateY(-5px); /* Чуть большее поднятие */
+            box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); /* Усиленная тень */
+        }
+
 
         /* --- Подвал --- */
         footer {
@@ -615,6 +624,23 @@
             }
         }
 
+        /* Новая анимация пульсации для оранжевой кнопки (для contact-call-button) */
+        @keyframes pulse-orange {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+            }
+            50% {
+                transform: scale(1.05); /* Чуть большее увеличение */
+                box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); /* Более сильная тень */
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+            }
+        }
+
+
         /* --- Стили для загрузочного значка --- */
         .loader-container {
             position: fixed;
@@ -686,6 +712,10 @@
             .contact-info p {
                 font-size: 1.1em;
             }
+            .contact-call-button { /* Адаптация новой кнопки */
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
             .modal-content {
                 padding: 20px;
                 margin: 15px; /* Отступ по краям на маленьких экранах */
@@ -747,6 +777,10 @@
             }
             .mid-cta-section p {
                 font-size: 1em;
+            }
+            .contact-call-button { /* Адаптация новой кнопки */
+                font-size: 1.1em;
+                padding: 12px 25px;
             }
         }
     </style>
@@ -833,12 +867,13 @@
     <section class="contact-section" id="contact">
         <h2 data-aos="fade-up">Свяжитесь с нами!</h2>
         <div class="contact-info">
-            <p>Телефон: <strong><a href="tel:+77767469606">Нажмите, чтобы позвонить</a></strong></p>
             <p>Город: Астана</p>
             <p>Мы готовы помочь вам с любыми грузоперевозками!</p>
+            <a href="tel:+77767469606" class="cta-button contact-call-button">
+                <i class="fas fa-phone-alt"></i> Заказать Газель!
+            </a>
         </div>
     </section>
-
     <footer>
         &copy; 2025 Грузоперевозки Астана. Все права защищены.
         <br>
