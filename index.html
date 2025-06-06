@@ -14,6 +14,24 @@
     <meta property="og:description" content="Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gruzim.kz">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
@@ -65,7 +83,7 @@
             align-items: center;
             justify-content: center; /* Центрируем лого и заголовок по умолчанию */
             width: 100%;
-            margin-bottom: 15px; /* Отступ между лого/заголовком и остальным контентом */
+            margin-bottom: 15px; /* Отступ между лого и заголовком и остальным контентом */
             flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку при уменьшении ширины */
         }
 
@@ -1237,9 +1255,6 @@
             <h3>1. Услуги</h3>
             <p>Мы предоставляем услуги по грузоперевозкам в городе Астана и регионам Казахстана, включая городские перевозки, квартирные и офисные переезды, доставку строительных материалов, вывоз мусора и услуги грузчиков. Подробное описание услуг и тарифов представлено на нашем сайте.</p>
 
-            <h3>2. Заказ услуг</h3>
-            <p>Для заказа услуг вы можете связаться с нами по телефону или через мессенджеры, указанные на сайте. При оформлении заказа вы обязуетесь предоставить точную и полную информацию, необходимую для выполнения услуги.</p>
-
             <h3>3. Цены и оплата</h3>
             <p>Цены на наши услуги указаны на сайте и могут варьироваться в зависимости от объема, типа груза, расстояния и времени выполнения работ. Оплата производится согласно согласованным тарифам. Подробности оплаты обсуждаются при оформлении заказа, возможен безналичный расчет с НДС.</p>
 
@@ -1302,97 +1317,4 @@
             const reviewForm = document.getElementById('review-submission-form');
             const submissionMessage = document.getElementById('submission-message');
             const reviewerNameInput = document.getElementById('reviewer-name');
-            const reviewTextInput = document.getElementById('review-text-input');
-
-            openReviewsBtn.addEventListener('click', () => {
-                reviewsModal.classList.add('is-active');
-                document.body.style.overflow = 'hidden'; // Запретить прокрутку основного контента
-            });
-
-            closeReviewsBtn.addEventListener('click', () => {
-                reviewsModal.classList.remove('is-active');
-                document.body.style.overflow = ''; // Разрешить прокрутку
-            });
-
-            reviewsModal.addEventListener('click', (e) => {
-                if (e.target === reviewsModal) {
-                    reviewsModal.classList.remove('is-active');
-                    document.body.style.overflow = '';
-                }
-            });
-
-            reviewForm.addEventListener('submit', (e) => {
-                e.preventDefault(); // Предотвратить стандартную отправку формы
-
-                // Показать сообщение об успешной отправке
-                submissionMessage.style.display = 'block';
-
-                // Очистить поля формы
-                reviewerNameInput.value = '';
-                reviewTextInput.value = '';
-
-                // Скрыть сообщение через несколько секунд
-                setTimeout(() => {
-                    submissionMessage.style.display = 'none';
-                }, 3000); // Сообщение исчезнет через 3 секунды
-            });
-
-            // "Страницы" Политики конфиденциальности и Условий использования
-            const privacyPolicyLink = document.getElementById('privacy-policy-link');
-            const termsOfServiceLink = document.getElementById('terms-of-service-link');
-
-            const privacyPolicySection = document.getElementById('privacy-policy-section');
-            const termsOfServiceSection = document.getElementById('terms-of-service-section');
-
-            const privacyCloseBtn = document.getElementById('privacy-close-btn');
-            const termsCloseBtn = document.getElementById('terms-close-btn');
-
-            function openInfoSection(section) {
-                section.classList.add('is-active');
-                document.body.style.overflow = 'hidden'; // Запретить прокрутку основного контента
-            }
-
-            function closeInfoSection(section) {
-                section.classList.remove('is-active');
-                document.body.style.overflow = ''; // Разрешить прокрутку
-            }
-
-            privacyPolicyLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                openInfoSection(privacyPolicySection);
-            });
-
-            termsOfServiceLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                openInfoSection(termsOfServiceSection);
-            });
-
-            privacyCloseBtn.addEventListener('click', () => {
-                closeInfoSection(privacyPolicySection);
-            });
-
-            termsCloseBtn.addEventListener('click', () => {
-                closeInfoSection(termsOfServiceSection);
-            });
-
-            // Закрытие по клику вне контента (для info-section)
-            privacyPolicySection.addEventListener('click', (e) => {
-                if (e.target === privacyPolicySection) {
-                    closeInfoSection(privacyPolicySection);
-                }
-            });
-            termsOfServiceSection.addEventListener('click', (e) => {
-                if (e.target === termsOfServiceSection) {
-                    closeInfoSection(termsOfServiceSection);
-                }
-            });
-
-            // Загрузочный значок
-            const loader = document.getElementById('loader');
-            window.addEventListener('load', () => {
-                loader.classList.add('loaded');
-            });
-        });
-    </script>
-</body>
-</html>
+            const reviewTextInput
