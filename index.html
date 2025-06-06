@@ -822,6 +822,7 @@
         .loaded {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none; /* Добавлено, чтобы лоадер не блокировал клики после скрытия */
         }
 
         /* --- Медиа-запросы для адаптивности --- */
@@ -1392,4 +1393,59 @@
                 });
             }
 
-            if (
+            if (termsOfServiceLink) {
+                termsOfServiceLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openInfoSection(termsOfServiceSection);
+                });
+            }
+
+            if (privacyCloseBtn) {
+                privacyCloseBtn.addEventListener('click', () => {
+                    closeInfoSection(privacyPolicySection);
+                });
+            }
+
+            if (termsCloseBtn) {
+                termsCloseBtn.addEventListener('click', () => {
+                    closeInfoSection(termsOfServiceSection);
+                });
+            }
+
+            // Добавлен код для закрытия информационных разделов при клике вне их
+            if (privacyPolicySection) {
+                privacyPolicySection.addEventListener('click', (e) => {
+                    if (e.target === privacyPolicySection) {
+                        closeInfoSection(privacyPolicySection);
+                    }
+                });
+            }
+
+            if (termsOfServiceSection) {
+                termsOfServiceSection.addEventListener('click', (e) => {
+                    if (e.target === termsOfServiceSection) {
+                        closeInfoSection(termsOfServiceSection);
+                    }
+                });
+            }
+
+            // ******************************************************
+            //  КОД ДЛЯ СКРЫТИЯ ПРЕЛОАДЕРА (ОБНОВЛЕННЫЙ И ПРОВЕРЕННЫЙ)
+            // ******************************************************
+            const loaderContainer = document.getElementById('loader');
+            if (loaderContainer) {
+                // Используем 'load' для полной загрузки всех ресурсов
+                window.addEventListener('load', () => {
+                    loaderContainer.classList.add('loaded');
+                    // Удаляем элемент из DOM после завершения анимации
+                    setTimeout(() => {
+                        loaderContainer.remove();
+                    }, 600); // Должно быть больше или равно времени CSS transition (0.5s = 500ms)
+                });
+            }
+            // ******************************************************
+
+        }); // Закрытие document.addEventListener('DOMContentLoaded', ...
+    </script>
+</body>
+</html>
