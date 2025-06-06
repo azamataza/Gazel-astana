@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Грузоперевозки Астана - Надежно и Быстро</title>
+    <title>Gruzim.kz | Грузоперевозки по Астане и регионам - Надежно и Быстро</title>
+
+    <meta name="description" content="Gruzim.kz - Профессиональные грузоперевозки по Астане и регионам Казахстана. Квартирные, офисные переезды, доставка стройматериалов, вывоз мусора, услуги грузчиков. Надежно, быстро, с НДС.">
+    <meta name="keywords" content="грузоперевозки астана, переезды астана, грузчики астана, доставка стройматериалов, вывоз мусора астана, грузовое такси астана, перевозки казахстан, грузоперевозки по регионам, услуги газели астана, безналичный расчет, с НДС">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gruzim.kz">
+
+    <meta property="og:title" content="Gruzim.kz | Грузоперевозки по Астане и регионам">
+    <meta property="og:description" content="Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gruzim.kz">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
@@ -51,7 +61,7 @@
             opacity: 0.95;
             max-width: 700px;
             margin: 0 auto 30px auto;
-            animation: fadeInUp 1s ease-out 0.3s; /* Анимация появления с задержкой */
+            animation: fadeInUp 1.2s ease-out 0.3s; /* Анимация появления с задержкой */
         }
 
         .cta-button {
@@ -246,6 +256,64 @@
             color: #555;
         }
 
+        /* --- Стили для секции "Работа с юр. лицами" --- */
+        .legal-entities-section {
+            background-color: #f8f9fa; /* Очень светлый серый */
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+            box-shadow: inset 0 3px 10px rgba(0,0,0,0.02);
+        }
+
+        .legal-entities-section .description {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.2em;
+            color: #495057;
+        }
+
+        .legal-entities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legal-entity-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #dee2e6;
+        }
+
+        .legal-entity-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .legal-entity-item .icon {
+            font-size: 3em;
+            color: #007bff; /* Синий акцент */
+            margin-bottom: 15px;
+        }
+
+        .legal-entity-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        .legal-entity-item p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+
         /* --- Стили для контактов --- */
         .contact-section {
             background-color: #fff8e1; /* Очень светлый желтый */
@@ -414,6 +482,30 @@
             margin-bottom: 20px;
             text-align: center;
         }
+
+        .reviews-list {
+            max-height: 400px; /* Ограничиваем высоту списка отзывов */
+            overflow-y: auto; /* Добавляем прокрутку, если отзывов много */
+            padding-right: 10px; /* Отступ для полосы прокрутки */
+            margin-bottom: 20px;
+        }
+
+        /* Кастомный скроллбар для reviews-list */
+        .reviews-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .reviews-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .reviews-list::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .reviews-list::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
 
         .review-item {
             border-bottom: 1px solid #eee;
@@ -745,6 +837,19 @@
             .info-section .content {
                 padding: 20px;
             }
+            .legal-entities-section {
+                padding: 40px 15px;
+            }
+            .legal-entities-section .description {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+            .legal-entity-item {
+                padding: 20px;
+            }
+            .legal-entity-item h3 {
+                font-size: 1.5em;
+            }
         }
 
         @media (max-width: 480px) {
@@ -782,6 +887,9 @@
                 font-size: 1.1em;
                 padding: 12px 25px;
             }
+            .legal-entity-item h3 {
+                font-size: 1.3em;
+            }
         }
     </style>
 </head>
@@ -791,8 +899,8 @@
     </div>
 
     <header>
-        <h1>Грузоперевозки по Астане</h1>
-        <p>Надежно, быстро и профессионально. Доставим ваш груз точно в срок!</p>
+        <h1>Gruzim.kz | Грузоперевозки по Астане и регионам</h1>
+        <p>Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.</p>
         <a href="tel:+77767469606" class="cta-button">Позвонить сейчас!</a>
     </header>
 
@@ -864,18 +972,42 @@
         </div>
     </section>
 
+    <section class="section legal-entities-section" id="legal-entities">
+        <h2 data-aos="fade-up">Работаем с юридическими лицами</h2>
+        <p class="description" data-aos="fade-up" data-aos-delay="100">
+            Мы предлагаем удобные условия сотрудничества для бизнеса. Принимаем оплату по безналичному расчету, в том числе с НДС, предоставляем полный пакет закрывающих документов.
+        </p>
+        <div class="legal-entities-grid">
+            <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-money-check-alt icon"></i>
+                <h3>Безналичный расчет</h3>
+                <p>Удобная оплата услуг для компаний и организаций через банк.</p>
+            </div>
+            <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-file-invoice-dollar icon"></i>
+                <h3>Работа с НДС</h3>
+                <p>Полное соответствие требованиям законодательства, предоставление всех необходимых документов.</p>
+            </div>
+            <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-handshake icon"></i>
+                <h3>Договорная основа</h3>
+                <p>Гарантия выполнения обязательств и прозрачность сотрудничества для долгосрочных отношений.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="contact-section" id="contact">
         <h2 data-aos="fade-up">Свяжитесь с нами!</h2>
         <div class="contact-info">
             <p>Город: Астана</p>
             <p>Мы готовы помочь вам с любыми грузоперевозками!</p>
             <a href="tel:+77767469606" class="cta-button contact-call-button">
-                <i class="fas fa-phone-alt"></i> Заказать Газель!
+                <i class="fas fa-phone-alt"></i> Заказать!
             </a>
         </div>
     </section>
     <footer>
-        &copy; 2025 Грузоперевозки Астана. Все права защищены.
+        &copy; 2019-2025 gruzim.kz. Все права защищены.
         <br>
         <a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> | 
         <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
@@ -1042,16 +1174,16 @@
         <div class="content">
             <span class="close-btn" id="terms-close-btn">&times;</span>
             <h2>Условия использования</h2>
-            <p>Данные Условия использования регулируют ваше использование веб-сайта и услуг, предоставляемых "Грузоперевозки Астана". Используя наш сайт, вы соглашаетесь соблюдать эти Условия.</p>
+            <p>Данные Условия использования регулируют ваше использование веб-сайта и услуг, предоставляемых "Gruzim.kz". Используя наш сайт, вы соглашаетесь соблюдать эти Условия.</p>
 
             <h3>1. Услуги</h3>
-            <p>Мы предоставляем услуги по грузоперевозкам в городе Астана, включая городские перевозки, квартирные и офисные переезды, доставку строительных материалов, вывоз мусора и услуги грузчиков. Подробное описание услуг и тарифов представлено на нашем сайте.</p>
+            <p>Мы предоставляем услуги по грузоперевозкам в городе Астана и регионам Казахстана, включая городские перевозки, квартирные и офисные переезды, доставку строительных материалов, вывоз мусора и услуги грузчиков. Подробное описание услуг и тарифов представлено на нашем сайте.</p>
 
             <h3>2. Заказ услуг</h3>
             <p>Для заказа услуг вы можете связаться с нами по телефону или через мессенджеры, указанные на сайте. При оформлении заказа вы обязуетесь предоставить точную и полную информацию, необходимую для выполнения услуги.</p>
 
             <h3>3. Цены и оплата</h3>
-            <p>Цены на наши услуги указаны на сайте и могут варьироваться в зависимости от объема, типа груза, расстояния и времени выполнения работ. Оплата производится согласно согласованным тарифам. Подробности оплаты обсуждаются при оформлении заказа.</p>
+            <p>Цены на наши услуги указаны на сайте и могут варьироваться в зависимости от объема, типа груза, расстояния и времени выполнения работ. Оплата производится согласно согласованным тарифам. Подробности оплаты обсуждаются при оформлении заказа, возможен безналичный расчет с НДС.</p>
 
             <h3>4. Ответственность</h3>
             <p>Мы стремимся обеспечить безопасную и своевременную доставку вашего груза. Мы несем ответственность за сохранность груза с момента его принятия до момента доставки, за исключением случаев, когда повреждение или утеря произошли по вине заказчика, из-за скрытых дефектов груза, форс-мажорных обстоятельств или иных причин, не зависящих от нас.</p>
@@ -1064,7 +1196,7 @@
             </ul>
 
             <h3>6. Интеллектуальная собственность</h3>
-            <p>Весь контент на этом сайте, включая текст, графику, логотипы, иконки, изображения и программное обеспечение, является собственностью "Грузоперевозки Астана" или ее контент-провайдеров и защищен законами об авторском праве.</p>
+            <p>Весь контент на этом сайте, включая текст, графику, логотипы, иконки, изображения и программное обеспечение, является собственностью "Gruzim.kz" или ее контент-провайдеров и защищен законами об авторском праве.</p>
 
             <h3>7. Изменения в Условиях</h3>
             <p>Мы оставляем за собой право изменять эти Условия использования в любое время. Все изменения вступают в силу сразу после их публикации на этой странице. Ваше дальнейшее использование сайта после таких изменений означает ваше согласие с новыми Условиями.</p>
