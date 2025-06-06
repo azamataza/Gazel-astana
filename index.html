@@ -1317,4 +1317,79 @@
             const reviewForm = document.getElementById('review-submission-form');
             const submissionMessage = document.getElementById('submission-message');
             const reviewerNameInput = document.getElementById('reviewer-name');
-            const reviewTextInput
+            const reviewTextInput = document.getElementById('review-text-input');
+
+            // Открытие модального окна
+            if (openReviewsBtn) {
+                openReviewsBtn.addEventListener('click', () => {
+                    reviewsModal.classList.add('is-active');
+                    document.body.style.overflow = 'hidden'; // Запретить прокрутку фона
+                });
+            }
+
+            // Закрытие модального окна по кнопке
+            if (closeReviewsBtn) {
+                closeReviewsBtn.addEventListener('click', () => {
+                    reviewsModal.classList.remove('is-active');
+                    document.body.style.overflow = ''; // Возобновить прокрутку фона
+                });
+            }
+
+            // Закрытие модального окна при клике вне его
+            if (reviewsModal) {
+                reviewsModal.addEventListener('click', (e) => {
+                    if (e.target === reviewsModal) {
+                        reviewsModal.classList.remove('is-active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Обработка отправки формы отзыва (демонстрационная)
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Предотвратить стандартную отправку формы
+
+                    // Здесь можно было бы отправить данные на сервер (например, через fetch/XMLHttpRequest)
+                    // Для примера, просто показываем сообщение об успехе
+                    console.log('Отзыв отправлен:', {
+                        name: reviewerNameInput.value,
+                        review: reviewTextInput.value
+                    });
+
+                    submissionMessage.style.display = 'block'; // Показать сообщение
+                    reviewForm.reset(); // Очистить форму
+
+                    // Скрыть сообщение через несколько секунд
+                    setTimeout(() => {
+                        submissionMessage.style.display = 'none';
+                    }, 3000);
+                });
+            }
+
+            // Логика для "страниц" Политики конфиденциальности и Условий использования
+            const privacyPolicyLink = document.getElementById('privacy-policy-link');
+            const termsOfServiceLink = document.getElementById('terms-of-service-link');
+            const privacyPolicySection = document.getElementById('privacy-policy-section');
+            const termsOfServiceSection = document.getElementById('terms-of-service-section');
+            const privacyCloseBtn = document.getElementById('privacy-close-btn');
+            const termsCloseBtn = document.getElementById('terms-close-btn');
+
+            function openInfoSection(section) {
+                section.classList.add('is-active');
+                document.body.style.overflow = 'hidden'; // Запретить прокрутку фона
+            }
+
+            function closeInfoSection(section) {
+                section.classList.remove('is-active');
+                document.body.style.overflow = ''; // Возобновить прокрутку фона
+            }
+
+            if (privacyPolicyLink) {
+                privacyPolicyLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openInfoSection(privacyPolicySection);
+                });
+            }
+
+            if (
