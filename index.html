@@ -10,21 +10,6 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://gruzim.kz">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      // Глобальный тег для вашего аккаунта Google Ads
-      gtag('config', 'AW-17503887977');
-
-      // 1. Конверсия: Посещение страницы (для одностраничного сайта)
-      // Этот код будет срабатывать каждый раз при загрузке страницы.
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17503887977/ВАШ_ЯРЛЫК_ПОСЕЩЕНИЯ_САЙТА'
-      });
-    </script>
     <meta property="og:title" content="Gruzim.kz | Грузоперевозки по Астане и регионам">
     <meta property="og:description" content="Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.">
     <meta property="og:type" content="website">
@@ -478,12 +463,26 @@
 
 
         /* --- Подвал --- */
-        <footer>
-            &copy; 2019-2025 gruzim.kz. Все права защищены.
-            <br>
-            <a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> |
-            <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
-        </footer>
+        footer {
+            background-color: #212529; /* Темно-серый */
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
 
         /* --- Плавающие кнопки --- */
         .floating-buttons {
@@ -553,6 +552,15 @@
             padding: 30px;
             max-width: 700px;
             width: 100%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            text-align: left; /* Вернуть выравнивание текста внутри модального окна */
+            transform: scale(0.95); /* Начальный масштаб */
+            transition: transform 0.3s ease; /* Плавное масштабирование */
+        }
+
+        .modal-overlay.is-active .modal-content { /* Активное состояние */
+            transform: scale(1); /* Возвращаем к нормальному масштабу */
         }
 
         .modal-close-btn {
@@ -560,22 +568,220 @@
             top: 15px;
             right: 15px;
             font-size: 2em;
-            font-weight: bold;
-            color: #aaa;
+            color: #555;
             cursor: pointer;
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
         }
 
         .modal-close-btn:hover {
+            color: #333;
+        }
+
+        .modal-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: #1a237e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reviews-list {
+            max-height: 400px; /* Ограничиваем высоту списка отзывов */
+            overflow-y: auto; /* Добавляем прокрутку, если отзывов много */
+            padding-right: 10px; /* Отступ для полосы прокрутки */
+            margin-bottom: 20px;
+        }
+
+        /* Кастомный скроллбар для reviews-list */
+        .reviews-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .reviews-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .reviews-list::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .reviews-list::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+
+        .review-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .review-date {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .review-text {
+            font-style: italic;
             color: #555;
+            margin-top: 5px;
+        }
+
+        .stars {
+            color: #ffc107; /* Золотой цвет для звезд */
+            font-size: 1.1em;
+        }
+
+        .review-form h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            color: #1a237e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .review-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .review-form input[type="text"],
+        .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+        }
+
+        .review-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .review-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block; /* Сделать кнопку блочным элементом */
+            margin: 0 auto; /* Центрировать кнопку */
+        }
+
+        .review-form button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        #submission-message {
+            margin-top: 15px;
+            color: #28a745;
+            font-weight: 600;
+            text-align: center;
+            display: none; /* Скрыто по умолчанию */
+        }
+
+        /* Стили для новых "страниц" Политики и Условий */
+        .info-section {
+            display: none; /* Скрыты по умолчанию */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.98); /* Почти белый фон */
+            z-index: 1002; /* Выше чем модальное окно */
+            overflow-y: auto;
+            padding: 80px 20px;
+            text-align: left;
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 0.3s ease; /* Плавное появление */
+        }
+
+        .info-section.is-active { /* Класс для активного состояния */
+            display: block; /* Показываем */
+            opacity: 1; /* Делаем видимым */
+        }
+
+        .info-section .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-20px); /* Начальное положение немного выше */
+            transition: transform 0.3s ease; /* Плавное перемещение */
+        }
+
+        .info-section.is-active .content { /* Активное состояние */
+            transform: translateY(0); /* Возвращаем в нормальное положение */
+        }
+
+        .info-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #1a237e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .info-section p {
+            margin-bottom: 1em;
+            color: #444;
+            font-size: 1.1em;
+        }
+
+        .info-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        .info-section .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5em;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .info-section .close-btn:hover {
+            color: #333;
         }
 
         /* --- Анимации --- */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -599,209 +805,390 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
         }
 
-        @keyframes pulse-whatsapp {
-            0% { box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
-            100% { box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6); }
-        }
-
+        /* Новая анимация пульсации для оранжевой кнопки (для contact-call-button) */
         @keyframes pulse-orange {
-            0% { box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); }
-            100% { box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+            }
+            50% {
+                transform: scale(1.05); /* Чуть большее увеличение */
+                box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); /* Более сильная тень */
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+            }
+        }
+        
+        /* НОВАЯ АНИМАЦИЯ: пульсация для WhatsApp кнопки */
+        @keyframes pulse-whatsapp {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+
+        /* Новая анимация для плавного появления */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* --- Стили для загрузочного значка --- */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader {
+            width: 80px; /* Увеличим размер */
+            height: 80px; /* Увеличим размер */
+            border: 8px solid #f3f3f3; /* Светлая часть */
+            border-top: 8px solid #007bff; /* Цветная часть */
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none; /* Добавлено, чтобы лоадер не блокировал клики после скрытия */
         }
 
         /* --- Медиа-запросы для адаптивности --- */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
+            header {
+                padding: 40px 15px; /* Уменьшим отступ для шапки */
             }
-
+            .header-top {
+                flex-direction: column; /* Лого и заголовок друг под другом */
+                margin-bottom: 10px;
+            }
+            .header-logo {
+                max-height: 70px; /* Немного уменьшим логотип */
+                margin-right: 0;
+                margin-bottom: 10px; /* Отступ под логотипом */
+            }
+            header h1 {
+                font-size: 2.2em; /* Меньше заголовок */
+                margin-bottom: 5px;
+            }
             header p {
                 font-size: 1.1em;
+                margin-bottom: 20px;
             }
-
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            .section {
+                padding: 40px 15px;
+            }
             .section h2 {
                 font-size: 2em;
+                margin-bottom: 30px;
             }
-
-            .mid-cta-section h2,
-            .whatsapp-cta-section h2 {
-                font-size: 2em;
+            .card {
+                padding: 20px;
             }
-
-            .mid-cta-section p,
-            .whatsapp-cta-section p {
-                font-size: 1.2em;
-            }
-
-            .cta-button {
-                font-size: 1em;
-                padding: 12px 25px;
-            }
-
             .card h3 {
                 font-size: 1.5em;
             }
-
             .feature-item h3 {
+                font-size: 1.8em;
+            }
+            .contact-section {
+                padding: 40px 15px;
+            }
+            .contact-info p {
+                font-size: 1.1em;
+            }
+            .contact-call-button { /* Адаптация новой кнопки */
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
+            .modal-content {
+                padding: 20px;
+                margin: 15px; /* Отступ по краям на маленьких экранах */
+            }
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+                gap: 8px;
+            }
+            .floating-btn {
+                width: 50px;
+                height: 50px;
                 font-size: 1.6em;
+            }
+            .mid-cta-section {
+                padding: 40px 15px;
+            }
+            .mid-cta-section h2 {
+                font-size: 2em;
+            }
+            .mid-cta-section p {
+                font-size: 1.2em;
+            }
+            /* НОВЫЙ СТИЛЬ: Адаптация WhatsApp CTA */
+            .whatsapp-cta-section {
+                padding: 40px 15px;
+            }
+            .whatsapp-cta-section h2 {
+                font-size: 2em;
+            }
+            .whatsapp-cta-section p {
+                font-size: 1.2em;
+            }
+            .whatsapp-cta-button {
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
+            .info-section {
+                padding: 60px 15px;
+            }
+            .info-section .content {
+                padding: 20px;
+            }
+            .legal-entities-section {
+                padding: 40px 15px;
+            }
+            .legal-entities-section .description {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+            .legal-entity-item {
+                padding: 20px;
+            }
+            .legal-entity-item h3 {
+                font-size: 1.5em;
             }
         }
 
+        @media (max-width: 480px) {
+            .header-logo {
+                max-height: 60px; /* Еще меньше логотип */
+            }
+            header h1 {
+                font-size: 1.8em; /* Еще меньше заголовок */
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .cta-button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+            .card h3 {
+                font-size: 1.3em;
+            }
+            .feature-item h3 {
+                font-size: 1.6em;
+            }
+            .floating-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.4em;
+            }
+            .mid-cta-section h2 {
+                font-size: 1.8em;
+            }
+            .mid-cta-section p {
+                font-size: 1em;
+            }
+            /* НОВЫЙ СТИЛЬ: Адаптация WhatsApp CTA */
+            .whatsapp-cta-section h2 {
+                font-size: 1.8em;
+            }
+            .whatsapp-cta-section p {
+                font-size: 1em;
+            }
+            .whatsapp-cta-button {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .contact-call-button { /* Адаптация новой кнопки */
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .legal-entity-item h3 {
+                font-size: 1.3em;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+    </div>
 
     <header>
-        <div class="header-content" data-aos="fade-up">
+        <div class="header-content">
             <div class="header-top">
-                <img src="logo.png" alt="Логотип Gruzim.kz" class="header-logo" />
-                <h1>Грузоперевозки по Астане и регионам</h1>
+                <img src="Logo.png" alt="Логотип Gruzim.kz" class="header-logo">
+                <h1>Gruzim.kz | Грузоперевозки по Астане и регионам</h1>
             </div>
-            <p>
-                Ваш надежный партнер в сфере логистики. Мы гарантируем быструю,
-                аккуратную и безопасную доставку любых грузов.
-            </p>
-            <a href="#services-section" class="cta-button">Узнать подробнее</a>
+            <p>Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.</p>
+            <a href="tel:+77767469606" class="cta-button">Позвонить сейчас!</a>
         </div>
     </header>
 
-    <main>
-        <section id="services-section" class="section">
-            <h2 data-aos="fade-down">Наши услуги</h2>
-            <div class="cards-grid">
-                <div class="card" data-aos="fade-right" data-aos-delay="100">
-                    <i class="fas fa-truck icon"></i>
-                    <h3>Квартирные переезды</h3>
-                    <p>
-                        Бережно и оперативно перевезем вашу мебель и вещи. Работаем без
-                        скрытых платежей.
-                    </p>
-                </div>
-                <div class="card" data-aos="fade-right" data-aos-delay="200">
-                    <i class="fas fa-building icon"></i>
-                    <h3>Офисные переезды</h3>
-                    <p>
-                        Быстрая и организованная перевозка офисов, минимизирующая простой
-                        вашего бизнеса.
-                    </p>
-                </div>
-                <div class="card" data-aos="fade-right" data-aos-delay="300">
-                    <i class="fas fa-box-open icon"></i>
-                    <h3>Доставка стройматериалов</h3>
-                    <p>
-                        Доставим стройматериалы любых объемов на ваш объект точно в
-                        срок.
-                    </p>
-                </div>
-                <div class="card" data-aos="fade-right" data-aos-delay="400">
-                    <i class="fas fa-dumpster icon"></i>
-                    <h3>Вывоз мусора</h3>
-                    <p>
-                        Вывезем строительный и бытовой мусор. Предоставляем услуги по
-                        уборке территории.
-                    </p>
-                </div>
-                <div class="card" data-aos="fade-right" data-aos-delay="500">
-                    <i class="fas fa-users-cog icon"></i>
-                    <h3>Услуги грузчиков</h3>
-                    <p>
-                        Опытные и аккуратные грузчики помогут с погрузкой и разгрузкой
-                        ваших вещей.
-                    </p>
-                </div>
-                <div class="card" data-aos="fade-right" data-aos-delay="600">
-                    <i class="fas fa-truck-pickup icon"></i>
-                    <h3>Грузовое такси</h3>
-                    <p>
-                        Оперативная подача транспорта для небольших и срочных
-                        грузоперевозок по городу.
-                    </p>
-                </div>
+    <section class="section" id="services">
+        <h2 data-aos="fade-up">Наши услуги</h2>
+        <div class="cards-grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="50">
+                <i class="fas fa-city icon"></i>
+                <h3>Городские перевозки</h3>
+                <p>Быстрая и безопасная доставка грузов в пределах Астаны. От мелких посылок до крупногабаритных предметов.</p>
+                <p class="price">от 7 000 тг/час</p>
             </div>
-        </section>
-
-        <section class="mid-cta-section" data-aos="zoom-in">
-            <h2>Доверьтесь профессионалам!</h2>
-            <p>
-                Мы заботимся о вашем грузе так, как о своем. Безопасно, быстро,
-                надёжно.
-            </p>
-            <a href="tel:+77028741865" class="cta-button">Позвонить</a>
-        </section>
-
-        <section id="advantages-section" class="section">
-            <h2 data-aos="fade-up">Наши преимущества</h2>
-            <div class="features-grid">
-                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-check-circle icon"></i>
-                    <h3>Надёжность</h3>
-                    <p>
-                        Ваш груз застрахован, а наши водители имеют большой опыт.
-                    </p>
-                </div>
-                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-calendar-check icon"></i>
-                    <h3>Пунктуальность</h3>
-                    <p>Приедем точно в назначенное время, без опозданий.</p>
-                </div>
-                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-hands-helping icon"></i>
-                    <h3>Прозрачность</h3>
-                    <p>
-                        Никаких скрытых платежей. Оговоренная цена фиксируется.
-                    </p>
-                </div>
-                <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fas fa-car icon"></i>
-                    <h3>Собственный автопарк</h3>
-                    <p>
-                        Большой выбор транспорта для любых видов грузоперевозок.
-                    </p>
-                </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="150">
+                <i class="fas fa-home icon"></i>
+                <h3>Квартирные и офисные переезды</h3>
+                <p>Организуем аккуратный и оперативный переезд вашей квартиры или офиса под ключ. Погрузка, разгрузка, транспортировка.</p>
+                <p class="price">от 12 000 тг</p>
             </div>
-        </section>
-
-        <section class="legal-entities-section" data-aos="fade-in">
-            <h2 data-aos="fade-down">Работа с юридическими лицами</h2>
-            <p class="description">Мы предлагаем выгодные условия сотрудничества для бизнеса, включая:</p>
-            <div class="legal-entities-grid">
-                <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-file-invoice icon"></i>
-                    <h3>Безналичный расчет</h3>
-                    <p>Удобные способы оплаты для организаций.</p>
-                </div>
-                <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-stamp icon"></i>
-                    <h3>Работаем с НДС</h3>
-                    <p>Предоставляем все необходимые документы.</p>
-                </div>
-                <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-handshake icon"></i>
-                    <h3>Договор</h3>
-                    <p>Гарантия юридической чистоты сделки.</p>
-                </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="250">
+                <i class="fas fa-hammer icon"></i>
+                <h3>Доставка строительных материалов</h3>
+                <p>Перевозка стройматериалов любого объема и веса. Гарантируем сохранность и своевременность доставки на объект.</p>
+                <p class="price">от 6 000 тг/час</p>
             </div>
-        </section>
-
-        <section id="contact-section" class="section contact-section">
-            <h2 data-aos="fade-down">Свяжитесь с нами</h2>
-            <div class="contact-info" data-aos="fade-up">
-                <p><strong>Телефон:</strong> <a href="tel:+77028741865">+7 (702) 874-18-65</a></p>
-                <p><strong>Email:</strong> <a href="mailto:info@gruzim.kz">info@gruzim.kz</a></p>
-                <p>
-                    <strong>Адрес:</strong> г. Астана, ул. Кенесары, 40
-                </p>
+            <div class="card" data-aos="fade-up" data-aos-delay="350">
+                <i class="fas fa-dumpster icon"></i>
+                <h3>Вывоз мусора</h3>
+                <p>Оперативный вывоз строительного и бытового мусора. Работаем чисто и эффективно, соблюдая все нормы.</p>
+                <p class="price">от 15 000 тг</p>
             </div>
-            <a href="tel:+77028741865" class="cta-button contact-call-button" data-aos="zoom-in">
-                <i class="fas fa-phone"></i> Позвонить нам
+             <div class="card" data-aos="fade-up" data-aos-delay="450">
+                <i class="fas fa-people-carry-box icon"></i>
+                <h3>Услуги грузчиков</h3>
+                <p>Профессиональные грузчики для погрузки, разгрузки и перемещения любых видов грузов. Работаем быстро и аккуратно.</p>
+                <p class="price">от 2 500 тг/час <br>(обсуждается)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mid-cta-section">
+        <h2>Нужна срочная перевозка или переезд?</h2>
+        <p>Не откладывайте! Позвоните нам прямо сейчас, и мы рассчитаем стоимость!</p>
+        <a href="tel:+77767469606" class="cta-button">Сделать звонок!</a>
+    </section>
+
+    <section class="section" id="features">
+        <h2 data-aos="fade-up">Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-item" data-aos="zoom-in">
+                <i class="fas fa-award icon"></i>
+                <h3>Более 4 лет на рынке</h3>
+                <p>Накопленный опыт позволяет решать задачи любой сложности.</p>
+            </div>
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-truck-fast icon"></i>
+                <h3>Более 500 заказов</h3>
+                <p>Успешно выполненных перевозок и довольных клиентов.</p>
+            </div>
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-clock icon"></i>
+                <h3>Работаем с 8:00 до 22:00</h3>
+                <p>Ежедневно, без выходных и праздников для вашего удобства.</p>
+            </div>
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-user-tie icon"></i>
+                <h3>Профессиональные водители</h3>
+                <p>Опытные и ответственные сотрудники, гарантирующие безопасность вашего груза.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="whatsapp-cta-section" data-aos="fade-up">
+        <h2>Получите моментальный расчет стоимости через WhatsApp!</h2>
+        <p>Опишите ваш груз или детали переезда, и мы оперативно ответим на все вопросы.</p>
+        <a href="https://wa.me/77767469606?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%B3%D1%80%D1%83%D0%B7%D0%BE%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B7%D0%BA%D0%B8.%20%0A%0A%D0%9F%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0,%20%D1%83%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%3A%0A1.%20%D0%A7%D1%82%D0%BE%20%D0%BD%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B5%D0%B7%D1%82%D0%B8%20%28%D1%82%D0%B8%D0%BF%20%D0%B3%D1%80%D1%83%D0%B7%D0%B0,%20%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BC%2F%D0%B2%D0%B5%D1%81%29%3F%0A2.%20%D0%9E%D1%82%D0%BA%D1%83%D0%B4%D0%B0%20%D0%B8%20%D0%BA%D1%83%D0%B4%D0%B0%20%28%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D1%8B,%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4,%20%D0%BC%D0%B5%D0%B6%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%29%3F%0A3.%20%D0%9D%D1%83%D0%B6%D0%BD%D1%8B%20%D0%BB%D0%B8%20%D0%B3%D1%80%D1%83%D0%B7%D1%87%D0%B8%D0%BA%D0%B8%3F%0A4.%20%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%BD%D0%B0%D1%8F%20%D0%B4%D0%B0%D1%82%D0%B0%2F%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%3F%0A%0A%D0%A1%D0%BF%D0%B0%D1%81%D0%B8%D0%B1%D0%BE!" class="cta-button whatsapp-cta-button">
+            <i class="fab fa-whatsapp"></i> Написать в WhatsApp
+        </a>
+    </section>
+
+    <section class="section legal-entities-section" id="legal-entities">
+        <h2 data-aos="fade-up">Работаем с юридическими лицами</h2>
+        <p class="description" data-aos="fade-up" data-aos-delay="100">
+            Мы предлагаем удобные условия сотрудничества для бизнеса. Принимаем оплату по безналичному расчету, в том числе с НДС, предоставляем полный пакет закрывающих документов.
+        </p>
+        <div class="legal-entities-grid">
+            <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-money-check-alt icon"></i>
+                <h3>Безналичный расчет</h3>
+                <p>Удобная оплата услуг для компаний и организаций через банк.</p>
+            </div>
+            <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-file-invoice-dollar icon"></i>
+                <h3>Работа с НДС</h3>
+                <p>Полное соответствие требованиям законодательства, предоставление всех необходимых документов.</p>
+            </div>
+            <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-handshake icon"></i>
+                <h3>Договорная основа</h3>
+                <p>Гарантия выполнения обязательств и прозрачность сотрудничества для долгосрочных отношений.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 data-aos="fade-up">Свяжитесь с нами!</h2>
+        <div class="contact-info">
+            <p>Город: Астана</p>
+            <p>Мы готовы помочь вам с любыми грузоперевозками!</p>
+            <a href="tel:+77767469606" class="cta-button contact-call-button">
+                <i class="fas fa-phone-alt"></i> Заказать!
             </a>
-        </section>
-    </main>
-
+        </div>
+    </section>
     <footer>
         &copy; 2019-2025 gruzim.kz. Все права защищены.
         <br>
@@ -810,78 +1197,361 @@
     </footer>
 
     <div class="floating-buttons">
-        <a href="tel:+77028741865" class="floating-btn" aria-label="Позвонить">
+        <a href="tel:+77767469606" class="floating-btn call">
             <i class="fas fa-phone"></i>
         </a>
-        <a href="https://wa.me/77028741865" class="floating-btn whatsapp" aria-label="Написать в WhatsApp" target="_blank">
+        <a href="https://wa.me/77767469606" class="floating-btn whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="#" class="floating-btn reviews" aria-label="Оставить отзыв" id="open-modal-btn">
+        <button class="floating-btn reviews" id="open-reviews-modal">
             <i class="fas fa-star"></i>
-        </a>
+        </button>
     </div>
 
-    <div id="reviews-modal" class="modal-overlay">
+    <div class="modal-overlay" id="reviews-modal">
         <div class="modal-content">
             <span class="modal-close-btn">&times;</span>
-            <div id="reviews-list">
+            <h3>Отзывы наших клиентов</h3>
+
+            <div class="reviews-list">
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Айжан Султанова</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">10 марта 2024</span>
+                    <p class="review-text">"Заказывали перевозку мебели из квартиры. Ребята справились на отлично, всё аккуратно погрузили и разгрузили. Очень довольны сервисом!"</p>
                 </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Данияр Бауыржанулы</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">25 февраля 2024</span>
+                    <p class="review-text">"Очень быстрая доставка стройматериалов на объект. Водитель приехал точно в срок, без задержек. Спасибо за оперативность!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Сауле Муратова</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">15 января 2024</span>
+                    <p class="review-text">"Переезжали в новый офис, понадобились грузчики. Парни очень сильные и аккуратные, работали слаженно. Рекомендую!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Ерлан Омаров</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">03 декабря 2023</span>
+                    <p class="review-text">"Постоянно пользуемся услугами по вывозу строительного мусора. Всегда пунктуальны и чистоплотны. Отличная компания!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Назым Кадырова</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">20 ноября 2023</span>
+                    <p class="review-text">"Спасибо за помощь с переездом квартиры! Цены адекватные, а качество работы на высоте. Ни одна вещь не пострадала."</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Руслан Тасымбетов</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">01 октября 2023</span>
+                    <p class="review-text">"Заказывал городскую перевозку крупногабаритной техники. Приехали быстро, все доставили в целости. Профессионалы!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Гульмира Ахметова</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">12 сентября 2023</span>
+                    <p class="review-text">"Очень довольна услугами грузчиков. Помогли поднять тяжелые коробки на высокий этаж без лифта. Молодцы!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Бахытжан Искаков</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">28 августа 2023</span>
+                    <p class="review-text">"Регулярно заказываем вывоз мусора после ремонтов. Всегда чисто и вовремя, без лишних вопросов. Спасибо!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Динара Каримова</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">05 июля 2023</span>
+                    <p class="review-text">"Отличный сервис по доставке материалов. Всегда готовы пойти навстречу и выполнить заказ в нужные сроки."</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Азамат Жолдасов</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">18 июня 2023</span>
+                    <p class="review-text">"Пользовался газелью для небольшого переезда по городу. Водитель вежливый, помог с погрузкой. Очень рекомендую!"</p>
+                </div>
+            </div>
+
+            <form class="review-form" id="review-submission-form">
+                <h4>Оставить отзыв</h4>
+                <label for="reviewer-name">Ваше имя:</label>
+                <input type="text" id="reviewer-name" name="name" required>
+
+                <label for="review-text-input">Ваш отзыв:</label>
+                <textarea id="review-text-input" name="review" required></textarea>
+
+                <button type="submit">Отправить отзыв</button>
+                <p id="submission-message">Спасибо, ваш отзыв принят!</p>
+            </form>
         </div>
     </div>
 
+    <div class="info-section" id="privacy-policy-section">
+        <div class="content">
+            <span class="close-btn" id="privacy-close-btn">&times;</span>
+            <h2>Политика конфиденциальности</h2>
+            <p>Настоящая Политика конфиденциальности описывает, как ваш сайт собирает, использует и защищает информацию, которую вы предоставляете при использовании нашего сайта и услуг.</p>
+
+            <h3>1. Сбор информации</h3>
+            <p>Мы собираем информацию, которую вы добровольно предоставляете нам, когда вы используете наши услуги, связываетесь с нами или заполняете формы на сайте. Эта информация может включать:</p>
+            <ul>
+                <li>Ваше имя</li>
+                <li>Контактные данные (номер телефона, электронная почта)</li>
+                <li>Информация о вашем грузе или услугах, которые вы заказываете</li>
+            </ul>
+            <p>Мы не собираем конфиденциальные личные данные, такие как данные банковских карт, медицинские данные или расовую принадлежность.</p>
+
+            <h3>2. Использование информации</h3>
+            <p>Собранная информация используется для следующих целей:</p>
+            <ul>
+                <li>Оказание запрошенных вами услуг</li>
+                <li>Обработка ваших запросов и обращений</li>
+                <li>Улучшение качества наших услуг и сайта</li>
+                <li>Связь с вами по вопросам вашего заказа</li>
+            </ul>
+
+            <h3>3. Защита информации</h3>
+            <p>Мы принимаем разумные меры для защиты вашей личной информации от несанкционированного доступа, изменения, раскрытия или уничтожения. Однако ни один метод передачи данных через Интернет или метод электронного хранения не является на 100% безопасным. Мы не можем гарантировать абсолютную безопасность.</p>
+
+            <h3>4. Передача информации третьим лицам</h3>
+            <p>Мы не продаем, не обмениваем и не передаем вашу личную информацию третьим лицам без вашего согласия, за исключением случаев, когда это необходимо для предоставления наших услуг (например, передача контактных данных водителю для выполнения заказа) или в случаях, предусмотренных законом.</p>
+
+            <h3>5. Ссылки на сторонние сайты</h3>
+            <p>Наш сайт может содержать ссылки на сторонние сайты. Мы не несем ответственности за политику конфиденциальности или содержание этих сайтов. Рекомендуем ознакомиться с политикой конфиденциальности каждого сайта, который вы посещаете.</p>
+
+            <h3>6. Изменения в Политике конфиденциальности</h3>
+            <p>Мы можем время от времени обновлять нашу Политику конфиденциальности. Все изменения вступают в силу немедленно после их публикации на этой странице. Рекомендуем периодически просматривать эту страницу для ознакомления с последней версией.</p>
+
+            <h3>7. Согласие</h3>
+            <p>Используя наш сайт, вы соглашаетесь с условиями нашей Политики конфиденциальности.</p>
+
+            <p>Дата последнего обновления: 5 июня 2025 г.</p>
+        </div>
+    </div>
+
+    <div class="info-section" id="terms-of-service-section">
+        <div class="content">
+            <span class="close-btn" id="terms-close-btn">&times;</span>
+            <h2>Условия использования</h2>
+            <p>Данные Условия использования регулируют ваше использование веб-сайта и услуг, предоставляемых "Gruzim.kz". Используя наш сайт, вы соглашаетесь соблюдать эти Условия.</p>
+
+            <h3>1. Услуги</h3>
+            <p>Мы предоставляем услуги по грузоперевозкам в городе Астана и регионам Казахстана, включая городские перевозки, квартирные и офисные переезды, доставку строительных материалов, вывоз мусора и услуги грузчиков. Подробное описание услуг и тарифов представлено на нашем сайте.</p>
+
+            <h3>3. Цены и оплата</h3>
+            <p>Цены на наши услуги указаны на сайте и могут варьироваться в зависимости от объема, типа груза, расстояния и времени выполнения работ. Оплата производится согласно согласованным тарифам. Подробности оплаты обсуждаются при оформлении заказа, возможен безналичный расчет с НДС.</p>
+
+            <h3>4. Ответственность</h3>
+            <p>Мы стремимся обеспечить безопасную и своевременную доставку вашего груза. Мы несем ответственность за сохранность груза с момента его принятия до момента доставки, за исключением случаев, когда повреждение или утеря произошли по вине заказчика, из-за скрытых дефектов груза, форс-мажорных обстоятельств или иных причин, не зависящих от нас.</p>
+
+            <h3>5. Права и обязанности пользователя</h3>
+            <ul>
+                <li>Вы обязуетесь не использовать сайт для незаконных или запрещенных видов деятельности.</li>
+                <li>Вы несете ответственность за предоставление достоверной информации.</li>
+                <li>Вы соглашаетесь соблюдать все применимые законы и правила при использовании наших услуг.</li>
+            </ul>
+
+            <h3>6. Интеллектуальная собственность</h3>
+            <p>Весь контент на этом сайте, включая текст, графику, логотипы, иконки, изображения и программное обеспечение, является собственностью "Gruzim.kz" или ее контент-провайдеров и защищен законами об авторском праве.</p>
+
+            <h3>7. Изменения в Условиях</h3>
+            <p>Мы оставляем за собой право изменять эти Условия использования в любое время. Все изменения вступают в силу сразу после их публикации на этой странице. Ваше дальнейшее использование сайта после таких изменений означает ваше согласие с новыми Условиями.</p>
+
+            <h3>8. Контактная информация</h3>
+            <p>По всем вопросам, касающимся Условий использования, вы можете связаться с нами по контактам, указанным на сайте.</p>
+
+            <p>Дата последнего обновления: 5 июня 2025 г.</p>
+        </div>
+    </div>
+
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
     <script>
-        AOS.init();
-    </script>
-    <script>
-        const callLinks = document.querySelectorAll('a[href^="tel:"]');
-        const whatsappLinks = document.querySelectorAll('a[href*="wa.me/"]');
-
-        // ! ВАЖНО: ЗАМЕНИТЕ ЭТИ ПЛЕЙСХОЛДЕРЫ НА ВАШИ РЕАЛЬНЫЕ ЯРЛЫКИ!
-        const callConversionId = 'AW-17503887977/ВАШ_ЯРЛЫК_ЗВОНКА';
-        const whatsappConversionId = 'AW-17503887977/ВАШ_ЯРЛЫК_WHATSAPP';
-
-        callLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (typeof gtag === 'function' && callConversionId !== 'AW-17503887977/ВАШ_ЯРЛЫК_ЗВОНКА') {
-                    gtag('event', 'conversion', {
-                        'send_to': callConversionId
-                    });
-                }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Инициализация AOS
+            AOS.init({
+                duration: 1000, // Продолжительность анимации в мс
+                once: true, // Анимация будет проигрываться только один раз при появлении
+                offset: 100, // Срабатывание за 100px до достижения элемента
             });
-        });
 
-        whatsappLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (typeof gtag === 'function' && whatsappConversionId !== 'AW-17503887977/ВАШ_ЯРЛЫК_WHATSAPP') {
-                    gtag('event', 'conversion', {
-                        'send_to': whatsappConversionId
-                    });
-                }
+            // Плавная прокрутка для якорей (дополнительно к CSS scroll-behavior: smooth;)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId.length > 1) { // Убедимся, что это не просто #
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
             });
-        });
 
-        // Открытие и закрытие модального окна отзывов
-        const openModalBtn = document.getElementById('open-modal-btn');
-        const modalOverlay = document.getElementById('reviews-modal');
-        const closeModalBtn = document.querySelector('.modal-close-btn');
+            // Модальное окно отзывов
+            const reviewsModal = document.getElementById('reviews-modal');
+            const openReviewsBtn = document.getElementById('open-reviews-modal');
+            const closeReviewsBtn = reviewsModal.querySelector('.modal-close-btn');
+            const reviewForm = document.getElementById('review-submission-form');
+            const submissionMessage = document.getElementById('submission-message');
+            const reviewerNameInput = document.getElementById('reviewer-name');
+            const reviewTextInput = document.getElementById('review-text-input');
 
-        openModalBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modalOverlay.classList.add('is-active');
-            // Здесь можно добавить код для загрузки отзывов из файла или API
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modalOverlay.classList.remove('is-active');
-        });
-
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                modalOverlay.classList.remove('is-active');
+            // Открытие модального окна
+            if (openReviewsBtn) {
+                openReviewsBtn.addEventListener('click', () => {
+                    reviewsModal.classList.add('is-active');
+                    document.body.style.overflow = 'hidden'; // Запретить прокрутку фона
+                });
             }
-        });
+
+            // Закрытие модального окна по кнопке
+            if (closeReviewsBtn) {
+                closeReviewsBtn.addEventListener('click', () => {
+                    reviewsModal.classList.remove('is-active');
+                    document.body.style.overflow = ''; // Возобновить прокрутку фона
+                });
+            }
+
+            // Закрытие модального окна при клике вне его
+            if (reviewsModal) {
+                reviewsModal.addEventListener('click', (e) => {
+                    if (e.target === reviewsModal) {
+                        reviewsModal.classList.remove('is-active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Обработка отправки формы отзыва (демонстрационная)
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Предотвратить стандартную отправку формы
+
+                    // Здесь можно было бы отправить данные на сервер (например, через fetch/XMLHttpRequest)
+                    // Для примера, просто показываем сообщение об успехе
+                    console.log('Отзыв отправлен:', {
+                        name: reviewerNameInput.value,
+                        review: reviewTextInput.value
+                    });
+
+                    submissionMessage.style.display = 'block'; // Показать сообщение
+                    reviewForm.reset(); // Очистить форму
+
+                    // Скрыть сообщение через несколько секунд
+                    setTimeout(() => {
+                        submissionMessage.style.display = 'none';
+                    }, 3000);
+                });
+            }
+
+            // Логика для "страниц" Политики конфиденциальности и Условий использования
+            const privacyPolicyLink = document.getElementById('privacy-policy-link');
+            const termsOfServiceLink = document.getElementById('terms-of-service-link');
+            const privacyPolicySection = document.getElementById('privacy-policy-section');
+            const termsOfServiceSection = document.getElementById('terms-of-service-section');
+            const privacyCloseBtn = document.getElementById('privacy-close-btn');
+            const termsCloseBtn = document.getElementById('terms-close-btn');
+
+            function openInfoSection(section) {
+                section.classList.add('is-active');
+                document.body.style.overflow = 'hidden'; // Запретить прокрутку фона
+            }
+
+            function closeInfoSection(section) {
+                section.classList.remove('is-active');
+                document.body.style.overflow = ''; // Возобновить прокрутку фона
+            }
+
+            if (privacyPolicyLink) {
+                privacyPolicyLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openInfoSection(privacyPolicySection);
+                });
+            }
+
+            if (termsOfServiceLink) {
+                termsOfServiceLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openInfoSection(termsOfServiceSection);
+                });
+            }
+
+            if (privacyCloseBtn) {
+                privacyCloseBtn.addEventListener('click', () => {
+                    closeInfoSection(privacyPolicySection);
+                });
+            }
+
+            if (termsCloseBtn) {
+                termsCloseBtn.addEventListener('click', () => {
+                    closeInfoSection(termsOfServiceSection);
+                });
+            }
+
+            // Добавлен код для закрытия информационных разделов при клике вне их
+            if (privacyPolicySection) {
+                privacyPolicySection.addEventListener('click', (e) => {
+                    if (e.target === privacyPolicySection) {
+                        closeInfoSection(privacyPolicySection);
+                    }
+                });
+            }
+
+            if (termsOfServiceSection) {
+                termsOfServiceSection.addEventListener('click', (e) => {
+                    if (e.target === termsOfServiceSection) {
+                        closeInfoSection(termsOfServiceSection);
+                    }
+                });
+            }
+
+            // ******************************************************
+            //  КОД ДЛЯ СКРЫТИЯ ПРЕЛОАДЕРА (ОБНОВЛЕННЫЙ И ПРОВЕРЕННЫЙ)
+            // ******************************************************
+            const loaderContainer = document.getElementById('loader');
+            if (loaderContainer) {
+                // Используем 'load' для полной загрузки всех ресурсов
+                window.addEventListener('load', () => {
+                    loaderContainer.classList.add('loaded');
+                    // Удаляем элемент из DOM после завершения анимации
+                    setTimeout(() => {
+                        loaderContainer.remove();
+                    }, 600); // Должно быть больше или равно времени CSS transition (0.5s = 500ms)
+                });
+            }
+            // ******************************************************
+
+        }); // Закрытие document.addEventListener('DOMContentLoaded', ...
     </script>
 </body>
 </html>
