@@ -1607,11 +1607,11 @@
             const googleConversionId = 'AW-111111111/abcde-fghij-klmnop';
 
             const trackConversion = () => {
-                if (typeof gtag === 'function' && googleConversionId !== 'AW-111111111/abcde-fghij-klmnop') {
+                if (typeof gtag === 'function' && googleConversionId !== 'AW-17503887977/abcde-fghij-klmnop') {
                     gtag('event', 'conversion', {
                         'send_to': googleConversionId
                     });
-                } else if (googleConversionId === 'AW-111111111/abcde-fghij-klmnop') {
+                } else if (googleConversionId === 'AW-17503887977/abcde-fghij-klmnop') {
                     console.error('Google Ads conversion tracking is not active. Please replace the placeholder ID in the script.');
                 }
             };
