@@ -15,9 +15,16 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-17503887977');
-    </script>
 
+      // Глобальный тег для вашего аккаунта Google Ads
+      gtag('config', 'AW-17503887977');
+
+      // 1. Конверсия: Посещение страницы (для одностраничного сайта)
+      // Этот код будет срабатывать каждый раз при загрузке страницы.
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17503887977/ВАШ_ЯРЛЫК_ПОСЕЩЕНИЯ_САЙТА'
+      });
+    </script>
     <meta property="og:title" content="Gruzim.kz | Грузоперевозки по Астане и регионам">
     <meta property="og:description" content="Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.">
     <meta property="og:type" content="website">
@@ -471,26 +478,12 @@
 
 
         /* --- Подвал --- */
-        footer {
-            background-color: #212529; /* Темно-серый */
-            color: white;
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9em;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            color: #0056b3;
-            text-decoration: underline;
-        }
+        <footer>
+            &copy; 2019-2025 gruzim.kz. Все права защищены.
+            <br>
+            <a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> |
+            <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
+        </footer>
 
         /* --- Плавающие кнопки --- */
         .floating-buttons {
@@ -1599,31 +1592,35 @@
             }
             // ******************************************************
 
-            // Начало: Новый код для отслеживания конверсий Google Ads
+            // НОВЫЙ БЛОК ОТСЛЕЖИВАНИЯ КОНВЕРСИЙ ПО КЛИКАМ
+            // (ИСПОЛЬЗУЙТЕ ЯРЛЫКИ, КОТОРЫЕ ВЫ СОЗДАЛИ В GOOGLE ADS)
             const callLinks = document.querySelectorAll('a[href^="tel:"]');
             const whatsappLinks = document.querySelectorAll('a[href*="wa.me/"]');
             
-            // Замените 'AW-111111111/abcde-fghij-klmnop' на ваш полный идентификатор и ярлык конверсии из Google Ads.
-            const googleConversionId = 'AW-17503887977/abcde-fghij-klmnop';
-
-            const trackConversion = () => {
-                if (typeof gtag === 'function' && googleConversionId !== 'AW-17503887977/abcde-fghij-klmnop') {
-                    gtag('event', 'conversion', {
-                        'send_to': googleConversionId
-                    });
-                } else if (googleConversionId === 'AW-17503887977/abcde-fghij-klmnop') {
-                    console.error('Google Ads conversion tracking is not active. Please replace the placeholder ID in the script.');
-                }
-            };
+            // ! ВАЖНО: ЗАМЕНИТЕ ЭТИ ПЛЕЙСХОЛДЕРЫ НА ВАШИ РЕАЛЬНЫЕ ЯРЛЫКИ!
+            const callConversionId = 'AW-17503887977/ВАШ_ЯРЛЫК_ЗВОНКА';
+            const whatsappConversionId = 'AW-17503887977/ВАШ_ЯРЛЫК_WHATSAPP';
 
             callLinks.forEach(link => {
-                link.addEventListener('click', trackConversion);
+                link.addEventListener('click', () => {
+                    if (typeof gtag === 'function' && callConversionId !== 'AW-17503887977/ВАШ_ЯРЛЫК_ЗВОНКА') {
+                        gtag('event', 'conversion', {
+                            'send_to': callConversionId
+                        });
+                    }
+                });
             });
 
             whatsappLinks.forEach(link => {
-                link.addEventListener('click', trackConversion);
+                link.addEventListener('click', () => {
+                    if (typeof gtag === 'function' && whatsappConversionId !== 'AW-17503887977/ВАШ_ЯРЛЫК_WHATSAPP') {
+                        gtag('event', 'conversion', {
+                            'send_to': whatsappConversionId
+                        });
+                    }
+                });
             });
-            // Конец: Новый код для отслеживания конверсий Google Ads
+            // КОНЕЦ НОВОГО БЛОКА ОТСЛЕЖИВАНИЯ
 
         }); // Закрытие document.addEventListener('DOMContentLoaded', ...
     </script>
