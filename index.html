@@ -10,6 +10,14 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://gruzim.kz">
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-111111111"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-111111111');
+    </script>
+
     <meta property="og:title" content="Gruzim.kz | Грузоперевозки по Астане и регионам">
     <meta property="og:description" content="Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.">
     <meta property="og:type" content="website">
@@ -1092,7 +1100,7 @@
                 <i class="fas fa-home icon"></i>
                 <h3>Квартирные и офисные переезды</h3>
                 <p>Организуем аккуратный и оперативный переезд вашей квартиры или офиса под ключ. Погрузка, разгрузка, транспортировка.</p>
-                <p class="price">от 12 000 тг</p>
+                <p class="price">от 12 000 тг/час</p>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="250">
                 <i class="fas fa-hammer icon"></i>
@@ -1216,6 +1224,46 @@
             <div class="reviews-list">
                 <div class="review-item">
                     <div class="review-header">
+                        <span class="reviewer-name">Ануар Садыков</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">15 августа 2025</span>
+                    <p class="review-text">"Заказывал перевозку мебели из магазина. Приехали быстро, все доставили в целости и сохранности. Очень ответственные ребята!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Жанар Аскарова</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">29 июля 2025</span>
+                    <p class="review-text">"Нужно было срочно вывезти строительный мусор после ремонта. Связалась с ними, и они приехали в тот же день. Спасибо за оперативность и чистоту!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Сергей Петров</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">20 июня 2025</span>
+                    <p class="review-text">"Отличный сервис! Грузчики работают быстро и аккуратно. Переезд прошёл без стресса. Буду рекомендовать друзьям и знакомым."</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Асель Рахметова</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">5 июня 2025</span>
+                    <p class="review-text">"Заказывали доставку крупногабаритных материалов. Водитель приехал вовремя, помог с разгрузкой. Все профессионально."</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="reviewer-name">Рустам Кожахметов</span>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                    <span class="review-date">28 мая 2025</span>
+                    <p class="review-text">"Очень доволен услугами! Заказал перевозку мебели в выходной день. Всё было сделано в срок и без каких-либо проблем."</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
                         <span class="reviewer-name">Айжан Султанова</span>
                         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                     </div>
@@ -1276,7 +1324,7 @@
                         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                     </div>
                     <span class="review-date">28 августа 2023</span>
-                    <p class="review-text">"Регулярно заказываем вывоз мусора после ремонтов. Всегда чисто и вовремя, без лишних вопросов. Спасибо!"</p>
+                    <p class="review-text">"Регулярно заказываем вывоз мусора после ремонтов. Всегда пунктуальны и чистоплотны. Отличная компания!"</p>
                 </div>
                 <div class="review-item">
                     <div class="review-header">
@@ -1550,6 +1598,32 @@
                 });
             }
             // ******************************************************
+
+            // Начало: Новый код для отслеживания конверсий Google Ads
+            const callLinks = document.querySelectorAll('a[href^="tel:"]');
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me/"]');
+            
+            // Замените 'AW-111111111/abcde-fghij-klmnop' на ваш полный идентификатор и ярлык конверсии из Google Ads.
+            const googleConversionId = 'AW-111111111/abcde-fghij-klmnop';
+
+            const trackConversion = () => {
+                if (typeof gtag === 'function' && googleConversionId !== 'AW-111111111/abcde-fghij-klmnop') {
+                    gtag('event', 'conversion', {
+                        'send_to': googleConversionId
+                    });
+                } else if (googleConversionId === 'AW-111111111/abcde-fghij-klmnop') {
+                    console.error('Google Ads conversion tracking is not active. Please replace the placeholder ID in the script.');
+                }
+            };
+
+            callLinks.forEach(link => {
+                link.addEventListener('click', trackConversion);
+            });
+
+            whatsappLinks.forEach(link => {
+                link.addEventListener('click', trackConversion);
+            });
+            // Конец: Новый код для отслеживания конверсий Google Ads
 
         }); // Закрытие document.addEventListener('DOMContentLoaded', ...
     </script>
