@@ -1561,7 +1561,8 @@
 
         }); // Закрытие document.addEventListener('DOMContentLoaded', ...
     </script>
-    <script>
+    <!-- Отслеживание кликов по Телефону и WhatsApp -->
+<script>
   document.addEventListener("DOMContentLoaded", function() {
     function sendContactConversion() {
       gtag('event', 'conversion', {
@@ -1569,17 +1570,17 @@
       });
     }
 
-    // Отслеживаем кнопку звонка
+    // Телефон
     document.querySelectorAll("a[href^='tel:']").forEach(function(link) {
       link.addEventListener("click", sendContactConversion);
     });
 
-    // Отслеживаем WhatsApp
+    // WhatsApp
     document.querySelectorAll("a[href*='wa.me']").forEach(function(link) {
       link.addEventListener("click", sendContactConversion);
     });
 
-    // Можно добавить другие кнопки (например email)
+    // Email (по желанию)
     document.querySelectorAll("a[href^='mailto:']").forEach(function(link) {
       link.addEventListener("click", sendContactConversion);
     });
