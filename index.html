@@ -1561,25 +1561,23 @@
 
         }); // Закрытие document.addEventListener('DOMContentLoaded', ...
     </script>
-    <!-- Отслеживание кликов по Телефону и WhatsApp -->
+    <!-- Отслеживание кликов по Телефону и WhatsApp (объединено в одну конверсию) -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
+    function sendContactConversion() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17503887977/cgtNCIKhqJMbEOnEwJpB'
+      });
+    }
+
     // Телефон
     document.querySelectorAll("a[href^='tel:']").forEach(function(link) {
-      link.addEventListener("click", function() {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17503887977/EsQDCP6T6IwbEOnEwJpB'
-        });
-      });
+      link.addEventListener("click", sendContactConversion);
     });
 
     // WhatsApp
     document.querySelectorAll("a[href*='wa.me']").forEach(function(link) {
-      link.addEventListener("click", function() {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17503887977/EsQDCP6T6IwbEOnEwJpB'
-        });
-      });
+      link.addEventListener("click", sendContactConversion);
     });
   });
 </script>
