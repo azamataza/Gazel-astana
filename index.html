@@ -37,16 +37,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-17503887977');
 </script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ">
 </script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -1002,8 +1000,8 @@
                 font-size: 1.2em;
             }
             .whatsapp-cta-button {
-                font-size: 1.2em;
-                padding: 15px 30px;
+                font-size: 1.1em;
+                padding: 12px 25px;
             }
             .info-section {
                 padding: 60px 15px;
@@ -1080,6 +1078,138 @@
             }
         }
     </style>
+    <style>
+    /* Стили для модального окна */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding-top: 60px;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    .modal-content {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 40px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+        animation: slideInTop 0.4s ease-in-out;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .modal-title {
+        font-size: 2.2rem;
+        color: #032b43;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .modal-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    .modal-subtitle {
+        font-size: 1.4rem;
+        color: #032b43;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ffc107;
+        padding-bottom: 5px;
+        display: inline-block;
+    }
+    .modal-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .modal-list li {
+        display: flex;
+        align-items: flex-start;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .modal-list li i {
+        color: #019034;
+        margin-right: 12px;
+        font-size: 1.2rem;
+    }
+    .close-modal {
+        color: #aaa;
+        font-size: 36px;
+        font-weight: bold;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    .close-modal:hover,
+    .close-modal:focus {
+        color: #333;
+        text-decoration: none;
+    }
+    .modal-cta {
+        text-align: center;
+        margin-top: 30px;
+    }
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    .modal .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+        border-radius: 50px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .modal .btn--primary {
+        background-color: #019034;
+    }
+    .modal .btn--whatsapp {
+        background-color: #25d366;
+    }
+    .modal .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes slideInTop {
+        from { transform: translateY(-50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 768px) {
+        .modal-content {
+            padding: 25px;
+            width: 95%;
+            margin: 10% auto;
+        }
+        .modal-title {
+            font-size: 1.8rem;
+        }
+        .modal-description, .modal-list li, .modal-subtitle {
+            font-size: 1rem;
+        }
+    }
+</style>
 </head>
 <body>
     <div class="loader-container" id="loader">
@@ -1129,6 +1259,22 @@
                 <h3>Услуги грузчиков</h3>
                 <p>Профессиональные грузчики для погрузки, разгрузки и перемещения любых видов грузов. Работаем быстро и аккуратно.</p>
                 <p class="price">от 2 500 тг/час <br>(обсуждается)</p>
+            </div>
+            <div class="card card--full-bg aos-init aos-animate" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-in-out" data-aos-once="true">
+                <div class="card-content">
+                    <h3 class="card-title">Премиум переезд</h3>
+                    <p class="card-description">Переезд под ключ для тех, кто ценит свое время и комфорт. Берем на себя все заботы.</p>
+                    <div class="card-text">
+                        <ul class="check-list">
+                            <li><i class="fas fa-check"></i> <span>Полный комплекс услуг</span></li>
+                            <li><i class="fas fa-check"></i> <span>Профессиональные грузчики</span></li>
+                            <li><i class="fas fa-check"></i> <span>Клининг прежнего и нового помещений</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#premium-modal" class="btn btn--secondary open-modal">Подробнее</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1568,11 +1714,38 @@
                 });
             }
             // ******************************************************
-
         }); // Закрытие document.addEventListener('DOMContentLoaded', ...
     </script>
-    <!-- Отслеживание кликов по Телефону и WhatsApp -->
-<script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById('premium-modal');
+        const openModalBtns = document.querySelectorAll('.open-modal');
+        const closeModalBtn = document.querySelector('.close-modal');
+
+        openModalBtns.forEach(btn => {
+            if (btn.getAttribute('href') === '#premium-modal') {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Запрещаем прокрутку фона
+                });
+            }
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Восстанавливаем прокрутку
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+</script>
+    <script>
   document.addEventListener("DOMContentLoaded", function() {
     function sendContactConversion() {
       gtag('event', 'conversion', {
@@ -1596,5 +1769,31 @@
     });
   });
 </script>
+<div id="premium-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 class="modal-title">Премиум переезд: "Все включено"</h2>
+        <p class="modal-description">
+            Для тех, кто ценит свое время и комфорт. Мы берем на себя все заботы по переезду, чтобы вы могли просто наслаждаться своим новым домом.
+        </p>
+        <div class="modal-details">
+            <h3 class="modal-subtitle">В пакет «Премиум переезд» входят:</h3>
+            <ul class="modal-list">
+                <li><i class="fas fa-check-circle"></i> <span>Профессиональная упаковка и разборка мебели.</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Бережная транспортировка.</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>"Зеркальное" размещение вещей.</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Подключение бытовой техники.</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Полный клининг прежнего и нового помещений.</span></li>
+            </ul>
+        </div>
+        <div class="modal-cta">
+            <h3 class="modal-subtitle">Готовы к переезду?</h3>
+            <div class="cta-buttons">
+                <a href="tel:+77767469606" class="btn btn--primary"><i class="fas fa-phone"></i> Позвонить</a>
+                <a href="https://wa.me/77767469606" target="_blank" class="btn btn--whatsapp"><i class="fab fa-whatsapp"></i> Написать в WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
