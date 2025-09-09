@@ -99,7 +99,7 @@
             align-items: center;
             justify-content: center; /* Центрируем лого и заголовок по умолчанию */
             width: 100%;
-            margin-bottom: 15px; /* Отступ между лого и заголовком и остальным контентом */
+            margin-bottom: 15px; /* Отступ между лого и заголовок и остальным контентом */
             flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку при уменьшении ширины */
         }
 
@@ -234,6 +234,52 @@
             margin-top: 15px;
         }
 
+        /* НОВЫЙ СТИЛЬ для карточки "Премиум переезд" */
+        .card--premium {
+            background-color: #fff8e1; /* Легкий золотистый фон */
+            border: 2px solid #ffc107; /* Яркий золотистый бордюр */
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2); /* Красивая тень */
+        }
+
+        .card--premium:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.3);
+        }
+        
+        .card--premium .icon {
+            color: #d39e00; /* Золотистый цвет для иконки */
+        }
+
+        .card--premium .card-title {
+            color: #d39e00; /* Золотистый цвет заголовка */
+            font-weight: 700;
+        }
+
+        .card--premium .service-list {
+            list-style-type: none; /* Убрать маркеры списка */
+            padding-left: 0;
+            text-align: left; /* Выровнять по левому краю */
+            width: 100%;
+        }
+
+        .card--premium .service-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .card--premium .service-list li::before {
+            content: "\f00c"; /* Иконка галочки FontAwesome */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #28a745; /* Зеленая галочка */
+        }
+        
         /* --- Стили для среднего CTA блока --- */
         .mid-cta-section {
             background-color: #1a237e; /* Темно-синий фон */
@@ -1123,6 +1169,17 @@
                 <h3>Услуги грузчиков</h3>
                 <p>Профессиональные грузчики для погрузки, разгрузки и перемещения любых видов грузов. Работаем быстро и аккуратно.</p>
                 <p class="price">от 2 500 тг/час <br>(обсуждается)</p>
+            </div>
+            <div class="card card--premium" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
+                <i class="fas fa-gem icon"></i>
+                <h3 class="card-title">Премиум переезд</h3>
+                <ul class="service-list">
+                    <li>Персональный менеджер</li>
+                    <li>Полная упаковка и распаковка вещей</li>
+                    <li>Сборка/разборка мебели</li>
+                    <li>Гарантия сохранности имущества</li>
+                </ul>
+                <a href="#modal" class="cta-button" onclick="openModal(); return false;">Подробнее</a>
             </div>
         </div>
     </section>
