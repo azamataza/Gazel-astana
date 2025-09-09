@@ -615,6 +615,8 @@
             text-align: left; /* Вернуть выравнивание текста внутри модального окна */
             transform: scale(0.95); /* Начальный масштаб */
             transition: transform 0.3s ease; /* Плавное масштабирование */
+            max-height: 90vh; /* Ограничиваем высоту для мобильных */
+            overflow-y: auto; /* Добавляем прокрутку */
         }
 
         .modal-overlay.is-active .modal-content { /* Активное состояние */
@@ -629,6 +631,7 @@
             color: #555;
             cursor: pointer;
             transition: color 0.3s ease;
+            z-index: 10;
         }
 
         .modal-close-btn:hover {
@@ -1063,6 +1066,16 @@
             }
             .legal-entity-item h3 {
                 font-size: 1.5em;
+            }
+            /* Медиа-запросы для модального окна Премиум */
+            .modal-body .cta-button {
+                width: 100%;
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .modal-body .modal-buttons {
+                flex-direction: column;
+                gap: 10px;
             }
         }
 
