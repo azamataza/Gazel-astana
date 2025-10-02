@@ -1861,10 +1861,10 @@ header h1 {
     });
   });
 </script>
-
 <!-- Всплывающее окно с предупреждением о переводе -->
-<div id="translation-warning" class="modal-overlay">
+<div id="translation-warning" class="modal-overlay" style="display: none;">
     <div class="modal-content" style="max-width: 600px;">
+        <span class="modal-close-btn" id="close-warning-btn">&times;</span>
         <h3>⚠️ Назар аударыңыз</h3>
         
         <div style="margin-bottom: 20px; padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
@@ -1882,34 +1882,50 @@ header h1 {
         </div>
     </div>
 </div>
+
 <script>
 // Скрипт для окна с предупреждением
 document.addEventListener('DOMContentLoaded', function() {
     const warningPopup = document.getElementById('translation-warning');
     const closeWarningBtn = document.getElementById('close-warning');
+    const closeWarningBtnX = document.getElementById('close-warning-btn');
     
-    // Показываем окно при загрузке страницы
-    setTimeout(function() {
-        if (warningPopup) {
-            warningPopup.classList.add('is-active');
-            document.body.style.overflow = 'hidden';
-        }
-    }, 1000); // Задержка 1 секунда
+    // Показываем окно после полной загрузки страницы
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            if (warningPopup) {
+                warningPopup.style.display = 'flex';
+                setTimeout(() => {
+                    warningPopup.style.opacity = '1';
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+        }, 1500); // Задержка 1.5 секунды
+    });
     
-    // Закрытие по кнопке
-    if (closeWarningBtn) {
-        closeWarningBtn.addEventListener('click', function() {
-            warningPopup.classList.remove('is-active');
+    function closeWarning() {
+        warningPopup.style.opacity = '0';
+        setTimeout(() => {
+            warningPopup.style.display = 'none';
             document.body.style.overflow = '';
-        });
+        }, 300);
+    }
+    
+    // Закрытие по кнопке "Түсіндім"
+    if (closeWarningBtn) {
+        closeWarningBtn.addEventListener('click', closeWarning);
+    }
+    
+    // Закрытие по крестику
+    if (closeWarningBtnX) {
+        closeWarningBtnX.addEventListener('click', closeWarning);
     }
     
     // Закрытие при клике вне окна
     if (warningPopup) {
         warningPopup.addEventListener('click', function(e) {
             if (e.target === warningPopup) {
-                warningPopup.classList.remove('is-active');
-                document.body.style.overflow = '';
+                closeWarning();
             }
         });
     }
