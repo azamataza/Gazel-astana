@@ -1861,5 +1861,60 @@ header h1 {
     });
   });
 </script>
+
+<!-- Всплывающее окно с предупреждением о переводе -->
+<div id="translation-warning" class="modal-overlay" style="display: flex;">
+    <div class="modal-content" style="max-width: 600px;">
+        <h3>⚠️ Внимание / Назар аударыңыз</h3>
+        
+        <div style="margin-bottom: 20px; padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
+            <p style="margin-bottom: 10px; color: #856404;"><strong>Русский:</strong></p>
+            <p style="color: #856404;">Сайт переведен искусственным интеллектом. Возможны ошибки в переводе. Администрация сайта работает над исправлением неточностей в ближайшее время.</p>
+        </div>
+
+        <div style="margin-bottom: 25px; padding: 15px; background: #d1ecf1; border-radius: 8px; border-left: 4px solid #17a2b8;">
+            <p style="margin-bottom: 10px; color: #0c5460;"><strong>Қазақша:</strong></p>
+            <p style="color: #0c5460;">Сайт жасанды интеллект арқылы аударылды. Аудармада қателер болуы мүмкін. Сайт әкімшілігі жақын арада дәлсіздіктерді түзету үстінде жұмыс істейді.</p>
+        </div>
+
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="index.html" class="cta-button" style="background-color: #1a237e;">
+                <i class="fas fa-arrow-left"></i> Русская версия
+            </a>
+            <button id="close-warning" class="cta-button" style="background-color: #28a745;">
+                <i class="fas fa-check"></i> Түсіндім / Понял
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Скрипт для окна с предупреждением
+document.addEventListener('DOMContentLoaded', function() {
+    const warningPopup = document.getElementById('translation-warning');
+    const closeWarningBtn = document.getElementById('close-warning');
+    
+    // Закрытие по кнопке
+    if (closeWarningBtn) {
+        closeWarningBtn.addEventListener('click', function() {
+            warningPopup.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Закрытие при клике вне окна
+    if (warningPopup) {
+        warningPopup.addEventListener('click', function(e) {
+            if (e.target === warningPopup) {
+                warningPopup.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Блокируем прокрутку фона
+    document.body.style.overflow = 'hidden';
+});
+</script>
 </body>
 </html>
