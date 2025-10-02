@@ -53,22 +53,102 @@
 
   gtag('config', 'G-2VWS9V6KVJ');
 </script>
-    <style>
-        /* --- Общие стили и сброс --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+ <style>
+    /* --- Плавающая шапка --- */
+    .floating-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 35, 126, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 12px 20px;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f0f4f8; /* Очень светлый серый/голубой */
-            color: #333;
-            line-height: 1.7;
-            overflow-x: hidden; /* Предотвращает горизонтальную прокрутку, если что-то выйдет за край */
-        }
+    .floating-header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .floating-logo {
+        height: 45px;
+        width: auto;
+    }
+
+    .language-switcher {
+        display: flex;
+        gap: 10px;
+    }
+
+    .lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        padding: 6px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .lang-btn:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #ff9900;
+    }
+
+    .lang-btn.active {
+        background: #ff9900;
+        border-color: #ff9900;
+        color: white;
+    }
+
+    .header-phone {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1.1em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .header-phone:hover {
+        color: #ff9900;
+    }
+
+    /* --- Общие стили и сброс --- */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #f0f4f8; /* Очень светлый серый/голубой */
+        color: #333;
+        line-height: 1.7;
+        overflow-x: hidden; /* Предотвращает горизонтальную прокрутку, если что-то выйдет за край */
+        padding-top: 70px;
+    }
         /* --- Шапка с фоновым изображением и логотипом --- */
         header {
             /* Уменьшил прозрачность rgba до 0.6 для лучшей читаемости текста на фоне */
