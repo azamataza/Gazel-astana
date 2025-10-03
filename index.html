@@ -1870,5 +1870,51 @@ header h1 {
     });https://github.com/azamataza/Gazel-astana/blob/main/index.html
   });
 </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    function sendContactConversion(phoneType = 'general') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+            'value': 1.0,
+            'currency': 'KZT',
+            'transaction_id': '',
+            'phone_type': phoneType
+        });
+        
+        // Дублируем в GA4
+        gtag('event', 'contact_conversion', {
+            'method': 'phone',
+            'phone_type': phoneType,
+            'location': 'website'
+        });
+    }
+
+    // Отслеживание всех телефонных ссылок
+    document.querySelectorAll("a[href^='tel:']").forEach(function(link) {
+        link.addEventListener("click", function(e) {
+            const phoneType = this.getAttribute('data-phone-type') || 'general';
+            sendContactConversion(phoneType);
+        });
+    });
+
+    // Отслеживание WhatsApp
+    document.querySelectorAll("a[href*='wa.me']").forEach(function(link) {
+        link.addEventListener("click", function(e) {
+            sendContactConversion('whatsapp');
+        });
+    });
+
+    // Отслеживание отправки формы (если есть формы)
+    const reviewForm = document.getElementById('review-submission-form');
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', function(e) {
+            gtag('event', 'form_submission', {
+                'form_type': 'review',
+                'event_category': 'Lead'
+            });
+        });
+    }
+});
+</script>
 </body>
 </html>
