@@ -1847,30 +1847,6 @@ header h1 {
         }); // Закрытие document.addEventListener('DOMContentLoaded', ...
     </script>
     <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    function sendContactConversion() {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
-      });
-    }
-
-    // Телефон
-    document.querySelectorAll("a[href^='tel:']").forEach(function(link) {
-      link.addEventListener("click", sendContactConversion);
-    });
-
-    // WhatsApp
-    document.querySelectorAll("a[href*='wa.me']").forEach(function(link) {
-      link.addEventListener("click", sendContactConversion);
-    });
-
-    // Email (по желанию)
-    document.querySelectorAll("a[href^='mailto:']").forEach(function(link) {
-      link.addEventListener("click", sendContactConversion);
-    });https://github.com/azamataza/Gazel-astana/blob/main/index.html
-  });
-</script>
-    <script>
 document.addEventListener("DOMContentLoaded", function() {
     function sendContactConversion(phoneType = 'general') {
         gtag('event', 'conversion', {
