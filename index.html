@@ -2023,5 +2023,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 </script>
+
+<script>
+  (function() {
+    function adjustHeaderOffset() {
+      try {
+        var floating = document.querySelector('.floating-header');
+        var mainHeader = null;
+        // find the first header that is NOT the floating one
+        var headers = document.querySelectorAll('header');
+        for (var i = 0; i < headers.length; i++) {
+          if (!headers[i].classList.contains('floating-header')) {
+            mainHeader = headers[i];
+            break;
+          }
+        }
+        if (!floating || !mainHeader) return;
+        var h = floating.getBoundingClientRect().height;
+        // apply padding-top to main header so it's pushed below floating header
+        mainHeader.style.paddingTop = (h + 12) + 'px'; // extra 12px breathing room
+        // also ensure body has at least that top padding on small screens to avoid content jump
+        document.body.style.paddingTop = Math.max(parseInt(getComputedStyle(document.body).paddingTop||0), h) + 'px';
+      } catch (e) { console.error('adjustHeaderOffset error', e); }
+    }
+
+    // run on load and resize
+    window.addEventListener('load', adjustHeaderOffset);
+    window.addEventListener('resize', adjustHeaderOffset);
+
+    // observe mutations in case floating header changes size (e.g., language buttons toggle)
+    var floating = document.querySelector('.floating-header');
+    if (floating && window.MutationObserver) {
+      var obs = new MutationObserver(function() { adjustHeaderOffset(); });
+      obs.observe(floating, { attributes: true, childList: true, subtree: true });
+    }
+
+    // small timeout to handle fonts/load layout shifts
+    setTimeout(adjustHeaderOffset, 300);
+    setTimeout(adjustHeaderOffset, 1000);
+  })();
+</script>
+
 </body>
 </html>
