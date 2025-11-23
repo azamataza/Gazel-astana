@@ -1870,17 +1870,17 @@ document.addEventListener('click', function(e){
     // build text
     const keys = Object.keys(cart);
     if(keys.length===0){ alert('Корзина пуста'); return; }
-    let total=0; let text = 'Здравствуйте! Хочу заказать:%0A';
+    let total=0; let text = 'Здравствуйте! Хочу заказать:\n';
     keys.forEach(id=>{
       let item=null; for(const cat of DATA){ item = cat.items.find(x=>x.id===id); if(item) break; }
       if(!item) return;
       const qty = cart[id];
-      text += `- ${item.title} × ${qty} — ${item.price} тг%0A`;
+      text += `- ${item.title} × ${qty} — ${item.price} тг\n`;
       total += item.price * qty;
     });
-    text += `%0AИтого: ${total} тг%0A`;
+    text += `\nИтого: ${total} тг\n`;
     const comment = document.getElementById('order-comment').value.trim();
-    if(comment) text += `%0AКомментарий: ${encodeURIComponent(comment)}%0A`;
+    if(comment) text += `\nКомментарий: ${comment}\n`;
     const url = 'https://wa.me/77767469606?text=' + encodeURIComponent(text);
     window.open(url, '_blank');
     return;
