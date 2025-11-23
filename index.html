@@ -1282,6 +1282,120 @@ header h1 {
     header .header-logo { display: none !important; }
 }
 
+
+/* --- Fix: prevent floating header from overlapping main header on mobile --- */
+@media (max-width: 768px) {
+    /* push the main header down on small screens to clear the fixed floating header */
+    header {
+        padding-top: 120px !important;
+    }
+}
+@media (max-width: 480px) {
+    header {
+        padding-top: 140px !important;
+    }
+    /* ensure floating header stays on top but not covering content excessively */
+    .floating-header {
+        padding: 10px 12px;
+    }
+}
+
+
+/* --- UI improvements added automatically --- */
+/* Ensure floating header sits above other header elements */
+.floating-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+}
+
+/* Highlight logo and store badge on blue background for mobile */
+.header-logo {
+    display: inline-block;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(2px);
+}
+.store-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    font-weight: 600;
+}
+
+/* slightly larger touch targets on mobile */
+@media (max-width: 768px) {
+    .header-logo, .store-badge {
+        padding: 8px 10px;
+    }
+    /* make sure header content isn't hidden under floating header */
+    body { padding-top: 64px; }
+}
+
+/* Responsive cards grid: make sure layout is stable and shows up to 2 columns on small screens */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+
+/* --- Grid layout: 1 column on small screens, 2 on tablets, 3 on desktop --- */
+.cards-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    align-items: stretch;
+}
+
+/* make each card a flexible column so heights match */
+.cards-grid .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* ensure card content grows and buttons stick to bottom if present */
+.cards-grid .card > * {
+    flex-shrink: 0;
+}
+.cards-grid .card .card-body {
+    flex: 1 1 auto;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* Keep responsive behavior intact on very small screens */
+@media (max-width: 480px) {
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 </style>
 
 </head>
@@ -1365,32 +1479,9 @@ header h1 {
                 <p>Профессиональные грузчики для погрузки, разгрузки и перемещения любых видов грузов. Работаем быстро и аккуратно.</p>
                 <p class="price">от 2 500 тг/час <br>(обсуждается)</p>
             </div>
-
-<div class="card" data-aos="fade-up" data-aos-delay="250">
-                <i class="fas fa-hammer icon"></i>
-                <h3>Доставка строительных материалов</h3>
-                <p>Перевозка стройматериалов любого объема и веса. Гарантируем сохранность и своевременность доставки на объект.</p>
-                <p class="price">от 6 000 тг/час</p>
-            </div>
-
-<div class="card" data-aos="fade-up" data-aos-delay="350">
-                <i class="fas fa-dumpster icon"></i>
-                <h3>Вывоз мусора</h3>
-                <p>Оперативный вывоз строительного и бытового мусора. Утилизация старой мебели и техники. Работаем чисто и в соответствии с нормами.</p>
-                <p class="price">от 15 000 тг</p>
-            </div>
-
-<div class="card" data-aos="fade-up" data-aos-delay="450">
-                <i class="fas fa-people-carry-box icon"></i>
-                <h3>Услуги грузчиков</h3>
-                <p>Профессиональные грузчики для погрузки, разгрузки и перемещения любых видов грузов. Работаем быстро и аккуратно.</p>
-                <p class="price">от 2 500 тг/час <br>(обсуждается)</p>
-            </div>
 </div>
 
-        <div class="cards-grid">
-</div>
-            </section>
+        </section>
     
     <div id="premium-modal" class="modal-overlay">
         <div class="modal-content card--premium">
