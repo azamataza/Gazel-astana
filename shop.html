@@ -1569,6 +1569,20 @@ header h1 {
 </style>
 <!-- END FIX -->
 
+
+<!-- PATCH: ensure content not hidden under floating header and stable price column -->
+<style>
+:root { --site-header-height: 70px; }
+.floating-header { position: fixed !important; top:0; left:0; right:0; z-index:12000 !important; }
+.container { margin-top: calc(var(--site-header-height) + 12px) !important; }
+body { padding-top: 0 !important; } /* avoid double padding rules */
+.card .price, .price { min-width:110px !important; text-align:right !important; white-space:nowrap; }
+.category { scroll-margin-top: calc(var(--site-header-height) + 12px) !important; }
+@media (max-width:520px){
+  .card > div:first-child { flex-direction:row !important; gap:8px !important; align-items:center !important; }
+  .card .price { min-width:100px !important; }
+}
+</style>
 </head>
 
 <body>
@@ -1902,6 +1916,33 @@ updateCartUI();
   const cb = document.getElementById('cart-button');
   if(cb){
     cb.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCartPanel(); } });
+  }
+})();
+</script>
+
+
+<!-- PATCH SCRIPT: sync CSS variable with actual header height -->
+<script>
+(function(){
+  function syncHeaderHeight(){
+    var header = document.querySelector('.floating-header') || document.querySelector('.header') || document.querySelector('#header');
+    if(!header) return;
+    var h = header.getBoundingClientRect().height || 70;
+    document.documentElement.style.setProperty('--site-header-height', Math.ceil(h) + 'px');
+    // also ensure container margin matches
+    var c = document.querySelector('.container');
+    if(c) c.style.marginTop = (Math.ceil(h) + 12) + 'px';
+    // adjust scroll-margin for anchors
+    document.querySelectorAll('h1,h2,.section,section,.category').forEach(function(el){
+      el.style.scrollMarginTop = (Math.ceil(h) + 12) + 'px';
+    });
+  }
+  window.addEventListener('load', syncHeaderHeight);
+  window.addEventListener('resize', syncHeaderHeight);
+  // watch for dynamic changes
+  var header = document.querySelector('.floating-header');
+  if(header){
+    new MutationObserver(syncHeaderHeight).observe(header, {attributes:true, childList:true, subtree:true});
   }
 })();
 </script>
