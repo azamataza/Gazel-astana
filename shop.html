@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
 
-  body { font-family: 'Open Sans', sans-serif; margin:0; background:#f0f4f8; color:#222; -webkit-font-smoothing:antialiased; }
+  body {
+  padding-top: 140px !important; font-family: 'Open Sans', sans-serif; margin:0; background:#f0f4f8; color:#222; -webkit-font-smoothing:antialiased; }
   .floating-header { position:fixed; top:0; left:0; right:0; background:rgba(26,35,126,0.98); color:#fff; display:flex;align-items:center;justify-content:space-between;padding:12px 18px; z-index:1000; box-shadow:0 4px 18px rgba(10,20,40,0.2); }
   .floating-header .left { display:flex;align-items:center;gap:12px;}
   .floating-header a, .floating-header .shop-btn { color:#fff; text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-family:'Montserrat',sans-serif;}
@@ -272,6 +273,7 @@
     }
 
     body {
+  padding-top: 140px !important;
         font-family: 'Open Sans', sans-serif;
         background-color: #f0f4f8; /* Очень светлый серый/голубой */
         color: #333;
@@ -1443,7 +1445,8 @@ header h1 {
         padding: 8px 10px;
     }
     /* make sure header content isn't hidden under floating header */
-    body { padding-top: 64px; }
+    body {
+  padding-top: 140px !important; padding-top: 64px; }
 }
 
 /* Responsive cards grid: make sure layout is stable and shows up to 2 columns on small screens */
@@ -1479,6 +1482,7 @@ header h1 {
     flex-shrink: 0;
 }
 .cards-grid .card .card-body {
+  padding-top: 140px !important;
     flex: 1 1 auto;
 }
 
@@ -1509,7 +1513,8 @@ header h1 {
 <style>
 @media (max-width: 768px) {
   /* Keep one consistent offset so the fixed header does not create a huge gap */
-  body { padding-top: 70px !important; }
+  body {
+  padding-top: 140px !important; padding-top: 70px !important; }
   /* Ensure container doesn't add extra top margin */
   .container { margin-top: 0 !important; }
   /* Make sure header's internal padding is normal */
@@ -1553,7 +1558,8 @@ header h1 {
 /* Mobile & tablet: ensure there is a visible offset when the page opens */
 @media (max-width: 768px){
   /* If a fixed header exists, push the main container down so it's not hidden */
-  body { padding-top: 0 !important; } /* avoid conflicts with other rules */
+  body {
+  padding-top: 140px !important; padding-top: 0 !important; } /* avoid conflicts with other rules */
   .container { margin-top: calc(var(--fh-height-mobile) + 10px) !important; }
   /* Also make sure the header itself doesn't add extra unexpected spacing */
   header.main-head { margin-top: 0 !important; }
