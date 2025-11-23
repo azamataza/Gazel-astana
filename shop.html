@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-  
+
   body { font-family: 'Open Sans', sans-serif; margin:0; background:#f0f4f8; color:#222; -webkit-font-smoothing:antialiased; }
   .floating-header { position:fixed; top:0; left:0; right:0; background:rgba(26,35,126,0.98); color:#fff; display:flex;align-items:center;justify-content:space-between;padding:12px 18px; z-index:1000; box-shadow:0 4px 18px rgba(10,20,40,0.2); }
   .floating-header .left { display:flex;align-items:center;gap:12px;}
@@ -27,20 +27,58 @@
   .btn { background:#1a237e; color:#fff; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; font-family:'Montserrat',sans-serif; }
   .btn.whatsapp { background:#25D366; color:#fff; display:inline-flex; gap:8px; align-items:center; }
   .small { background:#f1f3f8;border:1px solid #e4e7ef;padding:8px 10px;border-radius:8px; cursor:pointer; font-weight:600; }
-  .cart-panel { position:fixed; right:18px; bottom:18px; width:340px; max-width:calc(100% - 36px); background:#fff; border-radius:14px; box-shadow:0 18px 40px rgba(10,20,40,0.12); padding:14px; z-index:1001; transition:transform .25s ease; }
+  /* Cart panel (hidden by default). Will be toggled by cart button or view button */
+  .cart-panel { position:fixed; right:18px; bottom:74px; width:340px; max-width:calc(100% - 36px); background:#fff; border-radius:14px; box-shadow:0 18px 40px rgba(10,20,40,0.12); padding:14px; z-index:1001; transition:transform .25s ease,opacity .25s ease; display:none; }
   .cart-header { display:flex; align-items:center; justify-content:space-between; gap:8px; }
   .cart-items { max-height:260px; overflow:auto; margin-top:8px; }
   .cart-item { display:flex; justify-content:space-between; gap:8px; padding:10px 0; border-bottom:1px solid #f1f3f8; }
   .total { font-weight:900; margin-top:12px; font-size:1.06rem; color:#1a237e; }
   .badge { background:#ff9900;color:#fff;padding:4px 8px;border-radius:999px;font-size:0.85rem; margin-left:6px; font-weight:700; }
   .back-link { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#1a237e; border:1px solid #1a237e; padding:8px 12px; border-radius:10px; background:#fff; font-weight:700; font-family:'Montserrat',sans-serif;}
+  /* Floating cart button */
+  .cart-button {
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:1002;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#1a237e;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 30px rgba(10,20,40,0.18);
+    cursor:pointer;
+    border:none;
+    font-size:20px;
+  }
+  .cart-button .cart-badge {
+    position:absolute;
+    top:-6px;
+    right:-6px;
+    background:#ff9900;
+    color:#fff;
+    min-width:22px;
+    height:22px;
+    padding:0 6px;
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:12px;
+    box-shadow:0 4px 12px rgba(10,20,40,0.15);
+  }
   /* mobile improvements */
   @media (max-width:900px){
     .container { margin:100px 12px 90px; }
     .cards{ grid-template-columns: repeat(2,minmax(0,1fr)); gap:12px; }
     .card{ padding:12px; border-radius:10px; }
     .floating-header { padding:10px 12px; }
-    .cart-panel { right:12px; left:12px; bottom:12px; width:auto; border-radius:12px; padding:12px; }
+    .cart-panel { right:12px; left:12px; bottom:74px; width:auto; border-radius:12px; padding:12px; }
+    .cart-button { right:12px; bottom:12px; width:56px; height:56px; }
   }
   @media (max-width:520px){
     .cards{ grid-template-columns: 1fr; }
@@ -50,7 +88,8 @@
     .floating-header .left a span { display:none; } /* hide text in header buttons to save space */
     header.main-head { padding:20px 12px; }
     .container { margin:90px 10px 140px; }
-    .cart-panel { position:fixed; left:8px; right:8px; bottom:8px; width:auto; border-radius:12px; padding:12px; }
+    .cart-panel { left:8px; right:8px; bottom:84px; width:auto; border-radius:12px; padding:12px; }
+    .cart-button { right:8px; bottom:18px; width:56px; height:56px; }
   }
 
 </style>
@@ -73,7 +112,6 @@
       <div style="margin-top:12px;"><a href="index.html" class="back-link">← На главную</a></div>
     </header>
 
-    <!-- Редактируемый блок товаров: правь цены здесь -->
     <script id="product-data" type="application/json">
 [
   {
@@ -116,14 +154,13 @@
 ]
 </script>
 
-    <!-- Контент: категории будут отрисованы скриптом -->
     <div id="catalog"></div>
 
     <p style="margin-top:26px;color:#666;font-size:0.95rem;">Подсказка: чтобы изменить цену, открой этот файл (shop_from_zero.html) в любом текстовом редакторе, найди блок &lt;script id="product-data"&gt; и измени число "price" для нужных товаров. Сохрани — и обнови страницу.</p>
   </div>
 
-  <!-- Плавающая корзина -->
-  <div id="cart" class="cart-panel" style="display:none;">
+  <!-- Плавающая корзина (панель) -->
+  <div id="cart" class="cart-panel" aria-hidden="true">
     <div class="cart-header">
       <strong>Корзина</strong>
       <div>
@@ -143,6 +180,12 @@
       </div>
     </div>
   </div>
+
+  <!-- Плавающая кнопка корзины (не разворачивает панель сама по себе) -->
+  <button id="cart-button" class="cart-button" title="Открыть корзину" aria-label="Открыть корзину" style="display:none;">
+    <i class="fas fa-shopping-cart"></i>
+    <div id="cart-button-badge" class="cart-badge" style="display:none;">0</div>
+  </button>
 
 <script>
 /* Загрузка товаров из JSON-блока (редактируй цены прямо в файле) */
@@ -222,9 +265,10 @@ function updateCartUI(){
   if(keys.length===0){
     itemsDiv.innerHTML = '<div style="color:#666">Корзина пуста</div>';
     document.getElementById('cart-total').textContent = 'Итого: 0 тг';
+    // hide panel when empty and hide floating button
     panel.style.display = 'none';
+    panel.setAttribute('aria-hidden','true');
   } else {
-    panel.style.display = 'block';
     let total = 0;
     keys.forEach(id=>{
       // find item
@@ -252,6 +296,8 @@ function updateCartUI(){
       total += item.price * qty;
     });
     document.getElementById('cart-total').textContent = 'Итого: ' + formatPrice(total);
+    // panel remains hidden until user opens it; do not force-open on add
+    panel.setAttribute('aria-hidden','true');
   }
   // update small qty indicators in catalog
   DATA.forEach(cat=>{
@@ -265,12 +311,12 @@ function updateCartUI(){
 
 /* Utilities to change cart */
 function addToCart(id, qty=1){
-  // open cart panel briefly on mobile
-  try{ document.getElementById('cart').style.display='block'; }catch(e){}
-
+  // don't auto-open panel anymore; just update cart
   cart[id] = (cart[id]||0) + qty;
   if(cart[id] <= 0) delete cart[id];
   saveCart(); updateCartUI(); updateBadgeTop();
+  // small feedback without huge panel
+  flashAddedFeedback(id);
 }
 function removeFromCart(id){ delete cart[id]; saveCart(); updateCartUI(); updateBadgeTop(); }
 function changeQty(id, delta){
@@ -280,31 +326,48 @@ function changeQty(id, delta){
 }
 function clearCart(){ cart = {}; saveCart(); updateCartUI(); updateBadgeTop(); }
 
-/* Badge on header */
+/* Badge on header and floating button */
 function updateBadgeTop(){
   const b = document.getElementById('badge-top');
-  const c = cartCount();
-  if(c>0){ b.style.display='inline-block'; b.textContent = c; } else { b.style.display='none'; }
+  const count = cartCount();
+  const cartButton = document.getElementById('cart-button');
+  const cartBadge = document.getElementById('cart-button-badge');
+  if(count>0){ 
+    if(b){ b.style.display='inline-block'; b.textContent = count; } 
+    if(cartButton){ cartButton.style.display='flex'; cartBadge.style.display='flex'; cartBadge.textContent = count; }
+  } else { 
+    if(b){ b.style.display='none'; } 
+    if(cartButton){ cartButton.style.display='none'; cartBadge.style.display='none'; cartBadge.textContent = ''; }
+  }
+}
+
+/* Small transient feedback when adding */
+function flashAddedFeedback(id){
+  // find add button and briefly change text
+  const btn = document.querySelector('.btn.add[data-id="'+id+'"]');
+  if(!btn) return;
+  const orig = btn.textContent;
+  btn.textContent = 'Добавлено';
+  setTimeout(()=>{ btn.textContent = orig; }, 900);
 }
 
 /* Event bindings */
 document.addEventListener('click', function(e){
   const btn = e.target;
-  if(btn.matches('.btn.add')){
-    const id = btn.dataset.id; addToCart(id,1); alert('Добавлено в корзину'); return;
+  // button or inside button elements
+  const addBtn = btn.closest ? btn.closest('.btn.add') : null;
+  if(addBtn && addBtn.matches('.btn.add')){
+    const id = addBtn.dataset.id; addToCart(id,1); return;
   }
-  if(btn.matches('.inc')){
-    const id = btn.dataset.id; changeQty(id,1); return;
-  }
-  if(btn.matches('.dec')){
-    const id = btn.dataset.id; changeQty(id,-1); return;
-  }
-  if(btn.matches('.small.remove')){
-    const id = btn.dataset.id; removeFromCart(id); return;
-  }
+  const inc = btn.closest ? btn.closest('.inc') : null;
+  if(inc && inc.matches('.inc')){ const id = inc.dataset.id; changeQty(id,1); return; }
+  const dec = btn.closest ? btn.closest('.dec') : null;
+  if(dec && dec.matches('.dec')){ const id = dec.dataset.id; changeQty(id,-1); return; }
+  const rem = btn.closest ? btn.closest('.small.remove') : null;
+  if(rem && rem.matches('.small.remove')){ const id = rem.dataset.id; removeFromCart(id); return; }
   if(btn.id === 'clear-cart'){ if(confirm('Очистить корзину?')) clearCart(); return; }
-  if(btn.id === 'close-cart'){ document.getElementById('cart').style.display='none'; return; }
-  if(btn.id === 'view-cart-toggle'){ document.getElementById('cart').style.display='block'; return; }
+  if(btn.id === 'close-cart'){ document.getElementById('cart').style.display='none'; document.getElementById('cart').setAttribute('aria-hidden','true'); return; }
+  if(btn.id === 'view-cart-toggle'){ toggleCartPanel(true); return; }
   if(btn.id === 'checkout'){
     // build text
     const keys = Object.keys(cart);
@@ -324,14 +387,40 @@ document.addEventListener('click', function(e){
     window.open(url, '_blank');
     return;
   }
+  // cart button click (may be icon inside)
+  const cartBtn = btn.closest ? btn.closest('#cart-button') : null;
+  if(cartBtn && cartBtn.id === 'cart-button'){ toggleCartPanel(); return; }
 });
+
+/* Toggle cart panel visibility */
+function toggleCartPanel(show){
+  const panel = document.getElementById('cart');
+  if(show === undefined) show = (panel.style.display === 'none' || panel.getAttribute('aria-hidden') === 'true');
+  if(show){
+    updateCartUI(); // refresh contents
+    panel.style.display = 'block';
+    panel.setAttribute('aria-hidden','false');
+    // ensure panel is above cart button
+    panel.focus && panel.focus();
+  } else {
+    panel.style.display = 'none';
+    panel.setAttribute('aria-hidden','true');
+  }
+}
 
 /* init */
 loadCart();
 renderCatalog();
 updateCartUI();
+
+/* attach cart-button behaviour */
+(function(){
+  const cb = document.getElementById('cart-button');
+  if(cb){
+    cb.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCartPanel(); } });
+  }
+})();
 </script>
 
 </body>
 </html>
-
