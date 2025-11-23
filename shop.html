@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Gruzim.kz | Магазин — Упаковочные материалы</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
 <style>
 
   body {
@@ -1508,7 +1509,6 @@ header h1 {
 }
 
 </style>
-
 <!-- Fixed: unified header spacing for mobile -->
 <style>
 @media (max-width: 768px) {
@@ -1521,8 +1521,6 @@ header h1 {
   header { padding-top: 12px !important; }
 }
 </style>
-
-
 <!-- FIXES: prevent floating header from covering lower sections and align prices in mobile -->
 <style>
 /* Ensure sections are not hidden under fixed header when opening links/scrolling */
@@ -1543,8 +1541,6 @@ header h1 {
   .card .meta, .card .price { align-self:center; }
 }
 </style>
-
-
 <!-- FIX ADDED: ensure consistent top offset on mobile so header doesn't overlap content -->
 <style>
 :root{
@@ -1568,8 +1564,6 @@ header h1 {
 }
 </style>
 <!-- END FIX -->
-
-
 <!-- PATCH: ensure content not hidden under floating header and stable price column -->
 <style>
 :root { --site-header-height: 70px; }
@@ -1584,33 +1578,29 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
 }
 </style>
 </head>
-
 <body>
 <header class="floating-header">
-        <div class="floating-header-content">
-            <div class="header-left">
-                <img src="Logo.png" alt="Логотип Gruzim.kz" class="floating-logo">
-                <div class="language-switcher">
-                    <a href="index.html" class="lang-btn active">РУС</a>
-                    <a href="indexkz.html" class="lang-btn">ҚАЗ</a>
-                </div>
-            </div>
-                <a href="index.html" class="lang-btn shop-link mobile-shop-link" style="display:none; margin-top:8px; font-weight:700;">НА ГЛАВНУЮ</a>
-            
-<a href="tel:+77767469606" class="header-phone" data-phone-type="floating-header">
-    <i class="fas fa-phone"></i>
+<div class="floating-header-content">
+<div class="header-left">
+<img alt="Логотип Gruzim.kz" class="floating-logo" src="Logo.png"/>
+<div class="language-switcher">
+<a class="lang-btn active" href="index.html">РУС</a>
+<a class="lang-btn" href="indexkz.html">ҚАЗ</a>
+</div>
+</div>
+<a class="lang-btn shop-link mobile-shop-link" href="index.html" style="display:none; margin-top:8px; font-weight:700;">НА ГЛАВНУЮ</a>
+<a class="header-phone" data-phone-type="floating-header" href="tel:+77767469606">
+<i class="fas fa-phone"></i>
     +7 (776) 746-96-06
 </a>
-        </div>
-    </header>
+</div>
+</header>
 <div class="container">
-    <header class="main-head">
-      <h1>Gruzim.kz | Магазин упаковочных материалов</h1>
-      <p class="lead">Комплектуем переезд: качественная упаковка быстрая доставка.</p>
-      
-    </header>
-
-    <script id="product-data" type="application/json">
+<header class="main-head">
+<h1>Gruzim.kz | Магазин упаковочных материалов</h1>
+<p class="lead">Комплектуем переезд: качественная упаковка быстрая доставка.</p>
+</header>
+<script id="product-data" type="application/json">
 [
   {
     "category": "Коробки",
@@ -1651,40 +1641,35 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
   }
 ]
 </script>
-
-    <div id="catalog"></div>
-
-    <p style="margin-top:26px;color:#666;font-size:0.95rem;"></p>
-  </div>
-
-  <!-- Плавающая корзина (панель) -->
-  <div id="cart" class="cart-panel" aria-hidden="true">
-    <div class="cart-header">
-      <strong>Корзина</strong>
-      <div>
-        <button id="clear-cart" class="small">Очистить</button>
-        <button id="close-cart" class="small">✕</button>
-      </div>
-    </div>
-    <div class="cart-items" id="cart-items"></div>
-    <div>
-      <div class="total" id="cart-total">Итого: 0 тг</div>
-      <div style="margin-top:8px;">
-        <input id="order-comment" placeholder="Адрес или комментарий (необязательно)" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6e9f2;margin-top:8px;">
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px;">
-        <button id="checkout" class="btn whatsapp" style="flex:1;"><i class="fab fa-whatsapp"></i> Оформить через WhatsApp</button>
-        <button id="view-cart-toggle" class="btn" style="background:#1a237e;">Показать</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Плавающая кнопка корзины (не разворачивает панель сама по себе) -->
-  <button id="cart-button" class="cart-button" title="Открыть корзину" aria-label="Открыть корзину" style="display:none;">
-    <i class="fas fa-shopping-cart"></i>
-    <div id="cart-button-badge" class="cart-badge" style="display:none;">0</div>
-  </button>
-
+<div id="catalog"></div>
+<p style="margin-top:26px;color:#666;font-size:0.95rem;"></p>
+</div>
+<!-- Плавающая корзина (панель) -->
+<div aria-hidden="true" class="cart-panel" id="cart">
+<div class="cart-header">
+<strong>Корзина</strong>
+<div>
+<button class="small" id="clear-cart">Очистить</button>
+<button class="small" id="close-cart">✕</button>
+</div>
+</div>
+<div class="cart-items" id="cart-items"></div>
+<div>
+<div class="total" id="cart-total">Итого: 0 тг</div>
+<div style="margin-top:8px;">
+<input id="order-comment" placeholder="Адрес или комментарий (необязательно)" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6e9f2;margin-top:8px;"/>
+</div>
+<div style="margin-top:10px;display:flex;gap:8px;">
+<button class="btn whatsapp" id="checkout" style="flex:1;"><i class="fab fa-whatsapp"></i> Оформить через WhatsApp</button>
+<button class="btn" id="view-cart-toggle" style="background:#1a237e;">Показать</button>
+</div>
+</div>
+</div>
+<!-- Плавающая кнопка корзины (не разворачивает панель сама по себе) -->
+<button aria-label="Открыть корзину" class="cart-button" id="cart-button" style="display:none;" title="Открыть корзину">
+<i class="fas fa-shopping-cart"></i>
+<div class="cart-badge" id="cart-button-badge" style="display:none;">0</div>
+</button>
 <script>
 /* Загрузка товаров из JSON-блока (редактируй цены прямо в файле) */
 function loadProductData(){
@@ -1919,8 +1904,6 @@ updateCartUI();
   }
 })();
 </script>
-
-
 <!-- PATCH SCRIPT: sync CSS variable with actual header height -->
 <script>
 (function(){
@@ -1946,16 +1929,12 @@ updateCartUI();
   }
 })();
 </script>
-
-
 <footer>
-    &copy; 2019-2025 gruzim.kz. Все права защищены.
-    <br>
-    <a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> |
+    © 2019-2025 gruzim.kz. Все права защищены.
+    <br/>
+<a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> |
     <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
 </footer>
-
-
 <!-- BEGIN: Cart UX enhancements inserted by assistant -->
 <style>
 /* Always show floating cart button and badge */
@@ -2031,15 +2010,13 @@ updateCartUI();
   overflow-y: auto;
 }
 </style>
-
 <!-- Modal container for mobile fullscreen cart -->
-<div id="cart-fullscreen-modal" aria-hidden="true" role="dialog" aria-label="Корзина">
-  <button class="close-cart" aria-label="Закрыть корзину">✕</button>
-  <div class="cart-contents" id="cart-contents-clone">
-    <!-- cloned cart content will be injected here -->
-  </div>
+<div aria-hidden="true" aria-label="Корзина" id="cart-fullscreen-modal" role="dialog">
+<button aria-label="Закрыть корзину" class="close-cart">✕</button>
+<div class="cart-contents" id="cart-contents-clone">
+<!-- cloned cart content will be injected here -->
 </div>
-
+</div>
 <script>
 (function(){
   // Helpers
@@ -2224,7 +2201,6 @@ updateCartUI();
 })();
 </script>
 <!-- END: Cart UX enhancements inserted by assistant -->
-
 <!-- BEGIN: Fullscreen cart overlay injected by assistant -->
 <style>
 #cart-overlay-modal {
@@ -2296,30 +2272,28 @@ updateCartUI();
   #cart-overlay-modal { padding:8px; }
 }
 </style>
-
-<div id="cart-overlay-modal" role="dialog" aria-label="Корзина">
-  <div class="overlay-inner" id="cart-overlay-inner">
-    <div class="overlay-header">
-      <strong style="font-size:1.1rem;">Корзина</strong>
-      <div style="display:flex;gap:8px;align-items:center;">
-        <button id="cart-overlay-clear" class="btn btn-secondary" title="Очистить корзину">Очистить</button>
-        <button class="close-x" id="cart-overlay-close" aria-label="Закрыть корзину">✕</button>
-      </div>
-    </div>
-    <div class="overlay-body" id="cart-overlay-body">
-      <!-- cart content cloned here -->
-    </div>
-    <div class="overlay-footer">
-      <div style="flex:1;">
-        <div id="cart-overlay-total" style="font-weight:900;color:#1a237e;">Итого: 0 тг</div>
-      </div>
-      <div style="flex:0 0 320px;">
-        <a id="cart-overlay-whatsapp" class="whatsapp-order whatsapp" href="#" target="_blank" rel="noopener"> <i class="fab fa-whatsapp"></i> Заказать через WhatsApp</a>
-      </div>
-    </div>
-  </div>
+<div aria-label="Корзина" id="cart-overlay-modal" role="dialog">
+<div class="overlay-inner" id="cart-overlay-inner">
+<div class="overlay-header">
+<strong style="font-size:1.1rem;">Корзина</strong>
+<div style="display:flex;gap:8px;align-items:center;">
+<button class="btn btn-secondary" id="cart-overlay-clear" title="Очистить корзину">Очистить</button>
+<button aria-label="Закрыть корзину" class="close-x" id="cart-overlay-close">✕</button>
 </div>
-
+</div>
+<div class="overlay-body" id="cart-overlay-body">
+<!-- cart content cloned here -->
+</div>
+<div class="overlay-footer">
+<div style="flex:1;">
+<div id="cart-overlay-total" style="font-weight:900;color:#1a237e;">Итого: 0 тг</div>
+</div>
+<div style="flex:0 0 320px;">
+<a class="whatsapp-order whatsapp" href="#" id="cart-overlay-whatsapp" rel="noopener" target="_blank"> <i class="fab fa-whatsapp"></i> Заказать через WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
 <script>
 // Helper to open overlay and clone cart content
 (function(){
@@ -2429,6 +2403,5 @@ updateCartUI();
 })();
 </script>
 <!-- END: Fullscreen cart overlay injected by assistant -->
-
 </body>
 </html>
