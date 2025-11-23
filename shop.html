@@ -1517,6 +1517,28 @@ header h1 {
 }
 </style>
 
+
+<!-- FIXES: prevent floating header from covering lower sections and align prices in mobile -->
+<style>
+/* Ensure sections are not hidden under fixed header when opening links/scrolling */
+.category { padding-top: 12px; scroll-margin-top: 90px; }
+
+/* Make price column stable and right-aligned */
+.card { --price-col-width: 96px; }
+.card > div:first-child { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.card .price { min-width: var(--price-col-width); text-align:right; display:block; }
+
+/* Mobile adjustments: keep prices in a single column and prevent wrapping */
+@media (max-width:520px) {
+  .card > div:first-child { flex-direction:row; gap:8px; }
+  .card .price { min-width: 100px; white-space:nowrap; }
+  .meta { flex:1 1 auto; }
+  .add-controls { flex-shrink:0; }
+  /* ensure unit and price align vertically */
+  .card .meta, .card .price { align-self:center; }
+}
+</style>
+
 </head>
 
 <body>
