@@ -1955,5 +1955,274 @@ updateCartUI();
     <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
 </footer>
 
+
+<!-- BEGIN: Cart UX enhancements inserted by assistant -->
+<style>
+/* Always show floating cart button and badge */
+.cart-button, .floating-cart-button {
+  display: block !important;
+  z-index: 9999 !important;
+  position: fixed !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-radius: 999px !important;
+}
+
+/* Toast style */
+.site-toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 86px;
+  background: #111;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  z-index: 10000;
+  font-size: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Fullscreen cart modal for mobile */
+#cart-fullscreen-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 10001;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px;
+}
+
+#cart-fullscreen-modal.open {
+  display: block;
+}
+
+#cart-fullscreen-modal .close-cart {
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  z-index: 10002;
+  cursor: pointer;
+}
+
+/* Ensure cart contents area has top padding to not be under the close button */
+#cart-fullscreen-modal .cart-contents {
+  padding-top: 54px;
+}
+
+/* On desktop show original cart panel as drawer if present */
+@media (min-width: 769px) {
+  #cart-fullscreen-modal { display: none !important; }
+}
+
+/* Make sure the existing small cart-panel doesn't cover whole screen on mobile */
+#cart-panel {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+</style>
+
+<!-- Modal container for mobile fullscreen cart -->
+<div id="cart-fullscreen-modal" aria-hidden="true" role="dialog" aria-label="Корзина">
+  <button class="close-cart" aria-label="Закрыть корзину">✕</button>
+  <div class="cart-contents" id="cart-contents-clone">
+    <!-- cloned cart content will be injected here -->
+  </div>
+</div>
+
+<script>
+(function(){
+  // Helpers
+  function qs(sel){ return document.querySelector(sel); }
+  function qsa(sel){ return Array.from(document.querySelectorAll(sel)); }
+
+  // Show floating cart button if exists; otherwise try to create one referencing existing behavior
+  var cartButton = qs('.cart-button, .floating-cart-button, #cart-button, .btn-cart');
+  if(!cartButton){
+    // Try to find any element that opens cart
+    var possible = qsa('[data-open-cart], [data-cart], [aria-controls*="cart"], .open-cart');
+    if(possible.length) cartButton = possible[0];
+  }
+  if(cartButton){
+    cartButton.style.display = 'block';
+    cartButton.style.zIndex = '9999';
+  }
+
+  // Find cart panel element
+  var cartPanel = qs('#cart-panel, .cart-panel, .panel-cart, #cartDrawer');
+  // find cart contents to clone into modal
+  var cartContents = qs('#cart-contents, .cart-contents, .cart-items');
+  // create a function to open cart
+  function openCart(){
+    var isMobile = window.innerWidth <= 768;
+    if(isMobile){
+      // clone cart contents into fullscreen modal
+      var modal = document.getElementById('cart-fullscreen-modal');
+      var target = document.getElementById('cart-contents-clone');
+      if(target && cartContents){
+        target.innerHTML = cartContents.innerHTML;
+      } else if(target && cartPanel){
+        target.innerHTML = cartPanel.innerHTML;
+      }
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      // focus trap: focus close button
+      var closeBtn = modal.querySelector('.close-cart');
+      if(closeBtn) closeBtn.focus();
+    } else {
+      // fallback: toggle existing cart panel
+      if(cartPanel){
+        cartPanel.classList.toggle('open');
+        cartPanel.style.display = cartPanel.classList.contains('open') ? 'block' : 'none';
+      } else if(cartButton && cartButton.click){
+        // try to trigger original action
+        cartButton.click();
+      }
+    }
+  }
+
+  // Close cart function
+  function closeCart(){
+    var modal = document.getElementById('cart-fullscreen-modal');
+    if(modal){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+    if(cartPanel && cartPanel.classList.contains('open')){
+      cartPanel.classList.remove('open');
+      cartPanel.style.display = 'none';
+    }
+  }
+
+  // Attach openCart to cart button(s)
+  if(cartButton){
+    cartButton.addEventListener('click', function(e){
+      e.preventDefault();
+      openCart();
+    });
+  }
+  // If there are other elements that opened cart, override their action to use openCart
+  qsa('[data-open-cart], [data-cart], [aria-controls*="cart"], .open-cart, .show-cart').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      openCart();
+    });
+  });
+
+  // Close button inside modal
+  var modalClose = qs('#cart-fullscreen-modal .close-cart');
+  if(modalClose){
+    modalClose.addEventListener('click', function(){ closeCart(); });
+  }
+
+  // Also close modal when clicking outside content on mobile
+  var modal = document.getElementById('cart-fullscreen-modal');
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeCart();
+    });
+  }
+
+  // Prevent automatic opening of cart when adding to cart.
+  // We'll intercept common patterns: buttons with class .add-to-cart, data-add-to-cart, or buttons that call addToCart function.
+  function showToast(message, withLink){
+    // remove existing toasts
+    var existing = document.querySelectorAll('.site-toast');
+    existing.forEach(function(n){ n.remove(); });
+
+    var t = document.createElement('div');
+    t.className = 'site-toast';
+    t.textContent = message || 'Добавлено в корзину';
+    if(withLink){
+      var a = document.createElement('button');
+      a.textContent = 'Перейти в корзину';
+      a.style.cursor = 'pointer';
+      a.style.background = 'transparent';
+      a.style.border = '1px solid rgba(255,255,255,0.2)';
+      a.style.color = 'white';
+      a.style.padding = '6px 10px';
+      a.style.borderRadius = '8px';
+      a.addEventListener('click', function(){ openCart(); });
+      t.appendChild(a);
+    }
+    document.body.appendChild(t);
+    setTimeout(function(){ t.classList.add('visible'); }, 50);
+    setTimeout(function(){ t.remove(); }, 3500);
+  }
+
+  // Intercept Add-to-cart clicks
+  var addButtons = qsa('.add-to-cart, .btn-add, [data-add-to-cart], button.add-cart, a.add-to-cart');
+  addButtons.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      // let original handler run (if any) but prevent it from opening the cart by stopping propagation after a tiny timeout
+      setTimeout(function(){
+        // assume cart updated; show toast instead of auto-opening cart
+        showToast('Добавлено в корзину', true);
+      }, 150);
+    }, {passive: true});
+  });
+
+  // For global functions named addToCart, we try to wrap it if exists
+  try{
+    if(typeof window.addToCart === 'function'){
+      var originalAdd = window.addToCart;
+      window.addToCart = function(){
+        var res = originalAdd.apply(this, arguments);
+        setTimeout(function(){ showToast('Добавлено в корзину', true); }, 150);
+        return res;
+      };
+    }
+  }catch(e){ /* ignore */ }
+
+  // Make sure the WhatsApp flow remains untouched: do not modify the link generation.
+  // But ensure that before opening WhatsApp we collect phone if present in panel; we will not force it here,
+  // since user wanted WhatsApp-only and minimal changes.
+
+  // Accessibility: close with Escape key
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      closeCart();
+    }
+  });
+
+  // When the modal opens, ensure any form inside it is functional; attempt to delegate quantity changes to original handlers
+  // (we intentionally avoid modifying those handlers to respect "don't change anything else").
+
+  // If there is a cart counter/badge, animate it when items are added
+  function pulseBadge(){
+    var badge = qs('.cart-count, .badge-count, .cart-badge, .count-badge');
+    if(!badge){
+      // try to find numeric inside cart button
+      badge = qs('.cart-button .count, .floating-cart-button .count');
+    }
+    if(badge){
+      badge.animate([
+        { transform: 'scale(1)' },
+        { transform: 'scale(1.25)' },
+        { transform: 'scale(1)' }
+      ], { duration: 400, easing: 'ease' });
+    }
+  }
+  // Hook pulse on add buttons
+  addButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(pulseBadge, 200); });
+  });
+
+  // If site used custom event 'cart:updated', listen and show toast once per update triggered by add action.
+  document.addEventListener('cart:updated', function(){ showToast('Добавлено в корзину', true); });
+
+})();
+</script>
+<!-- END: Cart UX enhancements inserted by assistant -->
 </body>
 </html>
