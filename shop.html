@@ -92,12 +92,10 @@
     .cart-button { right:8px; bottom:18px; width:56px; height:56px; }
   }
 
-
 .floating-logo { max-height:48px; height:auto; }
 @media (max-width:520px){
   .floating-logo { max-height:38px; }
 }
-
 
   .shop-btn { background: #ff9900; color:#1a237e; font-weight:800; border-radius:22px; padding:10px 18px; text-decoration:none; box-shadow:0 6px 18px rgba(255,153,0,0.18); font-family:'Montserrat',sans-serif; }
   .lang-btn { color:#fff; text-decoration:none; font-weight:700; padding:6px 8px; border-radius:8px; opacity:0.95; }
@@ -179,11 +177,11 @@
   .lang-btn { padding:6px 8px; font-size:13px; }
   .phone-link { font-size:15px; }
   /* ensure content below header isn't hidden behind fixed header */
-  body { padding-top: 112px; } /* approximate header height; adjust if needed */
+   /* approximate header height; adjust if needed */
 }
 
 /* safety: if original page had top margin, keep it consistent */
-.container { margin-top: 120px; }
+
 </style>
 <style>
     /* --- Плавающая шапка --- */
@@ -634,7 +632,6 @@
             margin-right: 10px;
         }
 
-
         /* --- Стили для секции "Работа с юр. лицами" --- */
         .legal-entities-section {
             background-color: #f8f9fa; /* Очень светлый серый */
@@ -692,7 +689,6 @@
             color: #555;
         }
 
-
         /* --- Стили для контактов --- */
         .contact-section {
             background-color: #fff8e1; /* Очень светлый желтый */
@@ -733,7 +729,6 @@
             transform: translateY(-5px); /* Чуть большее поднятие */
             box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); /* Усиленная тень */
         }
-
 
         /* --- Подвал --- */
         footer {
@@ -883,7 +878,6 @@
         .reviews-list::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
-
 
         .review-item {
             border-bottom: 1px solid #eee;
@@ -1127,7 +1121,6 @@
             }
         }
 
-
         /* Новая анимация для плавного появления */
         @keyframes fadeIn {
             from {
@@ -1137,7 +1130,6 @@
                 opacity: 1;
             }
         }
-
 
         /* --- Стили для загрузочного значка --- */
         .loader-container {
@@ -1193,9 +1185,7 @@
         padding: 4px 10px;
         font-size: 0.8em;
     }
-    body {
-        padding-top: 55px;
-    }
+    
             .header-top {
                 flex-direction: column; /* Лого и заголовок друг под другом */
                 margin-bottom: 10px;
@@ -1398,7 +1388,6 @@ header h1 {
             margin-top: 25px; /* Отступ сверху от текста "Готовы к переезду..." */
         }
 
-    
 /* --- Mobile-specific shop link & logo highlight --- */
 @media (max-width: 480px) {
     .mobile-shop-link { display: inline-block !important; background: #ff9900; color: #fff; border-radius: 18px; padding: 6px 12px; box-shadow: 0 6px 18px rgba(255,153,0,0.35); border: 1px solid rgba(255,255,255,0.15); }
@@ -1407,24 +1396,18 @@ header h1 {
     header .header-logo { display: none !important; }
 }
 
-
 /* --- Fix: prevent floating header from overlapping main header on mobile --- */
 @media (max-width: 768px) {
     /* push the main header down on small screens to clear the fixed floating header */
-    header {
-        padding-top: 12px !important;
-    }
+    
 }
 @media (max-width: 480px) {
-    header {
-        padding-top: 12px !important;
-    }
+    
     /* ensure floating header stays on top but not covering content excessively */
     .floating-header {
         padding: 10px 12px;
     }
 }
-
 
 /* --- UI improvements added automatically --- */
 /* Ensure floating header sits above other header elements */
@@ -1469,7 +1452,6 @@ header h1 {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 18px;
 }
-
 
 /* --- Grid layout: 1 column on small screens, 2 on tablets, 3 on desktop --- */
 .cards-grid {
@@ -1522,9 +1504,21 @@ header h1 {
 }
 
 </style>
+
+<!-- Fixed: unified header spacing for mobile -->
+<style>
+@media (max-width: 768px) {
+  /* Keep one consistent offset so the fixed header does not create a huge gap */
+  body { padding-top: 70px !important; }
+  /* Ensure container doesn't add extra top margin */
+  .container { margin-top: 0 !important; }
+  /* Make sure header's internal padding is normal */
+  header { padding-top: 12px !important; }
+}
+</style>
+
 </head>
 <body>
-  
 
 <header class="floating-header">
         <div class="floating-header-content">
@@ -1566,7 +1560,6 @@ header h1 {
     <span id="badge-top" class="badge" style="display:none;"></span>
   </div>
 </div>
-    
 
   <div class="container">
     <header class="main-head">
