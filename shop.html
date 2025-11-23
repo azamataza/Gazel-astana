@@ -1539,6 +1539,30 @@ header h1 {
 }
 </style>
 
+
+<!-- FIX ADDED: ensure consistent top offset on mobile so header doesn't overlap content -->
+<style>
+:root{
+  --fh-height-desktop:110px;
+  --fh-height-mobile:70px;
+}
+/* Desktop: keep existing large top margin but compute from variable so it's consistent */
+@media (min-width: 769px){
+  .container { margin-top: calc(var(--fh-height-desktop) + 0px) !important; }
+}
+/* Mobile & tablet: ensure there is a visible offset when the page opens */
+@media (max-width: 768px){
+  /* If a fixed header exists, push the main container down so it's not hidden */
+  body { padding-top: 0 !important; } /* avoid conflicts with other rules */
+  .container { margin-top: calc(var(--fh-height-mobile) + 10px) !important; }
+  /* Also make sure the header itself doesn't add extra unexpected spacing */
+  header.main-head { margin-top: 0 !important; }
+  /* If other rules hide the mobile margin, this will keep sections readable on initial open */
+  .category { scroll-margin-top: calc(var(--fh-height-mobile) + 14px) !important; }
+}
+</style>
+<!-- END FIX -->
+
 </head>
 
 <body>
