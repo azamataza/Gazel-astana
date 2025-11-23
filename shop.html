@@ -2224,5 +2224,211 @@ updateCartUI();
 })();
 </script>
 <!-- END: Cart UX enhancements inserted by assistant -->
+
+<!-- BEGIN: Fullscreen cart overlay injected by assistant -->
+<style>
+#cart-overlay-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 20000;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  overflow: auto;
+  padding: 20px;
+}
+#cart-overlay-modal.open { display: flex; }
+#cart-overlay-modal .overlay-inner {
+  background: #fff;
+  width: 100%;
+  max-width: 820px;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  position: relative;
+  display:flex;
+  flex-direction:column;
+}
+#cart-overlay-modal .overlay-header {
+  padding: 18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom: 1px solid #eef1f7;
+}
+#cart-overlay-modal .overlay-body { padding: 18px 20px; flex:1 1 auto; overflow:auto; }
+#cart-overlay-modal .overlay-footer {
+  padding: 14px 20px;
+  border-top: 1px solid #eef1f7;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+}
+#cart-overlay-modal .close-x {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  line-height:1;
+}
+#cart-overlay-modal .whatsapp-order {
+  width:100%;
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  padding:12px 16px;
+  border-radius:10px;
+  font-weight:800;
+  font-family: 'Montserrat', sans-serif;
+  font-size:16px;
+  text-decoration:none;
+}
+#cart-overlay-modal .whatsapp-order.whatsapp { background:#25D366; color:#fff; border: none; }
+#cart-overlay-modal .overlay-footer .btn-secondary { background:#f1f3f8; border:1px solid #e6e9f2; padding:10px 14px; border-radius:8px; }
+@media (max-width:520px){
+  #cart-overlay-modal .overlay-inner { max-width: 100%; border-radius:8px; height: calc(100vh - 40px); max-height: calc(100vh - 40px); }
+  #cart-overlay-modal { padding:8px; }
+}
+</style>
+
+<div id="cart-overlay-modal" role="dialog" aria-label="Корзина">
+  <div class="overlay-inner" id="cart-overlay-inner">
+    <div class="overlay-header">
+      <strong style="font-size:1.1rem;">Корзина</strong>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button id="cart-overlay-clear" class="btn btn-secondary" title="Очистить корзину">Очистить</button>
+        <button class="close-x" id="cart-overlay-close" aria-label="Закрыть корзину">✕</button>
+      </div>
+    </div>
+    <div class="overlay-body" id="cart-overlay-body">
+      <!-- cart content cloned here -->
+    </div>
+    <div class="overlay-footer">
+      <div style="flex:1;">
+        <div id="cart-overlay-total" style="font-weight:900;color:#1a237e;">Итого: 0 тг</div>
+      </div>
+      <div style="flex:0 0 320px;">
+        <a id="cart-overlay-whatsapp" class="whatsapp-order whatsapp" href="#" target="_blank" rel="noopener"> <i class="fab fa-whatsapp"></i> Заказать через WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Helper to open overlay and clone cart content
+(function(){
+  function qs(s){ return document.querySelector(s); }
+  function qsa(s){ return Array.from(document.querySelectorAll(s)); }
+
+  var overlay = document.getElementById('cart-overlay-modal');
+  var overlayBody = document.getElementById('cart-overlay-body');
+  var overlayTotal = document.getElementById('cart-overlay-total');
+  var closeBtn = document.getElementById('cart-overlay-close');
+  var clearBtn = document.getElementById('cart-overlay-clear');
+  var whatsappBtn = document.getElementById('cart-overlay-whatsapp');
+
+  function updateOverlayFromCart(){
+    // clone content from existing cart-items if present, otherwise generate from current cart state if functions exist
+    var originItems = document.querySelector('#cart .cart-items, .cart-items');
+    var originTotal = document.getElementById('cart-total');
+    if(originItems){
+      overlayBody.innerHTML = originItems.innerHTML;
+    } else {
+      overlayBody.innerHTML = '<div style="color:#666">Корзина пуста</div>';
+    }
+    overlayTotal.textContent = originTotal ? originTotal.textContent.replace('Итого: ','Итого: ') : 'Итого: 0 тг';
+
+    // ensure buttons inside cloned content work by delegating events to original handlers
+    // attach simple listeners for qty change / remove if elements present
+    overlayBody.querySelectorAll('.inc, .dec, .remove').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        var id = btn.getAttribute('data-id');
+        // try to call original handlers if exist
+        if(typeof window.addToCart === 'function' && btn.classList.contains('inc')){
+          window.addToCart(id, 1);
+        } else if(typeof window.addToCart === 'function' && btn.classList.contains('dec')){
+          window.addToCart(id, -1);
+        } else {
+          // fallback: dispatch click to original element
+          var orig = document.querySelector('[data-id=\"'+id+'\"].inc, [data-id=\"'+id+'\"].dec, [data-id=\"'+id+'\"].remove');
+          if(orig) orig.click();
+        }
+        setTimeout(function(){ updateOverlayFromCart(); }, 120);
+      });
+    });
+
+    // update whatsapp link: try to collect text from order comment or total
+    var totalText = overlayTotal.textContent || '';
+    var comment = document.getElementById('order-comment') ? document.getElementById('order-comment').value : '';
+    var message = encodeURIComponent('Заказ с сайта Gruzim.kz. ' + totalText + (comment ? '\\nКомментарий: ' + comment : ''));
+    var phone = '+77767469606';
+    whatsappBtn.href = 'https://wa.me/' + phone.replace(/[^0-9]/g,'') + '?text=' + message;
+  }
+
+  function openOverlay(){
+    updateOverlayFromCart();
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeOverlay(){
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  // open when cart button or view-cart-toggle clicked
+  var triggers = qsa('#cart-button, .cart-button, #view-cart-toggle, [data-open-cart], .open-cart');
+  triggers.forEach(function(t){
+    t.addEventListener('click', function(e){
+      e.preventDefault();
+      openOverlay();
+    });
+  });
+
+  // also open when clicking existing "Показать" button in cart panel
+  var panelShow = document.getElementById('view-cart-toggle');
+  if(panelShow) panelShow.addEventListener('click', function(e){ e.preventDefault(); openOverlay(); });
+
+  // close handlers
+  if(closeBtn) closeBtn.addEventListener('click', closeOverlay);
+  if(overlay) overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeOverlay();
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeOverlay(); });
+
+  // clear button: try to trigger existing clear handler
+  if(clearBtn){
+    clearBtn.addEventListener('click', function(){
+      var orig = document.getElementById('clear-cart');
+      if(orig) orig.click();
+      // refresh overlay after short delay
+      setTimeout(updateOverlayFromCart, 120);
+    });
+  }
+
+  // when checkout inside original cart is clicked, forward to whatsapp link
+  var origCheckout = document.getElementById('checkout');
+  if(origCheckout){
+    origCheckout.addEventListener('click', function(e){
+      // open overlay or just redirect to whatsapp
+      var link = document.getElementById('cart-overlay-whatsapp');
+      if(link) { link.click(); }
+    });
+  }
+
+  // ensure overlay updates when cart updated (try to listen to custom event)
+  document.addEventListener('cart:updated', function(){ if(overlay.classList.contains('open')) updateOverlayFromCart(); });
+
+})();
+</script>
+<!-- END: Fullscreen cart overlay injected by assistant -->
+
 </body>
 </html>
