@@ -1,1 +1,2595 @@
+<!DOCTYPE html>
+
+<html lang="kk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Gruzim.kz | Дүкен — Орау материалдары</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<style>
+
+  body {
+  padding-top: 140px !important; font-family: 'Open Sans', sans-serif; margin:0; background:#f0f4f8; color:#222; -webkit-font-smoothing:antialiased; }
+  .floating-header { position:fixed; top:0; left:0; right:0; background:rgba(26,35,126,0.98); color:#fff; display:flex;align-items:center;justify-content:space-between;padding:12px 18px; z-index:1000; box-shadow:0 4px 18px rgba(10,20,40,0.2); }
+  .floating-header .left { display:flex;align-items:center;gap:12px;}
+  .floating-header a, .floating-header .shop-btn { color:#fff; text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-family:'Montserrat',sans-serif;}
+  .container { max-width:1100px; margin:110px auto 80px; padding:0 16px; }
+  header.main-head { text-align:center; padding:28px 14px; background:linear-gradient(180deg, rgba(26,35,126,0.95), rgba(26,35,126,0.88)); color:#fff; border-radius:8px; box-shadow:0 6px 20px rgba(26,35,126,0.06); }
+  h1 { font-family:'Montserrat',sans-serif; margin:0 0 8px; font-size:1.9rem; }
+  p.lead { margin:0; opacity:0.95; }
+  .category { margin-top:28px; }
+  .category h2 { font-family:'Montserrat',sans-serif; color:#1a237e; margin-bottom:12px; font-size:1.4rem; }
+  .cards { display:grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+  .card { background:#fff; padding:14px; border-radius:12px; box-shadow:0 8px 22px rgba(20,30,60,0.06); display:flex; flex-direction:column; gap:8px; min-height:120px; }
+  .card .meta { color:#6c757d; font-size:0.95rem; }
+  .price-row { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:6px; }
+  .price { font-weight:800; color:#ff9900; font-size:1.06rem; }
+  .add-controls { display:flex; gap:8px; align-items:center; }
+  .btn { background:#1a237e; color:#fff; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; font-family:'Montserrat',sans-serif; }
+  .btn.whatsapp { background:#25D366; color:#fff; display:inline-flex; gap:8px; align-items:center; }
+  .small { background:#f1f3f8;border:1px solid #e4e7ef;padding:8px 10px;border-radius:8px; cursor:pointer; font-weight:600; }
+  /* Cart panel (hidden by default). Will be toggled by cart button or view button */
+  .cart-panel { position:fixed; right:18px; bottom:74px; width:340px; max-width:calc(100% - 36px); background:#fff; border-radius:14px; box-shadow:0 18px 40px rgba(10,20,40,0.12); padding:14px; z-index:1001; transition:transform .25s ease,opacity .25s ease; display:none; }
+  .cart-header { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .cart-items { max-height:260px; overflow:auto; margin-top:8px; }
+  .cart-item { display:flex; justify-content:space-between; gap:8px; padding:10px 0; border-bottom:1px solid #f1f3f8; }
+  .total { font-weight:900; margin-top:12px; font-size:1.06rem; color:#1a237e; }
+  .badge { background:#ff9900;color:#fff;padding:4px 8px;border-radius:999px;font-size:0.85rem; margin-left:6px; font-weight:700; }
+  .back-link { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#1a237e; border:1px solid #1a237e; padding:8px 12px; border-radius:10px; background:#fff; font-weight:700; font-family:'Montserrat',sans-serif;}
+  /* Floating cart button */
+  .cart-button {
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:1002;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#1a237e;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 30px rgba(10,20,40,0.18);
+    cursor:pointer;
+    border:none;
+    font-size:20px;
+  }
+  .cart-button .cart-badge {
+    position:absolute;
+    top:-6px;
+    right:-6px;
+    background:#ff9900;
+    color:#fff;
+    min-width:22px;
+    height:22px;
+    padding:0 6px;
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:12px;
+    box-shadow:0 4px 12px rgba(10,20,40,0.15);
+  }
+  /* mobile improvements */
+  @media (max-width:900px){
+    .container { margin:100px 12px 90px; }
+    .cards{ grid-template-columns: repeat(2,minmax(0,1fr)); gap:12px; }
+    .card{ padding:12px; border-radius:10px; }
+    .floating-header { padding:10px 12px; }
+    .cart-panel { right:12px; left:12px; bottom:74px; width:auto; border-radius:12px; padding:12px; }
+    .cart-button { right:12px; bottom:12px; width:56px; height:56px; }
+  }
+  @media (max-width:520px){
+    .cards{ grid-template-columns: 1fr; }
+    .card{ padding:14px; }
+    .add-controls { gap:6px; }
+    .small, .btn { padding:10px; font-size:15px; }
+    .floating-header .left a span { display:none; } /* hide text in header buttons to save space */
+    header.main-head { padding:20px 12px; }
+    .container { margin:90px 10px 140px; }
+    .cart-panel { left:8px; right:8px; bottom:84px; width:auto; border-radius:12px; padding:12px; }
+    .cart-button { right:8px; bottom:18px; width:56px; height:56px; }
+  }
+
+.floating-logo { max-height:48px; height:auto; }
+@media (max-width:520px){
+  .floating-logo { max-height:38px; }
+}
+
+  .shop-btn { background: #ff9900; color:#1a237e; font-weight:800; border-radius:22px; padding:10px 18px; text-decoration:none; box-shadow:0 6px 18px rgba(255,153,0,0.18); font-family:'Montserrat',sans-serif; }
+  .lang-btn { color:#fff; text-decoration:none; font-weight:700; padding:6px 8px; border-radius:8px; opacity:0.95; }
+  .lang-btn.active { background: rgba(255,255,255,0.06); }
+  /* ensure header has enough height on mobile */
+  @media (max-width:520px){
+    .floating-header { padding:12px 10px; align-items:center; gap:8px; }
+    .floating-header .right a { font-size:0.95rem; }
+    .shop-btn { padding:8px 12px; font-size:0.95rem; }
+    .floating-logo { max-height:40px; }
+  }
+
+</style>
+<style>
+/* Unified header styles */
+.floating-header.unified-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(0,82,155,0.98), rgba(0,58,110,0.98));
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(10,20,40,0.18);
+  padding: 0;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+}
+
+/* Row spacing */
+.floating-header .header-row { max-width: 1100px; margin: 0 auto; }
+
+/* Logo */
+.floating-logo { display:block; height:44px; }
+
+/* Language buttons */
+.lang-btn {
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:8px;
+  text-decoration:none;
+  color:rgba(255,255,255,0.85);
+  border:1px solid rgba(255,255,255,0.06);
+  font-weight:600;
+  font-size:14px;
+}
+.lang-btn.active {
+  background: rgba(255,255,255,0.14);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+/* Phone link */
+.phone-link { font-size:16px; }
+
+/* Shop button */
+.shop-btn {
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:0.4px;
+  background: rgba(255,255,255,0.12);
+  color:#fff;
+  border: none;
+}
+
+/* Adjustments for desktop */
+@media (min-width: 769px) {
+  .floating-header.unified-header { padding-top:10px; padding-bottom:12px; }
+  .floating-logo { height:48px; }
+  .phone-link { font-size:18px; }
+}
+
+/* Adjustments for mobile */
+@media (max-width: 768px) {
+  .floating-header.unified-header { padding-top:8px; padding-bottom:8px; }
+  .floating-logo { height:36px; }
+  .lang-btn { padding:6px 8px; font-size:13px; }
+  .phone-link { font-size:15px; }
+  /* ensure content below header isn't hidden behind fixed header */
+   /* approximate header height; adjust if needed */
+}
+
+/* safety: if original page had top margin, keep it consistent */
+
+</style>
+<style>
+    /* --- Плавающая шапка --- */
+    .floating-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 35, 126, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 12px 20px;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .floating-header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .floating-logo {
+        height: 45px;
+        width: auto;
+    }
+
+    .language-switcher {
+        display: flex;
+        gap: 10px;
+    }
+
+    .lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        padding: 6px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .lang-btn:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #ff9900;
+    }
+
+    .lang-btn.active {
+        background: #ff9900;
+        border-color: #ff9900;
+        color: white;
+    }
+
+    .header-phone {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1.1em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .header-phone:hover {
+        color: #ff9900;
+    }
+
+    /* --- Общие стили и сброс --- */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+  padding-top: 140px !important;
+        font-family: 'Open Sans', sans-serif;
+        background-color: #f0f4f8; /* Очень светлый серый/голубой */
+        color: #333;
+        line-height: 1.7;
+        overflow-x: hidden; /* Предотвращает горизонтальную прокрутку, если что-то выйдет за край */
+        padding-top: 8px;
+    }
+        /* --- Шапка с фоновым изображением и логотипом --- */
+        header {
+            /* Уменьшил прозрачность rgba до 0.6 для лучшей читаемости текста на фоне */
+            /* ИЗМЕНЕНО: Ссылка на fon.png вместо Unsplash URL */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fon.png') no-repeat center top/cover;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-attachment: fixed; /* Параллакс-эффект */
+            overflow: hidden; /* Скрывает все, что выходит за пределы header */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px; /* Ограничим ширину контента шапки */
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Центрируем лого и заголовок по умолчанию */
+            width: 100%;
+            margin-bottom: 15px; /* Отступ между лого и заголовок и остальным контентом */
+            flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку при уменьшении ширины */
+        }
+
+        .header-logo {
+            max-height: 80px; /* Ограничим максимальную высоту логотипа */
+            width: auto;
+            margin-right: 20px; /* Отступ справа от логотипа */
+            animation: fadeIn 1s ease-out;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em; /* Немного уменьшим размер заголовка */
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 1s ease-out; /* Анимация появления */
+        }
+
+        header p {
+            font-size: 1.3em; /* Немного уменьшим размер подзаголовка */
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+            animation: fadeInUp 1.2s ease-out 0.3s; /* Анимация появления с задержкой */
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff9900; /* Яркий оранжевый */
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px; /* Скругленная кнопка */
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite alternate; /* Эффект пульсации */
+        }
+
+        .cta-button:hover {
+            background-color: #e68a00;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Усиленная тень при наведении */
+        }
+
+        /* --- Общие стили секций --- */
+        .section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1a237e; /* Темно-синий */
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after { /* Подчеркивание для заголовков */
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #007bff; /* Синий акцент */
+            border-radius: 5px;
+        }
+
+        /* --- Стили для карточек услуг --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px; /* Больший отступ между карточками */
+            justify-content: center;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card .icon {
+            font-size: 3em;
+            color: #007bff; /* Синий акцент для иконок */
+            margin-bottom: 15px;
+            transition: transform 0.3s ease; /* Анимация для иконки */
+        }
+
+        .card:hover .icon { /* Анимация при наведении на карточку */
+            transform: scale(1.1); /* Немного увеличиваем иконку */
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .card .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #ff9900; /* Оранжевая цена */
+            margin-top: 15px;
+        }
+
+        /* НОВЫЙ СТИЛЬ для карточки "Премиум переезд" */
+        .card--premium {
+            background-color: #fff8e1; /* Легкий золотистый фон */
+            border: 2px solid #ffc107; /* Яркий золотистый бордюр */
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2); /* Красивая тень */
+        }
+
+        .card--premium:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.3);
+        }
+        
+        .card--premium .icon {
+            color: #d39e00; /* Золотистый цвет для иконки */
+        }
+
+        .card--premium .card-title {
+            color: #d39e00; /* Золотистый цвет заголовка */
+            font-weight: 700;
+        }
+
+        .card--premium .service-list {
+            list-style-type: none; /* Убрать маркеры списка */
+            padding-left: 0;
+            text-align: left; /* Выровнять по левому краю */
+            width: 100%;
+        }
+
+        .card--premium .service-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .card--premium .service-list li::before {
+            content: "\f00c"; /* Иконка галочки FontAwesome */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #28a745; /* Зеленая галочка */
+        }
+        
+        /* --- Стили для среднего CTA блока --- */
+        .mid-cta-section {
+            background-color: #1a237e; /* Темно-синий фон */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 40px 0; /* Отступы сверху и снизу */
+            animation: fadeInUp 1s ease-out; /* Анимация появления */
+        }
+
+        .mid-cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em; /* Крупнее, чем обычные заголовки секций */
+            margin-bottom: 25px;
+            color: white; /* Белый текст для контраста */
+            position: relative; /* Для подчеркивания */
+            padding-bottom: 10px;
+        }
+
+        .mid-cta-section h2::after { /* Подчеркивание для заголовка */
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px; /* Чуть шире */
+            height: 5px; /* Чуть толще */
+            background-color: #ff9900; /* Оранжевое подчеркивание */
+            border-radius: 5px;
+        }
+
+        .mid-cta-section p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* --- Стили для преимуществ --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background: #e3f2fd; /* Светло-голубой фон */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background-color: #cce7ff; /* Чуть темнее при наведении */
+            transform: translateY(-5px);
+        }
+
+        .feature-item .icon {
+            font-size: 3.5em;
+            color: #28a745; /* Зеленый для иконок преимуществ */
+            margin-bottom: 15px;
+            transition: transform 0.3s ease; /* Анимация для иконки */
+        }
+
+        .feature-item:hover .icon { /* Анимация при наведении */
+            transform: rotate(10deg); /* Поворот иконки */
+        }
+
+        .feature-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: #1a237e;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+        }
+
+        .feature-item p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* --- НОВЫЙ СТИЛЬ: Секция для WhatsApp CTA --- */
+        .whatsapp-cta-section {
+            background-color: #1a237e; /* Темно-синий фон */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 40px 0; /* Отступы сверху и снизу */
+            animation: fadeInUp 1s ease-out; /* Анимация появления */
+        }
+
+        .whatsapp-cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .whatsapp-cta-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 120px; /* Чуть шире для акцента */
+            height: 5px;
+            background-color: #25D366; /* WhatsApp зеленый для подчеркивания */
+            border-radius: 5px;
+        }
+
+        .whatsapp-cta-section p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Стили для кнопки WhatsApp CTA (используем уже существующие стили cta-button) */
+        .whatsapp-cta-button {
+            background-color: #25D366; /* WhatsApp зеленый */
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); /* Зеленая тень для эффекта "горения" */
+            animation: pulse-whatsapp 2s infinite alternate; /* Анимация пульсации */
+        }
+
+        .whatsapp-cta-button:hover {
+            background-color: #1DA851; /* Темнее зеленый при наведении */
+            transform: translateY(-5px); /* Чуть большее поднятие */
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6); /* Усиленная тень */
+        }
+
+        .whatsapp-cta-button i {
+            margin-right: 10px;
+        }
+
+        /* --- Стили для секции "Работа с юр. лицами" --- */
+        .legal-entities-section {
+            background-color: #f8f9fa; /* Очень светлый серый */
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+            box-shadow: inset 0 3px 10px rgba(0,0,0,0.02);
+        }
+
+        .legal-entities-section .description {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.2em;
+            color: #495057;
+        }
+
+        .legal-entities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legal-entity-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #dee2e6;
+        }
+
+        .legal-entity-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .legal-entity-item .icon {
+            font-size: 3em;
+            color: #007bff; /* Синий акцент */
+            margin-bottom: 15px;
+        }
+
+        .legal-entity-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        .legal-entity-item p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* --- Стили для контактов --- */
+        .contact-section {
+            background-color: #fff8e1; /* Очень светлый желтый */
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #f0e0b3;
+            box-shadow: inset 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-section h2 {
+            color: #d39e00; /* Золотистый/желтый для заголовка */
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1.3em;
+            margin-bottom: 10px; /* Уменьшим отступ для P, чтобы кнопка была ближе */
+            color: #444;
+        }
+
+        .contact-info p strong {
+            color: #1a237e;
+            font-size: 1.1em;
+        }
+
+        /* Новые стили для контактной кнопки */
+        .contact-call-button {
+            margin-top: 25px; /* Отступ сверху от текста */
+            font-size: 1.4em; /* Крупнее для акцента */
+            padding: 18px 40px; /* Больше отступов */
+            background-color: #ff9900; /* Яркий оранжевый */
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); /* Оранжевая тень для эффекта "горения" */
+            animation: pulse-orange 2s infinite alternate; /* Анимация пульсации */
+        }
+
+        .contact-call-button:hover {
+            background-color: #e68a00; /* Темнее оранжевый при наведении */
+            transform: translateY(-5px); /* Чуть большее поднятие */
+            box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); /* Усиленная тень */
+        }
+
+        /* --- Подвал --- */
+        footer {
+            background-color: #212529; /* Темно-серый */
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* --- Плавающие кнопки --- */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            background-color: #007bff; /* Синий для звонка и WhatsApp */
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; /* Добавлена прозрачность */
+        }
+
+        .floating-btn.whatsapp {
+            background-color: #25D366; /* WhatsApp зеленый */
+        }
+
+        .floating-btn.reviews {
+            background-color: #ff9900; /* Оранжевый для отзывов */
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9; /* Небольшая прозрачность при наведении */
+        }
+
+        /* --- Модальное окно отзывов --- */
+        .modal-overlay {
+            display: none; /* Скрыто по умолчанию */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto; /* Для скролла, если отзывов много */
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 0.3s ease; /* Плавное появление */
+        }
+
+        .modal-overlay.is-active { /* Класс для активного состояния */
+            display: flex; /* Показываем модальное окно */
+            opacity: 1; /* Делаем видимым */
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            text-align: left; /* Вернуть выравнивание текста внутри модального окна */
+            transform: scale(0.95); /* Начальный масштаб */
+            transition: transform 0.3s ease; /* Плавное масштабирование */
+            max-height: 90vh; /* Ограничиваем высоту для мобильных */
+            overflow-y: auto; /* Добавляем прокрутку */
+        }
+
+        .modal-overlay.is-active .modal-content { /* Активное состояние */
+            transform: scale(1); /* Возвращаем к нормальному масштабу */
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2em;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close-btn:hover {
+            color: #333;
+        }
+
+        .modal-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: #1a237e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reviews-list {
+            max-height: 400px; /* Ограничиваем высоту списка отзывов */
+            overflow-y: auto; /* Добавляем прокрутку, если отзывов много */
+            padding-right: 10px; /* Отступ для полосы прокрутки */
+            margin-bottom: 20px;
+        }
+
+        /* Кастомный скроллбар для reviews-list */
+        .reviews-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .reviews-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .reviews-list::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .reviews-list::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .review-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .review-date {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .stars {
+            color: #ffc107; /* Золотой цвет для звезд */
+            font-size: 1.1em;
+        }
+
+        .review-form h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            color: #1a237e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .review-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .review-form input[type="text"],
+        .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+        }
+
+        .review-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .review-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block; /* Сделать кнопку блочным элементом */
+            margin: 0 auto; /* Центрировать кнопку */
+        }
+
+        .review-form button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        #submission-message {
+            margin-top: 15px;
+            color: #28a745;
+            font-weight: 600;
+            text-align: center;
+            display: none; /* Скрыто по умолчанию */
+        }
+
+        /* Стили для новых "страниц" Политики и Условий */
+        .info-section {
+            display: none; /* Скрыты по умолчанию */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.98); /* Почти белый фон */
+            z-index: 1002; /* Выше чем модальное окно */
+            overflow-y: auto;
+            padding: 80px 20px;
+            text-align: left;
+            opacity: 0; /* Начальная прозрачность */
+            transition: opacity 0.3s ease; /* Плавное появление */
+        }
+
+        .info-section.is-active { /* Класс для активного состояния */
+            display: block; /* Показываем */
+            opacity: 1; /* Делаем видимым */
+        }
+
+        .info-section .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-20px); /* Начальное положение немного выше */
+            transition: transform 0.3s ease; /* Плавное перемещение */
+        }
+
+        .info-section.is-active .content { /* Активное состояние */
+            transform: translateY(0); /* Возвращаем в нормальное положение */
+        }
+
+        .info-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #1a237e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .info-section p {
+            margin-bottom: 1em;
+            color: #444;
+            font-size: 1.1em;
+        }
+
+        .info-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        .info-section .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5em;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .info-section .close-btn:hover {
+            color: #333;
+        }
+
+        /* --- Анимации --- */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        /* Новая анимация пульсации для оранжевой кнопки (для contact-call-button) */
+        @keyframes pulse-orange {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+            }
+            50% {
+                transform: scale(1.05); /* Чуть большее увеличение */
+                box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); /* Более сильная тень */
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+            }
+        }
+        
+        /* НОВАЯ АНИМАЦИЯ: пульсация для WhatsApp кнопки */
+        @keyframes pulse-whatsapp {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Новая анимация для плавного появления */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* --- Стили для загрузочного значка --- */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader {
+            width: 80px; /* Увеличим размер */
+            height: 80px; /* Увеличим размер */
+            border: 8px solid #f3f3f3; /* Светлая часть */
+            border-top: 8px solid #007bff; /* Цветная часть */
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none; /* Добавлено, чтобы лоадер не блокировал клики после скрытия */
+        }
+
+        /* --- Медиа-запросы для адаптивности --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 15px; /* Уменьшим отступ для шапки */
+            }
+            /* Плавающая шапка на планшетах */
+    .floating-header {
+        padding: 8px 15px;
+    }
+    .floating-logo {
+        height: 35px;
+    }
+    .header-phone {
+        font-size: 0.9em;
+    }
+    .lang-btn {
+        padding: 4px 10px;
+        font-size: 0.8em;
+    }
+    
+            .header-top {
+                flex-direction: column; /* Лого и заголовок друг под другом */
+                margin-bottom: 10px;
+            }
+            .header-logo {
+                max-height: 70px; /* Немного уменьшим логотип */
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            header h1 {
+                font-size: 2.2em; /* Меньше заголовок */
+                margin-bottom: 5px;
+            }
+            header p {
+                font-size: 1.1em;
+                margin-bottom: 20px;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            .section {
+                padding: 40px 15px;
+            }
+            .section h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .card {
+                padding: 20px;
+            }
+            .card h3 {
+                font-size: 1.5em;
+            }
+            .feature-item h3 {
+                font-size: 1.8em;
+            }
+            .contact-section {
+                padding: 40px 15px;
+            }
+            .contact-info p {
+                font-size: 1.1em;
+            }
+            .contact-call-button { /* Адаптация новой кнопки */
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
+            .modal-content {
+                padding: 20px;
+                margin: 15px; /* Отступ по краям на маленьких экранах */
+            }
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+                gap: 8px;
+            }
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6em;
+            }
+            .mid-cta-section {
+                padding: 40px 15px;
+            }
+            .mid-cta-section h2 {
+                font-size: 2em;
+            }
+            .mid-cta-section p {
+                font-size: 1.2em;
+            }
+            /* НОВЫЙ СТИЛЬ: Адаптация WhatsApp CTA */
+            .whatsapp-cta-section {
+                padding: 40px 15px;
+            }
+            .whatsapp-cta-section h2 {
+                font-size: 2em;
+            }
+            .whatsapp-cta-section p {
+                font-size: 1.2em;
+            }
+            .whatsapp-cta-button {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .info-section {
+                padding: 60px 15px;
+            }
+            .info-section .content {
+                padding: 20px;
+            }
+            .legal-entities-section {
+                padding: 40px 15px;
+            }
+            .legal-entities-section .description {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+            .legal-entity-item {
+                padding: 20px;
+            }
+            .legal-entity-item h3 {
+                font-size: 1.5em;
+            }
+            /* Медиа-запросы для модального окна Премиум */
+            .modal-body .cta-button {
+                width: 100%;
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .modal-body .modal-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-logo {
+                max-height: 60px; /* Еще меньше логотип */
+            }
+    /* Плавающая шапка на мобильных */
+    .floating-header-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .header-left {
+        justify-content: center;
+        width: 100%;
+    }
+    .floating-logo {
+        height: 30px;
+    }
+    .header-phone {
+        font-size: 0.9em;
+        justify-content: center;
+    }
+    .lang-btn {
+        padding: 4px 12px;
+        font-size: 0.8em;
+    }
+header h1 {
+                font-size: 1.8em; /* Еще меньше заголовок */
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .cta-button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+            .card h3 {
+                font-size: 1.3em;
+            }
+            .feature-item h3 {
+                font-size: 1.6em;
+            }
+            .floating-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.4em;
+            }
+            .mid-cta-section h2 {
+                font-size: 1.8em;
+            }
+            .mid-cta-section p {
+                font-size: 1em;
+            }
+            /* НОВЫЙ СТИЛЬ: Адаптация WhatsApp CTA */
+            .whatsapp-cta-section h2 {
+                font-size: 1.8em;
+            }
+            .whatsapp-cta-section p {
+                font-size: 1em;
+            }
+            .whatsapp-cta-button {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .contact-call-button { /* Адаптация новой кнопки */
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .legal-entity-item h3 {
+                font-size: 1.3em;
+            }
+        }
+
+        /* НОВЫЕ СТИЛИ ДЛЯ ОТСТУПОВ В МОДАЛЬНОМ ОКНЕ */
+        .modal-body .cta-text {
+            margin-bottom: 1.5em; /* Отступ между текстом "Забудьте о хлопотах" и списком */
+        }
+
+        .modal-body .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Отступ между кнопками */
+            flex-wrap: wrap;
+            margin-top: 25px; /* Отступ сверху от текста "Готовы к переезду..." */
+        }
+
+/* --- Mobile-specific shop link & logo highlight --- */
+@media (max-width: 480px) {
+    .mobile-shop-link { display: inline-block !important; background: #ff9900; color: #fff; border-radius: 18px; padding: 6px 12px; box-shadow: 0 6px 18px rgba(255,153,0,0.35); border: 1px solid rgba(255,255,255,0.15); }
+    .floating-logo { box-shadow: 0 6px 20px rgba(0,0,0,0.25); border-radius: 8px; border: 2px solid rgba(255,255,255,0.12); }
+    /* Hide the duplicate large logo inside the header with background on small screens */
+    header .header-logo { display: none !important; }
+}
+
+/* --- Fix: prevent floating header from overlapping main header on mobile --- */
+@media (max-width: 768px) {
+    /* push the main header down on small screens to clear the fixed floating header */
+    
+}
+@media (max-width: 480px) {
+    
+    /* ensure floating header stays on top but not covering content excessively */
+    .floating-header {
+        padding: 10px 12px;
+    }
+}
+
+/* --- UI improvements added automatically --- */
+/* Ensure floating header sits above other header elements */
+.floating-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+}
+
+/* Highlight logo and store badge on blue background for mobile */
+.header-logo {
+    display: inline-block;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(2px);
+}
+.store-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    font-weight: 600;
+}
+
+/* slightly larger touch targets on mobile */
+@media (max-width: 768px) {
+    .header-logo, .store-badge {
+        padding: 8px 10px;
+    }
+    /* make sure header content isn't hidden under floating header */
+    body {
+  padding-top: 140px !important; padding-top: 64px; }
+}
+
+/* Responsive cards grid: make sure layout is stable and shows up to 2 columns on small screens */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+/* --- Grid layout: 1 column on small screens, 2 on tablets, 3 on desktop --- */
+.cards-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    align-items: stretch;
+}
+
+/* make each card a flexible column so heights match */
+.cards-grid .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* ensure card content grows and buttons stick to bottom if present */
+.cards-grid .card > * {
+    flex-shrink: 0;
+}
+.cards-grid .card .card-body {
+  padding-top: 140px !important;
+    flex: 1 1 auto;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* Keep responsive behavior intact on very small screens */
+@media (max-width: 480px) {
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+</style>
+<!-- Fixed: unified header spacing for mobile -->
+<style>
+@media (max-width: 768px) {
+  /* Keep one consistent offset so the fixed header does not create a huge gap */
+  body {
+  padding-top: 140px !important; padding-top: 70px !important; }
+  /* Ensure container doesn't add extra top margin */
+  .container { margin-top: 0 !important; }
+  /* Make sure header's internal padding is normal */
+  header { padding-top: 12px !important; }
+}
+</style>
+<!-- FIXES: prevent floating header from covering lower sections and align prices in mobile -->
+<style>
+/* Ensure sections are not hidden under fixed header when opening links/scrolling */
+.category { padding-top: 12px; scroll-margin-top: 90px; }
+
+/* Make price column stable and right-aligned */
+.card { --price-col-width: 96px; }
+.card > div:first-child { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.card .price { min-width: var(--price-col-width); text-align:right; display:block; }
+
+/* Mobile adjustments: keep prices in a single column and prevent wrapping */
+@media (max-width:520px) {
+  .card > div:first-child { flex-direction:row; gap:8px; }
+  .card .price { min-width: 100px; white-space:nowrap; }
+  .meta { flex:1 1 auto; }
+  .add-controls { flex-shrink:0; }
+  /* ensure unit and price align vertically */
+  .card .meta, .card .price { align-self:center; }
+}
+</style>
+<!-- FIX ADDED: ensure consistent top offset on mobile so header doesn't overlap content -->
+<style>
+:root{
+  --fh-height-desktop:110px;
+  --fh-height-mobile:70px;
+}
+/* Desktop: keep existing large top margin but compute from variable so it's consistent */
+@media (min-width: 769px){
+  .container { margin-top: calc(var(--fh-height-desktop) + 0px) !important; }
+}
+/* Mobile & tablet: ensure there is a visible offset when the page opens */
+@media (max-width: 768px){
+  /* If a fixed header exists, push the main container down so it's not hidden */
+  body {
+  padding-top: 140px !important; padding-top: 0 !important; } /* avoid conflicts with other rules */
+  .container { margin-top: calc(var(--fh-height-mobile) + 10px) !important; }
+  /* Also make sure the header itself doesn't add extra unexpected spacing */
+  header.main-head { margin-top: 0 !important; }
+  /* If other rules hide the mobile margin, this will keep sections readable on initial open */
+  .category { scroll-margin-top: calc(var(--fh-height-mobile) + 14px) !important; }
+}
+</style>
+<!-- END FIX -->
+<!-- PATCH: ensure content not hidden under floating header and stable price column -->
+<style>
+:root { --site-header-height: 70px; }
+.floating-header { position: fixed !important; top:0; left:0; right:0; z-index:12000 !important; }
+.container { margin-top: calc(var(--site-header-height) + 12px) !important; }
+body { padding-top: 0 !important; } /* avoid double padding rules */
+.card .price, .price { min-width:110px !important; text-align:right !important; white-space:nowrap; }
+.category { scroll-margin-top: calc(var(--site-header-height) + 12px) !important; }
+@media (max-width:520px){
+  .card > div:first-child { flex-direction:row !important; gap:8px !important; align-items:center !important; }
+  .card .price { min-width:100px !important; }
+}
+</style>
+
+<!-- HEADER-OVERLAP FIX: mobile padding for floating header -->
+<style>
+  :root{ --floating-header-height: 64px; }
+  @media (max-width: 768px) {
+    body { padding-top: var(--floating-header-height); transition: padding-top 160ms ease; }
+  }
+</style>
+</head>
+<body>
+<header class="floating-header">
+<div class="floating-header-content">
+<div class="header-left">
+<img alt="Логотип Gruzim.kz" class="floating-logo" src="Logo.png"/>
+<div class="language-switcher">
+<a class="lang-btn" href="shop.html">РУС</a>
+<a class="lang-btn active" href="shopkz.html">ҚАЗ</a>
+</div>
+</div>
+<a class="lang-btn shop-link mobile-shop-link" href="indexkz.html" style="display:none; margin-top:8px; font-weight:700;">БАСТЫ БЕТКЕ</a>
+<a class="header-phone" data-phone-type="floating-header" href="tel:+77767469606">
+<i class="fas fa-phone"></i>
+    +7 (776) 746-96-06
+</a>
+</div>
+</header>
+<div class="container">
+<header class="main-head">
+<h1>Gruzim.kz | Орау материалдарының дүкені (уақытша тестілеуде)</h1>
+<p class="lead">Көші-қонға арналған жинақ: сапалы орау материалдары, жедел жеткізу.</p>
+</header>
+<script id="product-data" type="application/json">[
+  {
+    "category": "Қораптар",
+    "items": [
+      {
+        "id": "box-small",
+        "title": "Кіші қорап",
+        "size": "40×30×30 см",
+        "price": 200,
+        "unit": "шт"
+      },
+      {
+        "id": "box-medium",
+        "title": "Орташа қорап",
+        "size": "60×40×40 см",
+        "price": 350,
+        "unit": "шт"
+      },
+      {
+        "id": "box-clothes",
+        "title": "Киімге арналған қорап (сөрелі)",
+        "size": "для одежды",
+        "price": 700,
+        "unit": "шт"
+      }
+    ]
+  },
+  {
+    "category": "Орау пленкасы",
+    "items": [
+      {
+        "id": "bubble-1m",
+        "title": "Көпіршікті пленка 1 м",
+        "size": "1 м рулон",
+        "price": 250,
+        "unit": "рул"
+      },
+      {
+        "id": "stretch-1kg",
+        "title": "Стрейч-пленка 1 кг",
+        "size": "1 кг",
+        "price": 300,
+        "unit": "шт"
+      }
+    ]
+  },
+  {
+    "category": "Скотч пен ленталар",
+    "items": [
+      {
+        "id": "tape-50",
+        "title": "Орау скотчы 50 мм",
+        "size": "роль",
+        "price": 120,
+        "unit": "шт"
+      }
+    ]
+  },
+  {
+    "category": "Көші-қонға арналған сөмкелер",
+    "items": [
+      {
+        "id": "bag-small",
+        "title": "Көші-қон сөмкесі (кіші)",
+        "size": "маленькая",
+        "price": 600,
+        "unit": "шт"
+      },
+      {
+        "id": "bag-medium",
+        "title": "Көші-қон сөмкесі (орташа)",
+        "size": "средняя",
+        "price": 900,
+        "unit": "шт"
+      },
+      {
+        "id": "bag-large",
+        "title": "Көші-қон сөмкесі (үлкен)",
+        "size": "большая",
+        "price": 1200,
+        "unit": "шт"
+      }
+    ]
+  },
+  {
+    "category": "Набірлер мен қызметтер",
+    "items": [
+      {
+        "id": "kit-econom",
+        "title": "Эконом пакеті (3 қорап + скотч + пленка)",
+        "size": "набор",
+        "price": 2500,
+        "unit": "набор"
+      },
+      {
+        "id": "service-packfrag",
+        "title": "Ықшам заттарды орау қызметі",
+        "size": "услуга",
+        "price": 2500,
+        "unit": "усл"
+      },
+      {
+        "id": "service-loader",
+        "title": "Қосымша жүк тиеуші (1 сағ)",
+        "size": "час",
+        "price": 2500,
+        "unit": "час"
+      }
+    ]
+  }
+]</script>
+<div id="catalog"></div>
+<p style="margin-top:26px;color:#666;font-size:0.95rem;"></p>
+</div>
+<!-- Плавающая корзина (панель) -->
+<div aria-hidden="true" class="cart-panel" id="cart">
+<div class="cart-header">
+<strong>Себет</strong>
+<div>
+<button class="small" id="clear-cart">Тазалау</button>
+<button class="small" id="close-cart">✕</button>
+</div>
+</div>
+<div class="cart-items" id="cart-items"></div>
+<div>
+<div class="total" id="cart-total">Барлығы: 0 тг</div>
+<div style="margin-top:8px;">
+<input id="order-comment" placeholder="Мекен-жай немесе түсініктеме (міндетті емес)" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6e9f2;margin-top:8px;"/>
+</div>
+<div style="margin-top:10px;display:flex;gap:8px;">
+<button class="btn whatsapp" id="checkout" style="flex:1;"><i class="fab fa-whatsapp"></i> WhatsApp арқылы тапсырыс беру</button>
+<button class="btn" id="view-cart-toggle" style="background:#1a237e;">Көрсету</button>
+</div>
+</div>
+</div>
+<!-- Плавающая кнопка корзины (не разворачивает панель сама по себе) -->
+<button aria-label="Себетті ашу" class="cart-button" id="cart-button" style="display:none;" title="Себетті ашу">
+<i class="fas fa-shopping-cart"></i>
+<div class="cart-badge" id="cart-button-badge" style="display:none;">0</div>
+</button>
+<script>
+/* Загрузка товаров из JSON-блока (редактируй цены прямо в файле) */
+function loadProductData(){
+  try {
+    const el = document.getElementById('product-data');
+    if(!el) return [];
+    return JSON.parse(el.textContent);
+  } catch(e){
+    console.error('product-data parse error', e);
+    return [];
+  }
+}
+
+let DATA = loadProductData();
+
+/* CART in localStorage */
+const CART_KEY = 'gruzim_shop_cart_v1';
+let cart = {}; // {id: qty}
+
+function saveCart(){ try{ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }catch(e){} }
+function loadCart(){ try{ const raw = localStorage.getItem(CART_KEY); if(raw) cart = JSON.parse(raw); else cart = {}; }catch(e){ cart = {}; } }
+function cartCount(){ return Object.values(cart).reduce((s,n)=>s + (parseInt(n)||0), 0); }
+
+function formatPrice(n){ return new Intl.NumberFormat('ru-RU').format(n) + ' тг'; }
+
+/* Render catalog by categories */
+function renderCatalog(){
+  const wrap = document.getElementById('catalog');
+  wrap.innerHTML = '';
+  DATA.forEach(cat => {
+    const section = document.createElement('section');
+    section.className = 'category';
+    const h = document.createElement('h2');
+    h.textContent = cat.category;
+    section.appendChild(h);
+
+    const grid = document.createElement('div');
+    grid.className = 'cards';
+    cat.items.forEach(item=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+         <div style="display:flex;align-items:center;justify-content:space-between;">
+           <div>
+             <strong>${item.title}</strong>
+             <div class="meta">${item.size || ''}</div>
+           </div>
+           <div style="text-align:right;">
+             <div class="price" data-id="${item.id}">${formatPrice(item.price)}</div>
+           </div>
+         </div>
+         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+           <div class="meta">${item.unit}</div>
+           <div class="add-controls">
+             <button class="small dec" aria-label="Саны азайту" data-id="${item.id}">−</button>
+             <span id="qty-${item.id}">${cart[item.id]||0}</span>
+             <button class="small inc" aria-label="Саны көбейту" data-id="${item.id}">+</button>
+             <button class="btn add" aria-label="Қосу в корзину" data-id="${item.id}" style="margin-left:8px;">Қосу</button>
+           </div>
+         </div>
+      `;
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    wrap.appendChild(section);
+  });
+  updateBadgeTop();
+}
+
+/* CART UI */
+function updateCartUI(){
+  const panel = document.getElementById('cart');
+  const itemsDiv = document.getElementById('cart-items');
+  itemsDiv.innerHTML = '';
+  const keys = Object.keys(cart);
+  if(keys.length===0){
+    itemsDiv.innerHTML = '<div style="color:#666">Себет пуста</div>';
+    document.getElementById('cart-total').textContent = 'Барлығы: 0 тг';
+    // hide panel when empty and hide floating button
+    panel.style.display = 'none';
+    panel.setAttribute('aria-hidden','true');
+  } else {
+    let total = 0;
+    keys.forEach(id=>{
+      // find item
+      let item = null;
+      for(const cat of DATA){ item = cat.items.find(x=>x.id===id); if(item) break; }
+      if(!item) return;
+      const qty = cart[id];
+      const row = document.createElement('div');
+      row.className = 'cart-item';
+      row.innerHTML = `
+        <div>
+          <div style="font-weight:700;">${item.title}</div>
+          <div style="color:#666;font-size:0.95rem;">${formatPrice(item.price)} × ${qty}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+          <div style="font-weight:700;">${formatPrice(item.price*qty)}</div>
+          <div style="display:flex;gap:6px;">
+            <button class="small dec" aria-label="Саны азайту" data-id="${id}">−</button>
+            <button class="small inc" aria-label="Саны көбейту" data-id="${id}">+</button>
+            <button class="small remove" aria-label="Себеттен алып тастау" data-id="${id}" style="color:#d00">✕</button>
+          </div>
+        </div>
+      `;
+      itemsDiv.appendChild(row);
+      total += item.price * qty;
+    });
+    document.getElementById('cart-total').textContent = 'Барлығы: ' + formatPrice(total);
+    // panel remains hidden until user opens it; do not force-open on add
+    panel.setAttribute('aria-hidden','true');
+  }
+  // update small qty indicators in catalog
+  DATA.forEach(cat=>{
+    cat.items.forEach(i=>{
+      const el = document.getElementById('qty-'+i.id);
+      if(el) el.textContent = cart[i.id] || 0;
+    });
+  });
+  updateBadgeTop();
+}
+
+/* Utilities to change cart */
+function addToCart(id, qty=1){
+  // don't auto-open panel anymore; just update cart
+  cart[id] = (cart[id]||0) + qty;
+  if(cart[id] <= 0) delete cart[id];
+  saveCart(); updateCartUI(); updateBadgeTop();
+  // small feedback without huge panel
+  flashAddedFeedback(id);
+}
+function removeFromCart(id){ delete cart[id]; saveCart(); updateCartUI(); updateBadgeTop(); }
+function changeQty(id, delta){
+  cart[id] = (cart[id]||0) + delta;
+  if(cart[id] <= 0) delete cart[id];
+  saveCart(); updateCartUI(); updateBadgeTop();
+}
+function clearCart(){ cart = {}; saveCart(); updateCartUI(); updateBadgeTop(); }
+
+/* Badge on header and floating button */
+function updateBadgeTop(){
+  const b = document.getElementById('badge-top');
+  const count = cartCount();
+  const cartButton = document.getElementById('cart-button');
+  const cartBadge = document.getElementById('cart-button-badge');
+  if(count>0){ 
+    if(b){ b.style.display='inline-block'; b.textContent = count; } 
+    if(cartButton){ cartButton.style.display='flex'; cartBadge.style.display='flex'; cartBadge.textContent = count; }
+  } else { 
+    if(b){ b.style.display='none'; } 
+    if(cartButton){ cartButton.style.display='none'; cartBadge.style.display='none'; cartBadge.textContent = ''; }
+  }
+}
+
+/* Small transient feedback when adding */
+function flashAddedFeedback(id){
+  // find add button and briefly change text
+  const btn = document.querySelector('.btn.add[data-id="'+id+'"]');
+  if(!btn) return;
+  const orig = btn.textContent;
+  btn.textContent = 'Добавлено';
+  setTimeout(()=>{ btn.textContent = orig; }, 900);
+}
+
+/* Event bindings */
+document.addEventListener('click', function(e){
+  const btn = e.target;
+  // button or inside button elements
+  const addBtn = btn.closest ? btn.closest('.btn.add') : null;
+  if(addBtn && addBtn.matches('.btn.add')){
+    const id = addBtn.dataset.id; addToCart(id,1); return;
+  }
+  const inc = btn.closest ? btn.closest('.inc') : null;
+  if(inc && inc.matches('.inc')){ const id = inc.dataset.id; changeQty(id,1); return; }
+  const dec = btn.closest ? btn.closest('.dec') : null;
+  if(dec && dec.matches('.dec')){ const id = dec.dataset.id; changeQty(id,-1); return; }
+  const rem = btn.closest ? btn.closest('.small.remove') : null;
+  if(rem && rem.matches('.small.remove')){ const id = rem.dataset.id; removeFromCart(id); return; }
+  if(btn.id === 'clear-cart'){ if(confirm('Тазалау корзину?')) clearCart(); return; }
+  if(btn.id === 'close-cart'){ document.getElementById('cart').style.display='none'; document.getElementById('cart').setAttribute('aria-hidden','true'); return; }
+  if(btn.id === 'view-cart-toggle'){ toggleCartPanel(true); return; }
+  if(btn.id === 'checkout'){
+    // build text
+    const keys = Object.keys(cart);
+    if(keys.length===0){ alert('Себет пуста'); return; }
+    let total=0; let text = 'Здравствуйте! Хочу заказать:\n';
+    keys.forEach(id=>{
+      let item=null; for(const cat of DATA){ item = cat.items.find(x=>x.id===id); if(item) break; }
+      if(!item) return;
+      const qty = cart[id];
+      text += `- ${item.title} × ${qty} — ${item.price} тг\n`;
+      total += item.price * qty;
+    });
+    text += `\nБарлығы: ${total} тг\n`;
+    const comment = document.getElementById('order-comment').value.trim();
+    if(comment) text += `\nКомментарий: ${comment}\n`;
+    const url = 'https://wa.me/77767469606?text=' + encodeURIComponent(text);
+    window.open(url, '_blank');
+    return;
+  }
+  // cart button click (may be icon inside)
+  const cartBtn = btn.closest ? btn.closest('#cart-button') : null;
+  if(cartBtn && cartBtn.id === 'cart-button'){ toggleCartPanel(); return; }
+});
+
+/* Toggle cart panel visibility */
+function toggleCartPanel(show){
+  const panel = document.getElementById('cart');
+  if(show === undefined) show = (panel.style.display === 'none' || panel.getAttribute('aria-hidden') === 'true');
+  if(show){
+    updateCartUI(); // refresh contents
+    panel.style.display = 'block';
+    panel.setAttribute('aria-hidden','false');
+    // ensure panel is above cart button
+    panel.focus && panel.focus();
+  } else {
+    panel.style.display = 'none';
+    panel.setAttribute('aria-hidden','true');
+  }
+}
+
+/* init */
+loadCart();
+renderCatalog();
+updateCartUI();
+
+/* attach cart-button behaviour */
+(function(){
+  const cb = document.getElementById('cart-button');
+  if(cb){
+    cb.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCartPanel(); } });
+  }
+})();
+</script>
+<!-- PATCH SCRIPT: sync CSS variable with actual header height -->
+<script>
+(function(){
+  function syncHeaderHeight(){
+    var header = document.querySelector('.floating-header') || document.querySelector('.header') || document.querySelector('#header');
+    if(!header) return;
+    var h = header.getBoundingClientRect().height || 70;
+    document.documentElement.style.setProperty('--site-header-height', Math.ceil(h) + 'px');
+    // also ensure container margin matches
+    var c = document.querySelector('.container');
+    if(c) c.style.marginTop = (Math.ceil(h) + 12) + 'px';
+    // adjust scroll-margin for anchors
+    document.querySelectorAll('h1,h2,.section,section,.category').forEach(function(el){
+      el.style.scrollMarginTop = (Math.ceil(h) + 12) + 'px';
+    });
+  }
+  window.addEventListener('load', syncHeaderHeight);
+  window.addEventListener('resize', syncHeaderHeight);
+  // watch for dynamic changes
+  var header = document.querySelector('.floating-header');
+  if(header){
+    new MutationObserver(syncHeaderHeight).observe(header, {attributes:true, childList:true, subtree:true});
+  }
+})();
+</script>
+<footer>
+    © 2019-2025 gruzim.kz. Все права защищены.
+    <br/>
+<a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> |
+    <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
+</footer>
+<!-- BEGIN: Cart UX enhancements inserted by assistant -->
+<style>
+/* Always show floating cart button and badge */
+.cart-button, .floating-cart-button {
+  display: block !important;
+  z-index: 9999 !important;
+  position: fixed !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-radius: 999px !important;
+}
+
+/* Toast style */
+.site-toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 86px;
+  background: #111;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  z-index: 10000;
+  font-size: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Fullscreen cart modal for mobile */
+#cart-fullscreen-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 10001;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px;
+}
+
+#cart-fullscreen-modal.open {
+  display: block;
+}
+
+#cart-fullscreen-modal .close-cart {
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  z-index: 10002;
+  cursor: pointer;
+}
+
+/* Ensure cart contents area has top padding to not be under the close button */
+#cart-fullscreen-modal .cart-contents {
+  padding-top: 54px;
+}
+
+/* On desktop show original cart panel as drawer if present */
+@media (min-width: 769px) {
+  #cart-fullscreen-modal { display: none !important; }
+}
+
+/* Make sure the existing small cart-panel doesn't cover whole screen on mobile */
+#cart-panel {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+</style>
+<!-- Modal container for mobile fullscreen cart -->
+<div aria-hidden="true" aria-label="Корзина" id="cart-fullscreen-modal" role="dialog">
+<button aria-label="Закрыть корзину" class="close-cart">✕</button>
+<div class="cart-contents" id="cart-contents-clone">
+<!-- cloned cart content will be injected here -->
+</div>
+</div>
+<script>
+(function(){
+  // Helpers
+  function qs(sel){ return document.querySelector(sel); }
+  function qsa(sel){ return Array.from(document.querySelectorAll(sel)); }
+
+  // Show floating cart button if exists; otherwise try to create one referencing existing behavior
+  var cartButton = qs('.cart-button, .floating-cart-button, #cart-button, .btn-cart');
+  if(!cartButton){
+    // Try to find any element that opens cart
+    var possible = qsa('[data-open-cart], [data-cart], [aria-controls*="cart"], .open-cart');
+    if(possible.length) cartButton = possible[0];
+  }
+  if(cartButton){
+    cartButton.style.display = 'block';
+    cartButton.style.zIndex = '9999';
+  }
+
+  // Find cart panel element
+  var cartPanel = qs('#cart-panel, .cart-panel, .panel-cart, #cartDrawer');
+  // find cart contents to clone into modal
+  var cartContents = qs('#cart-contents, .cart-contents, .cart-items');
+  // create a function to open cart
+  function openCart(){
+    var isMobile = window.innerWidth <= 768;
+    if(isMobile){
+      // clone cart contents into fullscreen modal
+      var modal = document.getElementById('cart-fullscreen-modal');
+      var target = document.getElementById('cart-contents-clone');
+      if(target && cartContents){
+        target.innerHTML = cartContents.innerHTML;
+      } else if(target && cartPanel){
+        target.innerHTML = cartPanel.innerHTML;
+      }
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      // focus trap: focus close button
+      var closeBtn = modal.querySelector('.close-cart');
+      if(closeBtn) closeBtn.focus();
+    } else {
+      // fallback: toggle existing cart panel
+      if(cartPanel){
+        cartPanel.classList.toggle('open');
+        cartPanel.style.display = cartPanel.classList.contains('open') ? 'block' : 'none';
+      } else if(cartButton && cartButton.click){
+        // try to trigger original action
+        cartButton.click();
+      }
+    }
+  }
+
+  // Close cart function
+  function closeCart(){
+    var modal = document.getElementById('cart-fullscreen-modal');
+    if(modal){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+    if(cartPanel && cartPanel.classList.contains('open')){
+      cartPanel.classList.remove('open');
+      cartPanel.style.display = 'none';
+    }
+  }
+
+  // Attach openCart to cart button(s)
+  if(cartButton){
+    cartButton.addEventListener('click', function(e){
+      e.preventDefault();
+      openCart();
+    });
+  }
+  // If there are other elements that opened cart, override their action to use openCart
+  qsa('[data-open-cart], [data-cart], [aria-controls*="cart"], .open-cart, .show-cart').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      openCart();
+    });
+  });
+
+  // Close button inside modal
+  var modalClose = qs('#cart-fullscreen-modal .close-cart');
+  if(modalClose){
+    modalClose.addEventListener('click', function(){ closeCart(); });
+  }
+
+  // Also close modal when clicking outside content on mobile
+  var modal = document.getElementById('cart-fullscreen-modal');
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeCart();
+    });
+  }
+
+  // Prevent automatic opening of cart when adding to cart.
+  // We'll intercept common patterns: buttons with class .add-to-cart, data-add-to-cart, or buttons that call addToCart function.
+  function showToast(message, withLink){
+    // remove existing toasts
+    var existing = document.querySelectorAll('.site-toast');
+    existing.forEach(function(n){ n.remove(); });
+
+    var t = document.createElement('div');
+    t.className = 'site-toast';
+    t.textContent = message || 'Добавлено в корзину';
+    if(withLink){
+      var a = document.createElement('button');
+      a.textContent = 'Перейти в корзину';
+      a.style.cursor = 'pointer';
+      a.style.background = 'transparent';
+      a.style.border = '1px solid rgba(255,255,255,0.2)';
+      a.style.color = 'white';
+      a.style.padding = '6px 10px';
+      a.style.borderRadius = '8px';
+      a.addEventListener('click', function(){ openCart(); });
+      t.appendChild(a);
+    }
+    document.body.appendChild(t);
+    setTimeout(function(){ t.classList.add('visible'); }, 50);
+    setTimeout(function(){ t.remove(); }, 3500);
+  }
+
+  // Intercept Add-to-cart clicks
+  var addButtons = qsa('.add-to-cart, .btn-add, [data-add-to-cart], button.add-cart, a.add-to-cart');
+  addButtons.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      // let original handler run (if any) but prevent it from opening the cart by stopping propagation after a tiny timeout
+      setTimeout(function(){
+        // assume cart updated; show toast instead of auto-opening cart
+        showToast('Добавлено в корзину', true);
+      }, 150);
+    }, {passive: true});
+  });
+
+  // For global functions named addToCart, we try to wrap it if exists
+  try{
+    if(typeof window.addToCart === 'function'){
+      var originalAdd = window.addToCart;
+      window.addToCart = function(){
+        var res = originalAdd.apply(this, arguments);
+        setTimeout(function(){ showToast('Добавлено в корзину', true); }, 150);
+        return res;
+      };
+    }
+  }catch(e){ /* ignore */ }
+
+  // Make sure the WhatsApp flow remains untouched: do not modify the link generation.
+  // But ensure that before opening WhatsApp we collect phone if present in panel; we will not force it here,
+  // since user wanted WhatsApp-only and minimal changes.
+
+  // Accessibility: close with Escape key
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      closeCart();
+    }
+  });
+
+  // When the modal opens, ensure any form inside it is functional; attempt to delegate quantity changes to original handlers
+  // (we intentionally avoid modifying those handlers to respect "don't change anything else").
+
+  // If there is a cart counter/badge, animate it when items are added
+  function pulseBadge(){
+    var badge = qs('.cart-count, .badge-count, .cart-badge, .count-badge');
+    if(!badge){
+      // try to find numeric inside cart button
+      badge = qs('.cart-button .count, .floating-cart-button .count');
+    }
+    if(badge){
+      badge.animate([
+        { transform: 'scale(1)' },
+        { transform: 'scale(1.25)' },
+        { transform: 'scale(1)' }
+      ], { duration: 400, easing: 'ease' });
+    }
+  }
+  // Hook pulse on add buttons
+  addButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(pulseBadge, 200); });
+  });
+
+  // If site used custom event 'cart:updated', listen and show toast once per update triggered by add action.
+  document.addEventListener('cart:updated', function(){ showToast('Добавлено в корзину', true); });
+
+})();
+</script>
+<!-- END: Cart UX enhancements inserted by assistant -->
+<!-- BEGIN: Fullscreen cart overlay injected by assistant -->
+<style>
+#cart-overlay-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 20000;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  overflow: auto;
+  padding: 20px;
+}
+#cart-overlay-modal.open { display: flex; }
+#cart-overlay-modal .overlay-inner {
+  background: #fff;
+  width: 100%;
+  max-width: 820px;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  position: relative;
+  display:flex;
+  flex-direction:column;
+}
+#cart-overlay-modal .overlay-header {
+  padding: 18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom: 1px solid #eef1f7;
+}
+#cart-overlay-modal .overlay-body { padding: 18px 20px; flex:1 1 auto; overflow:auto; }
+#cart-overlay-modal .overlay-footer {
+  padding: 14px 20px;
+  border-top: 1px solid #eef1f7;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+}
+#cart-overlay-modal .close-x {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  line-height:1;
+}
+#cart-overlay-modal .whatsapp-order {
+  width:100%;
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  padding:12px 16px;
+  border-radius:10px;
+  font-weight:800;
+  font-family: 'Montserrat', sans-serif;
+  font-size:16px;
+  text-decoration:none;
+}
+#cart-overlay-modal .whatsapp-order.whatsapp { background:#25D366; color:#fff; border: none; }
+#cart-overlay-modal .overlay-footer .btn-secondary { background:#f1f3f8; border:1px solid #e6e9f2; padding:10px 14px; border-radius:8px; }
+@media (max-width:520px){
+  #cart-overlay-modal .overlay-inner { max-width: 100%; border-radius:8px; height: calc(100vh - 40px); max-height: calc(100vh - 40px); }
+  #cart-overlay-modal { padding:8px; }
+}
+</style>
+<div aria-label="Корзина" id="cart-overlay-modal" role="dialog">
+<div class="overlay-inner" id="cart-overlay-inner">
+<div class="overlay-header">
+<strong style="font-size:1.1rem;">Себет</strong>
+<div style="display:flex;gap:8px;align-items:center;">
+<button class="btn btn-secondary" id="cart-overlay-clear" title="Очистить корзину">Тазалау</button>
+<button aria-label="Закрыть корзину" class="close-x" id="cart-overlay-close">✕</button>
+</div>
+</div>
+<div class="overlay-body" id="cart-overlay-body">
+<!-- cart content cloned here -->
+</div>
+<div class="overlay-footer">
+<div style="flex:1;">
+<div id="cart-overlay-total" style="font-weight:900;color:#1a237e;">Барлығы: 0 тг</div>
+</div>
+<div style="flex:0 0 320px;">
+<a class="whatsapp-order whatsapp" href="#" id="cart-overlay-whatsapp" rel="noopener" target="_blank"> <i class="fab fa-whatsapp"></i> Заказать через WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+// Helper to open overlay and clone cart content
+(function(){
+  function qs(s){ return document.querySelector(s); }
+  function qsa(s){ return Array.from(document.querySelectorAll(s)); }
+
+  var overlay = document.getElementById('cart-overlay-modal');
+  var overlayBody = document.getElementById('cart-overlay-body');
+  var overlayTotal = document.getElementById('cart-overlay-total');
+  var closeBtn = document.getElementById('cart-overlay-close');
+  var clearBtn = document.getElementById('cart-overlay-clear');
+  var whatsappBtn = document.getElementById('cart-overlay-whatsapp');
+
+  function updateOverlayFromCart(){
+    // clone content from existing cart-items if present, otherwise generate from current cart state if functions exist
+    var originItems = document.querySelector('#cart .cart-items, .cart-items');
+    var originTotal = document.getElementById('cart-total');
+    if(originItems){
+      overlayBody.innerHTML = originItems.innerHTML;
+    } else {
+      overlayBody.innerHTML = '<div style="color:#666">Себет пуста</div>';
+    }
+    overlayTotal.textContent = originTotal ? originTotal.textContent.replace('Барлығы: ','Барлығы: ') : 'Барлығы: 0 тг';
+
+    // ensure buttons inside cloned content work by delegating events to original handlers
+    // attach simple listeners for qty change / remove if elements present
+    overlayBody.querySelectorAll('.inc, .dec, .remove').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        var id = btn.getAttribute('data-id');
+        // try to call original handlers if exist
+        if(typeof window.addToCart === 'function' && btn.classList.contains('inc')){
+          window.addToCart(id, 1);
+        } else if(typeof window.addToCart === 'function' && btn.classList.contains('dec')){
+          window.addToCart(id, -1);
+        } else {
+          // fallback: dispatch click to original element
+          var orig = document.querySelector('[data-id=\"'+id+'\"].inc, [data-id=\"'+id+'\"].dec, [data-id=\"'+id+'\"].remove');
+          if(orig) orig.click();
+        }
+        setTimeout(function(){ updateOverlayFromCart(); }, 120);
+      });
+    });
+
+    // update whatsapp link: build full order text (items + totals + comment)
+    var keys = Object.keys(cart || {});
+    var messageText = '';
+    if(keys.length === 0){
+      // fallback to total text if cart is empty
+      messageText = overlayTotal.textContent || '';
+    } else {
+      var total = 0;
+      messageText = 'Здравствуйте! Хочу заказать:\n';
+      keys.forEach(function(id){
+        var item = null;
+        for(var i=0;i<DATA.length;i++){
+          var found = DATA[i].items.find(function(x){ return x.id === id; });
+          if(found){ item = found; break; }
+        }
+        if(!item) return;
+        var qty = cart[id] || 0;
+        total += (item.price || 0) * qty;
+        messageText += '- ' + item.title + ' × ' + qty + ' — ' + (item.price || 0) + ' тг\n';
+      });
+      messageText += '\nБарлығы: ' + total + ' тг';
+    }
+    var comment = document.getElementById('order-comment') ? document.getElementById('order-comment').value.trim() : '';
+    if(comment) messageText += '\nКомментарий: ' + comment;
+    var message = encodeURIComponent(messageText);
+    var phone = '+77767469606';
+    whatsappBtn.href = 'https://wa.me/' + phone.replace(/[^0-9]/g,'') + '?text=' + message;
+  }
+
+  function openOverlay(){
+    updateOverlayFromCart();
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeOverlay(){
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  // open when cart button or view-cart-toggle clicked
+  var triggers = qsa('#cart-button, .cart-button, #view-cart-toggle, [data-open-cart], .open-cart');
+  triggers.forEach(function(t){
+    t.addEventListener('click', function(e){
+      e.preventDefault();
+      openOverlay();
+    });
+  });
+
+  // also open when clicking existing "Көрсету" button in cart panel
+  var panelShow = document.getElementById('view-cart-toggle');
+  if(panelShow) panelShow.addEventListener('click', function(e){ e.preventDefault(); openOverlay(); });
+
+  // close handlers
+  if(closeBtn) closeBtn.addEventListener('click', closeOverlay);
+  if(overlay) overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeOverlay();
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeOverlay(); });
+
+  // clear button: try to trigger existing clear handler
+  if(clearBtn){
+    clearBtn.addEventListener('click', function(){
+      var orig = document.getElementById('clear-cart');
+      if(orig) orig.click();
+      // refresh overlay after short delay
+      setTimeout(updateOverlayFromCart, 120);
+    });
+  }
+
+  // when checkout inside original cart is clicked, forward to whatsapp link
+  var origCheckout = document.getElementById('checkout');
+  if(origCheckout){
+    origCheckout.addEventListener('click', function(e){
+      // open overlay or just redirect to whatsapp
+      var link = document.getElementById('cart-overlay-whatsapp');
+      if(link) { link.click(); }
+    });
+  }
+
+  // ensure overlay updates when cart updated (try to listen to custom event)
+  document.addEventListener('cart:updated', function(){ if(overlay.classList.contains('open')) updateOverlayFromCart(); });
+
+})();
+</script>
+<!-- END: Fullscreen cart overlay injected by assistant -->
+<!-- ============ Minimal non-invasive cart-close patch ============ -->
+<script>
+(function(){
+  function q(sel){ return document.querySelector(sel); }
+  function qa(sel){ return Array.from(document.querySelectorAll(sel)); }
+  function hideIfVisible(node){
+    if(!node) return;
+    try{
+      // only hide if it's currently visible to avoid interfering
+      var style = window.getComputedStyle(node);
+      if(style && (style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0')){
+        node.style.display = 'none';
+      }
+      node.classList.remove && node.classList.remove('open');
+      node.classList.remove && node.classList.remove('is-active');
+      node.setAttribute && node.setAttribute('aria-hidden','true');
+    }catch(e){}
+  }
+
+  // list of selectors to hide when a close happens
+  var selectors = [
+    '#cart',
+    '.cart-panel',
+    '#cart-panel',
+    '#cart-fullscreen-modal',
+    '#cart-overlay-modal',
+    '.cart-overlay',
+    '.cart-modal',
+    '.drawer-cart'
+  ];
+
+  function closeAllSimple(){
+    selectors.forEach(function(s){ hideIfVisible(q(s)); });
+    try{ sessionStorage.removeItem('gruzim_cart_open'); }catch(e){}
+  }
+
+  // Attach to common close buttons WITHOUT overriding other logic
+  var closeSelectors = ['#close-cart', '.close-cart', '.cart-close', '.cart__close', '.close-x', '.remove-cart-overlay'];
+  closeSelectors.forEach(function(sel){
+    qa(sel).forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        // allow existing handlers to run; schedule our clean-up slightly after
+        setTimeout(closeAllSimple, 50);
+      }, {passive:true});
+    });
+  });
+
+  // Clicking on overlay background should close (non-invasive)
+  qa(['#cart-fullscreen-modal', '#cart-overlay-modal', '.cart-overlay']).forEach(function(modal){
+    if(!modal) return;
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeAllSimple();
+    }, {passive:true});
+  });
+
+  // Also ensure Esc key hides overlays (helpful but non-invasive)
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' || e.key === 'Esc'){
+      closeAllSimple();
+    }
+  });
+
+  // On load, hide any stray overlays that are visible (very small timeout to let page init)
+  window.addEventListener('load', function(){
+    setTimeout(function(){ closeAllSimple(); }, 80);
+  });
+
+})();
+</script>
+<!-- ============ End minimal patch ============ -->
+
+<!-- HEADER-OVERLAP FIX SCRIPT -->
+<script>
+(function(){
+  function updateHeaderOffset(){
+    var fh = document.querySelector('.floating-header');
+    if(!fh) return;
+    var h = Math.ceil(fh.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--floating-header-height', h + 'px');
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateHeaderOffset);
+  } else {
+    updateHeaderOffset();
+  }
+  window.addEventListener('resize', function(){ setTimeout(updateHeaderOffset, 50); });
+})();
+</script>
+</body>
+</html>
 
