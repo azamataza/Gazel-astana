@@ -1413,6 +1413,18 @@ header h1 {
 
 </style>
 
+
+<!-- HEADER-OVERLAP FIX: add this to prevent content hiding under floating header on mobile -->
+<style>
+  :root{ --floating-header-height: 64px; }
+  /* Apply padding on small screens only */
+  @media (max-width: 768px) {
+    body { padding-top: var(--floating-header-height); transition: padding-top 160ms ease; }
+    /* Slight extra top spacing for the first visible block if needed */
+    body > header + * { margin-top: 0; }
+  }
+</style>
+
 </head>
 <body>
 
@@ -1799,6 +1811,25 @@ header h1 {
             }
         });
     </script>
+
+
+<!-- HEADER-OVERLAP FIX SCRIPT -->
+<script>
+(function(){
+  function updateHeaderOffset(){
+    var fh = document.querySelector('.floating-header');
+    if(!fh) return;
+    var h = Math.ceil(fh.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--floating-header-height', h + 'px');
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateHeaderOffset);
+  } else {
+    updateHeaderOffset();
+  }
+  window.addEventListener('resize', function(){ setTimeout(updateHeaderOffset, 50); });
+})();
+</script>
 
 </body>
 </html>
