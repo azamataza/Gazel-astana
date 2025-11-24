@@ -1597,7 +1597,7 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
 </header>
 <div class="container">
 <header class="main-head">
-<h1>Gruzim.kz | Магазин упаковочных материалов (магазин находится в разработке, товары не доступны)</h1>
+<h1>Gruzim.kz | Магазин упаковочных материалов</h1>
 <p class="lead">Комплектуем переезд: качественная упаковка быстрая доставка.</p>
 </header>
 <script id="product-data" type="application/json">
@@ -2337,10 +2337,31 @@ updateCartUI();
       });
     });
 
-    // update whatsapp link: try to collect text from order comment or total
-    var totalText = overlayTotal.textContent || '';
-    var comment = document.getElementById('order-comment') ? document.getElementById('order-comment').value : '';
-    var message = encodeURIComponent('Заказ с сайта Gruzim.kz. ' + totalText + (comment ? '\\nКомментарий: ' + comment : ''));
+    // update whatsapp link: build full order text (items + totals + comment)
+    var keys = Object.keys(cart || {});
+    var messageText = '';
+    if(keys.length === 0){
+      // fallback to total text if cart is empty
+      messageText = overlayTotal.textContent || '';
+    } else {
+      var total = 0;
+      messageText = 'Здравствуйте! Хочу заказать:\n';
+      keys.forEach(function(id){
+        var item = null;
+        for(var i=0;i<DATA.length;i++){
+          var found = DATA[i].items.find(function(x){ return x.id === id; });
+          if(found){ item = found; break; }
+        }
+        if(!item) return;
+        var qty = cart[id] || 0;
+        total += (item.price || 0) * qty;
+        messageText += '- ' + item.title + ' × ' + qty + ' — ' + (item.price || 0) + ' тг\n';
+      });
+      messageText += '\nИтого: ' + total + ' тг';
+    }
+    var comment = document.getElementById('order-comment') ? document.getElementById('order-comment').value.trim() : '';
+    if(comment) messageText += '\nКомментарий: ' + comment;
+    var message = encodeURIComponent(messageText);
     var phone = '+77767469606';
     whatsappBtn.href = 'https://wa.me/' + phone.replace(/[^0-9]/g,'') + '?text=' + message;
   }
