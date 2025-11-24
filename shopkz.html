@@ -1596,7 +1596,7 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
 <a class="lang-btn active" href="shopkz.html">ҚАЗ</a>
 </div>
 </div>
-<a class="lang-btn shop-link mobile-shop-link" href="indexkz.html" style="display:none; margin-top:8px; font-weight:700;">БАСТЫ БЕТКЕ</a>
+<a class="shop-link mobile-shop-link" href="indexkz.html" style="display:none; margin-top:8px; font-weight:700;">БАСТЫ БЕТКЕ</a>
 <a class="header-phone" data-phone-type="floating-header" href="tel:+77767469606">
 <i class="fas fa-phone"></i>
     +7 (776) 746-96-06
@@ -2590,6 +2590,46 @@ updateCartUI();
   window.addEventListener('resize', function(){ setTimeout(updateHeaderOffset, 50); });
 })();
 </script>
+
+<script>
+// Robust language-switcher: keep user on the same page when switching language.
+// It updates only links with class "lang-btn" and preserves query/hash.
+document.addEventListener('DOMContentLoaded', function(){
+  try {
+    const path = window.location.pathname;
+    const filename = path.split('/').pop() || 'index.html';
+    const dir = path.endsWith('/') ? path : path.replace(/[^\/]*$/, '');
+    const suffix = window.location.search + window.location.hash;
+
+    function makeKz(name){
+      if(!name.endsWith('.html')) return name;
+      if(name.endsWith('kz.html')) return name;
+      return name.replace(/\.html$/, 'kz.html');
+    }
+    function makeRu(name){
+      if(!name.endsWith('.html')) return name;
+      if(name.endsWith('kz.html')) return name.replace(/kz\.html$/, '.html');
+      return name;
+    }
+
+    document.querySelectorAll('a.lang-btn').forEach(a=>{
+      const txt = (a.textContent||'').trim().toLowerCase();
+      // prefer explicit data-lang attribute if set
+      const dataLang = a.dataset.lang && a.dataset.lang.toLowerCase();
+      const lang = dataLang || (txt.indexOf('қаз') !== -1 ? 'kz' : (txt.indexOf('рус') !== -1 || txt.indexOf('рус')!==-1 || txt.indexOf('ру')!==-1 ? 'ru' : null));
+      if(!lang) return;
+      if(lang === 'kz'){
+        a.href = dir + makeKz(filename) + suffix;
+      } else if(lang === 'ru'){
+        a.href = dir + makeRu(filename) + suffix;
+      }
+    });
+  } catch(e){
+    console && console.error && console.error('lang switcher error', e);
+  }
+});
+</script>
+
 </body>
 </html>
 
