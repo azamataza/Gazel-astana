@@ -2424,5 +2424,76 @@ updateCartUI();
 })();
 </script>
 <!-- END: Fullscreen cart overlay injected by assistant -->
+
+<!-- ============ Minimal non-invasive cart-close patch ============ -->
+<script>
+(function(){
+  function q(sel){ return document.querySelector(sel); }
+  function qa(sel){ return Array.from(document.querySelectorAll(sel)); }
+  function hideIfVisible(node){
+    if(!node) return;
+    try{
+      // only hide if it's currently visible to avoid interfering
+      var style = window.getComputedStyle(node);
+      if(style && (style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0')){
+        node.style.display = 'none';
+      }
+      node.classList.remove && node.classList.remove('open');
+      node.classList.remove && node.classList.remove('is-active');
+      node.setAttribute && node.setAttribute('aria-hidden','true');
+    }catch(e){}
+  }
+
+  // list of selectors to hide when a close happens
+  var selectors = [
+    '#cart',
+    '.cart-panel',
+    '#cart-panel',
+    '#cart-fullscreen-modal',
+    '#cart-overlay-modal',
+    '.cart-overlay',
+    '.cart-modal',
+    '.drawer-cart'
+  ];
+
+  function closeAllSimple(){
+    selectors.forEach(function(s){ hideIfVisible(q(s)); });
+    try{ sessionStorage.removeItem('gruzim_cart_open'); }catch(e){}
+  }
+
+  // Attach to common close buttons WITHOUT overriding other logic
+  var closeSelectors = ['#close-cart', '.close-cart', '.cart-close', '.cart__close', '.close-x', '.remove-cart-overlay'];
+  closeSelectors.forEach(function(sel){
+    qa(sel).forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        // allow existing handlers to run; schedule our clean-up slightly after
+        setTimeout(closeAllSimple, 50);
+      }, {passive:true});
+    });
+  });
+
+  // Clicking on overlay background should close (non-invasive)
+  qa(['#cart-fullscreen-modal', '#cart-overlay-modal', '.cart-overlay']).forEach(function(modal){
+    if(!modal) return;
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeAllSimple();
+    }, {passive:true});
+  });
+
+  // Also ensure Esc key hides overlays (helpful but non-invasive)
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' || e.key === 'Esc'){
+      closeAllSimple();
+    }
+  });
+
+  // On load, hide any stray overlays that are visible (very small timeout to let page init)
+  window.addEventListener('load', function(){
+    setTimeout(function(){ closeAllSimple(); }, 80);
+  });
+
+})();
+</script>
+<!-- ============ End minimal patch ============ -->
 </body>
 </html>
