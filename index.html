@@ -1396,6 +1396,21 @@ header h1 {
     }
 }
 
+
+/* --- FIX: Ensure "Премиум переезд" modal sits above the floating header and footer --- */
+#premium-modal {
+    z-index: 2000 !important; /* higher than floating header (1050) */
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#premium-modal .modal-content {
+    z-index: 2001 !important;
+    position: relative !important;
+}
+
 </style>
 
 </head>
