@@ -1630,7 +1630,17 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
 <header class="main-head">
 <h1>Gruzim.kz | Орау материалдарының дүкені (уақытша тестілеуде)</h1>
 <p class="lead">Көші-қонға арналған жинақ: сапалы орау материалдары, жедел жеткізу.</p>
+<p class="hero-guarantee">Көші-қонға қажет орау материалдарын дәл мөлшерде таңдаймыз — артыққа ақша жұмсамаңыз.</p>
+<p class="hero-subtext">Күн сайын 8:00–22:00 · Тапсырысты тез есептейміз телефон немесе WhatsApp арқылы</p>
 </header>
+<section class="top-facts">
+  <div class="top-facts-inner">
+    <span><i class="fas fa-box-open"></i> Көші-қонға арналған 10+ орау тауары</span>
+    <span><i class="fas fa-truck-loading"></i> Орауды көлікпен бірге жеткізе аламыз</span>
+    <span><i class="fas fa-check-circle"></i> Жеке және заңды тұлғалармен жұмыс істейміз</span>
+  </div>
+</section>
+
 <script id="product-data" type="application/json">[
   {
     "category": "Қораптар",
@@ -2030,11 +2040,50 @@ updateCartUI();
   }
 })();
 </script>
+
+<section class="section faq-section" id="faq">
+  <h2>Сұрақтар мен жауаптар</h2>
+  <div class="faq-item">
+    <div class="faq-question">Тек орау материалдарын, тасымалсыз алуға бола ма?</div>
+    <div class="faq-answer">Иә, тек қораптар, пленка, скотч және сөмкелерге тапсырыс бере аласыз.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Қанша қорап және пленка қажет екенін қалай білемін?</div>
+    <div class="faq-answer">Пәтер немесе офис көлемін айтып беріңіз, тәжірибемізге сүйеніп шамамен жинақ ұсынамыз.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Орауды көлікпен бірге әкеле аласыздар ма?</div>
+    <div class="faq-answer">Иә, орау материалдарын жеткізіп, сол күні көші-қон қызметін де көрсете аламыз.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Заңды тұлғалар үшін құжаттар бар ма?</div>
+    <div class="faq-answer">Иә, шот-фактура, шарт және жабу құжаттарын дайындаймыз.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">WhatsApp арқылы тапсырыс бере аламын ба?</div>
+    <div class="faq-answer">Иә, себетке тауарларды қосып, төмендегі WhatsApp батырмасы арқылы жіберсеңіз болады.</div>
+  </div>
+</section>
 <footer>
-    © 2019-2025 gruzim.kz. Все права защищены.
-    <br/>
-<a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> |
-    <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <img src="Logo.png" alt="Gruzim.kz логотипі" class="footer-logo">
+      <p class="footer-tagline">Көші-қон және сақтау үшін орау материалдарының дүкені.</p>
+      <p class="footer-years">© 2019–2025 gruzim.kz. Барлық құқықтар қорғалған.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Байланыс</h4>
+      <p><i class="fas fa-phone"></i> <a href="tel:+77767469606">+7 (776) 746-96-06</a></p>
+      <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77767469606">WhatsApp арқылы жазу</a></p>
+      <p><i class="fas fa-clock"></i> Күн сайын 8:00–22:00</p>
+    </div>
+    <div class="footer-col">
+      <h4>Ақпарат</h4>
+      <p><a href="#privacy-policy-section" id="privacy-policy-link">Құпиялылық саясаты</a></p>
+      <p><a href="#terms-of-service-section" id="terms-of-service-link">Қолдану шарттары</a></p>
+      <p class="footer-note">Қолма-қол емес төлем, шарт, есеп құжаттары заңды тұлғалар үшін.</p>
+    </div>
+  </div>
 </footer>
 <!-- BEGIN: Cart UX enhancements inserted by assistant -->
 <style>
@@ -2371,6 +2420,160 @@ updateCartUI();
 @media (max-width:520px){
   #cart-overlay-modal .overlay-inner { max-width: 100%; border-radius:8px; height: calc(100vh - 40px); max-height: calc(100vh - 40px); }
   #cart-overlay-modal { padding:8px; }
+}
+
+/* --- Hero text enhancements for shop KZ --- */
+.hero-guarantee {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #ffeb3b;
+}
+.hero-subtext {
+  margin-top: 6px;
+  font-size: 0.9em;
+  color: #c5cae9;
+}
+
+/* --- Top facts band for shop KZ --- */
+.top-facts {
+  background: #ffffff;
+  border-bottom: 1px solid #e0e6f0;
+  padding: 10px 15px;
+}
+.top-facts-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  font-size: 0.95em;
+  color: #455a64;
+}
+.top-facts-inner span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.top-facts-inner i {
+  font-size: 1.1em;
+  color: #ff9900;
+}
+@media (max-width: 480px) {
+  .top-facts-inner {
+    justify-content: flex-start;
+  }
+  .top-facts-inner span {
+    white-space: normal;
+  }
+}
+
+/* --- FAQ section for shop KZ --- */
+.faq-section {
+  background-color: #f5f7fb;
+}
+.faq-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  margin-bottom: 24px;
+  color: #1a237e;
+}
+.faq-item {
+  max-width: 800px;
+  margin: 0 auto 12px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.faq-question {
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #1a237e;
+  color: #ffffff;
+  position: relative;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+.faq-item.open .faq-question::after {
+  content: "–";
+}
+.faq-answer {
+  display: none;
+  padding: 14px 18px;
+  color: #455a64;
+  background: #ffffff;
+  font-size: 0.95em;
+}
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* --- Footer enhanced layout for shop KZ --- */
+footer {
+  background: #10163a;
+  color: #c5cae9;
+  padding: 25px 20px;
+  margin-top: 40px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: flex-start;
+}
+.footer-logo {
+  max-height: 40px;
+  margin-bottom: 10px;
+}
+.footer-tagline {
+  margin: 0 0 6px;
+  font-size: 0.95em;
+}
+.footer-years {
+  margin: 0;
+  font-size: 0.88em;
+  color: #9fa8da;
+}
+.footer-col h4 {
+  margin-bottom: 8px;
+  font-size: 1.02em;
+  color: #ffffff;
+}
+.footer-col p {
+  margin: 3px 0;
+  font-size: 0.9em;
+}
+.footer-col a {
+  color: #ffcc80;
+  text-decoration: none;
+}
+.footer-col a:hover {
+  text-decoration: underline;
+}
+.footer-note {
+  margin-top: 8px;
+  font-size: 0.86em;
+  color: #b0bec5;
+}
+footer i {
+  margin-right: 6px;
+  font-size: 0.95em;
+}
+@media (max-width: 480px) {
+  footer {
+    padding: 20px 15px;
+  }
 }
 </style>
 <div aria-label="Корзина" id="cart-overlay-modal" role="dialog">
@@ -2743,6 +2946,15 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+});
+</script>
+
+
+<script>
+document.querySelectorAll('.faq-question').forEach(function(q){
+  q.addEventListener('click', function(){
+    q.parentElement.classList.toggle('open');
+  });
 });
 </script>
 
