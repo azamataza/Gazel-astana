@@ -1562,6 +1562,231 @@ header h1 {
             white-space: normal;
         }
     }
+
+    /* --- Hero guarantee and subtext --- */
+    .hero-guarantee {
+        margin-top: 10px;
+        font-size: 1em;
+        color: #ffeb3b;
+        max-width: 520px;
+    }
+
+    .hero-subtext {
+        margin-top: 8px;
+        font-size: 0.9em;
+        color: #c5cae9;
+    }
+
+    /* --- Works (gallery) section --- */
+    .works-section {
+        background-color: #f5f7fb;
+    }
+
+    .works-subtitle {
+        margin-top: 10px;
+        font-size: 0.98em;
+        color: #546e7a;
+        text-align: center;
+    }
+
+    .works-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .work-item {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 18px 16px 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        text-align: left;
+    }
+
+    .work-photo-placeholder {
+        border-radius: 12px;
+        border: 1px dashed #c5cae9;
+        padding: 40px 10px;
+        text-align: center;
+        font-size: 0.95em;
+        color: #7986cb;
+        margin-bottom: 10px;
+    }
+
+    .work-caption {
+        font-size: 0.95em;
+        color: #455a64;
+    }
+
+    .works-note {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #78909c;
+        text-align: center;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* --- Footer enhanced layout --- */
+    footer {
+        background: #10163a;
+        color: #c5cae9;
+        padding: 25px 20px;
+        margin-top: 40px;
+    }
+
+    .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .footer-logo {
+        max-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+        margin: 0 0 6px;
+        font-size: 0.95em;
+    }
+
+    .footer-years {
+        margin: 0;
+        font-size: 0.88em;
+        color: #9fa8da;
+    }
+
+    .footer-col h4 {
+        margin-bottom: 8px;
+        font-size: 1.02em;
+        color: #ffffff;
+    }
+
+    .footer-col p {
+        margin: 3px 0;
+        font-size: 0.9em;
+    }
+
+    .footer-col a {
+        color: #ffcc80;
+        text-decoration: none;
+    }
+
+    .footer-col a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-note {
+        margin-top: 8px;
+        font-size: 0.86em;
+        color: #b0bec5;
+    }
+
+    footer i {
+        margin-right: 6px;
+        font-size: 0.95em;
+    }
+
+    @media (max-width: 480px) {
+        footer {
+            padding: 20px 15px;
+        }
+    }
+
+    /* --- Reviews modal visual polish --- */
+    .reviews-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .review-item {
+        background: #f5f7fb;
+        border-radius: 12px;
+        padding: 12px 14px;
+    }
+
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+
+    .reviewer-name {
+        font-weight: 600;
+    }
+
+    .stars {
+        color: #ffc107;
+        font-size: 0.95em;
+    }
+
+    .review-date {
+        font-size: 0.8em;
+        color: #90a4ae;
+    }
+
+    .review-text {
+        margin-top: 4px;
+        font-size: 0.9em;
+        color: #455a64;
+    }
+
+    /* --- FAQ section --- */
+    .faq-section {
+        background-color: #f5f7fb;
+    }
+
+    .faq-item {
+        max-width: 800px;
+        margin: 0 auto 15px;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+        overflow: hidden;
+    }
+
+    .faq-question {
+        padding: 14px 18px;
+        cursor: pointer;
+        font-weight: 600;
+        background: #1a237e;
+        color: #ffffff;
+        position: relative;
+    }
+
+    .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+    }
+
+    .faq-item.open .faq-question::after {
+        content: "–";
+    }
+
+    .faq-answer {
+        display: none;
+        padding: 14px 18px;
+        color: #455a64;
+        background: #ffffff;
+        font-size: 0.95em;
+    }
+
+    .faq-item.open .faq-answer {
+        display: block;
+    }
 </style>
 
 </head>
@@ -1601,7 +1826,9 @@ header h1 {
                 <h1>Gruzim.kz | Грузоперевозки по Астане и регионам</h1>
             </div>
             <p>Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.</p>
-<a href="tel:+77767469606" class="cta-button" data-phone-type="main-header">Позвонить сейчас!</a>
+            <p class="hero-guarantee">Приедем вовремя, либо сделаем скидку 10% — никаких неожиданных доплат.</p>
+            <a href="tel:+77767469606" class="cta-button" data-phone-type="main-header">Позвонить сейчас!</a>
+            <p class="hero-subtext">Работаем ежедневно с 8:00 до 22:00 · Ответим за 3–5 минут</p>
         </div>
     </header>
     <section class="top-facts">
@@ -1781,7 +2008,38 @@ header h1 {
         </div>
     </section>
 
-    <section class="contact-section" id="contact">
+    
+    
+    <section class="section faq-section" id="faq">
+        <h2 data-aos="fade-up">Вопросы и ответы</h2>
+
+        <div class="faq-item" data-aos="fade-up">
+            <div class="faq-question">Сколько стоит перевозка?</div>
+            <div class="faq-answer">Стоимость зависит от расстояния, объёма груза и дополнительных услуг. Точную цену мы называем по телефону или в WhatsApp.</div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="faq-question">Можно ли заказать грузчиков?</div>
+            <div class="faq-answer">Да, у нас есть опытные грузчики для переездов, офисов, складов и подъёма мебели.</div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-question">Работаете ли вы с юридическими лицами?</div>
+            <div class="faq-answer">Да, предоставляем договор, безналичный расчёт и закрывающие документы.</div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="faq-question">Вы работаете по выходным?</div>
+            <div class="faq-answer">Да, работаем ежедневно с 8:00 до 22:00 без выходных.</div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="faq-question">Берёте ли срочные заказы?</div>
+            <div class="faq-answer">Да, при наличии свободной машины можем выехать в течение часа.</div>
+        </div>
+    </section>
+
+<section class="contact-section" id="contact">
         <h2 data-aos="fade-up">Свяжитесь с нами!</h2>
         <div class="contact-info">
             <p>Город: Астана</p>
@@ -1792,10 +2050,25 @@ header h1 {
         </div>
     </section>
     <footer>
-        &copy; 2019-2025 gruzim.kz. Все права защищены.
-        <br>
-        <a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> |
-        <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo">
+                <p class="footer-tagline">Грузоперевозки по Астане и регионам Казахстана.</p>
+                <p class="footer-years">&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77767469606">+7 (776) 746-96-06</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77767469606">Написать в WhatsApp</a></p>
+                <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <p><a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a></p>
+                <p><a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a></p>
+                <p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p>
+            </div>
+        </div>
     </footer>
 
     <div class="floating-buttons">
@@ -2314,6 +2587,15 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(adjustHeaderOffset, 300);
     setTimeout(adjustHeaderOffset, 1000);
   })();
+</script>
+
+
+<script>
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+        q.parentElement.classList.toggle('open');
+    });
+});
 </script>
 
 </body>
