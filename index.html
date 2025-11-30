@@ -1787,6 +1787,46 @@ header h1 {
     .faq-item.open .faq-answer {
         display: block;
     }
+    html { scroll-behavior: smooth; }
+
+    /* --- Mini FAQ section (short top link block) --- */
+    .mini-faq-section {
+        background-color: #f7f9fc;
+        border-top: 1px solid #e0e6f0;
+        border-bottom: 1px solid #e0e6f0;
+    }
+    .mini-faq-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .mini-faq-list a {
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: #ffffff;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        font-size: 0.95em;
+        text-decoration: none;
+        color: #1a237e;
+        border: 1px solid #dde3f3;
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .mini-faq-list a:hover {
+        background: #e8f0ff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    @media (max-width: 480px) {
+        .mini-faq-list {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .mini-faq-list a {
+            text-align: center;
+        }
+    }
 </style>
 
 </head>
@@ -1804,6 +1844,7 @@ header h1 {
             <nav class="main-nav">
                 <a href="#services">Услуги</a>
                 <a href="#features">Почему мы</a>
+                <a href="#faq">FAQ</a>
                 <a href="#legal-entities">Для юр. лиц</a>
                 <a href="#contact">Контакты</a>
             </nav>
@@ -1974,6 +2015,15 @@ header h1 {
             </div>
         </div>
     </section>
+    <section class="section mini-faq-section" id="mini-faq">
+        <h2 data-aos="fade-up">Часто спрашивают</h2>
+        <div class="mini-faq-list" data-aos="fade-up" data-aos-delay="100">
+            <a href="#faq-trash">Из чего формируется цена на вывоз мусора?</a>
+            <a href="#faq-parking">Почему подача грузовика в паркинг стоит от 14 000 ₸?</a>
+            <a href="#faq">Посмотреть все вопросы →</a>
+        </div>
+    </section>
+
 
 
     <section class="whatsapp-cta-section" data-aos="fade-up">
@@ -2037,7 +2087,55 @@ header h1 {
             <div class="faq-question">Берёте ли срочные заказы?</div>
             <div class="faq-answer">Да, при наличии свободной машины можем выехать в течение часа.</div>
         </div>
-    </section>
+    
+        
+        <div class="faq-item" id="faq-trash" data-aos="fade-up" data-aos-delay="500">
+            <div class="faq-question">Из чего формируется цена на вывоз мусора?</div>
+            <div class="faq-answer">
+                Цена складывается из нескольких обязательных расходов:
+                <ul style="margin-top:8px; padding-left:18px;">
+                    <li>полигон для утилизации находится за городом;</li>
+                    <li>приём мусора — в среднем около 5 000 ₸ за 1 тонну;</li>
+                    <li>затраты на топливо при рейсе за город и обратно;</li>
+                    <li>работа водителя и эксплуатация автомобиля;</li>
+                    <li>разгрузка мусора на полигоне — водитель выполняет её самостоятельно;</li>
+                    <li>если нужны грузчики — отдельно добавляется их работа.</li>
+                </ul>
+                <p style="margin-top:8px;">
+                    Фактически это сразу несколько услуг: рейс до полигона и обратно, 
+                    выгрузка мусора и работа транспорта.
+                </p>
+                <p style="margin-top:6px;">
+                    Поэтому минимальная стоимость вывоза мусора без грузчиков 
+                    начинается примерно от <strong>15 000 ₸</strong>.
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="faq-item" id="faq-parking" data-aos="fade-up" data-aos-delay="600">
+            <div class="faq-question">Почему подача грузовика в паркинг стоит от 14 000 ₸?</div>
+            <div class="faq-answer">
+                Для работы в подземных и крытых паркингах используются грузовики, которые ездят на бензине или дизеле,
+                потому что газовый транспорт туда часто не допускается по требованиям безопасности.
+                У таких машин выше расход топлива и себестоимость рейса.
+                <p style="margin-top:8px;">
+                    В цену входит:
+                </p>
+                <ul style="margin-top:4px; padding-left:18px;">
+                    <li>увеличенный расход бензина/дизеля по сравнению с газом;</li>
+                    <li>дополнительное время маневрирования и работы в ограниченном пространстве паркинга;</li>
+                    <li>работа водителя и износ автомобиля;</li>
+                    <li>ожидание и возможные простои при загрузке/выгрузке.</li>
+                </ul>
+                <p style="margin-top:8px;">
+                    Поэтому минимальная стоимость подачи грузовика в паркинг составляет <strong>от 14 000 ₸</strong>.
+                </p>
+            </div>
+        </div>
+
+</section>
 
 <section class="contact-section" id="contact">
         <h2 data-aos="fade-up">Свяжитесь с нами!</h2>
