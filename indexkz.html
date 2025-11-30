@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1412,35 +1412,421 @@ header h1 {
 }
 
 
-    .main-nav{display:flex;gap:18px;margin:0 20px;font-family:'Montserrat',sans-serif}
-    .main-nav a{font-size:.95em;color:rgba(255,255,255,.9);text-decoration:none;position:relative;padding-bottom:3px}
-    .main-nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:#ff9900;transition:.2s}
-    .main-nav a:hover::after{width:100%}
-    @media(max-width:768px){.main-nav{display:none}}
+    /* --- Главное меню в плавающей шапке --- */
+    .main-nav {
+        display: flex;
+        gap: 18px;
+        margin: 0 20px;
+        font-family: 'Montserrat', sans-serif;
+    }
 
-    .hero-guarantee{margin-top:10px;color:#ffeb3b}
-    .hero-subtext{margin-top:8px;color:#c5cae9}
+    .main-nav a {
+        font-size: 0.95em;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 3px;
+        transition: color 0.2s ease;
+    }
 
-    .top-facts{background:#fff;border-bottom:1px solid #e0e6f0;padding:10px}
-    .top-facts-inner{max-width:1000px;margin:auto;display:flex;gap:15px;justify-content:center;font-size:.9em;color:#455a64}
+    .main-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: #ff9900;
+        transition: width 0.2s ease;
+    }
 
-    .steps-section{background:#eef3fb;border-top:1px solid #dde3f3;border-bottom:1px solid #dde3f3}
-    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;margin-top:30px}
-    .step-item{background:#fff;border-radius:15px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-    .step-number{width:36px;height:36px;border-radius:50%;background:#ff9900;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:8px}
+    .main-nav a:hover {
+        color: #ffffff;
+    }
 
-    .faq-section{background:#f5f7fb}
-    .faq-item{max-width:800px;margin:0 auto 12px;background:#fff;border-radius:14px;overflow:hidden}
-    .faq-question{padding:14px 18px;cursor:pointer;background:#1a237e;color:#fff;font-weight:600;position:relative}
-    .faq-question:after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%)}
-    .faq-item.open .faq-question:after{content:"–"}
-    .faq-answer{display:none;padding:14px 18px;color:#455a64}
-    .faq-item.open .faq-answer{display:block}
+    .main-nav a:hover::after {
+        width: 100%;
+    }
 
-    footer{background:#10163a;color:#c5cae9;padding:25px;margin-top:40px}
-    .footer-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-    .footer-logo{max-height:40px;margin-bottom:10px}
-    .footer-col a{color:#ffcc80;text-decoration:none}
+    @media (max-width: 768px) {
+        .main-nav {
+            display: none;
+        }
+    }
+
+    /* --- Вторичные CTA-кнопки (спокойные) --- */
+    .cta-button--secondary {
+        background-color: transparent;
+        color: #ff9900;
+        border: 2px solid #ff9900;
+        box-shadow: none;
+        animation: none;
+    }
+
+    .cta-button--secondary:hover {
+        background-color: #ff9900;
+        color: #ffffff;
+    }
+
+    /* --- Блок "Как мы работаем" --- */
+    .steps-section {
+        background-color: #eef3fb;
+        border-top: 1px solid #dde3f3;
+        border-bottom: 1px solid #dde3f3;
+    }
+
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .step-item {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 25px 20px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .step-number {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #ff9900;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .step-item h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2em;
+        margin-bottom: 6px;
+        color: #1a237e;
+    }
+
+    .step-item p {
+        font-size: 0.98em;
+        color: #555;
+    }
+
+    @media (max-width: 480px) {
+        .step-item {
+            text-align: left;
+        }
+    }
+
+    /* --- Верхняя полоска с фактами --- */
+    .top-facts {
+        background: #ffffff;
+        border-bottom: 1px solid #e0e6f0;
+        padding: 10px 15px;
+    }
+
+    .top-facts-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        font-size: 0.95em;
+        color: #455a64;
+    }
+
+    .top-facts-inner span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+    }
+
+    .top-facts-inner i {
+        font-size: 1.1em;
+        color: #ff9900;
+    }
+
+    @media (max-width: 480px) {
+        .top-facts-inner {
+            justify-content: flex-start;
+        }
+        .top-facts-inner span {
+            white-space: normal;
+        }
+    }
+
+    /* --- Hero guarantee and subtext --- */
+    .hero-guarantee {
+        margin-top: 10px;
+        font-size: 1em;
+        color: #ffeb3b;
+        max-width: 520px;
+    }
+
+    .hero-subtext {
+        margin-top: 8px;
+        font-size: 0.9em;
+        color: #c5cae9;
+    }
+
+    /* --- Works (gallery) section --- */
+    .works-section {
+        background-color: #f5f7fb;
+    }
+
+    .works-subtitle {
+        margin-top: 10px;
+        font-size: 0.98em;
+        color: #546e7a;
+        text-align: center;
+    }
+
+    .works-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .work-item {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 18px 16px 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        text-align: left;
+    }
+
+    .work-photo-placeholder {
+        border-radius: 12px;
+        border: 1px dashed #c5cae9;
+        padding: 40px 10px;
+        text-align: center;
+        font-size: 0.95em;
+        color: #7986cb;
+        margin-bottom: 10px;
+    }
+
+    .work-caption {
+        font-size: 0.95em;
+        color: #455a64;
+    }
+
+    .works-note {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #78909c;
+        text-align: center;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* --- Footer enhanced layout --- */
+    footer {
+        background: #10163a;
+        color: #c5cae9;
+        padding: 25px 20px;
+        margin-top: 40px;
+    }
+
+    .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .footer-logo {
+        max-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+        margin: 0 0 6px;
+        font-size: 0.95em;
+    }
+
+    .footer-years {
+        margin: 0;
+        font-size: 0.88em;
+        color: #9fa8da;
+    }
+
+    .footer-col h4 {
+        margin-bottom: 8px;
+        font-size: 1.02em;
+        color: #ffffff;
+    }
+
+    .footer-col p {
+        margin: 3px 0;
+        font-size: 0.9em;
+    }
+
+    .footer-col a {
+        color: #ffcc80;
+        text-decoration: none;
+    }
+
+    .footer-col a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-note {
+        margin-top: 8px;
+        font-size: 0.86em;
+        color: #b0bec5;
+    }
+
+    footer i {
+        margin-right: 6px;
+        font-size: 0.95em;
+    }
+
+    @media (max-width: 480px) {
+        footer {
+            padding: 20px 15px;
+        }
+    }
+
+    /* --- Reviews modal visual polish --- */
+    .reviews-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .review-item {
+        background: #f5f7fb;
+        border-radius: 12px;
+        padding: 12px 14px;
+    }
+
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+
+    .reviewer-name {
+        font-weight: 600;
+    }
+
+    .stars {
+        color: #ffc107;
+        font-size: 0.95em;
+    }
+
+    .review-date {
+        font-size: 0.8em;
+        color: #90a4ae;
+    }
+
+    .review-text {
+        margin-top: 4px;
+        font-size: 0.9em;
+        color: #455a64;
+    }
+
+    /* --- FAQ section --- */
+    .faq-section {
+        background-color: #f5f7fb;
+    }
+
+    .faq-item {
+        max-width: 800px;
+        margin: 0 auto 15px;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+        overflow: hidden;
+    }
+
+    .faq-question {
+        padding: 14px 18px;
+        cursor: pointer;
+        font-weight: 600;
+        background: #1a237e;
+        color: #ffffff;
+        position: relative;
+    }
+
+    .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+    }
+
+    .faq-item.open .faq-question::after {
+        content: "–";
+    }
+
+    .faq-answer {
+        display: none;
+        padding: 14px 18px;
+        color: #455a64;
+        background: #ffffff;
+        font-size: 0.95em;
+    }
+
+    .faq-item.open .faq-answer {
+        display: block;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* --- Mini FAQ section (short top link block) --- */
+    .mini-faq-section {
+        background-color: #f7f9fc;
+        border-top: 1px solid #e0e6f0;
+        border-bottom: 1px solid #e0e6f0;
+    }
+    .mini-faq-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .mini-faq-list a {
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: #ffffff;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        font-size: 0.95em;
+        text-decoration: none;
+        color: #1a237e;
+        border: 1px solid #dde3f3;
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .mini-faq-list a:hover {
+        background: #e8f0ff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    @media (max-width: 480px) {
+        .mini-faq-list {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .mini-faq-list a {
+            text-align: center;
+        }
+    }
 </style>
 
 
@@ -1471,6 +1857,7 @@ header h1 {
             <nav class="main-nav">
                 <a href="#services">Қызметтер</a>
                 <a href="#features">Артықшылықтар</a>
+                <a href="#faq">FAQ</a>
                 <a href="#legal-entities">Заңды тұлғалар</a>
                 <a href="#contact">Байланыс</a>
             </nav>
@@ -1498,13 +1885,15 @@ header h1 {
             <p class="hero-subtext">Күн сайын 8:00–22:00 · 3–5 минутта жауап береміз</p>
         </div>
     </header>
+    
     <section class="top-facts">
         <div class="top-facts-inner">
-            <span><i class="fas fa-calendar-check"></i> 2019 жылдан бері</span>
-            <span><i class="fas fa-check-circle"></i> 500+ сәтті тапсырыс</span>
-            <span><i class="fas fa-file-invoice"></i> Шарт, ҚҚС, қолма-қол емес төлем</span>
+            <span><i class="fas fa-calendar-check"></i> 2019 жылдан бері жұмыс істейміз</span>
+            <span><i class="fas fa-check-circle"></i> 500+ орындалған тапсырыс</span>
+            <span><i class="fas fa-file-invoice"></i> Шарт · ҚҚС · қолма-қол емес төлем</span>
         </div>
     </section>
+
 
 
     <section class="section" id="services">
@@ -1641,6 +2030,15 @@ header h1 {
             </div>
         </div>
     </section>
+    <section class="section mini-faq-section" id="mini-faq">
+        <h2 data-aos="fade-up">Жиі қойылатын сұрақтар</h2>
+        <div class="mini-faq-list" data-aos="fade-up" data-aos-delay="100">
+            <a href="#faq-trash-kz">Қоқыс шығарудың бағасы неден тұрады?</a>
+            <a href="#faq-parking-kz">Неліктен паркингке жүк көлігін беру 14 000 ₸-ден басталады?</a>
+            <a href="#faq">Барлық сұрақтарды көру →</a>
+        </div>
+    </section>
+
 
 
     <section class="whatsapp-cta-section" data-aos="fade-up">
@@ -1683,6 +2081,48 @@ header h1 {
         <div class="faq-item"><div class="faq-question">Заңды тұлғалармен жұмыс істейсіздер ме?</div><div class="faq-answer">Иә, шарт, ҚҚС және құжаттармен.</div></div>
         <div class="faq-item"><div class="faq-question">Демалыс күндері жұмыс бар ма?</div><div class="faq-answer">Иә, күн сайын 8:00–22:00.</div></div>
         <div class="faq-item"><div class="faq-question">Жедел тапсырыс ала аласыздар ма?</div><div class="faq-answer">Бос көлік болса, 1 сағатта шығамыз.</div></div>
+    
+        <div class="faq-item" id="faq-trash-kz">
+            <div class="faq-question">Қоқыс шығарудың бағасы неден тұрады?</div>
+            <div class="faq-answer">
+                Баға бірнеше міндетті шығындардан қалыптасады:
+                <ul style="margin-top:8px; padding-left:18px;">
+                    <li>қалдықтарды қабылдайтын полигон қала сыртында орналасқан;</li>
+                    <li>полигонда 1 тонна қоқысты қабылдау орташа есеппен шамамен 5 000 ₸ тұрады;</li>
+                    <li>қала сыртындағы полигонға барып-қайтуға жанармай шығындары;</li>
+                    <li>жүргізушінің еңбегі мен автокөліктің тозуы;</li>
+                    <li>қоқысты полигонда түсіру — көбіне жүргізуші өзі орындайды;</li>
+                    <li>егер жүк тасушылар қажет болса, олардың жұмысы бөлек есептеледі.</li>
+                </ul>
+                <p style="margin-top:8px;">
+                    Яғни, бұл бір қызмет емес, бірнеше әрекетті қамтиды: полигонға барып-қайту, қоқысты түсіру және көлік жұмысы.
+                </p>
+                <p style="margin-top:6px;">
+                    Сондықтан жүк тасушыларсыз қоқыс шығарудың минималды құны шамамен <strong>15 000 ₸</strong>-ден басталады.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item" id="faq-parking-kz">
+            <div class="faq-question">Неліктен паркингке жүк көлігін беру 14 000 ₸-ден басталады?</div>
+            <div class="faq-answer">
+                Жерасты немесе жабық паркингтерде көбіне газбен жүретін жүк көліктеріне қауіпсіздік талаптарына байланысты рұқсат берілмейді.
+                Сол себепті ондай жерлерге көбіне бензинмен немесе дизельмен жүретін көліктер пайдаланылады, ал олардың жанармай шығыны жоғары.
+                <p style="margin-top:8px;">
+                    Бағаға мыналар кіреді:
+                </p>
+                <ul style="margin-top:4px; padding-left:18px;">
+                    <li>газға қарағанда бензин/дизель шығындарының көп болуы;</li>
+                    <li>паркингтегі тар кеңістікте маневр жасауға кететін қосымша уақыт;</li>
+                    <li>жүргізушінің еңбегі мен көлік тозуы;</li>
+                    <li>жүктеу/түсіру кезінде күту уақытының болуы.</li>
+                </ul>
+                <p style="margin-top:8px;">
+                    Сондықтан паркингке жүк көлігін берудің минималды құны <strong>14 000 ₸-ден</strong> басталады.
+                </p>
+            </div>
+        </div>
+
     </section>
 <section class="contact-section" id="contact">
         <h2 data-aos="fade-up">Бізбен хабарласыңыз!</h2>
