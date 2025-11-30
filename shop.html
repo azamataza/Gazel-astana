@@ -1620,9 +1620,19 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
 </header>
 <div class="container">
 <header class="main-head">
-<h1>Gruzim.kz | (магазин временно не доступен, на этапе тестирования Магазин упаковочных материалов</h1>
-<p class="lead">Комплектуем переезд: качественная упаковка быстрая доставка.</p>
+<h1>Gruzim.kz | Магазин упаковочных материалов (на этапе тестирования)</h1>
+<p class="lead">Комплектуем переезд: качественная упаковка, быстрая доставка до двери.</p>
+<p class="hero-guarantee">Подберём упаковку под ваш переезд — без переплат и лишних остатков.</p>
+<p class="hero-subtext">Работаем ежедневно с 8:00 до 22:00 · Быстрый расчёт заказа по телефону или WhatsApp</p>
 </header>
+<section class="top-facts">
+  <div class="top-facts-inner">
+    <span><i class="fas fa-box-open"></i> 10+ позиций упаковки для переезда</span>
+    <span><i class="fas fa-truck-loading"></i> Можем привезти упаковку вместе с машиной</span>
+    <span><i class="fas fa-check-circle"></i> Работаем с физ. и юр. лицами</span>
+  </div>
+</section>
+
 <script id="product-data" type="application/json">
 [
   {
@@ -1952,11 +1962,50 @@ updateCartUI();
   }
 })();
 </script>
+
+<section class="section faq-section" id="faq">
+  <h2>Вопросы и ответы по упаковке</h2>
+  <div class="faq-item">
+    <div class="faq-question">Можно ли заказать только упаковочные материалы без перевозки?</div>
+    <div class="faq-answer">Да, вы можете купить только коробки, плёнку, скотч и сумки без услуги грузоперевозки.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Как узнать, сколько коробок и плёнки нужно?</div>
+    <div class="faq-answer">Расскажите, какая у вас квартира или офис, и мы подскажем примерный набор по опыту переездов.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Можно ли привезти упаковку вместе с машиной для переезда?</div>
+    <div class="faq-answer">Да, мы можем одновременно привезти упаковку и выполнить ваш переезд.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Работаете ли вы с юридическими лицами по безналу?</div>
+    <div class="faq-answer">Да, оформляем счёт, договор и закрывающие документы по запросу.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Можно ли оформить заказ через WhatsApp?</div>
+    <div class="faq-answer">Да, просто добавьте товары в корзину и отправьте заказ через WhatsApp по кнопке внизу.</div>
+  </div>
+</section>
 <footer>
-    © 2019-2025 gruzim.kz. Все права защищены.
-    <br/>
-<a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a> |
-    <a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo">
+      <p class="footer-tagline">Магазин упаковочных материалов для переездов и хранения.</p>
+      <p class="footer-years">&copy; 2019–2025 gruzim.kz. Все права защищены.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <p><i class="fas fa-phone"></i> <a href="tel:+77767469606">+7 (776) 746-96-06</a></p>
+      <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77767469606">Написать в WhatsApp</a></p>
+      <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
+    </div>
+    <div class="footer-col">
+      <h4>Информация</h4>
+      <p><a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a></p>
+      <p><a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a></p>
+      <p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p>
+    </div>
+  </div>
 </footer>
 <!-- BEGIN: Cart UX enhancements inserted by assistant -->
 <style>
@@ -2294,6 +2343,160 @@ updateCartUI();
   #cart-overlay-modal .overlay-inner { max-width: 100%; border-radius:8px; height: calc(100vh - 40px); max-height: calc(100vh - 40px); }
   #cart-overlay-modal { padding:8px; }
 }
+
+/* --- Hero text enhancements for shop --- */
+.hero-guarantee {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #ffeb3b;
+}
+.hero-subtext {
+  margin-top: 6px;
+  font-size: 0.9em;
+  color: #c5cae9;
+}
+
+/* --- Top facts band for shop --- */
+.top-facts {
+  background: #ffffff;
+  border-bottom: 1px solid #e0e6f0;
+  padding: 10px 15px;
+}
+.top-facts-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  font-size: 0.95em;
+  color: #455a64;
+}
+.top-facts-inner span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.top-facts-inner i {
+  font-size: 1.1em;
+  color: #ff9900;
+}
+@media (max-width: 480px) {
+  .top-facts-inner {
+    justify-content: flex-start;
+  }
+  .top-facts-inner span {
+    white-space: normal;
+  }
+}
+
+/* --- FAQ section --- */
+.faq-section {
+  background-color: #f5f7fb;
+}
+.faq-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  margin-bottom: 24px;
+  color: #1a237e;
+}
+.faq-item {
+  max-width: 800px;
+  margin: 0 auto 12px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.faq-question {
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #1a237e;
+  color: #ffffff;
+  position: relative;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+.faq-item.open .faq-question::after {
+  content: "–";
+}
+.faq-answer {
+  display: none;
+  padding: 14px 18px;
+  color: #455a64;
+  background: #ffffff;
+  font-size: 0.95em;
+}
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* --- Footer enhanced layout --- */
+footer {
+  background: #10163a;
+  color: #c5cae9;
+  padding: 25px 20px;
+  margin-top: 40px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: flex-start;
+}
+.footer-logo {
+  max-height: 40px;
+  margin-bottom: 10px;
+}
+.footer-tagline {
+  margin: 0 0 6px;
+  font-size: 0.95em;
+}
+.footer-years {
+  margin: 0;
+  font-size: 0.88em;
+  color: #9fa8da;
+}
+.footer-col h4 {
+  margin-bottom: 8px;
+  font-size: 1.02em;
+  color: #ffffff;
+}
+.footer-col p {
+  margin: 3px 0;
+  font-size: 0.9em;
+}
+.footer-col a {
+  color: #ffcc80;
+  text-decoration: none;
+}
+.footer-col a:hover {
+  text-decoration: underline;
+}
+.footer-note {
+  margin-top: 8px;
+  font-size: 0.86em;
+  color: #b0bec5;
+}
+footer i {
+  margin-right: 6px;
+  font-size: 0.95em;
+}
+@media (max-width: 480px) {
+  footer {
+    padding: 20px 15px;
+  }
+}
 </style>
 <div aria-label="Корзина" id="cart-overlay-modal" role="dialog">
 <div class="overlay-inner" id="cart-overlay-inner">
@@ -2608,6 +2811,15 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+});
+</script>
+
+
+<script>
+document.querySelectorAll('.faq-question').forEach(function(q){
+  q.addEventListener('click', function(){
+    q.parentElement.classList.toggle('open');
+  });
 });
 </script>
 
