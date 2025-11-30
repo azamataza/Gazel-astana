@@ -1411,6 +1411,36 @@ header h1 {
     position: relative !important;
 }
 
+
+    .main-nav{display:flex;gap:18px;margin:0 20px;font-family:'Montserrat',sans-serif}
+    .main-nav a{font-size:.95em;color:rgba(255,255,255,.9);text-decoration:none;position:relative;padding-bottom:3px}
+    .main-nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:#ff9900;transition:.2s}
+    .main-nav a:hover::after{width:100%}
+    @media(max-width:768px){.main-nav{display:none}}
+
+    .hero-guarantee{margin-top:10px;color:#ffeb3b}
+    .hero-subtext{margin-top:8px;color:#c5cae9}
+
+    .top-facts{background:#fff;border-bottom:1px solid #e0e6f0;padding:10px}
+    .top-facts-inner{max-width:1000px;margin:auto;display:flex;gap:15px;justify-content:center;font-size:.9em;color:#455a64}
+
+    .steps-section{background:#eef3fb;border-top:1px solid #dde3f3;border-bottom:1px solid #dde3f3}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;margin-top:30px}
+    .step-item{background:#fff;border-radius:15px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .step-number{width:36px;height:36px;border-radius:50%;background:#ff9900;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:8px}
+
+    .faq-section{background:#f5f7fb}
+    .faq-item{max-width:800px;margin:0 auto 12px;background:#fff;border-radius:14px;overflow:hidden}
+    .faq-question{padding:14px 18px;cursor:pointer;background:#1a237e;color:#fff;font-weight:600;position:relative}
+    .faq-question:after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%)}
+    .faq-item.open .faq-question:after{content:"–"}
+    .faq-answer{display:none;padding:14px 18px;color:#455a64}
+    .faq-item.open .faq-answer{display:block}
+
+    footer{background:#10163a;color:#c5cae9;padding:25px;margin-top:40px}
+    .footer-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .footer-logo{max-height:40px;margin-bottom:10px}
+    .footer-col a{color:#ffcc80;text-decoration:none}
 </style>
 
 
@@ -1438,12 +1468,17 @@ header h1 {
                     <a href="indexkz.html" class="lang-btn active">ҚАЗ</a>
                 </div>
             </div>
-                <a href="shopkz.html" class="lang-btn shop-link mobile-shop-link" style="margin-top:8px; font-weight:700;">ДҮКЕН</a>
-
-<a href="tel:+77767469606" class="header-phone" data-phone-type="floating-header">
-    <i class="fas fa-phone"></i>
-    +7 (776) 746-96-06
-</a>
+            <nav class="main-nav">
+                <a href="#services">Қызметтер</a>
+                <a href="#features">Артықшылықтар</a>
+                <a href="#legal-entities">Заңды тұлғалар</a>
+                <a href="#contact">Байланыс</a>
+            </nav>
+            <a href="shopkz.html" class="lang-btn shop-link mobile-shop-link" style="margin-top:8px; font-weight:700;">ДҮКЕН</a>
+            <a href="tel:+77767469606" class="header-phone" data-phone-type="floating-header">
+                <i class="fas fa-phone"></i>
+                +7 (776) 746-96-06
+            </a>
         </div>
     </header>
 
@@ -1458,9 +1493,19 @@ header h1 {
                 <h1>Gruzim.kz | Жүк тасымалы — Астана және өңірлер бойынша</h1>
             </div>
             <p>Астана және бүкіл Қазақстан бойынша жүктің сенімді жеткізілуі. Жылдам, ұқыпты, кәсіби.</p>
-<a href="tel:+77767469606" class="cta-button" data-phone-type="main-header">Қоңырау шалу!</a>
+            <p class="hero-guarantee">Уақытында келеміз немесе 10% жеңілдік — жасырын төлемдерсіз.</p>
+            <a href="tel:+77767469606" class="cta-button" data-phone-type="main-header">Қоңырау шалу!</a>
+            <p class="hero-subtext">Күн сайын 8:00–22:00 · 3–5 минутта жауап береміз</p>
         </div>
     </header>
+    <section class="top-facts">
+        <div class="top-facts-inner">
+            <span><i class="fas fa-calendar-check"></i> 2019 жылдан бері</span>
+            <span><i class="fas fa-check-circle"></i> 500+ сәтті тапсырыс</span>
+            <span><i class="fas fa-file-invoice"></i> Шарт, ҚҚС, қолма-қол емес төлем</span>
+        </div>
+    </section>
+
 
     <section class="section" id="services">
         <h2 data-aos="fade-up">Біздің қызметтеріміз</h2>
@@ -1571,6 +1616,32 @@ header h1 {
             </div>
         </div>
     </section>
+    <section class="section steps-section" id="steps">
+        <h2 data-aos="fade-up">Қалай жұмыс істейміз</h2>
+        <div class="steps-grid">
+            <div class="step-item" data-aos="fade-up">
+                <div class="step-number">1</div>
+                <h3>Қоңырау немесе WhatsApp</h3>
+                <p>Қандай жүк, қайдан және қайда екенін айтыңыз.</p>
+            </div>
+            <div class="step-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-number">2</div>
+                <h3>Бағаны есептеу</h3>
+                <p>Құнын тез есептеп, уақытын келісеміз.</p>
+            </div>
+            <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-number">3</div>
+                <h3>Келу және тасымалдау</h3>
+                <p>Уақытында келіп, аккуратты орындаймыз.</p>
+            </div>
+            <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-number">4</div>
+                <h3>Төлем</h3>
+                <p>Қолма-қол немесе қолма-қол емес төлем.</p>
+            </div>
+        </div>
+    </section>
+
 
     <section class="whatsapp-cta-section" data-aos="fade-up">
         <h2>WhatsApp арқылы жедел баға алыңыз!</h2>
@@ -1604,7 +1675,16 @@ header h1 {
         </div>
     </section>
 
-    <section class="contact-section" id="contact">
+    
+    <section class="section faq-section" id="faq">
+        <h2 data-aos="fade-up">Сұрақтар мен жауаптар</h2>
+        <div class="faq-item"><div class="faq-question">Бағасы қалай есептеледі?</div><div class="faq-answer">Қашықтыққа, көлемге және қосымша қызметтерге байланысты.</div></div>
+        <div class="faq-item"><div class="faq-question">Жүк тасушылар бар ма?</div><div class="faq-answer">Иә, тәжірибелі жүк тасушылар қамтамасыз етіледі.</div></div>
+        <div class="faq-item"><div class="faq-question">Заңды тұлғалармен жұмыс істейсіздер ме?</div><div class="faq-answer">Иә, шарт, ҚҚС және құжаттармен.</div></div>
+        <div class="faq-item"><div class="faq-question">Демалыс күндері жұмыс бар ма?</div><div class="faq-answer">Иә, күн сайын 8:00–22:00.</div></div>
+        <div class="faq-item"><div class="faq-question">Жедел тапсырыс ала аласыздар ма?</div><div class="faq-answer">Бос көлік болса, 1 сағатта шығамыз.</div></div>
+    </section>
+<section class="contact-section" id="contact">
         <h2 data-aos="fade-up">Бізбен хабарласыңыз!</h2>
         <div class="contact-info">
             <p>Қала: Астана</p>
@@ -1615,10 +1695,25 @@ header h1 {
         </div>
     </section>
     <footer>
-        &copy; 2019-2025 gruzim.kz. Барлық құқықтар сақталған.
-        <br>
-        <a href="#privacy-policy-section" id="privacy-policy-link">Құпиялылық саясаты</a> |
-        <a href="#terms-of-service-section" id="terms-of-service-link">Қолдану шарттары</a>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <img src="Logo.png" alt="Gruzim.kz логотипі" class="footer-logo">
+                <p class="footer-tagline">Астана және өңірлер бойынша жүк тасымалы.</p>
+                <p class="footer-years">© 2019–2025 gruzim.kz</p>
+            </div>
+            <div class="footer-col">
+                <h4>Байланыс</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77767469606">+7 (776) 746-96-06</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77767469606">WhatsApp</a></p>
+                <p><i class="fas fa-clock"></i> Күн сайын 8:00–22:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ақпарат</h4>
+                <p><a href="#privacy-policy-section" id="privacy-policy-link">Құпиялылық саясаты</a></p>
+                <p><a href="#terms-of-service-section" id="terms-of-service-link">Қолдану шарттары</a></p>
+                <p class="footer-note">Қолма-қол емес төлем, шарт, есеп құжаттары.</p>
+            </div>
+        </div>
     </footer>
 
     <div class="floating-buttons">
@@ -1921,6 +2016,13 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+});
+</script>
+
+
+<script>
+document.querySelectorAll('.faq-question').forEach(q=>{
+  q.onclick=()=>q.parentElement.classList.toggle('open');
 });
 </script>
 
