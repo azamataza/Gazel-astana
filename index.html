@@ -1828,17 +1828,6 @@ header h1 {
         }
     }
 
-.clients-section{background:#f5f7fb;border-top:1px solid #dde3f3;border-bottom:1px solid #dde3f3}
-.clients-slider{display:flex;gap:16px;margin-top:20px}
-.clients-arrow{width:40px;height:40px;border-radius:50%;border:1px solid #c5cae9;background:#fff;cursor:pointer}
-.clients-viewport{overflow:hidden;flex:1}
-.clients-track{display:flex;transition:.4s}
-.client-card{flex:0 0 100%;background:#fff;border-radius:14px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
-.client-logo img{max-height:40px}
-
-
-
-
 @media (min-width: 992px) {
     /* Почему выбирают нас — 2 в ряд */
     .features-grid {
@@ -1866,6 +1855,129 @@ header h1 {
     }
 }
 
+/* --- Блок "Біздің клиенттер" (карусель) --- */
+    .clients-section {
+        background-color: #f5f7fb;
+        border-top: 1px solid #dde3f3;
+        border-bottom: 1px solid #dde3f3;
+    }
+
+    .clients-section h2 {
+        margin-bottom: 10px;
+    }
+
+    .clients-subtitle {
+        font-size: 0.98em;
+        color: #546e7a;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .clients-slider {
+        margin-top: 25px;
+        display: flex;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .clients-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid #c5cae9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        align-self: center;
+    }
+
+    .clients-arrow i {
+        font-size: 1.1em;
+        color: #1a237e;
+    }
+
+    .clients-arrow:hover {
+        background: #e8f0ff;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    }
+
+    .clients-viewport {
+        overflow: hidden;
+        flex: 1;
+    }
+
+    .clients-track {
+        display: flex;
+        width: 100%;
+        transition: transform 0.4s ease;
+    }
+
+    .client-card {
+        flex: 0 0 100%;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        padding: 18px 18px 16px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        box-sizing: border-box;
+    }
+
+    .client-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .client-logo img {
+        max-height: 40px;
+        max-width: 150px;
+        object-fit: contain;
+    }
+
+    .client-name {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #1a237e;
+        font-size: 1.1em;
+    }
+
+    .client-type {
+        font-size: 0.9em;
+        color: #78909c;
+    }
+
+    .client-details {
+        font-size: 0.95em;
+        color: #455a64;
+    }
+
+    .client-meta {
+        margin-top: auto;
+        font-size: 0.85em;
+        color: #9e9e9e;
+    }
+
+    @media (max-width: 768px) {
+        .clients-slider {
+            gap: 10px;
+        }
+        .clients-arrow {
+            width: 34px;
+            height: 34px;
+        }
+    }
+
+    /* --- Desktop layout: 2 карточки "Почему выбирают нас", 3 карточки для юр. лиц --- */
+    
 </style>
 
 </head>
@@ -2043,7 +2155,7 @@ header h1 {
           <div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden"></div>
           <div class="client-name">JOY Garden</div>
           <div class="client-type">Переезд магазина на 3 склада</div>
-          <p class="client-details">Перевод торгового зала и склада на три точки хранения. Упаковка витрин, загрузка, доставка и расстановка товара — переезд под ключ за 10 дней, 15 тон товара</p>
+          <p class="client-details">Перевод торгового зала и склада на три точки хранения. Упаковка витрин, загрузка, доставка и расстановка товара — переезд под ключ за 1 день.</p>
           <div class="client-meta">Астана · Магазин → 3 склада</div>
         </article>
 
@@ -2777,15 +2889,34 @@ document.querySelectorAll('.faq-question').forEach(q => {
 
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-const t=document.querySelector('.clients-track');
-if(!t)return;
-const c=t.children;
-let i=0;
-const show=()=>t.style.transform=`translateX(-${i*100}%)`;
-document.querySelector('.clients-arrow--next').onclick=()=>{i=(i+1)%c.length;show()};
-document.querySelector('.clients-arrow--prev').onclick=()=>{i=(i-1+c.length)%c.length;show()};
-show();
+document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.clients-track');
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.client-card');
+    const prevBtn = document.querySelector('.clients-arrow--prev');
+    const nextBtn = document.querySelector('.clients-arrow--next');
+
+    if (!cards.length || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        const count = cards.length;
+        currentIndex = (index + count) % count;
+        const offset = -currentIndex * 100;
+        track.style.transform = 'translateX(' + offset + '%)';
+    }
+
+    prevBtn.addEventListener('click', function () {
+        showSlide(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', function () {
+        showSlide(currentIndex + 1);
+    });
+
+    showSlide(0);
 });
 </script>
 
