@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gruzim.kz | Грузоперевозки по Астане и регионам - Надежно и Быстро</title>
 
-    <meta name="description" content="Gruzim.kz - Профессиональные грузоперевозки по Астане и регионам Казахстана. Квартирные, офисные переезды, доставка стройматериалов, вывоз мусора, услуги грузчиков. Надежно, быстро, с НДС.">
-    <meta name="keywords" content="грузоперевозки астана, переезды астана, грузчики астана, доставка стройматериалов, вывоз мусора астана, грузовое такси астана, перевозки казахстан, грузоперевозки по регионам, услуги газели астана, безналичный расчет, с НДС">
+    <meta name="description" content="Gruzim.kz - Профессиональные грузоперевозки по Астане и регионам Казахстана. Квартирные, офисные переезды, доставка стройматериалов, вывоз мусора, услуги грузчиков. Надежно, быстро, с документами для юр. лиц.">
+    <meta name="keywords" content="грузоперевозки астана, переезды астана, грузчики астана, доставка стройматериалов, вывоз мусора астана, грузовое такси астана, перевозки казахстан, грузоперевозки по регионам, услуги газели астана, безналичный расчет, с документами для юр. лиц">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://gruzim.kz">
 
@@ -1827,6 +1827,45 @@ header h1 {
             text-align: center;
         }
     }
+
+.clients-section{background:#f5f7fb;border-top:1px solid #dde3f3;border-bottom:1px solid #dde3f3}
+.clients-slider{display:flex;gap:16px;margin-top:20px}
+.clients-arrow{width:40px;height:40px;border-radius:50%;border:1px solid #c5cae9;background:#fff;cursor:pointer}
+.clients-viewport{overflow:hidden;flex:1}
+.clients-track{display:flex;transition:.4s}
+.client-card{flex:0 0 100%;background:#fff;border-radius:14px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+.client-logo img{max-height:40px}
+
+
+
+
+@media (min-width: 992px) {
+    /* Почему выбирают нас — 2 в ряд */
+    .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Юр. лица — 3 в ряд без расползания текста */
+    .legal-entities-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 1200px;
+    }
+
+    .legal-entity-item {
+        padding: 24px;
+        font-size: 0.95em;
+        line-height: 1.35;
+    }
+
+    .legal-entity-item h3 {
+        font-size: 1.05em;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 </style>
 
 </head>
@@ -1876,7 +1915,7 @@ header h1 {
         <div class="top-facts-inner">
             <span><i class="fas fa-calendar-check"></i> Работаем с 2019 года</span>
             <span><i class="fas fa-check-circle"></i> Более 500 выполненных заказов</span>
-            <span><i class="fas fa-file-invoice"></i> Безнал, НДС, договор</span>
+            <span><i class="fas fa-file-invoice"></i> Безнал, договор, документы</span>
         </div>
     </section>
 
@@ -1990,7 +2029,47 @@ header h1 {
             </div>
         </div>
     </section>
-    <section class="section steps-section" id="steps">
+    
+<section class="section clients-section" id="clients">
+  <h2>Наши клиенты</h2>
+  <p class="clients-subtitle">Работаем и с магазинами, и с офисами, и со складами. Ниже несколько переездов под ключ.</p>
+
+  <div class="clients-slider">
+    <button class="clients-arrow clients-arrow--prev" type="button"><i class="fas fa-chevron-left"></i></button>
+
+    <div class="clients-viewport">
+      <div class="clients-track">
+        <article class="client-card">
+          <div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden"></div>
+          <div class="client-name">JOY Garden</div>
+          <div class="client-type">Переезд магазина на 3 склада</div>
+          <p class="client-details">Перевод торгового зала и склада на три точки хранения. Упаковка витрин, загрузка, доставка и расстановка товара — переезд под ключ за 1 день.</p>
+          <div class="client-meta">Астана · Магазин → 3 склада</div>
+        </article>
+
+        <article class="client-card">
+          <div class="client-logo"><img src="logo-zte-astana.png" alt="ZTE Astana"></div>
+          <div class="client-name">ZTE Astana</div>
+          <div class="client-type">Переезд офиса на 50 сотрудников</div>
+          <p class="client-details">Полная организация переезда: упаковка рабочих мест, оргтехника, мебель, демонтаж и сборка. Переезд без остановки работы офиса.</p>
+          <div class="client-meta">Астана · Офис 50+ мест</div>
+        </article>
+
+        <article class="client-card">
+          <div class="client-logo"><img src="logo-astana-logistics.png" alt="Astana Logistics Group"></div>
+          <div class="client-name">Astana Logistics Group</div>
+          <div class="client-type">Переезд склада</div>
+          <p class="client-details">Перенос складского запаса, паллет и стеллажей. Этапная работа и ночные смены для сохранения логистики клиента.</p>
+          <div class="client-meta">Складской комплекс</div>
+        </article>
+      </div>
+    </div>
+
+    <button class="clients-arrow clients-arrow--next" type="button"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
+
+<section class="section steps-section" id="steps">
         <h2 data-aos="fade-up">Как мы работаем</h2>
         <div class="steps-grid">
             <div class="step-item" data-aos="fade-up" data-aos-delay="0">
@@ -2037,7 +2116,7 @@ header h1 {
     <section class="section legal-entities-section" id="legal-entities">
         <h2 data-aos="fade-up">Работаем с юридическими лицами</h2>
         <p class="description" data-aos="fade-up" data-aos-delay="100">
-            Мы предлагаем удобные условия сотрудничества для бизнеса. Принимаем оплату по безналичному расчету, в том числе с НДС, предоставляем полный пакет закрывающих документов.
+            Мы предлагаем удобные условия сотрудничества для бизнеса. Принимаем оплату по безналичному расчету, в том числе с документами для юр. лиц, предоставляем полный пакет закрывающих документов.
         </p>
         <div class="legal-entities-grid">
             <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="200">
@@ -2047,7 +2126,7 @@ header h1 {
             </div>
             <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="300">
                 <i class="fas fa-file-invoice-dollar icon"></i>
-                <h3>Работа с НДС</h3>
+                <h3>Работа с документами для юр. лиц</h3>
                 <p>Полное соответствие требованиям законодательства, предоставление всех необходимых документов.</p>
             </div>
             <div class="legal-entity-item" data-aos="fade-up" data-aos-delay="400">
@@ -2336,7 +2415,7 @@ header h1 {
             <p>Мы предоставляем услуги по грузоперевозкам в городе Астана и регионам Казахстана, включая городские перевозки, квартирные и офисные переезды, доставку строительных материалов, вывоз мусора и услуги грузчиков. Подробное описание услуг и тарифов представлено на нашем сайте.</p>
 
             <h3>3. Цены и оплата</h3>
-            <p>Цены на наши услуги указаны на сайте и могут варьироваться в зависимости от объема, типа груза, расстояния и времени выполнения работ. Оплата производится согласно согласованным тарифам. Подробности оплаты обсуждаются при оформлении заказа, возможен безналичный расчет с НДС.</p>
+            <p>Цены на наши услуги указаны на сайте и могут варьироваться в зависимости от объема, типа груза, расстояния и времени выполнения работ. Оплата производится согласно согласованным тарифам. Подробности оплаты обсуждаются при оформлении заказа, возможен безналичный расчет с документами для юр. лиц.</p>
 
             <h3>4. Ответственность</h3>
             <p>Мы стремимся обеспечить безопасную и своевременную доставку вашего груза. Мы несем ответственность за сохранность груза с момента его принятия до момента доставки, за исключением случаев, когда повреждение или утеря произошли по вине заказчика, из-за скрытых дефектов груза, форс-мажорных обстоятельств или иных причин, не зависящих от нас.</p>
@@ -2693,6 +2772,20 @@ document.querySelectorAll('.faq-question').forEach(q => {
     q.addEventListener('click', () => {
         q.parentElement.classList.toggle('open');
     });
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+const t=document.querySelector('.clients-track');
+if(!t)return;
+const c=t.children;
+let i=0;
+const show=()=>t.style.transform=`translateX(-${i*100}%)`;
+document.querySelector('.clients-arrow--next').onclick=()=>{i=(i+1)%c.length;show()};
+document.querySelector('.clients-arrow--prev').onclick=()=>{i=(i-1+c.length)%c.length;show()};
+show();
 });
 </script>
 
