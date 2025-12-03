@@ -1974,6 +1974,22 @@ header h1 {
             justify-content: center;
         }
     }
+
+/* === Новогодняя шапка на номер телефона === */
+.phone-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.phone-wrap .santa-hat {
+  position: absolute;
+  width: 32px;
+  top: -14px;
+  left: -18px;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
 </style>
 
 
@@ -2009,10 +2025,10 @@ header h1 {
                 <a href="#contact">Байланыс</a>
             </nav>
             <a href="shopkz.html" class="lang-btn shop-link mobile-shop-link" style="margin-top:8px; font-weight:700;">ДҮКЕН</a>
-            <a href="tel:+77767469606" class="header-phone" data-phone-type="floating-header">
+            <span class="phone-wrap"><a href="tel:+77767469606" class="header-phone" data-phone-type="floating-header">
                 <i class="fas fa-phone"></i>
                 +7 (776) 746-96-06
-            </a>
+            </a><img src="santa_hat.png" class="santa-hat" alt=""></span>
         </div>
     </header>
 
