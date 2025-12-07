@@ -2274,6 +2274,33 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
 }
 </style>
 
+
+<style>
+/* === FIX MOBILE OVERLAY LAYOUT: кнопка не давит на сумму === */
+@media (max-width: 520px){
+
+  /* делим футер на две строки */
+  #cart-overlay-modal .overlay-footer{
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+  }
+
+  /* сумма всегда сверху отдельно */
+  #cart-overlay-modal #cart-overlay-total{
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  /* кнопка на всю ширину, но ниже суммы */
+  #cart-overlay-modal .whatsapp-order{
+    width: 100% !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="floating-header">
