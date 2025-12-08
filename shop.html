@@ -143,7 +143,74 @@
         @keyframes fadeInDown { from { opacity: 0; transform: translate3d(0, -20%, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translate3d(0, 20%, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
         
-        /* ======================================= */
+        /* --- Mobile-specific shop link & logo highlight --- */
+@media (max-width: 480px) {
+    .mobile-shop-link { display: inline-block !important; background: #ff9900; color: #fff; border-radius: 18px; padding: 6px 12px; box-shadow: 0 6px 18px rgba(255,153,0,0.35); border: 1px solid rgba(255,255,255,0.15); }
+    .floating-logo { box-shadow: 0 6px 20px rgba(0,0,0,0.25); border-radius: 8px; border: 2px solid rgba(255,255,255,0.12); }
+    /* Hide the duplicate large logo inside the header with background on small screens */
+    header .header-logo { display: none !important; }
+}
+
+
+/* --- Fix: prevent floating header from overlapping main header on mobile --- */
+@media (max-width: 768px) {
+    /* push the main header down on small screens to clear the fixed floating header */
+    header {
+        padding-top: 12px !important;
+    }
+}
+@media (max-width: 480px) {
+    header {
+        padding-top: 12px !important;
+    }
+    /* ensure floating header stays on top but not covering content excessively */
+    .floating-header {
+        padding: 10px 12px;
+    }
+}
+
+
+
+/* --- UI improvements added automatically --- */
+/* Ensure floating header sits above other header elements */
+.floating-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+}
+
+/* Highlight logo and store badge on blue background for mobile */
+.header-logo {
+    display: inline-block;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(2px);
+}
+.store-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    font-weight: 600;
+}
+
+/* slightly larger touch targets on mobile */
+@media (max-width: 768px) {
+    .header-logo, .store-badge {
+        padding: 8px 10px;
+    }
+    /* make sure header content isn't hidden under floating header */
+    body { padding-top: 64px; }
+}
+
+
+
+/* ======================================= */
         /* --- МАГАЗИННЫЕ СТИЛИ --- */
         /* ======================================= */
         
@@ -254,79 +321,31 @@
         }
         
         /* ------------------------------------------------ */
-        /* --- ИСПРАВЛЕННАЯ АДАПТИВНОСТЬ ДЛЯ ШАПКИ (ТРИ РЯДА) --- */
+        /* --- ИСПРАВЛЕННАЯ АДАПТИВНОСТЬ ДЛЯ ШАПКИ --- */
         /* ------------------------------------------------ */
         @media (max-width: 768px) {
-            
-            /* Делаем шапку более компактной */
+            .main-nav { display: none; }
             .floating-header { padding: 8px 15px; }
+            .header-phone { display: none; } /* Телефон скрываем */
             
-            /* Шапка в три ряда */
-            .floating-header-content { 
-                flex-direction: column; /* Вертикальный стек */
-                align-items: center; 
-                gap: 0;
-            } 
+            /* Обеспечиваем центрирование и горизонтальное расположение элементов */
+            .floating-header-content { justify-content: center; flex-direction: row; } 
             
-            /* Ряд 1: Логотип и переключатель языка */
-            .header-left { 
-                width: 100%;
-                justify-content: space-between; /* Лого слева, язык справа */
-                padding-bottom: 5px; /* Небольшой отступ вниз */
-            } 
-            .floating-logo { 
-                height: 35px; /* Оптимальный размер логотипа */
-            }
-            
-            /* Ряд 2: Навигация */
-            .main-nav { 
-                display: flex; /* Показываем навигацию */
-                width: 100%;
-                justify-content: center; /* Центрируем ссылки */
-                margin: 5px 0; /* Отступ сверху/снизу */
-                padding: 5px 0;
-                border-top: 1px solid rgba(255,255,255,0.1); 
-                border-bottom: 1px solid rgba(255,255,255,0.1); 
-                gap: 15px;
-            }
-            .main-nav a {
-                font-size: 0.9em;
-            }
-            
-            /* Ряд 3: Телефон */
-            .phone-wrap {
-                width: 100%;
-                text-align: center; /* Центрируем номер телефона */
-                padding-top: 5px;
-            }
-            .header-phone { 
-                font-size: 1.0em; 
-                justify-content: center; /* Центрируем иконку и текст */
-            }
-
             header h1 { font-size: 2em; }
             header p { font-size: 1.1em; }
+            
+            /* Логотип и переключатель языка остаются в одной строке */
+            .header-left { flex-direction: row; align-items: center; gap: 15px; } 
             
             .language-switcher { margin-top: 0; }
         }
         
         @media (max-width: 480px) {
-            /* Дополнительная компактность для самых маленьких экранов */
-            .floating-header { padding: 6px 10px; } 
-            
-            .floating-logo { height: 30px; } 
-            .lang-btn { padding: 3px 6px; font-size: 0.75em; } 
-            
-            .main-nav {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            .main-nav a { 
-                font-size: 0.8em; 
-            }
-            .header-phone { 
-                font-size: 0.9em; 
-            }
+            /* СТИЛИ ДЛЯ ШАПКИ */
+            .floating-header-content { flex-direction: row; justify-content: center; gap: 8px; } 
+            .header-left { justify-content: center; width: auto; flex-direction: row; align-items: center; }
+            .floating-logo { height: 30px; }
+            .lang-btn { padding: 4px 8px; font-size: 0.8em; } /* Более компактные кнопки языка */
 
             /* СТИЛИ ДЛЯ ГЛАВНОГО БЛОКА */
             header h1 { font-size: 1.8em; }
@@ -356,21 +375,24 @@
     <header class="floating-header">
         <div class="floating-header-content">
             <div class="header-left">
-                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo"></a>
+                <a href="index.html"><img src="Logo.png" alt="Логотип Gruzim.kz" class="floating-logo"></a>
                 <div class="language-switcher">
-                    <a href="index.html" class="lang-btn active">RU</a>
-                    <a href="#" class="lang-btn">KZ</a>
+                    <a href="shop.html" class="lang-btn active">РУС</a>
+                    <a href="shopkz.html" class="lang-btn">ҚАЗ</a>
                 </div>
             </div>
             <nav class="main-nav">
-                <a href="index.html">Главная</a>
                 <a href="index.html#services">Услуги</a>
-                <a href="shop.html" class="active">Магазин</a>
+                <a href="index.html#features">Почему мы</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="index.html#legal-entities">Для юр. лиц</a>
                 <a href="index.html#contact">Контакты</a>
             </nav>
+            <a href="index.html" class="lang-btn shop-link mobile-shop-link" style="margin-top:8px; font-weight:700;">НА ГЛАВНУЮ</a>
             <span class="phone-wrap">
-                <a href="tel:+77767469606" class="header-phone">
-                    <i class="fas fa-phone"></i> +7 (776) 746-96-06
+                <a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');" class="header-phone" data-phone-type="floating-header">
+                    <i class="fas fa-phone"></i>
+                    +7 (776) 746-96-06
                 </a>
                 <img src="santa_hat.png" class="santa-hat" alt="">
             </span>
