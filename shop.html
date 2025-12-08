@@ -3821,5 +3821,34 @@ document.querySelectorAll('.faq-question').forEach(function(q){
 });
 </script>
 
+
+<style>
+/* === НОРМАЛЬНЫЙ ФИКС: баннер не залезает под шапку === */
+
+/* Высота фиксированной шапки */
+:root{
+  --header-h-desktop: 90px;
+  --header-h-mobile: 78px;
+}
+
+/* Сдвигаем ВСЁ тело сайта вниз, а не блок */
+body{
+  padding-top: var(--header-h-desktop) !important;
+}
+
+/* Для мобилок */
+@media (max-width: 768px){
+  body{
+    padding-top: var(--header-h-mobile) !important;
+  }
+}
+
+/* УБИРАЕМ все старые кривые костыли */
+header.main-head{
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+</style>
+
 </body>
 </html>
