@@ -1,3627 +1,689 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Gruzim.kz | Магазин — Упаковочные материалы</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  <!-- Основная конфигурация Google Ads -->
-  gtag('config', 'AW-17503887977', {
-    'phone_conversion_number': '+77767469606'
-  });
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Магазин упаковки | Gruzim.kz</title>
+    <meta name="description" content="Магазин упаковки для переезда: коробки, сумки, пленка, скотч. Доставка по Астане.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      // Основная конфигурация Google Ads
+      gtag('config', 'AW-17503887977', {'phone_conversion_number': '+77767469606'});
+      // Конфигурация Google Analytics 4
+      gtag('config', 'G-2VWS9V6KVJ');
+    </script>
 
-  <!-- Конфигурация Google Analytics 4 -->
-  gtag('config', 'G-2VWS9V6KVJ');
-</script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
+        ym(104276494, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+    </script>
 
-  gtag('config', 'G-2VWS9V6KVJ');
-</script>
- <style>
+    <style>
+        /* --- СТИЛИ СКОПИРОВАНЫ ИЗ INDEX.HTML (ШАПКА, ГЛАВНЫЙ БЛОК, ПОДВАЛ) --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.7; overflow-x: hidden; padding-top: 8px; }
+        
+        /* --- Плавающая шапка --- */
+        .floating-header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(26, 35, 126, 0.95); backdrop-filter: blur(10px);
+            padding: 12px 20px; z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .floating-header-content {
+            display: flex; align-items: center; justify-content: space-between;
+            width: 100%; max-width: 1200px; margin: 0 auto;
+        }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .floating-logo { height: 45px; width: auto; }
+        
+        /* Переключатель языка */
+        .language-switcher { display: flex; gap: 10px; }
+        .lang-btn {
+            background: transparent; border: 1px solid rgba(255,255,255,0.3);
+            color: white; padding: 6px 15px; border-radius: 20px;
+            cursor: pointer; font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em; transition: all 0.3s ease; text-decoration: none;
+        }
+        .lang-btn:hover { background: rgba(255,255,255,0.1); border-color: #ff9900; }
+        .lang-btn.active { background: #ff9900; border-color: #ff9900; color: white; }
 
-  body {
-  padding-top: 140px !important; font-family: 'Open Sans', sans-serif; margin:0; background:#f0f4f8; color:#222; -webkit-font-smoothing:antialiased; }
-  .floating-header { position:fixed; top:0; left:0; right:0; background:rgba(26,35,126,0.98); color:#fff; display:flex;align-items:center;justify-content:space-between;padding:12px 18px; z-index:1000; box-shadow:0 4px 18px rgba(10,20,40,0.2); }
-  .floating-header .left { display:flex;align-items:center;gap:12px;}
-  .floating-header a, .floating-header .shop-btn { color:#fff; text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-family:'Montserrat',sans-serif;}
-  .container { max-width:1100px; margin:110px auto 80px; padding:0 16px; }
-  header.main-head { text-align:center; padding:28px 14px; background:linear-gradient(180deg, rgba(26,35,126,0.95), rgba(26,35,126,0.88)); color:#fff; border-radius:8px; box-shadow:0 6px 20px rgba(26,35,126,0.06); }
-  h1 { font-family:'Montserrat',sans-serif; margin:0 0 8px; font-size:1.9rem; }
-  p.lead { margin:0; opacity:0.95; }
-  .category { margin-top:28px; }
-  .category h2 { font-family:'Montserrat',sans-serif; color:#1a237e; margin-bottom:12px; font-size:1.4rem; }
-  .cards { display:grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
-  .card { background:#fff; padding:14px; border-radius:12px; box-shadow:0 8px 22px rgba(20,30,60,0.06); display:flex; flex-direction:column; gap:8px; min-height:120px; }
-  .card .meta { color:#6c757d; font-size:0.95rem; }
-  .price-row { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:6px; }
-  .price { font-weight:800; color:#ff9900; font-size:1.06rem; }
-  .card.out-of-stock { opacity:0.7; }
-  .price-out { color:#9e9e9e; }
-  .out-of-stock-label { color:#c62828; font-weight:600; font-size:0.9rem; }
+        /* Навигация */
+        .main-nav { display: flex; gap: 18px; margin: 0 20px; font-family: 'Montserrat', sans-serif; }
+        .main-nav a { font-size: 0.95em; color: rgba(255, 255, 255, 0.9); text-decoration: none; position: relative; padding-bottom: 3px; transition: color 0.2s ease; }
+        .main-nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: #ff9900; transition: width 0.2s ease; }
+        .main-nav a:hover, .main-nav a.active { color: #ffffff; }
+        .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
 
-  .add-controls { display:flex; gap:8px; align-items:center; }
-  .btn { background:#1a237e; color:#fff; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; font-family:'Montserrat',sans-serif; }
-  .btn.whatsapp { background:#25D366; color:#fff; display:inline-flex; gap:8px; align-items:center; }
-  .small { background:#f1f3f8;border:1px solid #e4e7ef;padding:8px 10px;border-radius:8px; cursor:pointer; font-weight:600; }
-  /* Cart panel (hidden by default). Will be toggled by cart button or view button */
-  .cart-panel { position:fixed; right:18px; bottom:74px; width:340px; max-width:calc(100% - 36px); background:#fff; border-radius:14px; box-shadow:0 18px 40px rgba(10,20,40,0.12); padding:14px; z-index:1001; transition:transform .25s ease,opacity .25s ease; display:none; }
-  .cart-header { display:flex; align-items:center; justify-content:space-between; gap:8px; }
-  .cart-items { max-height:260px; overflow:auto; margin-top:8px; }
-  .cart-item { display:flex; justify-content:space-between; gap:8px; padding:10px 0; border-bottom:1px solid #f1f3f8; }
-  .total { font-weight:900; margin-top:12px; font-size:1.06rem; color:#1a237e; }
-  .badge { background:#ff9900;color:#fff;padding:4px 8px;border-radius:999px;font-size:0.85rem; margin-left:6px; font-weight:700; }
-  .back-link { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#1a237e; border:1px solid #1a237e; padding:8px 12px; border-radius:10px; background:#fff; font-weight:700; font-family:'Montserrat',sans-serif;}
-  /* Floating cart button */
-  .cart-button {
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    z-index:1002;
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:#1a237e;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 10px 30px rgba(10,20,40,0.18);
-    cursor:pointer;
-    border:none;
-    font-size:20px;
-  }
-  .cart-button .cart-badge {
-    position:absolute;
-    top:-6px;
-    right:-6px;
-    background:#ff9900;
-    color:#fff;
-    min-width:22px;
-    height:22px;
-    padding:0 6px;
-    border-radius:999px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-    font-size:12px;
-    box-shadow:0 4px 12px rgba(10,20,40,0.15);
-  }
-  /* mobile improvements */
-  @media (max-width:900px){
-    .container { margin:100px 12px 90px; }
-    .cards{ grid-template-columns: repeat(2,minmax(0,1fr)); gap:12px; }
-    .card{ padding:12px; border-radius:10px; }
-    .floating-header { padding:10px 12px; }
-    .cart-panel { right:12px; left:12px; bottom:74px; width:auto; border-radius:12px; padding:12px; }
-    .cart-button { right:12px; bottom:12px; width:56px; height:56px; }
-  }
-  @media (max-width:520px){
-    .cards{ grid-template-columns: 1fr; }
-    .card{ padding:14px; }
-    .add-controls { gap:6px; }
-    .small, .btn { padding:10px; font-size:15px; }
-    .floating-header .left a span { display:none; } /* hide text in header buttons to save space */
-    header.main-head { padding:20px 12px; }
-    .container { margin:90px 10px 140px; }
-    .cart-panel { left:8px; right:8px; bottom:84px; width:auto; border-radius:12px; padding:12px; }
-    .cart-button { right:8px; bottom:18px; width:56px; height:56px; }
-  }
+        /* Телефон */
+        .phone-wrap { position: relative; display: inline-block; }
+        .santa-hat { position: absolute; width: 32px; top: -14px; left: -18px; transform: rotate(-15deg); pointer-events: none; }
+        .header-phone {
+            color: white; font-family: 'Montserrat', sans-serif; font-weight: 600;
+            font-size: 1.1em; text-decoration: none; display: flex;
+            align-items: center; gap: 8px;
+        }
+        .header-phone:hover { color: #ff9900; }
 
-.floating-logo { max-height:48px; height:auto; }
-@media (max-width:520px){
-  .floating-logo { max-height:38px; }
-}
-
-  .shop-btn { background: #ff9900; color:#1a237e; font-weight:800; border-radius:22px; padding:10px 18px; text-decoration:none; box-shadow:0 6px 18px rgba(255,153,0,0.18); font-family:'Montserrat',sans-serif; }
-  .lang-btn { color:#fff; text-decoration:none; font-weight:700; padding:6px 8px; border-radius:8px; opacity:0.95; }
-  .lang-btn.active { background: rgba(255,255,255,0.06); }
-  /* ensure header has enough height on mobile */
-  @media (max-width:520px){
-    .floating-header { padding:12px 10px; align-items:center; gap:8px; }
-    .floating-header .right a { font-size:0.95rem; }
-    .shop-btn { padding:8px 12px; font-size:0.95rem; }
-    .floating-logo { max-height:40px; }
-  }
-
-</style>
-<style>
-/* Unified header styles */
-.floating-header.unified-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: linear-gradient(180deg, rgba(0,82,155,0.98), rgba(0,58,110,0.98));
-  color: #fff;
-  box-shadow: 0 4px 18px rgba(10,20,40,0.18);
-  padding: 0;
-  font-family: 'Montserrat', 'Open Sans', sans-serif;
-}
-
-/* Row spacing */
-.floating-header .header-row { max-width: 1100px; margin: 0 auto; }
-
-/* Logo */
-.floating-logo { display:block; height:44px; }
-
-/* Language buttons */
-.lang-btn {
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:8px;
-  text-decoration:none;
-  color:rgba(255,255,255,0.85);
-  border:1px solid rgba(255,255,255,0.06);
-  font-weight:600;
-  font-size:14px;
-}
-.lang-btn.active {
-  background: rgba(255,255,255,0.14);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-}
-
-/* Phone link */
-.phone-link { font-size:16px; }
-
-/* Shop button */
-.shop-btn {
-  display:inline-block;
-  padding:8px 16px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  letter-spacing:0.4px;
-  background: rgba(255,255,255,0.12);
-  color:#fff;
-  border: none;
-}
-
-/* Adjustments for desktop */
-@media (min-width: 769px) {
-  .floating-header.unified-header { padding-top:10px; padding-bottom:12px; }
-  .floating-logo { height:48px; }
-  .phone-link { font-size:18px; }
-}
-
-/* Adjustments for mobile */
-@media (max-width: 768px) {
-  .floating-header.unified-header { padding-top:8px; padding-bottom:8px; }
-  .floating-logo { height:36px; }
-  .lang-btn { padding:6px 8px; font-size:13px; }
-  .phone-link { font-size:15px; }
-  /* ensure content below header isn't hidden behind fixed header */
-   /* approximate header height; adjust if needed */
-}
-
-/* safety: if original page had top margin, keep it consistent */
-
-</style>
-<style>
-    /* --- Плавающая шапка --- */
-    .floating-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(26, 35, 126, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 12px 20px;
-        z-index: 1000;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .floating-header-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .header-left {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .floating-logo {
-        height: 45px;
-        width: auto;
-    }
-
-    .language-switcher {
-        display: flex;
-        gap: 10px;
-    }
-
-    .lang-btn {
-        background: transparent;
-        border: 1px solid rgba(255,255,255,0.3);
-        color: white;
-        padding: 6px 15px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.9em;
-        transition: all 0.3s ease;
-        text-decoration: none;
-    }
-
-    .lang-btn:hover {
-        background: rgba(255,255,255,0.1);
-        border-color: #ff9900;
-    }
-
-    .lang-btn.active {
-        background: #ff9900;
-        border-color: #ff9900;
-        color: white;
-    }
-
-    .header-phone {
-        color: white;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 1.1em;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .header-phone:hover {
-        color: #ff9900;
-    }
-
-    /* --- Общие стили и сброс --- */
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-  padding-top: 140px !important;
-        font-family: 'Open Sans', sans-serif;
-        background-color: #f0f4f8; /* Очень светлый серый/голубой */
-        color: #333;
-        line-height: 1.7;
-        overflow-x: hidden; /* Предотвращает горизонтальную прокрутку, если что-то выйдет за край */
-        padding-top: 8px;
-    }
-        /* --- Шапка с фоновым изображением и логотипом --- */
+        /* --- Главный блок с фоном --- */
         header {
-            /* Уменьшил прозрачность rgba до 0.6 для лучшей читаемости текста на фоне */
-            /* ИЗМЕНЕНО: Ссылка на fon.png вместо Unsplash URL */
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fon.png') no-repeat center top/cover;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            background-attachment: fixed; /* Параллакс-эффект */
-            overflow: hidden; /* Скрывает все, что выходит за пределы header */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            color: white; padding: 60px 20px; text-align: center;
+            position: relative; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-attachment: fixed; 
+            overflow: hidden; display: flex; flex-direction: column;
+            align-items: center; margin-bottom: 40px; 
         }
 
         .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 1200px; /* Ограничим ширину контента шапки */
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Центрируем лого и заголовок по умолчанию */
-            width: 100%;
-            margin-bottom: 15px; /* Отступ между лого и заголовок и остальным контентом */
-            flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку при уменьшении ширины */
-        }
-
-        .header-logo {
-            max-height: 80px; /* Ограничим максимальную высоту логотипа */
-            width: auto;
-            margin-right: 20px; /* Отступ справа от логотипа */
-            animation: fadeIn 1s ease-out;
+            display: flex; flex-direction: column; align-items: center;
+            width: 100%; max-width: 1200px;
         }
 
         header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em; /* Немного уменьшим размер заголовка */
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-            animation: fadeInDown 1s ease-out; /* Анимация появления */
+            font-family: 'Montserrat', sans-serif; font-size: 2.8em;
+            margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 1s ease-out;
         }
 
         header p {
-            font-size: 1.3em; /* Немного уменьшим размер подзаголовка */
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto 25px auto;
-            animation: fadeInUp 1.2s ease-out 0.3s; /* Анимация появления с задержкой */
+            font-size: 1.3em; opacity: 0.95; max-width: 700px;
+            margin: 0 auto 25px auto; animation: fadeInUp 1.2s ease-out 0.3s;
         }
-
+        
+        /* Кнопка */
         .cta-button {
-            display: inline-block;
-            background-color: #ff9900; /* Яркий оранжевый */
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px; /* Скругленная кнопка */
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            display: inline-block; background-color: #ff9900; color: white;
+            padding: 15px 35px; border-radius: 50px; text-decoration: none;
+            font-family: 'Montserrat', sans-serif; font-weight: 700;
+            font-size: 1.2em; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s infinite alternate; /* Эффект пульсации */
+            animation: pulse-orange 2s infinite alternate;
         }
-
         .cta-button:hover {
-            background-color: #e68a00;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Усиленная тень при наведении */
+            background-color: #e68a00; transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* --- Общие стили секций --- */
-        .section {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: #1a237e; /* Темно-синий */
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .section h2::after { /* Подчеркивание для заголовков */
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: #007bff; /* Синий акцент */
-            border-radius: 5px;
-        }
-
-        /* --- Стили для карточек услуг --- */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px; /* Больший отступ между карточками */
-            justify-content: center;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e0e0e0;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .card .icon {
-            font-size: 3em;
-            color: #007bff; /* Синий акцент для иконок */
-            margin-bottom: 15px;
-            transition: transform 0.3s ease; /* Анимация для иконки */
-        }
-
-        .card:hover .icon { /* Анимация при наведении на карточку */
-            transform: scale(1.1); /* Немного увеличиваем иконку */
-        }
-
-        .card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8em;
-            color: #1a237e;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 8px;
-        }
-
-        .card .price {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #ff9900; /* Оранжевая цена */
-            margin-top: 15px;
-        }
-
-        /* НОВЫЙ СТИЛЬ для карточки "Премиум переезд" */
-        .card--premium {
-            background-color: #fff8e1; /* Легкий золотистый фон */
-            border: 2px solid #ffc107; /* Яркий золотистый бордюр */
-            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2); /* Красивая тень */
-        }
-
-        .card--premium:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.3);
-        }
-        
-        .card--premium .icon {
-            color: #d39e00; /* Золотистый цвет для иконки */
-        }
-
-        .card--premium .card-title {
-            color: #d39e00; /* Золотистый цвет заголовка */
-            font-weight: 700;
-        }
-
-        .card--premium .service-list {
-            list-style-type: none; /* Убрать маркеры списка */
-            padding-left: 0;
-            text-align: left; /* Выровнять по левому краю */
-            width: 100%;
-        }
-
-        .card--premium .service-list li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-            color: #555;
-            font-size: 1.1em;
-        }
-
-        .card--premium .service-list li::before {
-            content: "\f00c"; /* Иконка галочки FontAwesome */
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: #28a745; /* Зеленая галочка */
-        }
-        
-        /* --- Стили для среднего CTA блока --- */
-        .mid-cta-section {
-            background-color: #1a237e; /* Темно-синий фон */
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin: 40px 0; /* Отступы сверху и снизу */
-            animation: fadeInUp 1s ease-out; /* Анимация появления */
-        }
-
-        .mid-cta-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em; /* Крупнее, чем обычные заголовки секций */
-            margin-bottom: 25px;
-            color: white; /* Белый текст для контраста */
-            position: relative; /* Для подчеркивания */
-            padding-bottom: 10px;
-        }
-
-        .mid-cta-section h2::after { /* Подчеркивание для заголовка */
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 100px; /* Чуть шире */
-            height: 5px; /* Чуть толще */
-            background-color: #ff9900; /* Оранжевое подчеркивание */
-            border-radius: 5px;
-        }
-
-        .mid-cta-section p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        /* --- Стили для преимуществ --- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .feature-item {
-            background: #e3f2fd; /* Светло-голубой фон */
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            background-color: #cce7ff; /* Чуть темнее при наведении */
-            transform: translateY(-5px);
-        }
-
-        .feature-item .icon {
-            font-size: 3.5em;
-            color: #28a745; /* Зеленый для иконок преимуществ */
-            margin-bottom: 15px;
-            transition: transform 0.3s ease; /* Анимация для иконки */
-        }
-
-        .feature-item:hover .icon { /* Анимация при наведении */
-            transform: rotate(10deg); /* Поворот иконки */
-        }
-
-        .feature-item h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2em;
-            color: #1a237e;
-            margin-bottom: 8px;
-            word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-        }
-
-        .feature-item p {
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        /* --- НОВЫЙ СТИЛЬ: Секция для WhatsApp CTA --- */
-        .whatsapp-cta-section {
-            background-color: #1a237e; /* Темно-синий фон */
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin: 40px 0; /* Отступы сверху и снизу */
-            animation: fadeInUp 1s ease-out; /* Анимация появления */
-        }
-
-        .whatsapp-cta-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em;
-            margin-bottom: 25px;
-            color: white;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .whatsapp-cta-section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 120px; /* Чуть шире для акцента */
-            height: 5px;
-            background-color: #25D366; /* WhatsApp зеленый для подчеркивания */
-            border-radius: 5px;
-        }
-
-        .whatsapp-cta-section p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        /* Стили для кнопки WhatsApp CTA (используем уже существующие стили cta-button) */
-        .whatsapp-cta-button {
-            background-color: #25D366; /* WhatsApp зеленый */
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); /* Зеленая тень для эффекта "горения" */
-            animation: pulse-whatsapp 2s infinite alternate; /* Анимация пульсации */
-        }
-
-        .whatsapp-cta-button:hover {
-            background-color: #1DA851; /* Темнее зеленый при наведении */
-            transform: translateY(-5px); /* Чуть большее поднятие */
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6); /* Усиленная тень */
-        }
-
-        .whatsapp-cta-button i {
-            margin-right: 10px;
-        }
-
-        /* --- Стили для секции "Работа с юр. лицами" --- */
-        .legal-entities-section {
-            background-color: #f8f9fa; /* Очень светлый серый */
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid #e9ecef;
-            box-shadow: inset 0 3px 10px rgba(0,0,0,0.02);
-        }
-
-        .legal-entities-section .description {
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            font-size: 1.2em;
-            color: #495057;
-        }
-
-        .legal-entities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .legal-entity-item {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #dee2e6;
-        }
-
-        .legal-entity-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .legal-entity-item .icon {
-            font-size: 3em;
-            color: #007bff; /* Синий акцент */
-            margin-bottom: 15px;
-        }
-
-        .legal-entity-item h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8em;
-            color: #1a237e;
-            margin-bottom: 10px;
-        }
-
-        .legal-entity-item p {
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        /* --- Стили для контактов --- */
-        .contact-section {
-            background-color: #fff8e1; /* Очень светлый желтый */
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid #f0e0b3;
-            box-shadow: inset 0 3px 10px rgba(0,0,0,0.05);
-        }
-
-        .contact-section h2 {
-            color: #d39e00; /* Золотистый/желтый для заголовка */
-            margin-bottom: 30px;
-        }
-
-        .contact-info p {
-            font-size: 1.3em;
-            margin-bottom: 10px; /* Уменьшим отступ для P, чтобы кнопка была ближе */
-            color: #444;
-        }
-
-        .contact-info p strong {
-            color: #1a237e;
-            font-size: 1.1em;
-        }
-
-        /* Новые стили для контактной кнопки */
-        .contact-call-button {
-            margin-top: 25px; /* Отступ сверху от текста */
-            font-size: 1.4em; /* Крупнее для акцента */
-            padding: 18px 40px; /* Больше отступов */
-            background-color: #ff9900; /* Яркий оранжевый */
-            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); /* Оранжевая тень для эффекта "горения" */
-            animation: pulse-orange 2s infinite alternate; /* Анимация пульсации */
-        }
-
-        .contact-call-button:hover {
-            background-color: #e68a00; /* Темнее оранжевый при наведении */
-            transform: translateY(-5px); /* Чуть большее поднятие */
-            box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); /* Усиленная тень */
-        }
-
-        /* --- Подвал --- */
+        /* --- ПОДВАЛ --- */
         footer {
-            background-color: #212529; /* Темно-серый */
-            color: white;
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9em;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #212529; color: white; padding: 30px;
+            font-size: 0.9em; box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
         }
-
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            margin: 0 10px;
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
-
-        footer a:hover {
-            color: #0056b3;
-            text-decoration: underline;
-        }
-
-        /* --- Плавающие кнопки --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 1000;
-        }
-
-        .floating-btn {
-            background-color: #007bff; /* Синий для звонка и WhatsApp */
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8em;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-            transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; /* Добавлена прозрачность */
-        }
-
-        .floating-btn.whatsapp {
-            background-color: #25D366; /* WhatsApp зеленый */
-        }
-
-        .floating-btn.reviews {
-            background-color: #ff9900; /* Оранжевый для отзывов */
-        }
-
-        .floating-btn:hover {
-            transform: translateY(-3px);
-            opacity: 0.9; /* Небольшая прозрачность при наведении */
-        }
-
-        /* --- Модальное окно отзывов --- */
-        .modal-overlay {
-            display: none; /* Скрыто по умолчанию */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-y: auto; /* Для скролла, если отзывов много */
-            opacity: 0; /* Начальная прозрачность */
-            transition: opacity 0.3s ease; /* Плавное появление */
-        }
-
-        .modal-overlay.is-active { /* Класс для активного состояния */
-            display: flex; /* Показываем модальное окно */
-            opacity: 1; /* Делаем видимым */
-        }
-
-        .modal-content {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 700px;
-            width: 100%;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-            text-align: left; /* Вернуть выравнивание текста внутри модального окна */
-            transform: scale(0.95); /* Начальный масштаб */
-            transition: transform 0.3s ease; /* Плавное масштабирование */
-            max-height: 90vh; /* Ограничиваем высоту для мобильных */
-            overflow-y: auto; /* Добавляем прокрутку */
-        }
-
-        .modal-overlay.is-active .modal-content { /* Активное состояние */
-            transform: scale(1); /* Возвращаем к нормальному масштабу */
-        }
-
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 2em;
-            color: #555;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            z-index: 10;
-        }
-
-        .modal-close-btn:hover {
-            color: #333;
-        }
-
-        .modal-content h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2em;
-            color: #1a237e;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .reviews-list {
-            max-height: 400px; /* Ограничиваем высоту списка отзывов */
-            overflow-y: auto; /* Добавляем прокрутку, если отзывов много */
-            padding-right: 10px; /* Отступ для полосы прокрутки */
-            margin-bottom: 20px;
-        }
-
-        /* Кастомный скроллбар для reviews-list */
-        .reviews-list::-webkit-scrollbar {
-            width: 8px;
-        }
-        .reviews-list::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        .reviews-list::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-        .reviews-list::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        .review-item {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-        }
-
-        .review-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-
-        .reviewer-name {
-            font-weight: 700;
-            color: #333;
-            font-size: 1.1em;
-        }
-
-        .review-date {
-            font-size: 0.9em;
-            color: #777;
-        }
-
-        .review-text {
-            font-style: italic;
-            color: #555;
-            margin-top: 5px;
-        }
-
-        .stars {
-            color: #ffc107; /* Золотой цвет для звезд */
-            font-size: 1.1em;
-        }
-
-        .review-form h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5em;
-            color: #1a237e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .review-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .review-form input[type="text"],
-        .review-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1em;
-        }
-
-        .review-form textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .review-form button {
-            background-color: #007bff;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: block; /* Сделать кнопку блочным элементом */
-            margin: 0 auto; /* Центрировать кнопку */
-        }
-
-        .review-form button:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        #submission-message {
-            margin-top: 15px;
-            color: #28a745;
-            font-weight: 600;
-            text-align: center;
-            display: none; /* Скрыто по умолчанию */
-        }
-
-        /* Стили для новых "страниц" Политики и Условий */
-        .info-section {
-            display: none; /* Скрыты по умолчанию */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.98); /* Почти белый фон */
-            z-index: 1002; /* Выше чем модальное окно */
-            overflow-y: auto;
-            padding: 80px 20px;
-            text-align: left;
-            opacity: 0; /* Начальная прозрачность */
-            transition: opacity 0.3s ease; /* Плавное появление */
-        }
-
-        .info-section.is-active { /* Класс для активного состояния */
-            display: block; /* Показываем */
-            opacity: 1; /* Делаем видимым */
-        }
-
-        .info-section .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transform: translateY(-20px); /* Начальное положение немного выше */
-            transition: transform 0.3s ease; /* Плавное перемещение */
-        }
-
-        .info-section.is-active .content { /* Активное состояние */
-            transform: translateY(0); /* Возвращаем в нормальное положение */
-        }
-
-        .info-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            color: #1a237e;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .info-section p {
-            margin-bottom: 1em;
-            color: #444;
-            font-size: 1.1em;
-        }
-
-        .info-section ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            margin-bottom: 1em;
-            color: #444;
-        }
-
-        .info-section .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2.5em;
-            color: #555;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .info-section .close-btn:hover {
-            color: #333;
-        }
+        .footer-col h4 { margin-bottom: 8px; color: #ffffff; }
+        .footer-col a { color: #007bff; text-decoration: none; display: block; margin-bottom: 5px; }
+        .footer-col a:hover { text-decoration: underline; }
+        .footer-logo { max-height: 40px; margin-bottom: 10px; }
 
         /* --- Анимации --- */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            }
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            }
-        }
-
-        /* Новая анимация пульсации для оранжевой кнопки (для contact-call-button) */
         @keyframes pulse-orange {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
-            }
-            50% {
-                transform: scale(1.05); /* Чуть большее увеличение */
-                box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); /* Более сильная тень */
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
-            }
+            0% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); }
+            100% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); }
+        }
+        @keyframes fadeInDown { from { opacity: 0; transform: translate3d(0, -20%, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translate3d(0, 20%, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
+        
+        /* ======================================= */
+        /* --- МАГАЗИННЫЕ СТИЛИ --- */
+        /* ======================================= */
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+        
+        .category-title {
+            font-family: 'Montserrat', sans-serif; font-size: 1.8em; color: #1a237e;
+            margin: 40px 0 20px; border-bottom: 3px solid #ff9900; display: inline-block; padding-bottom: 5px;
+        }
+
+        .products-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;
+        }
+
+        /* Карточка товара */
+        .product-card {
+            background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; flex-direction: column; position: relative;
+        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
+        
+        /* Стиль для "Нет в наличии" */
+        .product-card.out-of-stock { opacity: 0.7; pointer-events: none; }
+        .product-card.out-of-stock::after {
+            content: "Нет в наличии"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-10deg);
+            background: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 1.2em; z-index: 10;
         }
         
-        /* НОВАЯ АНИМАЦИЯ: пульсация для WhatsApp кнопки */
-        @keyframes pulse-whatsapp {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-            }
+        /* Специальный стиль для наборов, чтобы описание вмещало список */
+        .product-card.kit-card .product-desc { font-size: 0.85em; }
+        .product-card.kit-card .product-image { background-color: #fff3e0; color: #e68a00; }
+
+        .product-image {
+            height: 180px; background-color: #eef3fb;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4em; color: #1a237e;
         }
 
-        /* Новая анимация для плавного появления */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-title { font-family: 'Montserrat', sans-serif; font-size: 1.2em; margin-bottom: 8px; color: #1a237e; font-weight: 700; }
+        .product-desc { font-size: 0.95em; color: #555; margin-bottom: 15px; flex-grow: 1; }
+        .product-price { font-size: 1.3em; color: #ff9900; font-weight: 700; margin-bottom: 15px; }
+        
+        /* Контролы добавления (Счетчик на карточке) */
+        .add-controls { margin-top: auto; height: 45px; }
+        
+        .btn-add-initial {
+            background-color: #1a237e; color: white; border: none; width: 100%; height: 100%;
+            border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Montserrat', sans-serif;
+        }
+        .btn-add-initial:hover { background-color: #0f165a; }
+
+        .qty-controls-card {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #f0f4f8; border-radius: 8px; height: 100%; overflow: hidden;
+            border: 1px solid #1a237e; display: none; /* Скрыто по умолчанию */
+        }
+        .qty-btn-card {
+            width: 35%; height: 100%; border: none; background: #1a237e; color: white;
+            font-size: 1.2em; cursor: pointer; font-weight: bold;
+        }
+        .qty-val-card {
+            flex-grow: 1; text-align: center; font-weight: 700; color: #1a237e; font-size: 1.1em;
         }
 
-        /* --- Стили для загрузочного значка --- */
-        .loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+        /* --- КОРЗИНА (Плавающая кнопка и модалка) --- */
+        .cart-float-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: #ff9900; color: white;
+            width: 70px; height: 70px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2em; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1050; 
+            transition: transform 0.2s;
+            animation: pulse-orange 2s infinite alternate;
+        }
+        .cart-badge {
+            position: absolute; top: 0; right: 0;
+            background-color: #d32f2f; color: white;
+            font-size: 0.6em; width: 24px; height: 24px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; border: 2px solid white;
         }
 
-        .loader {
-            width: 80px; /* Увеличим размер */
-            height: 80px; /* Увеличим размер */
-            border: 8px solid #f3f3f3; /* Светлая часть */
-            border-top: 8px solid #007bff; /* Цветная часть */
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .cart-modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); z-index: 2000;
+            justify-content: center; align-items: center; padding: 20px;
         }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .cart-modal-overlay.active { display: flex; }
+        .cart-modal {
+            background: white; width: 100%; max-width: 500px; border-radius: 15px;
+            padding: 25px; max-height: 90vh; display: flex; flex-direction: column;
+            position: relative;
         }
-
-        .loaded {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none; /* Добавлено, чтобы лоадер не блокировал клики после скрытия */
+        .close-cart { position: absolute; top: 15px; right: 15px; font-size: 1.5em; cursor: pointer; }
+        .cart-items { overflow-y: auto; flex-grow: 1; margin: 20px 0; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 10px 0; }
+        
+        .whatsapp-checkout-btn {
+            background-color: #25D366; color: white; width: 100%; padding: 15px;
+            border: none; border-radius: 50px; font-size: 1.1em; font-weight: 700;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
         }
-
-        /* --- Медиа-запросы для адаптивности --- */
+        
+        /* --- АДАПТИВНОСТЬ (ДЛЯ ДЕСКТОПА) --- */
         @media (max-width: 768px) {
-            header {
-                padding: 40px 15px; /* Уменьшим отступ для шапки */
-            }
-            /* Плавающая шапка на планшетах */
-    .floating-header {
-        padding: 8px 15px;
-    }
-    .floating-logo {
-        height: 35px;
-    }
-    .header-phone {
-        font-size: 0.9em;
-    }
-    .lang-btn {
-        padding: 4px 10px;
-        font-size: 0.8em;
-    }
-    
-            .header-top {
-                flex-direction: column; /* Лого и заголовок друг под другом */
-                margin-bottom: 10px;
-            }
-            .header-logo {
-                max-height: 70px; /* Немного уменьшим логотип */
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            header h1 {
-                font-size: 2.2em; /* Меньше заголовок */
-                margin-bottom: 5px;
-            }
-            header p {
-                font-size: 1.1em;
-                margin-bottom: 20px;
-            }
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 1.1em;
-            }
-            .section {
-                padding: 40px 15px;
-            }
-            .section h2 {
-                font-size: 2em;
-                margin-bottom: 30px;
-            }
-            .card {
-                padding: 20px;
-            }
-            .card h3 {
-                font-size: 1.5em;
-            }
-            .feature-item h3 {
-                font-size: 1.8em;
-            }
-            .contact-section {
-                padding: 40px 15px;
-            }
-            .contact-info p {
-                font-size: 1.1em;
-            }
-            .contact-call-button { /* Адаптация новой кнопки */
-                font-size: 1.2em;
-                padding: 15px 30px;
-            }
-            .modal-content {
-                padding: 20px;
-                margin: 15px; /* Отступ по краям на маленьких экранах */
-            }
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
-                gap: 8px;
-            }
-            .floating-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.6em;
-            }
-            .mid-cta-section {
-                padding: 40px 15px;
-            }
-            .mid-cta-section h2 {
-                font-size: 2em;
-            }
-            .mid-cta-section p {
-                font-size: 1.2em;
-            }
-            /* НОВЫЙ СТИЛЬ: Адаптация WhatsApp CTA */
-            .whatsapp-cta-section {
-                padding: 40px 15px;
-            }
-            .whatsapp-cta-section h2 {
-                font-size: 2em;
-            }
-            .whatsapp-cta-section p {
-                font-size: 1.2em;
-            }
-            .whatsapp-cta-button {
-                font-size: 1.1em;
-                padding: 12px 25px;
-            }
-            .info-section {
-                padding: 60px 15px;
-            }
-            .info-section .content {
-                padding: 20px;
-            }
-            .legal-entities-section {
-                padding: 40px 15px;
-            }
-            .legal-entities-section .description {
-                font-size: 1.1em;
-                margin-bottom: 30px;
-            }
-            .legal-entity-item {
-                padding: 20px;
-            }
-            .legal-entity-item h3 {
-                font-size: 1.5em;
-            }
-            /* Медиа-запросы для модального окна Премиум */
-            .modal-body .cta-button {
-                width: 100%;
-                font-size: 1.1em;
-                padding: 12px 25px;
-            }
-            .modal-body .modal-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
+            .main-nav { display: none; }
+            .floating-header { padding: 8px 15px; }
+            .header-phone { display: none; }
+            .floating-header-content { justify-content: center; }
+            header h1 { font-size: 2em; }
+            header p { font-size: 1.1em; }
+            .header-left { flex-direction: column; align-items: center; gap: 8px; }
+            .language-switcher { margin-top: 5px; }
         }
-
         @media (max-width: 480px) {
-            .header-logo {
-                max-height: 60px; /* Еще меньше логотип */
+            .floating-header-content { flex-direction: column; gap: 8px; }
+            .header-left { justify-content: center; width: 100%; }
+            .floating-logo { height: 30px; }
+            .lang-btn { padding: 4px 12px; font-size: 0.8em; }
+            header h1 { font-size: 1.8em; }
+            header p { font-size: 0.9em; }
+            .cart-float-btn { width: 55px; height: 55px; font-size: 1.5em; bottom: 20px; right: 20px; }
+        }
+
+        /* ======================================= */
+        /* --- МОБИЛЬНАЯ АДАПТАЦИЯ (LIST VIEW) --- */
+        /* ======================================= */
+        @media (max-width: 550px) {
+            .products-grid {
+                display: block; /* Сбрасываем Grid, чтобы элементы заняли 100% ширины */
+                gap: 0;
             }
-    /* Плавающая шапка на мобильных */
-    .floating-header-content {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .header-left {
-        justify-content: center;
-        width: 100%;
-    }
-    .floating-logo {
-        height: 30px;
-    }
-    .header-phone {
-        font-size: 0.9em;
-        justify-content: center;
-    }
-    .lang-btn {
-        padding: 4px 12px;
-        font-size: 0.8em;
-    }
-header h1 {
-                font-size: 1.8em; /* Еще меньше заголовок */
+            .product-card {
+                flex-direction: row; /* Переключаемся на горизонтальный список */
+                margin-bottom: 15px; 
+                padding: 0;
+                border-radius: 10px; /* Немного уменьшим скругление */
             }
-            header p {
-                font-size: 0.9em;
+            .product-image {
+                height: 120px; /* Уменьшенная высота */
+                min-width: 120px; /* Фиксированная ширина для иконки/картинки */
+                font-size: 2.5em; /* Меньше иконка */
+                border-radius: 10px 0 0 10px; /* Скругление только слева */
+                
             }
-            .cta-button {
-                font-size: 1em;
-                padding: 10px 20px;
+            .product-info {
+                padding: 10px 15px; /* Уменьшенные отступы */
+                display: grid;
+                /* Заголовок и цена сверху, описание и контролы снизу */
+                grid-template-areas: 
+                    "title price" 
+                    "desc desc" 
+                    "controls controls";
+                grid-template-columns: 1fr auto; 
+                gap: 5px;
+                align-items: center;
             }
-            .section h2 {
-                font-size: 1.8em;
-            }
-            .card h3 {
-                font-size: 1.3em;
-            }
-            .feature-item h3 {
-                font-size: 1.6em;
-            }
-            .floating-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.4em;
-            }
-            .mid-cta-section h2 {
-                font-size: 1.8em;
-            }
-            .mid-cta-section p {
-                font-size: 1em;
-            }
-            /* НОВЫЙ СТИЛЬ: Адаптация WhatsApp CTA */
-            .whatsapp-cta-section h2 {
-                font-size: 1.8em;
-            }
-            .whatsapp-cta-section p {
-                font-size: 1em;
-            }
-            .whatsapp-cta-button {
+            .product-title {
                 font-size: 1.1em;
-                padding: 12px 25px;
+                margin-bottom: 0;
+                grid-area: title;
+                text-align: left;
             }
-            .contact-call-button { /* Адаптация новой кнопки */
+            .product-desc {
+                display: none; /* Скрываем длинное описание для экономии места по умолчанию */
+                font-size: 0.85em;
+                color: #777;
+                grid-area: desc;
+            }
+            .product-price {
                 font-size: 1.1em;
-                padding: 12px 25px;
+                margin-bottom: 0;
+                grid-area: price;
             }
-            .legal-entity-item h3 {
-                font-size: 1.3em;
+            
+            /* Наборы: описание важно, поэтому показываем его */
+            .product-card.kit-card .product-info {
+                grid-template-areas: "title title" "desc desc" "controls controls"; 
+            }
+            .product-card.kit-card .product-desc {
+                 display: block; 
+                 margin-bottom: 5px;
+            }
+
+            .add-controls {
+                height: 35px; /* Уменьшенная высота для кнопок */
+                grid-area: controls;
+            }
+            .qty-val-card, .qty-btn-card {
+                 font-size: 1em; /* Меньший шрифт для контролов */
             }
         }
 
-        /* НОВЫЕ СТИЛИ ДЛЯ ОТСТУПОВ В МОДАЛЬНОМ ОКНЕ */
-        .modal-body .cta-text {
-            margin-bottom: 1.5em; /* Отступ между текстом "Забудьте о хлопотах" и списком */
-        }
-
-        .modal-body .modal-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Отступ между кнопками */
-            flex-wrap: wrap;
-            margin-top: 25px; /* Отступ сверху от текста "Готовы к переезду..." */
-        }
-
-/* --- Mobile-specific shop link & logo highlight --- */
-@media (max-width: 480px) {
-    .mobile-shop-link { display: inline-block !important; background: #ff9900; color: #fff; border-radius: 18px; padding: 6px 12px; box-shadow: 0 6px 18px rgba(255,153,0,0.35); border: 1px solid rgba(255,255,255,0.15); }
-    .floating-logo { box-shadow: 0 6px 20px rgba(0,0,0,0.25); border-radius: 8px; border: 2px solid rgba(255,255,255,0.12); }
-    /* Hide the duplicate large logo inside the header with background on small screens */
-    header .header-logo { display: none !important; }
-}
-
-/* --- Fix: prevent floating header from overlapping main header on mobile --- */
-@media (max-width: 768px) {
-    /* push the main header down on small screens to clear the fixed floating header */
-    
-}
-@media (max-width: 480px) {
-    
-    /* ensure floating header stays on top but not covering content excessively */
-    .floating-header {
-        padding: 10px 12px;
-    }
-}
-
-/* --- UI improvements added automatically --- */
-/* Ensure floating header sits above other header elements */
-.floating-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1050;
-}
-
-/* Highlight logo and store badge on blue background for mobile */
-.header-logo {
-    display: inline-block;
-    padding: 6px 8px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(2px);
-}
-.store-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.12);
-    font-weight: 600;
-}
-
-/* slightly larger touch targets on mobile */
-@media (max-width: 768px) {
-    .header-logo, .store-badge {
-        padding: 8px 10px;
-    }
-    /* make sure header content isn't hidden under floating header */
-    body {
-  padding-top: 140px !important; padding-top: 64px; }
-}
-
-/* Responsive cards grid: make sure layout is stable and shows up to 2 columns on small screens */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 18px;
-}
-
-/* --- Grid layout: 1 column on small screens, 2 on tablets, 3 on desktop --- */
-.cards-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-    align-items: stretch;
-}
-
-/* make each card a flexible column so heights match */
-.cards-grid .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 18px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-/* ensure card content grows and buttons stick to bottom if present */
-.cards-grid .card > * {
-    flex-shrink: 0;
-}
-.cards-grid .card .card-body {
-  padding-top: 140px !important;
-    flex: 1 1 auto;
-}
-
-/* Tablet: 2 columns */
-@media (min-width: 768px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
-/* Desktop: 3 columns */
-@media (min-width: 1024px) {
-    .cards-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
-    }
-}
-
-/* Keep responsive behavior intact on very small screens */
-@media (max-width: 480px) {
-    .cards-grid {
-        grid-template-columns: 1fr !important;
-    }
-}
-
-</style>
-<!-- Fixed: unified header spacing for mobile -->
-<style>
-@media (max-width: 768px) {
-  /* Keep one consistent offset so the fixed header does not create a huge gap */
-  body {
-  padding-top: 140px !important; padding-top: 70px !important; }
-  /* Ensure container doesn't add extra top margin */
-  .container { margin-top: 0 !important; }
-  /* Make sure header's internal padding is normal */
-  header { padding-top: 12px !important; }
-}
-</style>
-<!-- FIXES: prevent floating header from covering lower sections and align prices in mobile -->
-<style>
-/* Ensure sections are not hidden under fixed header when opening links/scrolling */
-.category { padding-top: 12px; scroll-margin-top: 90px; }
-
-/* Make price column stable and right-aligned */
-.card { --price-col-width: 96px; }
-.card > div:first-child { display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.card .price { min-width: var(--price-col-width); text-align:right; display:block; }
-
-/* Mobile adjustments: keep prices in a single column and prevent wrapping */
-@media (max-width:520px) {
-  .card > div:first-child { flex-direction:row; gap:8px; }
-  .card .price { min-width: 100px; white-space:nowrap; }
-  .meta { flex:1 1 auto; }
-  .add-controls { flex-shrink:0; }
-  /* ensure unit and price align vertically */
-  .card .meta, .card .price { align-self:center; }
-}
-</style>
-<!-- FIX ADDED: ensure consistent top offset on mobile so header doesn't overlap content -->
-<style>
-:root{
-  --fh-height-desktop:110px;
-  --fh-height-mobile:70px;
-}
-/* Desktop: keep existing large top margin but compute from variable so it's consistent */
-@media (min-width: 769px){
-  .container { margin-top: calc(var(--fh-height-desktop) + 0px) !important; }
-}
-/* Mobile & tablet: ensure there is a visible offset when the page opens */
-@media (max-width: 768px){
-  /* If a fixed header exists, push the main container down so it's not hidden */
-  body {
-  padding-top: 140px !important; padding-top: 0 !important; } /* avoid conflicts with other rules */
-  .container { margin-top: calc(var(--fh-height-mobile) + 10px) !important; }
-  /* Also make sure the header itself doesn't add extra unexpected spacing */
-  header.main-head { margin-top: 0 !important; }
-  /* If other rules hide the mobile margin, this will keep sections readable on initial open */
-  .category { scroll-margin-top: calc(var(--fh-height-mobile) + 14px) !important; }
-}
-</style>
-<!-- END FIX -->
-<!-- PATCH: ensure content not hidden under floating header and stable price column -->
-<style>
-:root { --site-header-height: 70px; }
-.floating-header { position: fixed !important; top:0; left:0; right:0; z-index:12000 !important; }
-.container { margin-top: calc(var(--site-header-height) + 12px) !important; }
-body { padding-top: 0 !important; } /* avoid double padding rules */
-.card .price, .price { min-width:110px !important; text-align:right !important; white-space:nowrap; }
-.category { scroll-margin-top: calc(var(--site-header-height) + 12px) !important; }
-@media (max-width:520px){
-  .card > div:first-child { flex-direction:row !important; gap:8px !important; align-items:center !important; }
-  .card .price { min-width:100px !important; }
-}
-</style>
-
-<style>
-/* === Modern product cards for catalog (visual only, логика не трогаем) === */
-.category .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-}
-
-.category .card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px 16px 14px;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-
-.category .card:hover {
-  transform: translateY(-3px);
-  border-color: #cbd5f5;
-  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.09);
-}
-
-.category .card.out-of-stock {
-  background: #f9fafb;
-  border-style: dashed;
-  border-color: #e5e7eb;
-  box-shadow: none;
-  opacity: 1;
-}
-
-.category .card.out-of-stock::after {
-  content: "Нет в наличии";
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-/* Заголовок и размер */
-.category .card > div:first-child {
-  margin-bottom: 8px;
-}
-
-.category .card strong {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111827;
-  margin-bottom: 2px;
-}
-
-.category .card .meta {
-  font-size: 0.86rem;
-  color: #6b7280;
-}
-
-/* Цена справа, в одном месте */
-.category .card .price {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 1rem;
-  color: #f97316;
-  min-width: auto !important;
-  text-align: right !important;
-  white-space: nowrap;
-}
-
-.category .card .price.price-out {
-  color: #9ca3af;
-}
-
-/* Нижняя строка: единица и управление количеством */
-.category .card > div:last-child {
-  margin-top: 2px;
-  padding-top: 8px;
-  border-top: 1px solid #edf2f7;
-}
-
-.category .add-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: nowrap;
-}
-
-/* Кнопки +/- как аккуратный счётчик */
-.category .add-controls .small {
-  min-width: 32px;
-  height: 32px;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
-  font-size: 18px;
-  line-height: 1;
-}
-
-.category .add-controls span[id^="qty-"] {
-  min-width: 22px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #111827;
-}
-
-/* Кнопка "Добавить" как основная */
-.category .add-controls .btn.add {
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  background: #1d4ed8;
-  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
-  margin-left: 8px !important;
-}
-
-.category .add-controls .btn.add:hover {
-  background: #1e40af;
-}
-
-/* Состояние "нет в наличии" — убираем лишние элементы */
-.category .card.out-of-stock .add-controls {
-  justify-content: flex-end;
-}
-
-.category .card.out-of-stock .out-of-stock-label {
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: #b91c1c;
-}
-
-/* Мобильная адаптация: кнопка "Добавить" во всю ширину */
-@media (max-width: 520px) {
-  .category .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .category .card {
-    padding: 14px 14px 12px;
-  }
-
-  .category .add-controls {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .category .add-controls .btn.add {
-    flex: 1 1 100%;
-    text-align: center;
-    margin-left: 0 !important;
-    margin-top: 6px;
-    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.4);
-  }
-}
-</style>
-
-
-<style>
-/* === Equal height product cards across grid === */
-.category .cards {
-  align-items: stretch;
-}
-
-.category .card {
-  height: 100%;
-}
-
-/* На десктопе и планшете задаём минимальную высоту,
-   чтобы карточки в строке были максимально одинаковыми по размеру */
-@media (min-width: 768px) {
-  .category .card {
-    min-height: 190px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .category .card {
-    min-height: 210px;
-  }
-}
-</style>
-
-
-<style>
-/* === FIX: одинаковая ширина карточек даже если в категории 1 товар === */
-
-/* Ограничиваем ширину карточки и центрируем сетку */
-.category .cards {
-  justify-content: center !important;   /* центрируем карточки */
-}
-
-/* Явная ширина карточки */
-.category .card {
-  width: 260px;        /* одинаковая ширина */
-  max-width: 100%;     /* чтобы не ломалось на мобиле */
-}
-
-/* На больших экранах немного шире */
-@media (min-width: 1024px) {
-  .category .card {
-    width: 280px;
-  }
-}
-
-/* На мобильных — карточка во всю ширину */
-@media (max-width: 520px) {
-  .category .card {
-    width: 100%;
-  }
-}
-</style>
-
-
-<style>
-/* === FINAL: modern ecommerce style product cards === */
-
-/* Сетка каталога: аккуратные карточки фиксированной ширины,
-   центрируем, но сохраняем адаптивность */
-.category .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  justify-content: center;
-  align-items: stretch;
-}
-
-/* Карточка товара в стиле современного онлайн-магазина */
-.category .card {
-  position: relative;
-  width: 100%;
-  max-width: 280px;
-  margin: 0 auto;
-  padding: 16px 16px 14px;
-  border-radius: 18px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.18s ease,
-              box-shadow 0.18s ease,
-              border-color 0.18s ease,
-              background 0.18s ease;
-}
-
-.category .card:hover {
-  transform: translateY(-3px);
-  border-color: #c7d2fe;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.10);
-}
-
-/* Высота, чтобы карточки в строке были максимально ровными */
-@media (min-width: 768px) {
-  .category .card {
-    min-height: 190px;
-  }
-}
-@media (min-width: 1024px) {
-  .category .card {
-    min-height: 210px;
-  }
-}
-
-/* Состояние "нет в наличии" */
-.category .card.out-of-stock {
-  background: #f9fafb;
-  border-style: dashed;
-  border-color: #e5e7eb;
-  box-shadow: none;
-}
-
-.category .card.out-of-stock::after {
-  content: "Нет в наличии";
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-/* Верх карточки: название + размер слева, цена справа */
-.category .card > div:first-child {
-  display: flex !important;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.category .card strong {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: #111827;
-  margin-bottom: 2px;
-}
-
-.category .card .meta {
-  font-size: 0.86rem;
-  color: #6b7280;
-}
-
-/* Цена — отдельный блок как в магазинах */
-.category .card .price {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 1rem;
-  color: #f97316;
-  text-align: right !important;
-  white-space: nowrap;
-  min-width: auto !important;
-}
-
-.category .card .price.price-out {
-  color: #9ca3af;
-}
-
-/* Низ карточки: единица измерения + управление количеством/кнопкой */
-.category .card > div:last-child {
-  display: flex !important;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 4px;
-  padding-top: 8px;
-  border-top: 1px solid #edf2f7;
-}
-
-/* Блок управления количеством и кнопкой "Добавить" */
-.category .add-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: nowrap;
-}
-
-/* Кнопки +/- как компактный счётчик */
-.category .add-controls .small {
-  min-width: 32px;
-  height: 32px;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
-  font-size: 18px;
-  line-height: 1;
-}
-
-.category .add-controls span[id^="qty-"] {
-  min-width: 22px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #111827;
-}
-
-/* Кнопка "Добавить" — как в нормальном интернет-магазине */
-.category .add-controls .btn.add {
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  background: #1d4ed8;
-  border: none;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
-  margin-left: 8px !important;
-}
-
-.category .add-controls .btn.add:hover {
-  background: #1e40af;
-}
-
-/* "Нет в наличии" в нижней части */
-.category .card.out-of-stock .add-controls {
-  justify-content: flex-end;
-}
-
-.category .card.out-of-stock .out-of-stock-label {
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: #b91c1c;
-}
-
-/* Мобильная адаптация: карточка во всю ширину, кнопка "Добавить" растягивается */
-@media (max-width: 520px) {
-  .category .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .category .card {
-    max-width: 100%;
-    padding: 14px 14px 12px;
-  }
-
-  .category .add-controls {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .category .add-controls .btn.add {
-    flex: 1 1 100%;
-    text-align: center;
-    margin-left: 0 !important;
-    margin-top: 6px;
-    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.4);
-  }
-}
-</style>
-
-
-<style>
-/* === OVERRIDES: цена над кнопкой, сетка слева, аккуратный ряд карточек === */
-
-/* Сетка: без центрирования, стандартная "слева направо" как в интернет-магазинах */
-.category .cards {
-  justify-content: flex-start !important;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
-}
-
-/* Карточка: больше не центрируем каждую по отдельности */
-.category .card {
-  max-width: none !important;
-  margin: 0 !important;
-}
-
-/* Верх карточки теперь просто блочный текст без второго столбца */
-.category .card > div:first-child {
-  display: block !important;
-  margin-bottom: 8px !important;
-}
-
-/* Низ остаётся flex: слева единица измерения, справа price + счётчик + кнопка */
-.category .card > div:last-child {
-  display: flex !important;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Блок с ценой и контролами (buy-block) выстраиваем вертикально,
-   чтобы цена была прямо над счётчиком и кнопкой */
-.category .buy-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-}
-
-/* На мобильных карточка по-прежнему во всю ширину */
-@media (max-width: 520px) {
-  .category .cards {
-    grid-template-columns: 1fr !important;
-  }
-}
-</style>
-
-
-<style>
-/* === INNER CARD LAYOUT: price centered under size, no unit near counter === */
-
-/* Верх карточки: центрируем текст, цена под размерами */
-.category .card .card-head {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  margin-bottom: 6px;
-}
-
-.category .card .card-head strong {
-  font-size: 0.98rem;
-}
-
-.category .card .card-head .meta {
-  font-size: 0.86rem;
-  color: #6b7280;
-}
-
-.category .card .card-head .price {
-  margin-top: 4px;
-  font-size: 1rem;
-}
-
-/* Нижняя часть: только счётчик и кнопка, без "шт/рул" рядом */
-.category .card .card-bottom {
-  margin-top: 6px;
-  padding-top: 8px;
-  border-top: 1px solid #edf2f7;
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* На мобильных можно растянуть кнопку "Добавить" на всю ширину, как было раньше */
-@media (max-width: 520px) {
-  .category .card .card-bottom {
-    justify-content: flex-end;
-  }
-}
-</style>
-
-
-<style>
-/* === CENTER PRICE: строго по центру карточки === */
-.category .card .card-head{
-  text-align:center;
-  align-items:center;
-}
-.category .card .card-head .price{
-  display:block;
-  width:100%;
-  text-align:center !important;
-  margin:6px 0 6px;
-  font-size:1.05rem;
-  letter-spacing:0.2px;
-}
-</style>
-
-
-<style>
-/* === OUT OF STOCK: оставить только один бейдж === */
-
-/* Скрываем текст "Нет в наличии" внутри карточки */
-.category .card.out-of-stock .out-of-stock-label{
-  display:none !important;
-}
-
-/* Если где-то выводится текст через price-out, скрываем его */
-.category .card.out-of-stock .price.price-out{
-  display:none !important;
-}
-</style>
-
-
-<style>
-/* CENTER "Нет в наличии" badge */
-.category .card.out-of-stock::after{
-  top: 50% !important;
-  left: 50% !important;
-  right: auto !important;
-  transform: translate(-50%, -50%) !important;
-}
-</style>
-
-
-<style>
-/* === FIX: кнопка "Оформить через WhatsApp" в корзине === */
-
-/* блок с кнопками — делаем аккуратное выравнивание */
-.cart-panel > div > div[style*="display:flex"] {
-  justify-content: space-between;
-}
-
-/* уменьшаем кнопку */
-#checkout {
-  flex: 0 0 auto !important;   /* убираем растягивание */
-  padding: 10px 14px !important;
-  font-size: 14px !important;
-  min-width: auto !important;
-  white-space: nowrap;
-}
-
-/* кнопка "Показать" тоже подравниваем */
-#view-cart-toggle {
-  padding: 10px 12px !important;
-  font-size: 14px !important;
-}
-
-/* итоговая сумма — делаем визуально спокойнее */
-#cart-total {
-  margin-bottom: 6px !important;
-  font-size: 1.1rem;
-}
-
-/* На мобильных — кнопки одна под другой */
-@media (max-width: 520px) {
-  .cart-panel > div > div[style*="display:flex"] {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  #checkout, #view-cart-toggle {
-    width: 100%;
-  }
-}
-</style>
-
-
-<style>
-/* === FIX OVERLAY: кнопка заказа в полном окне === */
-#cart-overlay-whatsapp {
-  flex: 0 0 auto !important;
-  padding: 12px 16px !important;
-  font-size: 14px !important;
-  border-radius: 10px !important;
-  white-space: nowrap !important;
-}
-
-/* контейнер кнопок в оверлее */
-.cart-overlay-actions,
-#cart-overlay .actions,
-#cart-fullscreen-modal .actions {
-  display:flex !important;
-  justify-content: space-between !important;
-  gap:8px !important;
-}
-
-/* мобильная версия — кнопка на всю ширину */
-@media (max-width:520px){
-  #cart-overlay-whatsapp{
-    width:100% !important;
-  }
-}
-</style>
-
-
-<style>
-/* === MOBILE STICKY ORDER BUTTON IN OVERLAY === */
-@media (max-width: 520px){
-  /* делаем футер прилипающим внутри модального окна заказа */
-  #cart-overlay-modal .overlay-inner{
-    max-height: 100vh;
-  }
-  #cart-overlay-modal .overlay-body{
-    padding-bottom: 72px; /* запас под липкий футер */
-  }
-  #cart-overlay-modal .overlay-footer{
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    padding: 10px 16px;
-    box-shadow: 0 -4px 18px rgba(15,23,42,0.12);
-    z-index: 2;
-  }
-  #cart-overlay-modal .whatsapp-order{
-    width: 100%;
-    font-size: 14px;
-    padding: 10px 14px;
-  }
-}
-</style>
-
-
-<style>
-/* === FIX MOBILE OVERLAY LAYOUT: кнопка не давит на сумму === */
-@media (max-width: 520px){
-
-  /* делим футер на две строки */
-  #cart-overlay-modal .overlay-footer{
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 6px !important;
-  }
-
-  /* сумма всегда сверху отдельно */
-  #cart-overlay-modal #cart-overlay-total{
-    width: 100% !important;
-    text-align: left !important;
-    font-size: 1.05rem;
-    font-weight: 800;
-  }
-
-  /* кнопка на всю ширину, но ниже суммы */
-  #cart-overlay-modal .whatsapp-order{
-    width: 100% !important;
-  }
-}
-</style>
-
-<style>
-/* === SHOP HERO OFFSET FIX === */
-header .header-content {
-    margin-top: 28px;      /* сдвиг вниз всего контента */
-}
-header .header-logo {
-    margin-top: 14px;      /* логотип чуть ниже */
-}
-@media (max-width: 768px){
-  header .header-content { margin-top: 20px; }
-  header .header-logo { margin-top: 10px; }
-}
-</style>
-
-<!-- FINAL MOBILE FIX: header not overlapping content, no huge gap after image -->
-<style>
-/* На мобильных и планшетах: сдвигаем основной хедер вниз под плавающую шапку
-   и уменьшаем отступ между картинкой и первым блоком текста */
-@media (max-width: 768px) {
-  /* Плавающая шапка фиксирована, контент начинаем ниже неё */
-  body {
-    padding-top: 0 !important;
-  }
-  body > header:first-of-type {
-    margin-top: 76px !important; /* высота синей шапки + небольшой запас */
-  }
-  /* Чуть меньше вертикальные отступы в секциях,
-     чтобы после фоновой картинки не было огромной пустоты */
-  .section {
-    padding-top: 32px !important;
-    padding-bottom: 40px !important;
-  }
-  .section:first-of-type {
-    padding-top: 20px !important;
-  }
-}
-</style>
-
+    </style>
 </head>
 <body>
-<header class="floating-header">
-<div class="floating-header-content">
-<div class="header-left">
-<img alt="Логотип Gruzim.kz" class="floating-logo" src="Logo.png"/>
-<div class="language-switcher">
-<a class="lang-btn active" href="index.html">РУС</a>
-<a class="lang-btn" href="shopkz.html">ҚАЗ</a>
-</div>
-</div>
-<a class="lang-btn shop-link mobile-shop-link" href="index.html" style="margin-top:8px; font-weight:700;">НА ГЛАВНУЮ</a>
-<a class="header-phone" data-phone-type="floating-header" href="tel:+77767469606">
-<i class="fas fa-phone"></i>
-    +7 (776) 746-96-06
-</a>
-</div>
-</header>
-<header> 
-        <div class="header-content">
-            <div class="header-top">
-                <img src="Logo.png" alt="Логотип Gruzim.kz" class="header-logo">
-                <h1>Gruzim.kz | Магазин упаковочных материалов</h1>
+    
+    <header class="floating-header">
+        <div class="floating-header-content">
+            <div class="header-left">
+                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo"></a>
+                <div class="language-switcher">
+                    <a href="#" class="lang-btn active">RU</a>
+                    <a href="#" class="lang-btn">KZ</a>
+                </div>
             </div>
-            <p>Комплектуем переезд: качественная упаковка, быстрая доставка до двери.</p>
-            <p class="hero-guarantee">Подберём упаковку под ваш переезд — без переплат и лишних остатков.</p>
-            <a href="#catalog" class="cta-button" data-cta-type="hero-shop">
-                🧺 Подобрать упаковку для переезда
-            </a>
-            <p class="hero-subtext">Работаем ежедневно с 8:00 до 22:00 · Доставка в черте города 2500тенге</p>
+            <nav class="main-nav">
+                <a href="index.html">Главная</a>
+                <a href="index.html#services">Услуги</a>
+                <a href="shop.html" class="active">Магазин</a>
+                <a href="index.html#contact">Контакты</a>
+            </nav>
+            <span class="phone-wrap">
+                <a href="tel:+77767469606" class="header-phone">
+                    <i class="fas fa-phone"></i> +7 (776) 746-96-06
+                </a>
+                <img src="santa_hat.png" class="santa-hat" alt="">
+            </span>
         </div>
     </header>
-<div class="container">
-<section class="top-facts">
-  <div class="top-facts-inner">
-    <span><i class="fas fa-box-open"></i> 10+ позиций упаковки для переезда</span>
-    <span><i class="fas fa-truck-loading"></i> Можем привезти упаковку вместе с машиной</span>
-    <span><i class="fas fa-check-circle"></i> Работаем с физ. и юр. лицами</span>
-  </div>
-</section>
 
-<script id="product-data" type="application/json">
-[
-  {
-    "category": "Коробки",
-    "items": [
-      { "id": "box-small", "title": "Коробка малая", "size": "40×30×30 см", "price": 350, "unit": "шт" },
-      { "id": "box-medium", "title": "Коробка средняя", "size": "60×40×40 см", "price": 600, "unit": "шт" },
-      { "id": "box-clothes", "title": "Коробка с перекладиной", "size": "для одежды", "price": 700, "unit": "шт", "available": false }
-    ]
-  },
-  {
-    "category": "Упаковочная плёнка",
-    "items": [
-      { "id": "bubble-1m", "title": "Пузырчатая плёнка 1 м", "size": "1м х 1м", "price": 150, "unit": "рул" },
-      { "id": "stretch-1kg", "title": "Стрейч-плёнка 2 кг", "size": "2 кг", "price": 2200, "unit": "шт" }
-    ]
-  },
-  {
-    "category": "Скотч и ленты",
-    "items": [
-      { "id": "tape-50", "title": "Упаковочный скотч 50 мм 100м", "size": "рул", "price": 370, "unit": "шт" }
-    ]
-  },
-  {
-    "category": "Сумки для переезда",
-    "items": [
-      { "id": "bag-small", "title": "Сумка для переезда (маленькая)", "size": "маленькая", "price": 600, "unit": "шт", "available": false },
-      { "id": "bag-medium", "title": "Сумка для переезда (средняя)", "size": "средняя", "price": 900, "unit": "шт", "available": false },
-      { "id": "bag-large", "title": "Сумка для переезда (большая)", "size": "большая", "price": 1200, "unit": "шт", "available": false }
-    ]
-  },
-  {
-    "category": "Наборы и услуги",
-    "items": [
-      { "id": "kit-econom", "title": "Набор эконом (3 кор + скотч + 2кг стрейч)", "size": "набор", "price": 4000, "unit": "набор" },
-      { "id": "service-packfrag", "title": "Набор стандарт (10 кор + скотч + 2кг стрейч)", "size": "набор", "price": 8200, "unit": "набор" },
-      { "id": "service-loader", "title": "Доп. грузчик (1 час)", "size": "час", "price": 4000, "unit": "час" }
-    ]
-  }
-]
-</script>
-<div id="catalog"></div>
-<p style="margin-top:26px;color:#666;font-size:0.95rem;"></p>
-</div>
-<!-- Плавающая корзина (панель) -->
-<div aria-hidden="true" class="cart-panel" id="cart">
-<div class="cart-header">
-<strong>Корзина</strong>
-<div>
-<button class="small" id="clear-cart">Очистить</button>
-<button class="small" id="close-cart">✕</button>
-</div>
-</div>
-<div class="cart-items" id="cart-items"></div>
-<div>
-<div class="total" id="cart-total">Итого: 0 тг</div>
-<div style="margin-top:8px;">
-<input id="order-comment" placeholder="Адрес или комментарий (необязательно)" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6e9f2;margin-top:8px;"/>
-</div>
-<div style="margin-top:10px;display:flex;gap:8px;">
-<button class="btn whatsapp" id="checkout" style="flex:1;"><i class="fab fa-whatsapp"></i> Оформить через WhatsApp</button>
-<button class="btn" id="view-cart-toggle" style="background:#1a237e;">Показать</button>
-</div>
-</div>
-</div>
-<!-- Плавающая кнопка корзины (не разворачивает панель сама по себе) -->
-<button aria-label="Открыть корзину" class="cart-button" id="cart-button" style="display:none;" title="Открыть корзину">
-<i class="fas fa-shopping-cart"></i>
-<div class="cart-badge" id="cart-button-badge" style="display:none;">0</div>
-</button>
-<script>
-/* Загрузка товаров из JSON-блока (редактируй цены прямо в файле) */
-function loadProductData(){
-  try {
-    const el = document.getElementById('product-data');
-    if(!el) return [];
-    return JSON.parse(el.textContent);
-  } catch(e){
-    console.error('product-data parse error', e);
-    return [];
-  }
-}
-
-let DATA = loadProductData();
-
-/* CART in localStorage */
-const CART_KEY = 'gruzim_shop_cart_v1';
-let cart = {}; // {id: qty}
-
-function saveCart(){ try{ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }catch(e){} }
-function loadCart(){ try{ const raw = localStorage.getItem(CART_KEY); if(raw) cart = JSON.parse(raw); else cart = {}; }catch(e){ cart = {}; } }
-function cartCount(){ return Object.values(cart).reduce((s,n)=>s + (parseInt(n)||0), 0); }
-
-function formatPrice(n){ return new Intl.NumberFormat('ru-RU').format(n) + ' тг'; }
-
-/* Render catalog by categories */
-function renderCatalog(){
-  const wrap = document.getElementById('catalog');
-  wrap.innerHTML = '';
-  DATA.forEach(cat => {
-    const section = document.createElement('section');
-    section.className = 'category';
-    const h = document.createElement('h2');
-    h.textContent = cat.category;
-    section.appendChild(h);
-
-    const grid = document.createElement('div');
-    grid.className = 'cards';
-
-    cat.items.forEach(item => {
-      const isOut = item.available === false;
-      const card = document.createElement('div');
-      card.className = isOut ? 'card out-of-stock' : 'card';
-
-      if (isOut) {
-        card.innerHTML = `
-         <div style="display:flex;align-items:center;justify-content:space-between;">
-           <div>
-             <strong>${item.title}</strong>
-             <div class="meta">${item.size || ''}</div>
-           </div>
-           <div style="text-align:right;">
-             <div class="price price-out" data-id="${item.id}">Нет в наличии</div>
-           </div>
-         </div>
-         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
-           <div class="meta">${item.unit}</div>
-           <div class="add-controls">
-             <span class="out-of-stock-label">Нет в наличии</span>
-           </div>
-         </div>
-      `;
-      
-      } else {
-        card.innerHTML = `
-         <div class="card-head">
-           <strong>${item.title}</strong>
-           <div class="meta">${item.size || ''}</div>
-           <div class="price" data-id="${item.id}">${formatPrice(item.price)}</div>
-         </div>
-         <div class="card-bottom">
-           <div class="add-controls">
-             <button class="small dec" aria-label="Уменьшить количество" data-id="${item.id}">−</button>
-             <span id="qty-${item.id}">${cart[item.id]||0}</span>
-             <button class="small inc" aria-label="Увеличить количество" data-id="${item.id}">+</button>
-           </div>
-         </div>
-      `;
-      }
-
-
-      grid.appendChild(card);
-    });
-
-    section.appendChild(grid);
-    wrap.appendChild(section);
-  });
-  updateBadgeTop();
-}
-
-
-/* CART UI */
-function updateCartUI(){
-  const panel = document.getElementById('cart');
-  const itemsDiv = document.getElementById('cart-items');
-  itemsDiv.innerHTML = '';
-  const keys = Object.keys(cart);
-
-  if(keys.length === 0){
-    itemsDiv.innerHTML = '<div style="color:#666">Корзина пуста</div>';
-    document.getElementById('cart-total').textContent = 'Итого: 0 тг';
-    // hide panel when empty and hide floating button
-    panel.style.display = 'none';
-    panel.setAttribute('aria-hidden','true');
-  } else {
-    let total = 0;
-
-    keys.forEach(id => {
-      // find item
-      let item = null;
-      for (const cat of DATA){
-        item = cat.items.find(x => x.id === id);
-        if (item) break;
-      }
-      if (!item) return;
-
-      // пропускаем товары, которых нет в наличии
-      if (item.available === false) return;
-
-      const qty = cart[id];
-      const row = document.createElement('div');
-      row.className = 'cart-item';
-      row.innerHTML = `
-        <div>
-          <div style="font-weight:700;">${item.title}</div>
-          <div style="color:#666;font-size:0.95rem;">${formatPrice(item.price)} × ${qty}</div>
+    <header>
+        <div class="header-content">
+            <div class="header-top">
+                </div>
+            <h1>Магазин упаковки для переезда</h1>
+            <p>Все необходимое для переезда в одном месте: коробки, скотч, пленка и сумки. С доставкой по Астане.</p>
+            <a href="https://wa.me/77767469606" class="cta-button" onclick="ym(104276494,'reachGoal','klik_whatsapp');">
+                <i class="fab fa-whatsapp"></i> Задать вопрос о товарах
+            </a>
         </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
-          <div style="font-weight:700;">${formatPrice(item.price*qty)}</div>
-          <div style="display:flex;gap:6px;">
-            <button class="small dec" aria-label="Уменьшить количество" data-id="${id}">−</button>
-            <button class="small inc" aria-label="Увеличить количество" data-id="${id}">+</button>
-            <button class="small remove" aria-label="Удалить из корзины" data-id="${id}" style="color:#d00">✕</button>
-          </div>
+    </header>
+
+    <div class="container" id="shop-container">
         </div>
-      `;
-      itemsDiv.appendChild(row);
-      total += item.price * qty;
-    });
 
-    document.getElementById('cart-total').textContent = 'Итого: ' + formatPrice(total);
-    // panel remains hidden until user opens it; do not force-open on add
-    panel.setAttribute('aria-hidden','true');
-  }
-
-  // update small qty indicators in catalog
-  DATA.forEach(cat=>{
-    cat.items.forEach(i=>{
-      const el = document.getElementById('qty-'+i.id);
-      if(el) el.textContent = cart[i.id] || 0;
-    });
-  });
-  updateBadgeTop();
-}
-
-
-/* Utilities to change cart */
-function addToCart(id, qty=1){
-  // ищем товар в данных
-  let item = null;
-  for (const cat of DATA){
-    const found = cat.items.find(x => x.id === id);
-    if (found){
-      item = found;
-      break;
-    }
-  }
-
-  // если товар есть и он помечен как недоступный — не добавляем
-  if (item && item.available === false){
-    return;
-  }
-
-  // не авто-открываем панель; просто обновляем корзину
-  cart[id] = (cart[id]||0) + qty;
-  if(cart[id] <= 0) delete cart[id];
-
-  saveCart();
-  updateCartUI();
-  updateBadgeTop();
-
-  // небольшая визуальная обратная связь
-  flashAddedFeedback(id);
-}
-function removeFromCart(id){ delete cart[id]; saveCart(); updateCartUI(); updateBadgeTop(); }
-function changeQty(id, delta){
-  cart[id] = (cart[id]||0) + delta;
-  if(cart[id] <= 0) delete cart[id];
-  saveCart(); updateCartUI(); updateBadgeTop();
-}
-function clearCart(){ cart = {}; saveCart(); updateCartUI(); updateBadgeTop(); }
-
-/* Badge on header and floating button */
-function updateBadgeTop(){
-  const b = document.getElementById('badge-top');
-  const count = cartCount();
-  const cartButton = document.getElementById('cart-button');
-  const cartBadge = document.getElementById('cart-button-badge');
-  if(count>0){ 
-    if(b){ b.style.display='inline-block'; b.textContent = count; } 
-    if(cartButton){ cartButton.style.display='flex'; cartBadge.style.display='flex'; cartBadge.textContent = count; }
-  } else { 
-    if(b){ b.style.display='none'; } 
-    if(cartButton){ cartButton.style.display='none'; cartBadge.style.display='none'; cartBadge.textContent = ''; }
-  }
-}
-
-/* Small transient feedback when adding */
-function flashAddedFeedback(id){
-  // find add button and briefly change text
-  const btn = document.querySelector('.btn.add[data-id="'+id+'"]');
-  if(!btn) return;
-  const orig = btn.textContent;
-  btn.textContent = 'Добавлено';
-  setTimeout(()=>{ btn.textContent = orig; }, 900);
-}
-
-/* Event bindings */
-document.addEventListener('click', function(e){
-  const btn = e.target;
-  // button or inside button elements
-  const addBtn = btn.closest ? btn.closest('.btn.add') : null;
-  if(addBtn && addBtn.matches('.btn.add')){
-    const id = addBtn.dataset.id; addToCart(id,1); return;
-  }
-  const inc = btn.closest ? btn.closest('.inc') : null;
-  if(inc && inc.matches('.inc')){ const id = inc.dataset.id; changeQty(id,1); return; }
-  const dec = btn.closest ? btn.closest('.dec') : null;
-  if(dec && dec.matches('.dec')){ const id = dec.dataset.id; changeQty(id,-1); return; }
-  const rem = btn.closest ? btn.closest('.small.remove') : null;
-  if(rem && rem.matches('.small.remove')){ const id = rem.dataset.id; removeFromCart(id); return; }
-  if(btn.id === 'clear-cart'){ if(confirm('Очистить корзину?')) clearCart(); return; }
-  if(btn.id === 'close-cart'){ document.getElementById('cart').style.display='none'; document.getElementById('cart').setAttribute('aria-hidden','true'); return; }
-  if(btn.id === 'view-cart-toggle'){ toggleCartPanel(true); return; }
-  if(btn.id === 'checkout'){
-    // build text
-    const keys = Object.keys(cart);
-    if(keys.length===0){ alert('Корзина пуста'); return; }
-    let total=0; let text = 'Здравствуйте! Хочу заказать:\n';
-    keys.forEach(id=>{
-      let item=null; for(const cat of DATA){ item = cat.items.find(x=>x.id===id); if(item) break; }
-      if(!item) return;
-      const qty = cart[id];
-      text += `- ${item.title} × ${qty} — ${item.price} тг\n`;
-      total += item.price * qty;
-    });
-    text += `\nИтого: ${total} тг\n`;
-    const comment = document.getElementById('order-comment').value.trim();
-    if(comment) text += `\nКомментарий: ${comment}\n`;
-    const url = 'https://wa.me/77767469606?text=' + encodeURIComponent(text);
-    window.open(url, '_blank');
-    return;
-  }
-  // cart button click (may be icon inside)
-  const cartBtn = btn.closest ? btn.closest('#cart-button') : null;
-  if(cartBtn && cartBtn.id === 'cart-button'){ toggleCartPanel(); return; }
-});
-
-/* Toggle cart panel visibility */
-function toggleCartPanel(show){
-  const panel = document.getElementById('cart');
-  if(show === undefined) show = (panel.style.display === 'none' || panel.getAttribute('aria-hidden') === 'true');
-  if(show){
-    updateCartUI(); // refresh contents
-    panel.style.display = 'block';
-    panel.setAttribute('aria-hidden','false');
-    // ensure panel is above cart button
-    panel.focus && panel.focus();
-  } else {
-    panel.style.display = 'none';
-    panel.setAttribute('aria-hidden','true');
-  }
-}
-
-/* init */
-loadCart();
-renderCatalog();
-updateCartUI();
-
-/* attach cart-button behaviour */
-(function(){
-  const cb = document.getElementById('cart-button');
-  if(cb){
-    cb.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCartPanel(); } });
-  }
-})();
-</script>
-<!-- PATCH SCRIPT: sync CSS variable with actual header height -->
-<script>
-(function(){
-  function syncHeaderHeight(){
-    var header = document.querySelector('.floating-header') || document.querySelector('.header') || document.querySelector('#header');
-    if(!header) return;
-    var h = header.getBoundingClientRect().height || 70;
-    document.documentElement.style.setProperty('--site-header-height', Math.ceil(h) + 'px');
-    // also ensure container margin matches
-    var c = document.querySelector('.container');
-    if(c) c.style.marginTop = (Math.ceil(h) + 12) + 'px';
-    // adjust scroll-margin for anchors
-    document.querySelectorAll('h1,h2,.section,section,.category').forEach(function(el){
-      el.style.scrollMarginTop = (Math.ceil(h) + 12) + 'px';
-    });
-  }
-  window.addEventListener('load', syncHeaderHeight);
-  window.addEventListener('resize', syncHeaderHeight);
-  // watch for dynamic changes
-  var header = document.querySelector('.floating-header');
-  if(header){
-    new MutationObserver(syncHeaderHeight).observe(header, {attributes:true, childList:true, subtree:true});
-  }
-})();
-</script>
-
-<section class="section faq-section" id="faq">
-  <h2>Вопросы и ответы по упаковке</h2>
-  <div class="faq-item">
-    <div class="faq-question">Можно ли заказать только упаковочные материалы без перевозки?</div>
-    <div class="faq-answer">Да, вы можете купить только коробки, плёнку, скотч и сумки без услуги грузоперевозки.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">Как узнать, сколько коробок и плёнки нужно?</div>
-    <div class="faq-answer">Расскажите, какая у вас квартира или офис, и мы подскажем примерный набор по опыту переездов.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">Можно ли привезти упаковку вместе с машиной для переезда?</div>
-    <div class="faq-answer">Да, мы можем одновременно привезти упаковку и выполнить ваш переезд.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">Работаете ли вы с юридическими лицами по безналу?</div>
-    <div class="faq-answer">Да, оформляем счёт, договор и закрывающие документы по запросу.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">Можно ли оформить заказ через WhatsApp?</div>
-    <div class="faq-answer">Да, просто добавьте товары в корзину и отправьте заказ через WhatsApp по кнопке внизу.</div>
-  </div>
-</section>
-<footer>
-  <div class="footer-inner">
-    <div class="footer-col">
-      <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo">
-      <p class="footer-tagline">Магазин упаковочных материалов для переездов и хранения.</p>
-      <p class="footer-years">&copy; 2019–2025 gruzim.kz. Все права защищены.</p>
+    <div class="cart-float-btn" id="open-cart-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-badge" id="cart-count">0</div>
     </div>
-    <div class="footer-col">
-      <h4>Контакты</h4>
-      <p><i class="fas fa-phone"></i> <a href="tel:+77767469606">+7 (776) 746-96-06</a></p>
-      <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77767469606">Написать в WhatsApp</a></p>
-      <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
-    </div>
-    <div class="footer-col">
-      <h4>Информация</h4>
-      <p><a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a></p>
-      <p><a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a></p>
-      <p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p>
-    </div>
-  </div>
-</footer>
-<!-- BEGIN: Cart UX enhancements inserted by assistant -->
-<style>
-/* Always show floating cart button and badge */
-.cart-button, .floating-cart-button {
-  display: block !important;
-  z-index: 9999 !important;
-  position: fixed !important;
-  right: 16px !important;
-  bottom: 16px !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  border-radius: 999px !important;
-}
 
-/* Toast style */
-.site-toast {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 86px;
-  background: #111;
-  color: #fff;
-  padding: 12px 16px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  z-index: 10000;
-  font-size: 14px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-/* Fullscreen cart modal for mobile */
-#cart-fullscreen-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #fff;
-  z-index: 10001;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 16px;
-}
-
-#cart-fullscreen-modal.open {
-  display: block;
-}
-
-#cart-fullscreen-modal .close-cart {
-  position: fixed;
-  right: 12px;
-  top: 12px;
-  background: transparent;
-  border: none;
-  font-size: 26px;
-  line-height: 1;
-  z-index: 10002;
-  cursor: pointer;
-}
-
-/* Ensure cart contents area has top padding to not be under the close button */
-#cart-fullscreen-modal .cart-contents {
-  padding-top: 54px;
-}
-
-/* On desktop show original cart panel as drawer if present */
-@media (min-width: 769px) {
-  #cart-fullscreen-modal { display: none !important; }
-}
-
-/* Make sure the existing small cart-panel doesn't cover whole screen on mobile */
-#cart-panel {
-  max-height: 85vh;
-  overflow-y: auto;
-}
-</style>
-<!-- Modal container for mobile fullscreen cart -->
-<div aria-hidden="true" aria-label="Корзина" id="cart-fullscreen-modal" role="dialog">
-<button aria-label="Закрыть корзину" class="close-cart">✕</button>
-<div class="cart-contents" id="cart-contents-clone">
-<!-- cloned cart content will be injected here -->
-</div>
-</div>
-<script>
-(function(){
-  // Helpers
-  function qs(sel){ return document.querySelector(sel); }
-  function qsa(sel){ return Array.from(document.querySelectorAll(sel)); }
-
-  // Show floating cart button if exists; otherwise try to create one referencing existing behavior
-  var cartButton = qs('.cart-button, .floating-cart-button, #cart-button, .btn-cart');
-  if(!cartButton){
-    // Try to find any element that opens cart
-    var possible = qsa('[data-open-cart], [data-cart], [aria-controls*="cart"], .open-cart');
-    if(possible.length) cartButton = possible[0];
-  }
-  if(cartButton){
-    cartButton.style.display = 'block';
-    cartButton.style.zIndex = '9999';
-  }
-
-  // Find cart panel element
-  var cartPanel = qs('#cart-panel, .cart-panel, .panel-cart, #cartDrawer');
-  // find cart contents to clone into modal
-  var cartContents = qs('#cart-contents, .cart-contents, .cart-items');
-  // create a function to open cart
-  function openCart(){
-    var isMobile = window.innerWidth <= 768;
-    if(isMobile){
-      // clone cart contents into fullscreen modal
-      var modal = document.getElementById('cart-fullscreen-modal');
-      var target = document.getElementById('cart-contents-clone');
-      if(target && cartContents){
-        target.innerHTML = cartContents.innerHTML;
-      } else if(target && cartPanel){
-        target.innerHTML = cartPanel.innerHTML;
-      }
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
-      // focus trap: focus close button
-      var closeBtn = modal.querySelector('.close-cart');
-      if(closeBtn) closeBtn.focus();
-    } else {
-      // fallback: toggle existing cart panel
-      if(cartPanel){
-        cartPanel.classList.toggle('open');
-        cartPanel.style.display = cartPanel.classList.contains('open') ? 'block' : 'none';
-      } else if(cartButton && cartButton.click){
-        // try to trigger original action
-        cartButton.click();
-      }
-    }
-  }
-
-  // Close cart function
-  function closeCart(){
-    var modal = document.getElementById('cart-fullscreen-modal');
-    if(modal){
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-    }
-    if(cartPanel && cartPanel.classList.contains('open')){
-      cartPanel.classList.remove('open');
-      cartPanel.style.display = 'none';
-    }
-  }
-
-  // Attach openCart to cart button(s)
-  if(cartButton){
-    cartButton.addEventListener('click', function(e){
-      e.preventDefault();
-      openCart();
-    });
-  }
-  // If there are other elements that opened cart, override their action to use openCart
-  qsa('[data-open-cart], [data-cart], [aria-controls*="cart"], .open-cart, .show-cart').forEach(function(el){
-    el.addEventListener('click', function(e){
-      e.preventDefault();
-      openCart();
-    });
-  });
-
-  // Close button inside modal
-  var modalClose = qs('#cart-fullscreen-modal .close-cart');
-  if(modalClose){
-    modalClose.addEventListener('click', function(){ closeCart(); });
-  }
-
-  // Also close modal when clicking outside content on mobile
-  var modal = document.getElementById('cart-fullscreen-modal');
-  if(modal){
-    modal.addEventListener('click', function(e){
-      if(e.target === modal) closeCart();
-    });
-  }
-
-  // Prevent automatic opening of cart when adding to cart.
-  // We'll intercept common patterns: buttons with class .add-to-cart, data-add-to-cart, or buttons that call addToCart function.
-  function showToast(message, withLink){
-    // remove existing toasts
-    var existing = document.querySelectorAll('.site-toast');
-    existing.forEach(function(n){ n.remove(); });
-
-    var t = document.createElement('div');
-    t.className = 'site-toast';
-    t.textContent = message || 'Добавлено в корзину';
-    if(withLink){
-      var a = document.createElement('button');
-      a.textContent = 'Перейти в корзину';
-      a.style.cursor = 'pointer';
-      a.style.background = 'transparent';
-      a.style.border = '1px solid rgba(255,255,255,0.2)';
-      a.style.color = 'white';
-      a.style.padding = '6px 10px';
-      a.style.borderRadius = '8px';
-      a.addEventListener('click', function(){ openCart(); });
-      t.appendChild(a);
-    }
-    document.body.appendChild(t);
-    setTimeout(function(){ t.classList.add('visible'); }, 50);
-    setTimeout(function(){ t.remove(); }, 3500);
-  }
-
-  // Intercept Add-to-cart clicks
-  var addButtons = qsa('.add-to-cart, .btn-add, [data-add-to-cart], button.add-cart, a.add-to-cart');
-  addButtons.forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      // let original handler run (if any) but prevent it from opening the cart by stopping propagation after a tiny timeout
-      setTimeout(function(){
-        // assume cart updated; show toast instead of auto-opening cart
-        showToast('Добавлено в корзину', true);
-      }, 150);
-    }, {passive: true});
-  });
-
-  // For global functions named addToCart, we try to wrap it if exists
-  try{
-    if(typeof window.addToCart === 'function'){
-      var originalAdd = window.addToCart;
-      window.addToCart = function(){
-        var res = originalAdd.apply(this, arguments);
-        setTimeout(function(){ showToast('Добавлено в корзину', true); }, 150);
-        return res;
-      };
-    }
-  }catch(e){ /* ignore */ }
-
-  // Make sure the WhatsApp flow remains untouched: do not modify the link generation.
-  // But ensure that before opening WhatsApp we collect phone if present in panel; we will not force it here,
-  // since user wanted WhatsApp-only and minimal changes.
-
-  // Accessibility: close with Escape key
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-      closeCart();
-    }
-  });
-
-  // When the modal opens, ensure any form inside it is functional; attempt to delegate quantity changes to original handlers
-  // (we intentionally avoid modifying those handlers to respect "don't change anything else").
-
-  // If there is a cart counter/badge, animate it when items are added
-  function pulseBadge(){
-    var badge = qs('.cart-count, .badge-count, .cart-badge, .count-badge');
-    if(!badge){
-      // try to find numeric inside cart button
-      badge = qs('.cart-button .count, .floating-cart-button .count');
-    }
-    if(badge){
-      badge.animate([
-        { transform: 'scale(1)' },
-        { transform: 'scale(1.25)' },
-        { transform: 'scale(1)' }
-      ], { duration: 400, easing: 'ease' });
-    }
-  }
-  // Hook pulse on add buttons
-  addButtons.forEach(function(btn){
-    btn.addEventListener('click', function(){ setTimeout(pulseBadge, 200); });
-  });
-
-  // If site used custom event 'cart:updated', listen and show toast once per update triggered by add action.
-  document.addEventListener('cart:updated', function(){ showToast('Добавлено в корзину', true); });
-
-})();
-</script>
-<!-- END: Cart UX enhancements inserted by assistant -->
-<!-- BEGIN: Fullscreen cart overlay injected by assistant -->
-<style>
-#cart-overlay-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 20000;
-  justify-content: center;
-  align-items: center;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  overflow: auto;
-  padding: 20px;
-}
-#cart-overlay-modal.open { display: flex; }
-#cart-overlay-modal .overlay-inner {
-  background: #fff;
-  width: 100%;
-  max-width: 820px;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  max-height: calc(100vh - 120px);
-  overflow: auto;
-  position: relative;
-  display:flex;
-  flex-direction:column;
-}
-#cart-overlay-modal .overlay-header {
-  padding: 18px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom: 1px solid #eef1f7;
-}
-#cart-overlay-modal .overlay-body { padding: 18px 20px; flex:1 1 auto; overflow:auto; }
-#cart-overlay-modal .overlay-footer {
-  padding: 14px 20px;
-  border-top: 1px solid #eef1f7;
-  display:flex;
-  gap:12px;
-  align-items:center;
-  justify-content:space-between;
-}
-#cart-overlay-modal .close-x {
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  line-height:1;
-}
-#cart-overlay-modal .whatsapp-order {
-  width:100%;
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
-  justify-content:center;
-  padding:12px 16px;
-  border-radius:10px;
-  font-weight:800;
-  font-family: 'Montserrat', sans-serif;
-  font-size:16px;
-  text-decoration:none;
-}
-#cart-overlay-modal .whatsapp-order.whatsapp { background:#25D366; color:#fff; border: none; }
-#cart-overlay-modal .overlay-footer .btn-secondary { background:#f1f3f8; border:1px solid #e6e9f2; padding:10px 14px; border-radius:8px; }
-@media (max-width:520px){
-  #cart-overlay-modal .overlay-inner { max-width: 100%; border-radius:8px; height: calc(100vh - 40px); max-height: calc(100vh - 40px); }
-  #cart-overlay-modal { padding:8px; }
-}
-
-/* --- Hero text enhancements for shop --- */
-.hero-guarantee {
-  margin-top: 10px;
-  font-size: 1em;
-  color: #ffeb3b;
-}
-.hero-subtext {
-  margin-top: 6px;
-  font-size: 0.9em;
-  color: #c5cae9;
-}
-
-/* --- Top facts band for shop --- */
-.top-facts {
-  background: #ffffff;
-  border-bottom: 1px solid #e0e6f0;
-  padding: 10px 15px;
-}
-.top-facts-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  font-size: 0.95em;
-  color: #455a64;
-}
-.top-facts-inner span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
-.top-facts-inner i {
-  font-size: 1.1em;
-  color: #ff9900;
-}
-@media (max-width: 480px) {
-  .top-facts-inner {
-    justify-content: flex-start;
-  }
-  .top-facts-inner span {
-    white-space: normal;
-  }
-}
-
-/* --- FAQ section --- */
-.faq-section {
-  background-color: #f5f7fb;
-}
-.faq-section h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2em;
-  margin-bottom: 24px;
-  color: #1a237e;
-}
-.faq-item {
-  max-width: 800px;
-  margin: 0 auto 12px;
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  overflow: hidden;
-}
-.faq-question {
-  padding: 14px 18px;
-  cursor: pointer;
-  font-weight: 600;
-  background: #1a237e;
-  color: #ffffff;
-  position: relative;
-}
-.faq-question::after {
-  content: "+";
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-}
-.faq-item.open .faq-question::after {
-  content: "–";
-}
-.faq-answer {
-  display: none;
-  padding: 14px 18px;
-  color: #455a64;
-  background: #ffffff;
-  font-size: 0.95em;
-}
-.faq-item.open .faq-answer {
-  display: block;
-}
-
-/* --- Footer enhanced layout --- */
-footer {
-  background: #10163a;
-  color: #c5cae9;
-  padding: 25px 20px;
-  margin-top: 40px;
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  align-items: flex-start;
-}
-.footer-logo {
-  max-height: 40px;
-  margin-bottom: 10px;
-}
-.footer-tagline {
-  margin: 0 0 6px;
-  font-size: 0.95em;
-}
-.footer-years {
-  margin: 0;
-  font-size: 0.88em;
-  color: #9fa8da;
-}
-.footer-col h4 {
-  margin-bottom: 8px;
-  font-size: 1.02em;
-  color: #ffffff;
-}
-.footer-col p {
-  margin: 3px 0;
-  font-size: 0.9em;
-}
-.footer-col a {
-  color: #ffcc80;
-  text-decoration: none;
-}
-.footer-col a:hover {
-  text-decoration: underline;
-}
-.footer-note {
-  margin-top: 8px;
-  font-size: 0.86em;
-  color: #b0bec5;
-}
-footer i {
-  margin-right: 6px;
-  font-size: 0.95em;
-}
-@media (max-width: 480px) {
-  footer {
-    padding: 20px 15px;
-  }
-}
-</style>
-<div aria-label="Корзина" id="cart-overlay-modal" role="dialog">
-<div class="overlay-inner" id="cart-overlay-inner">
-<div class="overlay-header">
-<strong style="font-size:1.1rem;">Корзина</strong>
-<div style="display:flex;gap:8px;align-items:center;">
-<button class="btn btn-secondary" id="cart-overlay-clear" title="Очистить корзину">Очистить</button>
-<button aria-label="Закрыть корзину" class="close-x" id="cart-overlay-close">✕</button>
-</div>
-</div>
-<div class="overlay-body" id="cart-overlay-body">
-<!-- cart content cloned here -->
-</div>
-<div class="overlay-footer">
-<div style="flex:1;">
-<div id="cart-overlay-total" style="font-weight:900;color:#1a237e;">Итого: 0 тг</div>
-</div>
-<div style="flex:0 0 320px;">
-<a class="whatsapp-order whatsapp" href="#" id="cart-overlay-whatsapp" rel="noopener" target="_blank"> <i class="fab fa-whatsapp"></i> Заказать</a>
-</div>
-</div>
-</div>
-</div>
-<script>
-// Helper to open overlay and clone cart content
-(function(){
-  function qs(s){ return document.querySelector(s); }
-  function qsa(s){ return Array.from(document.querySelectorAll(s)); }
-
-  var overlay = document.getElementById('cart-overlay-modal');
-  var overlayBody = document.getElementById('cart-overlay-body');
-  var overlayTotal = document.getElementById('cart-overlay-total');
-  var closeBtn = document.getElementById('cart-overlay-close');
-  var clearBtn = document.getElementById('cart-overlay-clear');
-  var whatsappBtn = document.getElementById('cart-overlay-whatsapp');
-
-  function updateOverlayFromCart(){
-    // clone content from existing cart-items if present, otherwise generate from current cart state if functions exist
-    var originItems = document.querySelector('#cart .cart-items, .cart-items');
-    var originTotal = document.getElementById('cart-total');
-    if(originItems){
-      overlayBody.innerHTML = originItems.innerHTML;
-    } else {
-      overlayBody.innerHTML = '<div style="color:#666">Корзина пуста</div>';
-    }
-    overlayTotal.textContent = originTotal ? originTotal.textContent.replace('Итого: ','Итого: ') : 'Итого: 0 тг';
-
-    // ensure buttons inside cloned content work by delegating events to original handlers
-    // attach simple listeners for qty change / remove if elements present
-    overlayBody.querySelectorAll('.inc, .dec, .remove').forEach(function(btn){
-      btn.addEventListener('click', function(e){
-        var id = btn.getAttribute('data-id');
-        // try to call original handlers if exist
-        if(typeof window.addToCart === 'function' && btn.classList.contains('inc')){
-          window.addToCart(id, 1);
-        } else if(typeof window.addToCart === 'function' && btn.classList.contains('dec')){
-          window.addToCart(id, -1);
-        } else {
-          // fallback: dispatch click to original element
-          var orig = document.querySelector('[data-id=\"'+id+'\"].inc, [data-id=\"'+id+'\"].dec, [data-id=\"'+id+'\"].remove');
-          if(orig) orig.click();
-        }
-        setTimeout(function(){ updateOverlayFromCart(); }, 120);
-      });
-    });
-
-    // update whatsapp link: build full order text (items + totals + comment)
-    var keys = Object.keys(cart || {});
-    var messageText = '';
-    if(keys.length === 0){
-      // fallback to total text if cart is empty
-      messageText = overlayTotal.textContent || '';
-    } else {
-      var total = 0;
-      messageText = 'Здравствуйте! Хочу заказать:\n';
-      keys.forEach(function(id){
-        var item = null;
-        for(var i=0;i<DATA.length;i++){
-          var found = DATA[i].items.find(function(x){ return x.id === id; });
-          if(found){ item = found; break; }
-        }
-        if(!item) return;
-        var qty = cart[id] || 0;
-        total += (item.price || 0) * qty;
-        messageText += '- ' + item.title + ' × ' + qty + ' — ' + (item.price || 0) + ' тг\n';
-      });
-      messageText += '\nИтого: ' + total + ' тг';
-    }
-    var comment = document.getElementById('order-comment') ? document.getElementById('order-comment').value.trim() : '';
-    if(comment) messageText += '\nКомментарий: ' + comment;
-    var message = encodeURIComponent(messageText);
-    var phone = '+77767469606';
-    whatsappBtn.href = 'https://wa.me/' + phone.replace(/[^0-9]/g,'') + '?text=' + message;
-  }
-
-  function openOverlay(){
-    updateOverlayFromCart();
-    overlay.classList.add('open');
-    overlay.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeOverlay(){
-    overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  }
-
-  // open when cart button or view-cart-toggle clicked
-  var triggers = qsa('#cart-button, .cart-button, #view-cart-toggle, [data-open-cart], .open-cart');
-  triggers.forEach(function(t){
-    t.addEventListener('click', function(e){
-      e.preventDefault();
-      openOverlay();
-    });
-  });
-
-  // also open when clicking existing "Показать" button in cart panel
-  var panelShow = document.getElementById('view-cart-toggle');
-  if(panelShow) panelShow.addEventListener('click', function(e){ e.preventDefault(); openOverlay(); });
-
-  // close handlers
-  if(closeBtn) closeBtn.addEventListener('click', closeOverlay);
-  if(overlay) overlay.addEventListener('click', function(e){
-    if(e.target === overlay) closeOverlay();
-  });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeOverlay(); });
-
-  // clear button: try to trigger existing clear handler
-  if(clearBtn){
-    clearBtn.addEventListener('click', function(){
-      var orig = document.getElementById('clear-cart');
-      if(orig) orig.click();
-      // refresh overlay after short delay
-      setTimeout(updateOverlayFromCart, 120);
-    });
-  }
-
-  // when checkout inside original cart is clicked, forward to whatsapp link
-  var origCheckout = document.getElementById('checkout');
-  if(origCheckout){
-    origCheckout.addEventListener('click', function(e){
-      // open overlay or just redirect to whatsapp
-      var link = document.getElementById('cart-overlay-whatsapp');
-      if(link) { link.click(); }
-    });
-  }
-
-  // ensure overlay updates when cart updated (try to listen to custom event)
-  document.addEventListener('cart:updated', function(){ if(overlay.classList.contains('open')) updateOverlayFromCart(); });
-
-})();
-</script>
-<!-- END: Fullscreen cart overlay injected by assistant -->
-
-<!-- ============ Minimal non-invasive cart-close patch ============ -->
-<script>
-(function(){
-  function q(sel){ return document.querySelector(sel); }
-  function qa(sel){ return Array.from(document.querySelectorAll(sel)); }
-  function hideIfVisible(node){
-    if(!node) return;
-    try{
-      // only hide if it's currently visible to avoid interfering
-      var style = window.getComputedStyle(node);
-      if(style && (style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0')){
-        node.style.display = 'none';
-      }
-      node.classList.remove && node.classList.remove('open');
-      node.classList.remove && node.classList.remove('is-active');
-      node.setAttribute && node.setAttribute('aria-hidden','true');
-    }catch(e){}
-  }
-
-  // list of selectors to hide when a close happens
-  var selectors = [
-    '#cart',
-    '.cart-panel',
-    '#cart-panel',
-    '#cart-fullscreen-modal',
-    '#cart-overlay-modal',
-    '.cart-overlay',
-    '.cart-modal',
-    '.drawer-cart'
-  ];
-
-  function closeAllSimple(){
-    selectors.forEach(function(s){ hideIfVisible(q(s)); });
-    try{ sessionStorage.removeItem('gruzim_cart_open'); }catch(e){}
-  }
-
-  // Attach to common close buttons WITHOUT overriding other logic
-  var closeSelectors = ['#close-cart', '.close-cart', '.cart-close', '.cart__close', '.close-x', '.remove-cart-overlay'];
-  closeSelectors.forEach(function(sel){
-    qa(sel).forEach(function(btn){
-      btn.addEventListener('click', function(e){
-        // allow existing handlers to run; schedule our clean-up slightly after
-        setTimeout(closeAllSimple, 50);
-      }, {passive:true});
-    });
-  });
-
-  // Clicking on overlay background should close (non-invasive)
-  qa(['#cart-fullscreen-modal', '#cart-overlay-modal', '.cart-overlay']).forEach(function(modal){
-    if(!modal) return;
-    modal.addEventListener('click', function(e){
-      if(e.target === modal) closeAllSimple();
-    }, {passive:true});
-  });
-
-  // Also ensure Esc key hides overlays (helpful but non-invasive)
-  window.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' || e.key === 'Esc'){
-      closeAllSimple();
-    }
-  });
-
-  // On load, hide any stray overlays that are visible (very small timeout to let page init)
-  window.addEventListener('load', function(){
-    setTimeout(function(){ closeAllSimple(); }, 80);
-  });
-
-})();
-</script>
-<!-- ============ End minimal patch ============ -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // === Расширенное отслеживание конверсий (Enhanced Conversions) ===
-    // Пытаемся собрать email/телефон из любых полей на странице,
-    // чтобы передать их в Google Ads как user_data перед конверсией.
-    function setEnhancedUserData() {
-        try {
-            var email = "";
-            var phone = "";
+    <div class="cart-modal-overlay" id="cart-modal">
+        <div class="cart-modal">
+            <span class="close-cart" id="close-cart-btn">&times;</span>
+            <h3 style="color: #1a237e; font-family: 'Montserrat';">Ваш заказ</h3>
             
-            document.querySelectorAll("input").forEach(function(input) {
-                var type = (input.type || "").toLowerCase();
-                var name = (input.name || "").toLowerCase();
-                var value = (input.value || "").trim();
-                if (!value) return;
+            <div class="cart-items" id="cart-items-container">
+                <p style="text-align: center; color: #777; margin-top: 20px;">Корзина пуста 🛒</p>
+            </div>
 
-                if (type === "email" || name.indexOf("email") !== -1 || name.indexOf("mail") !== -1) {
-                    email = value;
-                }
-                if (type === "tel" || name.indexOf("phone") !== -1 || name.indexOf("tel") !== -1 || name.indexOf("whatsapp") !== -1) {
-                    phone = value;
-                }
+            <div style="font-size: 1.2em; font-weight: bold; text-align: right; margin-bottom: 15px; color: #ff9900;">
+                Итого: <span id="cart-total-price">0</span> ₸
+            </div>
+
+            <form id="checkout-form">
+                <input type="text" id="client-name" placeholder="Ваше имя" required style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                <input type="text" id="client-address" placeholder="Адрес доставки (или самовывоз)" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                <button type="submit" class="whatsapp-checkout-btn">
+                    <i class="fab fa-whatsapp"></i> Заказать в WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo">
+                <p>Грузоперевозки и магазин упаковки по Астане.</p>
+                <p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77767469606">+7 (776) 746-96-06</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77767469606">Написать в WhatsApp</a></p>
+                <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <a href="#" id="privacy-policy-link">Политика конфиденциальности</a>
+                <a href="#" id="terms-of-service-link">Условия использования</a>
+                <a href="shop.html">Магазин упаковки</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // === 1. БАЗА ТОВАРОВ (С КАТЕГОРИЯМИ И НАЛИЧИЕМ) ===
+        const productsDB = [
+             {
+                category: "Наборы для переезда (Экономия!)",
+                items: [
+                    { 
+                        id: 201, 
+                        name: "Набор ЭКОНОМ", 
+                        desc: "Для однокомнатной квартиры. Содержит: 10 малых коробок, 2 скотча, 5 м пузырчатой пленки, 1 сумка (S).", 
+                        price: 8000, 
+                        icon: "fa-box-archive", 
+                        inStock: true,
+                        kit: true // Метка для стиля карточки
+                    },
+                    { 
+                        id: 202, 
+                        name: "Набор СТАНДАРТ", 
+                        desc: "Для 2-3 комнатной квартиры. Содержит: 20 малых/средних коробок, 5 скотчей, 10 м пузырчатой пленки, 1 стрейч-пленка, 2 сумки (M).", 
+                        price: 18500, 
+                        icon: "fa-box-archive", 
+                        inStock: true,
+                        kit: true
+                    },
+                    { 
+                        id: 203, 
+                        name: "Набор МАКС", 
+                        desc: "Для большой квартиры/офиса. Содержит: 30 малых/средних коробок, 5 гардеробных коробок, 8 скотчей, 15 м пузырчатой пленки, 2 стрейч-пленки, 3 сумки (L).", 
+                        price: 45000, 
+                        icon: "fa-box-archive", 
+                        inStock: true,
+                        kit: true
+                    }
+                ]
+            },
+            {
+                category: "Коробки картонные",
+                items: [
+                    { id: 1, name: "Коробка Малая (30x30x30)", desc: "Книги, посуда, мелочи. 5-слойный картон.", price: 450, icon: "fa-box", inStock: true },
+                    { id: 2, name: "Коробка Средняя (60x40x40)", desc: "Одежда, игрушки, кухонная утварь.", price: 700, icon: "fa-box-open", inStock: true },
+                    { id: 3, name: "Коробка Гардеробная", desc: "С перекладиной для одежды на вешалках.", price: 3500, icon: "fa-shirt", inStock: true },
+                    { id: 101, name: "Коробка Архивная", desc: "Для документов А4 с крышкой.", price: 550, icon: "fa-file-invoice", inStock: false } 
+                ]
+            },
+            {
+                category: "Сумки для переезда",
+                items: [
+                    { id: 4, name: "Сумка клетчатая (S)", desc: "Малая, для тяжелых вещей. Прочные ручки.", price: 1200, icon: "fa-bag-shopping", inStock: true },
+                    { id: 5, name: "Сумка клетчатая (M)", desc: "Средняя, самый ходовой размер.", price: 1800, icon: "fa-bag-shopping", inStock: true },
+                    { id: 6, name: "Сумка клетчатая (L)", desc: "Огромная сумка для объемных вещей (подушки, одеяла).", price: 2500, icon: "fa-bag-shopping", inStock: true }
+                ]
+            },
+            {
+                category: "Упаковочные материалы",
+                items: [
+                    { id: 7, name: "Скотч прозрачный", desc: "Прочный, 100 метров намотка.", price: 600, icon: "fa-tape", inStock: true },
+                    { id: 8, name: "Стрейч-пленка (2 кг)", desc: "Первичка. Для мебели и фиксации.", price: 2800, icon: "fa-scroll", inStock: true },
+                    { id: 9, name: "Пузырчатая пленка", desc: "Для хрупкого. Цена за 1 метр.", price: 400, icon: "fa-soap", inStock: true }
+                ]
+            },
+            {
+                category: "Инструменты и прочее",
+                items: [
+                    { id: 10, name: "Нож канцелярский", desc: "Усиленный, с запасными лезвиями.", price: 500, icon: "fa-screwdriver", inStock: true },
+                    { id: 11, name: "Перчатки рабочие", desc: "С точками ПВХ, пара.", price: 200, icon: "fa-hand-paper", inStock: true },
+                    { id: 12, name: "Мешок строительный", desc: "Зеленый, для мусора (до 50кг).", price: 150, icon: "fa-sack-dollar", inStock: true }
+                ]
+            }
+        ];
+
+        // === 2. СОСТОЯНИЕ КОРЗИНЫ ===
+        let cart = {}; 
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderShop();
+            updateCartUI();
+        });
+
+        // === 3. ОТРИСОВКА МАГАЗИНА ===
+        function renderShop() {
+            const container = document.getElementById('shop-container');
+            let html = '';
+
+            productsDB.forEach(cat => {
+                html += `<div class="category-title">${cat.category}</div>`;
+                html += `<div class="products-grid">`;
+                
+                cat.items.forEach(prod => {
+                    const isOut = !prod.inStock;
+                    const isKit = prod.kit ? 'kit-card' : '';
+                    const outClass = isOut ? 'out-of-stock' : '';
+                    const qty = cart[prod.id] || 0;
+                    
+                    let controlsHtml = '';
+                    if (isOut) {
+                         controlsHtml = `<button class="btn-add-initial" disabled style="background:#999; cursor:not-allowed;">Нет в наличии</button>`;
+                    } else if (qty === 0) {
+                        controlsHtml = `
+                            <button class="btn-add-initial" onclick="updateItemQty(${prod.id}, 1)">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
+                        `;
+                    } else {
+                        controlsHtml = `
+                            <div class="qty-controls-card" style="display: flex;">
+                                <button class="qty-btn-card" onclick="updateItemQty(${prod.id}, -1)">-</button>
+                                <span class="qty-val-card">${qty}</span>
+                                <button class="qty-btn-card" onclick="updateItemQty(${prod.id}, 1)">+</button>
+                            </div>
+                        `;
+                    }
+
+                    html += `
+                        <div class="product-card ${outClass} ${isKit}" id="card-${prod.id}">
+                            <div class="product-image"><i class="fas ${prod.icon}"></i></div>
+                            <div class="product-info">
+                                <div class="product-title">${prod.name}</div>
+                                <div class="product-desc">${prod.desc}</div>
+                                <div class="product-price">${prod.price} ₸</div>
+                                <div class="add-controls">
+                                    ${controlsHtml}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `</div>`; 
             });
 
-            if (email || phone) {
-                var userData = {};
-                if (email) {
-                    userData.email = email;
-                }
-                if (phone) {
-                    userData.phone_number = phone;
-                }
-                // gtag сам хэширует данные перед отправкой
-                gtag('set', 'user_data', userData);
-            }
-        } catch (e) {
-            if (window.console && console.warn) {
-                console.warn('Enhanced conversions user_data error', e);
-            }
+            container.innerHTML = html;
         }
-    }
 
-    function sendContactConversion(phoneType = 'general') {
-        // Сначала устанавливаем user_data, если есть данные
-        setEnhancedUserData();
+        // === 4. ЛОГИКА ОБНОВЛЕНИЯ КОЛИЧЕСТВА ===
+        function updateItemQty(id, change) {
+            if (!cart[id]) cart[id] = 0;
+            cart[id] += change;
+            if (cart[id] <= 0) delete cart[id];
+            
+            renderShop();
+            updateCartUI();
+        }
 
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
-            'value': 1.0,
-            'currency': 'KZT',
-            'transaction_id': '',
-            'phone_type': phoneType
+        // === 5. ОБНОВЛЕНИЕ UI КОРЗИНЫ ===
+        function updateCartUI() {
+            const totalCount = Object.values(cart).reduce((a, b) => a + b, 0);
+            document.getElementById('cart-count').innerText = totalCount;
+
+            const cartList = document.getElementById('cart-items-container');
+            let totalPrice = 0;
+            let html = '';
+
+            const allProducts = productsDB.flatMap(c => c.items);
+
+            if (totalCount === 0) {
+                html = '<p style="text-align: center; color: #777; margin-top: 20px;">Корзина пуста 🛒</p>';
+            } else {
+                for (const [id, qty] of Object.entries(cart)) {
+                    const prod = allProducts.find(p => p.id == id);
+                    if (!prod) continue;
+                    const sum = prod.price * qty;
+                    totalPrice += sum;
+
+                    html += `
+                        <div class="cart-item">
+                            <div style="flex-grow:1;">
+                                <div style="font-weight:600; color:#1a237e;">${prod.name}</div>
+                                <div style="font-size:0.9em; color:#666;">${prod.price} ₸/шт</div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <button onclick="updateItemQty(${id}, -1)" style="width:25px; height:25px; border-radius:5px; border:none; background:#eee;">-</button>
+                                <span style="font-weight:bold;">${qty}</span>
+                                <button onclick="updateItemQty(${id}, 1)" style="width:25px; height:25px; border-radius:5px; border:none; background:#eee;">+</button>
+                            </div>
+                            <div style="width:70px; text-align:right; font-weight:bold;">${sum} ₸</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            cartList.innerHTML = html;
+            document.getElementById('cart-total-price').innerText = totalPrice;
+        }
+
+        // === 6. МОДАЛКА И ОТПРАВКА ===
+        const modal = document.getElementById('cart-modal');
+        document.getElementById('open-cart-btn').addEventListener('click', () => { 
+            modal.classList.add('active'); 
+            document.body.style.overflow='hidden'; 
+        });
+        document.getElementById('close-cart-btn').addEventListener('click', () => { 
+            modal.classList.remove('active'); 
+            document.body.style.overflow=''; 
+        });
+        modal.addEventListener('click', (e) => { 
+            if(e.target === modal) { 
+                modal.classList.remove('active'); 
+                document.body.style.overflow=''; 
+            }
+        });
+
+        document.getElementById('checkout-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (Object.keys(cart).length === 0) return alert('Корзина пуста!');
+
+            const name = document.getElementById('client-name').value;
+            const address = document.getElementById('client-address').value;
+            const allProducts = productsDB.flatMap(c => c.items);
+            
+            let msg = `👋 Заказ упаковки (Gruzim.kz)\n\n`;
+            let total = 0;
+
+            for (const [id, qty] of Object.entries(cart)) {
+                const prod = allProducts.find(p => p.id == id);
+                const sum = prod.price * qty;
+                total += sum;
+                msg += `📦 ${prod.name} x${qty} = ${sum}₸\n`;
+            }
+
+            msg += `\n💰 *ИТОГО: ${total} ₸*`;
+            msg += `\n👤 Клиент: ${name}`;
+            msg += `\n📍 Адрес: ${address}`;
+
+            // Отправка цели Яндекс.Метрики
+            if(typeof ym === 'function') ym(104276494, 'reachGoal', 'klik_whatsapp');
+            
+            // Отправка события Google Ads Conversion
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/YOUR_CONVERSION_LABEL_HERE', // Замените YOUR_CONVERSION_LABEL_HERE на метку вашей конверсии!
+                    'value': total,
+                    'currency': 'KZT'
+                });
+            }
+
+            window.open(`https://wa.me/77767469606?text=${encodeURIComponent(msg)}`, '_blank');
         });
         
-        // Дублируем в GA4
-        gtag('event', 'contact_conversion', {
-            'method': 'phone',
-            'phone_type': phoneType,
-            'location': 'website'
+        // ** Заглушки для ссылок на Политику/Условия, как в index.html **
+        document.getElementById('privacy-policy-link').addEventListener('click', (e) => {
+             e.preventDefault();
+             alert('Для просмотра "Политики конфиденциальности" перейдите на главную страницу (index.html).');
         });
-    }
-
-    // Отслеживание всех телефонных ссылок
-    document.querySelectorAll("a[href^='tel:']").forEach(function(link) {
-        link.addEventListener("click", function(e) {
-            const phoneType = this.getAttribute('data-phone-type') || 'general';
-            sendContactConversion(phoneType);
+        document.getElementById('terms-of-service-link').addEventListener('click', (e) => {
+             e.preventDefault();
+             alert('Для просмотра "Условий использования" перейдите на главную страницу (index.html).');
         });
-    });
-
-    // Отслеживание WhatsApp
-    document.querySelectorAll("a[href*='wa.me']").forEach(function(link) {
-        link.addEventListener("click", function(e) {
-            sendContactConversion('whatsapp');
-        });
-    });
-
-    // Отслеживание отправки формы (если есть формы)
-    const reviewForm = document.getElementById('review-submission-form');
-    if (reviewForm) {
-        reviewForm.addEventListener('submit', function(e) {
-            // На всякий случай тоже пробуем собрать user_data
-            setEnhancedUserData();
-
-            gtag('event', 'form_submission', {
-                'form_type': 'review',
-                'event_category': 'Lead'
-            });
-        });
-    }
-});
-</script>
-
-
-<script>
-document.querySelectorAll('.faq-question').forEach(function(q){
-  q.addEventListener('click', function(){
-    q.parentElement.classList.toggle('open');
-  });
-});
-</script>
-
+    </script>
 </body>
 </html>
