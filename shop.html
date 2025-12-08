@@ -2329,10 +2329,19 @@ header .header-logo {
 
 
 <style>
-/* MOBILE FIX: отодвигаем блок с фоном и текстом ниже плавающей шапки */
+/* MOBILE FIX v2: убираем сдвиг хедера и делаем отступ под него */
 @media (max-width: 768px) {
   header {
-    margin-top: 80px !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin-top: 0 !important;
+  }
+
+  body {
+    padding-top: 120px; /* место под плавающую шапку */
   }
 }
 </style>
