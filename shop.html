@@ -37,7 +37,7 @@
   .floating-header { position:fixed; top:0; left:0; right:0; background:rgba(26,35,126,0.98); color:#fff; display:flex;align-items:center;justify-content:space-between;padding:12px 18px; z-index:1000; box-shadow:0 4px 18px rgba(10,20,40,0.2); }
   .floating-header .left { display:flex;align-items:center;gap:12px;}
   .floating-header a, .floating-header .shop-btn { color:#fff; text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-family:'Montserrat',sans-serif;}
-  .container { max-width:1100px; margin:110px auto 80px; padding:0 16px; }
+  .container { max-width:1100px; margin:0 auto 80px; padding:0 16px; }
   header.main-head { text-align:center; padding:28px 14px; background:linear-gradient(180deg, rgba(26,35,126,0.95), rgba(26,35,126,0.88)); color:#fff; border-radius:8px; box-shadow:0 6px 20px rgba(26,35,126,0.06); }
   h1 { font-family:'Montserrat',sans-serif; margin:0 0 8px; font-size:1.9rem; }
   p.lead { margin:0; opacity:0.95; }
@@ -2327,6 +2327,15 @@ header .header-logo {
 }
 </style>
 
+
+<style>
+/* MOBILE FIX: отодвигаем блок с фоном и текстом ниже плавающей шапки */
+@media (max-width: 768px) {
+  header {
+    margin-top: 80px !important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="floating-header">
@@ -2354,7 +2363,7 @@ header .header-logo {
             <p>Комплектуем переезд: качественная упаковка, быстрая доставка до двери.</p>
             <p class="hero-guarantee">Подберём упаковку под ваш переезд — без переплат и лишних остатков.</p>
             <a href="#catalog" class="cta-button" data-cta-type="hero-shop">
-                🧺 Упаковка для переезда
+                🧺 Подобрать упаковку для переезда
             </a>
             <p class="hero-subtext">Работаем ежедневно с 8:00 до 22:00 · Доставка в черте города 2500тенге</p>
         </div>
