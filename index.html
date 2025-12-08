@@ -1967,419 +1967,6 @@ header h1 {
   pointer-events: none;
 }
 
-
-/* === Gruzim: новый header/hero/footer без конфликтов (g-*) === */
-.g-header {
-  background: #0f1a44;
-  color: #ffffff;
-}
-
-.g-header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.g-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.g-logo-img {
-  height: 40px;
-  width: auto;
-}
-
-.g-logo-text {
-  white-space: nowrap;
-}
-
-.g-nav {
-  display: flex;
-  gap: 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-}
-
-.g-nav a {
-  color: rgba(255,255,255,0.9);
-  text-decoration: none;
-  padding-bottom: 2px;
-  position: relative;
-}
-
-.g-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: #ff9900;
-  transition: width .2s ease;
-}
-
-.g-nav a:hover {
-  color: #ffffff;
-}
-
-.g-nav a:hover::after {
-  width: 100%;
-}
-
-.g-header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.g-lang {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.g-lang-link {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  text-decoration: none;
-  padding: 4px 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.5);
-  color: rgba(255,255,255,0.9);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.g-lang-link--active {
-  background: #ff9900;
-  border-color: #ff9900;
-  color: #0f1a44;
-}
-
-.g-shop-link {
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.4);
-  background: rgba(255,255,255,0.08);
-  color: #ffffff;
-}
-
-.g-shop-link:hover {
-  background: #ff9900;
-  border-color: #ff9900;
-  color: #0f1a44;
-}
-
-.g-phone {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffcc80;
-}
-
-.g-phone i {
-  font-size: 14px;
-}
-
-.g-phone:hover {
-  color: #ffffff;
-}
-
-/* Burger for mobile */
-.g-burger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 28px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.g-burger span {
-  height: 2px;
-  width: 100%;
-  background: #ffffff;
-  border-radius: 999px;
-}
-
-/* HERO */
-.g-hero {
-  background: linear-gradient(rgba(15,26,68,0.72),rgba(15,26,68,0.9)), url('fon.png') center top/cover no-repeat;
-  color: #ffffff;
-  padding: 32px 16px 56px;
-}
-
-.g-hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 32px;
-  align-items: center;
-}
-
-.g-hero-main h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
-  line-height: 1.2;
-  margin-bottom: 10px;
-}
-
-.g-hero-sub {
-  font-size: 16px;
-  max-width: 480px;
-  color: #e0e6ff;
-  margin-bottom: 10px;
-}
-
-.g-hero-note {
-  font-size: 14px;
-  color: #ffeb3b;
-  margin-bottom: 20px;
-}
-
-.g-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-.g-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.g-btn-primary {
-  background: #ff9900;
-  color: #0f1a44;
-  border: none;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.4);
-}
-
-.g-btn-primary:hover {
-  background: #ffb300;
-}
-
-.g-btn-ghost {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.5);
-  color: #ffffff;
-}
-
-.g-btn-ghost:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-.g-hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 13px;
-}
-
-.g-hero-badges span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(15,26,68,0.75);
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.g-hero-badges i {
-  font-size: 12px;
-}
-
-.g-hero-side {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.g-hero-card {
-  background: rgba(6,10,32,0.95);
-  border-radius: 16px;
-  padding: 18px 18px 14px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-  font-size: 13px;
-}
-
-.g-hero-card h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.g-hero-card ul {
-  list-style: none;
-  margin: 0 0 12px 0;
-  padding: 0;
-}
-
-.g-hero-card li {
-  display: flex;
-  align-items: flex-start;
-  gap: 6px;
-  margin-bottom: 6px;
-}
-
-.g-hero-card li i {
-  font-size: 11px;
-  margin-top: 3px;
-  color: #4caf50;
-}
-
-.g-hero-card-note {
-  font-size: 12px;
-  color: #c5cae9;
-}
-
-/* FOOTER */
-.g-footer {
-  background: #10163a;
-  color: #c5cae9;
-  margin-top: 40px;
-}
-
-.g-footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 26px 16px 18px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 18px;
-}
-
-.g-footer-logo {
-  height: 38px;
-  width: auto;
-  margin-bottom: 6px;
-}
-
-.g-footer-col h4 {
-  font-size: 15px;
-  margin-bottom: 8px;
-  color: #ffffff;
-}
-
-.g-footer-col p,
-.g-footer-col a {
-  font-size: 13px;
-}
-
-.g-footer a {
-  color: #ffcc80;
-  text-decoration: none;
-}
-
-.g-footer a:hover {
-  text-decoration: underline;
-}
-
-.g-footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-  font-size: 12px;
-  color: #90a4ae;
-  padding: 10px 16px 14px;
-}
-
-
-.g-nav.g-nav--open {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 8px;
-}
-@media (max-width: 768px) {
-  .g-header-inner {
-    align-items: flex-start;
-  }
-}
-
-/* Responsive header/hero */
-@media (max-width: 960px) {
-  .g-hero-inner {
-    grid-template-columns: minmax(0,1fr);
-  }
-  .g-hero-side {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 768px) {
-  .g-header-inner {
-    flex-wrap: wrap;
-    row-gap: 8px;
-  }
-  .g-nav {
-    display: none;
-  }
-  .g-burger {
-    display: flex;
-  }
-  .g-header-right {
-    margin-left: auto;
-  }
-  .g-hero {
-    padding: 24px 16px 40px;
-  }
-  .g-hero-main h1 {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .g-header-inner {
-    padding: 8px 12px;
-  }
-  .g-logo-text {
-    font-size: 16px;
-  }
-  .g-header-right {
-    gap: 6px;
-  }
-  .g-hero-main h1 {
-    font-size: 22px;
-  }
-  .g-hero-card {
-    padding: 14px 14px 12px;
-  }
-}
-
 </style>
 
 
@@ -2399,78 +1986,55 @@ header h1 {
 
 </head>
 <body>
-    <!-- Новый простой header + первый экран (без конфликтов) -->
-<header class="g-header">
-  <div class="g-header-inner">
-    <a href="index.html" class="g-logo">
-      <img src="Logo.png" alt="Gruzim.kz" class="g-logo-img">
-      <span class="g-logo-text">Gruzim.kz</span>
-    </a>
+    <!-- Плавающая шапка -->
+    <header class="floating-header">
+        <div class="floating-header-content">
+            <div class="header-left">
+                <img src="Logo.png" alt="Логотип Gruzim.kz" class="floating-logo">
+                <div class="language-switcher">
+                    <a href="index.html" class="lang-btn active">РУС</a>
+                    <a href="indexkz.html" class="lang-btn">ҚАЗ</a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="#services">Услуги</a>
+                <a href="#features">Почему мы</a>
+                <a href="#faq">FAQ</a>
+                <a href="#legal-entities">Для юр. лиц</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+            <a href="shop.html" class="lang-btn shop-link mobile-shop-link" style="margin-top:8px; font-weight:700;">МАГАЗИН</a>
+            <span class="phone-wrap"><a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');" class="header-phone" data-phone-type="floating-header">
+                <i class="fas fa-phone"></i>
+                +7 (776) 746-96-06
+            </a><img src="santa_hat.png" class="santa-hat" alt=""></span>
+        </div>
+    </header>
 
-    <button class="g-burger" aria-label="Открыть меню">
-      <span></span><span></span><span></span>
-    </button>
+        <header> 
+        <div class="header-content">
+            <div class="header-top">
+                <img src="Logo.png" alt="Логотип Gruzim.kz" class="header-logo">
+                <h1>Gruzim.kz | Грузоперевозки по Астане и регионам</h1>
+            </div>
+            <p>Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.</p>
+            <p class="hero-guarantee">Приедем вовремя, либо сделаем скидку 10% — никаких неожиданных доплат.</p>
+            <a href="shop.html" class="cta-button" data-cta-type="hero-shop">
+                🧺 Магазин упаковки для переезда
+            </a>
+            <p class="hero-subtext">Коробки, плёнка, скотч – всё для аккуратного переезда.</p>
+        </div>
+    </header>
+    <section class="top-facts">
+        <div class="top-facts-inner">
+            <span><i class="fas fa-calendar-check"></i> Работаем с 2019 года</span>
+            <span><i class="fas fa-check-circle"></i> Более 500 выполненных заказов</span>
+            <span><i class="fas fa-file-invoice"></i> Безнал, договор, документы</span>
+        </div>
+    </section>
 
-    <nav class="g-nav">
-      <a href="#services">Услуги</a>
-      <a href="#features">Почему мы</a>
-      <a href="#faq">FAQ</a>
-      <a href="#legal-entities">Для юр. лиц</a>
-      <a href="#contact">Контакты</a>
-    </nav>
 
-    <div class="g-header-right">
-      <div class="g-lang">
-        <a href="index.html" class="g-lang-link g-lang-link--active">РУС</a>
-        <a href="indexkz.html" class="g-lang-link">ҚАЗ</a>
-      </div>
-      <a href="shop.html" class="g-shop-link">Магазин</a>
-      <a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');" class="g-phone">
-        <i class="fas fa-phone"></i><span>+7 776 746 96 06</span>
-      </a>
-    </div>
-  </div>
-</header>
-
-<section class="g-hero">
-  <div class="g-hero-inner">
-    <div class="g-hero-main">
-      <h1>Грузоперевозки по Астане и регионам Казахстана</h1>
-      <p class="g-hero-sub">
-        Квартирные и офисные переезды, доставка стройматериалов, вывоз мусора, услуги грузчиков.
-      </p>
-      <p class="g-hero-note">
-        Приедем вовремя или сделаем скидку 10% — без скрытых доплат.
-      </p>
-      <div class="g-hero-actions">
-        <a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');" class="g-btn g-btn-primary">
-          <i class="fas fa-phone"></i><span>Заказать перевозку</span>
-        </a>
-        <a href="shop.html" class="g-btn g-btn-ghost">
-          🧺 Подобрать упаковку
-        </a>
-      </div>
-      <div class="g-hero-badges">
-        <span><i class="fas fa-calendar-check"></i>Работаем с 2019 года</span>
-        <span><i class="fas fa-check-circle"></i>500+ выполненных заказов</span>
-        <span><i class="fas fa-file-invoice"></i>Безнал, договор, документы</span>
-      </div>
-    </div>
-    <div class="g-hero-side">
-      <div class="g-hero-card">
-        <h2>Быстрый расчёт по телефону</h2>
-        <ul>
-          <li><i class="fas fa-check"></i><span>Назовёте адреса — назовём ориентировочную стоимость.</span></li>
-          <li><i class="fas fa-check"></i><span>Подберём тариф под объём и время.</span></li>
-          <li><i class="fas fa-check"></i><span>При необходимости предложим грузчиков и упаковку.</span></li>
-        </ul>
-        <p class="g-hero-card-note">Работаем по Астане и регионам Казахстана. Аккуратно, вовремя, с договором.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="services">
+    <section class="section" id="services">
         <h2 data-aos="fade-up">Наши услуги</h2>
 <div class="cards-grid">
 <div class="card" data-aos="fade-up" data-aos-delay="50">
@@ -2776,31 +2340,27 @@ header h1 {
 </a>      
         </div>
     </section>
-    <footer class="g-footer" id="contact">
-  <div class="g-footer-inner">
-    <div class="g-footer-col">
-      <img src="Logo.png" alt="Gruzim.kz" class="g-footer-logo">
-      <p>Грузоперевозки по Астане и регионам Казахстана.</p>
-      <p>Работаем с 2019 года. Переезды, доставка, грузчики.</p>
-    </div>
-    <div class="g-footer-col">
-      <h4>Контакты</h4>
-      <p><a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');"><i class="fas fa-phone"></i> +7 776 746 96 06</a></p>
-      <p><a href="https://wa.me/77767469606"><i class="fab fa-whatsapp"></i> Написать в WhatsApp</a></p>
-      <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
-    </div>
-    <div class="g-footer-col">
-      <h4>Информация</h4>
-      <p><a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a></p>
-      <p><a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a></p>
-      <p>Безналичный расчёт, договор, документы для юр. лиц.</p>
-    </div>
-  </div>
-  <div class="g-footer-bottom">
-    &copy; 2019–2025 Gruzim.kz. Все права защищены.
-  </div>
-</footer>
-
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo">
+                <p class="footer-tagline">Грузоперевозки по Астане и регионам Казахстана.</p>
+                <p class="footer-years">&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');">+7 (776) 746-96-06</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77767469606">Написать в WhatsApp</a></p>
+                <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <p><a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a></p>
+                <p><a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a></p>
+                <p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p>
+            </div>
+        </div>
+    </footer>
 
     <div class="floating-buttons">
         <a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');" class="floating-btn call">
@@ -3356,20 +2916,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     floatingButtons.classList.add('is-visible');
                     observer.disconnect(); // после первого появления больше не следим
                 }
-            
-<script>
-// Простейший бургер-меню без привязки к другим скриптам
-document.addEventListener('DOMContentLoaded', function() {
-  var burger = document.querySelector('.g-burger');
-  var nav = document.querySelector('.g-nav');
-  if (!burger || !nav) return;
-  burger.addEventListener('click', function() {
-    nav.classList.toggle('g-nav--open');
-  });
-});
-</script>
-
-});
+            });
         }, {
             threshold: 0.3 // примерно треть карточки в зоне видимости
         });
