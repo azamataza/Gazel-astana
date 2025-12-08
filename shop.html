@@ -2314,6 +2314,19 @@ header .header-logo {
   header .header-logo { margin-top: 10px; }
 }
 </style>
+
+<style>
+@media (max-width: 768px){
+  body{padding-top:0!important;}
+  .container{margin-top:0!important;}
+  :root{--mobile-header-height:72px;}
+  body > header:not(.floating-header){
+    margin-top:var(--mobile-header-height)!important;
+  }
+  .top-facts,.section{padding-top:24px!important;}
+}
+</style>
+
 </head>
 <body>
 <header class="floating-header">
