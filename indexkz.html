@@ -641,6 +641,13 @@
             flex-direction: column;
             gap: 10px;
             z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        .floating-buttons.is-visible {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .floating-btn {
@@ -2005,8 +2012,8 @@ header h1 {
             </div>
             <p>Астана және бүкіл Қазақстан бойынша жүктің сенімді жеткізілуі. Жылдам, ұқыпты, кәсіби.</p>
             <p class="hero-guarantee">Уақытында келеміз немесе 10% жеңілдік — жасырын төлемдерсіз.</p>
-            <a href="tel:+77767469606" class="cta-button" data-phone-type="main-header">Қоңырау шалу!</a>
-            <p class="hero-subtext">Күн сайын 8:00–22:00 · 3–5 минутта жауап береміз</p>
+<a href="shopkz.html" class="cta-button" data-cta-type="hero-shop">🧺 Көшуге арналған қаптама дүкені</a>
+<p class="hero-subtext">Қораптар, плёнка, скотч — бәрі бір жерде</p>
         </div>
     </header>
     
@@ -2031,7 +2038,7 @@ header h1 {
 
             </div>
 
-<div class="card" data-aos="fade-up" data-aos-delay="150">
+<div class="card" id="card-apartments-offices" data-aos="fade-up" data-aos-delay="150">
                 <i class="fas fa-home icon"></i>
                 <h3>Пәтер және кеңсе көшуі</h3>
                 <p>Пәтеріңізді немесе кеңсеңізді ұқыпты және жедел көшіреміз. Тиеу, түсіру, тасымалдау.</p>
@@ -2678,6 +2685,23 @@ document.addEventListener('DOMContentLoaded', function () {
     nextBtn.addEventListener('click', function () {
         showSlide(currentIndex + 1);
     });
+
+    // === Плавающие кнопки: появляются один раз, когда видна карточка "Пәтер және кеңсе көшуі" ===
+    const floatingButtons = document.querySelector('.floating-buttons');
+    const apartmentsCard = document.getElementById('card-apartments-offices');
+
+    if (floatingButtons && apartmentsCard && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    floatingButtons.classList.add('is-visible');
+                    observer.disconnect(); // больше не скрывать
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(apartmentsCard);
+    }
 
     showSlide(0);
 });
