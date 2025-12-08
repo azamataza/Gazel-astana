@@ -137,212 +137,6 @@
     .floating-logo { max-height:40px; }
   }
 
-
-/* === Унификация шапки и хедера с главной === */
-.floating-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(26, 35, 126, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 12px 20px;
-  z-index: 1000;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: center;
-}
-
-.floating-header-content {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.floating-logo {
-  height: 45px;
-  width: auto;
-}
-
-.language-switcher {
-  display: flex;
-  gap: 8px;
-}
-
-.lang-btn {
-  padding: 6px 10px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.5);
-  background: transparent;
-  color: #fff;
-  font-size: 0.85rem;
-  font-family: 'Montserrat', sans-serif;
-  text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.lang-btn.active {
-  background: #ffb300;
-  border-color: #ffb300;
-  color: #1a237e;
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-}
-
-.main-nav a {
-  color: #fff;
-  text-decoration: none;
-  opacity: 0.9;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.main-nav a:hover {
-  opacity: 1;
-  transform: translateY(-1px);
-}
-
-.phone-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.header-phone {
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.header-phone i {
-  font-size: 0.95rem;
-}
-
-.header-phone:hover {
-  color: #ffb300;
-}
-
-.santa-hat {
-  height: 26px;
-  width: auto;
-  transform: translateY(-6px) rotate(-12deg);
-}
-
-/* Герой-блок как на главной */
-header.main-head {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fon.png') no-repeat center top/cover;
-  color: #fff;
-  padding: 60px 20px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  margin-top: 80px;
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.header-top {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.header-logo {
-  height: 70px;
-  width: auto;
-}
-
-header.main-head h1 {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.9rem;
-}
-
-header.main-head p {
-  margin: 6px 0;
-}
-
-.hero-guarantee {
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-.hero-subtext {
-  font-size: 0.95rem;
-  opacity: 0.95;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: #ff9900;
-  color: white;
-  padding: 14px 32px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  margin: 18px 0 6px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #ffb300;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-}
-
-/* Адаптив для шапки */
-@media (max-width: 900px) {
-  .floating-header-content {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .main-nav {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  header.main-head {
-    padding: 45px 16px;
-  }
-  .header-top {
-    flex-direction: column;
-  }
-  .header-logo {
-    height: 60px;
-  }
-  header.main-head h1 {
-    font-size: 1.4rem;
-  }
-}
 </style>
 <style>
 /* Unified header styles */
@@ -516,7 +310,21 @@ header.main-head p {
         padding-top: 8px;
     }
         /* --- Шапка с фоновым изображением и логотипом --- */
-        
+        header {
+            /* Уменьшил прозрачность rgba до 0.6 для лучшей читаемости текста на фоне */
+            /* ИЗМЕНЕНО: Ссылка на fon.png вместо Unsplash URL */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fon.png') no-repeat center top/cover;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-attachment: fixed; /* Параллакс-эффект */
+            overflow: hidden; /* Скрывает все, что выходит за пределы header */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         .header-content {
             display: flex;
@@ -2493,83 +2301,52 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
 }
 </style>
 
-
 <style>
-/* === FIX HERO BACKGROUND FULL WIDTH UNDER FLOATING HEADER === */
-header.main-head {
-  position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  margin-top: 0;
-  padding: 80px 20px 70px;
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url('fon.png') center center / cover no-repeat;
-  color: #fff;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+/* === SHOP HERO OFFSET FIX === */
+header .header-content {
+    margin-top: 28px;      /* сдвиг вниз всего контента */
 }
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px;
+header .header-logo {
+    margin-top: 14px;      /* логотип чуть ниже */
+}
+@media (max-width: 768px){
+  header .header-content { margin-top: 20px; }
+  header .header-logo { margin-top: 10px; }
 }
 </style>
-
-
-<style>
-/* === FINAL HERO GAP FIX: фон уходит под шапку на всех экранах === */
-.container {
-  margin-top: 0 !important;
-}
-header.main-head {
-  margin-top: -20px !important;  /* немного заходит под плавающую шапку */
-  padding-top: 90px;             /* чтобы текст не прилипал под шапку */
-}
-</style>
-
 </head>
 <body>
 <header class="floating-header">
-        <div class="floating-header-content">
-            <div class="header-left">
-                <img src="Logo.png" alt="Логотип Gruzim.kz" class="floating-logo">
-                <div class="language-switcher">
-                    <a href="shop.html" class="lang-btn active">РУС</a>
-                    <a href="shopkz.html" class="lang-btn">ҚАЗ</a>
-                </div>
+<div class="floating-header-content">
+<div class="header-left">
+<img alt="Логотип Gruzim.kz" class="floating-logo" src="Logo.png"/>
+<div class="language-switcher">
+<a class="lang-btn active" href="index.html">РУС</a>
+<a class="lang-btn" href="shopkz.html">ҚАЗ</a>
+</div>
+</div>
+<a class="lang-btn shop-link mobile-shop-link" href="index.html" style="margin-top:8px; font-weight:700;">НА ГЛАВНУЮ</a>
+<a class="header-phone" data-phone-type="floating-header" href="tel:+77767469606">
+<i class="fas fa-phone"></i>
+    +7 (776) 746-96-06
+</a>
+</div>
+</header>
+<header> 
+        <div class="header-content">
+            <div class="header-top">
+                <img src="Logo.png" alt="Логотип Gruzim.kz" class="header-logo">
+                <h1>Gruzim.kz | Магазин упаковочных материалов</h1>
             </div>
-            <nav class="main-nav">
-                <a href="index.html#services">Услуги</a>
-                <a href="index.html#features">Почему мы</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="index.html#legal-entities">Для юр. лиц</a>
-                <a href="index.html#contact">Контакты</a>
-            </nav>
-            <span class="phone-wrap">
-                <a href="tel:+77767469606" class="header-phone" data-phone-type="floating-header">
-                    <i class="fas fa-phone"></i>
-                    +7 (776) 746-96-06
-                </a>
-                <img src="santa_hat.png" class="santa-hat" alt="">
-            </span>
+            <p>Комплектуем переезд: качественная упаковка, быстрая доставка до двери.</p>
+            <p class="hero-guarantee">Подберём упаковку под ваш переезд — без переплат и лишних остатков.</p>
+            <a href="#catalog" class="cta-button" data-cta-type="hero-shop">
+                🧺 Подобрать упаковку для переезда
+            </a>
+            <p class="hero-subtext">Работаем ежедневно с 8:00 до 22:00 · Доставка в черте города 2500тенге</p>
         </div>
-</header>
+    </header>
 <div class="container">
-<header class="main-head">
-  <div class="header-content">
-    <div class="header-top">
-      <img src="Logo.png" alt="Логотип Gruzim.kz" class="header-logo">
-      <h1>Gruzim.kz | Магазин упаковочных материалов</h1>
-    </div>
-    <p>Комплектуем переезд: качественная упаковка, быстрая доставка до двери.</p>
-    <p class="hero-guarantee">Подберём упаковку под ваш переезд — без переплат и лишних остатков.</p>
-    <a href="https://wa.me/77767469606?text=Здравствуйте,%20хочу%20заказать%20упаковочные%20материалы%20для%20переезда" class="cta-button" data-cta-type="hero-shop">
-      🧺 Заказать упаковку в WhatsApp
-    </a>
-    <p class="hero-subtext">Работаем ежедневно с 8:00 до 22:00 · Доставка в черте города от 2500 ₸</p>
-  </div>
-</header>
 <section class="top-facts">
   <div class="top-facts-inner">
     <span><i class="fas fa-box-open"></i> 10+ позиций упаковки для переезда</span>
@@ -3820,35 +3597,6 @@ document.querySelectorAll('.faq-question').forEach(function(q){
   });
 });
 </script>
-
-
-<style>
-/* === НОРМАЛЬНЫЙ ФИКС: баннер не залезает под шапку === */
-
-/* Высота фиксированной шапки */
-:root{
-  --header-h-desktop: 90px;
-  --header-h-mobile: 78px;
-}
-
-/* Сдвигаем ВСЁ тело сайта вниз, а не блок */
-body{
-  padding-top: var(--header-h-desktop) !important;
-}
-
-/* Для мобилок */
-@media (max-width: 768px){
-  body{
-    padding-top: var(--header-h-mobile) !important;
-  }
-}
-
-/* УБИРАЕМ все старые кривые костыли */
-header.main-head{
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-</style>
 
 </body>
 </html>
