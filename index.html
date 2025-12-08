@@ -641,6 +641,14 @@
             flex-direction: column;
             gap: 10px;
             z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .floating-buttons.is-visible {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .floating-btn {
@@ -2011,8 +2019,10 @@ header h1 {
             </div>
             <p>Надежная доставка грузов по Астане и всему Казахстану. Быстро, аккуратно, профессионально.</p>
             <p class="hero-guarantee">Приедем вовремя, либо сделаем скидку 10% — никаких неожиданных доплат.</p>
-            <a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');" class="cta-button" data-phone-type="main-header">Позвонить сейчас!</a>
-            <p class="hero-subtext">Работаем ежедневно с 8:00 до 22:00 · Ответим за 3–5 минут</p>
+            <a href="shop.html" class="cta-button" data-cta-type="hero-shop">
+                🧺 Магазин упаковки для переезда
+            </a>
+            <p class="hero-subtext">Коробки, плёнка, скотч – всё для аккуратного переезда.</p>
         </div>
     </header>
     <section class="top-facts">
@@ -2035,7 +2045,7 @@ header h1 {
             
             </div>
 
-<div class="card" data-aos="fade-up" data-aos-delay="150">
+<div class="card" id="card-apartments-offices" data-aos="fade-up" data-aos-delay="150">
                 <i class="fas fa-home icon"></i>
                 <h3>Квартирные и офисные переезды</h3>
                 <p>Аккуратный и оперативный переезд вашей квартиры или офиса. Погрузка, разгрузка, транспортировка.</p>
@@ -2894,6 +2904,25 @@ document.addEventListener('DOMContentLoaded', function () {
     nextBtn.addEventListener('click', function () {
         showSlide(currentIndex + 1);
     });
+
+    // === Плавающие кнопки: показываем, когда в зоне видимости карточка "Квартирные и офисные переезды" ===
+    const floatingButtons = document.querySelector('.floating-buttons');
+    const apartmentsCard = document.getElementById('card-apartments-offices');
+
+    if (floatingButtons && apartmentsCard && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    floatingButtons.classList.add('is-visible');
+                    observer.disconnect(); // после первого появления больше не следим
+                }
+            });
+        }, {
+            threshold: 0.3 // примерно треть карточки в зоне видимости
+        });
+
+        observer.observe(apartmentsCard);
+    }
 
     showSlide(0);
 });
