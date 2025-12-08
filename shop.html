@@ -10,35 +10,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      // Основная конфигурация Google Ads
       gtag('config', 'AW-17503887977', {'phone_conversion_number': '+77767469606'});
+      // Конфигурация Google Analytics 4
       gtag('config', 'G-2VWS9V6KVJ');
     </script>
 
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
+        ym(104276494, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+    </script>
 
-    ym(104276494, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
     <style>
-        /* --- ОБЩИЕ СТИЛИ (СКОПИРОВАНЫ С INDEX.HTML) --- */
+        /* --- СТИЛИ СКОПИРОВАНЫ ИЗ INDEX.HTML (ШАПКА, ГЛАВНЫЙ БЛОК, ПОДВАЛ) --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.7; padding-top: 60px; }
-
-        /* --- ПЛАВАЮЩАЯ ШАПКА (1 в 1 с главной) --- */
+        body { font-family: 'Open Sans', sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.7; overflow-x: hidden; padding-top: 8px; }
+        
+        /* --- Плавающая шапка --- */
         .floating-header {
             position: fixed; top: 0; left: 0; width: 100%;
             background: rgba(26, 35, 126, 0.95); backdrop-filter: blur(10px);
@@ -52,179 +51,102 @@
         }
         .header-left { display: flex; align-items: center; gap: 20px; }
         .floating-logo { height: 45px; width: auto; }
-        .language-switcher {
-            display: flex;
-            gap: 10px;
-        }
-
+        
+        /* Переключатель языка */
+        .language-switcher { display: flex; gap: 10px; }
         .lang-btn {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            background: transparent; border: 1px solid rgba(255,255,255,0.3);
+            color: white; padding: 6px 15px; border-radius: 20px;
+            cursor: pointer; font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em; transition: all 0.3s ease; text-decoration: none;
         }
+        .lang-btn:hover { background: rgba(255,255,255,0.1); border-color: #ff9900; }
+        .lang-btn.active { background: #ff9900; border-color: #ff9900; color: white; }
 
-        .lang-btn:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: #ff9900;
-        }
-
-        .lang-btn.active {
-            background: #ff9900;
-            border-color: #ff9900;
-            color: white;
-        }
-    
+        /* Навигация */
         .main-nav { display: flex; gap: 18px; margin: 0 20px; font-family: 'Montserrat', sans-serif; }
-        .main-nav a { font-size: 0.95em; color: rgba(255, 255, 255, 0.9); text-decoration: none; position: relative; padding-bottom: 3px; }
+        .main-nav a { font-size: 0.95em; color: rgba(255, 255, 255, 0.9); text-decoration: none; position: relative; padding-bottom: 3px; transition: color 0.2s ease; }
+        .main-nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: #ff9900; transition: width 0.2s ease; }
         .main-nav a:hover, .main-nav a.active { color: #ffffff; }
         .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
-        .main-nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: #ff9900; transition: width 0.2s ease; }
-        
-        .header-phone { color: white; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.1em; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+
+        /* Телефон */
         .phone-wrap { position: relative; display: inline-block; }
         .santa-hat { position: absolute; width: 32px; top: -14px; left: -18px; transform: rotate(-15deg); pointer-events: none; }
+        .header-phone {
+            color: white; font-family: 'Montserrat', sans-serif; font-weight: 600;
+            font-size: 1.1em; text-decoration: none; display: flex;
+            align-items: center; gap: 8px;
+        }
+        .header-phone:hover { color: #ff9900; }
 
-        /* --- Шапка с фоновым изображением и логотипом --- */
+        /* --- Главный блок с фоном --- */
         header {
-            /* Уменьшил прозрачность rgba до 0.6 для лучшей читаемости текста на фоне */
-            /* ИЗМЕНЕНО: Ссылка на fon.png вместо Unsplash URL */
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fon.png') no-repeat center top/cover;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            background-attachment: fixed; /* Параллакс-эффект */
-            overflow: hidden; /* Скрывает все, что выходит за пределы header */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            color: white; padding: 60px 20px; text-align: center;
+            position: relative; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-attachment: fixed; 
+            overflow: hidden; display: flex; flex-direction: column;
+            align-items: center; margin-bottom: 40px; 
         }
 
         .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 1200px; /* Ограничим ширину контента шапки */
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Центрируем лого и заголовок по умолчанию */
-            width: 100%;
-            margin-bottom: 15px; /* Отступ между лого и заголовок и остальным контентом */
-            flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку при уменьшении ширины */
-        }
-
-        .header-logo {
-            max-height: 80px; /* Ограничим максимальную высоту логотипа */
-            width: auto;
-            margin-right: 20px; /* Отступ справа от логотипа */
-            animation: fadeIn 1s ease-out;
+            display: flex; flex-direction: column; align-items: center;
+            width: 100%; max-width: 1200px;
         }
 
         header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em; /* Немного уменьшим размер заголовка */
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-            animation: fadeInDown 1s ease-out; /* Анимация появления */
+            font-family: 'Montserrat', sans-serif; font-size: 2.8em;
+            margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 1s ease-out;
         }
 
         header p {
-            font-size: 1.3em; /* Немного уменьшим размер подзаголовка */
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto 25px auto;
-            animation: fadeInUp 1.2s ease-out 0.3s; /* Анимация появления с задержкой */
+            font-size: 1.3em; opacity: 0.95; max-width: 700px;
+            margin: 0 auto 25px auto; animation: fadeInUp 1.2s ease-out 0.3s;
         }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #ff9900; /* Яркий оранжевый */
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px; /* Скругленная кнопка */
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s infinite alternate; /* Эффект пульсации */
-        }
-
-        .cta-button:hover {
-            background-color: #e68a00;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Усиленная тень при наведении */
-        }
-
         
-.top-facts {
-        background: #ffffff;
-        border-bottom: 1px solid #e0e6f0;
-        padding: 10px 15px;
-    }
-
-    .top-facts-inner {
-        max-width: 1000px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-        font-size: 0.95em;
-        color: #455a64;
-    }
-
-    .top-facts-inner span {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        white-space: nowrap;
-    }
-
-    .top-facts-inner i {
-        font-size: 1.1em;
-        color: #ff9900;
-    }
-
-    @media (max-width: 480px) {
-        .top-facts-inner {
-            justify-content: flex-start;
+        /* Кнопка */
+        .cta-button {
+            display: inline-block; background-color: #ff9900; color: white;
+            padding: 15px 35px; border-radius: 50px; text-decoration: none;
+            font-family: 'Montserrat', sans-serif; font-weight: 700;
+            font-size: 1.2em; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse-orange 2s infinite alternate;
         }
-        .top-facts-inner span {
-            white-space: normal;
+        .cta-button:hover {
+            background-color: #e68a00; transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
-    }
 
-    /* --- Hero guarantee and subtext --- */
-    .hero-guarantee {
-        margin-top: 10px;
-        font-size: 1em;
-        color: #ffeb3b;
-        max-width: 520px;
-    }
+        /* --- ПОДВАЛ --- */
+        footer {
+            background-color: #212529; color: white; padding: 30px;
+            font-size: 0.9em; box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .footer-col h4 { margin-bottom: 8px; color: #ffffff; }
+        .footer-col a { color: #007bff; text-decoration: none; display: block; margin-bottom: 5px; }
+        .footer-col a:hover { text-decoration: underline; }
+        .footer-logo { max-height: 40px; margin-bottom: 10px; }
 
-    .hero-subtext {
-        margin-top: 8px;
-        font-size: 0.9em;
-        color: #c5cae9;
-    }
-
-    
-
-        /* --- КАТЕГОРИИ И ТОВАРЫ --- */
+        /* --- Анимации --- */
+        @keyframes pulse-orange {
+            0% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); }
+            100% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); }
+        }
+        @keyframes fadeInDown { from { opacity: 0; transform: translate3d(0, -20%, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translate3d(0, 20%, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
+        
+        /* ======================================= */
+        /* --- МАГАЗИННЫЕ СТИЛИ --- */
+        /* ======================================= */
+        
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
         
         .category-title {
@@ -251,6 +173,10 @@
             content: "Нет в наличии"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-10deg);
             background: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 1.2em; z-index: 10;
         }
+        
+        /* Специальный стиль для наборов, чтобы описание вмещало список */
+        .product-card.kit-card .product-desc { font-size: 0.85em; }
+        .product-card.kit-card .product-image { background-color: #fff3e0; color: #e68a00; }
 
         .product-image {
             height: 180px; background-color: #eef3fb;
@@ -293,7 +219,7 @@
             width: 70px; height: 70px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-size: 2em; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1050;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1050; 
             transition: transform 0.2s;
             animation: pulse-orange 2s infinite alternate;
         }
@@ -326,160 +252,76 @@
             cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
         }
-
-        /* --- Footer enhanced layout --- */
-    footer {
-        background: #10163a;
-        color: #c5cae9;
-        padding: 25px 20px;
-        margin-top: 40px;
-    }
-
-    .footer-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        align-items: flex-start;
-    }
-
-    .footer-logo {
-        max-height: 40px;
-        margin-bottom: 10px;
-    }
-
-    .footer-tagline {
-        margin: 0 0 6px;
-        font-size: 0.95em;
-    }
-
-    .footer-years {
-        margin: 0;
-        font-size: 0.88em;
-        color: #9fa8da;
-    }
-
-    .footer-col h4 {
-        margin-bottom: 8px;
-        font-size: 1.02em;
-        color: #ffffff;
-    }
-
-    .footer-col p {
-        margin: 3px 0;
-        font-size: 0.9em;
-    }
-
-    .footer-col a {
-        color: #ffcc80;
-        text-decoration: none;
-    }
-
-    .footer-col a:hover {
-        text-decoration: underline;
-    }
-
-    .footer-note {
-        margin-top: 8px;
-        font-size: 0.86em;
-        color: #b0bec5;
-    }
-
-    footer i {
-        margin-right: 6px;
-        font-size: 0.95em;
-    }
-
-    @media (max-width: 480px) {
-        footer {
-            padding: 20px 15px;
-        }
-    }
-
-    /* --- Reviews modal visual polish --- */
-    .reviews-list {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 15px;
-    }
-
-    .review-item {
-        background: #f5f7fb;
-        border-radius: 12px;
-        padding: 12px 14px;
-    }
-
-    .review-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 4px;
-    }
-
-    .reviewer-name {
-        font-weight: 600;
-    }
-
-    .stars {
-        color: #ffc107;
-        font-size: 0.95em;
-    }
-
-    .review-date {
-        font-size: 0.8em;
-        color: #90a4ae;
-    }
-
-    .review-text {
-        margin-top: 4px;
-        font-size: 0.9em;
-        color: #455a64;
-    }
-
-    /* --- FAQ section --- */
-     }
-
+        
+        /* ------------------------------------------------ */
+        /* --- ИСПРАВЛЕННАЯ АДАПТИВНОСТЬ ДЛЯ ШАПКИ --- */
+        /* ------------------------------------------------ */
         @media (max-width: 768px) {
-            .main-nav { display: none; } /* Скрываем меню на мобильном, как на главной */
-            .floating-header-content { justify-content: center; } /* Центрируем лого */
-            .header-phone { display: none; } /* Скрываем телефон в шапке на мобильном */
-            .products-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
-            .shop-hero h1 { font-size: 2em; }
-        }
-        @media (max-width: 480px) {
-            .products-grid { grid-template-columns: 1fr; }
-            .floating-logo { height: 35px; }
+            .main-nav { display: none; }
+            .floating-header { padding: 8px 15px; }
+            .header-phone { display: none; } /* Телефон скрываем */
+            
+            /* Обеспечиваем центрирование и горизонтальное расположение элементов */
+            .floating-header-content { justify-content: center; flex-direction: row; } 
+            
+            header h1 { font-size: 2em; }
+            header p { font-size: 1.1em; }
+            
+            /* Логотип и переключатель языка остаются в одной строке */
+            .header-left { flex-direction: row; align-items: center; gap: 15px; } 
+            
+            .language-switcher { margin-top: 0; }
         }
         
-        @keyframes pulse-orange {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4); }
-            100% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 153, 0, 0.6); }
+        @media (max-width: 480px) {
+            /* СТИЛИ ДЛЯ ШАПКИ */
+            .floating-header-content { flex-direction: row; justify-content: center; gap: 8px; } 
+            .header-left { justify-content: center; width: auto; flex-direction: row; align-items: center; }
+            .floating-logo { height: 30px; }
+            .lang-btn { padding: 4px 8px; font-size: 0.8em; } /* Более компактные кнопки языка */
+
+            /* СТИЛИ ДЛЯ ГЛАВНОГО БЛОКА */
+            header h1 { font-size: 1.8em; }
+            header p { font-size: 0.9em; }
+
+            /* СТИЛИ ДЛЯ КОРЗИНЫ */
+            .cart-float-btn { width: 55px; height: 55px; font-size: 1.5em; bottom: 20px; right: 20px; }
+
+            /* СТИЛИ ДЛЯ ТОВАРОВ (LIST VIEW) */
+            .products-grid { display: block; gap: 0; }
+            .product-card { flex-direction: row; margin-bottom: 15px; padding: 0; border-radius: 10px; }
+            .product-image { height: 120px; min-width: 120px; font-size: 2.5em; border-radius: 10px 0 0 10px; }
+            .product-info { padding: 10px 15px; display: grid; grid-template-areas: "title price" "desc desc" "controls controls"; grid-template-columns: 1fr auto; gap: 5px; align-items: center; }
+            .product-title { font-size: 1.1em; margin-bottom: 0; grid-area: title; text-align: left; }
+            .product-desc { display: none; font-size: 0.85em; color: #777; grid-area: desc; }
+            .product-card.kit-card .product-info { grid-template-areas: "title title" "desc desc" "controls controls"; }
+            .product-card.kit-card .product-desc { display: block; margin-bottom: 5px; }
+            .product-price { font-size: 1.1em; margin-bottom: 0; grid-area: price; }
+            .add-controls { height: 35px; grid-area: controls; }
+            .qty-val-card, .qty-btn-card { font-size: 1em; }
         }
+
     </style>
 </head>
 <body>
-
+    
     <header class="floating-header">
         <div class="floating-header-content">
             <div class="header-left">
-                <img src="Logo.png" alt="Логотип Gruzim.kz" class="floating-logo">
+                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo"></a>
                 <div class="language-switcher">
-                    <a href="shop.html" class="lang-btn active">РУС</a>
-                    <a href="shopkz.html" class="lang-btn">ҚАЗ</a>
+                    <a href="#" class="lang-btn active">RU</a>
+                    <a href="#" class="lang-btn">KZ</a>
                 </div>
             </div>
             <nav class="main-nav">
+                <a href="index.html">Главная</a>
                 <a href="index.html#services">Услуги</a>
-                <a href="index.html#features">Почему мы</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="index.html#legal-entities">Для юр. лиц</a>
+                <a href="shop.html" class="active">Магазин</a>
                 <a href="index.html#contact">Контакты</a>
             </nav>
-            <a href="index.html" class="lang-btn shop-link mobile-shop-link" style="margin-top:8px; font-weight:700;">ГЛАВНАЯ</a>
             <span class="phone-wrap">
-                <a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');" class="header-phone" data-phone-type="floating-header">
+                <a href="tel:+77767469606" class="header-phone">
                     <i class="fas fa-phone"></i> +7 (776) 746-96-06
                 </a>
                 <img src="santa_hat.png" class="santa-hat" alt="">
@@ -487,27 +329,17 @@
         </div>
     </header>
 
-    <header> 
+    <header>
         <div class="header-content">
             <div class="header-top">
-                <img src="Logo.png" alt="Логотип Gruzim.kz" class="header-logo">
-                <h1>Магазин упаковки для переезда в Астане</h1>
-            </div>
-            <p>Коробки, сумки, плёнка, скотч — всё для аккуратного и спокойного переезда.</p>
-            <p class="hero-guarantee">Подберём комплект под ваш переезд и привезём вместе с машиной или отдельной доставкой.</p>
-            <a href="#shop-container" class="cta-button" data-cta-type="hero-shop">
-                🎯 Подобрать упаковку
+                </div>
+            <h1>Магазин упаковки для переезда</h1>
+            <p>Все необходимое для переезда в одном месте: коробки, скотч, пленка и сумки. С доставкой по Астане.</p>
+            <a href="https://wa.me/77767469606" class="cta-button" onclick="ym(104276494,'reachGoal','klik_whatsapp');">
+                <i class="fab fa-whatsapp"></i> Задать вопрос о товарах
             </a>
-            <p class="hero-subtext">Готовые наборы ЭКОНОМ / СТАНДАРТ / БОЛЬШОЙ и отдельные позиции.</p>
         </div>
     </header>
-    <section class="top-facts">
-        <div class="top-facts-inner">
-            <span><i class="fas fa-calendar-check"></i> Работаем с 2019 года</span>
-            <span><i class="fas fa-check-circle"></i> Более 500 выполненных заказов</span>
-            <span><i class="fas fa-file-invoice"></i> Безнал, договор, документы</span>
-        </div>
-    </section>
 
     <div class="container" id="shop-container">
         </div>
@@ -523,7 +355,7 @@
             <h3 style="color: #1a237e; font-family: 'Montserrat';">Ваш заказ</h3>
             
             <div class="cart-items" id="cart-items-container">
-                <p style="text-align: center; color: #777; margin-top: 20px;">Корзина пуста</p>
+                <p style="text-align: center; color: #777; margin-top: 20px;">Корзина пуста 🛒</p>
             </div>
 
             <div style="font-size: 1.2em; font-weight: bold; text-align: right; margin-bottom: 15px; color: #ff9900;">
@@ -544,169 +376,67 @@
         <div class="footer-inner">
             <div class="footer-col">
                 <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo">
-                <p class="footer-tagline">Грузоперевозки по Астане и регионам Казахстана.</p>
-                <p class="footer-years">&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
+                <p>Грузоперевозки и магазин упаковки по Астане.</p>
+                <p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
             </div>
             <div class="footer-col">
                 <h4>Контакты</h4>
-                <p><i class="fas fa-phone"></i> <a href="tel:+77767469606" onclick="ym(104276494,'reachGoal','klik_telefon');">+7 (776) 746-96-06</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77767469606">+7 (776) 746-96-06</a></p>
                 <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77767469606">Написать в WhatsApp</a></p>
                 <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
             </div>
             <div class="footer-col">
                 <h4>Информация</h4>
-                <p><a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a></p>
-                <p><a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a></p>
-                <p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p>
+                <a href="#" id="privacy-policy-link">Политика конфиденциальности</a>
+                <a href="#" id="terms-of-service-link">Условия использования</a>
+                <a href="shop.html">Магазин упаковки</a>
             </div>
         </div>
     </footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // === Расширенное отслеживание конверсий (Enhanced Conversions) ===
-    // Пытаемся собрать email/телефон из любых полей на странице,
-    // чтобы передать их в Google Ads как user_data перед конверсией.
-    function setEnhancedUserData() {
-        try {
-            var email = "";
-            var phone = "";
-            
-            document.querySelectorAll("input").forEach(function(input) {
-                var type = (input.type || "").toLowerCase();
-                var name = (input.name || "").toLowerCase();
-                var value = (input.value || "").trim();
-                if (!value) return;
-
-                if (type === "email" || name.indexOf("email") !== -1 || name.indexOf("mail") !== -1) {
-                    email = value;
-                }
-                if (type === "tel" || name.indexOf("phone") !== -1 || name.indexOf("tel") !== -1 || name.indexOf("whatsapp") !== -1) {
-                    phone = value;
-                }
-            });
-
-            if (email || phone) {
-                var userData = {};
-                if (email) {
-                    userData.email = email;
-                }
-                if (phone) {
-                    userData.phone_number = phone;
-                }
-                // gtag сам хэширует данные перед отправкой
-                gtag('set', 'user_data', userData);
-            }
-        } catch (e) {
-            if (window.console && console.warn) {
-                console.warn('Enhanced conversions user_data error', e);
-            }
-        }
-    }
-
-    function sendContactConversion(phoneType = 'general') {
-        // Сначала устанавливаем user_data, если есть данные
-        setEnhancedUserData();
-
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
-            'value': 1.0,
-            'currency': 'KZT',
-            'transaction_id': '',
-            'phone_type': phoneType
-        });
-        
-        // Дублируем в GA4
-        gtag('event', 'contact_conversion', {
-            'method': 'phone',
-            'phone_type': phoneType,
-            'location': 'website'
-        });
-    }
-
-    // Отслеживание всех телефонных ссылок
-    document.querySelectorAll("a[href^='tel:']").forEach(function(link) {
-        link.addEventListener("click", function(e) {
-            const phoneType = this.getAttribute('data-phone-type') || 'general';
-            sendContactConversion(phoneType);
-        });
-    });
-
-    // Отслеживание WhatsApp
-    document.querySelectorAll("a[href*='wa.me']").forEach(function(link) {
-        link.addEventListener("click", function(e) {
-            sendContactConversion('whatsapp');
-        });
-    });
-
-    // Отслеживание отправки формы (если есть формы)
-    const reviewForm = document.getElementById('review-submission-form');
-    if (reviewForm) {
-        reviewForm.addEventListener('submit', function(e) {
-            // На всякий случай тоже пробуем собрать user_data
-            setEnhancedUserData();
-
-            gtag('event', 'form_submission', {
-                'form_type': 'review',
-                'event_category': 'Lead'
-            });
-        });
-    }
-});
-</script>
-
-<script>
-  (function() {
-    function adjustHeaderOffset() {
-      try {
-        var floating = document.querySelector('.floating-header');
-        var mainHeader = null;
-        // find the first header that is NOT the floating one
-        var headers = document.querySelectorAll('header');
-        for (var i = 0; i < headers.length; i++) {
-          if (!headers[i].classList.contains('floating-header')) {
-            mainHeader = headers[i];
-            break;
-          }
-        }
-        if (!floating || !mainHeader) return;
-        var h = floating.getBoundingClientRect().height;
-        // apply padding-top to main header so it's pushed below floating header
-        mainHeader.style.paddingTop = (h + 12) + 'px'; // extra 12px breathing room
-        // also ensure body has at least that top padding on small screens to avoid content jump
-        document.body.style.paddingTop = Math.max(parseInt(getComputedStyle(document.body).paddingTop||0), h) + 'px';
-      } catch (e) { console.error('adjustHeaderOffset error', e); }
-    }
-
-    // run on load and resize
-    window.addEventListener('load', adjustHeaderOffset);
-    window.addEventListener('resize', adjustHeaderOffset);
-
-    // observe mutations in case floating header changes size (e.g., language buttons toggle)
-    var floating = document.querySelector('.floating-header');
-    if (floating && window.MutationObserver) {
-      var obs = new MutationObserver(function() { adjustHeaderOffset(); });
-      obs.observe(floating, { attributes: true, childList: true, subtree: true });
-    }
-
-    // small timeout to handle fonts/load layout shifts
-    setTimeout(adjustHeaderOffset, 300);
-    setTimeout(adjustHeaderOffset, 1000);
-  })();
-</script>
-
 
 
     <script>
         // === 1. БАЗА ТОВАРОВ (С КАТЕГОРИЯМИ И НАЛИЧИЕМ) ===
         const productsDB = [
+             {
+                category: "Наборы для переезда (Экономия!)",
+                items: [
+                    { 
+                        id: 201, 
+                        name: "Набор ЭКОНОМ", 
+                        desc: "Для однокомнатной квартиры. Содержит: 10 малых коробок, 2 скотча, 5 м пузырчатой пленки, 1 сумка (S).", 
+                        price: 8000, 
+                        icon: "fa-box-archive", 
+                        inStock: true,
+                        kit: true // Метка для стиля карточки
+                    },
+                    { 
+                        id: 202, 
+                        name: "Набор СТАНДАРТ", 
+                        desc: "Для 2-3 комнатной квартиры. Содержит: 20 малых/средних коробок, 5 скотчей, 10 м пузырчатой пленки, 1 стрейч-пленка, 2 сумки (M).", 
+                        price: 18500, 
+                        icon: "fa-box-archive", 
+                        inStock: true,
+                        kit: true
+                    },
+                    { 
+                        id: 203, 
+                        name: "Набор МАКС", 
+                        desc: "Для большой квартиры/офиса. Содержит: 30 малых/средних коробок, 5 гардеробных коробок, 8 скотчей, 15 м пузырчатой пленки, 2 стрейч-пленки, 3 сумки (L).", 
+                        price: 45000, 
+                        icon: "fa-box-archive", 
+                        inStock: true,
+                        kit: true
+                    }
+                ]
+            },
             {
                 category: "Коробки картонные",
                 items: [
                     { id: 1, name: "Коробка Малая (30x30x30)", desc: "Книги, посуда, мелочи. 5-слойный картон.", price: 450, icon: "fa-box", inStock: true },
                     { id: 2, name: "Коробка Средняя (60x40x40)", desc: "Одежда, игрушки, кухонная утварь.", price: 700, icon: "fa-box-open", inStock: true },
                     { id: 3, name: "Коробка Гардеробная", desc: "С перекладиной для одежды на вешалках.", price: 3500, icon: "fa-shirt", inStock: true },
-                    { id: 101, name: "Коробка Архивная", desc: "Для документов А4 с крышкой.", price: 550, icon: "fa-file-invoice", inStock: false } // Пример "Нет в наличии"
+                    { id: 101, name: "Коробка Архивная", desc: "Для документов А4 с крышкой.", price: 550, icon: "fa-file-invoice", inStock: false } 
                 ]
             },
             {
@@ -732,20 +462,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     { id: 11, name: "Перчатки рабочие", desc: "С точками ПВХ, пара.", price: 200, icon: "fa-hand-paper", inStock: true },
                     { id: 12, name: "Мешок строительный", desc: "Зеленый, для мусора (до 50кг).", price: 150, icon: "fa-sack-dollar", inStock: true }
                 ]
-            },
-            {
-                category: "Готовые наборы для переезда",
-                items: [
-                    { id: 201, name: "Набор ЭКОНОМ", desc: "Для небольшого переезда: базовый комплект коробок, скотча и плёнки для 1 комнаты.", price: 8900, icon: "fa-box-archive", inStock: true },
-                    { id: 202, name: "Набор СТАНДАРТ", desc: "Ходовой набор для семьи: коробки разных размеров, сумки, скотч, стрейч-плёнка.", price: 14900, icon: "fa-boxes-stacked", inStock: true },
-                    { id: 203, name: "Набор БОЛЬШОЙ", desc: "Максимальный комплект упаковки для большого переезда или небольшого офиса.", price: 21900, icon: "fa-people-carry-box", inStock: true }
-                ]
             }
-
-];
+        ];
 
         // === 2. СОСТОЯНИЕ КОРЗИНЫ ===
-        let cart = {}; // { id: quantity }
+        let cart = {}; 
 
         document.addEventListener('DOMContentLoaded', () => {
             renderShop();
@@ -763,11 +484,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 cat.items.forEach(prod => {
                     const isOut = !prod.inStock;
+                    const isKit = prod.kit ? 'kit-card' : '';
                     const outClass = isOut ? 'out-of-stock' : '';
-                    // Находим кол-во этого товара в корзине
                     const qty = cart[prod.id] || 0;
                     
-                    // Логика отображения кнопок (Счетчик или Кнопка "В корзину")
                     let controlsHtml = '';
                     if (isOut) {
                          controlsHtml = `<button class="btn-add-initial" disabled style="background:#999; cursor:not-allowed;">Нет в наличии</button>`;
@@ -788,7 +508,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
 
                     html += `
-                        <div class="product-card ${outClass}" id="card-${prod.id}">
+                        <div class="product-card ${outClass} ${isKit}" id="card-${prod.id}">
                             <div class="product-image"><i class="fas ${prod.icon}"></i></div>
                             <div class="product-info">
                                 <div class="product-title">${prod.name}</div>
@@ -802,37 +522,31 @@ document.addEventListener("DOMContentLoaded", function() {
                     `;
                 });
                 
-                html += `</div>`; // Закрываем grid
+                html += `</div>`; 
             });
 
             container.innerHTML = html;
         }
 
         // === 4. ЛОГИКА ОБНОВЛЕНИЯ КОЛИЧЕСТВА ===
-        // Эта функция вызывает перерисовку только конкретной карточки или всего магазина
-        // Для простоты перерисуем весь магазин (на небольшом кол-ве товаров это мгновенно)
-        // Чтобы не моргало, лучше обновлять точечно, но полная перерисовка надежнее для "смены кнопок"
         function updateItemQty(id, change) {
             if (!cart[id]) cart[id] = 0;
             cart[id] += change;
             if (cart[id] <= 0) delete cart[id];
             
-            renderShop(); // Перерисовываем карточки (чтобы кнопка сменилась на счетчик)
-            updateCartUI(); // Обновляем модалку и бейдж
+            renderShop();
+            updateCartUI();
         }
 
         // === 5. ОБНОВЛЕНИЕ UI КОРЗИНЫ ===
         function updateCartUI() {
-            // 1. Бейдж
             const totalCount = Object.values(cart).reduce((a, b) => a + b, 0);
             document.getElementById('cart-count').innerText = totalCount;
 
-            // 2. Список в модалке
             const cartList = document.getElementById('cart-items-container');
             let totalPrice = 0;
             let html = '';
 
-            // Плоский список всех товаров для поиска
             const allProducts = productsDB.flatMap(c => c.items);
 
             if (totalCount === 0) {
@@ -867,9 +581,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // === 6. МОДАЛКА И ОТПРАВКА ===
         const modal = document.getElementById('cart-modal');
-        document.getElementById('open-cart-btn').addEventListener('click', () => { modal.classList.add('active'); document.body.style.overflow='hidden'; });
-        document.getElementById('close-cart-btn').addEventListener('click', () => { modal.classList.remove('active'); document.body.style.overflow=''; });
-        modal.addEventListener('click', (e) => { if(e.target === modal) { modal.classList.remove('active'); document.body.style.overflow=''; }});
+        document.getElementById('open-cart-btn').addEventListener('click', () => { 
+            modal.classList.add('active'); 
+            document.body.style.overflow='hidden'; 
+        });
+        document.getElementById('close-cart-btn').addEventListener('click', () => { 
+            modal.classList.remove('active'); 
+            document.body.style.overflow=''; 
+        });
+        modal.addEventListener('click', (e) => { 
+            if(e.target === modal) { 
+                modal.classList.remove('active'); 
+                document.body.style.overflow=''; 
+            }
+        });
 
         document.getElementById('checkout-form').addEventListener('submit', (e) => {
             e.preventDefault();
@@ -893,9 +618,29 @@ document.addEventListener("DOMContentLoaded", function() {
             msg += `\n👤 Клиент: ${name}`;
             msg += `\n📍 Адрес: ${address}`;
 
+            // Отправка цели Яндекс.Метрики
             if(typeof ym === 'function') ym(104276494, 'reachGoal', 'klik_whatsapp');
             
+            // Отправка события Google Ads Conversion
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/YOUR_CONVERSION_LABEL_HERE', // Замените YOUR_CONVERSION_LABEL_HERE на метку вашей конверсии!
+                    'value': total,
+                    'currency': 'KZT'
+                });
+            }
+
             window.open(`https://wa.me/77767469606?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+        
+        // ** Заглушки для ссылок на Политику/Условия, как в index.html **
+        document.getElementById('privacy-policy-link').addEventListener('click', (e) => {
+             e.preventDefault();
+             alert('Для просмотра "Политики конфиденциальности" перейдите на главную страницу (index.html).');
+        });
+        document.getElementById('terms-of-service-link').addEventListener('click', (e) => {
+             e.preventDefault();
+             alert('Для просмотра "Условий использования" перейдите на главную страницу (index.html).');
         });
     </script>
 </body>
