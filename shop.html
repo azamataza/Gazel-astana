@@ -516,21 +516,7 @@ header.main-head p {
         padding-top: 8px;
     }
         /* --- Шапка с фоновым изображением и логотипом --- */
-        header {
-            /* Уменьшил прозрачность rgba до 0.6 для лучшей читаемости текста на фоне */
-            /* ИЗМЕНЕНО: Ссылка на fon.png вместо Unsplash URL */
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fon.png') no-repeat center top/cover;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            background-attachment: fixed; /* Параллакс-эффект */
-            overflow: hidden; /* Скрывает все, что выходит за пределы header */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        
 
         .header-content {
             display: flex;
@@ -2504,6 +2490,41 @@ body { padding-top: 0 !important; } /* avoid double padding rules */
   #cart-overlay-modal .whatsapp-order{
     width: 100% !important;
   }
+}
+</style>
+
+
+<style>
+/* === FIX HERO BACKGROUND FULL WIDTH UNDER FLOATING HEADER === */
+header.main-head {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 0;
+  padding: 80px 20px 70px;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('fon.png') center center / cover no-repeat;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+</style>
+
+
+<style>
+/* === FINAL HERO GAP FIX: фон уходит под шапку на всех экранах === */
+.container {
+  margin-top: 0 !important;
+}
+header.main-head {
+  margin-top: -20px !important;  /* немного заходит под плавающую шапку */
+  padding-top: 90px;             /* чтобы текст не прилипал под шапку */
 }
 </style>
 
