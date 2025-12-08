@@ -254,31 +254,79 @@
         }
         
         /* ------------------------------------------------ */
-        /* --- ИСПРАВЛЕННАЯ АДАПТИВНОСТЬ ДЛЯ ШАПКИ --- */
+        /* --- ИСПРАВЛЕННАЯ АДАПТИВНОСТЬ ДЛЯ ШАПКИ (ТРИ РЯДА) --- */
         /* ------------------------------------------------ */
         @media (max-width: 768px) {
-            .main-nav { display: none; }
+            
+            /* Делаем шапку более компактной */
             .floating-header { padding: 8px 15px; }
-            .header-phone { display: none; } /* Телефон скрываем */
             
-            /* Обеспечиваем центрирование и горизонтальное расположение элементов */
-            .floating-header-content { justify-content: center; flex-direction: row; } 
+            /* Шапка в три ряда */
+            .floating-header-content { 
+                flex-direction: column; /* Вертикальный стек */
+                align-items: center; 
+                gap: 0;
+            } 
             
+            /* Ряд 1: Логотип и переключатель языка */
+            .header-left { 
+                width: 100%;
+                justify-content: space-between; /* Лого слева, язык справа */
+                padding-bottom: 5px; /* Небольшой отступ вниз */
+            } 
+            .floating-logo { 
+                height: 35px; /* Оптимальный размер логотипа */
+            }
+            
+            /* Ряд 2: Навигация */
+            .main-nav { 
+                display: flex; /* Показываем навигацию */
+                width: 100%;
+                justify-content: center; /* Центрируем ссылки */
+                margin: 5px 0; /* Отступ сверху/снизу */
+                padding: 5px 0;
+                border-top: 1px solid rgba(255,255,255,0.1); 
+                border-bottom: 1px solid rgba(255,255,255,0.1); 
+                gap: 15px;
+            }
+            .main-nav a {
+                font-size: 0.9em;
+            }
+            
+            /* Ряд 3: Телефон */
+            .phone-wrap {
+                width: 100%;
+                text-align: center; /* Центрируем номер телефона */
+                padding-top: 5px;
+            }
+            .header-phone { 
+                font-size: 1.0em; 
+                justify-content: center; /* Центрируем иконку и текст */
+            }
+
             header h1 { font-size: 2em; }
             header p { font-size: 1.1em; }
-            
-            /* Логотип и переключатель языка остаются в одной строке */
-            .header-left { flex-direction: row; align-items: center; gap: 15px; } 
             
             .language-switcher { margin-top: 0; }
         }
         
         @media (max-width: 480px) {
-            /* СТИЛИ ДЛЯ ШАПКИ */
-            .floating-header-content { flex-direction: row; justify-content: center; gap: 8px; } 
-            .header-left { justify-content: center; width: auto; flex-direction: row; align-items: center; }
-            .floating-logo { height: 30px; }
-            .lang-btn { padding: 4px 8px; font-size: 0.8em; } /* Более компактные кнопки языка */
+            /* Дополнительная компактность для самых маленьких экранов */
+            .floating-header { padding: 6px 10px; } 
+            
+            .floating-logo { height: 30px; } 
+            .lang-btn { padding: 3px 6px; font-size: 0.75em; } 
+            
+            .main-nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .main-nav a { 
+                font-size: 0.8em; 
+            }
+            .header-phone { 
+                font-size: 0.9em; 
+            }
 
             /* СТИЛИ ДЛЯ ГЛАВНОГО БЛОКА */
             header h1 { font-size: 1.8em; }
@@ -310,7 +358,7 @@
             <div class="header-left">
                 <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo"></a>
                 <div class="language-switcher">
-                    <a href="#" class="lang-btn active">RU</a>
+                    <a href="index.html" class="lang-btn active">RU</a>
                     <a href="#" class="lang-btn">KZ</a>
                 </div>
             </div>
