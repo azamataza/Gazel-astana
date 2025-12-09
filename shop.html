@@ -108,12 +108,16 @@
         
         /* Кнопка */
         .cta-button {
-            display: inline-block; background-color: #ff9900; color: white;
-            padding: 15px 35px; border-radius: 50px; text-decoration: none;
-            font-family: 'Montserrat', sans-serif; font-weight: 700;
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, #ffb347, #ff9900);
+            color: white; padding: 15px 35px; border-radius: 50px;
+            text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700;
             font-size: 1.2em; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             animation: pulse-orange 2s infinite alternate;
+        }
+        .cta-button i {
+            font-size: 1.3em;
         }
         .cta-button:hover {
             background-color: #e68a00; transform: translateY(-3px);
@@ -352,6 +356,20 @@
         }
 
     </style>
+
+<style>
+/* FIX: опускаем первый блок под шапкой на десктопе */
+@media (min-width: 992px) {
+    header + section,
+    header + .hero,
+    .hero,
+    .hero-content,
+    main > section:first-of-type {
+        margin-top: 80px !important;
+    }
+}
+</style>
+
 </head>
 <body>
     
@@ -387,8 +405,9 @@
                 </div>
             <h1>Магазин упаковки для переезда</h1>
             <p>Все необходимое для переезда в одном месте: коробки, скотч, пленка и сумки. Доставка по Астане 2500 тенге.</p>
-            <a href="https://wa.me/77767469606" class="cta-button" onclick="ym(104276494,'reachGoal','klik_whatsapp');">
-                <i class="fab fa-whatsapp"></i> Задать вопрос о товарах
+            <a href="index.html" class="cta-button">
+                <i class="fas fa-truck-moving"></i>
+                Перевозки
             </a>
         </div>
     </header>
