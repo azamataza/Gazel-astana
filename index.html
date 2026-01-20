@@ -37,20 +37,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  <!-- Основная конфигурация Google Ads -->
-  gtag('config', 'AW-17503887977', {
-    'phone_conversion_number': '+7 701 012 03 00'
-  });
 
-  <!-- Конфигурация Google Analytics 4 -->
-  gtag('config', 'G-2VWS9V6KVJ');
-</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ">
 </script>
 <script>
@@ -2004,6 +1991,18 @@ src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Meta Pixel Code -->
 
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17503887977');
+  gtag('config', 'G-2VWS9V6KVJ');
+</script>
+
 </head>
 <body>
     <!-- Плавающая шапка -->
@@ -2964,5 +2963,28 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+
+<script>
+function leadConversion() {
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17503887977/REPLACE_WITH_LABEL'
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // All phone clicks
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
+    el.addEventListener('click', leadConversion);
+  });
+
+  // All WhatsApp clicks
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el){
+    el.addEventListener('click', leadConversion);
+  });
+});
+</script>
 </body>
+
 </html>
