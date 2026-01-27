@@ -833,6 +833,22 @@
 
         /* ===== МЕДИА ЗАПРОСЫ ===== */
         @media (max-width: 768px) {
+            /* MOBILE HEADER ORDER FIX */
+            .floating-header-content{
+                flex-direction: column;
+                align-items: center;
+            }
+            .header-left{
+                order: 1;
+                width: 100%;
+                justify-content: center;
+                gap: 12px;
+            }
+            .phone-wrap{
+                order: 2;
+                margin-top: 6px;
+            }
+
             body {
                 padding-top: 120px;
             }
