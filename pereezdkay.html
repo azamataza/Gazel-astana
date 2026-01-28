@@ -1110,7 +1110,34 @@
             }
         }
 
-    </style>
+    
+@media (max-width: 768px) {
+    .floating-header-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    .header-left {
+        justify-content: space-between;
+    }
+    .main-nav {
+        order: 2;
+        justify-content: center;
+        margin: 0;
+    }
+    .mobile-shop-link {
+        order: 1;
+        align-self: center;
+        margin-bottom: 4px;
+    }
+    .phone-wrap {
+        order: 3;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+</style>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
