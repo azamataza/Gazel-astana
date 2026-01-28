@@ -1112,29 +1112,29 @@
 
     
 @media (max-width: 768px) {
-    .floating-header-content {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-    }
-    .header-left {
-        justify-content: space-between;
-    }
-    .main-nav {
-        order: 2;
-        justify-content: center;
-        margin: 0;
-    }
-    .mobile-shop-link {
-        order: 1;
-        align-self: center;
-        margin-bottom: 4px;
-    }
-    .phone-wrap {
-        order: 3;
-        display: flex;
-        justify-content: center;
-    }
+  .floating-header {
+    padding: 10px 12px;
+  }
+  .floating-header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-left {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+  .main-nav {
+    display: none !important;
+  }
+  .mobile-shop-link {
+    order: 2;
+    margin: 4px 0;
+  }
+  .phone-wrap {
+    order: 3;
+  }
 }
 
 </style>
