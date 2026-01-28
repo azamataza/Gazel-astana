@@ -831,94 +831,230 @@
             opacity: 0.9;
         }
 
-        /* ===== МЕДИА ЗАПРОСЫ ===== */
+        /* ===== МЕДИА ЗАПРОСЫ ДЛЯ МОБИЛЬНЫХ (ШАПКУ НЕ ТРОГАЕМ) ===== */
         @media (max-width: 768px) {
-            /* MOBILE HEADER ORDER FIX */
-            .floating-header-content{
-                flex-direction: column;
-                align-items: center;
-            }
-            .header-left{
-                order: 1;
-                width: 100%;
-                justify-content: center;
-                gap: 12px;
-            }
-            .phone-wrap{
-                order: 2;
-                margin-top: 6px;
-            }
-
-            body {
-                padding-top: 120px;
-            }
-            
+            /* Герой-секция */
             .premium-hero {
-                padding-top: 140px;
-                padding-bottom: 60px;
+                padding: 120px 15px 60px;
             }
             
             .premium-hero h1 {
                 font-size: 2.2em;
-            }
-            
-            .section {
-                padding: 50px 15px;
-            }
-            
-            .section h2 {
-                font-size: 2em;
-            }
-            
-            .main-nav {
-                display: none;
-            }
-            
-            .request-section {
-                padding: 40px 20px;
-                margin: 40px 0;
-            }
-            
-            .floating-header-content {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            
-            .header-left {
-                width: 100%;
-                justify-content: space-between;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .premium-hero h1 {
-                font-size: 1.8em;
+                margin-bottom: 15px;
             }
             
             .premium-hero p {
                 font-size: 1.1em;
+                margin-bottom: 25px;
             }
             
             .hero-features {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
+                margin: 20px 0;
             }
             
-            .process-card, .pricing-card, .advantage-card {
+            .hero-feature {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+                padding: 10px 20px;
+            }
+            
+            .cta-button {
+                display: block;
+                width: 100%;
+                max-width: 300px;
+                margin: 15px auto;
+                padding: 14px 25px;
+                font-size: 1.1em;
+            }
+            
+            /* Основной контент */
+            .section {
+                padding: 50px 15px;
+            }
+            
+            .section h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+            }
+            
+            /* Процесс работы */
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .process-card {
                 padding: 20px;
             }
             
+            .process-card h3 {
+                font-size: 1.3em;
+                min-height: auto;
+                margin-bottom: 10px;
+            }
+            
+            .process-card i {
+                font-size: 2.5em;
+            }
+            
+            /* Тарифы */
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .pricing-card {
+                max-width: 100%;
+            }
+            
             .pricing-card.popular {
-                transform: scale(1);
+                transform: none;
+                order: -1;
+            }
+            
+            .popular-badge {
+                top: 15px;
+                right: -25px;
+                padding: 6px 30px;
+                font-size: 0.8em;
+            }
+            
+            .pricing-header {
+                padding: 25px 20px;
+            }
+            
+            .pricing-title {
+                font-size: 1.6em;
+            }
+            
+            .pricing-price {
+                font-size: 2em;
+            }
+            
+            .pricing-features {
+                padding: 20px;
+            }
+            
+            /* Преимущества */
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .advantage-card {
+                padding: 20px 15px;
+            }
+            
+            .advantage-card i {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+            
+            .advantage-card h3 {
+                font-size: 1.2em;
+                min-height: auto;
+                margin-bottom: 10px;
+            }
+            
+            /* FAQ */
+            .faq-question {
+                padding: 18px 20px;
+                font-size: 1em;
+            }
+            
+            .faq-answer {
+                padding: 0 20px;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 0 20px 20px;
+            }
+            
+            /* Форма заявки */
+            .request-section {
+                padding: 40px 20px;
+                margin: 40px 0;
+                border-radius: 15px;
+            }
+            
+            .form-subtitle {
+                font-size: 1.1em;
+                margin-bottom: 30px;
             }
             
             .form-row {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
             
+            .form-input, .form-select {
+                padding: 14px 18px;
+                font-size: 1em;
+            }
+            
+            .form-submit {
+                max-width: 100%;
+            }
+            
+            /* Подвал */
             .footer-inner {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 25px;
+            }
+            
+            .footer-col {
+                text-align: center;
+            }
+            
+            /* Плавающие кнопки */
+            .floating-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 2em;
+            }
+            
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Еще более мелкие экраны */
+            .premium-hero h1 {
+                font-size: 1.8em;
+            }
+            
+            .section h2 {
+                font-size: 1.6em;
+            }
+            
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .advantage-card {
+                padding: 25px 20px;
+            }
+            
+            .faq-question {
+                padding: 16px 18px;
+                font-size: 0.95em;
+            }
+            
+            .faq-answer {
+                font-size: 0.95em;
+            }
+            
+            .cta-button {
+                padding: 13px 20px;
+                font-size: 1em;
             }
         }
 
@@ -937,71 +1073,71 @@
             pointer-events: none;
         }
     
-/* ===== FIX HEADER STABILITY ===== */
-.floating-header-content {
-    flex-wrap: nowrap !important;
-}
-
-.header-phone {
-    white-space: nowrap;
-    line-height: 1.2;
-}
-
-@media (max-width: 768px) {
-    body {
-        padding-top: 120px;
-    }
-
-    .main-nav {
-        display: none;
-    }
-
-    .floating-header-content {
-        flex-wrap: nowrap !important;
-    }
-
-    .header-left {
-        flex: 1;
-    }
-
-    .mobile-shop-link {
-        display: none !important;
-    }
-
-    .header-phone {
-        font-size: 14px;
-        white-space: nowrap;
-    }
-}
-
-</style>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {
-            if (document.scripts[j].src === r) { return; }
+        /* ===== FIX HEADER STABILITY ===== */
+        .floating-header-content {
+            flex-wrap: nowrap !important;
         }
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],
-        k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
 
-    ym(104276494, 'init', {
-        ssr:true,
-        webvisor:true,
-        clickmap:true,
-        accurateTrackBounce:true,
-        trackLinks:true
-    });
-</script>
-<noscript>
-    <div>
-        <img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" />
-    </div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
+        .header-phone {
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px; /* Оставляем как в десктопе для шапки */
+            }
+
+            .main-nav {
+                display: flex; /* Оставляем навигацию видимой */
+            }
+
+            .floating-header-content {
+                flex-wrap: nowrap !important;
+            }
+
+            .header-left {
+                flex: 1;
+            }
+
+            .mobile-shop-link {
+                display: inline-block !important;
+            }
+
+            .header-phone {
+                font-size: 1.1em;
+                white-space: nowrap;
+            }
+        }
+
+    </style>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) { return; }
+            }
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+            k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
+
+        ym(104276494, 'init', {
+            ssr:true,
+            webvisor:true,
+            clickmap:true,
+            accurateTrackBounce:true,
+            trackLinks:true
+        });
+    </script>
+    <noscript>
+        <div>
+            <img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" />
+        </div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 
 </head>
 <body>
