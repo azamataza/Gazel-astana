@@ -336,6 +336,152 @@
             background-color: #1DA851;
         }
 
+        /* ===== КАЛЬКУЛЯТОР ===== */
+        .calculator-section {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .calculator-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .calculator-wrapper h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #1a237e;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .calculator-wrapper h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ff9900;
+            border-radius: 5px;
+        }
+        
+        .calc-label {
+            display: block;
+            margin-top: 18px;
+            font-weight: 600;
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95em;
+        }
+        
+        .calc-select, .calc-input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 6px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .calc-select:focus, .calc-input:focus {
+            outline: none;
+            border-color: #1a237e;
+        }
+        
+        .calc-check {
+            margin-top: 15px;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        
+        .calc-check label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            margin-top: 0;
+            font-weight: 500;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .calc-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #ff9900;
+        }
+        
+        .calc-total {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f8ff;
+            border: 2px dashed #1a237e;
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+            color: #1a237e;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .calc-btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 16px;
+            background: #ff9900;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .calc-btn:hover {
+            background: #e68a00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
+        }
+        
+        .calc-btn-whatsapp {
+            background: #25D366;
+            margin-top: 15px;
+        }
+        
+        .calc-btn-whatsapp:hover {
+            background: #1da851;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .calc-warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9em;
+            display: none;
+        }
+        
+        .calc-warning.show {
+            display: block;
+        }
+
         /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
         .section {
             padding: 80px 20px;
@@ -831,7 +977,7 @@
             opacity: 0.9;
         }
 
-        /* ===== МЕДИА ЗАПРОСЫ ДЛЯ МОБИЛЬНЫХ (ШАПКУ НЕ ТРОГАЕМ) ===== */
+        /* ===== МЕДИА ЗАПРОСЫ ===== */
         @media (max-width: 768px) {
             /* Герой-секция */
             .premium-hero {
@@ -869,6 +1015,24 @@
                 margin: 15px auto;
                 padding: 14px 25px;
                 font-size: 1.1em;
+            }
+            
+            /* Калькулятор */
+            .calculator-section {
+                padding: 40px 0;
+            }
+            
+            .calculator-wrapper {
+                padding: 20px;
+            }
+            
+            .calculator-wrapper h2 {
+                font-size: 1.6em;
+            }
+            
+            .calc-total {
+                font-size: 22px;
+                padding: 15px;
             }
             
             /* Основной контент */
@@ -1223,15 +1387,73 @@
                     <span>Договор и документы</span>
                 </div>
             </div>
-            
-            <div data-aos="fade-up" data-aos-delay="600">
-                <a href="https://wa.me/77010120300?text=Здравствуйте! Хочу заказать вывоз мусора. Пожалуйста, свяжитесь со мной для расчета стоимости." 
-                   class="cta-button whatsapp-cta-button" target="_blank" onclick="trackWhatsApp('hero')">
-                    <i class="fab fa-whatsapp"></i> Заказать через WhatsApp
-                </a>
-                <a href="tel:+7 701 012 03 00" class="cta-button cta-button--secondary" onclick="trackPhoneCall('hero')">
-                    <i class="fas fa-phone"></i> Позвонить сейчас
-                </a>
+                    </div>
+    </section>
+
+    <!-- Калькулятор стоимости -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="calculator-wrapper" data-aos="fade-up">
+                <h2>Калькулятор стоимости вывоза мусора</h2>
+
+                <label class="calc-label">Тип мусора</label>
+                <select class="calc-select" id="type">
+                    <option value="mattress">Матрасы, тумбочки, телевизоры</option>
+                    <option value="furniture" selected>Крупная мебель и техника</option>
+                    <option value="construction">Строительный мусор</option>
+                    <option value="mixed">Смешанный мусор</option>
+                </select>
+
+                <label class="calc-label">Подача машины</label>
+                <select class="calc-select" id="delivery">
+                    <option value="street" selected>К подъезду</option>
+                    <option value="parking">В паркинг / крытый</option>
+                </select>
+
+                <label class="calc-label">Количество грузчиков</label>
+                <select class="calc-select" id="workers">
+                    <option value="0">0 грузчиков (вынос клиентом)</option>
+                    <option value="1">1 грузчик</option>
+                    <option value="2" selected>2 грузчика</option>
+                    <option value="3">3 грузчика</option>
+                    <option value="4">4+ грузчика</option>
+                </select>
+
+                <label class="calc-label">Наличие лифта</label>
+                <select class="calc-select" id="elevator">
+                    <option value="yes" selected>Есть лифт</option>
+                    <option value="no">Нет лифта</option>
+                </select>
+
+                <label class="calc-label" id="floorLabel">Этажи без лифта</label>
+                <input type="number" class="calc-input" id="floor" value="3" min="1" max="30">
+
+                <div class="calc-check">
+                    <label>
+                        <input type="checkbox" id="demolition">
+                        <span>Требуется демонтаж (разбор мебели, конструкций)</span>
+                    </label>
+                </div>
+                <div class="calc-check">
+                    <label>
+                        <input type="checkbox" id="packaging">
+                        <span>Требуется упаковка (рассыпной мусор без тары)</span>
+                    </label>
+                </div>
+                <div class="calc-check">
+                    <label>
+                        <input type="checkbox" id="infected">
+                        <span>Заражённая мебель (плесень, паразиты, биозагрязнения)</span>
+                    </label>
+                </div>
+
+                <div class="calc-warning" id="warning">
+                    <strong>Внимание!</strong> <span id="warning-text"></span>
+                </div>
+
+                <div class="calc-total" id="calc-total">
+                    Примерная стоимость: <span id="price">0</span> ₸
+                </div>
             </div>
         </div>
     </section>
@@ -1735,8 +1957,139 @@
             }
         }
         
-        // Отправка формы в WhatsApp
+        // Калькулятор вывоза мусора
         document.addEventListener('DOMContentLoaded', function() {
+            // Элементы калькулятора
+            const type = document.getElementById('type');
+            const delivery = document.getElementById('delivery');
+            const workers = document.getElementById('workers');
+            const elevator = document.getElementById('elevator');
+            const floor = document.getElementById('floor');
+            const floorLabel = document.getElementById('floorLabel');
+            const demolition = document.getElementById('demolition');
+            const packaging = document.getElementById('packaging');
+            const infected = document.getElementById('infected');
+            const priceEl = document.getElementById('price');
+            const warning = document.getElementById('warning');
+            const warningText = document.getElementById('warning-text');
+            const calculateBtn = document.getElementById('calculate-btn');
+            const whatsappBtn = document.getElementById('whatsapp-btn');
+
+            // Скрываем поле этажей если есть лифт
+            function toggleFloorField() {
+                if (elevator.value === 'no') {
+                    floor.style.display = 'block';
+                    floorLabel.style.display = 'block';
+                } else {
+                    floor.style.display = 'none';
+                    floorLabel.style.display = 'none';
+                }
+            }
+            elevator.addEventListener('change', toggleFloorField);
+            toggleFloorField();
+
+            // Проверка особых условий
+            function updateWarning() {
+                if (demolition.checked) {
+                    warningText.textContent = 'Демонтаж: стоимость обсуждается индивидуально.';
+                    warning.classList.add('show');
+                    priceEl.textContent = '—';
+                } else if (infected.checked) {
+                    warningText.textContent = 'Для заражённой мебели требуется спецобработка. Стоимость уточняйте по телефону.';
+                    warning.classList.add('show');
+                } else if (packaging.checked) {
+                    warningText.textContent = 'Упаковка рассыпного мусора добавит стоимость за тару и работу.';
+                    warning.classList.add('show');
+                } else {
+                    warning.classList.remove('show');
+                }
+            }
+            infected.addEventListener('change', updateWarning);
+            packaging.addEventListener('change', updateWarning);
+
+            // Функция расчёта стоимости
+            function calculatePrice() {
+                let price = 0;
+                const typeValue = type.value;
+                const workersValue = parseInt(workers.value);
+                const deliveryValue = delivery.value;
+                const elevatorValue = elevator.value;
+                const floorValue = parseInt(floor.value) || 3;
+
+                // Базовая стоимость в зависимости от типа
+                if (typeValue === 'mattress') {
+                    // Для мелких предметов - фиксированная ставка
+                    price = 12000;
+                } else {
+                    // Для крупного мусора - базовая подача
+                    price = 15000;
+                    // Надбавка за паркинг
+                    if (deliveryValue === 'parking') price += 5000;
+                    // Грузчики (только если выбраны)
+                    if (workersValue > 0) price += workersValue * 5000;
+                }
+                
+                // Этажи без лифта
+                if (elevatorValue === 'no') {
+                    price += floorValue * 2000;
+                }
+                
+                // Дополнительные услуги (процентные надбавки)
+                if (demolition.checked) price += price * 0.2; // +20%
+                if (packaging.checked) price += price * 0.15; // +15%
+                if (infected.checked) price += price * 0.5;   // +50%
+                
+                // Округляем до тысяч
+                return Math.round(price / 1000) * 1000;
+            }
+
+            // Функция обновления отображения цены
+            function updatePrice() {
+                const price = calculatePrice();
+                priceEl.textContent = price.toLocaleString('ru-RU');
+                updateWarning();
+            }
+
+            // События на изменение
+            [type, delivery, workers, elevator, floor, demolition, packaging, infected].forEach(el => {
+                el.addEventListener('change', updatePrice);
+            });
+
+            // Кнопка рассчитать
+            calculateBtn.addEventListener('click', updatePrice);
+
+            // Кнопка WhatsApp
+            whatsappBtn.addEventListener('click', function() {
+                const price = calculatePrice();
+                const workersText = workers.options[workers.selectedIndex].text;
+                const typeText = type.options[type.selectedIndex].text;
+                const deliveryText = delivery.options[delivery.selectedIndex].text;
+                const elevatorText = elevator.value === 'yes' ? 'Есть лифт' : `Нет лифта (${floor.value} этаж)`;
+
+                let message = `Здравствуйте! Рассчитал стоимость вывоза мусора:\n\n`;
+                message += `Тип: ${typeText}\n`;
+                message += `Подача: ${deliveryText}\n`;
+                message += `Грузчики: ${workersText}\n`;
+                message += `Лифт: ${elevatorText}\n`;
+
+                if (demolition.checked) message += `Демонтаж: да\n`;
+                if (packaging.checked) message += `Упаковка: да\n`;
+                if (infected.checked) message += `Заражённая мебель: да\n`;
+
+                message += `\nПримерная стоимость: ${price.toLocaleString('ru-RU')} ₸\n`;
+                message += `\nПожалуйста, уточните точную стоимость.`;
+
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/77010120300?text=${encodedMessage}`, '_blank');
+                
+                // Трекинг
+                trackWhatsApp('calculator');
+            });
+
+            // Первоначальный расчёт
+            updatePrice();
+            
+            // Остальные скрипты сайта
             const whatsappButton = document.getElementById('submitToWhatsApp');
             const moveRequestForm = document.getElementById('moveRequestForm');
             
@@ -1845,48 +2198,57 @@
                 });
             }
             
-            // Мобильное меню (если нужно будет добавить)
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    const navLinks = document.querySelector('.main-nav');
-                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                });
+            // Enhanced Conversions для Google Ads
+            function setEnhancedUserData() {
+                try {
+                    let email = '';
+                    let phone = '';
+                    
+                    // Пытаемся собрать email/телефон из формы
+                    const nameInput = document.getElementById('name');
+                    const phoneInput = document.getElementById('phone');
+                    
+                    if (phoneInput && phoneInput.value) {
+                        phone = phoneInput.value;
+                    }
+                    
+                    if (email || phone) {
+                        const userData = {};
+                        if (email) userData.email = email;
+                        if (phone) userData.phone_number = phone;
+                        
+                        if (typeof gtag === 'function') {
+                            gtag('set', 'user_data', userData);
+                        }
+                    }
+                } catch (e) {
+                    console.warn('Enhanced conversions error', e);
+                }
+            }
+            
+            // Вызываем при отправке формы
+            if (document.getElementById('submitToWhatsApp')) {
+                document.getElementById('submitToWhatsApp').addEventListener('click', setEnhancedUserData);
             }
         });
-        
-        // Enhanced Conversions для Google Ads
-        function setEnhancedUserData() {
-            try {
-                let email = '';
-                let phone = '';
-                
-                // Пытаемся собрать email/телефон из формы
-                const nameInput = document.getElementById('name');
-                const phoneInput = document.getElementById('phone');
-                
-                if (phoneInput && phoneInput.value) {
-                    phone = phoneInput.value;
-                }
-                
-                if (email || phone) {
-                    const userData = {};
-                    if (email) userData.email = email;
-                    if (phone) userData.phone_number = phone;
-                    
-                    if (typeof gtag === 'function') {
-                        gtag('set', 'user_data', userData);
-                    }
-                }
-            } catch (e) {
-                console.warn('Enhanced conversions error', e);
-            }
-        }
-        
-        // Вызываем при отправке формы
-        if (document.getElementById('submitToWhatsApp')) {
-            document.getElementById('submitToWhatsApp').addEventListener('click', setEnhancedUserData);
-        }
     </script>
+
+<script>
+document.addEventListener('scroll', function () {
+    const target = document.getElementById('calc-total');
+    const buttons = document.querySelector('.floating-buttons');
+    if (!target || !buttons) return;
+
+    const rect = target.getBoundingClientRect();
+    const triggerPoint = window.innerHeight * 0.7;
+
+    if (rect.top < triggerPoint) {
+        buttons.classList.add('is-visible');
+    } else {
+        buttons.classList.remove('is-visible');
+    }
+});
+</script>
+
 </body>
 </html>
