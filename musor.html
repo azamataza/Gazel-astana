@@ -1398,35 +1398,39 @@
 
                 <label class="calc-label">Тип мусора</label>
                 <select class="calc-select" id="type">
+                    <option value="" selected disabled>Выберите тип мусора</option>
                     <option value="mattress">Матрасы, тумбочки, телевизоры</option>
-                    <option value="furniture" selected>Крупная мебель и техника</option>
+                    <option value="furniture">Крупная мебель и техника</option>
                     <option value="construction">Строительный мусор</option>
                     <option value="mixed">Смешанный мусор</option>
                 </select>
 
                 <label class="calc-label">Подача машины</label>
                 <select class="calc-select" id="delivery">
-                    <option value="street" selected>К подъезду</option>
+                    <option value="" selected disabled>Выберите подачу машины</option>
+                    <option value="street">К подъезду</option>
                     <option value="parking">В паркинг / крытый</option>
                 </select>
 
                 <label class="calc-label">Количество грузчиков</label>
                 <select class="calc-select" id="workers">
+                    <option value="" selected disabled>Выберите количество грузчиков</option>
                     <option value="0">0 грузчиков (вынос клиентом)</option>
                     <option value="1">1 грузчик</option>
-                    <option value="2" selected>2 грузчика</option>
-                    <option value="3">3 грузчика</option>
+                    <option value="2">2 грузчика</option>
+                    <option value="">3 грузчика</option>
                     <option value="4">4+ грузчика</option>
                 </select>
 
                 <label class="calc-label">Наличие лифта</label>
                 <select class="calc-select" id="elevator">
-                    <option value="yes" selected>Есть лифт</option>
+                    <option value="" selected disabled>Выберите наличие лифта</option>
+                    <option value="yes">Есть лифт</option>
                     <option value="no">Нет лифта</option>
                 </select>
 
                 <label class="calc-label" id="floorLabel">Этажи без лифта</label>
-                <input type="number" class="calc-input" id="floor" value="3" min="1" max="30">
+                <input type="number" class="calc-input" id="floor" value="" min="1" max="30">
 
                 <div class="calc-check">
                     <label>
@@ -1452,7 +1456,7 @@
                 </div>
 
                 <div class="calc-total" id="calc-total">
-                    Примерная стоимость: <span id="price">0</span> ₸
+                    Примерная стоимость: <span id="price">—</span> ₸
                 </div>
             </div>
         </div>
@@ -1829,7 +1833,7 @@
                             <label for="objectType" class="form-label">Тип мусора</label>
                             <select id="objectType" class="form-select">
                                 <option value="bytovoy">Бытовой (старая мебель, вещи)</option>
-                                <option value="stroitelniy" selected>Строительный (ремонт)</option>
+                                <option value="stroitelniy">Строительный (ремонт)</option>
                                 <option value="gabaritniy">Габаритный (крупногабаритный)</option>
                                 <option value="zeleniy">Зеленый (ветки, трава)</option>
                                 <option value="drugoy">Другой</option>
