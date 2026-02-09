@@ -3029,6 +3029,7 @@ function leadConversion() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+
   // All phone clicks
   document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
     el.addEventListener('click', leadConversion);
@@ -3038,8 +3039,34 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(el){
     el.addEventListener('click', leadConversion);
   });
+
+  // 🔥 Hover с задержкой 500мс (1 раз)
+  var headerPhone = document.querySelector('.header-phone');
+  if (headerPhone) {
+
+    let hoverTracked = false;
+    let hoverTimer;
+
+    headerPhone.addEventListener('mouseenter', function() {
+
+      hoverTimer = setTimeout(function() {
+        if (!hoverTracked) {
+          hoverTracked = true;
+          leadConversion();
+        }
+      }, 500); // задержка 500мс
+
+    });
+
+    headerPhone.addEventListener('mouseleave', function() {
+      clearTimeout(hoverTimer); // если мышь ушла раньше 500мс — не считаем
+    });
+
+  }
+
 });
 </script>
+
     
 </body>
 
