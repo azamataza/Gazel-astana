@@ -1418,7 +1418,7 @@
                     <option value="0">0 грузчиков (вынос клиентом)</option>
                     <option value="1">1 грузчик</option>
                     <option value="2">2 грузчика</option>
-                    <option value="">3 грузчика</option>
+                    <option value="3">3 грузчика</option>
                     <option value="4">4+ грузчика</option>
                 </select>
 
@@ -1976,8 +1976,8 @@
             const priceEl = document.getElementById('price');
             const warning = document.getElementById('warning');
             const warningText = document.getElementById('warning-text');
-            const calculateBtn = document.getElementById('calculate-btn');
-            const whatsappBtn = document.getElementById('whatsapp-btn');
+            
+            
 
             // Скрываем поле этажей если есть лифт
             function toggleFloorField() {
@@ -2013,11 +2013,19 @@
 
             // Функция расчёта стоимости
             function calculatePrice() {
-                let price = 0;
                 const typeValue = type.value;
-                const workersValue = parseInt(workers.value);
                 const deliveryValue = delivery.value;
+                const workersValueRaw = workers.value;
                 const elevatorValue = elevator.value;
+
+                // Если что-то не выбрано — ничего не считаем
+                if (!typeValue || !deliveryValue || !workersValueRaw || !elevatorValue) {
+                    return 0;
+                }
+
+                const workersValue = parseInt(workersValueRaw);
+
+                let price = 0;
                 const floorValue = parseInt(floor.value) || 3;
 
                 // Базовая стоимость в зависимости от типа
@@ -2050,6 +2058,11 @@
             // Функция обновления отображения цены
             function updatePrice() {
                 const price = calculatePrice();
+                if (price === 0) {
+                    priceEl.textContent = '—';
+                    warning.classList.remove('show');
+                    return;
+                }
                 priceEl.textContent = price.toLocaleString('ru-RU');
                 updateWarning();
             }
@@ -2060,35 +2073,10 @@
             });
 
             // Кнопка рассчитать
-            calculateBtn.addEventListener('click', updatePrice);
+            
 
             // Кнопка WhatsApp
-            whatsappBtn.addEventListener('click', function() {
-                const price = calculatePrice();
-                const workersText = workers.options[workers.selectedIndex].text;
-                const typeText = type.options[type.selectedIndex].text;
-                const deliveryText = delivery.options[delivery.selectedIndex].text;
-                const elevatorText = elevator.value === 'yes' ? 'Есть лифт' : `Нет лифта (${floor.value} этаж)`;
-
-                let message = `Здравствуйте! Рассчитал стоимость вывоза мусора:\n\n`;
-                message += `Тип: ${typeText}\n`;
-                message += `Подача: ${deliveryText}\n`;
-                message += `Грузчики: ${workersText}\n`;
-                message += `Лифт: ${elevatorText}\n`;
-
-                if (demolition.checked) message += `Демонтаж: да\n`;
-                if (packaging.checked) message += `Упаковка: да\n`;
-                if (infected.checked) message += `Заражённая мебель: да\n`;
-
-                message += `\nПримерная стоимость: ${price.toLocaleString('ru-RU')} ₸\n`;
-                message += `\nПожалуйста, уточните точную стоимость.`;
-
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/77010120300?text=${encodedMessage}`, '_blank');
-                
-                // Трекинг
-                trackWhatsApp('calculator');
-            });
+            
 
             // Первоначальный расчёт
             updatePrice();
