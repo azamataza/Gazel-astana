@@ -2241,6 +2241,68 @@ document.addEventListener('scroll', function () {
     }
 });
 </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  let conversionSent = false; // защита от дублей
+
+  function safePhoneTrack(source) {
+    if (conversionSent) return;
+    conversionSent = true;
+
+    if (typeof trackPhoneCall === 'function') {
+      trackPhoneCall(source);
+    }
+  }
+
+  function safeWhatsAppTrack(source) {
+    if (conversionSent) return;
+    conversionSent = true;
+
+    if (typeof trackWhatsApp === 'function') {
+      trackWhatsApp(source);
+    }
+  }
+
+  // Автоматический трекинг всех tel:
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      safePhoneTrack('auto');
+    });
+  });
+
+  // Автоматический трекинг всех WhatsApp
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      safeWhatsAppTrack('auto');
+    });
+  });
+
+  // Hover 500мс на номер в шапке
+  var headerPhone = document.querySelector('.header-phone');
+  if (headerPhone) {
+
+    let hoverTracked = false;
+    let hoverTimer;
+
+    headerPhone.addEventListener('mouseenter', function() {
+      hoverTimer = setTimeout(function() {
+        if (!hoverTracked) {
+          hoverTracked = true;
+          safePhoneTrack('hover_500ms');
+        }
+      }, 500);
+    });
+
+    headerPhone.addEventListener('mouseleave', function() {
+      clearTimeout(hoverTimer);
+    });
+
+  }
+
+});
+</script>
+
    
 </body>
 </html>
