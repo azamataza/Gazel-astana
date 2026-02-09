@@ -3040,6 +3040,106 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+    <script>
+// Трекинг конверсий при наведении курсора на телефонные ссылки
+document.addEventListener('DOMContentLoaded', function() {
+    // Функция для отправки конверсии при наведении
+    function trackHoverConversion(event) {
+        const phoneType = event.target.getAttribute('data-phone-type') || 'hover_general';
+        
+        // Отправляем событие в Google Ads
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                'value': 0.5, // Можно поставить меньшую ценность для hover
+                'currency': 'KZT',
+                'phone_type': phoneType,
+                'interaction_type': 'hover'
+            });
+            
+            // Также отправляем в GA4
+            gtag('event', 'hover_contact', {
+                'method': 'phone_hover',
+                'phone_type': phoneType,
+                'location': 'website'
+            });
+        }
+        
+        // Чтобы не дублировать события - отслеживаем только первое наведение
+        event.target.removeEventListener('mouseenter', trackHoverConversion);
+    }
+    
+    // Находим все телефонные ссылки
+    const phoneLinks = document.querySelectorAll("a[href^='tel:'], a.cta-button, .header-phone, .contact-call-button");
+    
+    // Добавляем обработчики наведения для каждой ссылки
+    phoneLinks.forEach(link => {
+        // Только если это телефонная ссылка или CTA кнопка
+        if (link.href && (link.href.includes('tel:') || link.classList.contains('cta-button'))) {
+            link.addEventListener('mouseenter', trackHoverConversion, { once: true });
+        }
+    });
+    
+    // Для мобильных устройств добавляем обработчик touchstart (касание)
+    phoneLinks.forEach(link => {
+        if (link.href && (link.href.includes('tel:') || link.classList.contains('cta-button'))) {
+            link.addEventListener('touchstart', function(e) {
+                // Предотвращаем стандартное поведение
+                e.preventDefault();
+                
+                // Отправляем событие конверсии
+                const phoneType = link.getAttribute('data-phone-type') || 'touch_general';
+                
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                        'value': 0.5,
+                        'currency': 'KZT',
+                        'phone_type': phoneType,
+                        'interaction_type': 'touch'
+                    });
+                    
+                    gtag('event', 'touch_contact', {
+                        'method': 'phone_touch',
+                        'phone_type': phoneType,
+                        'location': 'website'
+                    });
+                }
+                
+                // После небольшой задержки выполняем реальный переход (если это ссылка)
+                setTimeout(() => {
+                    if (link.href.includes('tel:')) {
+                        window.location.href = link.href;
+                    }
+                }, 300);
+            }, { passive: false });
+        }
+    });
+});
+
+// Дополнительно: трекинг наведения на кнопки WhatsApp
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappButtons = document.querySelectorAll("a[href*='wa.me'], .whatsapp-cta-button");
+    
+    whatsappButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                    'value': 0.5,
+                    'currency': 'KZT',
+                    'interaction_type': 'whatsapp_hover'
+                });
+                
+                gtag('event', 'hover_whatsapp', {
+                    'method': 'whatsapp',
+                    'location': 'website'
+                });
+            }
+        }, { once: true });
+    });
+});
+</script>
 </body>
 
 </html>
