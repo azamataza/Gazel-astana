@@ -2019,14 +2019,19 @@
                 const elevatorValue = elevator.value;
 
                 // Если что-то не выбрано — ничего не считаем
-                if (!typeValue || !deliveryValue || !workersValueRaw || !elevatorValue) {
+                if (!typeValue || !deliveryValue || !workersValueRaw) {
+                    return 0;
+                }
+
+                // Если есть грузчики — лифт обязателен
+                if (parseInt(workersValueRaw) > 0 && !elevatorValue) {
                     return 0;
                 }
 
                 const workersValue = parseInt(workersValueRaw);
 
                 let price = 0;
-                const floorValue = parseInt(floor.value) || 3;
+                const floorValue = parseInt(floor.value);
 
                 // Базовая стоимость в зависимости от типа
                 if (typeValue === 'mattress') {
@@ -2042,7 +2047,8 @@
                 }
                 
                 // Этажи без лифта
-                if (elevatorValue === 'no') {
+                // Этажи считаем только если есть грузчики
+                if (workersValue > 0 && elevatorValue === 'no' && floorValue > 0) {
                     price += floorValue * 2000;
                 }
                 
