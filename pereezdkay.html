@@ -2200,5 +2200,23 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
    
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const phone = document.querySelector('.header-phone');
+    if (phone) {
+        phone.addEventListener('mouseenter', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                    'value': 1.0,
+                    'currency': 'KZT'
+                });
+            }
+        }, { once: true });
+    }
+});
+</script>
+
 </body>
 </html>
