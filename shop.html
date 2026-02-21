@@ -3,491 +3,963 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Магазин упаковки | Gruzim.kz</title>
-    <meta name="description" content="Магазин упаковки для переезда: коробки, сумки, пленка, скотч. Доставка по Астане.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <title>Магазин упаковки для переезда — Коробки, плёнка, скотч | Gruzim.kz</title>
+    <meta name="description" content="✅ Магазин упаковки для переезда в Астане. Коробки, стрейч-плёнка, скотч, сумки. Доставка по городу. Всё для Вашего переезда.">
+    <meta name="keywords" content="магазин упаковки Астана, коробки для переезда, стрейч пленка, пузырчатая пленка, скотч купить, упаковка для вещей">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gruzim.kz/shop.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Магазин упаковки для переезда | Gruzim.kz">
+    <meta property="og:description" content="Коробки, плёнка, скотч и сумки для переезда. Доставка по Астане.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gruzim.kz/shop.html">
+    <meta property="og:image" content="https://gruzim.kz/images/og-shop.jpg">
+    <meta property="og:site_name" content="Gruzim.kz">
+
+    <!-- Favicon (как в pereezdkay) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#1a237e">
+
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      // Основная конфигурация Google Ads
-      gtag('config', 'AW-17503887977', {'phone_conversion_number': '+7 701 012 03 00'});
-      // Конфигурация Google Analytics 4
-      gtag('config', 'G-2VWS9V6KVJ');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2VWS9V6KVJ');
+        gtag('config', 'AW-17503887977', {'phone_conversion_number': '+77010120300'});
     </script>
 
+    <!-- Yandex.Metrika -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
         (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
         ym(104276494, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
     </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
     <style>
-        /* --- СТИЛИ СКОПИРОВАНЫ ИЗ INDEX.HTML (ШАПКА, ГЛАВНЫЙ БЛОК, ПОДВАЛ) --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.7; overflow-x: hidden; padding-top: 8px; }
-        
-        /* --- Плавающая шапка --- */
+        /* ===== ОБЩИЕ СТИЛИ (как в pereezdkay) ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-top: 70px; /* Под шапку */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* ===== ШАПКА (ТОЧНО КАК В pereezdkay) ===== */
         .floating-header {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(26, 35, 126, 0.95); backdrop-filter: blur(10px);
-            padding: 12px 20px; z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 35, 126, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
         .floating-header-content {
-            display: flex; align-items: center; justify-content: space-between;
-            width: 100%; max-width: 1200px; margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .floating-logo { height: 45px; width: auto; }
-        
-        /* Переключатель языка */
-        .language-switcher { display: flex; gap: 10px; }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .floating-logo {
+            height: 45px;
+            width: auto;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
         .lang-btn {
-            background: transparent; border: 1px solid rgba(255,255,255,0.3);
-            color: white; padding: 6px 15px; border-radius: 20px;
-            cursor: pointer; font-family: 'Montserrat', sans-serif;
-            font-size: 0.9em; transition: all 0.3s ease; text-decoration: none;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
-        .lang-btn:hover { background: rgba(255,255,255,0.1); border-color: #ff9900; }
-        .lang-btn.active { background: #ff9900; border-color: #ff9900; color: white; }
 
-        /* Навигация */
-        .main-nav { display: flex; gap: 18px; margin: 0 20px; font-family: 'Montserrat', sans-serif; }
-        .main-nav a { font-size: 0.95em; color: rgba(255, 255, 255, 0.9); text-decoration: none; position: relative; padding-bottom: 3px; transition: color 0.2s ease; }
-        .main-nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: #ff9900; transition: width 0.2s ease; }
-        .main-nav a:hover, .main-nav a.active { color: #ffffff; }
-        .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #ff9900;
+        }
 
-        /* Телефон */
-        .phone-wrap { position: relative; display: inline-block; }
-        .santa-hat { position: absolute; width: 32px; top: -14px; left: -18px; transform: rotate(-15deg); pointer-events: none; }
+        .lang-btn.active {
+            background: #ff9900;
+            border-color: #ff9900;
+            color: white;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 18px;
+            margin: 0 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .main-nav a {
+            font-size: 0.95em;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #ff9900;
+            transition: width 0.2s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #ffffff;
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .phone-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .santa-hat {
+            position: absolute;
+            width: 32px;
+            top: -14px;
+            left: -18px;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
         .header-phone {
-            color: white; font-family: 'Montserrat', sans-serif; font-weight: 600;
-            font-size: 1.1em; text-decoration: none; display: flex;
-            align-items: center; gap: 8px;
-        }
-        .header-phone:hover { color: #ff9900; }
-
-        /* --- Главный блок с фоном --- */
-        .hero-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fon.png') no-repeat center top/cover;
-            color: white; padding: 60px 20px; text-align: center;
-            position: relative; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            background-attachment: fixed; 
-            overflow: hidden; display: flex; flex-direction: column;
-            align-items: center; margin-bottom: 40px; 
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .header-content {
-            display: flex; flex-direction: column; align-items: center;
-            width: 100%; max-width: 1200px;
+        .header-phone:hover {
+            color: #ff9900;
         }
 
-        .hero-header h1 {
-            font-family: 'Montserrat', sans-serif; font-size: 2.8em;
-            margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-            animation: fadeInDown 1s ease-out;
+        .mobile-shop-link {
+            display: inline-block !important;
+            background: #ff9900;
+            color: #fff;
+            border-radius: 18px;
+            padding: 6px 12px;
+            box-shadow: 0 6px 18px rgba(255,153,0,0.35);
+            border: 1px solid rgba(255,255,255,0.15);
+            text-decoration: none;
+            font-weight: 700;
         }
 
-        .hero-header p {
-            font-size: 1.3em; opacity: 0.95; max-width: 700px;
-            margin: 0 auto 25px auto; animation: fadeInUp 1.2s ease-out 0.3s;
+        /* ===== HERO СЕКЦИЯ (в стиле pereezdkay) ===== */
+        .shop-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.png') no-repeat center center/cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: -70px;
+            padding-top: 150px;
+            margin-bottom: 40px;
         }
-        
-        /* Кнопка */
-        .cta-button {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: linear-gradient(135deg, #ffb347, #ff9900);
-            color: white; padding: 15px 35px; border-radius: 50px;
-            text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700;
-            font-size: 1.2em; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: pulse-orange 2s infinite alternate;
+
+        .shop-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        .cta-button i {
+
+        .shop-hero h1 span {
+            color: #ff9900;
+        }
+
+        .shop-hero p {
             font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
         }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .hero-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-feature i {
+            color: #ff9900;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff9900;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
         .cta-button:hover {
-            background-color: #e68a00; transform: translateY(-3px);
+            background-color: #e68a00;
+            transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* --- ПОДВАЛ --- */
-        footer {
-            background-color: #212529; color: white; padding: 30px;
-            font-size: 0.9em; box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        .cta-button i {
+            margin-right: 8px;
         }
+
+        /* ===== КАТЕГОРИИ И КАРТОЧКИ ТОВАРОВ ===== */
+        .category-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: #1a237e;
+            margin: 50px 0 30px;
+            position: relative;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ff9900;
+            display: inline-block;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid #e0e0e0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card.out-of-stock {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .product-card.out-of-stock::after {
+            content: "Нет в наличии";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .product-image {
+            height: 180px;
+            background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #1a237e;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            color: #1a237e;
+            font-weight: 700;
+        }
+
+        .product-desc {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.4em;
+            color: #ff9900;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .add-controls {
+            margin-top: auto;
+            height: 45px;
+        }
+
+        .btn-add-initial {
+            background-color: #1a237e;
+            color: white;
+            border: none;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+        }
+
+        .btn-add-initial:hover:not(:disabled) {
+            background-color: #0f165a;
+        }
+
+        .btn-add-initial:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+
+        .qty-controls-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f0f4f8;
+            border-radius: 8px;
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid #1a237e;
+        }
+
+        .qty-btn-card {
+            width: 35%;
+            height: 100%;
+            border: none;
+            background: #1a237e;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .qty-btn-card:hover {
+            background: #0f165a;
+        }
+
+        .qty-val-card {
+            flex-grow: 1;
+            text-align: center;
+            font-weight: 700;
+            color: #1a237e;
+            font-size: 1.1em;
+        }
+
+        /* ===== КОРЗИНА ===== */
+        .cart-float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #ff9900;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.3s;
+            animation: pulse-orange 2s infinite alternate;
+        }
+
+        .cart-float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #d32f2f;
+            color: white;
+            font-size: 0.6em;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        .cart-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .cart-modal-overlay.active {
+            display: flex;
+        }
+
+        .cart-modal {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 25px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .close-cart {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-cart:hover {
+            color: #000;
+        }
+
+        .cart-items {
+            overflow-y: auto;
+            flex-grow: 1;
+            margin: 20px 0;
+            max-height: 400px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            gap: 10px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            color: #1a237e;
+        }
+
+        .cart-item-price {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-item-controls button {
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            border: none;
+            background: #eee;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .cart-item-controls button:hover {
+            background: #ddd;
+        }
+
+        .cart-item-sum {
+            width: 70px;
+            text-align: right;
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+        .cart-total {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: right;
+            margin-bottom: 15px;
+            color: #ff9900;
+        }
+
+        .whatsapp-checkout-btn {
+            background-color: #25D366;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+            transition: background 0.3s;
+        }
+
+        .whatsapp-checkout-btn:hover {
+            background-color: #1DA851;
+        }
+
+        #checkout-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #checkout-form input:focus {
+            outline: none;
+            border-color: #ff9900;
+        }
+
+        /* ===== SEO БЛОК ===== */
+        .seo-article {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .seo-article h2 {
+            color: #1a237e;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .seo-article h3 {
+            color: #1a237e;
+            margin: 30px 0 15px;
+        }
+
+        .seo-article ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+
+        .seo-article li {
+            margin-bottom: 8px;
+        }
+
+        /* ===== ПОДВАЛ (как в pereezdkay) ===== */
+        footer {
+            background-color: #212529;
+            color: white;
+            padding: 40px 20px;
+            font-size: 0.9em;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
         .footer-inner {
-            max-width: 1100px; margin: 0 auto; display: grid;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
+            align-items: flex-start;
         }
-        .footer-col h4 { margin-bottom: 8px; color: #ffffff; }
-        .footer-col a { color: #007bff; text-decoration: none; display: block; margin-bottom: 5px; }
-        .footer-col a:hover { text-decoration: underline; }
-        .footer-logo { max-height: 40px; margin-bottom: 10px; }
 
-        /* --- Анимации --- */
+        .footer-logo {
+            max-height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            margin: 0 0 6px;
+            font-size: 0.95em;
+        }
+
+        .footer-years {
+            margin: 0;
+            font-size: 0.88em;
+            color: #9fa8da;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 8px;
+            font-size: 1.02em;
+            color: #ffffff;
+        }
+
+        .footer-col p {
+            margin: 3px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-col a {
+            color: #ffcc80;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            margin-top: 8px;
+            font-size: 0.86em;
+            color: #b0bec5;
+        }
+
+        footer i {
+            margin-right: 6px;
+            font-size: 0.95em;
+        }
+
+        /* ===== АНИМАЦИИ ===== */
         @keyframes pulse-orange {
             0% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); }
             100% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); }
         }
-        @keyframes fadeInDown { from { opacity: 0; transform: translate3d(0, -20%, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translate3d(0, 20%, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
-        
-        /* --- Mobile-specific shop link & logo highlight --- */
-@media (max-width: 480px) {
-    .mobile-shop-link { display: inline-block !important; background: #ff9900; color: #fff; border-radius: 18px; padding: 6px 12px; box-shadow: 0 6px 18px rgba(255,153,0,0.35); border: 1px solid rgba(255,255,255,0.15); }
-    .floating-logo { box-shadow: 0 6px 20px rgba(0,0,0,0.25); border-radius: 8px; border: 2px solid rgba(255,255,255,0.12); }
-    /* Hide the duplicate large logo inside the header with background on small screens */
-    .hero-header .header-logo { display: none !important; }
-}
 
-
-
-
-/* --- UI improvements added automatically --- */
-/* Ensure floating header sits above other header elements */
-.floating-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1050;
-}
-
-/* Highlight logo and store badge on blue background for mobile */
-.header-logo {
-    display: inline-block;
-    padding: 6px 8px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(2px);
-}
-.store-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.12);
-    font-weight: 600;
-}
-
-/* slightly larger touch targets on mobile */
-@media (max-width: 768px) {
-    .header-logo, .store-badge {
-        padding: 8px 10px;
-    }
-    /* make sure header content isn't hidden under floating header */
-    body { padding-top: 64px; }
-}
-
-
-
-/* ======================================= */
-        /* --- МАГАЗИННЫЕ СТИЛИ --- */
-        /* ======================================= */
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
-        
-        .category-title {
-            font-family: 'Montserrat', sans-serif; font-size: 1.8em; color: #1a237e;
-            margin: 40px 0 20px; border-bottom: 3px solid #ff9900; display: inline-block; padding-bottom: 5px;
+        /* ===== АДАПТИВНОСТЬ (как в pereezdkay) ===== */
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
         }
 
-        .products-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;
-        }
-
-        /* Карточка товара */
-        .product-card {
-            background: white; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08); border: 1px solid #e0e0e0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex; flex-direction: column; position: relative;
-        }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
-        
-        /* Стиль для "Нет в наличии" */
-        .product-card.out-of-stock { opacity: 0.7; pointer-events: none; }
-        .product-card.out-of-stock::after {
-            content: "Нет в наличии"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-10deg);
-            background: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 1.2em; z-index: 10;
-        }
-        
-        /* Специальный стиль для наборов, чтобы описание вмещало список */
-        .product-card.kit-card .product-desc { font-size: 0.85em; }
-        .product-card.kit-card .product-image { background-color: #fff3e0; color: #e68a00; }
-
-        .product-image {
-            height: 180px; background-color: #eef3fb;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 4em; color: #1a237e;
-        }
-
-        .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .product-title { font-family: 'Montserrat', sans-serif; font-size: 1.2em; margin-bottom: 8px; color: #1a237e; font-weight: 700; }
-        .product-desc { font-size: 0.95em; color: #555; margin-bottom: 15px; flex-grow: 1; }
-        .product-price { font-size: 1.3em; color: #ff9900; font-weight: 700; margin-bottom: 15px; }
-        
-        /* Контролы добавления (Счетчик на карточке) */
-        .add-controls { margin-top: auto; height: 45px; }
-        
-        .btn-add-initial {
-            background-color: #1a237e; color: white; border: none; width: 100%; height: 100%;
-            border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Montserrat', sans-serif;
-        }
-        .btn-add-initial:hover { background-color: #0f165a; }
-
-        .qty-controls-card {
-            display: flex; align-items: center; justify-content: space-between;
-            background: #f0f4f8; border-radius: 8px; height: 100%; overflow: hidden;
-            border: 1px solid #1a237e; display: none; /* Скрыто по умолчанию */
-        }
-        .qty-btn-card {
-            width: 35%; height: 100%; border: none; background: #1a237e; color: white;
-            font-size: 1.2em; cursor: pointer; font-weight: bold;
-        }
-        .qty-val-card {
-            flex-grow: 1; text-align: center; font-weight: 700; color: #1a237e; font-size: 1.1em;
-        }
-
-        /* --- КОРЗИНА (Плавающая кнопка и модалка) --- */
-        .cart-float-btn {
-            position: fixed; bottom: 30px; right: 30px;
-            background-color: #ff9900; color: white;
-            width: 70px; height: 70px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2em; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1050; 
-            transition: transform 0.2s;
-            animation: pulse-orange 2s infinite alternate;
-        }
-        .cart-badge {
-            position: absolute; top: 0; right: 0;
-            background-color: #d32f2f; color: white;
-            font-size: 0.6em; width: 24px; height: 24px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: bold; border: 2px solid white;
-        }
-
-        .cart-modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7); z-index: 2000;
-            justify-content: center; align-items: center; padding: 20px;
-        }
-        .cart-modal-overlay.active { display: flex; }
-        .cart-modal {
-            background: white; width: 100%; max-width: 500px; border-radius: 15px;
-            padding: 25px; max-height: 90vh; display: flex; flex-direction: column;
-            position: relative;
-        }
-        .close-cart { position: absolute; top: 15px; right: 15px; font-size: 1.5em; cursor: pointer; }
-        .cart-items { overflow-y: auto; flex-grow: 1; margin: 20px 0; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 10px 0; }
-        
-        .whatsapp-checkout-btn {
-            background-color: #25D366; color: white; width: 100%; padding: 15px;
-            border: none; border-radius: 50px; font-size: 1.1em; font-weight: 700;
-            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
-        }
-        
-        /* ------------------------------------------------ */
-        /* --- ИСПРАВЛЕННАЯ АДАПТИВНОСТЬ ДЛЯ ШАПКИ --- */
-        /* ------------------------------------------------ */
         @media (max-width: 768px) {
-            .main-nav { display: none; }
-            .floating-header { padding: 8px 15px; }
-            .header-phone { display: none; } /* Телефон скрываем */
-            
-            /* Обеспечиваем центрирование и горизонтальное расположение элементов */
-            .floating-header-content { justify-content: center; flex-direction: row; } 
-            
-            .hero-header h1 { font-size: 2em; }
-            .hero-header p { font-size: 1.1em; }
-            
-            /* Логотип и переключатель языка остаются в одной строке */
-            .header-left { flex-direction: row; align-items: center; gap: 15px; } 
-            
-            .language-switcher { margin-top: 0; }
+            body {
+                padding-top: 70px;
+            }
+
+            .floating-header-content {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .shop-hero {
+                padding: 120px 15px 60px;
+            }
+
+            .shop-hero h1 {
+                font-size: 2.2em;
+            }
+
+            .shop-hero p {
+                font-size: 1.1em;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-feature {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .category-title {
+                font-size: 1.8em;
+            }
+
+            .products-grid {
+                gap: 20px;
+            }
+
+            .cart-float-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8em;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .seo-article {
+                padding: 30px 20px;
+            }
         }
-        
+
         @media (max-width: 480px) {
-            /* СТИЛИ ДЛЯ ШАПКИ */
-            .floating-header-content { flex-direction: column; justify-content: center; gap: 8px; } 
-            .header-left { justify-content: center; width: 100%; flex-direction: row; align-items: center; }
-            .floating-logo { height: 30px; }
-            .lang-btn { padding: 4px 12px; font-size: 0.8em; } /* Более компактные кнопки языка */
+            .header-left {
+                gap: 10px;
+            }
 
-            /* СТИЛИ ДЛЯ ГЛАВНОГО БЛОКА */
-            .hero-header h1 { font-size: 1.8em; }
-            .hero-header p { font-size: 0.9em; }
+            .lang-btn {
+                padding: 4px 10px;
+                font-size: 0.8em;
+            }
 
-            /* СТИЛИ ДЛЯ КОРЗИНЫ */
-            .cart-float-btn { width: 55px; height: 55px; font-size: 1.5em; bottom: 20px; right: 20px; }
+            .floating-logo {
+                height: 35px;
+            }
 
-            /* СТИЛИ ДЛЯ ТОВАРОВ (LIST VIEW) */
-            .products-grid { display: block; gap: 0; }
-            .product-card { flex-direction: row; margin-bottom: 15px; padding: 0; border-radius: 10px; }
-            .product-image { height: 120px; min-width: 120px; font-size: 2.5em; border-radius: 10px 0 0 10px; }
-            .product-info { padding: 10px 15px; display: grid; grid-template-areas: "title price" "desc desc" "controls controls"; grid-template-columns: 1fr auto; gap: 5px; align-items: center; }
-            .product-title { font-size: 1.1em; margin-bottom: 0; grid-area: title; text-align: left; }
-            .product-desc { display: none; font-size: 0.85em; color: #777; grid-area: desc; }
-            .product-card.kit-card .product-info { grid-template-areas: "title title" "desc desc" "controls controls"; }
-            .product-card.kit-card .product-desc { display: block; margin-bottom: 5px; }
-            .product-price { font-size: 1.1em; margin-bottom: 0; grid-area: price; }
-            .add-controls { height: 35px; grid-area: controls; }
-            .qty-val-card, .qty-btn-card { font-size: 1em; }
+            .shop-hero h1 {
+                font-size: 1.8em;
+            }
+
+            .shop-hero p {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            .category-title {
+                font-size: 1.5em;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                flex-direction: row;
+                margin-bottom: 15px;
+            }
+
+            .product-image {
+                height: 120px;
+                min-width: 120px;
+                font-size: 2.5em;
+                border-radius: 15px 0 0 15px;
+            }
+
+            .product-info {
+                padding: 15px;
+            }
+
+            .product-title {
+                font-size: 1.1em;
+            }
+
+            .product-desc {
+                display: none;
+            }
+
+            .product-price {
+                font-size: 1.2em;
+            }
+
+            .add-controls {
+                height: 40px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
         }
-
-    
-/* --- Footer enhanced layout --- */
-    footer {
-        background: #10163a;
-        color: #c5cae9;
-        padding: 25px 20px;
-        margin-top: 40px;
-    }
-
-    .footer-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        align-items: flex-start;
-    }
-
-    .footer-logo {
-        max-height: 40px;
-        margin-bottom: 10px;
-    }
-
-    .footer-tagline {
-        margin: 0 0 6px;
-        font-size: 0.95em;
-    }
-
-    .footer-years {
-        margin: 0;
-        font-size: 0.88em;
-        color: #9fa8da;
-    }
-
-    .footer-col h4 {
-        margin-bottom: 8px;
-        font-size: 1.02em;
-        color: #ffffff;
-    }
-
-    .footer-col p {
-        margin: 3px 0;
-        font-size: 0.9em;
-    }
-
-    .footer-col a {
-        color: #ffcc80;
-        text-decoration: none;
-    }
-
-    .footer-col a:hover {
-        text-decoration: underline;
-    }
-
-    .footer-note {
-        margin-top: 8px;
-        font-size: 0.86em;
-        color: #b0bec5;
-    }
-
-    footer i {
-        margin-right: 6px;
-        font-size: 0.95em;
-    }
-
-    @media (max-width: 480px) {
-        footer {
-            padding: 20px 15px;
-        }
-    }
-
-    
-
-</style>
-
-<style>
-/* FIX: опускаем первый блок под шапкой на десктопе */
-@media (min-width: 992px) {
-    header + section,
-    header + .hero,
-    .hero,
-    .hero-content,
-    main > section:first-of-type {
-        margin-top: 80px !important;
-    }
-}
-</style>
-
+    </style>
 </head>
 <body>
-    
+
+    <!-- ===== ШАПКА (точная копия pereezdkay) ===== -->
     <header class="floating-header">
         <div class="floating-header-content">
             <div class="header-left">
-                <a href="index.html"><img src="Logo.png" alt="Логотип Gruzim.kz" class="floating-logo"></a>
+                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo"></a>
                 <div class="language-switcher">
-                    <a href="shop.html" class="lang-btn active">РУС</a>
-                    <a href="shopkz.html" class="lang-btn">ҚАЗ</a>
+                    <a href="shop.html" class="lang-btn active">Магазин</a>
+                    <a href="pereezd-pod-klyuch.html" class="lang-btn">Переезд</a>
                 </div>
             </div>
             <nav class="main-nav">
-                <a href="index.html#services">Услуги</a>
-                <a href="index.html#features">Почему мы</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="index.html#legal-entities">Для юр. лиц</a>
-                <a href="index.html#contact">Контакты</a>
+                <a href="#categories">Категории</a>
+                <a href="#popular">Популярное</a>
+                <a href="#delivery">Доставка</a>
+                <a href="#faq">Вопросы</a>
             </nav>
-            <a href="index.html" class="lang-btn shop-link mobile-shop-link" style="margin-top:8px; font-weight:700;">НА ГЛАВНУЮ</a>
+            <a href="index.html" class="lang-btn mobile-shop-link">НА ГЛАВНУЮ</a>
             <span class="phone-wrap">
-                <a href="tel:+7 701 012 03 00" onclick="ym(104276494,'reachGoal','klik_telefon');" class="header-phone" data-phone-type="floating-header">
-                    <i class="fas fa-phone"></i>
-                    +7 701 012 03 00
+                <a href="tel:+77010120300" class="header-phone" onclick="trackPhoneCall('shop_header')">
+                    <i class="fas fa-phone"></i> +7 701 012 03 00
                 </a>
-                </span>
+                <img src="santa_hat.png" class="santa-hat" alt="">
+            </span>
         </div>
     </header>
 
-    <header class="hero-header">
-        <div class="header-content">
-            <div class="header-top">
-                </div>
-            <h1>Магазин упаковки для переезда</h1>
-            <p>Все необходимое для переезда в одном месте: коробки, скотч, пленка и сумки. Доставка по Астане 2500 тенге.</p>
-            <a href="index.html" class="cta-button">
-                <i class="fas fa-truck-moving"></i>
-                Перевозки
+    <!-- ===== HERO СЕКЦИЯ ===== -->
+    <section class="shop-hero">
+        <div class="container" style="padding-bottom: 0;">
+            <h1 data-aos="fade-up">Магазин <span>упаковки</span> для переезда</h1>
+            <p data-aos="fade-up" data-aos-delay="100">
+                Всё необходимое для безопасного переезда: коробки, плёнка, скотч и сумки.
+                Доставка по Астане от 2500 ₸.
+            </p>
+            <div class="hero-features" data-aos="fade-up" data-aos-delay="200">
+                <div class="hero-feature"><i class="fas fa-box"></i> <span>Коробки всех размеров</span></div>
+                <div class="hero-feature"><i class="fas fa-tape"></i> <span>Скотч и плёнка</span></div>
+                <div class="hero-feature"><i class="fas fa-truck"></i> <span>Быстрая доставка</span></div>
+            </div>
+            <a href="#categories" class="cta-button" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-arrow-down"></i> Выбрать упаковку
             </a>
         </div>
-    </header>
+    </section>
 
-    <div class="container" id="shop-container">
-        </div>
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ МАГАЗИНА ===== -->
+    <div class="container" id="shop-container"></div>
 
+    <!-- ===== SEO БЛОК ===== -->
+    <section class="seo-article container" id="about">
+        <h2>Упаковка для переезда в Астане</h2>
+        <p>
+            Качественная упаковка — залог сохранности ваших вещей при перевозке. В нашем магазине
+            представлен полный ассортимент материалов для упаковки: от картонных коробок до
+            воздушно-пузырьковой плёнки.
+        </p>
+        <h3>Что мы предлагаем?</h3>
+        <ul>
+            <li><strong>Картонные коробки</strong> — различных размеров, усиленные, для посуды, книг, одежды.</li>
+            <li><strong>Стрейч-плёнка</strong> — для защиты мебели от пыли и царапин.</li>
+            <li><strong>Пузырчатая плёнка</strong> — для хрупких предметов (стекло, техника).</li>
+            <li><strong>Скотч и диспенсеры</strong> — для быстрой и надёжной упаковки.</li>
+            <li><strong>Сумки для переезда</strong> — прочные и вместительные.</li>
+        </ul>
+        <p>
+            Доставка осуществляется по Астане в удобное для вас время. Также возможен самовывоз.
+            Поможем рассчитать необходимое количество материалов под ваш объём вещей.
+        </p>
+    </section>
+
+    <!-- ===== КОРЗИНА ===== -->
     <div class="cart-float-btn" id="open-cart-btn">
         <i class="fas fa-shopping-cart"></i>
         <div class="cart-badge" id="cart-count">0</div>
@@ -496,19 +968,16 @@
     <div class="cart-modal-overlay" id="cart-modal">
         <div class="cart-modal">
             <span class="close-cart" id="close-cart-btn">&times;</span>
-            <h3 style="color: #1a237e; font-family: 'Montserrat';">Ваш заказ</h3>
-            
+            <h3 style="color: #1a237e;">Ваш заказ</h3>
             <div class="cart-items" id="cart-items-container">
-                <p style="text-align: center; color: #777; margin-top: 20px;">Корзина пуста 🛒</p>
+                <p style="text-align: center; color: #777;">Корзина пуста</p>
             </div>
-
-            <div style="font-size: 1.2em; font-weight: bold; text-align: right; margin-bottom: 15px; color: #ff9900;">
+            <div class="cart-total">
                 Итого: <span id="cart-total-price">0</span> ₸
             </div>
-
             <form id="checkout-form">
-                <input type="text" id="client-name" placeholder="Ваше имя" required style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
-                <input type="text" id="client-address" placeholder="Адрес доставки (доставка 2500 тенге)" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                <input type="text" id="client-name" placeholder="Ваше имя *" required>
+                <input type="text" id="client-address" placeholder="Адрес доставки *" required>
                 <button type="submit" class="whatsapp-checkout-btn">
                     <i class="fab fa-whatsapp"></i> Заказать в WhatsApp
                 </button>
@@ -516,167 +985,122 @@
         </div>
     </div>
 
-    
-<section class="section seo-article" style="text-align:justify; hyphens:auto; max-width:1200px; margin:0 auto;">
-  <div class="container">
-    <h2 style="text-align:center;">Где купить упаковку для переезда в Астане? Магазин надёжных материалов</h2>
-
-    <p>
-      Качественная упаковка — это до 90&nbsp;% сохранности ваших вещей при переезде.
-      Наш магазин упаковочных материалов в Астане предлагает всё необходимое
-      для защиты мебели, техники и личных предметов.
-    </p>
-
-    <h3>Наш ассортимент</h3>
-    <ul>
-      <li><strong>Картонные коробки.</strong> Различных размеров — от компактных для книг до больших для одежды.</li>
-      <li><strong>Воздушно‑пузырьковая плёнка.</strong> Незаменима для мониторов, телевизоров и хрупкого декора.</li>
-      <li><strong>Стрейч‑плёнка.</strong> Защищает обивку мебели от грязи и царапин при перевозке.</li>
-      <li><strong>Скотч и инструменты.</strong> Прочный упаковочный скотч и удобные диспенсеры для быстрой работы.</li>
-    </ul>
-
-    <h3>Почему стоит покупать у нас?</h3>
-    <p>
-      Вам не нужно искать коробки по супермаркетам или рынкам — всё можно заказать
-      в одном месте с доставкой по Астане. Мы подскажем оптимальное количество
-      упаковочных материалов под ваш объём вещей.
-    </p>
-
-    <p>
-      Правильная упаковка экономит место в машине, снижает риск повреждений
-      и позволяет сократить расходы на грузоперевозку.
-    </p>
-  </div>
-</section>
-
-<footer>
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer>
         <div class="footer-inner">
             <div class="footer-col">
-                <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo">
-                <p class="footer-tagline">Грузоперевозки по Астане и регионам Казахстана.</p>
-                <p class="footer-years">&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
+                <img src="Logo.png" alt="Gruzim.kz" class="footer-logo">
+                <p class="footer-tagline">Грузоперевозки и упаковка в Астане.</p>
+                <p class="footer-years">&copy; 2019-2025 gruzim.kz</p>
             </div>
             <div class="footer-col">
                 <h4>Контакты</h4>
-                <p><i class="fas fa-phone"></i> <a href="tel:+7 701 012 03 00" onclick="ym(104276494,'reachGoal','klik_telefon');">+7 701 012 03 00</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/+7 701 012 03 00">Написать в WhatsApp</a></p>
-                <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77010120300" onclick="trackPhoneCall('footer')">+7 701 012 03 00</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300" target="_blank" onclick="trackWhatsApp('footer')">Написать в WhatsApp</a></p>
+                <p><i class="fas fa-clock"></i> Ежедневно 8:00-22:00</p>
             </div>
             <div class="footer-col">
                 <h4>Информация</h4>
-                <p><a href="#privacy-policy-section" id="privacy-policy-link">Политика конфиденциальности</a></p>
-                <p><a href="#terms-of-service-section" id="terms-of-service-link">Условия использования</a></p>
-                <p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p>
+                <p><a href="#" onclick="alert('Политика конфиденциальности на главной странице')">Политика конфиденциальности</a></p>
+                <p><a href="#" onclick="alert('Условия использования на главной странице')">Условия использования</a></p>
+                <p class="footer-note">Безналичный расчет, договор</p>
             </div>
         </div>
     </footer>
 
-
+    <!-- ===== СКРИПТЫ ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // === 1. БАЗА ТОВАРОВ (С КАТЕГОРИЯМИ И НАЛИЧИЕМ) ===
+        // Инициализация AOS
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // Функции трекинга
+        function trackPhoneCall(source) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                    'value': 1.0,
+                    'currency': 'KZT'
+                });
+                gtag('event', 'phone_call', { 'method': 'phone', 'source': source });
+            }
+            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'phone_call_' + source);
+        }
+
+        function trackWhatsApp(source) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                    'value': 1.0,
+                    'currency': 'KZT'
+                });
+                gtag('event', 'whatsapp_click', { 'source': source });
+            }
+            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'whatsapp_click_' + source);
+        }
+
+        // База товаров
         const productsDB = [
-             {
-                category: "Наборы для переезда (Экономия!)",
+            {
+                category: "Наборы для переезда",
                 items: [
-                    { 
-                        id: 201, 
-                        name: "Набор ЭКОНОМ", 
-                        desc: "Для однокомнатной квартиры. Содержит: 10 коробок, 2 скотча, 5 м пузырчатой пленки, 1 стрейч-пленка,.", 
-                        price: 9500, 
-                        icon: "fa-box-archive", 
-                        inStock: true,
-                        kit: true // Метка для стиля карточки
-                    },
-                    { 
-                        id: 202, 
-                        name: "Набор СТАНДАРТ", 
-                        desc: "Для 2-3 комнатной квартиры. Содержит: 20 коробок, 5 скотчей, 10 м пузырчатой пленки, 1 стрейч-пленка.", 
-                        price: 17500, 
-                        icon: "fa-box-archive", 
-                        inStock: true,
-                        kit: true
-                    },
-                    { 
-                        id: 203, 
-                        name: "Набор МАКС", 
-                        desc: "Для большой квартиры/офиса. Содержит: 30 коробок, 8 скотчей, 20 м пузырчатой пленки, 2 стрейч-пленки.", 
-                        price: 28000, 
-                        icon: "fa-box-archive", 
-                        inStock: true,
-                        kit: true
-                    }
+                    { id: 201, name: "Набор ЭКОНОМ", desc: "Для 1-комнатной квартиры: 10 коробок, 2 скотча, 5м пузырчатой плёнки, стрейч", price: 9500, icon: "fa-box-archive", inStock: true },
+                    { id: 202, name: "Набор СТАНДАРТ", desc: "Для 2-3 комнат: 20 коробок, 5 скотчей, 10м плёнки, 2 стрейч", price: 17500, icon: "fa-box-archive", inStock: true },
+                    { id: 203, name: "Набор МАКСИ", desc: "Для больших квартир/офисов: 30 коробок, 8 скотчей, 20м плёнки, 3 стрейч", price: 28000, icon: "fa-box-archive", inStock: true }
                 ]
             },
             {
                 category: "Коробки картонные",
                 items: [
-                    { id: 1, name: "Коробка Малая (40x30x30)", desc: "Книги, посуда, мелочи. 3-слойный картон.", price: 400, icon: "fa-box", inStock: true },
-                    { id: 2, name: "Коробка Средняя (60x40x40)", desc: "Одежда, игрушки, кухонная утварь.", price: 600, icon: "fa-box-open", inStock: true },
-                    { id: 3, name: "Коробка Гардеробная", desc: "С перекладиной для одежды на вешалках.", price: 15000, icon: "fa-shirt", inStock: false },
-                    { id: 101, name: "Коробка Архивная", desc: "Для документов А4 с крышкой.", price: 550, icon: "fa-file-invoice", inStock: false } 
+                    { id: 1, name: "Коробка малая (40x30x30)", desc: "Для книг, посуды, мелочей. 3-слойный картон", price: 400, icon: "fa-box", inStock: true },
+                    { id: 2, name: "Коробка средняя (60x40x40)", desc: "Для одежды, игрушек, посуды", price: 600, icon: "fa-box-open", inStock: true },
+                    { id: 3, name: "Коробка большая (80x50x50)", desc: "Для объемных вещей, подушек, одеял", price: 900, icon: "fa-cube", inStock: true },
+                    { id: 4, name: "Коробка гардеробная", desc: "С перекладиной для одежды на вешалках", price: 1500, icon: "fa-shirt", inStock: false }
                 ]
             },
             {
                 category: "Сумки для переезда",
                 items: [
-                    { id: 4, name: "Сумка клетчатая (S)", desc: "Малая, для тяжелых вещей.", price: 800, icon: "fa-bag-shopping", inStock: false },
-                    { id: 5, name: "Сумка клетчатая (M)", desc: "Средняя, самый ходовой размер.", price: 1200, icon: "fa-bag-shopping", inStock: true },
-                    { id: 6, name: "Сумка клетчатая (L)", desc: "Огромная сумка для объемных вещей (подушки, одеяла).", price: 1500, icon: "fa-bag-shopping", inStock: false }
+                    { id: 5, name: "Сумка клетчатая малая", desc: "45л, для тяжелых вещей", price: 800, icon: "fa-bag-shopping", inStock: true },
+                    { id: 6, name: "Сумка клетчатая средняя", desc: "60л, универсальная", price: 1200, icon: "fa-bag-shopping", inStock: true },
+                    { id: 7, name: "Сумка клетчатая большая", desc: "100л, для одеял и подушек", price: 1500, icon: "fa-bag-shopping", inStock: true }
                 ]
             },
             {
                 category: "Упаковочные материалы",
                 items: [
-                    { id: 7, name: "Скотч прозрачный", desc: "Прочный, 100 метров намотка.", price: 400, icon: "fa-tape", inStock: true },
-                    { id: 8, name: "Стрейч-пленка (2 кг)", desc: "Первичка. Для мебели и фиксации.", price: 2200, icon: "fa-scroll", inStock: true },
-                    { id: 9, name: "Пузырчатая пленка", desc: "Для хрупкого. Цена за 1 метр.", price: 150, icon: "fa-soap", inStock: true }
-                ]
-            },
-            {
-                category: "Инструменты и прочее",
-                items: [
-                    { id: 10, name: "Нож канцелярский", desc: "Усиленный, с запасными лезвиями.", price: 500, icon: "fa-screwdriver", inStock: false },
-                    { id: 11, name: "Перчатки рабочие", desc: "С точками ПВХ, пара.", price: 200, icon: "fa-hand-paper", inStock: false },
-                    { id: 12, name: "Мешок строительный", desc: "Зеленый, для мусора (до 50кг).", price: 150, icon: "fa-sack-dollar", inStock: false }
+                    { id: 8, name: "Скотч прозрачный 48мм x 100м", desc: "Прочный, для заклейки коробок", price: 400, icon: "fa-tape", inStock: true },
+                    { id: 9, name: "Стрейч-плёнка 2кг", desc: "Для фиксации груза, защиты мебели", price: 2200, icon: "fa-scroll", inStock: true },
+                    { id: 10, name: "Пузырчатая плёнка 1м", desc: "Для хрупких предметов, цена за метр", price: 150, icon: "fa-soap", inStock: true }
                 ]
             }
         ];
 
-        // === 2. СОСТОЯНИЕ КОРЗИНЫ ===
-        let cart = {}; 
+        // Состояние корзины
+        let cart = {};
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderShop();
-            updateCartUI();
-        });
-
-        // === 3. ОТРИСОВКА МАГАЗИНА ===
+        // Отрисовка магазина
         function renderShop() {
             const container = document.getElementById('shop-container');
+            if (!container) return;
+            
             let html = '';
-
             productsDB.forEach(cat => {
-                html += `<div class="category-title">${cat.category}</div>`;
-                html += `<div class="products-grid">`;
+                html += `<h2 class="category-title" id="categories">${cat.category}</h2>`;
+                html += '<div class="products-grid">';
                 
                 cat.items.forEach(prod => {
-                    const isOut = !prod.inStock;
-                    const isKit = prod.kit ? 'kit-card' : '';
-                    const outClass = isOut ? 'out-of-stock' : '';
+                    const inStock = prod.inStock !== false;
                     const qty = cart[prod.id] || 0;
                     
                     let controlsHtml = '';
-                    if (isOut) {
-                         controlsHtml = `<button class="btn-add-initial" disabled style="background:#999; cursor:not-allowed;">Нет в наличии</button>`;
+                    if (!inStock) {
+                        controlsHtml = '<button class="btn-add-initial" disabled>Нет в наличии</button>';
                     } else if (qty === 0) {
-                        controlsHtml = `
-                            <button class="btn-add-initial" onclick="updateItemQty(${prod.id}, 1)">
-                                <i class="fas fa-cart-plus"></i> В корзину
-                            </button>
-                        `;
+                        controlsHtml = `<button class="btn-add-initial" onclick="updateItemQty(${prod.id}, 1)"><i class="fas fa-cart-plus"></i> В корзину</button>`;
                     } else {
                         controlsHtml = `
-                            <div class="qty-controls-card" style="display: flex;">
+                            <div class="qty-controls-card">
                                 <button class="qty-btn-card" onclick="updateItemQty(${prod.id}, -1)">-</button>
                                 <span class="qty-val-card">${qty}</span>
                                 <button class="qty-btn-card" onclick="updateItemQty(${prod.id}, 1)">+</button>
@@ -685,37 +1109,35 @@
                     }
 
                     html += `
-                        <div class="product-card ${outClass} ${isKit}" id="card-${prod.id}">
+                        <div class="product-card ${!inStock ? 'out-of-stock' : ''}" id="card-${prod.id}">
                             <div class="product-image"><i class="fas ${prod.icon}"></i></div>
                             <div class="product-info">
                                 <div class="product-title">${prod.name}</div>
                                 <div class="product-desc">${prod.desc}</div>
                                 <div class="product-price">${prod.price} ₸</div>
-                                <div class="add-controls">
-                                    ${controlsHtml}
-                                </div>
+                                <div class="add-controls">${controlsHtml}</div>
                             </div>
                         </div>
                     `;
                 });
                 
-                html += `</div>`; 
+                html += '</div>';
             });
-
+            
             container.innerHTML = html;
         }
 
-        // === 4. ЛОГИКА ОБНОВЛЕНИЯ КОЛИЧЕСТВА ===
-        function updateItemQty(id, change) {
+        // Обновление количества
+        window.updateItemQty = function(id, change) {
             if (!cart[id]) cart[id] = 0;
             cart[id] += change;
             if (cart[id] <= 0) delete cart[id];
             
             renderShop();
             updateCartUI();
-        }
+        };
 
-        // === 5. ОБНОВЛЕНИЕ UI КОРЗИНЫ ===
+        // Обновление корзины
         function updateCartUI() {
             const totalCount = Object.values(cart).reduce((a, b) => a + b, 0);
             document.getElementById('cart-count').innerText = totalCount;
@@ -727,7 +1149,7 @@
             const allProducts = productsDB.flatMap(c => c.items);
 
             if (totalCount === 0) {
-                html = '<p style="text-align: center; color: #777; margin-top: 20px;">Корзина пуста 🛒</p>';
+                html = '<p style="text-align: center; color: #777;">Корзина пуста</p>';
             } else {
                 for (const [id, qty] of Object.entries(cart)) {
                     const prod = allProducts.find(p => p.id == id);
@@ -737,16 +1159,16 @@
 
                     html += `
                         <div class="cart-item">
-                            <div style="flex-grow:1;">
-                                <div style="font-weight:600; color:#1a237e;">${prod.name}</div>
-                                <div style="font-size:0.9em; color:#666;">${prod.price} ₸/шт</div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${prod.name}</div>
+                                <div class="cart-item-price">${prod.price} ₸/шт</div>
                             </div>
-                            <div style="display:flex; align-items:center; gap:10px;">
-                                <button onclick="updateItemQty(${id}, -1)" style="width:25px; height:25px; border-radius:5px; border:none; background:#eee;">-</button>
-                                <span style="font-weight:bold;">${qty}</span>
-                                <button onclick="updateItemQty(${id}, 1)" style="width:25px; height:25px; border-radius:5px; border:none; background:#eee;">+</button>
+                            <div class="cart-item-controls">
+                                <button onclick="updateItemQty(${id}, -1)">-</button>
+                                <span>${qty}</span>
+                                <button onclick="updateItemQty(${id}, 1)">+</button>
                             </div>
-                            <div style="width:70px; text-align:right; font-weight:bold;">${sum} ₸</div>
+                            <div class="cart-item-sum">${sum} ₸</div>
                         </div>
                     `;
                 }
@@ -756,68 +1178,78 @@
             document.getElementById('cart-total-price').innerText = totalPrice;
         }
 
-        // === 6. МОДАЛКА И ОТПРАВКА ===
-        const modal = document.getElementById('cart-modal');
-        document.getElementById('open-cart-btn').addEventListener('click', () => { 
-            modal.classList.add('active'); 
-            document.body.style.overflow='hidden'; 
-        });
-        document.getElementById('close-cart-btn').addEventListener('click', () => { 
-            modal.classList.remove('active'); 
-            document.body.style.overflow=''; 
-        });
-        modal.addEventListener('click', (e) => { 
-            if(e.target === modal) { 
-                modal.classList.remove('active'); 
-                document.body.style.overflow=''; 
-            }
-        });
+        // Модалка корзины
+        document.addEventListener('DOMContentLoaded', () => {
+            renderShop();
+            updateCartUI();
 
-        document.getElementById('checkout-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (Object.keys(cart).length === 0) return alert('Корзина пуста!');
+            const modal = document.getElementById('cart-modal');
+            const openBtn = document.getElementById('open-cart-btn');
+            const closeBtn = document.getElementById('close-cart-btn');
 
-            const name = document.getElementById('client-name').value;
-            const address = document.getElementById('client-address').value;
-            const allProducts = productsDB.flatMap(c => c.items);
-            
-            let msg = `👋 Заказ упаковки (Gruzim.kz)\n\n`;
-            let total = 0;
+            openBtn.addEventListener('click', () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
 
-            for (const [id, qty] of Object.entries(cart)) {
-                const prod = allProducts.find(p => p.id == id);
-                const sum = prod.price * qty;
-                total += sum;
-                msg += `📦 ${prod.name} x${qty} = ${sum}₸\n`;
-            }
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
 
-            msg += `\n💰 *ИТОГО: ${total} ₸*`;
-            msg += `\n👤 Клиент: ${name}`;
-            msg += `\n📍 Адрес: ${address}`;
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
 
-            // Отправка цели Яндекс.Метрики
-            if(typeof ym === 'function') ym(104276494, 'reachGoal', 'klik_whatsapp');
-            
-            // Отправка события Google Ads Conversion
-            if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17503887977/YOUR_CONVERSION_LABEL_HERE', // Замените YOUR_CONVERSION_LABEL_HERE на метку вашей конверсии!
-                    'value': total,
-                    'currency': 'KZT'
+            // Отправка формы
+            document.getElementById('checkout-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                if (Object.keys(cart).length === 0) {
+                    alert('Корзина пуста!');
+                    return;
+                }
+
+                const name = document.getElementById('client-name').value;
+                const address = document.getElementById('client-address').value;
+                
+                if (!name || !address) {
+                    alert('Заполните имя и адрес');
+                    return;
+                }
+
+                const allProducts = productsDB.flatMap(c => c.items);
+                let msg = `👋 Заказ упаковки (Gruzim.kz)\n\n`;
+                let total = 0;
+
+                for (const [id, qty] of Object.entries(cart)) {
+                    const prod = allProducts.find(p => p.id == id);
+                    const sum = prod.price * qty;
+                    total += sum;
+                    msg += `📦 ${prod.name} x${qty} = ${sum}₸\n`;
+                }
+
+                msg += `\n💰 *ИТОГО: ${total} ₸*`;
+                msg += `\n👤 Клиент: ${name}`;
+                msg += `\n📍 Адрес: ${address}`;
+
+                trackWhatsApp('shop_checkout');
+                window.open(`https://wa.me/77010120300?text=${encodeURIComponent(msg)}`, '_blank');
+            });
+
+            // Плавный скролл
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
-            }
-
-            window.open(`https://wa.me/+7 701 012 03 00?text=${encodeURIComponent(msg)}`, '_blank');
-        });
-        
-        // ** Заглушки для ссылок на Политику/Условия, как в index.html **
-        document.getElementById('privacy-policy-link').addEventListener('click', (e) => {
-             e.preventDefault();
-             alert('Для просмотра "Политики конфиденциальности" перейдите на главную страницу (index.html).');
-        });
-        document.getElementById('terms-of-service-link').addEventListener('click', (e) => {
-             e.preventDefault();
-             alert('Для просмотра "Условий использования" перейдите на главную страницу (index.html).');
+            });
         });
     </script>
 </body>
