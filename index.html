@@ -1954,6 +1954,28 @@ header h1 {
   pointer-events: none;
 }
 
+
+/* ====== ДОБАВЛЕН СТИЛЬ ДЛЯ ВЫВОЗА МУСОРА ====== */
+.card--trash {
+    background-color: #eef3fb;
+    border: 2px solid #1a237e;
+    box-shadow: 0 10px 30px rgba(26, 35, 126, 0.15);
+}
+
+.card--trash:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(26, 35, 126, 0.25);
+}
+
+.card--trash .icon {
+    color: #1a237e;
+}
+
+.card--trash h3 {
+    color: #1a237e;
+    font-weight: 700;
+}
+
 </style>
 
 
@@ -2086,7 +2108,7 @@ src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1"/>
                 <p class="price">от 30 000 тг</p>
             </div>
 
-<div class="card" data-aos="fade-up" data-aos-delay="350">
+<div class="card card--trash" data-aos="fade-up" data-aos-delay="350">
                 <i class="fas fa-dumpster icon"></i>
                 <h3>Вывоз мусора</h3>
                 <p>Оперативный вывоз строительного и бытового мусора. Утилизация старой мебели и техники. Работаем чисто и в соответствии с нормами.</p>
