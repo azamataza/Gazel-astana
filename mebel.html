@@ -1,1 +1,746 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сборка и разборка мебели в Астане — цены, калькулятор | Gruzim.kz</title>
+    <meta name="description" content="✅ Профессиональная разборка, сборка, упаковка и перевозка мебели. Работаем с 2019. Прозрачный калькулятор цен. Минимальная подача 30 000 ₸.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gruzim.kz/sborka-razborka-mebeli.html">
 
+    <!-- Open Graph / соцсети -->
+    <meta property="og:title" content="Сборка и разборка мебели в Астане — быстро, аккуратно, с гарантией">
+    <meta property="og:description" content="Профессиональная сборка/разборка любой мебели. Упаковка, перевозка, подъем. Калькулятор цен.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gruzim.kz/sborka-razborka-mebeli.html">
+    <meta property="og:image" content="https://gruzim.kz/images/og-mebel.jpg">
+
+    <!-- Favicon (как на основном сайте) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Шрифты Montserrat + Open Sans, Font Awesome, AOS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Analytics / Ads (как в исходном шаблоне) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2VWS9V6KVJ');
+        gtag('config', 'AW-17503887977');
+    </script>
+
+    <!-- Yandex.Metrika (как в исходном) -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
+        ym(104276494, 'init', { ssr:true, webvisor:true, clickmap:true, trackLinks:true });
+    </script>
+    <noscript><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt=""></noscript>
+
+    <style>
+        /* ===== БАЗОВЫЕ СТИЛИ И СБРОС ===== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* Высота шапки */
+        }
+        h1, h2, h3, h4 { 
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+        }
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            color: #1a237e;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #555;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        /* ===== ШАПКА (полностью скопирована из musor.html) ===== */
+        .floating-header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(26, 35, 126, 0.95); backdrop-filter: blur(10px);
+            padding: 12px 20px; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .floating-header-content {
+            display: flex; align-items: center; justify-content: space-between;
+            width: 100%; max-width: 1200px; margin: 0 auto;
+        }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .floating-logo { height: 45px; width: auto; }
+        .language-switcher { display: flex; gap: 10px; }
+        .lang-btn {
+            background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white;
+            padding: 6px 15px; border-radius: 20px; cursor: pointer;
+            font-family: 'Montserrat', sans-serif; font-size: 0.9em;
+            transition: all 0.3s ease; text-decoration: none;
+        }
+        .lang-btn:hover { background: rgba(255,255,255,0.1); border-color: #ff9900; }
+        .lang-btn.active { background: #ff9900; border-color: #ff9900; color: white; }
+        .header-phone {
+            color: white; font-family: 'Montserrat', sans-serif; font-weight: 600;
+            font-size: 1.1em; text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .header-phone:hover { color: #ff9900; }
+        .main-nav { display: flex; gap: 18px; margin: 0 20px; font-family: 'Montserrat', sans-serif; }
+        .main-nav a {
+            font-size: 0.95em; color: rgba(255,255,255,0.9); text-decoration: none;
+            position: relative; padding-bottom: 3px; transition: color 0.2s ease;
+        }
+        .main-nav a::after {
+            content: ""; position: absolute; left: 0; bottom: 0; width: 0;
+            height: 2px; background: #ff9900; transition: width 0.2s ease;
+        }
+        .main-nav a:hover { color: #fff; }
+        .main-nav a:hover::after { width: 100%; }
+        .phone-wrap { position: relative; display: inline-block; }
+        .phone-wrap .santa-hat {
+            position: absolute; width: 32px; top: -14px; left: -18px;
+            transform: rotate(-15deg); pointer-events: none;
+        }
+
+        /* ===== HERO БЛОК (В СТИЛЕ MUSOR.HTML) ===== */
+        .premium-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.png') no-repeat center center/cover;
+            color: white; padding: 100px 20px; text-align: center;
+            margin-top: -70px; padding-top: 170px;
+        }
+        .premium-hero h1 {
+            font-size: 3em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .premium-hero h1 span { color: #ff9900; }
+        .premium-hero p {
+            font-size: 1.3em; max-width: 800px; margin: 0 auto 30px; opacity: 0.95;
+        }
+        .hero-features {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 30px 0;
+        }
+        .hero-feature {
+            background: rgba(255,255,255,0.1); padding: 12px 25px; border-radius: 30px;
+            display: flex; align-items: center; gap: 10px; backdrop-filter: blur(5px);
+        }
+        .hero-feature i { color: #ff9900; }
+        .cta-button {
+            display: inline-block; background: #ff9900; color: white; padding: 15px 35px;
+            border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2em;
+            transition: 0.3s; border: none; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover { background: #e68a00; transform: translateY(-3px); }
+        .whatsapp-cta-button { background: #25D366; }
+        .whatsapp-cta-button:hover { background: #1DA851; }
+
+        /* ===== КАЛЬКУЛЯТОР ===== */
+        .calculator-section { background: #f8f9fa; padding: 60px 0; }
+        .calculator-wrapper {
+            max-width: 550px; margin: 0 auto; background: white; border-radius: 15px;
+            padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            font-family: 'Open Sans', sans-serif;
+        }
+        .calculator-wrapper h2 {
+            font-family: 'Montserrat', sans-serif; color: #1a237e; text-align: center;
+            margin-bottom: 25px; font-size: 1.8em; position: relative; padding-bottom: 15px;
+        }
+        .calculator-wrapper h2:after {
+            content: ''; position: absolute; left: 50%; bottom: 0;
+            transform: translateX(-50%); width: 80px; height: 4px;
+            background-color: #ff9900; border-radius: 5px;
+        }
+        .calc-label {
+            display: block; margin-top: 18px; font-weight: 600; color: #333;
+            font-family: 'Montserrat', sans-serif; font-size: 0.95em;
+        }
+        .calc-select, .calc-input {
+            width: 100%; padding: 12px 15px; margin-top: 6px; border: 2px solid #e0e0e0;
+            border-radius: 10px; font-size: 16px; transition: border-color 0.3s;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .calc-select:focus, .calc-input:focus { outline: none; border-color: #1a237e; }
+        .service-options {
+            display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px;
+        }
+        .service-checkbox {
+            flex: 1 0 calc(50% - 6px);
+            background: #f1f5f9; border-radius: 10px; padding: 8px 12px 8px 8px;
+            display: flex; align-items: center; gap: 8px; border: 2px solid #e0e0e0;
+            transition: 0.2s; cursor: pointer;
+        }
+        .service-checkbox:hover { background: #e9eef2; border-color: #ff9900; }
+        .service-checkbox input[type="checkbox"] { width: 18px; height: 18px; accent-color: #ff9900; }
+        .calc-warning {
+            background: #ffebee; border-left: 4px solid #f44336; padding: 12px 15px;
+            margin: 15px 0; border-radius: 0 8px 8px 0; font-size: 0.9em; display: none;
+        }
+        .calc-warning.show { display: block; }
+        .calc-total {
+            margin-top: 25px; padding: 20px; background: #f0f8ff; border: 2px dashed #1a237e;
+            font-size: 26px; font-weight: 700; text-align: center; color: #1a237e;
+            border-radius: 10px; font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ===== КАРТОЧКИ УСЛУГ ===== */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; margin-top: 40px;
+        }
+        .service-card {
+            background: white; border-radius: 15px; padding: 30px 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: 0.3s; text-align: center;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .service-icon {
+            width: 80px; height: 80px; background: #1a237e; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+        }
+        .service-icon i { font-size: 2.5em; color: #ff9900; }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 12px; color: #1a237e; }
+        .service-card p { color: #555; margin-bottom: 15px; }
+        .price-tag {
+            display: inline-block; background: #ff9900; color: white;
+            padding: 6px 18px; border-radius: 30px; font-weight: 700; font-size: 1.2em;
+        }
+
+        /* ===== ПРЕИМУЩЕСТВА ===== */
+        .advantages-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
+        }
+        .advantage-card {
+            background: white; border-radius: 15px; padding: 30px 20px; text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: 0.3s;
+        }
+        .advantage-card:hover { transform: translateY(-8px); }
+        .advantage-card i { font-size: 3em; color: #ff9900; margin-bottom: 20px; }
+        .advantage-card h3 { font-size: 1.4em; margin-bottom: 10px; color: #1a237e; }
+
+        /* ===== FAQ (НОВЫЙ, РАСШИРЕННЫЙ) ===== */
+        .faq-section {
+            background: #fff;
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px 25px;
+            border: 1px solid #e9ecef;
+            transition: 0.2s;
+        }
+        .faq-item:hover {
+            border-color: #ff9900;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .faq-question i {
+            font-size: 1.5rem;
+            color: #ff9900;
+            width: 30px;
+        }
+        .faq-question h3 {
+            font-size: 1.2rem;
+            color: #1a237e;
+            margin: 0;
+        }
+        .faq-item p {
+            color: #555;
+            margin-left: 45px; /* выравнивание по иконке */
+            font-size: 0.95rem;
+        }
+        .faq-badge {
+            display: inline-block;
+            background: #ff9900;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        .faq-badge.blue {
+            background: #1a237e;
+        }
+
+        /* ===== ПРОЦЕСС РАБОТЫ ===== */
+        .process-steps {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+        }
+        .process-card {
+            background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: 0.3s; text-align: center; height: 100%;
+        }
+        .process-card:hover { transform: translateY(-10px); }
+        .step-number {
+            width: 50px; height: 50px; background: #ff9900; color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: 700;
+            font-size: 1.5em; margin: 0 auto 20px;
+        }
+        .process-card i { font-size: 2.8em; color: #1a237e; margin-bottom: 20px; }
+        .process-card h3 { font-size: 1.5em; margin-bottom: 15px; color: #1a237e; }
+
+        /* ===== ФОРМА ЗАЯВКИ ===== */
+        .request-section {
+            background: linear-gradient(135deg, #1a237e, #0d1450); color: white;
+            border-radius: 20px; padding: 60px; margin: 60px 0;
+        }
+        .request-section h2 { color: white; }
+        .request-section h2::after { background-color: #ff9900; }
+        .form-subtitle { text-align: center; font-size: 1.2em; margin-bottom: 40px; opacity: 0.9; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px; margin-bottom:25px;}
+        .form-label { display: block; margin-bottom: 8px; font-weight:500; }
+        .form-input, .form-select {
+            width:100%; padding:15px 20px; border-radius:10px; border:none;
+            font-family:'Open Sans', sans-serif; background:rgba(255,255,255,0.9);
+        }
+        .form-input:focus { outline: 2px solid #ff9900; }
+
+        /* ===== ПОДВАЛ ===== */
+        footer {
+            background: #212529; color: white; text-align: center; padding: 30px;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px;
+            text-align: left;
+        }
+        .footer-logo { max-height: 40px; margin-bottom: 10px; }
+        .footer-col a { color: #ffcc80; text-decoration: none; }
+        .footer-col a:hover { text-decoration: underline; }
+
+        /* ===== ПЛАВАЮЩИЕ КНОПКИ ===== */
+        .floating-buttons {
+            position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column;
+            gap: 10px; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+        }
+        .floating-buttons.is-visible { opacity: 1; pointer-events: auto; }
+        .floating-btn {
+            width: 55px; height: 55px; border-radius: 50%; background: #007bff;
+            color: white; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8em; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        }
+        .floating-btn.whatsapp { background: #25D366; }
+        .floating-btn.reviews { background: #ff9900; }
+
+        /* ===== АДАПТАЦИЯ ===== */
+        @media (max-width: 768px) {
+            .premium-hero h1 { font-size: 2.2em; }
+            .main-nav { display: none !important; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .service-checkbox { flex: 1 0 100%; }
+            .request-section { padding: 40px 20px; }
+            .floating-header-content { flex-direction: column; gap:8px; }
+            .header-left { width:100%; justify-content:center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ШАПКА (как в musor.html) -->
+    <header class="floating-header">
+        <div class="floating-header-content">
+            <div class="header-left">
+                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo">
+                <div class="language-switcher">
+                    <a href="index.html" class="lang-btn">Главная</a>
+                    <a href="sborka-razborka-mebeli.html" class="lang-btn active">Сборка/разборка</a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="#calculator">Калькулятор</a>
+                <a href="#services">Услуги</a>
+                <a href="#process">Как мы работаем</a>
+                <a href="#faq">Вопросы</a>
+                <a href="#request">Заявка</a>
+            </nav>
+            
+            <span class="phone-wrap">
+                <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone"></i> +7 701 012 03 00</a>
+                <img src="santa_hat.png" class="santa-hat" alt="">
+            </span>
+        </div>
+    </header>
+
+    <!-- HERO (в стиле musor.html) -->
+    <section class="premium-hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Сборка, разборка и перевозка мебели <span>в Астане</span></h1>
+            <p data-aos="fade-up" data-aos-delay="200">Аккуратно разберем, надежно упакуем, перевезем и соберем на новом месте. Работаем с 2019 года.</p>
+            <div class="hero-features" data-aos="fade-up" data-aos-delay="400">
+                <div class="hero-feature"><i class="fas fa-tools"></i><span>Свой инструмент</span></div>
+                <div class="hero-feature"><i class="fas fa-box"></i><span>Упаковка включена</span></div>
+                <div class="hero-feature"><i class="fas fa-truck"></i><span>Перевозка</span></div>
+                <div class="hero-feature"><i class="fas fa-shield-alt"></i><span>Гарантия</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАЛЬКУЛЯТОР -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="calculator-wrapper" data-aos="fade-up">
+                <h2>Калькулятор стоимости</h2>
+
+                <label class="calc-label">1. Предмет мебели</label>
+                <select class="calc-select" id="furnitureSelect">
+                    <option value="" disabled selected>— Выберите предмет —</option>
+                    <option value="bedDouble" data-base="30000">Кровать двуспальная</option>
+                    <option value="bedChild" data-base="25000">Кровать детская</option>
+                    <option value="sofa3" data-base="30000">Диван 3‑местный прямой</option>
+                    <option value="sofaCorner" data-base="40000">Диван угловой / 5‑местный</option>
+                    <option value="sofa2" data-base="25000">Диван 2‑местный</option>
+                    <option value="wardrobe" data-base="50000">Шкаф‑купе (2‑3 створки)</option>
+                    <option value="wardrobeSwing" data-base="40000">Шкаф распашной</option>
+                    <option value="wall" data-base="70000">Стенка «горка» (5+ предм.)</option>
+                    <option value="kitchenSmall" data-base="40000">Кухня 2‑3 модуля</option>
+                    <option value="kitchenMedium" data-base="60000">Кухня 4‑6 модулей</option>
+                    <option value="chest" data-base="15000">Комод / Тумба</option>
+                    <option value="tableSet" data-base="25000">Стол + стулья (до 4 шт)</option>
+                </select>
+
+                <label class="calc-label">2. Необходимые работы</label>
+                <div class="service-options">
+                    <label class="service-checkbox"><input type="checkbox" id="serviceDisassemble"> Разобрать</label>
+                    <label class="service-checkbox"><input type="checkbox" id="serviceAssemble"> Собрать</label>
+                    <label class="service-checkbox"><input type="checkbox" id="servicePack"> Упаковать</label>
+                    <label class="service-checkbox"><input type="checkbox" id="serviceTransport"> Перевезти</label>
+                </div>
+
+                <label class="calc-label">3. Условия подъема</label>
+                <select class="calc-select" id="liftSelect">
+                    <option value="yes">Лифт есть</option>
+                    <option value="no">Лифта нет</option>
+                </select>
+
+                <label class="calc-label" id="floorLabel">Этаж</label>
+                <input type="number" class="calc-input" id="floorInput" min="1" value="1">
+
+                <div class="service-checkbox" style="margin-top: 15px; background: #fff2e6; border-color: #ff9900;">
+                    <label><input type="checkbox" id="complexAccess"> Сложный доступ (узкий проход/винтовая лестница) +5 000 ₸</label>
+                </div>
+
+                <div class="calc-warning" id="calcWarning"><span id="warningText"></span></div>
+                <div class="calc-total" id="calcTotal">Итого: <span id="priceSpan">—</span> ₸</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАРТОЧКИ УСЛУГ -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">С какой мебелью работаем</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up"><div class="service-icon"><i class="fas fa-bed"></i></div><h3>Кровати</h3><p>Двуспальные, детские, с подъемным механизмом</p><span class="price-tag">от 25 000 ₸</span></div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="50"><div class="service-icon"><i class="fas fa-couch"></i></div><h3>Диваны</h3><p>Прямые, угловые, еврокнижки, клик-кляк</p><span class="price-tag">от 25 000 ₸</span></div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100"><div class="service-icon"><i class="fas fa-wardrobe"></i></div><h3>Шкафы</h3><p>Купе, распашные, угловые, стенки</p><span class="price-tag">от 40 000 ₸</span></div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="150"><div class="service-icon"><i class="fas fa-kitchen-set"></i></div><h3>Кухни</h3><p>Модульные, угловые, любые гарнитуры</p><span class="price-tag">от 40 000 ₸</span></div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200"><div class="service-icon"><i class="fas fa-chair"></i></div><h3>Столы и стулья</h3><p>Обеденные группы, компьютерные столы</p><span class="price-tag">от 15 000 ₸</span></div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="250"><div class="service-icon"><i class="fas fa-archive"></i></div><h3>Комоды и тумбы</h3><p>Комоды, прихожие, тумбы под ТВ</p><span class="price-tag">от 15 000 ₸</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРЕИМУЩЕСТВА -->
+    <section class="section" id="advantages">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Почему нас выбирают</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card" data-aos="fade-up"><i class="fas fa-calendar-check"></i><h3>Опыт с 2019</h3><p>Более 1000 собранных предметов мебели</p></div>
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="50"><i class="fas fa-shield-alt"></i><h3>Гарантия целостности</h3><p>Не повредим мебель при разборке/перевозке</p></div>
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-boxes"></i><h3>Упаковка в подарок</h3><p>Стрейч и картон — уже включены в стоимость</p></div>
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="150"><i class="fas fa-clock"></i><h3>Выезд за 1-2 часа</h3><p>Срочная подача мастера в день обращения</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАК МЫ РАБОТАЕМ -->
+    <section class="section" id="process">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Как мы работаем</h2>
+            <div class="process-steps">
+                <div class="process-card" data-aos="fade-up"><div class="step-number">1</div><i class="fas fa-clipboard-list"></i><h3>Оценка</h3><p>Вы описываете мебель, мы согласовываем цену и время</p></div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="100"><div class="step-number">2</div><i class="fas fa-tools"></i><h3>Разборка/Упаковка</h3><p>Аккуратно разбираем, упаковываем в стрейч и картон</p></div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="200"><div class="step-number">3</div><i class="fas fa-truck"></i><h3>Перевозка</h3><p>Перевозим на своем транспорте (если заказали)</p></div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="300"><div class="step-number">4</div><i class="fas fa-couch"></i><h3>Сборка</h3><p>Собираем на новом месте, проверяем работу</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- НОВЫЙ РАСШИРЕННЫЙ FAQ (12 вопросов) -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Часто задаваемые вопросы</h2>
+            <div class="faq-grid">
+                <!-- Группа 1: Цены и оплата -->
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <i class="fas fa-tag"></i>
+                        <h3>Сколько стоит сборка шкафа-купе? <span class="faq-badge">популярное</span></h3>
+                    </div>
+                    <p>Базовая цена сборки шкафа-купе (2-3 створки) — от 50 000 ₸. Выезд мастера и упаковка уже включены. Если нужен демонтаж старого — +30%.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+                    <div class="faq-question">
+                        <i class="fas fa-tag"></i>
+                        <h3>Что входит в минимальную подачу 30 000 ₸?</h3>
+                    </div>
+                    <p>Выезд мастера, весь необходимый инструмент, упаковка стрейч-пленкой. Если предмет мелкий, но выезд всё равно оплачивается.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <i class="fas fa-tag"></i>
+                        <h3>Почему в калькуляторе цена может отличаться?</h3>
+                    </div>
+                    <p>Калькулятор дает предварительную оценку. Точная стоимость зависит от сложности разборки, состояния мебели и удаленности объекта.</p>
+                </div>
+
+                <!-- Группа 2: Процесс и упаковка -->
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="faq-question">
+                        <i class="fas fa-box"></i>
+                        <h3>Вы даете упаковку или нужно покупать самим? <span class="faq-badge blue">важно</span></h3>
+                    </div>
+                    <p>Стрейч, картон и скотч мы привозим с собой. Стоимость упаковки уже включена в базовую цену (кроме сложных случаев).</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <i class="fas fa-box"></i>
+                        <h3>Вы ломаете мебель при разборке?</h3>
+                    </div>
+                    <p>Мы разбираем аккуратно, сохраняя всю фурнитуру. В 99% случаев мебель собирается без повреждений. Даем гарантию.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                    <div class="faq-question">
+                        <i class="fas fa-box"></i>
+                        <h3>Сколько времени занимает сборка?</h3>
+                    </div>
+                    <p>В среднем: шкаф — 1-2 часа, кухня — 3-5 часов, диван — 40-60 минут. Зависит от сложности.</p>
+                </div>
+
+                <!-- Группа 3: Логистика и условия -->
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <i class="fas fa-truck"></i>
+                        <h3>Вы перевозите мебель или только собираете?</h3>
+                    </div>
+                    <p>У нас комплексный сервис: можем только собрать, только разобрать, или полностью: разборка → упаковка → перевозка → сборка.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
+                    <div class="faq-question">
+                        <i class="fas fa-truck"></i>
+                        <h3>Что такое "сложный доступ" и за что доплата?</h3>
+                    </div>
+                    <p>Это узкие дверные проемы, винтовые лестницы, отсутствие лифта на высоких этажах, если мебель не проходит в габариты. Требует больше времени и усилий.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <i class="fas fa-truck"></i>
+                        <h3>Работаете ли вы за городом (в пригороде Астаны)?</h3>
+                    </div>
+                    <p>Да, выезжаем за город, но стоимость выезда обсуждается индивидуально (зависит от километража).</p>
+                </div>
+
+                <!-- Группа 4: Разное -->
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="450">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>У меня старая мебель из СССР. Возьметесь?</h3>
+                    </div>
+                    <p>Да, опыт есть. Старая мебель часто разбирается сложнее (шурупы "сдохли", ДСП сыпется), поэтому стоимость может быть выше базовой.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Нужно ли мне присутствовать при работе?</h3>
+                    </div>
+                    <p>Желательно быть на месте в начале, чтобы показать, что и как нужно сделать. Далее вы можете уйти, оставив доступ.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="550">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Есть ли гарантия на работу?</h3>
+                    </div>
+                    <p>Да, мы даем гарантию на сборку — 14 дней. Если что-то открутилось или сломалось не по вашей вине — приедем и исправим бесплатно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФОРМА ЗАЯВКИ -->
+    <section class="section" id="request">
+        <div class="container">
+            <div class="request-section" data-aos="fade-up">
+                <h2>Нужна помощь со сборкой или перевозкой?</h2>
+                <p class="form-subtitle">Оставьте заявку в WhatsApp, мы рассчитаем точную стоимость</p>
+                <form id="furnitureForm">
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">Имя *</label><input type="text" id="reqName" class="form-input" required></div>
+                        <div class="form-group"><label class="form-label">Телефон *</label><input type="tel" id="reqPhone" class="form-input" required></div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Что нужно сделать?</label><textarea id="reqMessage" class="form-input" rows="3" placeholder="Опишите мебель и задачи..."></textarea></div>
+                    <button type="button" id="submitFurnitureWA" class="cta-button whatsapp-cta-button form-submit" style="width: 100%;"><i class="fab fa-whatsapp"></i> Отправить в WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col"><img src="Logo.png" alt="Gruzim.kz" class="footer-logo"><p>Сборка, разборка, упаковка мебели в Астане.</p><p>© 2019-2025 gruzim.kz</p></div>
+            <div class="footer-col"><h4>Контакты</h4><p><i class="fas fa-phone"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p><p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300">WhatsApp</a></p></div>
+            <div class="footer-col"><h4>Услуги</h4><p><a href="index.html">Главная</a></p></div>
+        </div>
+    </footer>
+
+    <!-- ПЛАВАЮЩИЕ КНОПКИ -->
+    <div class="floating-buttons">
+        <a href="tel:+77010120300" class="floating-btn call"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/77010120300" class="floating-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#request" class="floating-btn reviews"><i class="fas fa-file-alt"></i></a>
+    </div>
+
+    <!-- СКРИПТЫ -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // трекинг
+        window.trackPhoneCall = function(src) { if (typeof gtag === 'function') gtag('event', 'phone_call', {source: src}); };
+        window.trackWhatsApp = function(src) { if (typeof gtag === 'function') gtag('event', 'whatsapp_click', {source: src}); };
+
+        // Калькулятор
+        const furnitureSelect = document.getElementById('furnitureSelect');
+        const serviceDisassemble = document.getElementById('serviceDisassemble');
+        const serviceAssemble = document.getElementById('serviceAssemble');
+        const servicePack = document.getElementById('servicePack');
+        const serviceTransport = document.getElementById('serviceTransport');
+        const liftSelect = document.getElementById('liftSelect');
+        const floorInput = document.getElementById('floorInput');
+        const complexAccess = document.getElementById('complexAccess');
+        const priceSpan = document.getElementById('priceSpan');
+        const calcWarning = document.getElementById('calcWarning');
+        const warningText = document.getElementById('warningText');
+
+        const basePrices = {
+            bedDouble: 30000, bedChild: 25000, sofa3: 30000, sofaCorner: 40000, sofa2: 25000,
+            wardrobe: 50000, wardrobeSwing: 40000, wall: 70000, kitchenSmall: 40000,
+            kitchenMedium: 60000, chest: 15000, tableSet: 25000
+        };
+
+        function updateCalculator() {
+            if (!furnitureSelect.value) { priceSpan.innerText = '—'; return; }
+
+            let base = basePrices[furnitureSelect.value] || 0;
+            let total = 0;
+            const anyService = serviceDisassemble.checked || serviceAssemble.checked || servicePack.checked || serviceTransport.checked;
+
+            if (!anyService) {
+                priceSpan.innerText = '—';
+                calcWarning.classList.add('show');
+                warningText.innerText = 'Выберите хотя бы одну услугу';
+                return;
+            }
+
+            if (serviceDisassemble.checked) total += base * 0.35;
+            if (serviceAssemble.checked) total += base * 0.35;
+            if (serviceTransport.checked) total += base * 0.2;
+            if (servicePack.checked) total += base * 0.15;
+
+            total = Math.round(total / 1000) * 1000;
+            if (total < 15000) total = 15000;
+
+            let floorSurcharge = 0;
+            if (liftSelect.value === 'no') {
+                let floor = parseInt(floorInput.value) || 1;
+                if (floor > 1) floorSurcharge = (floor - 1) * 2000;
+            }
+            if (complexAccess.checked) floorSurcharge += 5000;
+            total += floorSurcharge;
+
+            if (total < 30000) {
+                calcWarning.classList.add('show');
+                warningText.innerText = 'Минимальный выезд мастера — 30 000 ₸.';
+            } else {
+                calcWarning.classList.remove('show');
+            }
+
+            priceSpan.innerText = total.toLocaleString('ru-RU');
+        }
+
+        [furnitureSelect, serviceDisassemble, serviceAssemble, servicePack, serviceTransport, liftSelect, floorInput, complexAccess].forEach(el => {
+            if (el) { el.addEventListener('change', updateCalculator); el.addEventListener('input', updateCalculator); }
+        });
+        updateCalculator();
+
+        // Форма WhatsApp
+        document.getElementById('submitFurnitureWA').addEventListener('click', function() {
+            const name = document.getElementById('reqName').value.trim();
+            const phone = document.getElementById('reqPhone').value.trim();
+            const msg = document.getElementById('reqMessage').value.trim();
+            if (!name || !phone) { alert('Заполните имя и телефон'); return; }
+            let text = `Здравствуйте! Нужна помощь с мебелью.%0AИмя: ${name}%0AТелефон: ${phone}`;
+            if (msg) text += `%0AДетали: ${msg}`;
+            window.open(`https://wa.me/77010120300?text=${text}`, '_blank');
+            trackWhatsApp('form_mebel');
+        });
+
+        // Плавный скролл
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const id = this.getAttribute('href');
+                if (id === '#') return;
+                const el = document.querySelector(id);
+                if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+            });
+        });
+
+        // Плавающие кнопки
+        window.addEventListener('scroll', function() {
+            const btns = document.querySelector('.floating-buttons');
+            if (window.scrollY > 400) btns.classList.add('is-visible');
+            else btns.classList.remove('is-visible');
+        });
+    </script>
+</body>
+</html>
