@@ -14,21 +14,31 @@
     <meta property="og:description" content="Коробки, плёнка, скотч и сумки для переезда. Доставка по Астане.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gruzim.kz/shop.html">
-    <meta property="og:image" content="https://gruzim.kz/images/og-shop.jpg">
     <meta property="og:site_name" content="Gruzim.kz">
 
-    <!-- Favicon (как в pereezdkay) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <!-- Favicon (как на главной) -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#1a237e">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#2563eb">
 
-    <!-- Шрифты -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Шрифты Inter (как на главной) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -40,7 +50,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-2VWS9V6KVJ');
-        gtag('config', 'AW-17503887977', {'phone_conversion_number': '+77010120300'});
+        gtag('config', 'AW-17503887977');
     </script>
 
     <!-- Yandex.Metrika -->
@@ -52,202 +62,288 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '922364396983002');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1"/></noscript>
+
     <style>
-        /* ===== ОБЩИЕ СТИЛИ (как в pereezdkay) ===== */
+        /* ===== ПОЛНАЯ КОПИЯ СТИЛЕЙ С ГЛАВНОЙ (index.html) ===== */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding-top: 80px;
             overflow-x: hidden;
-            padding-top: 70px; /* Под шапку */
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 60px;
-        }
-
-        /* ===== ШАПКА (ТОЧНО КАК В pereezdkay) ===== */
+        /* Плавающая шапка */
         .floating-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(26, 35, 126, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            padding: 12px 20px;
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 10px 5%;
+            transition: all 0.3s ease;
         }
 
         .floating-header-content {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
+        }
+
+        /* Бургер-меню */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            border: 2px solid #2563eb;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 4px 5px;
+            z-index: 1100;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.7), 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .burger-menu span {
+            width: 100%;
+            height: 2.5px;
+            background-color: #2563eb;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-menu:hover {
+            background: #2563eb;
+            box-shadow: 0 0 0 4px #f97316, 0 4px 12px rgba(0,0,0,0.3);
+            transform: scale(1.05);
+        }
+
+        .burger-menu:hover span {
+            background-color: white;
+        }
+
+        .burger-menu.active {
+            background: #2563eb;
+            box-shadow: 0 0 0 4px #f97316;
+        }
+
+        .burger-menu.active span {
+            background-color: white;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* На десктопе кнопка меню видна */
+        @media (min-width: 1025px) {
+            .burger-menu {
+                display: flex;
+                margin-right: 10px;
+                border-width: 3px;
+                width: 36px;
+                height: 26px;
+            }
         }
 
         .floating-logo {
             height: 45px;
             width: auto;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 8px;
+            padding: 4px 8px;
+            background: rgba(37, 99, 235, 0.05);
+            border: 1px solid transparent;
+        }
+
+        .floating-logo:hover {
+            opacity: 0.9;
+            background: rgba(37, 99, 235, 0.1);
+            border-color: #2563eb;
+        }
+
+        /* Мобильное меню */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 5%;
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            padding: 15px 0;
+            border: 1px solid #e2e8f0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(-20px);
+            pointer-events: none;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .mobile-nav a {
+            display: block;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            text-decoration: none;
+            padding: 12px 20px;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav a:hover {
+            background: #eef2ff;
+            color: #2563eb;
+        }
+
+        .mobile-nav-close {
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px 15px 0;
+        }
+
+        .mobile-nav-close button {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            color: #64748b;
+            padding: 0 5px;
+        }
+
+        .mobile-nav-close button:hover {
+            color: #2563eb;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .language-switcher {
             display: flex;
-            gap: 10px;
+            gap: 5px;
         }
 
         .lang-btn {
             background: transparent;
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+            padding: 6px 12px;
+            border-radius: 30px;
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
             text-decoration: none;
         }
 
-        .lang-btn:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: #ff9900;
-        }
-
+        .lang-btn:hover,
         .lang-btn.active {
-            background: #ff9900;
-            border-color: #ff9900;
+            background: #2563eb;
+            border-color: #2563eb;
             color: white;
-        }
-
-        .main-nav {
-            display: flex;
-            gap: 18px;
-            margin: 0 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .main-nav a {
-            font-size: 0.95em;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 3px;
-            transition: color 0.2s ease;
-        }
-
-        .main-nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background: #ff9900;
-            transition: width 0.2s ease;
-        }
-
-        .main-nav a:hover,
-        .main-nav a.active {
-            color: #ffffff;
-        }
-
-        .main-nav a:hover::after,
-        .main-nav a.active::after {
-            width: 100%;
-        }
-
-        .phone-wrap {
-            position: relative;
-            display: inline-block;
-        }
-
-        .santa-hat {
-            position: absolute;
-            width: 32px;
-            top: -14px;
-            left: -18px;
-            transform: rotate(-15deg);
-            pointer-events: none;
         }
 
         .header-phone {
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.1em;
+            color: #2563eb;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
+        }
+
+        .header-phone i {
+            font-size: 1rem;
         }
 
         .header-phone:hover {
-            color: #ff9900;
+            color: #1e40af;
         }
 
-        .mobile-shop-link {
-            display: inline-block !important;
-            background: #ff9900;
-            color: #fff;
-            border-radius: 18px;
-            padding: 6px 12px;
-            box-shadow: 0 6px 18px rgba(255,153,0,0.35);
-            border: 1px solid rgba(255,255,255,0.15);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        /* ===== HERO СЕКЦИЯ (в стиле pereezdkay) ===== */
-        .shop-hero {
+        /* Hero секция (в стиле главной) */
+        .hero-header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.png') no-repeat center center/cover;
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
-            margin-top: -70px;
-            padding-top: 150px;
-            margin-bottom: 40px;
+            background-attachment: fixed;
         }
 
-        .shop-hero h1 {
+        .hero-header h1 {
             font-size: 3em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
-        .shop-hero h1 span {
-            color: #ff9900;
+        .hero-header h1 span {
+            color: #f97316;
         }
 
-        .shop-hero p {
+        .hero-header p {
             font-size: 1.3em;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 20px;
         }
 
         .hero-features {
@@ -266,48 +362,68 @@
             align-items: center;
             gap: 10px;
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .hero-feature i {
-            color: #ff9900;
+            color: #f97316;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #ff9900;
+            background-color: #2563eb;
             color: white;
-            padding: 15px 35px;
+            padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin: 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
             border: none;
             cursor: pointer;
         }
 
         .cta-button:hover {
-            background-color: #e68a00;
+            background-color: #1e40af;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
         }
 
-        .cta-button i {
-            margin-right: 8px;
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* ===== КАТЕГОРИИ И КАРТОЧКИ ТОВАРОВ ===== */
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #0f172a;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #2563eb;
+            border-radius: 4px;
+        }
+
+        /* Категории и карточки товаров (адаптированы под стиль главной) */
         .category-title {
-            font-family: 'Montserrat', sans-serif;
             font-size: 2em;
-            color: #1a237e;
-            margin: 50px 0 30px;
+            color: #0f172a;
+            margin: 40px 0 30px;
             position: relative;
             padding-bottom: 10px;
-            border-bottom: 3px solid #ff9900;
+            border-bottom: 3px solid #2563eb;
             display: inline-block;
         }
 
@@ -315,23 +431,25 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
+            margin-bottom: 40px;
         }
 
         .product-card {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
             position: relative;
-            border: 1px solid #e0e0e0;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #2563eb;
         }
 
         .product-card.out-of-stock {
@@ -348,50 +466,72 @@
             background: rgba(0,0,0,0.8);
             color: white;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
             font-size: 1.2em;
             z-index: 10;
             white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .product-image {
-            height: 180px;
-            background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+            height: 150px;
+            background: #eef2ff;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4em;
-            color: #1a237e;
+            font-size: 3.5em;
+            color: #2563eb;
+            margin-bottom: 15px;
         }
 
         .product-info {
-            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .product-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.3em;
-            margin-bottom: 8px;
-            color: #1a237e;
             font-weight: 700;
+            margin-bottom: 8px;
+            color: #0f172a;
         }
 
         .product-desc {
             font-size: 0.95em;
-            color: #555;
-            margin-bottom: 15px;
+            color: #475569;
+            margin-bottom: 10px;
             flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-desc.expanded {
+            -webkit-line-clamp: unset;
+        }
+
+        .desc-toggle {
+            color: #2563eb;
+            font-size: 0.85em;
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .desc-toggle:hover {
+            text-decoration: underline;
         }
 
         .product-price {
             font-size: 1.4em;
-            color: #ff9900;
+            color: #2563eb;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin: 10px 0;
         }
 
         .add-controls {
@@ -400,29 +540,31 @@
         }
 
         .btn-add-initial {
-            background-color: #1a237e;
+            background-color: #2563eb;
             color: white;
             border: none;
             width: 100%;
             height: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1em;
         }
 
         .btn-add-initial:hover:not(:disabled) {
-            background-color: #0f165a;
+            background-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
         .btn-add-initial:disabled {
-            background-color: #999;
+            background-color: #94a3b8;
             cursor: not-allowed;
         }
 
@@ -430,42 +572,43 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #f0f4f8;
-            border-radius: 8px;
+            background: #f1f5f9;
+            border-radius: 12px;
             height: 100%;
             overflow: hidden;
-            border: 1px solid #1a237e;
+            border: 2px solid #2563eb;
         }
 
         .qty-btn-card {
             width: 35%;
             height: 100%;
             border: none;
-            background: #1a237e;
+            background: #2563eb;
             color: white;
-            font-size: 1.2em;
+            font-size: 1.3em;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.2s ease;
         }
 
         .qty-btn-card:hover {
-            background: #0f165a;
+            background: #1e40af;
         }
 
         .qty-val-card {
             flex-grow: 1;
             text-align: center;
             font-weight: 700;
-            color: #1a237e;
+            color: #2563eb;
             font-size: 1.1em;
         }
 
-        /* ===== КОРЗИНА ===== */
+        /* Корзина (в стиле главной) */
         .cart-float-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #ff9900;
+            background: #f97316;
             color: white;
             width: 70px;
             height: 70px;
@@ -475,23 +618,29 @@
             justify-content: center;
             font-size: 2em;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
             z-index: 1000;
-            transition: transform 0.2s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             animation: pulse-orange 2s infinite alternate;
         }
 
         .cart-float-btn:hover {
             transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(249, 115, 22, 0.6);
+        }
+
+        @keyframes pulse-orange {
+            0% { transform: scale(1); box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4); }
+            100% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(249, 115, 22, 0.6); }
         }
 
         .cart-badge {
             position: absolute;
             top: 0;
             right: 0;
-            background: #d32f2f;
+            background: #ef4444;
             color: white;
-            font-size: 0.6em;
+            font-size: 0.7em;
             width: 24px;
             height: 24px;
             border-radius: 50%;
@@ -509,10 +658,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 0, 0, 0.7);
             z-index: 2000;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             padding: 20px;
         }
 
@@ -522,42 +671,41 @@
 
         .cart-modal {
             background: white;
+            border-radius: 24px;
+            padding: 30px;
+            max-width: 600px;
             width: 100%;
-            max-width: 500px;
-            border-radius: 15px;
-            padding: 25px;
             max-height: 90vh;
-            display: flex;
-            flex-direction: column;
+            overflow-y: auto;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .close-cart {
             position: absolute;
             top: 15px;
-            right: 15px;
-            font-size: 1.5em;
+            right: 20px;
+            font-size: 2em;
             cursor: pointer;
-            color: #666;
+            color: #64748b;
+            transition: color 0.2s;
         }
 
         .close-cart:hover {
-            color: #000;
+            color: #2563eb;
         }
 
         .cart-items {
-            overflow-y: auto;
-            flex-grow: 1;
             margin: 20px 0;
             max-height: 400px;
+            overflow-y: auto;
         }
 
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e2e8f0;
             padding: 10px 0;
             gap: 10px;
         }
@@ -568,12 +716,12 @@
 
         .cart-item-title {
             font-weight: 600;
-            color: #1a237e;
+            color: #0f172a;
         }
 
         .cart-item-price {
             font-size: 0.9em;
-            color: #666;
+            color: #64748b;
         }
 
         .cart-item-controls {
@@ -583,32 +731,33 @@
         }
 
         .cart-item-controls button {
-            width: 25px;
-            height: 25px;
-            border-radius: 5px;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
             border: none;
-            background: #eee;
+            background: #e2e8f0;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.2s;
         }
 
         .cart-item-controls button:hover {
-            background: #ddd;
+            background: #cbd5e1;
         }
 
         .cart-item-sum {
-            width: 70px;
+            min-width: 70px;
             text-align: right;
             font-weight: bold;
-            color: #ff9900;
+            color: #f97316;
         }
 
         .cart-total {
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: bold;
             text-align: right;
-            margin-bottom: 15px;
-            color: #ff9900;
+            margin: 20px 0;
+            color: #f97316;
         }
 
         .whatsapp-checkout-btn {
@@ -625,45 +774,52 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
-            transition: background 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
         }
 
         .whatsapp-checkout-btn:hover {
             background-color: #1DA851;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
         }
 
         #checkout-form input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
         }
 
         #checkout-form input:focus {
             outline: none;
-            border-color: #ff9900;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        /* ===== SEO БЛОК ===== */
+        /* SEO блок (в стиле главной) */
         .seo-article {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 40px;
-            margin: 60px auto;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
 
         .seo-article h2 {
-            color: #1a237e;
+            color: #0f172a;
             margin-bottom: 20px;
             font-size: 2em;
+            position: relative;
         }
 
         .seo-article h3 {
-            color: #1a237e;
+            color: #0f172a;
             margin: 30px 0 15px;
         }
 
@@ -676,81 +832,141 @@
             margin-bottom: 8px;
         }
 
-        /* ===== ПОДВАЛ (как в pereezdkay) ===== */
+        /* Подвал (как на главной) */
         footer {
-            background-color: #212529;
-            color: white;
-            padding: 40px 20px;
-            font-size: 0.9em;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 40px 5%;
         }
 
         .footer-inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            align-items: flex-start;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
         }
 
         .footer-logo {
-            max-height: 40px;
-            margin-bottom: 10px;
-        }
-
-        .footer-tagline {
-            margin: 0 0 6px;
-            font-size: 0.95em;
-        }
-
-        .footer-years {
-            margin: 0;
-            font-size: 0.88em;
-            color: #9fa8da;
+            height: 40px;
+            margin-bottom: 15px;
         }
 
         .footer-col h4 {
-            margin-bottom: 8px;
-            font-size: 1.02em;
-            color: #ffffff;
-        }
-
-        .footer-col p {
-            margin: 3px 0;
-            font-size: 0.9em;
+            color: white;
+            margin-bottom: 15px;
         }
 
         .footer-col a {
-            color: #ffcc80;
+            color: #94a3b8;
             text-decoration: none;
         }
 
         .footer-col a:hover {
-            text-decoration: underline;
+            color: white;
+        }
+
+        .footer-col i {
+            margin-right: 8px;
+            color: #2563eb;
         }
 
         .footer-note {
             margin-top: 8px;
-            font-size: 0.86em;
-            color: #b0bec5;
+            font-size: 0.9em;
+            color: #64748b;
         }
 
-        footer i {
-            margin-right: 6px;
-            font-size: 0.95em;
+        /* Хлебные крошки (как на главной) */
+        .breadcrumbs {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
         }
 
-        /* ===== АНИМАЦИИ ===== */
-        @keyframes pulse-orange {
-            0% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4); }
-            100% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6); }
+        .breadcrumbs ol {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
         }
 
-        /* ===== АДАПТИВНОСТЬ (как в pereezdkay) ===== */
-        @media (max-width: 992px) {
-            .main-nav {
-                display: none;
+        .breadcrumbs li {
+            font-size: 0.9rem;
+        }
+
+        .breadcrumbs li:not(:last-child)::after {
+            content: "/";
+            margin: 0 8px;
+            color: #94a3b8;
+        }
+
+        .breadcrumbs a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs [aria-current="page"] {
+            color: #64748b;
+        }
+
+        /* Плавающие кнопки */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-buttons.is-visible {
+            opacity: 1;
+        }
+
+        .floating-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .floating-btn.call {
+            background: #2563eb;
+        }
+
+        .floating-btn.whatsapp {
+            background: #25D366;
+        }
+
+        .floating-btn.reviews {
+            background: #f97316;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1024px) {
+            .burger-menu {
+                display: flex;
             }
         }
 
@@ -759,25 +975,32 @@
                 padding-top: 70px;
             }
 
-            .floating-header-content {
-                flex-wrap: wrap;
-                gap: 10px;
+            .floating-header {
+                padding: 8px 4%;
             }
 
-            .header-left {
-                width: 100%;
-                justify-content: center;
+            .floating-logo {
+                height: 38px;
             }
 
-            .shop-hero {
-                padding: 120px 15px 60px;
+            .header-phone span {
+                display: none;
             }
 
-            .shop-hero h1 {
+            .header-phone i {
+                margin-right: 0;
+            }
+
+            .lang-btn {
+                padding: 4px 10px;
+                font-size: 0.8rem;
+            }
+
+            .hero-header h1 {
                 font-size: 2.2em;
             }
 
-            .shop-hero p {
+            .hero-header p {
                 font-size: 1.1em;
             }
 
@@ -791,12 +1014,12 @@
                 max-width: 300px;
             }
 
-            .category-title {
-                font-size: 1.8em;
+            .section h2 {
+                font-size: 2em;
             }
 
-            .products-grid {
-                gap: 20px;
+            .category-title {
+                font-size: 1.8em;
             }
 
             .cart-float-btn {
@@ -806,36 +1029,28 @@
                 bottom: 20px;
                 right: 20px;
             }
-
-            .seo-article {
-                padding: 30px 20px;
-            }
         }
 
         @media (max-width: 480px) {
-            .header-left {
-                gap: 10px;
-            }
-
-            .lang-btn {
-                padding: 4px 10px;
-                font-size: 0.8em;
-            }
-
             .floating-logo {
-                height: 35px;
+                height: 32px;
             }
 
-            .shop-hero h1 {
+            .mobile-nav {
+                left: 4%;
+                width: 92%;
+            }
+
+            .hero-header h1 {
                 font-size: 1.8em;
             }
 
-            .shop-hero p {
+            .hero-header p {
                 font-size: 1em;
             }
 
             .cta-button {
-                padding: 12px 25px;
+                padding: 12px 24px;
                 font-size: 1em;
             }
 
@@ -850,17 +1065,19 @@
             .product-card {
                 flex-direction: row;
                 margin-bottom: 15px;
+                padding: 15px;
             }
 
             .product-image {
-                height: 120px;
-                min-width: 120px;
+                height: 100px;
+                min-width: 100px;
                 font-size: 2.5em;
-                border-radius: 15px 0 0 15px;
+                margin-bottom: 0;
+                margin-right: 15px;
             }
 
             .product-info {
-                padding: 15px;
+                padding: 0;
             }
 
             .product-title {
@@ -868,22 +1085,7 @@
             }
 
             .product-desc {
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-
-            .product-desc.expanded {
-                -webkit-line-clamp: unset;
-            }
-
-            .desc-toggle {
-                font-size: 0.85em;
-                color: #1a237e;
-                cursor: pointer;
-                margin-top: 5px;
-                display: inline-block;
+                font-size: 0.9em;
             }
 
             .product-price {
@@ -897,46 +1099,61 @@
             .footer-inner {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 30px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Хлебные крошки -->
+    <nav aria-label="Breadcrumb" class="breadcrumbs">
+        <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li aria-current="page">Магазин упаковки</li>
+        </ol>
+    </nav>
 
-    <!-- ===== ШАПКА (точная копия pereezdkay) ===== -->
+    <!-- Плавающая шапка (как на главной) -->
     <header class="floating-header">
         <div class="floating-header-content">
             <div class="header-left">
-                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo"></a>
-                <div class="language-switcher">
-                    <a href="shop.html" class="lang-btn active">Магазин</a>
-                    <a href="pereezd-pod-klyuch.html" class="lang-btn">Переезд</a>
-                </div>
+                <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo"></a>
             </div>
-            <nav class="main-nav">
-                <a href="#categories">Категории</a>
-                <a href="#popular">Популярное</a>
-                <a href="#delivery">Доставка</a>
-                <a href="#faq">Вопросы</a>
-            </nav>
-            <a href="index.html" class="lang-btn mobile-shop-link">НА ГЛАВНУЮ</a>
-            <span class="phone-wrap">
-                <a href="tel:+77010120300" class="header-phone" onclick="trackPhoneCall('shop_header')">
-                    <i class="fas fa-phone"></i> +7 701 012 03 00
+
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="shop.html" class="lang-btn active">РУС</a>
+                    <a href="shop-kz.html" class="lang-btn">ҚАЗ</a>
+                </div>
+                <a href="tel:+77010120300" class="header-phone" onclick="trackPhoneCall('header')">
+                    <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
                 </a>
-                <img src="santa_hat.png" class="santa-hat" alt="">
-            </span>
+            </div>
         </div>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-close">
+                <button id="closeMobileNav" aria-label="Закрыть меню">&times;</button>
+            </div>
+            <a href="index.html">Главная</a>
+            <a href="pereezdkay.html">Переезд под ключ</a>
+            <a href="musor.html">Вывоз мусора</a>
+            <a href="mebel.html">Разборка мебели</a>
+            <a href="#contact">Контакты</a>
+        </nav>
     </header>
 
-    <!-- ===== HERO СЕКЦИЯ ===== -->
-    <section class="shop-hero">
-        <div class="container" style="padding-bottom: 0;">
+    <!-- Hero секция -->
+    <section class="hero-header">
+        <div class="header-content">
             <h1 data-aos="fade-up">Магазин <span>упаковки</span> для переезда</h1>
             <p data-aos="fade-up" data-aos-delay="100">
                 Всё необходимое для безопасного переезда: коробки, плёнка, скотч и сумки.
-                Доставка по Астане от 2500 ₸.
+                Доставка по Астане.
             </p>
             <div class="hero-features" data-aos="fade-up" data-aos-delay="200">
                 <div class="hero-feature"><i class="fas fa-box"></i> <span>Коробки всех размеров</span></div>
@@ -949,11 +1166,13 @@
         </div>
     </section>
 
-    <!-- ===== ОСНОВНОЙ КОНТЕНТ МАГАЗИНА ===== -->
-    <div class="container" id="shop-container"></div>
+    <!-- Основной контент магазина -->
+    <div class="section" id="shop-container">
+        <!-- Сюда будет вставлен контент через JavaScript -->
+    </div>
 
-    <!-- ===== SEO БЛОК ===== -->
-    <section class="seo-article container" id="about">
+    <!-- SEO блок -->
+    <section class="seo-article" id="about">
         <h2>Упаковка для переезда в Астане</h2>
         <p>
             Качественная упаковка — залог сохранности ваших вещей при перевозке. В нашем магазине
@@ -974,7 +1193,41 @@
         </p>
     </section>
 
-    <!-- ===== КОРЗИНА ===== -->
+    <!-- Контакты -->
+    <section class="contact-section" id="contact" style="background: #f8fafc; border-top: 1px solid #e2e8f0; text-align: center; padding: 60px 20px;">
+        <h2 style="font-size: 2.5em; margin-bottom: 50px; color: #0f172a;">Свяжитесь с нами</h2>
+        <div class="contact-info">
+            <p style="margin-bottom: 30px;">Мы готовы помочь вам с выбором упаковки!</p>
+            <a href="tel:+77010120300" class="cta-button" onclick="trackPhoneCall('contact')">
+                <i class="fas fa-phone-alt"></i> Заказать!
+            </a>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo">
+                <p>Грузоперевозки и упаковка в Астане.</p>
+                <p>&copy; 2019-2025 gruzim.kz</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77010120300" onclick="trackPhoneCall('footer')">+7 701 012 03 00</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300" target="_blank" onclick="trackWhatsApp('footer')">Написать в WhatsApp</a></p>
+                <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <p><a href="#" id="privacy-policy-link">Политика конфиденциальности</a></p>
+                <p><a href="#" id="terms-of-service-link">Условия использования</a></p>
+                <p class="footer-note">Безналичный расчет, договор</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Корзина -->
     <div class="cart-float-btn" id="open-cart-btn">
         <i class="fas fa-shopping-cart"></i>
         <div class="cart-badge" id="cart-count">0</div>
@@ -983,9 +1236,9 @@
     <div class="cart-modal-overlay" id="cart-modal">
         <div class="cart-modal">
             <span class="close-cart" id="close-cart-btn">&times;</span>
-            <h3 style="color: #1a237e;">Ваш заказ</h3>
+            <h3 style="color: #2563eb; margin-bottom: 20px;">Ваш заказ</h3>
             <div class="cart-items" id="cart-items-container">
-                <p style="text-align: center; color: #777;">Корзина пуста</p>
+                <p style="text-align: center; color: #64748b;">Корзина пуста</p>
             </div>
             <div class="cart-total">
                 Итого: <span id="cart-total-price">0</span> ₸
@@ -1000,34 +1253,45 @@
         </div>
     </div>
 
-    <!-- ===== ПОДВАЛ ===== -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-col">
-                <img src="Logo.png" alt="Gruzim.kz" class="footer-logo">
-                <p class="footer-tagline">Грузоперевозки и упаковка в Астане.</p>
-                <p class="footer-years">&copy; 2019-2025 gruzim.kz</p>
-            </div>
-            <div class="footer-col">
-                <h4>Контакты</h4>
-                <p><i class="fas fa-phone"></i> <a href="tel:+77010120300" onclick="trackPhoneCall('footer')">+7 701 012 03 00</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300" target="_blank" onclick="trackWhatsApp('footer')">Написать в WhatsApp</a></p>
-                <p><i class="fas fa-clock"></i> Ежедневно 8:00-22:00</p>
-            </div>
-            <div class="footer-col">
-                <h4>Информация</h4>
-                <p><a href="#" onclick="alert('Политика конфиденциальности на главной странице')">Политика конфиденциальности</a></p>
-                <p><a href="#" onclick="alert('Условия использования на главной странице')">Условия использования</a></p>
-                <p class="footer-note">Безналичный расчет, договор</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Плавающие кнопки -->
+    <div class="floating-buttons">
+        <a href="tel:+77010120300" class="floating-btn call"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/77010120300" class="floating-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#contact" class="floating-btn reviews"><i class="fas fa-star"></i></a>
+    </div>
 
-    <!-- ===== СКРИПТЫ ===== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Инициализация AOS
-        AOS.init({ duration: 800, once: true, offset: 100 });
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Бургер меню (как на главной)
+        const burger = document.getElementById('burgerMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        const catalogLogo = document.getElementById('catalogLogo');
+        const closeMobileNav = document.getElementById('closeMobileNav');
+
+        function toggleMenu() {
+            burger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+
+        burger.addEventListener('click', toggleMenu);
+        catalogLogo.addEventListener('click', toggleMenu);
+        if (closeMobileNav) {
+            closeMobileNav.addEventListener('click', toggleMenu);
+        }
+
+        // Закрыть меню при клике на ссылку
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
 
         // Функции трекинга
         function trackPhoneCall(source) {
@@ -1037,9 +1301,8 @@
                     'value': 1.0,
                     'currency': 'KZT'
                 });
-                gtag('event', 'phone_call', { 'method': 'phone', 'source': source });
             }
-            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'phone_call_' + source);
+            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'phone_call');
         }
 
         function trackWhatsApp(source) {
@@ -1049,12 +1312,11 @@
                     'value': 1.0,
                     'currency': 'KZT'
                 });
-                gtag('event', 'whatsapp_click', { 'source': source });
             }
-            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'whatsapp_click_' + source);
+            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'whatsapp_click');
         }
 
-        // База товаров
+        // База товаров (сохранена из оригинала)
         const productsDB = [
             {
                 category: "Наборы для переезда",
@@ -1165,7 +1427,7 @@
             const allProducts = productsDB.flatMap(c => c.items);
 
             if (totalCount === 0) {
-                html = '<p style="text-align: center; color: #777;">Корзина пуста</p>';
+                html = '<p style="text-align: center; color: #64748b;">Корзина пуста</p>';
             } else {
                 for (const [id, qty] of Object.entries(cart)) {
                     const prod = allProducts.find(p => p.id == id);
@@ -1194,11 +1456,18 @@
             document.getElementById('cart-total-price').innerText = totalPrice;
         }
 
-        // Модалка корзины
+        // Toggle description
+        window.toggleDesc = function(id) {
+            const el = document.getElementById('desc-' + id);
+            if (el) el.classList.toggle('expanded');
+        };
+
+        // Инициализация
         document.addEventListener('DOMContentLoaded', () => {
             renderShop();
             updateCartUI();
 
+            // Модалка корзины
             const modal = document.getElementById('cart-modal');
             const openBtn = document.getElementById('open-cart-btn');
             const closeBtn = document.getElementById('close-cart-btn');
@@ -1256,14 +1525,7 @@
                 window.open(`https://wa.me/77010120300?text=${encodeURIComponent(msg)}`, '_blank');
             });
 
-            // Toggle description
-        window.toggleDesc = function(id) {
-            const el = document.getElementById('desc-' + id);
-            if (!el) return;
-            el.classList.toggle('expanded');
-        };
-
-        // Плавный скролл
+            // Плавный скролл
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1273,6 +1535,22 @@
                     }
                 });
             });
+
+            // Показываем плавающие кнопки
+            setTimeout(() => {
+                document.querySelector('.floating-buttons').classList.add('is-visible');
+            }, 1000);
+        });
+
+        // Политика и условия (заглушки)
+        document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.');
+        });
+
+        document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.');
         });
     </script>
 </body>
