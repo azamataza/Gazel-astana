@@ -116,7 +116,7 @@
             gap: 12px;
         }
 
-        /* Бургер-меню с оранжевой подсветкой */
+        /* Бургер-меню с яркой подсветкой для десктопа */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -130,7 +130,7 @@
             padding: 4px 5px;
             z-index: 1100;
             transition: all 0.2s ease;
-            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.7), 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .burger-menu span {
@@ -143,7 +143,8 @@
 
         .burger-menu:hover {
             background: #2563eb;
-            box-shadow: 0 0 0 4px #f97316;
+            box-shadow: 0 0 0 4px #f97316, 0 4px 12px rgba(0,0,0,0.3);
+            transform: scale(1.05);
         }
 
         .burger-menu:hover span {
@@ -169,6 +170,17 @@
 
         .burger-menu.active span:nth-child(3) {
             transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* На десктопе кнопка меню видна */
+        @media (min-width: 1025px) {
+            .burger-menu {
+                display: flex;
+                margin-right: 10px;
+                border-width: 3px;
+                width: 36px;
+                height: 26px;
+            }
         }
 
         .floating-logo {
@@ -412,8 +424,9 @@
             background: #e2e8f0;
             border-radius: 20px;
             overflow: hidden;
-            height: 400px;
+            height: 450px; /* Увеличили высоту карты */
             border: 3px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         #map {
@@ -428,6 +441,8 @@
             color: #1e293b;
             display: flex;
             flex-direction: column;
+            height: 450px; /* Сделали одной высоты с картой */
+            justify-content: space-between;
         }
 
         .form-group {
@@ -1079,23 +1094,9 @@
             transform: scale(1.1);
         }
 
+        /* Липкая кнопка для мобильных - скрыта */
         .mobile-sticky-call {
             display: none;
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .mobile-sticky-call .cta-button {
-            display: block;
-            text-align: center;
-            background: #22c55e;
-            width: 100%;
-            font-size: 1.2em;
-            padding: 16px;
-            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
         }
 
         .modal-overlay {
@@ -1172,6 +1173,12 @@
             .calculator-grid {
                 grid-template-columns: 1fr;
             }
+            .map-container {
+                height: 400px; /* На планшетах чуть меньше */
+            }
+            .calculator-form {
+                height: auto; /* Автовысота на мобильных */
+            }
         }
 
         @media (max-width: 768px) {
@@ -1209,7 +1216,8 @@
             }
             
             .map-container {
-                display: none;
+                display: block; /* Показываем карту на мобильных */
+                height: 350px;
             }
             
             .calculator-form {
@@ -1237,12 +1245,17 @@
                 height: 34px;
             }
             
+            /* Липкая кнопка скрыта */
             .mobile-sticky-call {
-                display: block;
+                display: none;
             }
             
             .tariff-selector {
                 font-size: 0.8em;
+            }
+            
+            .map-container {
+                height: 300px;
             }
         }
     </style>
@@ -1730,8 +1743,8 @@
         </div>
     </footer>
 
-    <!-- Липкая кнопка для мобильных -->
-    <div class="mobile-sticky-call" id="mobileStickyCall">
+    <!-- Липкая кнопка для мобильных - скрыта -->
+    <div class="mobile-sticky-call" id="mobileStickyCall" style="display: none;">
         <a href="tel:+77010120300" class="cta-button" onclick="ym(104276494,'reachGoal','klik_telefon');">
             📞 Позвонить сейчас
         </a>
@@ -1915,7 +1928,7 @@
             });
         });
 
-        // Анимация чисел статистики
+        // Анимация чисел статистики с динамическим обновлением
         function animateNumber(element, target) {
             if (!element) return;
             let current = 0;
@@ -1943,6 +1956,20 @@
         }
 
         let animated = false;
+        
+        // Функция для получения текущей даты и расчета количества заказов
+        function getCurrentOrdersCount() {
+            const startDate = new Date(2025, 1, 26); // 26 февраля 2025 (начало отсчета)
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            // Каждый день добавляем по 2 заказа, начиная с 523
+            const baseOrders = 523;
+            const additionalOrders = diffDays * 2;
+            return baseOrders + additionalOrders;
+        }
+
         function checkStats() {
             const yearsEl = document.getElementById('statYears');
             const ordersEl = document.getElementById('statOrders');
@@ -1950,7 +1977,10 @@
             if (!animated && yearsEl && ordersEl && isElementInViewport(yearsEl)) {
                 animated = true;
                 animateNumber(yearsEl, 6);
-                animateNumber(ordersEl, 500);
+                
+                // Получаем актуальное количество заказов
+                const currentOrders = getCurrentOrdersCount();
+                animateNumber(ordersEl, currentOrders);
             }
         }
 
