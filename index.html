@@ -1254,7 +1254,19 @@
                 font-size: 0.8em;
             }
         }
-    </style>
+    
+/* === Mobile fixes for hours selector === */
+@media (max-width: 768px) {
+    .calculator-form .hours-control {
+        justify-content: center;
+    }
+    .calculator-form label #hoursDisplay {
+        display: block;
+        margin-top: 6px;
+    }
+}
+
+</style>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
