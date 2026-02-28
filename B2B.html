@@ -464,6 +464,7 @@
 
         /* Корпоративные карточки услуг */
         .services-grid {
+            justify-items: center;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -471,6 +472,8 @@
         }
 
         .service-card {
+            max-width: 360px;
+            width: 100%;
             background: white;
             border-radius: 24px;
             padding: 30px;
@@ -625,6 +628,7 @@
 
         /* Преимущества */
         .advantages-grid {
+            justify-items: center;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -632,6 +636,8 @@
         }
 
         .advantage-card {
+            max-width: 360px;
+            width: 100%;
             background: white;
             border-radius: 24px;
             padding: 30px;
@@ -1151,6 +1157,7 @@
             }
 
             .services-grid {
+            justify-items: center;
                 grid-template-columns: 1fr;
             }
 
@@ -1164,6 +1171,7 @@
             }
 
             .advantages-grid {
+            justify-items: center;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
@@ -1224,6 +1232,7 @@
             }
 
             .advantages-grid {
+            justify-items: center;
                 grid-template-columns: 1fr;
             }
 
@@ -1772,66 +1781,52 @@
             });
         });
 
-        // Карусель клиентов (3 карточки на десктопе, авто-листание)
+        
+        // Карусель клиентов (БЕСКОНЕЧНАЯ на десктопе)
         const track = document.querySelector('.clients-track');
         const prevBtn = document.querySelector('.clients-arrow--prev');
         const nextBtn = document.querySelector('.clients-arrow--next');
 
         if (track && prevBtn && nextBtn) {
-            const cards = document.querySelectorAll('.client-card');
-            let currentIndex = 0;
-            let autoplayInterval;
             const isMobile = window.innerWidth <= 768;
-            const cardsToShow = isMobile ? 1 : 3;
-            const totalSlides = Math.ceil(cards.length / cardsToShow);
 
-            function showSlide(index) {
-                currentIndex = (index + totalSlides) % totalSlides;
-                track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
-            }
+            if (!isMobile) {
+                // Клонируем карточки для бесконечного эффекта
+                track.innerHTML += track.innerHTML;
 
-            function nextSlide() {
-                showSlide(currentIndex + 1);
-            }
+                let position = 0;
+                const speed = 0.3;
 
-            function startAutoplay() {
-                if (!isMobile) {
-                    autoplayInterval = setInterval(nextSlide, 4000);
+                function animate() {
+                    position -= speed;
+                    if (Math.abs(position) >= track.scrollWidth / 2) {
+                        position = 0;
+                    }
+                    track.style.transform = `translateX(${position}px)`;
+                    requestAnimationFrame(animate);
                 }
-            }
 
-            function stopAutoplay() {
-                clearInterval(autoplayInterval);
-            }
+                animate();
 
-            prevBtn.addEventListener('click', () => {
-                stopAutoplay();
-                showSlide(currentIndex - 1);
-                startAutoplay();
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                stopAutoplay();
-                showSlide(currentIndex + 1);
-                startAutoplay();
-            });
+                track.addEventListener('mouseenter', () => speed = 0);
+                track.addEventListener('mouseleave', () => speed = 0.3);
 
-            // При ресайзе окна пересчитываем
-            window.addEventListener('resize', () => {
-                const newIsMobile = window.innerWidth <= 768;
-                if (newIsMobile !== isMobile) {
-                    location.reload(); // Просто перезагружаем для простоты
+            } else {
+                // Мобильную версию НЕ ТРОГАЕМ
+                const cards = document.querySelectorAll('.client-card');
+                let currentIndex = 0;
+                const totalSlides = cards.length;
+
+                function showSlide(index) {
+                    currentIndex = (index + totalSlides) % totalSlides;
+                    track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
                 }
-            });
 
-            startAutoplay();
-            
-            // Останавливаем автоплей при наведении
-            track.addEventListener('mouseenter', stopAutoplay);
-            track.addEventListener('mouseleave', startAutoplay);
+                prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+                nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+            }
         }
-
-        // Трекинг
+    // Трекинг
         function trackPhoneCall(source) {
             if (typeof gtag === 'function') {
                 gtag('event', 'conversion', {
