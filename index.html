@@ -1267,13 +1267,13 @@
 }
 
 
-/* === Hero Glass Buttons === */
+/* === Hero Glass Buttons Update === */
 .hero-glass-buttons {
     margin-top: 35px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 18px;
+    justify-items: center;
 }
 
 .glass-service-btn {
@@ -1300,11 +1300,26 @@
 
 .glass-service-btn i {
     font-size: 18px;
+    color: #f97316; /* оранжевые иконки */
 }
 
 .glass-service-btn:hover {
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-3px);
+}
+
+/* Desktop: 2 buttons per row */
+@media (min-width: 992px) {
+    .hero-glass-buttons {
+        grid-template-columns: 1fr 1fr;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .glass-service-btn {
+        max-width: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1464,6 +1479,7 @@ html {
 <span class="brand-orange">Грузоперевозки по Астане</span>
 </h1>
             <p>Надежная доставка грузов по Астане. Быстро, аккуратно, профессионально.</p>
+            <p class="hero-guarantee">Приедем вовремя, либо сделаем скидку 10% — никаких неожиданных доплат.</p>
             <div class="hero-glass-buttons">
                 <a href="#card-turnkey" class="glass-service-btn">
                     <i class="fas fa-gem"></i>
