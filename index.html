@@ -1266,6 +1266,95 @@
     }
 }
 
+
+/* === Hero Glass Buttons === */
+.hero-glass-buttons {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.glass-service-btn {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    padding: 18px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: all 0.3s ease;
+}
+
+.glass-service-btn i {
+    font-size: 18px;
+}
+
+.glass-service-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 480px) {
+    .glass-service-btn {
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+
+/* === Anchor scroll fix (header offset + mobile safe) === */
+#card-turnkey,
+#card-trash,
+#card-furniture {
+    scroll-margin-top: 120px; /* desktop header offset */
+}
+
+@media (max-width: 768px) {
+    #card-turnkey,
+    #card-trash,
+    #card-furniture {
+        scroll-margin-top: 100px; /* mobile header offset */
+    }
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* === Brand Blue Title === */
+.brand-blue {
+    color: #2563eb; /* фирменный синий */
+    font-weight: 800;
+}
+
+
+.brand-separator {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.brand-orange {
+    color: #f97316; /* фирменный оранжевый */
+    font-weight: 700;
+}
+
 </style>
 
     <!-- Yandex.Metrika counter -->
@@ -1369,12 +1458,33 @@
     <!-- Основная шапка с фоном -->
     <header class="hero-header">
         <div class="header-content">
-            <h1>Gruzim.kz | Грузоперевозки по Астане</h1>
+            <h1>
+<span class="brand-blue">Gruzim.kz</span>
+<span class="brand-separator"> | </span>
+<span class="brand-orange">Грузоперевозки по Астане</span>
+</h1>
             <p>Надежная доставка грузов по Астане. Быстро, аккуратно, профессионально.</p>
             <p class="hero-guarantee">Приедем вовремя, либо сделаем скидку 10% — никаких неожиданных доплат.</p>
-            <a href="shop.html" class="cta-button">🧺 Магазин упаковки</a>
-            <p class="hero-subtext">Коробки, плёнка, скотч – всё для аккуратного переезда.</p>
-        </div>
+            <div class="hero-glass-buttons">
+                <a href="#card-turnkey" class="glass-service-btn">
+                    <i class="fas fa-gem"></i>
+                    Переезды под ключ
+                </a>
+                <a href="#card-trash" class="glass-service-btn">
+                    <i class="fas fa-dumpster"></i>
+                    Вывоз мусора
+                </a>
+                <a href="#card-furniture" class="glass-service-btn">
+                    <i class="fas fa-screwdriver-wrench"></i>
+                    Разборка и сборка мебели
+                </a>
+                <a href="shop.html" class="glass-service-btn">
+                    <i class="fas fa-box-open"></i>
+                    Магазин упаковочных материалов
+                </a>
+            </div>
+
+            </div>
     </header>
 
     <!-- Верхняя полоска с фактами -->
@@ -1420,7 +1530,7 @@
                 <p class="price">от 14 000 тг/час</p>
             </div>
 
-            <div class="card card--premium" data-aos="zoom-in" data-aos-delay="300">
+            <div class="card card--premium" id="card-turnkey" data-aos="zoom-in" data-aos-delay="300">
                 <i class="fas fa-gem icon"></i>
                 <h3 class="card-title">Переезд под ключ</h3>
                 <p>Полный сервис: от упаковки до расстановки вещей на новом месте. Всё включено.</p>
@@ -1429,7 +1539,7 @@
             </div>
 
             <!-- Карточка разборки мебели (светло-графитовый) -->
-            <div class="card card--furniture" data-aos="fade-up" data-aos-delay="400">
+            <div class="card card--furniture" id="card-furniture" data-aos="fade-up" data-aos-delay="400">
                 <i class="fas fa-screwdriver-wrench icon"></i>
                 <h3>Сборка мебели под ключ</h3>
                 <p>Разберём, перевезём и соберём мебель на новом месте. Всё аккуратно, быстро и без повреждений.</p>
@@ -1437,7 +1547,7 @@
                 <a href="mebel.html" class="cta-button">Подробнее</a>
             </div>
 
-            <div class="card card--trash" data-aos="fade-up" data-aos-delay="500">
+            <div class="card card--trash" id="card-trash" data-aos="fade-up" data-aos-delay="500">
                 <i class="fas fa-dumpster icon"></i>
                 <h3>Вывоз мусора</h3>
                 <p>Оперативный вывоз строительного и бытового мусора. Утилизация старой мебели и техники.</p>
