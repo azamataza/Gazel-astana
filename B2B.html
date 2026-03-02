@@ -1329,39 +1329,44 @@
         <div class="container">
             <h2 data-aos="fade-up">Наши услуги для бизнеса</h2>
             <div class="services-grid">
-                <!-- Карточка 1: Грузоперевозки (информационная, без ссылки) -->
-                <div class="service-card info-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-truck"></i>
-                    <h3>Грузоперевозки</h3>
-                    <p>Доставка товаров, материалов, оборудования по Астане и регионам. Собственный автопарк. Любые объемы.</p>
-                    <div class="service-price">от 10 000 ₸/час</div>
-                 </div>
+                <!-- Карточка 1: Пакеты для бизнеса (с кнопкой скачать прайс) -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Пакеты для бизнеса</h3>
+                    <p>Старт: 100 000 ₸ (10 часов)<br>Оптима: 250 000 ₸ (25 часов)<br>Бизнес: 500 000 ₸ (50 часов)</p>
+                    <div class="service-price">от 100 000 ₸</div>
+                    <a href="/B2B.pdf" download class="cta-button">Скачать прайс-лист</a>
+                </div>
                 
                 <!-- Карточка 2: Офисные переезды под ключ -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-building"></i>
                     <h3>Офисные переезды под ключ</h3>
-                    <p>Переезд офиса без простоев. Упаковка документов и оргтехники, демонтаж/монтаж мебели, расстановка на новом месте.</p>
+                    <p>Офисы, склады, магазины. Выезд оценщика бесплатно. Упаковка, перевозка, сборка.</p>
                     <div class="service-price">от 120 000 ₸</div>
+                    <a href="https://wa.me/77010120300?text=Здравствуйте! Нужен переезд. Вызовите оценщика бесплатно." class="cta-button whatsapp">Вызвать оценщика</a>
                 </div>
                 
-                <!-- Карточка 3: Вывоз мусора и утилизация -->
+                <!-- Карточка 3: Вывоз мусора -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-dumpster"></i>
-                    <h3>Вывоз мусора и утилизация</h3>
-                    <p>Вывоз строительного, крупногабаритного мусора. Утилизация старой мебели, оргтехники, документов с подтверждающими актами.</p>
-                    <div class="service-price">от 30 000 ₸</div>
+                    <h3>Вывоз мусора</h3>
+                    <p>Строительный мусор до 1,5 т. ТБО не вывозим.</p>
+                    <div class="service-price">30 000 / 50 000 ₸</div>
+                    <p style="font-size:0.85rem; color:#64748b;">без грузчиков / с грузчиками</p>
+                    <a href="https://wa.me/77010120300?text=Здравствуйте! Нужен вывоз мусора." class="cta-button whatsapp">Заказать</a>
                 </div>
                 
-                <!-- Карточка 4: Разборка и сборка мебели -->
+                <!-- Карточка 4: Утилизация мебели -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-couch"></i>
-                    <h3>Разборка и сборка мебели</h3>
-                    <p>Разборка офисной мебели перед переездом, сборка на новом месте. Работаем с любыми типами конструкций.</p>
-                    <div class="service-price">от 30 000 ₸</div>
+                    <h3>Утилизация мебели</h3>
+                    <p>Разборка и вывоз старой мебели. Бесплатный замер.</p>
+                    <div class="service-price">10 000 ₸/м³</div>
+                    <a href="https://wa.me/77010120300?text=Здравствуйте! Нужна утилизация мебели." class="cta-button whatsapp">Оставить заявку</a>
                 </div>
                 
-                <!-- Карточка 5: Продажа упаковки (B2B/Опт) -->
+                <!-- Карточка 5: Продажа упаковки оптом -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                     <i class="fas fa-boxes"></i>
                     <h3>Продажа упаковки оптом</h3>
@@ -1795,7 +1800,7 @@
                 track.innerHTML += track.innerHTML;
 
                 let position = 0;
-                const speed = 0.3;
+                let speed = 0.3;
 
                 function animate() {
                     position -= speed;
@@ -1812,7 +1817,7 @@
                 track.addEventListener('mouseleave', () => speed = 0.3);
 
             } else {
-                // Мобильную версию НЕ ТРОГАЕМ
+                // Мобильная версия
                 const cards = document.querySelectorAll('.client-card');
                 let currentIndex = 0;
                 const totalSlides = cards.length;
@@ -1826,7 +1831,8 @@
                 nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
             }
         }
-    // Трекинг
+        
+        // Трекинг
         function trackPhoneCall(source) {
             if (typeof gtag === 'function') {
                 gtag('event', 'conversion', {
