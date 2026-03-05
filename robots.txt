@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# Запрещаем индексацию служебных файлов
+Disallow: /server-status
+Disallow: /server-info
+Disallow: /cgi-bin/
+
+# Указываем путь к карте сайта
 Sitemap: https://www.gruzim.kz/sitemap.xml
