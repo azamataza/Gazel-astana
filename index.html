@@ -2435,6 +2435,46 @@ html {
         // Установка начального значения для часов
         updatePrice();
     </script>
+    <script>
+  // Динамическая дата в футере
+  document.addEventListener('DOMContentLoaded', function() {
+    // Находим все элементы, где может быть дата
+    // Заменяем статичный год в копирайте
+    const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
+    const currentYear = new Date().getFullYear();
+    
+    copyrightElements.forEach(el => {
+      if (el.textContent.includes('2019-2025')) {
+        el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`);
+      }
+      if (el.textContent.includes('2019-2026')) {
+        el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`);
+      }
+    });
+
+    // Добавляем строку с актуальностью цен (если хотите отдельно)
+    const footerCols = document.querySelectorAll('.footer-col');
+    if (footerCols.length > 0) {
+      const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
+                      'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+      const now = new Date();
+      const monthName = months[now.getMonth()];
+      const year = now.getFullYear();
+      
+      const priceNote = document.createElement('p');
+      priceNote.style.fontSize = '0.85em';
+      priceNote.style.color = '#94a3b8';
+      priceNote.style.marginTop = '10px';
+      priceNote.innerHTML = `Цены на грузоперевозки актуальны на ${monthName} ${year}`;
+      
+      // Добавляем в первую колонку футера (или в ту, где логотип)
+      const firstCol = footerCols[0];
+      if (firstCol) {
+        firstCol.appendChild(priceNote);
+      }
+    }
+  });
+</script>
 </body>
 
 </html>
