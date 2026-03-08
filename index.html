@@ -2482,20 +2482,102 @@ html {
   });
 </script>
 
-<!-- ===== IP-детектор для Telegram (защита от скликивания) ===== -->
+<!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ ===== -->
 <script>
   (function() {
-    // Настройки бота (твои данные)
+    // Настройки бота
     const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
     const TELEGRAM_CHAT_ID = '8277380855';
     const SUSPICIOUS_THRESHOLD = 3;
 
-    async function sendIpToTelegram() {
+    function getBrowserFingerprint() {
       try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        const ip = data.ip;
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 200;
+        canvas.height = 50;
+        
+        ctx.textBaseline = "top";
+        ctx.font = "14px 'Arial'";
+        ctx.fillStyle = "#f60";
+        ctx.fillRect(0, 0, 100, 50);
+        ctx.fillStyle = "#069";
+        ctx.fillText("Gruzim.kz", 2, 15);
+        ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
+        ctx.fillText("Переезд под ключ", 2, 30);
+        
+        const canvasHash = canvas.toDataURL();
+        
+        let webglInfo = 'недоступно';
+        try {
+          const canvasWebgl = document.createElement('canvas');
+          const gl = canvasWebgl.getContext('webgl') || canvasWebgl.getContext('experimental-webgl');
+          if (gl) {
+            const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+            if (debugInfo) {
+              webglInfo = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            }
+          }
+        } catch (e) {}
+        
+        return {
+          canvas: canvasHash.substring(0, 100),
+          webgl: webglInfo,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          language: navigator.language,
+          platform: navigator.platform,
+          hardwareConcurrency: navigator.hardwareConcurrency || 'неизвестно',
+          deviceMemory: navigator.deviceMemory || 'неизвестно',
+          colorDepth: screen.colorDepth,
+          screenResolution: `${screen.width}x${screen.height}`,
+          touchSupport: 'ontouchstart' in window
+        };
+      } catch (e) {
+        return { error: 'Fingerprint failed' };
+      }
+    }
 
+    function generateVisitorId() {
+      const fp = getBrowserFingerprint();
+      
+      const components = [
+        navigator.userAgent,
+        fp.canvas,
+        fp.webgl,
+        fp.timezone,
+        fp.language,
+        fp.screenResolution,
+        fp.hardwareConcurrency,
+        fp.colorDepth
+      ];
+      
+      const combined = components.join('|');
+      let hash = 0;
+      for (let i = 0; i < combined.length; i++) {
+        const char = combined.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+      }
+      
+      return {
+        id: Math.abs(hash).toString(16).padStart(8, '0'),
+        fingerprint: fp
+      };
+    }
+
+    function truncate(str, maxLength = 100) {
+      if (!str) return '';
+      return str.length > maxLength ? str.substring(0, maxLength) + '...' : str;
+    }
+
+    async function sendVisitorInfo() {
+      try {
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        const ip = ipData.ip;
+
+        const visitor = generateVisitorId();
+        
         const pageUrl = window.location.href;
         const referrer = document.referrer || 'прямой заход';
         const userAgent = navigator.userAgent;
@@ -2505,29 +2587,56 @@ html {
           timeStyle: 'medium'
         });
 
-        const visits = JSON.parse(localStorage.getItem(`visits_${ip}`) || '0');
-        const today = new Date().toDateString();
-        let visitCount = 1;
+        const storageKey = `visitor_${visitor.id}`;
         
-        if (localStorage.getItem(`lastVisitDate_${ip}`) === today) {
-          visitCount = visits + 1;
+        const visitsData = JSON.parse(localStorage.getItem(storageKey) || '{"count":0, "date":"", "ips":[], "firstSeen":""}');
+        const today = new Date().toDateString();
+        
+        let visitCount = 1;
+        let knownIps = [];
+        
+        if (visitsData.date === today) {
+          visitCount = visitsData.count + 1;
+          knownIps = visitsData.ips || [];
         }
         
-        localStorage.setItem(`visits_${ip}`, visitCount);
-        localStorage.setItem(`lastVisitDate_${ip}`, today);
+        if (!knownIps.includes(ip)) {
+          knownIps.push(ip);
+        }
+        
+        localStorage.setItem(storageKey, JSON.stringify({
+          count: visitCount,
+          date: today,
+          ips: knownIps,
+          firstSeen: visitsData.firstSeen || new Date().toISOString()
+        }));
 
-        let message = `🚛 <b>Gruzim.kz - новый визит</b>\n\n`;
+        let message = `🚛 <b>Gruzim.kz (переезд под ключ) - новый визит</b>\n\n`;
+        message += `🔍 <b>ID посетителя:</b> <code>${visitor.id}</code>\n`;
         message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
+        message += `📊 <b>Всего IP за сегодня:</b> ${knownIps.length}\n`;
         message += `🕐 <b>Время:</b> ${visitTime}\n`;
-        message += `📱 <b>Устройство:</b> ${userAgent.substring(0, 100)}...\n`;
-        message += `🔗 <b>Страница:</b> ${pageUrl}\n`;
-        message += `↩️ <b>Откуда пришел:</b> ${referrer}\n`;
         message += `⚠️ <b>Визитов сегодня:</b> ${visitCount}\n`;
+        message += `🔗 <b>Страница:</b> ${pageUrl}\n`;
+        message += `↩️ <b>Откуда пришел:</b> ${referrer}\n\n`;
+        
+        message += `📱 <b>User-Agent:</b>\n<code>${truncate(userAgent, 200)}</code>\n\n`;
+        
+        message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
+        message += `• Платформа: ${visitor.fingerprint.platform || 'неизвестно'}\n`;
+        message += `• Экран: ${visitor.fingerprint.screenResolution || 'неизвестно'}\n`;
+        message += `• Язык: ${visitor.fingerprint.language || 'неизвестно'}\n`;
+        message += `• Часовой пояс: ${visitor.fingerprint.timezone || 'неизвестно'}\n`;
+        message += `• Ядер CPU: ${visitor.fingerprint.hardwareConcurrency || 'неизвестно'}\n`;
+        message += `• WebGL: ${truncate(visitor.fingerprint.webgl || 'нет', 50)}\n`;
 
         if (visitCount >= SUSPICIOUS_THRESHOLD) {
           message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
-          message += `\n❗️ <b>Заблокируй этот IP в Google Ads:</b>\n`;
-          message += `🔴 <code>${ip}</code>`;
+          message += `\n❗️ <b>ID для отслеживания:</b> <code>${visitor.id}</code>\n`;
+        }
+
+        if (knownIps.length >= 2) {
+          message += `\n⚠️ <b>IP менялся сегодня:</b> ${knownIps.join(' → ')}\n`;
         }
 
         await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
@@ -2541,21 +2650,36 @@ html {
           })
         });
         
-        console.log('✅ IP отправлен в Telegram:', ip);
+        console.log('✅ Информация отправлена. ID:', visitor.id);
         
       } catch (error) {
-        console.error('❌ Ошибка отправки IP:', error);
+        console.error('❌ Ошибка:', error);
+        try {
+          const backup = await fetch('https://api.ipify.org?format=json');
+          const backupData = await backup.json();
+          if (backupData.ip) {
+            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: `⚠️ <b>Упрощенный отчет (pereezdkay)</b>\nIP: ${backupData.ip}\nОшибка: ${error.message}`,
+                parse_mode: 'HTML'
+              })
+            });
+          }
+        } catch (e) {}
       }
     }
 
     if (window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1')) {
       window.addEventListener('load', function() {
-        setTimeout(sendIpToTelegram, 3000);
+        setTimeout(sendVisitorInfo, 4000);
       });
     }
   })();
 </script>
-<!-- ===== Конец IP-детектора ===== -->
+<!-- ===== КОНЕЦ РАСШИРЕННОГО ДЕТЕКТОРА ===== -->
 
 </body>
 </html>
