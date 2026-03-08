@@ -738,33 +738,38 @@
             color: #d97706;
         }
 
-        /* Карточка разборки мебели — светло-графитовый */
-        .card--furniture {
-            background: #f5f7fa;
-            border: 2px solid #94a3b8;
-            color: #1e293b;
-        }
-        .card--furniture h3,
-        .card--furniture p {
-            color: #1e293b;
-        }
-        .card--furniture .icon {
-            background: #e2e8f0;
-            color: #475569;
-        }
-        .card--furniture .price {
-            color: #2563eb;
-        }
+        
+/* Карточка сборки мебели — синяя */
+.card--furniture {
+    background: #f0f9ff;
+    border: 2px solid #2563eb;
+}
+.card--furniture .icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
 
-        .card--trash {
-            background: #f0f9ff;
-            border: 2px solid #2563eb;
-        }
 
-        .card--trash .icon {
-            background: #dbeafe;
-            color: #2563eb;
-        }
+        
+/* Карточка вывоза мусора — графитовая (Apple style) */
+.card--trash {
+    background: linear-gradient(145deg, #f5f5f7, #e5e5ea);
+    border: 1px solid #d2d2d7;
+    color: #1d1d1f;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+.card--trash h3,
+.card--trash p {
+    color: #1d1d1f;
+}
+.card--trash .icon {
+    background: #e5e5ea;
+    color: #3a3a3c;
+}
+.card--trash .price {
+    color: #2563eb;
+}
+
 
         /* Статистика с анимацией */
         .stats-grid {
