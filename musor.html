@@ -118,8 +118,11 @@
               "@type": "Service",
               "name": "Вывоз мусора Газель"
             },
-            "price": "15000",
-            "priceCurrency": "KZT",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": 15000,
+              "priceCurrency": "KZT"
+            },
             "description": "Вывоз мусора на Газели без грузчиков. Для строительного и бытового мусора."
           },
           {
@@ -128,8 +131,11 @@
               "@type": "Service",
               "name": "Вывоз мусора Газель + 2 грузчика"
             },
-            "price": "30000",
-            "priceCurrency": "KZT",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": 30000,
+              "priceCurrency": "KZT"
+            },
             "description": "Вывоз мусора с погрузкой. Газель и 2 грузчика для выноса мусора."
           },
           {
@@ -138,8 +144,11 @@
               "@type": "Service",
               "name": "Комплексный вывоз мусора"
             },
-            "price": "50000",
-            "priceCurrency": "KZT",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": 50000,
+              "priceCurrency": "KZT"
+            },
             "description": "Полный комплекс: демонтаж, погрузка, вывоз, уборка. Для крупных объемов."
           },
           {
@@ -148,8 +157,11 @@
               "@type": "Service",
               "name": "Утилизация мебели и техники"
             },
-            "price": "10000",
-            "priceCurrency": "KZT",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": 10000,
+              "priceCurrency": "KZT"
+            },
             "description": "Вывоз и утилизация старой мебели, холодильников, стиральных машин."
           }
         ]
@@ -1931,9 +1943,8 @@
 
         function updateWarning() {
             if (demolition.checked) {
-                warningText.textContent = 'Демонтаж: стоимость обсуждается индивидуально.';
+                warningText.textContent = 'Демонтаж: стоимость обсуждается индивидуально, базовая надбавка +10 000 ₸ уже учтена.';
                 warning.classList.add('show');
-                priceEl.textContent = '—';
             } else if (infected.checked) {
                 warningText.textContent = 'Для заражённой мебели требуется спецобработка. Стоимость уточняйте по телефону.';
                 warning.classList.add('show');
@@ -1972,7 +1983,11 @@
                 price += floorValue * 2000;
             }
             
-            if (demolition.checked) price += price * 0.2;
+            // Базовая надбавка за демонтаж
+            if (demolition.checked) {
+                price += 10000;
+            }
+            
             if (packaging.checked) price += price * 0.15;
             if (infected.checked) price += price * 0.5;
             
