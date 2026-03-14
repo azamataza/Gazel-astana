@@ -419,6 +419,13 @@
             color: #1e40af;
         }
 
+        /* Скрываем текст телефона в шапке на мобильных, оставляем только иконку */
+        @media (max-width: 768px) {
+            .header-phone span {
+                display: none;
+            }
+        }
+
         .hero-header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.png') no-repeat center center/cover;
             color: white;
@@ -1154,52 +1161,99 @@
             color: white;
         }
 
+        /* === НОВЫЙ БЛОК: Плавающая пульсирующая кнопка с меню === */
         .floating-buttons {
             position: fixed;
             bottom: 20px;
             right: 20px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            align-items: flex-end;
             z-index: 999;
             opacity: 0;
             transition: opacity 0.3s ease;
+            pointer-events: none; /* Чтобы не мешать, пока невидимо */
         }
-
         .floating-buttons.is-visible {
             opacity: 1;
+            pointer-events: all;
         }
 
-        .floating-btn {
-            width: 55px;
-            height: 55px;
+        /* Контейнер для выдвижных кнопок */
+        .fab-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* Стили для каждой маленькой кнопки в меню */
+        .fab-menu-item {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5em;
+            margin-bottom: 10px;
             color: white;
             text-decoration: none;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.2s ease;
             border: none;
             cursor: pointer;
+            font-size: 1.4em;
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .fab-menu-item.show {
+            animation: fabPopIn 0.3s forwards ease-out;
+            pointer-events: all;
+        }
+        @keyframes fabPopIn {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        .floating-btn.call {
-            background: #2563eb;
+        /* Индивидуальные цвета для кнопок */
+        .fab-menu-item.call { background: #2563eb; }
+        .fab-menu-item.whatsapp { background: #25D366; }
+        .fab-menu-item.telegram { background: #0088cc; }
+        .fab-menu-item.reviews { background: #f97316; }
+
+        .fab-menu-item:hover {
+            transform: scale(1.1) !important;
         }
 
-        .floating-btn.whatsapp {
-            background: #25D366;
-        }
-
-        .floating-btn.reviews {
+        /* Главная пульсирующая кнопка (FAB) */
+        .fab-main {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             background: #f97316;
+            color: white;
+            border: none;
+            box-shadow: 0 5px 20px rgba(249, 115, 22, 0.4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            transition: all 0.2s ease;
+            animation: pulse 2s infinite;
+            position: relative;
+            z-index: 1000;
         }
-
-        .floating-btn:hover {
+        .fab-main:hover {
             transform: scale(1.1);
+            animation: none;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(249, 115, 22, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
         }
 
         /* Липкая кнопка для мобильных - скрыта */
@@ -1300,14 +1354,6 @@
 
             .floating-logo {
                 height: 38px;
-            }
-
-            .header-phone span {
-                display: none;
-            }
-
-            .header-phone i {
-                margin-right: 0;
             }
 
             .lang-btn {
@@ -1993,11 +2039,30 @@
         </a>
     </div>
 
-    <!-- Плавающие кнопки -->
+    <!-- ===== НОВЫЙ БЛОК: Плавающие кнопки (FAB) ===== -->
     <div class="floating-buttons">
-        <a href="tel:+77010120300" class="floating-btn call"><i class="fas fa-phone"></i></a>
-        <a href="https://wa.me/77010120300" class="floating-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-        <button class="floating-btn reviews" id="open-reviews-modal"><i class="fas fa-star"></i></button>
+        <div class="fab-menu" id="fabMenu">
+            <!-- Кнопка "Позвонить" -->
+            <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить" onclick="sendConversion('phone');">
+                <i class="fas fa-phone"></i>
+            </a>
+            <!-- Кнопка "WhatsApp" -->
+            <a href="https://wa.me/77010120300" class="fab-menu-item whatsapp" id="fabWhatsApp" title="WhatsApp" onclick="sendConversion('whatsapp');">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <!-- Кнопка "Telegram" -->
+            <a href="https://t.me/77010120300" class="fab-menu-item telegram" id="fabTelegram" title="Telegram" onclick="sendConversion('telegram');">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+            <!-- Кнопка "Отзывы" -->
+            <button class="fab-menu-item reviews" id="fabReviews" title="Отзывы">
+                <i class="fas fa-star"></i>
+            </button>
+        </div>
+        <!-- Главная пульсирующая кнопка -->
+        <button class="fab-main" id="fabMain" aria-label="Открыть меню">
+            <i class="fas fa-phone"></i>
+        </button>
     </div>
 
     <!-- Модальное окно отзывов -->
@@ -2115,13 +2180,20 @@
 
         // Модальное окно отзывов
         const reviewsModal = document.getElementById('reviews-modal');
-        const openReviewsBtn = document.getElementById('open-reviews-modal');
+        const openReviewsBtn = document.getElementById('fabReviews'); // Обновлено: открываем через нашу новую кнопку
         const closeBtn = reviewsModal?.querySelector('.modal-close-btn');
 
         if (openReviewsBtn && reviewsModal) {
             openReviewsBtn.addEventListener('click', () => {
                 reviewsModal.classList.add('is-active');
                 document.body.style.overflow = 'hidden';
+                // Закрываем меню FAB, если оно открыто
+                if (fabMenu) {
+                    fabMenu.querySelectorAll('.fab-menu-item').forEach(item => {
+                        item.classList.remove('show');
+                    });
+                    fabMain.classList.remove('active');
+                }
             });
 
             closeBtn?.addEventListener('click', () => {
@@ -2228,7 +2300,7 @@
         window.addEventListener('scroll', checkStats);
         window.addEventListener('load', checkStats);
 
-        // Показываем плавающие кнопки при скролле
+        // --- НОВАЯ ЛОГИКА: Показываем плавающие кнопки при скролле до карточки ---
         const apartmentsCard = document.getElementById('card-apartments-offices');
         const floatingButtons = document.querySelector('.floating-buttons');
 
@@ -2237,12 +2309,58 @@
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         floatingButtons.classList.add('is-visible');
-                        observer.disconnect();
+                        observer.disconnect(); // Останавливаем наблюдение после первого появления
                     }
                 });
             }, { threshold: 0.3 });
 
             observer.observe(apartmentsCard);
+        }
+
+        // --- НОВАЯ ЛОГИКА: Управление FAB меню ---
+        const fabMain = document.getElementById('fabMain');
+        const fabMenuItems = document.querySelectorAll('.fab-menu-item');
+
+        if (fabMain) {
+            fabMain.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Переключаем класс show у каждого элемента меню с задержкой для анимации
+                fabMenuItems.forEach((item, index) => {
+                    if (!item.classList.contains('show')) {
+                        // Открываем с задержкой для каскадного эффекта
+                        setTimeout(() => {
+                            item.classList.add('show');
+                        }, index * 50);
+                    } else {
+                        // Закрываем сразу все
+                        item.classList.remove('show');
+                    }
+                });
+                // Поворачиваем иконку главной кнопки (опционально)
+                fabMain.classList.toggle('active');
+            });
+
+            // Закрываем меню при клике на любую кнопку в меню (кроме отзывов, т.к. там своё модальное окно)
+            fabMenuItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    // Для кнопки отзывов не закрываем меню сразу, даем время открыться модалке
+                    if (item.id === 'fabReviews') {
+                        // Меню закроется после открытия модалки в обработчике выше
+                    } else {
+                        // Для остальных закрываем меню
+                        fabMenuItems.forEach(i => i.classList.remove('show'));
+                        fabMain.classList.remove('active');
+                    }
+                });
+            });
+
+            // Закрываем меню при клике в любое другое место
+            document.addEventListener('click', (e) => {
+                if (!fabMain.contains(e.target) && !Array.from(fabMenuItems).some(item => item.contains(e.target))) {
+                    fabMenuItems.forEach(item => item.classList.remove('show'));
+                    fabMain.classList.remove('active');
+                }
+            });
         }
 
         // Инициализация Яндекс.Карты
@@ -2360,11 +2478,16 @@
             });
         }
 
+        // Привязываем sendConversion ко всем телефонным и WhatsApp ссылкам
         document.querySelectorAll('a[href^="tel:"]').forEach(el => {
             el.addEventListener('click', () => sendConversion('phone'));
         });
         document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
             el.addEventListener('click', () => sendConversion('whatsapp'));
+        });
+        // Для Telegram тоже добавим
+        document.querySelectorAll('a[href*="t.me"]').forEach(el => {
+            el.addEventListener('click', () => sendConversion('telegram'));
         });
 
         window.sendReview = function(e) {
@@ -2468,7 +2591,8 @@
     // Находим все телефонные и WhatsApp ссылки
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
     const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-    const allLinks = [...phoneLinks, ...whatsappLinks];
+    const telegramLinks = document.querySelectorAll('a[href*="t.me"]');
+    const allLinks = [...phoneLinks, ...whatsappLinks, ...telegramLinks];
     
     // Плавающие кнопки
     const floatingButtons = document.querySelector('.floating-buttons');
@@ -2491,7 +2615,7 @@
                 link.title = 'Прокрутите страницу ниже, чтобы активировать контакты';
             }
         });
-        console.log('📞 Телефон и WhatsApp заблокированы');
+        console.log('📞 Телефон, WhatsApp и Telegram заблокированы');
     }
     
     // Функция для восстановления href
@@ -2511,7 +2635,7 @@
         });
         
         isActive = true;
-        console.log('📞 Телефон и WhatsApp разблокированы');
+        console.log('📞 Телефон, WhatsApp и Telegram разблокированы');
         
         // Останавливаем все проверки
         stopAllChecks();
