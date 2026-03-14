@@ -1999,16 +1999,16 @@
     <!-- Плавающие кнопки (FAB) -->
     <div class="floating-buttons">
         <div class="fab-menu" id="fabMenu">
-            <!-- Кнопка "Позвонить" -->
+            <!-- Кнопка "Позвонить" (всегда tel:) -->
             <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить">
                 <i class="fas fa-phone"></i>
             </a>
-            <!-- Кнопка "WhatsApp" -->
-            <a href="https://wa.me/77010120300" class="fab-menu-item whatsapp" id="fabWhatsApp" title="WhatsApp">
+            <!-- Кнопка "WhatsApp" (ссылка будет заменена скриптом) -->
+            <a href="#" class="fab-menu-item whatsapp" id="fabWhatsApp" title="WhatsApp" target="_blank">
                 <i class="fab fa-whatsapp"></i>
             </a>
-            <!-- Кнопка "Telegram" - ИСПРАВЛЕНО: теперь открывает приложение -->
-            <a href="tg://resolve?domain=77010120300" class="fab-menu-item telegram" id="fabTelegram" title="Telegram">
+            <!-- Кнопка "Telegram" (ссылка будет заменена скриптом) -->
+            <a href="#" class="fab-menu-item telegram" id="fabTelegram" title="Telegram" target="_blank">
                 <i class="fab fa-telegram-plane"></i>
             </a>
             <!-- Кнопка "Отзывы" -->
@@ -2484,6 +2484,46 @@
                 }
             }
         });
+
+        // ===== НОВЫЙ КОД: Определение устройства и подмена ссылок для Telegram/WhatsApp =====
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function updateMessengerLinks() {
+            const phoneNumber = '77010120300'; // без +
+            const isMobile = isMobileDevice();
+
+            // WhatsApp
+            const whatsappLink = document.getElementById('fabWhatsApp');
+            if (whatsappLink) {
+                if (isMobile) {
+                    whatsappLink.href = `https://wa.me/${phoneNumber}`;
+                } else {
+                    whatsappLink.href = `https://web.whatsapp.com/send?phone=${phoneNumber}`;
+                }
+            }
+
+            // Telegram
+            const telegramLink = document.getElementById('fabTelegram');
+            if (telegramLink) {
+                if (isMobile) {
+                    telegramLink.href = `tg://resolve?domain=${phoneNumber}`;
+                } else {
+                    telegramLink.href = `https://t.me/${phoneNumber}`;
+                }
+            }
+        }
+
+        // Запускаем при загрузке страницы
+        window.addEventListener('load', updateMessengerLinks);
+        // Также можно запустить сразу, если DOM уже загружен
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateMessengerLinks);
+        } else {
+            updateMessengerLinks();
+        }
+        // ===== КОНЕЦ НОВОГО КОДА =====
     </script>
 
     <!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ (ВОЗВРАЩЕН) ===== -->
