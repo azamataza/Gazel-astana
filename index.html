@@ -2240,22 +2240,160 @@ html {
         window.addEventListener('scroll', checkStats);
         window.addEventListener('load', checkStats);
 
-        // Показываем плавающие кнопки при скролле
+<script>
+// Блокировка конверсионных кнопок на 10 секунд или до скролла
+(function() {
+    // Селекторы всех конверсионных элементов (расширенный список)
+    const conversionSelectors = [
+        'a[href^="tel:"]',
+        'a[href*="wa.me"]',
+        '.cta-button',
+        '.floating-btn',
+        '.glass-service-btn',
+        '.header-phone',
+        '.mobile-sticky-call a',
+        '.calculator-form .cta-button',
+        '#open-reviews-modal',
+        'button[type="submit"]',
+        '.lang-btn', // языковые кнопки тоже блокируем?
+        '.burger-menu', // меню тоже?
+        '.floating-logo' // логотип?
+    ];
+    
+    let buttonsBlocked = true;
+    let blockTimer = null;
+    let observer = null;
+    
+    // Функция блокировки/разблокировки кнопок
+    function setButtonsState(blocked) {
+        const buttons = document.querySelectorAll(conversionSelectors.join(','));
+        
+        buttons.forEach(btn => {
+            if (blocked) {
+                btn.setAttribute('disabled', 'disabled');
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.6';
+                btn.style.cursor = 'not-allowed';
+                
+                // Сохраняем оригинальный href если это ссылка
+                if (btn.tagName === 'A' && btn.href && !btn.hasAttribute('data-original-href')) {
+                    btn.setAttribute('data-original-href', btn.href);
+                    btn.removeAttribute('href');
+                }
+            } else {
+                btn.removeAttribute('disabled');
+                btn.style.pointerEvents = '';
+                btn.style.opacity = '';
+                btn.style.cursor = '';
+                
+                // Восстанавливаем href если это ссылка
+                if (btn.tagName === 'A' && btn.hasAttribute('data-original-href')) {
+                    btn.href = btn.getAttribute('data-original-href');
+                    btn.removeAttribute('data-original-href');
+                }
+            }
+        });
+        
+        buttonsBlocked = blocked;
+    }
+    
+    // Функция разблокировки
+    function unlockButtons(source = '') {
+        if (!buttonsBlocked) return;
+        
+        setButtonsState(false);
+        
+        // Очищаем таймер
+        if (blockTimer) {
+            clearTimeout(blockTimer);
+            blockTimer = null;
+        }
+        
+        // Отключаем observer если он есть
+        if (observer) {
+            observer.disconnect();
+            observer = null;
+        }
+        
+        console.log(`✅ Кнопки разблокированы (${source})`);
+    }
+    
+    // Настройка IntersectionObserver для карточки
+    function setupCardObserver() {
         const apartmentsCard = document.getElementById('card-apartments-offices');
         const floatingButtons = document.querySelector('.floating-buttons');
-
-        if (apartmentsCard && floatingButtons && 'IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
+        
+        if (apartmentsCard && 'IntersectionObserver' in window) {
+            observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        floatingButtons.classList.add('is-visible');
-                        observer.disconnect();
+                        // Показываем плавающие кнопки (ваш существующий код)
+                        if (floatingButtons) {
+                            floatingButtons.classList.add('is-visible');
+                        }
+                        
+                        // Разблокируем все кнопки
+                        unlockButtons('скролл до карточки');
                     }
                 });
             }, { threshold: 0.3 });
-
+            
             observer.observe(apartmentsCard);
+        } else {
+            // Если нет IntersectionObserver, используем обычный скролл
+            let scrollFired = false;
+            function checkScroll() {
+                if (scrollFired) return;
+                
+                const firstCard = document.querySelector('.card, .cards-grid .card');
+                if (firstCard) {
+                    const rect = firstCard.getBoundingClientRect();
+                    const isVisible = (
+                        rect.top <= window.innerHeight * 0.8 && 
+                        rect.bottom >= 0
+                    );
+                    
+                    if (isVisible) {
+                        scrollFired = true;
+                        unlockButtons('скролл');
+                        window.removeEventListener('scroll', checkScroll);
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', checkScroll, { passive: true });
+            setTimeout(checkScroll, 100);
         }
+    }
+    
+    // Инициализация блокировки
+    function initButtonBlocking() {
+        // Сразу блокируем кнопки
+        setButtonsState(true);
+        
+        // Таймер на 10 секунд (разблокировка в любом случае)
+        blockTimer = setTimeout(() => {
+            unlockButtons('таймер 10с');
+        }, 10000);
+        
+        // Настраиваем отслеживание скролла до карточки
+        setupCardObserver();
+        
+        // Также разблокируем если пользователь совершил клик в любом месте
+        document.addEventListener('click', function onClick() {
+            unlockButtons('клик');
+            document.removeEventListener('click', onClick);
+        }, { once: true });
+    }
+    
+    // Запускаем после полной загрузки DOM
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initButtonBlocking);
+    } else {
+        initButtonBlocking();
+    }
+})();
+</script>
 
         // Инициализация Яндекс.Карты
         ymaps.ready(initMap);
