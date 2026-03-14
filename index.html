@@ -531,7 +531,7 @@
             background: #e2e8f0;
             border-radius: 20px;
             overflow: hidden;
-            height: 450px; /* Увеличили высоту карты */
+            height: 450px;
             border: 3px solid white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
@@ -548,7 +548,7 @@
             color: #1e293b;
             display: flex;
             flex-direction: column;
-            height: 450px; /* Сделали одной высоты с картой */
+            height: 450px;
             justify-content: space-between;
         }
 
@@ -738,38 +738,34 @@
             color: #d97706;
         }
 
-        
-/* Карточка сборки мебели — синяя */
-.card--furniture {
-    background: #f0f9ff;
-    border: 2px solid #2563eb;
-}
-.card--furniture .icon {
-    background: #dbeafe;
-    color: #2563eb;
-}
+        /* Карточка сборки мебели — синяя */
+        .card--furniture {
+            background: #f0f9ff;
+            border: 2px solid #2563eb;
+        }
+        .card--furniture .icon {
+            background: #dbeafe;
+            color: #2563eb;
+        }
 
-
-        
-/* Карточка вывоза мусора — графитовая (Apple style) */
-.card--trash {
-    background: linear-gradient(145deg, #f5f5f7, #e5e5ea);
-    border: 1px solid #d2d2d7;
-    color: #1d1d1f;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-.card--trash h3,
-.card--trash p {
-    color: #1d1d1f;
-}
-.card--trash .icon {
-    background: #e5e5ea;
-    color: #3a3a3c;
-}
-.card--trash .price {
-    color: #2563eb;
-}
-
+        /* Карточка вывоза мусора — графитовая (Apple style) */
+        .card--trash {
+            background: linear-gradient(145deg, #f5f5f7, #e5e5ea);
+            border: 1px solid #d2d2d7;
+            color: #1d1d1f;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        .card--trash h3,
+        .card--trash p {
+            color: #1d1d1f;
+        }
+        .card--trash .icon {
+            background: #e5e5ea;
+            color: #3a3a3c;
+        }
+        .card--trash .price {
+            color: #2563eb;
+        }
 
         /* Статистика с анимацией */
         .stats-grid {
@@ -1286,10 +1282,10 @@
                 grid-template-columns: 1fr;
             }
             .map-container {
-                height: 400px; /* На планшетах чуть меньше */
+                height: 400px;
             }
             .calculator-form {
-                height: auto; /* Автовысота на мобильных */
+                height: auto;
             }
         }
 
@@ -1367,122 +1363,117 @@
             }
         }
     
-/* === Mobile fixes for hours selector === */
-@media (max-width: 768px) {
-    .calculator-form .hours-control {
-        justify-content: center;
-    }
-    .calculator-form label #hoursDisplay {
-        display: block;
-        margin-top: 6px;
-    }
-}
+        /* === Mobile fixes for hours selector === */
+        @media (max-width: 768px) {
+            .calculator-form .hours-control {
+                justify-content: center;
+            }
+            .calculator-form label #hoursDisplay {
+                display: block;
+                margin-top: 6px;
+            }
+        }
 
+        /* === Hero Glass Buttons Update === */
+        .hero-glass-buttons {
+            margin-top: 35px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            justify-items: center;
+        }
 
-/* === Hero Glass Buttons Update === */
-.hero-glass-buttons {
-    margin-top: 35px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    justify-items: center;
-}
+        .glass-service-btn {
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            padding: 18px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
 
-.glass-service-btn {
-    width: 100%;
-    max-width: 420px;
-    text-align: center;
-    padding: 18px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            transition: all 0.3s ease;
+        }
 
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    transition: all 0.3s ease;
-}
+        .glass-service-btn i {
+            font-size: 18px;
+            color: #f97316;
+        }
 
-.glass-service-btn i {
-    font-size: 18px;
-    color: #f97316; /* оранжевые иконки */
-}
+        .glass-service-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
 
-.glass-service-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-3px);
-}
+        /* Desktop: 2 buttons per row */
+        @media (min-width: 992px) {
+            .hero-glass-buttons {
+                grid-template-columns: 1fr 1fr;
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-/* Desktop: 2 buttons per row */
-@media (min-width: 992px) {
-    .hero-glass-buttons {
-        grid-template-columns: 1fr 1fr;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+            .glass-service-btn {
+                max-width: none;
+            }
+        }
 
-    .glass-service-btn {
-        max-width: none;
-    }
-}
+        @media (max-width: 480px) {
+            .glass-service-btn {
+                font-size: 16px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
 
-@media (max-width: 480px) {
-    .glass-service-btn {
-        font-size: 16px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
+        /* === Anchor scroll fix (header offset + mobile safe) === */
+        #card-turnkey,
+        #card-trash,
+        #card-furniture {
+            scroll-margin-top: 120px;
+        }
 
+        @media (max-width: 768px) {
+            #card-turnkey,
+            #card-trash,
+            #card-furniture {
+                scroll-margin-top: 100px;
+            }
+        }
 
-/* === Anchor scroll fix (header offset + mobile safe) === */
-#card-turnkey,
-#card-trash,
-#card-furniture {
-    scroll-margin-top: 120px; /* desktop header offset */
-}
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
 
-@media (max-width: 768px) {
-    #card-turnkey,
-    #card-trash,
-    #card-furniture {
-        scroll-margin-top: 100px; /* mobile header offset */
-    }
-}
+        /* === Brand Blue Title === */
+        .brand-blue {
+            color: #2563eb;
+            font-weight: 800;
+        }
 
-/* Smooth scroll */
-html {
-    scroll-behavior: smooth;
-}
+        .brand-separator {
+            color: #ffffff;
+            font-weight: 600;
+        }
 
-
-/* === Brand Blue Title === */
-.brand-blue {
-    color: #2563eb; /* фирменный синий */
-    font-weight: 800;
-}
-
-
-.brand-separator {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.brand-orange {
-    color: #f97316; /* фирменный оранжевый */
-    font-weight: 700;
-}
-
-</style>
+        .brand-orange {
+            color: #f97316;
+            font-weight: 700;
+        }
+    </style>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -1592,10 +1583,10 @@ html {
     <header class="hero-header">
         <div class="header-content">
             <h1>
-<span class="brand-blue">Gruzim.kz</span>
-<span class="brand-separator"> | </span>
-<span class="brand-orange">Больше, чем грузоперевозки</span>
-</h1>
+                <span class="brand-blue">Gruzim.kz</span>
+                <span class="brand-separator"> | </span>
+                <span class="brand-orange">Больше, чем грузоперевозки</span>
+            </h1>
             <p>Полный цикл услуг для дома, офиса и бизнеса.</p>
             <div class="hero-glass-buttons">
                 <a href="#card-turnkey" class="glass-service-btn">
@@ -1615,8 +1606,7 @@ html {
                     Магазин упаковочных материалов
                 </a>
             </div>
-
-            </div>
+        </div>
     </header>
 
     <!-- Верхняя полоска с фактами -->
@@ -1670,7 +1660,7 @@ html {
                 <a href="pereezdkay.html" class="cta-button">Подробнее</a>
             </div>
 
-            <!-- Карточка разборки мебели (светло-графитовый) -->
+            <!-- Карточка разборки мебели -->
             <div class="card card--furniture" id="card-furniture" data-aos="fade-up" data-aos-delay="400">
                 <i class="fas fa-screwdriver-wrench icon"></i>
                 <h3>Сборка мебели под ключ</h3>
@@ -1711,7 +1701,7 @@ html {
         </div>
     </section>
 
-    <!-- Калькулятор с картой (ТЕПЕРЬ ПОСЛЕ КАРТОЧЕК) -->
+    <!-- Калькулятор с картой -->
     <section class="calculator-section" id="calculator">
         <div class="calculator-container">
             <h2 class="calculator-title">🚚 Рассчитайте стоимость поездки с учётом пробок</h2>
@@ -2212,12 +2202,11 @@ html {
         
         // Функция для получения текущей даты и расчета количества заказов
         function getCurrentOrdersCount() {
-            const startDate = new Date(2025, 1, 26); // 26 февраля 2025 (начало отсчета)
+            const startDate = new Date(2025, 1, 26);
             const today = new Date();
             const diffTime = Math.abs(today - startDate);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             
-            // Каждый день добавляем по 2 заказа, начиная с 523
             const baseOrders = 523;
             const additionalOrders = diffDays * 2;
             return baseOrders + additionalOrders;
@@ -2231,7 +2220,6 @@ html {
                 animated = true;
                 animateNumber(yearsEl, 6);
                 
-                // Получаем актуальное количество заказов
                 const currentOrders = getCurrentOrdersCount();
                 animateNumber(ordersEl, currentOrders);
             }
@@ -2262,19 +2250,17 @@ html {
         
         function initMap() {
             var map = new ymaps.Map("map", {
-                center: [51.1605, 71.4704], // Астана
+                center: [51.1605, 71.4704],
                 zoom: 12,
                 controls: ['zoomControl', 'fullscreenControl']
             });
             
-            // Включение слоя пробок
             var trafficControl = new ymaps.control.TrafficControl({
                 provider: 'yandex#traffic'
             });
             map.controls.add(trafficControl);
             trafficControl.state.set('provider', 'yandex#traffic');
             
-            // Добавить метку офиса
             var officePlacemark = new ymaps.Placemark([51.1605, 71.4704], {
                 hintContent: 'Gruzim.kz',
                 balloonContent: 'Наш офис в Астане'
@@ -2292,7 +2278,7 @@ html {
         const decreaseBtn = document.getElementById('decreaseHours');
         const increaseBtn = document.getElementById('increaseHours');
         
-        let currentPrice = 7000; // Грузовой по умолчанию
+        let currentPrice = 7000;
         
         tariffOptions.forEach(option => {
             option.addEventListener('click', () => {
@@ -2327,7 +2313,6 @@ html {
             if (isNaN(val) || val < 1) val = 1;
             if (val > 8) val = 8;
             
-            // Округляем до ближайшего 0.5
             val = Math.round(val * 2) / 2;
             this.value = val;
             
@@ -2375,7 +2360,6 @@ html {
             });
         }
 
-        // Отслеживание кликов
         document.querySelectorAll('a[href^="tel:"]').forEach(el => {
             el.addEventListener('click', () => sendConversion('phone'));
         });
@@ -2383,7 +2367,6 @@ html {
             el.addEventListener('click', () => sendConversion('whatsapp'));
         });
 
-        // Отправка отзывов в Telegram (ЗАМЕНИ ТОКЕН И CHAT_ID)
         window.sendReview = function(e) {
             e.preventDefault();
             const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -2396,7 +2379,6 @@ html {
             const text = document.getElementById('reviewText').value;
             const rating = document.getElementById('reviewRating').value;
             
-            // Отправка в Telegram (вставь свои данные)
             fetch(`https://api.telegram.org/bot<ТОКЕН_БОТА>/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -2406,14 +2388,12 @@ html {
                 })
             }).catch(err => console.log('Ошибка отправки в Telegram', err));
             
-            // Имитация отправки
             setTimeout(() => {
                 document.getElementById('reviewSuccess').style.display = 'block';
                 e.target.reset();
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
                 
-                // Сброс звёзд
                 starRatings.forEach(s => s.classList.remove('active'));
                 starRatings[4].classList.add('active');
                 ratingInput.value = 5;
@@ -2422,7 +2402,6 @@ html {
             }, 1500);
         }
 
-        // Политика и условия (заглушки)
         document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => {
             e.preventDefault();
             alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.');
@@ -2433,7 +2412,6 @@ html {
             alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.');
         });
 
-        // Улучшенная интерактивность карточек
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mouseenter', () => {
                 card.style.transform = 'translateY(-12px)';
@@ -2443,248 +2421,336 @@ html {
             });
         });
 
-        // Установка начального значения для часов
         updatePrice();
     </script>
-    <script>
-  // Динамическая дата в футере
-  document.addEventListener('DOMContentLoaded', function() {
-    // Находим все элементы, где может быть дата
-    // Заменяем статичный год в копирайте
-    const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
-    const currentYear = new Date().getFullYear();
     
-    copyrightElements.forEach(el => {
-      if (el.textContent.includes('2019-2025')) {
-        el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`);
-      }
-      if (el.textContent.includes('2019-2026')) {
-        el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`);
-      }
-    });
+    <script>
+        // Динамическая дата в футере
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
+            const currentYear = new Date().getFullYear();
+            
+            copyrightElements.forEach(el => {
+                if (el.textContent.includes('2019-2025')) {
+                    el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`);
+                }
+                if (el.textContent.includes('2019-2026')) {
+                    el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`);
+                }
+            });
 
-    // Добавляем строку с актуальностью цен (если хотите отдельно)
-    const footerCols = document.querySelectorAll('.footer-col');
-    if (footerCols.length > 0) {
-      const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
-                      'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-      const now = new Date();
-      const monthName = months[now.getMonth()];
-      const year = now.getFullYear();
-      
-      const priceNote = document.createElement('p');
-      priceNote.style.fontSize = '0.85em';
-      priceNote.style.color = '#94a3b8';
-      priceNote.style.marginTop = '10px';
-      priceNote.innerHTML = `Цены на грузоперевозки актуальны на ${monthName} ${year}`;
-      
-      // Добавляем в первую колонку футера (или в ту, где логотип)
-      const firstCol = footerCols[0];
-      if (firstCol) {
-        firstCol.appendChild(priceNote);
-      }
-    }
-  });
-</script>
-
-<!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ ===== -->
-<script>
-  (function() {
-    // Настройки бота
-    const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
-    const TELEGRAM_CHAT_ID = '8277380855';
-    const SUSPICIOUS_THRESHOLD = 3;
-
-    function getBrowserFingerprint() {
-      try {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = 200;
-        canvas.height = 50;
-        
-        ctx.textBaseline = "top";
-        ctx.font = "14px 'Arial'";
-        ctx.fillStyle = "#f60";
-        ctx.fillRect(0, 0, 100, 50);
-        ctx.fillStyle = "#069";
-        ctx.fillText("Gruzim.kz", 2, 15);
-        ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
-        ctx.fillText("Переезд под ключ", 2, 30);
-        
-        const canvasHash = canvas.toDataURL();
-        
-        let webglInfo = 'недоступно';
-        try {
-          const canvasWebgl = document.createElement('canvas');
-          const gl = canvasWebgl.getContext('webgl') || canvasWebgl.getContext('experimental-webgl');
-          if (gl) {
-            const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-            if (debugInfo) {
-              webglInfo = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            const footerCols = document.querySelectorAll('.footer-col');
+            if (footerCols.length > 0) {
+                const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
+                                'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+                const now = new Date();
+                const monthName = months[now.getMonth()];
+                const year = now.getFullYear();
+                
+                const priceNote = document.createElement('p');
+                priceNote.style.fontSize = '0.85em';
+                priceNote.style.color = '#94a3b8';
+                priceNote.style.marginTop = '10px';
+                priceNote.innerHTML = `Цены на грузоперевозки актуальны на ${monthName} ${year}`;
+                
+                const firstCol = footerCols[0];
+                if (firstCol) {
+                    firstCol.appendChild(priceNote);
+                }
             }
+        });
+    </script>
+
+    <!-- ===== СКРИПТ БЛОКИРОВКИ ТЕЛЕФОНА И WHATSAPP ===== -->
+    <script>
+    // ДЕЛАЕМ ТЕЛЕФОН И WHATSAPP НЕАКТИВНЫМИ НА 10 СЕКУНД ИЛИ ДО СКРОЛЛА
+    (function() {
+        // Находим все телефонные и WhatsApp ссылки
+        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+        const allLinks = [...phoneLinks, ...whatsappLinks];
+        
+        // Если ничего не нашли - выходим
+        if (allLinks.length === 0) return;
+        
+        let isActive = false;
+        let timer = null;
+        
+        // Функция для сохранения и удаления href
+        function disableLinks() {
+            allLinks.forEach(link => {
+                // Сохраняем оригинальный href в data-атрибут
+                if (link.href && !link.hasAttribute('data-saved-href')) {
+                    link.setAttribute('data-saved-href', link.href);
+                    link.removeAttribute('href');
+                    link.style.opacity = '0.6';
+                    link.style.cursor = 'not-allowed';
+                    link.style.pointerEvents = 'none';
+                    link.title = 'Подождите 10 секунд...';
+                }
+            });
+            console.log('📞 Телефон и WhatsApp заблокированы');
+        }
+        
+        // Функция для восстановления href
+        function enableLinks() {
+            if (isActive) return;
+            
+            allLinks.forEach(link => {
+                const savedHref = link.getAttribute('data-saved-href');
+                if (savedHref) {
+                    link.href = savedHref;
+                    link.removeAttribute('data-saved-href');
+                    link.style.opacity = '';
+                    link.style.cursor = '';
+                    link.style.pointerEvents = '';
+                    link.title = '';
+                }
+            });
+            
+            isActive = true;
+            console.log('📞 Телефон и WhatsApp разблокированы');
+            
+            // Очищаем таймер
+            if (timer) {
+                clearTimeout(timer);
+                timer = null;
+            }
+        }
+        
+        // Проверяем, доскроллил ли пользователь до карточки услуг
+        function checkScroll() {
+            if (isActive) return;
+            
+            // Ищем первую карточку услуги
+            const firstCard = document.querySelector('.card, .cards-grid .card');
+            if (firstCard) {
+                const rect = firstCard.getBoundingClientRect();
+                // Если карточка видна на экране (хотя бы частично)
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    console.log('📜 Пользователь доскроллил до услуг');
+                    enableLinks();
+                    window.removeEventListener('scroll', checkScroll);
+                }
+            }
+        }
+        
+        // Блокируем ссылки сразу
+        disableLinks();
+        
+        // Таймер на 10 секунд - разблокируем в любом случае
+        timer = setTimeout(() => {
+            console.log('⏰ Прошло 10 секунд');
+            enableLinks();
+            window.removeEventListener('scroll', checkScroll);
+        }, 10000);
+        
+        // Отслеживаем скролл
+        window.addEventListener('scroll', checkScroll, { passive: true });
+        
+        // Проверяем сразу (вдруг карточка уже видна)
+        setTimeout(checkScroll, 500);
+    })();
+    </script>
+    <!-- ===== КОНЕЦ СКРИПТА БЛОКИРОВКИ ===== -->
+
+    <!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ ===== -->
+    <script>
+      (function() {
+        const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
+        const TELEGRAM_CHAT_ID = '8277380855';
+        const SUSPICIOUS_THRESHOLD = 3;
+
+        function getBrowserFingerprint() {
+          try {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 200;
+            canvas.height = 50;
+            
+            ctx.textBaseline = "top";
+            ctx.font = "14px 'Arial'";
+            ctx.fillStyle = "#f60";
+            ctx.fillRect(0, 0, 100, 50);
+            ctx.fillStyle = "#069";
+            ctx.fillText("Gruzim.kz", 2, 15);
+            ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
+            ctx.fillText("Переезд под ключ", 2, 30);
+            
+            const canvasHash = canvas.toDataURL();
+            
+            let webglInfo = 'недоступно';
+            try {
+              const canvasWebgl = document.createElement('canvas');
+              const gl = canvasWebgl.getContext('webgl') || canvasWebgl.getContext('experimental-webgl');
+              if (gl) {
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                if (debugInfo) {
+                  webglInfo = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                }
+              }
+            } catch (e) {}
+            
+            return {
+              canvas: canvasHash.substring(0, 100),
+              webgl: webglInfo,
+              timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+              language: navigator.language,
+              platform: navigator.platform,
+              hardwareConcurrency: navigator.hardwareConcurrency || 'неизвестно',
+              deviceMemory: navigator.deviceMemory || 'неизвестно',
+              colorDepth: screen.colorDepth,
+              screenResolution: `${screen.width}x${screen.height}`,
+              touchSupport: 'ontouchstart' in window
+            };
+          } catch (e) {
+            return { error: 'Fingerprint failed' };
           }
-        } catch (e) {}
-        
-        return {
-          canvas: canvasHash.substring(0, 100),
-          webgl: webglInfo,
-          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          language: navigator.language,
-          platform: navigator.platform,
-          hardwareConcurrency: navigator.hardwareConcurrency || 'неизвестно',
-          deviceMemory: navigator.deviceMemory || 'неизвестно',
-          colorDepth: screen.colorDepth,
-          screenResolution: `${screen.width}x${screen.height}`,
-          touchSupport: 'ontouchstart' in window
-        };
-      } catch (e) {
-        return { error: 'Fingerprint failed' };
-      }
-    }
-
-    function generateVisitorId() {
-      const fp = getBrowserFingerprint();
-      
-      const components = [
-        navigator.userAgent,
-        fp.canvas,
-        fp.webgl,
-        fp.timezone,
-        fp.language,
-        fp.screenResolution,
-        fp.hardwareConcurrency,
-        fp.colorDepth
-      ];
-      
-      const combined = components.join('|');
-      let hash = 0;
-      for (let i = 0; i < combined.length; i++) {
-        const char = combined.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash;
-      }
-      
-      return {
-        id: Math.abs(hash).toString(16).padStart(8, '0'),
-        fingerprint: fp
-      };
-    }
-
-    function truncate(str, maxLength = 100) {
-      if (!str) return '';
-      return str.length > maxLength ? str.substring(0, maxLength) + '...' : str;
-    }
-
-    async function sendVisitorInfo() {
-      try {
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const ipData = await ipResponse.json();
-        const ip = ipData.ip;
-
-        const visitor = generateVisitorId();
-        
-        const pageUrl = window.location.href;
-        const referrer = document.referrer || 'прямой заход';
-        const userAgent = navigator.userAgent;
-        const visitTime = new Date().toLocaleString('ru-RU', { 
-          timeZone: 'Asia/Almaty',
-          dateStyle: 'full',
-          timeStyle: 'medium'
-        });
-
-        const storageKey = `visitor_${visitor.id}`;
-        
-        const visitsData = JSON.parse(localStorage.getItem(storageKey) || '{"count":0, "date":"", "ips":[], "firstSeen":""}');
-        const today = new Date().toDateString();
-        
-        let visitCount = 1;
-        let knownIps = [];
-        
-        if (visitsData.date === today) {
-          visitCount = visitsData.count + 1;
-          knownIps = visitsData.ips || [];
-        }
-        
-        if (!knownIps.includes(ip)) {
-          knownIps.push(ip);
-        }
-        
-        localStorage.setItem(storageKey, JSON.stringify({
-          count: visitCount,
-          date: today,
-          ips: knownIps,
-          firstSeen: visitsData.firstSeen || new Date().toISOString()
-        }));
-
-        let message = `🚛 <b>Gruzim.kz (грузоперевозки) - новый визит</b>\n\n`;
-        message += `🔍 <b>ID посетителя:</b> <code>${visitor.id}</code>\n`;
-        message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
-        message += `📊 <b>Всего IP за сегодня:</b> ${knownIps.length}\n`;
-        message += `🕐 <b>Время:</b> ${visitTime}\n`;
-        message += `⚠️ <b>Визитов сегодня:</b> ${visitCount}\n`;
-        message += `🔗 <b>Страница:</b> ${pageUrl}\n`;
-        message += `↩️ <b>Откуда пришел:</b> ${referrer}\n\n`;
-        
-        message += `📱 <b>User-Agent:</b>\n<code>${truncate(userAgent, 200)}</code>\n\n`;
-        
-        message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
-        message += `• Платформа: ${visitor.fingerprint.platform || 'неизвестно'}\n`;
-        message += `• Экран: ${visitor.fingerprint.screenResolution || 'неизвестно'}\n`;
-        message += `• Язык: ${visitor.fingerprint.language || 'неизвестно'}\n`;
-        message += `• Часовой пояс: ${visitor.fingerprint.timezone || 'неизвестно'}\n`;
-        message += `• Ядер CPU: ${visitor.fingerprint.hardwareConcurrency || 'неизвестно'}\n`;
-        message += `• WebGL: ${truncate(visitor.fingerprint.webgl || 'нет', 50)}\n`;
-
-        if (visitCount >= SUSPICIOUS_THRESHOLD) {
-          message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
-          message += `\n❗️ <b>ID для отслеживания:</b> <code>${visitor.id}</code>\n`;
         }
 
-        if (knownIps.length >= 2) {
-          message += `\n⚠️ <b>IP менялся сегодня:</b> ${knownIps.join(' → ')}\n`;
+        function generateVisitorId() {
+          const fp = getBrowserFingerprint();
+          
+          const components = [
+            navigator.userAgent,
+            fp.canvas,
+            fp.webgl,
+            fp.timezone,
+            fp.language,
+            fp.screenResolution,
+            fp.hardwareConcurrency,
+            fp.colorDepth
+          ];
+          
+          const combined = components.join('|');
+          let hash = 0;
+          for (let i = 0; i < combined.length; i++) {
+            const char = combined.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash;
+          }
+          
+          return {
+            id: Math.abs(hash).toString(16).padStart(8, '0'),
+            fingerprint: fp
+          };
         }
 
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: message,
-            parse_mode: 'HTML',
-            disable_web_page_preview: true
-          })
-        });
-        
-        console.log('✅ Информация отправлена. ID:', visitor.id);
-        
-      } catch (error) {
-        console.error('❌ Ошибка:', error);
-        try {
-          const backup = await fetch('https://api.ipify.org?format=json');
-          const backupData = await backup.json();
-          if (backupData.ip) {
+        function truncate(str, maxLength = 100) {
+          if (!str) return '';
+          return str.length > maxLength ? str.substring(0, maxLength) + '...' : str;
+        }
+
+        async function sendVisitorInfo() {
+          try {
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+            const ip = ipData.ip;
+
+            const visitor = generateVisitorId();
+            
+            const pageUrl = window.location.href;
+            const referrer = document.referrer || 'прямой заход';
+            const userAgent = navigator.userAgent;
+            const visitTime = new Date().toLocaleString('ru-RU', { 
+              timeZone: 'Asia/Almaty',
+              dateStyle: 'full',
+              timeStyle: 'medium'
+            });
+
+            const storageKey = `visitor_${visitor.id}`;
+            
+            const visitsData = JSON.parse(localStorage.getItem(storageKey) || '{"count":0, "date":"", "ips":[], "firstSeen":""}');
+            const today = new Date().toDateString();
+            
+            let visitCount = 1;
+            let knownIps = [];
+            
+            if (visitsData.date === today) {
+              visitCount = visitsData.count + 1;
+              knownIps = visitsData.ips || [];
+            }
+            
+            if (!knownIps.includes(ip)) {
+              knownIps.push(ip);
+            }
+            
+            localStorage.setItem(storageKey, JSON.stringify({
+              count: visitCount,
+              date: today,
+              ips: knownIps,
+              firstSeen: visitsData.firstSeen || new Date().toISOString()
+            }));
+
+            let message = `🚛 <b>Gruzim.kz (грузоперевозки) - новый визит</b>\n\n`;
+            message += `🔍 <b>ID посетителя:</b> <code>${visitor.id}</code>\n`;
+            message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
+            message += `📊 <b>Всего IP за сегодня:</b> ${knownIps.length}\n`;
+            message += `🕐 <b>Время:</b> ${visitTime}\n`;
+            message += `⚠️ <b>Визитов сегодня:</b> ${visitCount}\n`;
+            message += `🔗 <b>Страница:</b> ${pageUrl}\n`;
+            message += `↩️ <b>Откуда пришел:</b> ${referrer}\n\n`;
+            
+            message += `📱 <b>User-Agent:</b>\n<code>${truncate(userAgent, 200)}</code>\n\n`;
+            
+            message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
+            message += `• Платформа: ${visitor.fingerprint.platform || 'неизвестно'}\n`;
+            message += `• Экран: ${visitor.fingerprint.screenResolution || 'неизвестно'}\n`;
+            message += `• Язык: ${visitor.fingerprint.language || 'неизвестно'}\n`;
+            message += `• Часовой пояс: ${visitor.fingerprint.timezone || 'неизвестно'}\n`;
+            message += `• Ядер CPU: ${visitor.fingerprint.hardwareConcurrency || 'неизвестно'}\n`;
+            message += `• WebGL: ${truncate(visitor.fingerprint.webgl || 'нет', 50)}\n`;
+
+            if (visitCount >= SUSPICIOUS_THRESHOLD) {
+              message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
+              message += `\n❗️ <b>ID для отслеживания:</b> <code>${visitor.id}</code>\n`;
+            }
+
+            if (knownIps.length >= 2) {
+              message += `\n⚠️ <b>IP менялся сегодня:</b> ${knownIps.join(' → ')}\n`;
+            }
+
             await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 chat_id: TELEGRAM_CHAT_ID,
-                text: `⚠️ <b>Упрощенный отчет (pereezdkay)</b>\nIP: ${backupData.ip}\nОшибка: ${error.message}`,
-                parse_mode: 'HTML'
+                text: message,
+                parse_mode: 'HTML',
+                disable_web_page_preview: true
               })
             });
+            
+            console.log('✅ Информация отправлена. ID:', visitor.id);
+            
+          } catch (error) {
+            console.error('❌ Ошибка:', error);
+            try {
+              const backup = await fetch('https://api.ipify.org?format=json');
+              const backupData = await backup.json();
+              if (backupData.ip) {
+                await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: `⚠️ <b>Упрощенный отчет (pereezdkay)</b>\nIP: ${backupData.ip}\nОшибка: ${error.message}`,
+                    parse_mode: 'HTML'
+                  })
+                });
+              }
+            } catch (e) {}
           }
-        } catch (e) {}
-      }
-    }
+        }
 
-    if (window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1')) {
-      window.addEventListener('load', function() {
-        setTimeout(sendVisitorInfo, 4000);
-      });
-    }
-  })();
-</script>
-<!-- ===== КОНЕЦ РАСШИРЕННОГО ДЕТЕКТОРА ===== -->
+        if (window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1')) {
+          window.addEventListener('load', function() {
+            setTimeout(sendVisitorInfo, 4000);
+          });
+        }
+      })();
+    </script>
+    <!-- ===== КОНЕЦ РАСШИРЕННОГО ДЕТЕКТОРА ===== -->
 
 </body>
 </html>
