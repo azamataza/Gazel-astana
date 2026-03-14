@@ -2462,97 +2462,123 @@
     </script>
 
     <!-- ===== СКРИПТ БЛОКИРОВКИ ТЕЛЕФОНА И WHATSAPP ===== -->
-    <script>
-    // ДЕЛАЕМ ТЕЛЕФОН И WHATSAPP НЕАКТИВНЫМИ НА 10 СЕКУНД ИЛИ ДО СКРОЛЛА
-    (function() {
-        // Находим все телефонные и WhatsApp ссылки
-        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-        const allLinks = [...phoneLinks, ...whatsappLinks];
-        
-        // Если ничего не нашли - выходим
-        if (allLinks.length === 0) return;
-        
-        let isActive = false;
-        let timer = null;
-        
-        // Функция для сохранения и удаления href
-        function disableLinks() {
-            allLinks.forEach(link => {
-                // Сохраняем оригинальный href в data-атрибут
-                if (link.href && !link.hasAttribute('data-saved-href')) {
-                    link.setAttribute('data-saved-href', link.href);
-                    link.removeAttribute('href');
-                    link.style.opacity = '0.6';
-                    link.style.cursor = 'not-allowed';
-                    link.style.pointerEvents = 'none';
-                    link.title = 'Подождите 10 секунд...';
-                }
-            });
-            console.log('📞 Телефон и WhatsApp заблокированы');
-        }
-        
-        // Функция для восстановления href
-        function enableLinks() {
-            if (isActive) return;
-            
-            allLinks.forEach(link => {
-                const savedHref = link.getAttribute('data-saved-href');
-                if (savedHref) {
-                    link.href = savedHref;
-                    link.removeAttribute('data-saved-href');
-                    link.style.opacity = '';
-                    link.style.cursor = '';
-                    link.style.pointerEvents = '';
-                    link.title = '';
-                }
-            });
-            
-            isActive = true;
-            console.log('📞 Телефон и WhatsApp разблокированы');
-            
-            // Очищаем таймер
-            if (timer) {
-                clearTimeout(timer);
-                timer = null;
+<script>
+// ДЕЛАЕМ ТЕЛЕФОН И WHATSAPP НЕАКТИВНЫМИ ДО ПОЯВЛЕНИЯ ПЛАВАЮЩИХ КНОПОК ИЛИ ДО СКРОЛЛА ДО КАРТОЧЕК
+(function() {
+    // Находим все телефонные и WhatsApp ссылки
+    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+    const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+    const allLinks = [...phoneLinks, ...whatsappLinks];
+    
+    // Плавающие кнопки
+    const floatingButtons = document.querySelector('.floating-buttons');
+    
+    // Если ничего не нашли - выходим
+    if (allLinks.length === 0) return;
+    
+    let isActive = false;
+    
+    // Функция для сохранения и удаления href
+    function disableLinks() {
+        allLinks.forEach(link => {
+            // Сохраняем оригинальный href в data-атрибут
+            if (link.href && !link.hasAttribute('data-saved-href')) {
+                link.setAttribute('data-saved-href', link.href);
+                link.removeAttribute('href');
+                link.style.opacity = '0.6';
+                link.style.cursor = 'not-allowed';
+                link.style.pointerEvents = 'none';
+                link.title = 'Прокрутите страницу ниже, чтобы активировать контакты';
             }
-        }
+        });
+        console.log('📞 Телефон и WhatsApp заблокированы');
+    }
+    
+    // Функция для восстановления href
+    function enableLinks() {
+        if (isActive) return;
         
-        // Проверяем, доскроллил ли пользователь до карточки услуг
-        function checkScroll() {
-            if (isActive) return;
-            
-            // Ищем первую карточку услуги
-            const firstCard = document.querySelector('.card, .cards-grid .card');
-            if (firstCard) {
-                const rect = firstCard.getBoundingClientRect();
-                // Если карточка видна на экране (хотя бы частично)
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    console.log('📜 Пользователь доскроллил до услуг');
-                    enableLinks();
-                    window.removeEventListener('scroll', checkScroll);
-                }
+        allLinks.forEach(link => {
+            const savedHref = link.getAttribute('data-saved-href');
+            if (savedHref) {
+                link.href = savedHref;
+                link.removeAttribute('data-saved-href');
+                link.style.opacity = '';
+                link.style.cursor = '';
+                link.style.pointerEvents = '';
+                link.title = '';
             }
+        });
+        
+        isActive = true;
+        console.log('📞 Телефон и WhatsApp разблокированы');
+        
+        // Останавливаем все проверки
+        stopAllChecks();
+    }
+    
+    // Останавливаем все проверки
+    function stopAllChecks() {
+        window.removeEventListener('scroll', checkScroll);
+        if (floatingButtonsObserver) {
+            floatingButtonsObserver.disconnect();
         }
+    }
+    
+    // Проверяем, появились ли плавающие кнопки
+    function checkFloatingButtons() {
+        if (isActive) return;
         
-        // Блокируем ссылки сразу
-        disableLinks();
-        
-        // Таймер на 10 секунд - разблокируем в любом случае
-        timer = setTimeout(() => {
-            console.log('⏰ Прошло 10 секунд');
+        if (floatingButtons && floatingButtons.classList.contains('is-visible')) {
+            console.log('🔘 Плавающие кнопки появились');
             enableLinks();
-            window.removeEventListener('scroll', checkScroll);
-        }, 10000);
+        }
+    }
+    
+    // Проверяем, доскроллил ли пользователь до карточки услуг
+    function checkScroll() {
+        if (isActive) return;
         
-        // Отслеживаем скролл
-        window.addEventListener('scroll', checkScroll, { passive: true });
+        // Ищем первую карточку услуги
+        const firstCard = document.querySelector('.card, .cards-grid .card');
+        if (firstCard) {
+            const rect = firstCard.getBoundingClientRect();
+            // Если карточка видна на экране (хотя бы частично)
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                console.log('📜 Пользователь доскроллил до услуг');
+                enableLinks();
+            }
+        }
+    }
+    
+    // Наблюдатель за изменением класса у плавающих кнопок
+    let floatingButtonsObserver = null;
+    if (floatingButtons && 'MutationObserver' in window) {
+        floatingButtonsObserver = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'class') {
+                    checkFloatingButtons();
+                }
+            });
+        });
         
-        // Проверяем сразу (вдруг карточка уже видна)
-        setTimeout(checkScroll, 500);
-    })();
-    </script>
-    <!-- ===== КОНЕЦ СКРИПТА БЛОКИРОВКИ ===== -->
+        floatingButtonsObserver.observe(floatingButtons, { attributes: true });
+    }
+    
+    // Блокируем ссылки сразу
+    disableLinks();
+    
+    // Отслеживаем скролл
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    
+    // Проверяем сразу (вдруг карточка уже видна или кнопки уже есть)
+    setTimeout(() => {
+        checkScroll();
+        checkFloatingButtons();
+    }, 500);
+})();
+</script>
+<!-- ===== КОНЕЦ СКРИПТА БЛОКИРОВКИ ===== -->
 
     <!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ ===== -->
     <script>
