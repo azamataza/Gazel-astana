@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://gruzim.kz">
     <meta property="og:image" content="https://gruzim.kz/Logo.png">
 
-    <!-- Микроразметка Schema.org - РАСШИРЕННАЯ ВЕРСИЯ -->
+    <!-- Микроразметка Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -166,12 +166,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-2VWS9V6KVJ');
+        gtag('config', 'AW-17503887977');
     </script>
     
     <!-- Яндекс.Карты API -->
@@ -223,7 +225,7 @@
             gap: 12px;
         }
 
-        /* Бургер-меню с яркой подсветкой для десктопа */
+        /* Бургер-меню */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -237,7 +239,6 @@
             padding: 4px 5px;
             z-index: 1100;
             transition: all 0.2s ease;
-            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.7), 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .burger-menu span {
@@ -250,8 +251,6 @@
 
         .burger-menu:hover {
             background: #2563eb;
-            box-shadow: 0 0 0 4px #f97316, 0 4px 12px rgba(0,0,0,0.3);
-            transform: scale(1.05);
         }
 
         .burger-menu:hover span {
@@ -260,7 +259,6 @@
 
         .burger-menu.active {
             background: #2563eb;
-            box-shadow: 0 0 0 4px #f97316;
         }
 
         .burger-menu.active span {
@@ -279,7 +277,6 @@
             transform: translateY(-6px) rotate(-45deg);
         }
 
-        /* На десктопе кнопка меню видна */
         @media (min-width: 1025px) {
             .burger-menu {
                 display: flex;
@@ -307,7 +304,7 @@
             border-color: #2563eb;
         }
 
-        /* Мобильное меню с анимацией */
+        /* Мобильное меню */
         .mobile-nav {
             display: none;
             position: fixed;
@@ -419,10 +416,10 @@
             color: #1e40af;
         }
 
-        /* Скрываем текст телефона в шапке на мобильных, оставляем только иконку */
+        /* ИСПРАВЛЕНО: Полностью скрываем кнопку телефона на мобильных */
         @media (max-width: 768px) {
-            .header-phone span {
-                display: none;
+            .header-phone {
+                display: none !important;
             }
         }
 
@@ -503,7 +500,7 @@
             border-radius: 4px;
         }
 
-        /* --- Калькулятор с картой (после карточек) --- */
+        /* --- Калькулятор с картой --- */
         .calculator-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -604,7 +601,6 @@
             margin-top: 3px;
         }
 
-        /* Обновлённый контрол времени с шагом 30 минут */
         .hours-control {
             display: flex;
             align-items: center;
@@ -682,7 +678,7 @@
             flex-shrink: 0;
         }
 
-        /* Карточки услуг с интерактивностью */
+        /* Карточки услуг */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -745,7 +741,6 @@
             color: #d97706;
         }
 
-        /* Карточка сборки мебели — синяя */
         .card--furniture {
             background: #f0f9ff;
             border: 2px solid #2563eb;
@@ -755,7 +750,6 @@
             color: #2563eb;
         }
 
-        /* Карточка вывоза мусора — графитовая (Apple style) */
         .card--trash {
             background: linear-gradient(145deg, #f5f5f7, #e5e5ea);
             border: 1px solid #d2d2d7;
@@ -774,7 +768,7 @@
             color: #2563eb;
         }
 
-        /* Статистика с анимацией */
+        /* Статистика */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -801,7 +795,6 @@
             margin-top: 8px;
         }
 
-        /* Туристические подсказки */
         .tooltip-icon {
             position: relative;
             display: inline-block;
@@ -824,7 +817,6 @@
             z-index: 10;
         }
 
-        /* Хлебные крошки */
         .breadcrumbs {
             max-width: 1200px;
             margin: 0 auto;
@@ -861,7 +853,6 @@
             color: #64748b;
         }
 
-        /* Рейтинг в звёздах */
         .rating-selector {
             margin-bottom: 15px;
         }
@@ -1161,7 +1152,7 @@
             color: white;
         }
 
-        /* === НОВЫЙ БЛОК: Плавающая пульсирующая кнопка с меню === */
+        /* Плавающая пульсирующая кнопка с меню */
         .floating-buttons {
             position: fixed;
             bottom: 20px;
@@ -1172,14 +1163,13 @@
             z-index: 999;
             opacity: 0;
             transition: opacity 0.3s ease;
-            pointer-events: none; /* Чтобы не мешать, пока невидимо */
+            pointer-events: none;
         }
         .floating-buttons.is-visible {
             opacity: 1;
             pointer-events: all;
         }
 
-        /* Контейнер для выдвижных кнопок */
         .fab-menu {
             display: flex;
             flex-direction: column;
@@ -1187,7 +1177,6 @@
             margin-bottom: 10px;
         }
 
-        /* Стили для каждой маленькой кнопки в меню */
         .fab-menu-item {
             width: 50px;
             height: 50px;
@@ -1217,7 +1206,6 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Индивидуальные цвета для кнопок */
         .fab-menu-item.call { background: #2563eb; }
         .fab-menu-item.whatsapp { background: #25D366; }
         .fab-menu-item.telegram { background: #0088cc; }
@@ -1227,7 +1215,6 @@
             transform: scale(1.1) !important;
         }
 
-        /* Главная пульсирующая кнопка (FAB) */
         .fab-main {
             width: 60px;
             height: 60px;
@@ -1256,7 +1243,6 @@
             100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
         }
 
-        /* Липкая кнопка для мобильных - скрыта */
         .mobile-sticky-call {
             display: none;
         }
@@ -1369,7 +1355,6 @@
                 font-size: 2em;
             }
             
-            /* Скрываем карту на мобильных устройствах */
             .map-container {
                 display: none;
             }
@@ -1399,7 +1384,6 @@
                 height: 34px;
             }
             
-            /* Липкая кнопка скрыта */
             .mobile-sticky-call {
                 display: none;
             }
@@ -1409,7 +1393,6 @@
             }
         }
     
-        /* === Mobile fixes for hours selector === */
         @media (max-width: 768px) {
             .calculator-form .hours-control {
                 justify-content: center;
@@ -1420,7 +1403,6 @@
             }
         }
 
-        /* === Hero Glass Buttons Update === */
         .hero-glass-buttons {
             margin-top: 35px;
             display: grid;
@@ -1443,7 +1425,6 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
@@ -1461,7 +1442,6 @@
             transform: translateY(-3px);
         }
 
-        /* Desktop: 2 buttons per row */
         @media (min-width: 992px) {
             .hero-glass-buttons {
                 grid-template-columns: 1fr 1fr;
@@ -1484,7 +1464,6 @@
             }
         }
 
-        /* === Anchor scroll fix (header offset + mobile safe) === */
         #card-turnkey,
         #card-trash,
         #card-furniture {
@@ -1499,12 +1478,10 @@
             }
         }
 
-        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
         }
 
-        /* === Brand Blue Title === */
         .brand-blue {
             color: #2563eb;
             font-weight: 800;
@@ -1557,19 +1534,6 @@
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1" /></noscript>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'AW-17503887977');
-        gtag('config', 'G-2VWS9V6KVJ');
-    </script>
 </head>
 
 <body>
@@ -2032,26 +1996,19 @@
         </div>
     </footer>
 
-    <!-- Липкая кнопка для мобильных - скрыта -->
-    <div class="mobile-sticky-call" id="mobileStickyCall" style="display: none;">
-        <a href="tel:+77010120300" class="cta-button" onclick="ym(104276494,'reachGoal','klik_telefon');">
-            📞 Позвонить сейчас
-        </a>
-    </div>
-
-    <!-- ===== НОВЫЙ БЛОК: Плавающие кнопки (FAB) ===== -->
+    <!-- Плавающие кнопки (FAB) -->
     <div class="floating-buttons">
         <div class="fab-menu" id="fabMenu">
             <!-- Кнопка "Позвонить" -->
-            <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить" onclick="sendConversion('phone');">
+            <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить">
                 <i class="fas fa-phone"></i>
             </a>
             <!-- Кнопка "WhatsApp" -->
-            <a href="https://wa.me/77010120300" class="fab-menu-item whatsapp" id="fabWhatsApp" title="WhatsApp" onclick="sendConversion('whatsapp');">
+            <a href="https://wa.me/77010120300" class="fab-menu-item whatsapp" id="fabWhatsApp" title="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
-            <!-- Кнопка "Telegram" -->
-            <a href="https://t.me/77010120300" class="fab-menu-item telegram" id="fabTelegram" title="Telegram" onclick="sendConversion('telegram');">
+            <!-- Кнопка "Telegram" - ИСПРАВЛЕНО: теперь открывает приложение -->
+            <a href="tg://resolve?domain=77010120300" class="fab-menu-item telegram" id="fabTelegram" title="Telegram">
                 <i class="fab fa-telegram-plane"></i>
             </a>
             <!-- Кнопка "Отзывы" -->
@@ -2101,7 +2058,6 @@
             <form class="review-form" id="reviewForm" onsubmit="sendReview(event)">
                 <h4 style="margin-bottom: 15px;">Оставить отзыв</h4>
                 
-                <!-- Рейтинг звёздами -->
                 <div class="rating-selector">
                     <span class="star-rating" data-rating="1">★</span>
                     <span class="star-rating" data-rating="2">★</span>
@@ -2127,7 +2083,7 @@
             once: true
         });
 
-        // Бургер меню + закрытие по крестику
+        // Бургер меню
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const catalogLogo = document.getElementById('catalogLogo');
@@ -2144,7 +2100,6 @@
             closeMobileNav.addEventListener('click', toggleMenu);
         }
 
-        // Закрыть меню при клике на ссылку
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 burger.classList.remove('active');
@@ -2180,14 +2135,13 @@
 
         // Модальное окно отзывов
         const reviewsModal = document.getElementById('reviews-modal');
-        const openReviewsBtn = document.getElementById('fabReviews'); // Обновлено: открываем через нашу новую кнопку
+        const openReviewsBtn = document.getElementById('fabReviews');
         const closeBtn = reviewsModal?.querySelector('.modal-close-btn');
 
         if (openReviewsBtn && reviewsModal) {
             openReviewsBtn.addEventListener('click', () => {
                 reviewsModal.classList.add('is-active');
                 document.body.style.overflow = 'hidden';
-                // Закрываем меню FAB, если оно открыто
                 if (fabMenu) {
                     fabMenu.querySelectorAll('.fab-menu-item').forEach(item => {
                         item.classList.remove('show');
@@ -2243,7 +2197,7 @@
             });
         });
 
-        // Анимация чисел статистики с динамическим обновлением
+        // Анимация чисел статистики
         function animateNumber(element, target) {
             if (!element) return;
             let current = 0;
@@ -2272,7 +2226,6 @@
 
         let animated = false;
         
-        // Функция для получения текущей даты и расчета количества заказов
         function getCurrentOrdersCount() {
             const startDate = new Date(2025, 1, 26);
             const today = new Date();
@@ -2300,7 +2253,7 @@
         window.addEventListener('scroll', checkStats);
         window.addEventListener('load', checkStats);
 
-        // --- НОВАЯ ЛОГИКА: Показываем плавающие кнопки при скролле до карточки ---
+        // Показываем плавающие кнопки при скролле
         const apartmentsCard = document.getElementById('card-apartments-offices');
         const floatingButtons = document.querySelector('.floating-buttons');
 
@@ -2309,7 +2262,7 @@
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         floatingButtons.classList.add('is-visible');
-                        observer.disconnect(); // Останавливаем наблюдение после первого появления
+                        observer.disconnect();
                     }
                 });
             }, { threshold: 0.3 });
@@ -2317,44 +2270,34 @@
             observer.observe(apartmentsCard);
         }
 
-        // --- НОВАЯ ЛОГИКА: Управление FAB меню ---
+        // Управление FAB меню
         const fabMain = document.getElementById('fabMain');
         const fabMenuItems = document.querySelectorAll('.fab-menu-item');
 
         if (fabMain) {
             fabMain.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // Переключаем класс show у каждого элемента меню с задержкой для анимации
                 fabMenuItems.forEach((item, index) => {
                     if (!item.classList.contains('show')) {
-                        // Открываем с задержкой для каскадного эффекта
                         setTimeout(() => {
                             item.classList.add('show');
                         }, index * 50);
                     } else {
-                        // Закрываем сразу все
                         item.classList.remove('show');
                     }
                 });
-                // Поворачиваем иконку главной кнопки (опционально)
                 fabMain.classList.toggle('active');
             });
 
-            // Закрываем меню при клике на любую кнопку в меню (кроме отзывов, т.к. там своё модальное окно)
             fabMenuItems.forEach(item => {
                 item.addEventListener('click', (e) => {
-                    // Для кнопки отзывов не закрываем меню сразу, даем время открыться модалке
-                    if (item.id === 'fabReviews') {
-                        // Меню закроется после открытия модалки в обработчике выше
-                    } else {
-                        // Для остальных закрываем меню
+                    if (item.id !== 'fabReviews') {
                         fabMenuItems.forEach(i => i.classList.remove('show'));
                         fabMain.classList.remove('active');
                     }
                 });
             });
 
-            // Закрываем меню при клике в любое другое место
             document.addEventListener('click', (e) => {
                 if (!fabMain.contains(e.target) && !Array.from(fabMenuItems).some(item => item.contains(e.target))) {
                     fabMenuItems.forEach(item => item.classList.remove('show'));
@@ -2388,7 +2331,7 @@
             map.geoObjects.add(officePlacemark);
         }
 
-        // Калькулятор с шагом 30 минут
+        // Калькулятор
         const tariffOptions = document.querySelectorAll('.tariff-option');
         const hoursInput = document.getElementById('hoursInput');
         const hoursDisplay = document.getElementById('hoursDisplay');
@@ -2451,45 +2394,6 @@
             updatePrice();
         });
 
-        // Enhanced Conversions
-        function setEnhancedUserData() {
-            try {
-                let email = "", phone = "";
-                document.querySelectorAll("input").forEach(input => {
-                    const val = input.value.trim();
-                    if (!val) return;
-                    const type = (input.type || "").toLowerCase();
-                    const name = (input.name || "").toLowerCase();
-                    if (type === "email" || name.includes("email")) email = val;
-                    if (type === "tel" || name.includes("phone") || name.includes("tel")) phone = val;
-                });
-                if (email || phone) {
-                    gtag('set', 'user_data', { email, phone_number: phone });
-                }
-            } catch (e) { console.warn('Enhanced conversions error', e); }
-        }
-
-        function sendConversion(type = 'phone') {
-            setEnhancedUserData();
-            gtag('event', 'conversion', {
-                'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
-                'value': 1.0,
-                'currency': 'KZT'
-            });
-        }
-
-        // Привязываем sendConversion ко всем телефонным и WhatsApp ссылкам
-        document.querySelectorAll('a[href^="tel:"]').forEach(el => {
-            el.addEventListener('click', () => sendConversion('phone'));
-        });
-        document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
-            el.addEventListener('click', () => sendConversion('whatsapp'));
-        });
-        // Для Telegram тоже добавим
-        document.querySelectorAll('a[href*="t.me"]').forEach(el => {
-            el.addEventListener('click', () => sendConversion('telegram'));
-        });
-
         window.sendReview = function(e) {
             e.preventDefault();
             const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -2545,9 +2449,7 @@
         });
 
         updatePrice();
-    </script>
-    
-    <script>
+
         // Динамическая дата в футере
         document.addEventListener('DOMContentLoaded', function() {
             const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
@@ -2584,127 +2486,7 @@
         });
     </script>
 
-    <!-- ===== СКРИПТ БЛОКИРОВКИ ТЕЛЕФОНА И WHATSAPP ===== -->
-<script>
-// ДЕЛАЕМ ТЕЛЕФОН И WHATSAPP НЕАКТИВНЫМИ ДО ПОЯВЛЕНИЯ ПЛАВАЮЩИХ КНОПОК ИЛИ ДО СКРОЛЛА ДО КАРТОЧЕК
-(function() {
-    // Находим все телефонные и WhatsApp ссылки
-    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-    const telegramLinks = document.querySelectorAll('a[href*="t.me"]');
-    const allLinks = [...phoneLinks, ...whatsappLinks, ...telegramLinks];
-    
-    // Плавающие кнопки
-    const floatingButtons = document.querySelector('.floating-buttons');
-    
-    // Если ничего не нашли - выходим
-    if (allLinks.length === 0) return;
-    
-    let isActive = false;
-    
-    // Функция для сохранения и удаления href
-    function disableLinks() {
-        allLinks.forEach(link => {
-            // Сохраняем оригинальный href в data-атрибут
-            if (link.href && !link.hasAttribute('data-saved-href')) {
-                link.setAttribute('data-saved-href', link.href);
-                link.removeAttribute('href');
-                link.style.opacity = '0.6';
-                link.style.cursor = 'not-allowed';
-                link.style.pointerEvents = 'none';
-                link.title = 'Прокрутите страницу ниже, чтобы активировать контакты';
-            }
-        });
-        console.log('📞 Телефон, WhatsApp и Telegram заблокированы');
-    }
-    
-    // Функция для восстановления href
-    function enableLinks() {
-        if (isActive) return;
-        
-        allLinks.forEach(link => {
-            const savedHref = link.getAttribute('data-saved-href');
-            if (savedHref) {
-                link.href = savedHref;
-                link.removeAttribute('data-saved-href');
-                link.style.opacity = '';
-                link.style.cursor = '';
-                link.style.pointerEvents = '';
-                link.title = '';
-            }
-        });
-        
-        isActive = true;
-        console.log('📞 Телефон, WhatsApp и Telegram разблокированы');
-        
-        // Останавливаем все проверки
-        stopAllChecks();
-    }
-    
-    // Останавливаем все проверки
-    function stopAllChecks() {
-        window.removeEventListener('scroll', checkScroll);
-        if (floatingButtonsObserver) {
-            floatingButtonsObserver.disconnect();
-        }
-    }
-    
-    // Проверяем, появились ли плавающие кнопки
-    function checkFloatingButtons() {
-        if (isActive) return;
-        
-        if (floatingButtons && floatingButtons.classList.contains('is-visible')) {
-            console.log('🔘 Плавающие кнопки появились');
-            enableLinks();
-        }
-    }
-    
-    // Проверяем, доскроллил ли пользователь до карточки услуг
-    function checkScroll() {
-        if (isActive) return;
-        
-        // Ищем первую карточку услуги
-        const firstCard = document.querySelector('.card, .cards-grid .card');
-        if (firstCard) {
-            const rect = firstCard.getBoundingClientRect();
-            // Если карточка видна на экране (хотя бы частично)
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                console.log('📜 Пользователь доскроллил до услуг');
-                enableLinks();
-            }
-        }
-    }
-    
-    // Наблюдатель за изменением класса у плавающих кнопок
-    let floatingButtonsObserver = null;
-    if (floatingButtons && 'MutationObserver' in window) {
-        floatingButtonsObserver = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.attributeName === 'class') {
-                    checkFloatingButtons();
-                }
-            });
-        });
-        
-        floatingButtonsObserver.observe(floatingButtons, { attributes: true });
-    }
-    
-    // Блокируем ссылки сразу
-    disableLinks();
-    
-    // Отслеживаем скролл
-    window.addEventListener('scroll', checkScroll, { passive: true });
-    
-    // Проверяем сразу (вдруг карточка уже видна или кнопки уже есть)
-    setTimeout(() => {
-        checkScroll();
-        checkFloatingButtons();
-    }, 500);
-})();
-</script>
-<!-- ===== КОНЕЦ СКРИПТА БЛОКИРОВКИ ===== -->
-
-    <!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ ===== -->
+    <!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ (ВОЗВРАЩЕН) ===== -->
     <script>
       (function() {
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
