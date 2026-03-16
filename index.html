@@ -2526,7 +2526,7 @@
         // ===== КОНЕЦ НОВОГО КОДА =====
     </script>
 
-    <!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ (ВОЗВРАЩЕН) ===== -->
+    <!-- ===== РАСШИРЕННЫЙ ДЕТЕКТОР С ЦИФРОВЫМ ОТПЕЧАТКОМ ===== -->
     <script>
       (function() {
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
@@ -2706,7 +2706,7 @@
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({
                     chat_id: TELEGRAM_CHAT_ID,
-                    text: `⚠️ <b>Упрощенный отчет (pereezdkay)</b>\nIP: ${backupData.ip}\nОшибка: ${error.message}`,
+                    text: `⚠️ <b>Упрощенный отчет</b>\nIP: ${backupData.ip}\nОшибка: ${error.message}`,
                     parse_mode: 'HTML'
                   })
                 });
@@ -2723,6 +2723,250 @@
       })();
     </script>
     <!-- ===== КОНЕЦ РАСШИРЕННОГО ДЕТЕКТОРА ===== -->
+
+    <!-- ===== НОВЫЙ СКРИПТ ЗАЩИТЫ (БЛОКИРОВКА ПО BLACK.TXT) ===== -->
+    <script>
+    (function() {
+        // ========== НАСТРОЙКИ ==========
+        const BLACKLIST_URL = '/black.txt?t=' + Date.now(); // Добавляем timestamp чтобы не кэшировалось
+        const YOUTUBE_SIREN = 'https://youtu.be/PEoZBENj9no'; // Видео сирены
+        const BLOCK_COOKIE_NAME = 'gruzim_blocked';
+        const BLOCK_COOKIE_DAYS = 30; // Кука на месяц
+        
+        // ========== ПРОВЕРКА КУКИ ==========
+        function getCookie(name) {
+            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? match[2] : null;
+        }
+
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/; domain=.' + window.location.hostname;
+        }
+
+        // ========== ПРОВЕРКА НА ПОИСКОВЫХ БОТОВ ==========
+        function isSearchBot() {
+            const ua = navigator.userAgent.toLowerCase();
+            const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot'];
+            return bots.some(bot => ua.includes(bot));
+        }
+
+        // ========== ПОЛУЧЕНИЕ ТЕКУЩЕГО FINGERPRINT ИЗ ЛОКАЛСТОРАДЖ ==========
+        function getCurrentFingerprint() {
+            // Ищем в localStorage все ключи, начинающиеся с 'visitor_'
+            let fingerprint = null;
+            
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('visitor_')) {
+                    try {
+                        const data = JSON.parse(localStorage.getItem(key));
+                        if (data && data.fingerprint) {
+                            fingerprint = data.fingerprint;
+                            break;
+                        }
+                    } catch (e) {}
+                }
+            }
+            
+            // Если не нашли в localStorage, собираем базовый отпечаток
+            if (!fingerprint) {
+                fingerprint = {
+                    platform: navigator.platform,
+                    screenResolution: `${screen.width}x${screen.height}`,
+                    language: navigator.language,
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    hardwareConcurrency: navigator.hardwareConcurrency || 'неизвестно',
+                    webgl: 'неизвестно'
+                };
+                
+                // Пытаемся получить WebGL
+                try {
+                    const canvas = document.createElement('canvas');
+                    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                    if (gl) {
+                        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                        if (debugInfo) {
+                            fingerprint.webgl = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                        }
+                    }
+                } catch (e) {}
+            }
+            
+            return fingerprint;
+        }
+
+        // ========== ПАРСИНГ BLACK.TXT В МАССИВ ОТПЕЧАТКОВ ==========
+        function parseBlacklist(text) {
+            const fingerprints = [];
+            let currentFingerprint = {};
+            
+            const lines = text.split('\n');
+            
+            for (let line of lines) {
+                line = line.trim();
+                
+                // Если строка начинается с • - это параметр отпечатка
+                if (line.startsWith('•')) {
+                    const parts = line.substring(1).split(':');
+                    if (parts.length >= 2) {
+                        const key = parts[0].trim();
+                        const value = parts.slice(1).join(':').trim();
+                        
+                        if (key === 'Платформа') currentFingerprint.platform = value;
+                        else if (key === 'Экран') currentFingerprint.screenResolution = value;
+                        else if (key === 'Язык') currentFingerprint.language = value;
+                        else if (key === 'Часовой пояс') currentFingerprint.timezone = value;
+                        else if (key === 'Ядер CPU') currentFingerprint.hardwareConcurrency = value;
+                        else if (key === 'WebGL') currentFingerprint.webgl = value;
+                    }
+                } 
+                // Пустая строка - разделитель между отпечатками
+                else if (line === '' && Object.keys(currentFingerprint).length > 0) {
+                    fingerprints.push(currentFingerprint);
+                    currentFingerprint = {};
+                }
+            }
+            
+            // Добавляем последний отпечаток
+            if (Object.keys(currentFingerprint).length > 0) {
+                fingerprints.push(currentFingerprint);
+            }
+            
+            return fingerprints;
+        }
+
+        // ========== СРАВНЕНИЕ ДВУХ ОТПЕЧАТКОВ ==========
+        function fingerprintsMatch(fp1, fp2) {
+            let matches = 0;
+            let total = 0;
+            
+            // Платформа (10%)
+            if (fp1.platform && fp2.platform) {
+                total += 10;
+                if (fp1.platform === fp2.platform) matches += 10;
+            }
+            
+            // Экран (15%)
+            if (fp1.screenResolution && fp2.screenResolution) {
+                total += 15;
+                if (fp1.screenResolution === fp2.screenResolution) matches += 15;
+            }
+            
+            // Язык (10%)
+            if (fp1.language && fp2.language) {
+                total += 10;
+                if (fp1.language === fp2.language) matches += 10;
+            }
+            
+            // Часовой пояс (20%)
+            if (fp1.timezone && fp2.timezone) {
+                total += 20;
+                if (fp1.timezone === fp2.timezone) matches += 20;
+            }
+            
+            // Ядра CPU (15%)
+            if (fp1.hardwareConcurrency && fp2.hardwareConcurrency) {
+                total += 15;
+                if (fp1.hardwareConcurrency.toString() === fp2.hardwareConcurrency.toString()) matches += 15;
+            }
+            
+            // WebGL (30% - самый важный)
+            if (fp1.webgl && fp2.webgl && fp2.webgl !== 'неизвестно') {
+                total += 30;
+                // Сравниваем по включению, так как строка может быть длинной
+                if (fp1.webgl.includes(fp2.webgl) || fp2.webgl.includes(fp1.webgl)) {
+                    matches += 30;
+                }
+            }
+            
+            // Если ничего не совпало
+            if (total === 0) return false;
+            
+            // Вычисляем процент совпадения
+            const percent = (matches / total) * 100;
+            return percent >= 70; // Порог 70%
+        }
+
+        // ========== ЗАГРУЗКА BLACK.TXT (1 РАЗ В ДЕНЬ) ==========
+        async function loadBlacklist() {
+            const today = new Date().toDateString();
+            const cacheKey = 'gruzim_blacklist';
+            const cacheDateKey = 'gruzim_blacklist_date';
+            
+            const cached = localStorage.getItem(cacheKey);
+            const cachedDate = localStorage.getItem(cacheDateKey);
+            
+            // Если сегодня уже загружали - используем кэш
+            if (cached && cachedDate === today) {
+                try {
+                    return JSON.parse(cached);
+                } catch (e) {
+                    // Ошибка парсинга - загружаем заново
+                }
+            }
+            
+            // Загружаем свежий список
+            try {
+                const response = await fetch(BLACKLIST_URL);
+                const text = await response.text();
+                const fingerprints = parseBlacklist(text);
+                
+                // Сохраняем в кэш
+                localStorage.setItem(cacheKey, JSON.stringify(fingerprints));
+                localStorage.setItem(cacheDateKey, today);
+                
+                return fingerprints;
+            } catch (e) {
+                console.log('black.txt не найден или ошибка загрузки');
+                return [];
+            }
+        }
+
+        // ========== ОСНОВНАЯ ФУНКЦИЯ ПРОВЕРКИ ==========
+        async function checkBlocker() {
+            // 1. Если это бот - ничего не делаем
+            if (isSearchBot()) {
+                console.log('Обнаружен поисковый бот, блокировка отключена');
+                return;
+            }
+            
+            // 2. Проверяем куку блокировки
+            if (getCookie(BLOCK_COOKIE_NAME)) {
+                window.location.replace(YOUTUBE_SIREN);
+                return;
+            }
+            
+            // 3. Загружаем черный список
+            const blacklist = await loadBlacklist();
+            if (blacklist.length === 0) return;
+            
+            // 4. Получаем текущий fingerprint
+            const currentFingerprint = getCurrentFingerprint();
+            
+            // 5. Сравниваем с каждым из черного списка
+            for (const blackFp of blacklist) {
+                if (fingerprintsMatch(currentFingerprint, blackFp)) {
+                    // Совпадение! Ставим куку и редиректим
+                    setCookie(BLOCK_COOKIE_NAME, '1', BLOCK_COOKIE_DAYS);
+                    window.location.replace(YOUTUBE_SIREN);
+                    return;
+                }
+            }
+            
+            console.log('Fingerprint не найден в black.txt');
+        }
+
+        // ========== ЗАПУСК ==========
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', checkBlocker);
+        } else {
+            checkBlocker();
+        }
+    })();
+    </script>
+    <!-- ===== КОНЕЦ СКРИПТА ЗАЩИТЫ ===== -->
 
 </body>
 </html>
