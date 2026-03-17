@@ -2526,513 +2526,552 @@
         // ===== КОНЕЦ НОВОГО КОДА =====
     </script>
 
-    <!-- ===== СКРИПТ ЗАЩИТЫ (НЕТРОНУТ) ===== -->
-    <script>
-    (function() {
-        // ========== НАСТРОЙКИ ==========
-        const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
-        const TELEGRAM_CHAT_ID = '8277380855';
-        const BLACKLIST_URL = '/black.txt?t=' + Date.now();
-        const YOUTUBE_SIREN = 'https://youtu.be/PEoZBENj9no';
-        const BLOCK_COOKIE_NAME = 'gruzim_blocked';
-        const BLOCK_COOKIE_DAYS = 30;
-        const SUSPICIOUS_THRESHOLD = 3;
+    <!-- ===== СКРИПТ ЗАЩИТЫ (МОДИФИЦИРОВАН) ===== -->
+<script>
+(function() {
+    // ========== НАСТРОЙКИ ==========
+    const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
+    const TELEGRAM_CHAT_ID = '8277380855';
+    const BLACKLIST_URL = '/black.txt?t=' + Date.now();
+    const YOUTUBE_SIREN = 'https://youtu.be/PEoZBENj9no';
+    const BLOCK_COOKIE_NAME = 'gruzim_blocked';
+    const BLOCK_COOKIE_DAYS = 30;
+    const SUSPICIOUS_THRESHOLD = 3;
 
-        // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
-        function getCookie(name) {
-            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            return match ? match[2] : null;
-        }
+    // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
+    function getCookie(name) {
+        const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+    }
 
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/; domain=.' + window.location.hostname;
-        }
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/; domain=.' + window.location.hostname;
+    }
 
-        function isSearchBot() {
-            const ua = navigator.userAgent.toLowerCase();
-            const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot'];
-            return bots.some(bot => ua.includes(bot));
-        }
+    function isSearchBot() {
+        const ua = navigator.userAgent.toLowerCase();
+        const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot'];
+        return bots.some(bot => ua.includes(bot));
+    }
 
-        function generateVisitorId(fingerprint) {
-            const components = [
-                navigator.userAgent,
-                fingerprint.canvasHash || '',
-                fingerprint.webglRenderer || '',
-                fingerprint.timezone || '',
-                fingerprint.language || '',
-                fingerprint.screenResolution || '',
-                fingerprint.hardwareConcurrency || ''
-            ];
-            
-            const combined = components.join('|');
+    // Функция хеширования (SHA-256) через Web Crypto API
+    async function sha256(message) {
+        try {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        } catch (e) {
+            // Fallback для старых браузеров
             let hash = 0;
-            for (let i = 0; i < combined.length; i++) {
-                const char = combined.charCodeAt(i);
+            for (let i = 0; i < message.length; i++) {
+                const char = message.charCodeAt(i);
                 hash = ((hash << 5) - hash) + char;
                 hash = hash & hash;
             }
-            
             return Math.abs(hash).toString(16).padStart(8, '0');
         }
+    }
 
-        // ========== СБОР ПОЛНОГО АППАРАТНОГО ОТПЕЧАТКА ==========
-        async function collectFullFingerprint() {
-            const fingerprint = {
-                timestamp: Date.now(),
-                userAgent: navigator.userAgent,
-                platform: navigator.platform,
-                language: navigator.language,
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                screenResolution: `${screen.width}x${screen.height}`,
-                colorDepth: screen.colorDepth,
-                hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
-                deviceMemory: navigator.deviceMemory || 'unknown',
-                touchSupport: 'ontouchstart' in window,
-                cookiesEnabled: navigator.cookieEnabled,
-                doNotTrack: navigator.doNotTrack || 'unknown'
-            };
+    function generateVisitorId(fingerprint) {
+        const components = [
+            navigator.userAgent,
+            fingerprint.canvasHash || '',
+            fingerprint.webglRenderer || '',
+            fingerprint.timezone || '',
+            fingerprint.language || '',
+            fingerprint.screenResolution || '',
+            fingerprint.hardwareConcurrency || ''
+        ];
+        
+        const combined = components.join('|');
+        let hash = 0;
+        for (let i = 0; i < combined.length; i++) {
+            const char = combined.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash;
+        }
+        
+        return Math.abs(hash).toString(16).padStart(8, '0');
+    }
 
-            // 1. WebGL (рендерер, вендор, количество расширений)
-            try {
-                const canvas = document.createElement('canvas');
-                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                if (gl) {
-                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-                    if (debugInfo) {
-                        fingerprint.webglRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-                        fingerprint.webglVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
-                    }
-                    fingerprint.webglExtensions = gl.getSupportedExtensions().length;
-                    
-                    // Тест WebGL на производительность
-                    const startTime = performance.now();
-                    for (let i = 0; i < 100; i++) {
-                        gl.clear(gl.COLOR_BUFFER_BIT);
-                    }
-                    fingerprint.webglPerf = Math.round(performance.now() - startTime);
+    // ========== СБОР ПОЛНОГО АППАРАТНОГО ОТПЕЧАТКА ==========
+    async function collectFullFingerprint() {
+        const fingerprint = {
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            screenResolution: `${screen.width}x${screen.height}`,
+            colorDepth: screen.colorDepth,
+            hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+            deviceMemory: navigator.deviceMemory || 'unknown',
+            touchSupport: 'ontouchstart' in window,
+            cookiesEnabled: navigator.cookieEnabled,
+            doNotTrack: navigator.doNotTrack || 'unknown'
+        };
+
+        // 1. WebGL (рендерер, вендор, количество расширений)
+        try {
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                if (debugInfo) {
+                    fingerprint.webglRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                    fingerprint.webglVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
                 }
-            } catch (e) {
-                fingerprint.webglError = 'disabled';
+                fingerprint.webglExtensions = gl.getSupportedExtensions().length;
+                
+                // Тест WebGL на производительность
+                const startTime = performance.now();
+                for (let i = 0; i < 100; i++) {
+                    gl.clear(gl.COLOR_BUFFER_BIT);
+                }
+                fingerprint.webglPerf = Math.round(performance.now() - startTime);
             }
-
-            // 2. Canvas fingerprint (3 теста)
-            try {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                canvas.width = 400;
-                canvas.height = 100;
-                
-                // Тест 1: Текст с сглаживанием
-                ctx.textBaseline = 'top';
-                ctx.font = '16px Arial';
-                ctx.fillStyle = '#f60';
-                ctx.fillRect(0, 0, 200, 50);
-                ctx.fillStyle = '#069';
-                ctx.fillText('Gruzim.kz', 10, 20);
-                ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
-                ctx.fillText('Переезд под ключ', 10, 50);
-                
-                // Тест 2: Линии и кривые
-                ctx.beginPath();
-                ctx.moveTo(250, 20);
-                ctx.lineTo(350, 80);
-                ctx.lineTo(300, 30);
-                ctx.closePath();
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 3;
-                ctx.stroke();
-                
-                // Тест 3: Градиент
-                const gradient = ctx.createLinearGradient(0, 0, 200, 0);
-                gradient.addColorStop(0, 'red');
-                gradient.addColorStop(0.5, 'green');
-                gradient.addColorStop(1, 'blue');
-                ctx.fillStyle = gradient;
-                ctx.fillRect(200, 60, 150, 30);
-                
-                fingerprint.canvasHash = canvas.toDataURL();
-                fingerprint.canvasLength = fingerprint.canvasHash.length;
-            } catch (e) {
-                fingerprint.canvasError = 'failed';
-            }
-
-            // 3. Audio fingerprint
-            try {
-                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                const analyser = audioCtx.createAnalyser();
-                const oscillator = audioCtx.createOscillator();
-                const gainNode = audioCtx.createGain();
-                
-                oscillator.type = 'triangle';
-                oscillator.frequency.value = 440;
-                gainNode.gain.value = 0.001;
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(analyser);
-                
-                const dataArray = new Uint8Array(analyser.frequencyBinCount);
-                analyser.getByteFrequencyData(dataArray);
-                
-                // Берем первые 20 значений и преобразуем в строку
-                fingerprint.audioHash = Array.from(dataArray.slice(0, 20)).join('');
-                
-                oscillator.disconnect();
-                gainNode.disconnect();
-                analyser.disconnect();
-                if (audioCtx.close) audioCtx.close();
-            } catch (e) {
-                fingerprint.audioError = 'disabled';
-            }
-
-            // 4. Шрифты (количество установленных)
-            try {
-                const fontCheck = new Set();
-                const baseFonts = ['monospace', 'sans-serif', 'serif'];
-                const testString = 'abcdefghijklmnopqrstuvwxyz0123456789';
-                
-                baseFonts.forEach(baseFont => {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    ctx.font = `72px ${baseFont}`;
-                    const baseWidth = ctx.measureText(testString).width;
-                    
-                    // Проверяем 40 распространенных шрифтов
-                    const fontsToCheck = [
-                        'Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Verdana', 
-                        'Georgia', 'Palatino', 'Garamond', 'Comic Sans MS', 'Trebuchet MS',
-                        'Arial Black', 'Impact', 'Roboto', 'Open Sans', 'Lato', 'Montserrat',
-                        'Source Sans Pro', 'Raleway', 'PT Sans', 'Ubuntu', 'Tahoma', 'Calibri',
-                        'Candara', 'Segoe UI', 'Futura', 'Century Gothic', 'Gill Sans', 'Franklin Gothic',
-                        'Helvetica Neue', 'Arial Narrow', 'Baskerville', 'Bodoni', 'Didot', 'American Typewriter',
-                        'Optima', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', 'Lucida Grande', 'Geneva'
-                    ];
-                    
-                    fontsToCheck.forEach(font => {
-                        ctx.font = `72px ${font}, ${baseFont}`;
-                        const width = ctx.measureText(testString).width;
-                        if (width !== baseWidth) fontCheck.add(font);
-                    });
-                });
-                
-                fingerprint.fontsCount = fontCheck.size;
-                fingerprint.fontsList = Array.from(fontCheck).slice(0, 10).join(',');
-            } catch (e) {
-                fingerprint.fontsError = 'failed';
-            }
-
-            // 5. Дополнительные параметры
-            try {
-                fingerprint.timezoneOffset = new Date().getTimezoneOffset();
-                fingerprint.sessionStorage = !!window.sessionStorage;
-                fingerprint.localStorage = !!window.localStorage;
-                fingerprint.indexedDB = !!window.indexedDB;
-                
-                // Определение эмулятора по специфическим признакам
-                const ua = navigator.userAgent.toLowerCase();
-                fingerprint.emulatorDetected = (
-                    ua.includes('headless') ||
-                    ua.includes('phantom') ||
-                    ua.includes('selenium') ||
-                    ua.includes('webdriver')
-                );
-            } catch (e) {}
-
-            // Генерируем ID
-            fingerprint.visitorId = generateVisitorId(fingerprint);
-            
-            return fingerprint;
+        } catch (e) {
+            fingerprint.webglError = 'disabled';
         }
 
-        // ========== СОХРАНЕНИЕ В LOCALSTORAGE ==========
-        function saveFingerprint(fingerprint) {
-            const storageKey = 'gruzim_fingerprint';
-            const existing = localStorage.getItem(storageKey);
+        // 2. Canvas fingerprint (ТЕПЕРЬ С ХЕШИРОВАНИЕМ)
+        try {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 400;
+            canvas.height = 100;
             
-            if (existing) {
-                try {
-                    const old = JSON.parse(existing);
-                    // Сохраняем историю визитов
-                    fingerprint.visitCount = (old.visitCount || 0) + 1;
-                    fingerprint.firstVisit = old.firstVisit || Date.now();
-                } catch (e) {
-                    fingerprint.visitCount = 1;
-                    fingerprint.firstVisit = Date.now();
+            // Тест 1: Текст с сглаживанием
+            ctx.textBaseline = 'top';
+            ctx.font = '16px Arial';
+            ctx.fillStyle = '#f60';
+            ctx.fillRect(0, 0, 200, 50);
+            ctx.fillStyle = '#069';
+            ctx.fillText('Gruzim.kz', 10, 20);
+            ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
+            ctx.fillText('Переезд под ключ', 10, 50);
+            
+            // Тест 2: Линии и кривые
+            ctx.beginPath();
+            ctx.moveTo(250, 20);
+            ctx.lineTo(350, 80);
+            ctx.lineTo(300, 30);
+            ctx.closePath();
+            ctx.strokeStyle = '#2563eb';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            
+            // Тест 3: Градиент
+            const gradient = ctx.createLinearGradient(0, 0, 200, 0);
+            gradient.addColorStop(0, 'red');
+            gradient.addColorStop(0.5, 'green');
+            gradient.addColorStop(1, 'blue');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(200, 60, 150, 30);
+            
+            // ПОЛУЧАЕМ ХЕШ ВМЕСТО СЫРОЙ КАРТИНКИ
+            const dataURL = canvas.toDataURL();
+            fingerprint.canvasHash = await sha256(dataURL); // ТЕПЕРЬ ЭТО 64 СИМВОЛА
+        } catch (e) {
+            fingerprint.canvasError = 'failed';
+            fingerprint.canvasHash = 'canvas_error';
+        }
+
+        // 3. Audio fingerprint (без ожидания взаимодействия)
+        try {
+            // Пробуем получить аудио отпечаток, но не ждем
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+                const audioCtx = new AudioContextClass();
+                
+                // Проверяем состояние
+                if (audioCtx.state === 'running') {
+                    // Если уже активен (редко), получаем данные
+                    const analyser = audioCtx.createAnalyser();
+                    const oscillator = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+                    
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.value = 440;
+                    gainNode.gain.value = 0.001;
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(analyser);
+                    
+                    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                    analyser.getByteFrequencyData(dataArray);
+                    
+                    fingerprint.audioHash = await sha256(dataArray.join(''));
+                    
+                    oscillator.disconnect();
+                    gainNode.disconnect();
+                    analyser.disconnect();
+                    if (audioCtx.close) audioCtx.close();
+                } else {
+                    // Если требует взаимодействия - помечаем как недоступный
+                    fingerprint.audioHash = 'audio_needs_interaction';
+                    if (audioCtx.close) audioCtx.close();
                 }
             } else {
+                fingerprint.audioHash = 'audio_not_supported';
+            }
+        } catch (e) {
+            fingerprint.audioHash = 'audio_error';
+        }
+
+        // 4. Шрифты (количество установленных)
+        try {
+            const fontCheck = new Set();
+            const baseFonts = ['monospace', 'sans-serif', 'serif'];
+            const testString = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            
+            baseFonts.forEach(baseFont => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.font = `72px ${baseFont}`;
+                const baseWidth = ctx.measureText(testString).width;
+                
+                const fontsToCheck = [
+                    'Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Verdana', 
+                    'Georgia', 'Palatino', 'Garamond', 'Comic Sans MS', 'Trebuchet MS',
+                    'Arial Black', 'Impact', 'Roboto', 'Open Sans', 'Lato', 'Montserrat',
+                    'Source Sans Pro', 'Raleway', 'PT Sans', 'Ubuntu', 'Tahoma', 'Calibri',
+                    'Candara', 'Segoe UI', 'Futura', 'Century Gothic', 'Gill Sans', 'Franklin Gothic',
+                    'Helvetica Neue', 'Arial Narrow', 'Baskerville', 'Bodoni', 'Didot', 'American Typewriter',
+                    'Optima', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', 'Lucida Grande', 'Geneva'
+                ];
+                
+                fontsToCheck.forEach(font => {
+                    ctx.font = `72px ${font}, ${baseFont}`;
+                    const width = ctx.measureText(testString).width;
+                    if (width !== baseWidth) fontCheck.add(font);
+                });
+            });
+            
+            fingerprint.fontsCount = fontCheck.size;
+            fingerprint.fontsList = Array.from(fontCheck).slice(0, 10).join(',');
+        } catch (e) {
+            fingerprint.fontsError = 'failed';
+        }
+
+        // 5. Дополнительные параметры
+        try {
+            fingerprint.timezoneOffset = new Date().getTimezoneOffset();
+            fingerprint.sessionStorage = !!window.sessionStorage;
+            fingerprint.localStorage = !!window.localStorage;
+            fingerprint.indexedDB = !!window.indexedDB;
+            
+            // Определение эмулятора по специфическим признакам
+            const ua = navigator.userAgent.toLowerCase();
+            fingerprint.emulatorDetected = (
+                ua.includes('headless') ||
+                ua.includes('phantom') ||
+                ua.includes('selenium') ||
+                ua.includes('webdriver')
+            );
+            
+            // Дополнительные признаки виртуалок
+            if (fingerprint.webglRenderer) {
+                const renderer = fingerprint.webglRenderer.toLowerCase();
+                if (renderer.includes('swiftshader') || 
+                    renderer.includes('llvmpipe') || 
+                    renderer.includes('vmware') || 
+                    renderer.includes('virtualbox') ||
+                    renderer.includes('microsoft basic render')) {
+                    fingerprint.emulatorDetected = true;
+                }
+            }
+        } catch (e) {}
+
+        // Генерируем ID
+        fingerprint.visitorId = generateVisitorId(fingerprint);
+        
+        return fingerprint;
+    }
+
+    // ========== СОХРАНЕНИЕ В LOCALSTORAGE ==========
+    function saveFingerprint(fingerprint) {
+        const storageKey = 'gruzim_fingerprint';
+        const existing = localStorage.getItem(storageKey);
+        
+        if (existing) {
+            try {
+                const old = JSON.parse(existing);
+                // Сохраняем историю визитов
+                fingerprint.visitCount = (old.visitCount || 0) + 1;
+                fingerprint.firstVisit = old.firstVisit || Date.now();
+            } catch (e) {
                 fingerprint.visitCount = 1;
                 fingerprint.firstVisit = Date.now();
             }
-            
-            fingerprint.lastVisit = Date.now();
-            localStorage.setItem(storageKey, JSON.stringify(fingerprint));
-            
-            return fingerprint;
+        } else {
+            fingerprint.visitCount = 1;
+            fingerprint.firstVisit = Date.now();
+        }
+        
+        fingerprint.lastVisit = Date.now();
+        localStorage.setItem(storageKey, JSON.stringify(fingerprint));
+        
+        return fingerprint;
+    }
+
+    // ========== ПОЛУЧЕНИЕ IP-АДРЕСА ==========
+    async function getIP() {
+        try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            return data.ip;
+        } catch (e) {
+            return 'не удалось определить';
+        }
+    }
+
+    // ========== ОТПРАВКА В TELEGRAM ==========
+    async function sendToTelegram(fingerprint, ip) {
+        const visitTime = new Date().toLocaleString('ru-RU', { 
+            timeZone: 'Asia/Almaty',
+            dateStyle: 'full',
+            timeStyle: 'medium'
+        });
+        
+        // Получаем количество визитов из localStorage
+        const visitCount = fingerprint.visitCount || 1;
+        
+        let message = `🚛 <b>Gruzim.kz (грузоперевозки) - новый визит</b>\n\n`;
+        message += `🔍 <b>ID посетителя:</b> <code>${fingerprint.visitorId}</code>\n`;
+        message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
+        message += `📊 <b>Всего IP за сегодня:</b> 1\n`;
+        message += `🕐 <b>Время:</b> ${visitTime}\n`;
+        message += `⚠️ <b>Визитов сегодня:</b> ${visitCount}\n`;
+        message += `🔗 <b>Страница:</b> ${window.location.href}\n`;
+        message += `↩️ <b>Откуда пришел:</b> ${document.referrer || 'прямой заход'}\n\n`;
+        
+        message += `📱 <b>User-Agent:</b>\n<code>${fingerprint.userAgent.substring(0, 200)}</code>\n\n`;
+        
+        message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
+        message += `• Платформа: ${fingerprint.platform || 'неизвестно'}\n`;
+        message += `• Экран: ${fingerprint.screenResolution || 'неизвестно'}\n`;
+        message += `• Язык: ${fingerprint.language || 'неизвестно'}\n`;
+        message += `• Часовой пояс: ${fingerprint.timezone || 'неизвестно'}\n`;
+        message += `• Ядер CPU: ${fingerprint.hardwareConcurrency || 'неизвестно'}\n`;
+        message += `• WebGL: ${(fingerprint.webglRenderer || 'недоступен').substring(0, 50)}\n`;
+        message += `• WebGL Vendor: ${fingerprint.webglVendor || 'неизвестно'}\n`;
+        message += `• WebGL Extensions: ${fingerprint.webglExtensions || 'неизвестно'}\n`;
+        // ТЕПЕРЬ CANVAS HASH - ПОЛНЫЙ (64 символа)
+        message += `• Canvas Hash: ${fingerprint.canvasHash || 'недоступен'}\n`;
+        message += `• Audio Hash: ${fingerprint.audioHash || 'недоступен'}\n`;
+        message += `• Шрифтов: ${fingerprint.fontsCount || 'неизвестно'}\n`;
+        message += `• Память: ${fingerprint.deviceMemory || 'неизвестно'} GB\n`;
+        message += `• Глубина цвета: ${fingerprint.colorDepth || 'неизвестно'}\n`;
+        message += `• Эмулятор: ${fingerprint.emulatorDetected ? 'ДА' : 'НЕТ'}\n`;
+
+        if (visitCount >= SUSPICIOUS_THRESHOLD) {
+            message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
+            message += `\n❗️ <b>ID для отслеживания:</b> <code>${fingerprint.visitorId}</code>\n`;
         }
 
-        // ========== ПОЛУЧЕНИЕ IP-АДРЕСА ==========
-        async function getIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                return data.ip;
-            } catch (e) {
-                return 'не удалось определить';
-            }
-        }
-
-        // ========== ОТПРАВКА В TELEGRAM ==========
-        async function sendToTelegram(fingerprint, ip) {
-            const visitTime = new Date().toLocaleString('ru-RU', { 
-                timeZone: 'Asia/Almaty',
-                dateStyle: 'full',
-                timeStyle: 'medium'
+        try {
+            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'HTML',
+                    disable_web_page_preview: true
+                })
             });
-            
-            // Получаем количество визитов из localStorage
-            const visitCount = fingerprint.visitCount || 1;
-            
-            let message = `🚛 <b>Gruzim.kz (грузоперевозки) - новый визит</b>\n\n`;
-            message += `🔍 <b>ID посетителя:</b> <code>${fingerprint.visitorId}</code>\n`;
-            message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
-            message += `📊 <b>Всего IP за сегодня:</b> 1\n`;
-            message += `🕐 <b>Время:</b> ${visitTime}\n`;
-            message += `⚠️ <b>Визитов сегодня:</b> ${visitCount}\n`;
-            message += `🔗 <b>Страница:</b> ${window.location.href}\n`;
-            message += `↩️ <b>Откуда пришел:</b> ${document.referrer || 'прямой заход'}\n\n`;
-            
-            message += `📱 <b>User-Agent:</b>\n<code>${fingerprint.userAgent.substring(0, 200)}</code>\n\n`;
-            
-            message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
-            message += `• Платформа: ${fingerprint.platform || 'неизвестно'}\n`;
-            message += `• Экран: ${fingerprint.screenResolution || 'неизвестно'}\n`;
-            message += `• Язык: ${fingerprint.language || 'неизвестно'}\n`;
-            message += `• Часовой пояс: ${fingerprint.timezone || 'неизвестно'}\n`;
-            message += `• Ядер CPU: ${fingerprint.hardwareConcurrency || 'неизвестно'}\n`;
-            message += `• WebGL: ${(fingerprint.webglRenderer || 'недоступен').substring(0, 50)}\n`;
-            message += `• WebGL Vendor: ${fingerprint.webglVendor || 'неизвестно'}\n`;
-            message += `• WebGL Extensions: ${fingerprint.webglExtensions || 'неизвестно'}\n`;
-            message += `• Canvas Hash: ${fingerprint.canvasHash ? fingerprint.canvasHash.substring(0, 30) + '...' : 'недоступен'}\n`;
-            message += `• Audio Hash: ${fingerprint.audioHash ? fingerprint.audioHash.substring(0, 20) + '...' : 'недоступен'}\n`;
-            message += `• Шрифтов: ${fingerprint.fontsCount || 'неизвестно'}\n`;
-            message += `• Память: ${fingerprint.deviceMemory || 'неизвестно'} GB\n`;
-            message += `• Глубина цвета: ${fingerprint.colorDepth || 'неизвестно'}\n`;
-            message += `• Эмулятор: ${fingerprint.emulatorDetected ? 'ДА' : 'НЕТ'}\n`;
+            console.log('✅ Информация отправлена в Telegram');
+        } catch (e) {
+            console.error('❌ Ошибка отправки в Telegram:', e);
+        }
+    }
 
-            if (visitCount >= SUSPICIOUS_THRESHOLD) {
-                message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
-                message += `\n❗️ <b>ID для отслеживания:</b> <code>${fingerprint.visitorId}</code>\n`;
+    // ========== ПАРСИНГ BLACK.TXT ==========
+    function parseBlacklist(text) {
+        const fingerprints = [];
+        let currentFingerprint = {};
+        
+        const lines = text.split('\n');
+        
+        for (let line of lines) {
+            line = line.trim();
+            
+            if (line.includes('🔍 ID посетителя:')) {
+                if (Object.keys(currentFingerprint).length > 0) {
+                    fingerprints.push(currentFingerprint);
+                    currentFingerprint = {};
+                }
+                continue;
             }
-
-            try {
-                await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML',
-                        disable_web_page_preview: true
-                    })
-                });
-                console.log('✅ Информация отправлена в Telegram');
-            } catch (e) {
-                console.error('❌ Ошибка отправки в Telegram:', e);
+            
+            if (line.includes('•')) {
+                const parts = line.substring(1).split(':');
+                if (parts.length >= 2) {
+                    const key = parts[0].trim();
+                    const value = parts.slice(1).join(':').trim();
+                    
+                    if (key === 'Платформа') currentFingerprint.platform = value;
+                    else if (key === 'Экран') currentFingerprint.screenResolution = value;
+                    else if (key === 'Язык') currentFingerprint.language = value;
+                    else if (key === 'Часовой пояс') currentFingerprint.timezone = value;
+                    else if (key === 'Ядер CPU') currentFingerprint.hardwareConcurrency = value;
+                    else if (key === 'WebGL') currentFingerprint.webgl = value;
+                    else if (key === 'Canvas Hash') currentFingerprint.canvasHash = value;
+                    else if (key === 'Audio Hash') currentFingerprint.audioHash = value;
+                    else if (key === 'Шрифтов') currentFingerprint.fontsCount = value;
+                    else if (key === 'WebGL Extensions') currentFingerprint.webglExtensions = value;
+                }
             }
         }
+        
+        if (Object.keys(currentFingerprint).length > 0) {
+            fingerprints.push(currentFingerprint);
+        }
+        
+        return fingerprints;
+    }
 
-        // ========== ПАРСИНГ BLACK.TXT ==========
-        function parseBlacklist(text) {
-            const fingerprints = [];
-            let currentFingerprint = {};
-            
-            const lines = text.split('\n');
-            
-            for (let line of lines) {
-                line = line.trim();
-                
-                // Если встречаем разделитель с ID - начинаем новый отпечаток
-                if (line.includes('🔍 ID посетителя:')) {
-                    if (Object.keys(currentFingerprint).length > 0) {
-                        fingerprints.push(currentFingerprint);
-                        currentFingerprint = {};
-                    }
-                    continue;
-                }
-                
-                // Парсим параметры отпечатка
-                if (line.includes('•')) {
-                    const parts = line.substring(1).split(':');
-                    if (parts.length >= 2) {
-                        const key = parts[0].trim();
-                        const value = parts.slice(1).join(':').trim();
-                        
-                        if (key === 'Платформа') currentFingerprint.platform = value;
-                        else if (key === 'Экран') currentFingerprint.screenResolution = value;
-                        else if (key === 'Язык') currentFingerprint.language = value;
-                        else if (key === 'Часовой пояс') currentFingerprint.timezone = value;
-                        else if (key === 'Ядер CPU') currentFingerprint.hardwareConcurrency = value;
-                        else if (key === 'WebGL') currentFingerprint.webgl = value;
-                        else if (key === 'Canvas Hash') currentFingerprint.canvasHash = value;
-                        else if (key === 'Audio Hash') currentFingerprint.audioHash = value;
-                        else if (key === 'Шрифтов') currentFingerprint.fontsCount = value;
-                        else if (key === 'WebGL Extensions') currentFingerprint.webglExtensions = value;
-                    }
-                }
+    // ========== СРАВНЕНИЕ ДВУХ ОТПЕЧАТКОВ ==========
+    function fingerprintsMatch(fp1, fp2) {
+        let matches = 0;
+        let total = 0;
+        
+        // Canvas Hash (самый важный) - 40%
+        if (fp1.canvasHash && fp2.canvasHash && fp1.canvasHash !== 'canvas_error' && fp2.canvasHash !== 'canvas_error') {
+            total += 40;
+            if (fp1.canvasHash === fp2.canvasHash) {
+                matches += 40;
+            } else if (fp1.canvasHash.includes(fp2.canvasHash) || fp2.canvasHash.includes(fp1.canvasHash)) {
+                matches += 30; // Частичное совпадение
             }
-            
-            // Добавляем последний отпечаток
-            if (Object.keys(currentFingerprint).length > 0) {
-                fingerprints.push(currentFingerprint);
+        }
+        
+        // WebGL (30%)
+        if (fp1.webglRenderer && fp2.webgl) {
+            total += 30;
+            if (fp1.webglRenderer.includes(fp2.webgl) || fp2.webgl.includes(fp1.webglRenderer)) {
+                matches += 30;
             }
+        }
+        
+        // Платформа (10%)
+        if (fp1.platform && fp2.platform) {
+            total += 10;
+            if (fp1.platform === fp2.platform) matches += 10;
+        }
+        
+        // Экран (5%)
+        if (fp1.screenResolution && fp2.screenResolution) {
+            total += 5;
+            if (fp1.screenResolution === fp2.screenResolution) matches += 5;
+        }
+        
+        // Язык (2%)
+        if (fp1.language && fp2.language) {
+            total += 2;
+            if (fp1.language === fp2.language) matches += 2;
+        }
+        
+        // Часовой пояс (8%)
+        if (fp1.timezone && fp2.timezone) {
+            total += 8;
+            if (fp1.timezone === fp2.timezone) matches += 8;
+        }
+        
+        // Ядра CPU (5%)
+        if (fp1.hardwareConcurrency && fp2.hardwareConcurrency) {
+            total += 5;
+            if (fp1.hardwareConcurrency.toString() === fp2.hardwareConcurrency.toString()) matches += 5;
+        }
+        
+        // Если ничего не совпало
+        if (total === 0) return false;
+        
+        const percent = (matches / total) * 100;
+        return percent >= 70;
+    }
+
+    // ========== ЗАГРУЗКА BLACK.TXT (1 РАЗ В ДЕНЬ) ==========
+    async function loadBlacklist() {
+        const today = new Date().toDateString();
+        const cacheKey = 'gruzim_blacklist';
+        const cacheDateKey = 'gruzim_blacklist_date';
+        
+        const cached = localStorage.getItem(cacheKey);
+        const cachedDate = localStorage.getItem(cacheDateKey);
+        
+        if (cached && cachedDate === today) {
+            try {
+                return JSON.parse(cached);
+            } catch (e) {}
+        }
+        
+        try {
+            const response = await fetch(BLACKLIST_URL);
+            const text = await response.text();
+            const fingerprints = parseBlacklist(text);
+            
+            localStorage.setItem(cacheKey, JSON.stringify(fingerprints));
+            localStorage.setItem(cacheDateKey, today);
             
             return fingerprints;
+        } catch (e) {
+            console.log('black.txt не найден');
+            return [];
         }
+    }
 
-        // ========== СРАВНЕНИЕ ДВУХ ОТПЕЧАТКОВ ==========
-        function fingerprintsMatch(fp1, fp2) {
-            let matches = 0;
-            let total = 0;
-            
-            // WebGL (30%)
-            if (fp1.webglRenderer && fp2.webgl) {
-                total += 30;
-                if (fp1.webglRenderer.includes(fp2.webgl) || fp2.webgl.includes(fp1.webglRenderer)) {
-                    matches += 30;
-                }
-            }
-            
-            // Платформа (10%)
-            if (fp1.platform && fp2.platform) {
-                total += 10;
-                if (fp1.platform === fp2.platform) matches += 10;
-            }
-            
-            // Экран (10%)
-            if (fp1.screenResolution && fp2.screenResolution) {
-                total += 10;
-                if (fp1.screenResolution === fp2.screenResolution) matches += 10;
-            }
-            
-            // Язык (5%)
-            if (fp1.language && fp2.language) {
-                total += 5;
-                if (fp1.language === fp2.language) matches += 5;
-            }
-            
-            // Часовой пояс (15%)
-            if (fp1.timezone && fp2.timezone) {
-                total += 15;
-                if (fp1.timezone === fp2.timezone) matches += 15;
-            }
-            
-            // Ядра CPU (10%)
-            if (fp1.hardwareConcurrency && fp2.hardwareConcurrency) {
-                total += 10;
-                if (fp1.hardwareConcurrency.toString() === fp2.hardwareConcurrency.toString()) matches += 10;
-            }
-            
-            // Canvas Hash (10%)
-            if (fp1.canvasHash && fp2.canvasHash) {
-                total += 10;
-                if (fp1.canvasHash.includes(fp2.canvasHash) || fp2.canvasHash.includes(fp1.canvasHash)) {
-                    matches += 10;
-                }
-            }
-            
-            // Audio Hash (10%)
-            if (fp1.audioHash && fp2.audioHash) {
-                total += 10;
-                if (fp1.audioHash.includes(fp2.audioHash) || fp2.audioHash.includes(fp1.audioHash)) {
-                    matches += 10;
-                }
-            }
-            
-            // Если ничего не совпало
-            if (total === 0) return false;
-            
-            const percent = (matches / total) * 100;
-            return percent >= 70;
+    // ========== ОСНОВНАЯ ФУНКЦИЯ ==========
+    async function init() {
+        // Если это бот - ничего не делаем
+        if (isSearchBot()) {
+            console.log('Обнаружен поисковый бот, защита отключена');
+            return;
         }
-
-        // ========== ЗАГРУЗКА BLACK.TXT (1 РАЗ В ДЕНЬ) ==========
-        async function loadBlacklist() {
-            const today = new Date().toDateString();
-            const cacheKey = 'gruzim_blacklist';
-            const cacheDateKey = 'gruzim_blacklist_date';
-            
-            const cached = localStorage.getItem(cacheKey);
-            const cachedDate = localStorage.getItem(cacheDateKey);
-            
-            if (cached && cachedDate === today) {
-                try {
-                    return JSON.parse(cached);
-                } catch (e) {}
-            }
-            
-            try {
-                const response = await fetch(BLACKLIST_URL);
-                const text = await response.text();
-                const fingerprints = parseBlacklist(text);
-                
-                localStorage.setItem(cacheKey, JSON.stringify(fingerprints));
-                localStorage.setItem(cacheDateKey, today);
-                
-                return fingerprints;
-            } catch (e) {
-                console.log('black.txt не найден');
-                return [];
-            }
+        
+        // Проверяем куку блокировки
+        if (getCookie(BLOCK_COOKIE_NAME)) {
+            window.location.replace(YOUTUBE_SIREN);
+            return;
         }
-
-        // ========== ОСНОВНАЯ ФУНКЦИЯ ==========
-        async function init() {
-            // Если это бот - ничего не делаем
-            if (isSearchBot()) {
-                console.log('Обнаружен поисковый бот, защита отключена');
-                return;
-            }
-            
-            // Проверяем куку блокировки
-            if (getCookie(BLOCK_COOKIE_NAME)) {
-                window.location.replace(YOUTUBE_SIREN);
-                return;
-            }
-            
-            // Собираем отпечаток
-            const fingerprint = await collectFullFingerprint();
-            const savedFingerprint = saveFingerprint(fingerprint);
-            
-            // Получаем IP и отправляем в Telegram
-            const ip = await getIP();
-            await sendToTelegram(savedFingerprint, ip);
-            
-            // Загружаем черный список и проверяем
-            const blacklist = await loadBlacklist();
-            if (blacklist.length > 0) {
-                for (const blackFp of blacklist) {
-                    if (fingerprintsMatch(savedFingerprint, blackFp)) {
-                        setCookie(BLOCK_COOKIE_NAME, '1', BLOCK_COOKIE_DAYS);
-                        window.location.replace(YOUTUBE_SIREN);
-                        return;
-                    }
+        
+        // Собираем отпечаток
+        const fingerprint = await collectFullFingerprint();
+        const savedFingerprint = saveFingerprint(fingerprint);
+        
+        // Получаем IP и отправляем в Telegram
+        const ip = await getIP();
+        await sendToTelegram(savedFingerprint, ip);
+        
+        // Загружаем черный список и проверяем
+        const blacklist = await loadBlacklist();
+        if (blacklist.length > 0) {
+            for (const blackFp of blacklist) {
+                if (fingerprintsMatch(savedFingerprint, blackFp)) {
+                    setCookie(BLOCK_COOKIE_NAME, '1', BLOCK_COOKIE_DAYS);
+                    window.location.replace(YOUTUBE_SIREN);
+                    return;
                 }
             }
         }
+    }
 
-        // ========== ЗАПУСК ==========
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                setTimeout(init, 2000); // Небольшая задержка, чтобы не мешать загрузке
-            });
-        } else {
+    // ========== ЗАПУСК ==========
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
             setTimeout(init, 2000);
-        }
-    })();
-    </script>
-    <!-- ===== КОНЕЦ СКРИПТА ЗАЩИТЫ ===== -->
+        });
+    } else {
+        setTimeout(init, 2000);
+    }
+})();
+</script>
+<!-- ===== КОНЕЦ СКРИПТА ЗАЩИТЫ ===== -->
 
     <!-- ===== НОВЫЙ СКРИПТ КОНВЕРСИЙ GOOGLE ADS (1 сессия = 1 конверсия) ===== -->
     <script>
