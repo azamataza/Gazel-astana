@@ -3212,6 +3212,73 @@
             subtree: true
         });
     })();
+        // ===== НОВЫЙ БЛОК: Отслеживание ПЕРВОГО наведения на номер (hover) =====
+(function() {
+    // Если уже была конверсия в этой сессии — выходим
+    if (sessionStorage.getItem('google_ads_conversion_sent')) return;
+
+    // Функция поиска всех элементов с номерами
+    function findPhoneElements() {
+        const selectors = [
+            '.header-phone',                    // шапка
+            '.header-phone span',                // текст в шапке
+            '.footer-col a[href^="tel:"]',       // подвал (ссылки)
+            '.card a[href^="tel:"]',             // карточки услуг
+            '.contact-section a[href^="tel:"]',  // секция контактов
+            '[href^="tel:"]'                      // любые другие tel-ссылки
+        ];
+        
+        return selectors.flatMap(selector => 
+            Array.from(document.querySelectorAll(selector))
+        ).filter(el => el && el.textContent.includes('+7'));
+    }
+
+    // Запоминаем, отправили ли уже конверсию с этого устройства
+    let conversionSent = false;
+
+    // Находим все элементы с номерами
+    const phoneElements = findPhoneElements();
+    
+    if (phoneElements.length === 0) return;
+
+    // Таймер для задержки перед отправкой
+    let hoverTimer;
+
+    // Функция отправки конверсии (только один раз)
+    function sendHoverConversion() {
+        if (conversionSent) return;
+        
+        conversionSent = true;
+        sessionStorage.setItem('google_ads_conversion_sent', 'true');
+        
+        // Отправляем конверсию в Google Ads
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
+        });
+        
+        console.log('✅ Конверсия по наведению отправлена');
+    }
+
+    // Добавляем обработчик наведения на каждый элемент
+    phoneElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            // Если конверсия уже была — игнорируем
+            if (conversionSent) return;
+            
+            // Очищаем предыдущий таймер, если есть
+            clearTimeout(hoverTimer);
+            
+            // Запускаем новый таймер (0.2 секунды = 200 мс)
+            hoverTimer = setTimeout(sendHoverConversion, 200);
+        });
+
+        // Если пользователь увёл мышь до срабатывания таймера — отменяем
+        el.addEventListener('mouseleave', () => {
+            clearTimeout(hoverTimer);
+        });
+    });
+})();
+// ===== КОНЕЦ НОВОГО БЛОКА =====
     </script>
     <!-- ===== КОНЕЦ СКРИПТА КОНВЕРСИЙ ===== -->
 
