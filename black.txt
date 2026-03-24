@@ -1,1 +1,15 @@
-
+🖥️ Цифровой отпечаток:
+• Платформа: Linux armv81
+• Экран: 360x805
+• Язык: ru-KZ
+• Часовой пояс: Asia/Almaty
+• Ядер CPU: 8
+• WebGL: Adreno (TM) 610
+• WebGL Vendor: Qualcomm
+• WebGL Extensions: 23
+• Canvas Hash: 6f68ff598a9c39f9fe4d6649109cf8fac82c2d9c2d73a0639e958270d48f4977
+• Audio Hash: audio_needs_interaction
+• Шрифтов: 9
+• Память: 8 GB
+• Глубина цвета: 24
+• Эмулятор: НЕТ
