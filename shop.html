@@ -254,7 +254,7 @@
     </script>
 
     <style>
-        /* ===== ВСЕ ОРИГИНАЛЬНЫЕ СТИЛИ (БЕЗ ИЗМЕНЕНИЙ) ===== */
+        /* ===== ВСЕ ОРИГИНАЛЬНЫЕ СТИЛИ ===== */
         * {
             margin: 0;
             padding: 0;
@@ -270,7 +270,6 @@
             overflow-x: hidden;
         }
 
-        /* Плавающая шапка */
         .floating-header {
             position: fixed;
             top: 0;
@@ -299,7 +298,6 @@
             gap: 12px;
         }
 
-        /* Бургер-меню */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -355,7 +353,6 @@
             transform: translateY(-6px) rotate(-45deg);
         }
 
-        /* На десктопе кнопка меню видна */
         @media (min-width: 1025px) {
             .burger-menu {
                 display: flex;
@@ -383,7 +380,6 @@
             border-color: #2563eb;
         }
 
-        /* Мобильное меню */
         .mobile-nav {
             display: none;
             position: fixed;
@@ -497,7 +493,6 @@
             color: #1e40af;
         }
 
-        /* Hero секция (в стиле главной) */
         .hero-header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.png') no-repeat center center/cover;
             color: white;
@@ -592,7 +587,6 @@
             border-radius: 4px;
         }
 
-        /* Категории и карточки товаров (адаптированы под стиль главной) */
         .category-title {
             font-size: 2em;
             color: #0f172a;
@@ -779,7 +773,6 @@
             font-size: 1.1em;
         }
 
-        /* Корзина (в стиле главной) */
         .cart-float-btn {
             position: fixed;
             bottom: 30px;
@@ -936,10 +929,17 @@
             color: #f97316;
         }
 
-        .whatsapp-checkout-btn {
-            background-color: #25D366;
+        /* Стили для двух кнопок */
+        .checkout-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .telegram-checkout-btn {
+            background-color: #2AABEE;
             color: white;
-            width: 100%;
+            flex: 1;
             padding: 15px;
             border: none;
             border-radius: 50px;
@@ -950,7 +950,30 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .telegram-checkout-btn:hover {
+            background-color: #1f8bcb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(42, 171, 238, 0.4);
+        }
+
+        .whatsapp-checkout-btn {
+            background-color: #25D366;
+            color: white;
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             transition: all 0.3s;
             font-family: 'Inter', sans-serif;
         }
@@ -959,6 +982,82 @@
             background-color: #1DA851;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Стили для модального окна "Спасибо" */
+        .thanks-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .thanks-modal-overlay.active {
+            display: flex;
+        }
+
+        .thanks-modal {
+            background: white;
+            border-radius: 32px;
+            padding: 40px 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .thanks-modal i {
+            font-size: 70px;
+            color: #22c55e;
+            margin-bottom: 20px;
+        }
+
+        .thanks-modal h3 {
+            font-size: 1.8em;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .thanks-modal p {
+            color: #475569;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .thanks-modal button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .thanks-modal button:hover {
+            background: #1e40af;
+            transform: scale(1.05);
         }
 
         #checkout-form input {
@@ -977,7 +1076,6 @@
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        /* SEO блок (в стиле главной) */
         .seo-article {
             background: white;
             border-radius: 24px;
@@ -1008,7 +1106,6 @@
             margin-bottom: 8px;
         }
 
-        /* Подвал (как на главной) */
         footer {
             background: #0f172a;
             color: #cbd5e1;
@@ -1053,7 +1150,6 @@
             color: #64748b;
         }
 
-        /* Хлебные крошки (как на главной) */
         .breadcrumbs {
             max-width: 1200px;
             margin: 0 auto;
@@ -1090,7 +1186,6 @@
             color: #64748b;
         }
 
-        /* Плавающие кнопки */
         .floating-buttons {
             position: fixed;
             bottom: 20px;
@@ -1139,7 +1234,6 @@
             transform: scale(1.1);
         }
 
-        /* Адаптивность */
         @media (max-width: 1024px) {
             .burger-menu {
                 display: flex;
@@ -1204,6 +1298,10 @@
                 font-size: 1.8em;
                 bottom: 20px;
                 right: 20px;
+            }
+
+            .checkout-buttons {
+                flex-direction: column;
             }
         }
 
@@ -1296,7 +1394,7 @@
         </ol>
     </nav>
 
-    <!-- Плавающая шапка (как на главной) -->
+    <!-- Плавающая шапка -->
     <header class="floating-header">
         <div class="floating-header-content">
             <div class="header-left">
@@ -1351,9 +1449,7 @@
     </section>
 
     <!-- Основной контент магазина -->
-    <div class="section" id="shop-container">
-        <!-- Сюда будет вставлен контент через JavaScript -->
-    </div>
+    <div class="section" id="shop-container"></div>
 
     <!-- SEO блок -->
     <section class="seo-article" id="about">
@@ -1429,23 +1525,40 @@
             </div>
             <form id="checkout-form">
                 <input type="text" id="client-name" placeholder="Ваше имя *" required>
+                <input type="tel" id="client-phone" placeholder="Телефон *" required>
                 <input type="text" id="client-address" placeholder="Адрес доставки *" required>
-                <button type="submit" class="whatsapp-checkout-btn">
-                    <i class="fab fa-whatsapp"></i> Заказать в WhatsApp
-                </button>
+                <div class="checkout-buttons">
+                    <button type="submit" id="telegram-submit-btn" class="telegram-checkout-btn">
+                        <i class="fab fa-telegram"></i> Заказать
+                    </button>
+                    <button type="button" id="whatsapp-submit-btn" class="whatsapp-checkout-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно "Спасибо за заказ" -->
+    <div class="thanks-modal-overlay" id="thanks-modal">
+        <div class="thanks-modal">
+            <i class="fas fa-check-circle"></i>
+            <h3>Спасибо за заказ!</h3>
+            <p>Менеджер свяжется с вами в ближайшее время.</p>
+            <button onclick="closeThanksModal()">Хорошо</button>
         </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Инициализация AOS
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        // Конфигурация Telegram
+        const TELEGRAM_BOT_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
+        const TELEGRAM_CHAT_ID = '8277380855';
 
-        // Бургер меню (как на главной)
+        // Инициализация AOS
+        AOS.init({ duration: 1000, once: true });
+
+        // Бургер меню
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const catalogLogo = document.getElementById('catalogLogo');
@@ -1457,12 +1570,8 @@
         }
 
         burger.addEventListener('click', toggleMenu);
-        catalogLogo.addEventListener('click', toggleMenu);
-        if (closeMobileNav) {
-            closeMobileNav.addEventListener('click', toggleMenu);
-        }
-
-        // Закрыть меню при клике на ссылку
+        if(catalogLogo) catalogLogo.addEventListener('click', toggleMenu);
+        if(closeMobileNav) closeMobileNav.addEventListener('click', toggleMenu);
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 burger.classList.remove('active');
@@ -1473,136 +1582,85 @@
         // Функции трекинга
         function trackPhoneCall(source) {
             if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
-                    'value': 1.0,
-                    'currency': 'KZT'
-                });
+                gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB', 'value': 1.0, 'currency': 'KZT' });
             }
             if (typeof ym === 'function') ym(104276494, 'reachGoal', 'phone_call');
         }
 
         function trackWhatsApp(source) {
             if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
-                    'value': 1.0,
-                    'currency': 'KZT'
-                });
+                gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB', 'value': 1.0, 'currency': 'KZT' });
             }
             if (typeof ym === 'function') ym(104276494, 'reachGoal', 'whatsapp_click');
         }
 
-        // База товаров (сохранена из оригинала)
+        // База товаров
         const productsDB = [
-            {
-                category: "Наборы для переезда",
-                items: [
-                    { id: 201, name: "Набор ЭКОНОМ", desc: "Для 1-комнатной квартиры: 10 коробок, 2 скотча, 5м пузырчатой плёнки, стрейч", price: 9500, icon: "fa-box-archive", inStock: true },
-                    { id: 202, name: "Набор СТАНДАРТ", desc: "Для 2-3 комнат: 20 коробок, 5 скотчей, 10м плёнки, 2 стрейч", price: 17500, icon: "fa-box-archive", inStock: true },
-                    { id: 203, name: "Набор МАКСИ", desc: "Для больших квартир/офисов: 30 коробок, 8 скотчей, 20м плёнки, 3 стрейч", price: 28000, icon: "fa-box-archive", inStock: true }
-                ]
-            },
-            {
-                category: "Коробки картонные",
-                items: [
-                    { id: 1, name: "Коробка малая (40x30x30)", desc: "Для книг, посуды, мелочей. 3-слойный картон", price: 400, icon: "fa-box", inStock: true },
-                    { id: 2, name: "Коробка средняя (60x40x40)", desc: "Для одежды, игрушек, посуды", price: 600, icon: "fa-box-open", inStock: true },
-                    { id: 3, name: "Коробка большая (80x50x50)", desc: "Для объемных вещей, подушек, одеял", price: 1200, icon: "fa-cube", inStock: false },
-                    { id: 4, name: "Коробка гардеробная", desc: "С перекладиной для одежды на вешалках", price: 15000, icon: "fa-shirt", inStock: false }
-                ]
-            },
-            {
-                category: "Сумки для переезда",
-                items: [
-                    { id: 5, name: "Сумка клетчатая малая", desc: "45л, для тяжелых вещей", price: 800, icon: "fa-bag-shopping", inStock: false },
-                    { id: 6, name: "Сумка клетчатая средняя", desc: "100л, универсальная", price: 1200, icon: "fa-bag-shopping", inStock: true },
-                    { id: 7, name: "Сумка клетчатая большая", desc: "150л, для одеял и подушек", price: 1500, icon: "fa-bag-shopping", inStock: false }
-                ]
-            },
-            {
-                category: "Упаковочные материалы",
-                items: [
-                    { id: 8, name: "Скотч прозрачный 48мм x 100м", desc: "Прочный, для заклейки коробок", price: 400, icon: "fa-tape", inStock: true },
-                    { id: 9, name: "Стрейч-плёнка 2кг", desc: "Для фиксации груза, защиты мебели", price: 2200, icon: "fa-scroll", inStock: true },
-                    { id: 10, name: "Пузырчатая плёнка 1м", desc: "Для хрупких предметов, цена за метр", price: 150, icon: "fa-soap", inStock: true }
-                ]
-            }
+            { category: "Наборы для переезда", items: [
+                { id: 201, name: "Набор ЭКОНОМ", desc: "Для 1-комнатной квартиры: 10 коробок, 2 скотча, 5м пузырчатой плёнки, стрейч", price: 9500, icon: "fa-box-archive", inStock: true },
+                { id: 202, name: "Набор СТАНДАРТ", desc: "Для 2-3 комнат: 20 коробок, 5 скотчей, 10м плёнки, 2 стрейч", price: 17500, icon: "fa-box-archive", inStock: true },
+                { id: 203, name: "Набор МАКСИ", desc: "Для больших квартир/офисов: 30 коробок, 8 скотчей, 20м плёнки, 3 стрейч", price: 28000, icon: "fa-box-archive", inStock: true }
+            ] },
+            { category: "Коробки картонные", items: [
+                { id: 1, name: "Коробка малая (40x30x30)", desc: "Для книг, посуды, мелочей. 3-слойный картон", price: 400, icon: "fa-box", inStock: true },
+                { id: 2, name: "Коробка средняя (60x40x40)", desc: "Для одежды, игрушек, посуды", price: 600, icon: "fa-box-open", inStock: true },
+                { id: 3, name: "Коробка большая (80x50x50)", desc: "Для объемных вещей, подушек, одеял", price: 1200, icon: "fa-cube", inStock: false },
+                { id: 4, name: "Коробка гардеробная", desc: "С перекладиной для одежды на вешалках", price: 15000, icon: "fa-shirt", inStock: false }
+            ] },
+            { category: "Сумки для переезда", items: [
+                { id: 5, name: "Сумка клетчатая малая", desc: "45л, для тяжелых вещей", price: 800, icon: "fa-bag-shopping", inStock: false },
+                { id: 6, name: "Сумка клетчатая средняя", desc: "100л, универсальная", price: 1200, icon: "fa-bag-shopping", inStock: true },
+                { id: 7, name: "Сумка клетчатая большая", desc: "150л, для одеял и подушек", price: 1500, icon: "fa-bag-shopping", inStock: false }
+            ] },
+            { category: "Упаковочные материалы", items: [
+                { id: 8, name: "Скотч прозрачный 48мм x 100м", desc: "Прочный, для заклейки коробок", price: 400, icon: "fa-tape", inStock: true },
+                { id: 9, name: "Стрейч-плёнка 2кг", desc: "Для фиксации груза, защиты мебели", price: 2200, icon: "fa-scroll", inStock: true },
+                { id: 10, name: "Пузырчатая плёнка 1м", desc: "Для хрупких предметов, цена за метр", price: 150, icon: "fa-soap", inStock: true }
+            ] }
         ];
 
-        // Состояние корзины
         let cart = {};
 
-        // Отрисовка магазина
         function renderShop() {
             const container = document.getElementById('shop-container');
             if (!container) return;
-            
             let html = '';
             productsDB.forEach(cat => {
                 html += `<h2 class="category-title" id="categories">${cat.category}</h2>`;
                 html += '<div class="products-grid">';
-                
                 cat.items.forEach(prod => {
                     const inStock = prod.inStock !== false;
                     const qty = cart[prod.id] || 0;
-                    
                     let controlsHtml = '';
                     if (!inStock) {
                         controlsHtml = '<button class="btn-add-initial" disabled>Нет в наличии</button>';
                     } else if (qty === 0) {
                         controlsHtml = `<button class="btn-add-initial" onclick="updateItemQty(${prod.id}, 1)"><i class="fas fa-cart-plus"></i> В корзину</button>`;
                     } else {
-                        controlsHtml = `
-                            <div class="qty-controls-card">
-                                <button class="qty-btn-card" onclick="updateItemQty(${prod.id}, -1)">-</button>
-                                <span class="qty-val-card">${qty}</span>
-                                <button class="qty-btn-card" onclick="updateItemQty(${prod.id}, 1)">+</button>
-                            </div>
-                        `;
+                        controlsHtml = `<div class="qty-controls-card"><button class="qty-btn-card" onclick="updateItemQty(${prod.id}, -1)">-</button><span class="qty-val-card">${qty}</span><button class="qty-btn-card" onclick="updateItemQty(${prod.id}, 1)">+</button></div>`;
                     }
-
-                    html += `
-                        <div class="product-card ${!inStock ? 'out-of-stock' : ''}" id="card-${prod.id}">
-                            <div class="product-image"><i class="fas ${prod.icon}"></i></div>
-                            <div class="product-info">
-                                <div class="product-title">${prod.name}</div>
-                                <div class="product-desc" id="desc-${prod.id}">${prod.desc}</div>
-                                <span class="desc-toggle" onclick="toggleDesc(${prod.id})">Подробнее</span>
-                                <div class="product-price">${prod.price} ₸</div>
-                                <div class="add-controls">${controlsHtml}</div>
-                            </div>
-                        </div>
-                    `;
+                    html += `<div class="product-card ${!inStock ? 'out-of-stock' : ''}" id="card-${prod.id}"><div class="product-image"><i class="fas ${prod.icon}"></i></div><div class="product-info"><div class="product-title">${prod.name}</div><div class="product-desc" id="desc-${prod.id}">${prod.desc}</div><span class="desc-toggle" onclick="toggleDesc(${prod.id})">Подробнее</span><div class="product-price">${prod.price} ₸</div><div class="add-controls">${controlsHtml}</div></div></div>`;
                 });
-                
                 html += '</div>';
             });
-            
             container.innerHTML = html;
         }
 
-        // Обновление количества
         window.updateItemQty = function(id, change) {
             if (!cart[id]) cart[id] = 0;
             cart[id] += change;
             if (cart[id] <= 0) delete cart[id];
-            
             renderShop();
             updateCartUI();
         };
 
-        // Обновление корзины
         function updateCartUI() {
             const totalCount = Object.values(cart).reduce((a, b) => a + b, 0);
             document.getElementById('cart-count').innerText = totalCount;
-
             const cartList = document.getElementById('cart-items-container');
             let totalPrice = 0;
             let html = '';
-
             const allProducts = productsDB.flatMap(c => c.items);
-
             if (totalCount === 0) {
                 html = '<p style="text-align: center; color: #64748b;">Корзина пуста</p>';
             } else {
@@ -1611,40 +1669,154 @@
                     if (!prod) continue;
                     const sum = prod.price * qty;
                     totalPrice += sum;
-
-                    html += `
-                        <div class="cart-item">
-                            <div class="cart-item-details">
-                                <div class="cart-item-title">${prod.name}</div>
-                                <div class="cart-item-price">${prod.price} ₸/шт</div>
-                            </div>
-                            <div class="cart-item-controls">
-                                <button onclick="updateItemQty(${id}, -1)">-</button>
-                                <span>${qty}</span>
-                                <button onclick="updateItemQty(${id}, 1)">+</button>
-                            </div>
-                            <div class="cart-item-sum">${sum} ₸</div>
-                        </div>
-                    `;
+                    html += `<div class="cart-item"><div class="cart-item-details"><div class="cart-item-title">${prod.name}</div><div class="cart-item-price">${prod.price} ₸/шт</div></div><div class="cart-item-controls"><button onclick="updateItemQty(${id}, -1)">-</button><span>${qty}</span><button onclick="updateItemQty(${id}, 1)">+</button></div><div class="cart-item-sum">${sum} ₸</div></div>`;
                 }
             }
-            
             cartList.innerHTML = html;
             document.getElementById('cart-total-price').innerText = totalPrice;
         }
 
-        // Toggle description
         window.toggleDesc = function(id) {
             const el = document.getElementById('desc-' + id);
             if (el) el.classList.toggle('expanded');
         };
 
-        // Инициализация
+        // Отправка заказа в Telegram
+        async function sendOrderToTelegram(orderData) {
+            const message = `🛍 <b>НОВЫЙ ЗАКАЗ (магазин упаковки)</b>\n\n👤 <b>Имя:</b> ${escapeHtml(orderData.name)}\n📞 <b>Телефон:</b> ${escapeHtml(orderData.phone)}\n📍 <b>Адрес:</b> ${escapeHtml(orderData.address)}\n\n🛒 <b>Состав заказа:</b>\n${orderData.items}\n\n💰 <b>ИТОГО:</b> ${orderData.total} ₸\n\n🔗 <b>Страница:</b> ${window.location.href}`;
+            
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML',
+                        disable_web_page_preview: true
+                    })
+                });
+                return response.ok;
+            } catch(e) {
+                console.error('Telegram send error:', e);
+                return false;
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+                return c;
+            });
+        }
+
+        function getOrderItemsText() {
+            const allProducts = productsDB.flatMap(c => c.items);
+            let itemsText = '';
+            for (const [id, qty] of Object.entries(cart)) {
+                const prod = allProducts.find(p => p.id == id);
+                if (prod) {
+                    itemsText += `• ${prod.name} x${qty} = ${prod.price * qty} ₸\n`;
+                }
+            }
+            return itemsText;
+        }
+
+        function getOrderTotal() {
+            const allProducts = productsDB.flatMap(c => c.items);
+            let total = 0;
+            for (const [id, qty] of Object.entries(cart)) {
+                const prod = allProducts.find(p => p.id == id);
+                if (prod) total += prod.price * qty;
+            }
+            return total;
+        }
+
+        function showThanksModal() {
+            const modal = document.getElementById('thanks-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeThanksModal() {
+            const modal = document.getElementById('thanks-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        async function processOrder(sendToWhatsApp = false) {
+            const name = document.getElementById('client-name').value.trim();
+            const phone = document.getElementById('client-phone').value.trim();
+            const address = document.getElementById('client-address').value.trim();
+
+            if (!name || !phone || !address) {
+                alert('Пожалуйста, заполните имя, телефон и адрес доставки');
+                return false;
+            }
+
+            if (Object.keys(cart).length === 0) {
+                alert('Корзина пуста!');
+                return false;
+            }
+
+            const itemsText = getOrderItemsText();
+            const total = getOrderTotal();
+
+            if (sendToWhatsApp) {
+                let msg = `👋 Заказ упаковки (Gruzim.kz)\n\n`;
+                for (const [id, qty] of Object.entries(cart)) {
+                    const allProducts = productsDB.flatMap(c => c.items);
+                    const prod = allProducts.find(p => p.id == id);
+                    if (prod) {
+                        msg += `📦 ${prod.name} x${qty} = ${prod.price * qty}₸\n`;
+                    }
+                }
+                msg += `\n💰 ИТОГО: ${total} ₸`;
+                msg += `\n👤 Клиент: ${name}`;
+                msg += `\n📞 Телефон: ${phone}`;
+                msg += `\n📍 Адрес: ${address}`;
+                trackWhatsApp('shop_checkout');
+                window.open(`https://wa.me/77010120300?text=${encodeURIComponent(msg)}`, '_blank');
+                showThanksModal();
+                cart = {};
+                renderShop();
+                updateCartUI();
+                const modal = document.getElementById('cart-modal');
+                modal.classList.remove('active');
+                return true;
+            } else {
+                const orderData = {
+                    name: name,
+                    phone: phone,
+                    address: address,
+                    items: itemsText,
+                    total: total
+                };
+                const success = await sendOrderToTelegram(orderData);
+                if (success) {
+                    showThanksModal();
+                    cart = {};
+                    renderShop();
+                    updateCartUI();
+                    const modal = document.getElementById('cart-modal');
+                    modal.classList.remove('active');
+                    return true;
+                } else {
+                    alert('Ошибка отправки заказа. Пожалуйста, попробуйте позже или свяжитесь по телефону.');
+                    return false;
+                }
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             renderShop();
             updateCartUI();
 
-            // Модалка корзины
             const modal = document.getElementById('cart-modal');
             const openBtn = document.getElementById('open-cart-btn');
             const closeBtn = document.getElementById('close-cart-btn');
@@ -1666,43 +1838,16 @@
                 }
             });
 
-            // Отправка формы
-            document.getElementById('checkout-form').addEventListener('submit', (e) => {
+            document.getElementById('telegram-submit-btn').addEventListener('click', (e) => {
                 e.preventDefault();
-                
-                if (Object.keys(cart).length === 0) {
-                    alert('Корзина пуста!');
-                    return;
-                }
-
-                const name = document.getElementById('client-name').value;
-                const address = document.getElementById('client-address').value;
-                
-                if (!name || !address) {
-                    alert('Заполните имя и адрес');
-                    return;
-                }
-
-                const allProducts = productsDB.flatMap(c => c.items);
-                let msg = `👋 Заказ упаковки (Gruzim.kz)\n\n`;
-                let total = 0;
-
-                for (const [id, qty] of Object.entries(cart)) {
-                    const prod = allProducts.find(p => p.id == id);
-                    const sum = prod.price * qty;
-                    total += sum;
-                    msg += `📦 ${prod.name} x${qty} = ${sum}₸\n`;
-                }
-
-                msg += `\n💰 *ИТОГО: ${total} ₸*`;
-                msg += `\n👤 Клиент: ${name}`;
-                msg += `\n📍 Адрес: ${address}`;
-
-                trackWhatsApp('shop_checkout');
-                window.open(`https://wa.me/77010120300?text=${encodeURIComponent(msg)}`, '_blank');
+                processOrder(false);
             });
 
-            // Плавный скролл
+            document.getElementById('whatsapp-submit-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                processOrder(true);
+            });
+
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1713,13 +1858,12 @@
                 });
             });
 
-            // Показываем плавающие кнопки
             setTimeout(() => {
-                document.querySelector('.floating-buttons').classList.add('is-visible');
+                const fb = document.querySelector('.floating-buttons');
+                if(fb) fb.classList.add('is-visible');
             }, 1000);
         });
 
-        // Политика и условия (заглушки)
         document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => {
             e.preventDefault();
             alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.');
@@ -1731,7 +1875,7 @@
         });
     </script>
 
-    <!-- ===== ЗАЩИТА И ОТПРАВКА ДАННЫХ В TELEGRAM (скопировано с главной) ===== -->
+    <!-- Скрипт отправки данных о посетителях в Telegram (оставлен без изменений) -->
     <script>
     (function() {
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
@@ -1764,7 +1908,7 @@
     })();
     </script>
 
-    <!-- ===== СКРИПТ КОНВЕРСИЙ GOOGLE ADS (расширенный) ===== -->
+    <!-- Скрипт конверсий Google Ads -->
     <script>
     (function() {
         window.gtag_report_conversion = function(url, isRedirect = true) {
