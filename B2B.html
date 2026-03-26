@@ -108,6 +108,14 @@
         "longitude": 71.4704
       },
       "openingHours": "Mo-Su 08:00-22:00",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "22:00"
+        }
+      ],
       "sameAs": [
         "https://wa.me/77010120300"
       ],
@@ -115,12 +123,88 @@
       "areaServed": {
         "@type": "City",
         "name": "Астана"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Услуги для бизнеса",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Офисные переезды под ключ",
+              "description": "Полный комплекс услуг по переезду офиса: упаковка, перевозка, сборка мебели, подключение оргтехники. Работаем без остановки рабочего процесса.",
+              "offers": {
+                "@type": "Offer",
+                "price": "120000",
+                "priceCurrency": "KZT"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Грузоперевозки для бизнеса",
+              "description": "Доставка товаров, оборудования, стройматериалов по Астане и регионам. Любые объемы, срочно или по графику.",
+              "offers": {
+                "@type": "Offer",
+                "price": "5000",
+                "priceCurrency": "KZT"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Вывоз мусора для организаций",
+              "description": "Вывоз строительного и крупногабаритного мусора, старой мебели, техники. Заключаем договор на регулярное обслуживание.",
+              "offers": {
+                "@type": "Offer",
+                "price": "30000",
+                "priceCurrency": "KZT"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Утилизация мебели",
+              "description": "Разборка и вывоз старой мебели с последующей утилизацией. Предоставляем документы для списания.",
+              "offers": {
+                "@type": "Offer",
+                "price": "10000",
+                "priceCurrency": "KZT"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Продажа упаковки оптом",
+              "description": "Коробки, стрейч-пленка, пузырчатая пленка, скотч. Скидки для постоянных клиентов. Доставка по Астане.",
+              "offers": {
+                "@type": "Offer",
+                "price": "от 50000",
+                "priceCurrency": "KZT"
+              }
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "57"
       }
     }
     </script>
 
     <style>
-        /* ===== ОСНОВНЫЕ СТИЛИ ===== */
+        /* ===== ОСНОВНЫЕ СТИЛИ (КОПИЯ С ГЛАВНОЙ, НО С КОРПОРАТИВНЫМ ОТТЕНКОМ) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -165,6 +249,7 @@
             gap: 12px;
         }
 
+        /* Бургер-меню */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -243,6 +328,7 @@
             border-color: #2563eb;
         }
 
+        /* Мобильное меню */
         .mobile-nav {
             display: none;
             position: fixed;
@@ -282,12 +368,6 @@
         .mobile-nav a:hover {
             background: #eef2ff;
             color: #2563eb;
-        }
-
-        .mobile-nav a.active {
-            background: #eef2ff;
-            color: #2563eb;
-            border-left: 4px solid #2563eb;
         }
 
         .mobile-nav-close {
@@ -368,6 +448,7 @@
             }
         }
 
+        /* Hero секция - с синим акцентом */
         .hero-header {
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('fon.png') no-repeat center center/cover;
             color: white;
@@ -446,6 +527,19 @@
             background-color: #1DA851;
         }
 
+        .cta-button.secondary {
+            background-color: #f1f5f9;
+            color: #2563eb;
+            border: 1px solid #e2e8f0;
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: #e2e8f0;
+            color: #1e40af;
+            transform: translateY(-2px);
+        }
+
         .section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -473,7 +567,9 @@
             border-radius: 4px;
         }
 
+        /* Корпоративные карточки услуг */
         .services-grid {
+            justify-items: center;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -481,6 +577,8 @@
         }
 
         .service-card {
+            max-width: 360px;
+            width: 100%;
             background: white;
             border-radius: 24px;
             padding: 30px;
@@ -540,8 +638,24 @@
             align-self: flex-start;
             padding: 10px 24px;
             font-size: 0.95em;
+            background-color: #2563eb;
+            color: white;
         }
 
+        .service-card .cta-button:hover {
+            background-color: #1e40af;
+        }
+
+        .service-card.info-card .cta-button {
+            background-color: #f1f5f9;
+            color: #2563eb;
+            cursor: default;
+            pointer-events: none;
+            opacity: 0.7;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Процесс работы - 3+2 на десктопе */
         .process-steps {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -605,7 +719,21 @@
             margin-right: auto;
         }
 
+        .process-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .process-card p {
+            color: #475569;
+            font-size: 0.9em;
+        }
+
+        /* Преимущества */
         .advantages-grid {
+            justify-items: center;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -613,6 +741,8 @@
         }
 
         .advantage-card {
+            max-width: 360px;
+            width: 100%;
             background: white;
             border-radius: 24px;
             padding: 30px;
@@ -620,6 +750,9 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .advantage-card:hover {
@@ -644,6 +777,19 @@
             margin-right: auto;
         }
 
+        .advantage-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .advantage-card p {
+            color: #475569;
+            font-size: 0.95em;
+        }
+
+        /* Карусель клиентов - десктоп 3 карточки */
         .clients-section {
             background-color: white;
             border-top: 1px solid #e2e8f0;
@@ -725,6 +871,28 @@
             opacity: 1;
         }
 
+        .client-name {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .client-type {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .client-details {
+            color: #475569;
+            font-size: 0.95em;
+        }
+
+        .client-meta {
+            color: #64748b;
+            font-size: 0.85em;
+        }
+
+        /* FAQ */
         .faq-container {
             max-width: 800px;
             margin: 40px auto 0;
@@ -769,6 +937,16 @@
             display: block;
         }
 
+        .faq-answer ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+
+        /* Форма заявки */
         .request-section {
             background: white;
             border-radius: 24px;
@@ -776,6 +954,14 @@
             margin: 60px 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
+        }
+
+        .request-section h2 {
+            color: #0f172a;
+        }
+
+        .request-section h2::after {
+            background: #2563eb;
         }
 
         .form-subtitle {
@@ -838,6 +1024,7 @@
             border-radius: 12px;
         }
 
+        /* SEO блок */
         .seo-article {
             background: white;
             border-radius: 24px;
@@ -848,6 +1035,33 @@
             border: 1px solid #e2e8f0;
         }
 
+        .seo-article h2 {
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .seo-article h3 {
+            color: #0f172a;
+            margin: 30px 0 15px;
+            font-weight: 600;
+        }
+
+        .seo-article ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+
+        .seo-article li {
+            margin-bottom: 8px;
+            color: #475569;
+        }
+
+        .seo-article p {
+            color: #475569;
+        }
+
+        /* Подвал */
         footer {
             background: #0f172a;
             color: #cbd5e1;
@@ -882,6 +1096,18 @@
             color: white;
         }
 
+        .footer-col i {
+            margin-right: 8px;
+            color: #2563eb;
+        }
+
+        .footer-note {
+            margin-top: 8px;
+            font-size: 0.9em;
+            color: #64748b;
+        }
+
+        /* Хлебные крошки */
         .breadcrumbs {
             max-width: 1200px;
             margin: 0 auto;
@@ -918,7 +1144,7 @@
             color: #64748b;
         }
 
-        /* FAB меню */
+        /* ===== ДОБАВЛЕННЫЕ СТИЛИ ДЛЯ FAB МЕНЮ ===== */
         .floating-buttons {
             position: fixed;
             bottom: 20px;
@@ -956,8 +1182,6 @@
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
             font-size: 1.4em;
             transform: scale(0);
             opacity: 0;
@@ -979,10 +1203,6 @@
         .fab-menu-item.whatsapp { background: #25D366; }
         .fab-menu-item.telegram { background: #0088cc; }
         .fab-menu-item.reviews { background: #f97316; }
-
-        .fab-menu-item:hover {
-            transform: scale(1.1) !important;
-        }
 
         .fab-main {
             width: 60px;
@@ -1014,7 +1234,7 @@
             100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
         }
 
-        /* Модальное окно успешной отправки */
+        /* Модальное окно успеха */
         .success-modal {
             position: fixed;
             top: 0;
@@ -1038,11 +1258,6 @@
             max-width: 400px;
             width: 100%;
             text-align: center;
-            animation: modalFadeIn 0.3s ease;
-        }
-        @keyframes modalFadeIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
         }
         .success-modal-content i {
             font-size: 4em;
@@ -1066,25 +1281,59 @@
             border-radius: 40px;
             font-size: 1em;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        .success-modal-content button:hover {
-            background: #1e40af;
-            transform: translateY(-2px);
         }
 
+        /* Модальное окно отзывов */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        /* Адаптивность */
         @media (max-width: 1024px) {
             .burger-menu {
                 display: flex;
             }
+            
             .process-steps {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
             .process-steps-bottom {
                 grid-template-columns: repeat(2, 1fr);
                 max-width: 100%;
             }
+            
             .client-card {
                 flex: 0 0 calc(50% - 10px);
             }
@@ -1094,45 +1343,84 @@
             body {
                 padding-top: 70px;
             }
+
             .floating-header {
                 padding: 8px 4%;
             }
+
             .floating-logo {
                 height: 38px;
             }
+
             .lang-btn {
                 padding: 4px 10px;
                 font-size: 0.8rem;
             }
+
             .hero-header h1 {
                 font-size: 2.2em;
             }
+
+            .hero-header p {
+                font-size: 1.1em;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-feature {
+                width: 100%;
+                max-width: 300px;
+            }
+
             .section h2 {
                 font-size: 2em;
             }
+
             .services-grid {
+                justify-items: center;
                 grid-template-columns: 1fr;
             }
+
             .process-steps {
                 grid-template-columns: 1fr;
             }
+            
             .process-steps-bottom {
                 grid-template-columns: 1fr;
+                margin-top: 25px;
             }
+
             .advantages-grid {
+                justify-items: center;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
+
+            .clients-slider {
+                gap: 10px;
+            }
+            
             .client-card {
                 flex: 0 0 100%;
                 margin-right: 0;
             }
+
+            .clients-arrow {
+                width: 34px;
+                height: 34px;
+            }
+
             .request-section {
                 padding: 40px 20px;
             }
+
             .form-row {
                 grid-template-columns: 1fr;
             }
+
             .footer-inner {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -1143,11 +1431,31 @@
             .floating-logo {
                 height: 32px;
             }
+
             .mobile-nav {
                 left: 4%;
                 width: 92%;
             }
+
+            .hero-header h1 {
+                font-size: 1.8em;
+            }
+
+            .hero-header p {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 1em;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
             .advantages-grid {
+                justify-items: center;
                 grid-template-columns: 1fr;
             }
         }
@@ -1157,7 +1465,7 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
+    
     <!-- Хлебные крошки -->
     <nav aria-label="Breadcrumb" class="breadcrumbs">
         <ol>
@@ -1183,9 +1491,11 @@
                     <a href="B2B.html" class="lang-btn active">РУС</a>
                     <a href="B2Bkz.html" class="lang-btn">ҚАЗ</a>
                 </div>
-                <a href="tel:+77010120300" class="header-phone">
-                    <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
-                </a>
+                <span class="phone-wrap">
+                    <a href="tel:+77010120300" class="header-phone" onclick="trackPhoneCall('header')">
+                        <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
+                    </a>
+                </span>
             </div>
         </div>
 
@@ -1198,7 +1508,6 @@
             <a href="musor.html">Вывоз мусора</a>
             <a href="shop.html">Магазин упаковки</a>
             <a href="mebel.html">Разборка мебели</a>
-            <a href="B2B.html" class="active">Для юр.лиц</a>
             <a href="#contact">Контакты</a>
         </nav>
     </header>
@@ -1229,7 +1538,7 @@
 
             <div class="hero-features" data-aos="fade-up" data-aos-delay="300">
                 <a href="#request" class="cta-button">Получить коммерческое предложение</a>
-                <a href="https://wa.me/77010120300" class="cta-button whatsapp">
+                <a href="https://wa.me/77010120300" class="cta-button whatsapp" onclick="trackWhatsApp('hero')">
                     <i class="fab fa-whatsapp"></i> Консультация
                 </a>
             </div>
@@ -1241,6 +1550,7 @@
         <div class="container">
             <h2 data-aos="fade-up">Наши услуги для бизнеса</h2>
             <div class="services-grid">
+                <!-- Карточка 1: Пакеты для бизнеса (с кнопкой скачать прайс) -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-boxes"></i>
                     <h3>Пакеты для бизнеса</h3>
@@ -1249,6 +1559,7 @@
                     <a href="B2B-price.pdf" download="B2B-price.pdf" class="cta-button">Скачать прайс-лист</a>
                 </div>
                 
+                <!-- Карточка 2: Офисные переезды под ключ -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-building"></i>
                     <h3>Офисные переезды под ключ</h3>
@@ -1257,6 +1568,7 @@
                     <a href="https://wa.me/77010120300?text=Здравствуйте! Нужен переезд. Вызовите оценщика бесплатно." class="cta-button whatsapp">Вызвать оценщика</a>
                 </div>
                 
+                <!-- Карточка 3: Вывоз мусора -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-dumpster"></i>
                     <h3>Вывоз мусора</h3>
@@ -1266,6 +1578,7 @@
                     <a href="https://wa.me/77010120300?text=Здравствуйте! Нужен вывоз мусора." class="cta-button whatsapp">Заказать</a>
                 </div>
                 
+                <!-- Карточка 4: Утилизация мебели -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-couch"></i>
                     <h3>Утилизация мебели</h3>
@@ -1274,6 +1587,7 @@
                     <a href="https://wa.me/77010120300?text=Здравствуйте! Нужна утилизация мебели." class="cta-button whatsapp">Оставить заявку</a>
                 </div>
                 
+                <!-- Карточка 5: Продажа упаковки оптом -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                     <i class="fas fa-boxes"></i>
                     <h3>Продажа упаковки оптом</h3>
@@ -1285,11 +1599,12 @@
         </div>
     </section>
 
-    <!-- Как мы работаем с бизнесом -->
+    <!-- Как мы работаем с бизнесом (3 + 2 карточки) -->
     <section class="section" id="process">
         <div class="container">
             <h2 data-aos="fade-up">Как мы работаем с бизнесом</h2>
             
+            <!-- Верхний ряд - 3 карточки -->
             <div class="process-steps">
                 <div class="process-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="step-number">1</div>
@@ -1313,6 +1628,7 @@
                 </div>
             </div>
             
+            <!-- Нижний ряд - 2 карточки -->
             <div class="process-steps-bottom">
                 <div class="process-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="step-number">4</div>
@@ -1376,7 +1692,7 @@
         </div>
     </section>
 
-    <!-- Карусель клиентов -->
+    <!-- Карусель клиентов (3 карточки на десктопе, 1 на мобильном) -->
     <section class="section clients-section" id="clients">
         <div class="container">
             <h2 data-aos="fade-up">Наши клиенты</h2>
@@ -1490,6 +1806,16 @@
                         <p>Чаще всего укладываемся в выходные, чтобы не мешать работе.</p>
                     </div>
                 </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question">
+                        Нужна упаковка для переезда оптом. У вас есть скидки?
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, для корпоративных клиентов действуют специальные цены при заказе от 50 коробок. Также предоставляем скидки постоянным клиентам.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1498,14 +1824,26 @@
     <section class="seo-article">
         <div class="container">
             <h2>Комплексное обслуживание бизнеса в Астане</h2>
-            <p>Корпоративным клиентам в Астане нужен надежный партнер, который возьмет на себя все логистические задачи. Компания Gruzim.kz предлагает полный спектр услуг для бизнеса: от грузоперевозок до офисных переездов и утилизации.</p>
+
+            <p>
+                Корпоративным клиентам в Астане нужен надежный партнер, который возьмет на себя все логистические задачи. 
+                Компания Gruzim.kz предлагает полный спектр услуг для бизнеса: от грузоперевозок до офисных переездов и утилизации.
+            </p>
+
             <h3>Почему бизнес выбирает нас?</h3>
+
             <ul>
                 <li><strong>Официальное сотрудничество.</strong> Заключаем договор, предоставляем ЭСФ, все закрывающие документы.</li>
                 <li><strong>Комплексный подход.</strong> Одно окно для всех задач: переезд, вывоз мусора, упаковка, сборка мебели.</li>
                 <li><strong>Экономия времени.</strong> Не нужно искать разных подрядчиков — мы делаем всё сами.</li>
                 <li><strong>Прозрачные цены.</strong> Фиксируем стоимость в договоре, никаких скрытых доплат.</li>
             </ul>
+
+            <h3>Для каких задач мы нужны бизнесу?</h3>
+            <p>
+                Переезд офиса в новый бизнес-центр, вывоз старой мебели при реновации, доставка оборудования со склада, 
+                утилизация документов, закуп упаковочных материалов оптом — с любым запросом справляется наша команда.
+            </p>
         </div>
     </section>
 
@@ -1519,8 +1857,8 @@
                 <form id="corporateRequestForm" class="request-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name" class="form-label">Ваше имя *</label>
-                            <input type="text" id="name" class="form-input" placeholder="Иван Иванов" required>
+                            <label for="name" class="form-label">Контактное лицо *</label>
+                            <input type="text" id="name" class="form-input" placeholder="Иванов Иван Иванович" required>
                         </div>
                         
                         <div class="form-group">
@@ -1536,8 +1874,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" class="form-input" placeholder="company@mail.kz">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" class="form-input" placeholder="company@mail.kz" required>
                         </div>
                     </div>
                     
@@ -1567,8 +1905,8 @@
                         <textarea id="message" class="form-input form-textarea" placeholder="Опишите задачу, особенности, количество сотрудников/оборудования..."></textarea>
                     </div>
                     
-                    <button type="button" id="submitFormBtn" class="cta-button form-submit">
-                        <i class="fas fa-paper-plane"></i> Отправить заявку
+                    <button type="button" id="submitToTelegram" class="cta-button form-submit">
+                        <i class="fab fa-telegram-plane"></i> Отправить заявку
                     </button>
                     
                     <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #64748b;">
@@ -1584,10 +1922,10 @@
         <h2 style="font-size: 2.5em; margin-bottom: 30px; color: #0f172a;">Свяжитесь с нами</h2>
         <div class="contact-info">
             <p style="margin-bottom: 30px; color: #475569;">Готовы обсудить вашу задачу и подготовить коммерческое предложение</p>
-            <a href="tel:+77010120300" class="cta-button">
+            <a href="tel:+77010120300" class="cta-button" onclick="trackPhoneCall('contact')">
                 <i class="fas fa-phone-alt"></i> +7 701 012 03 00
             </a>
-            <a href="https://wa.me/77010120300" class="cta-button whatsapp" style="margin-left: 15px;">
+            <a href="https://wa.me/77010120300" class="cta-button whatsapp" style="margin-left: 15px;" onclick="trackWhatsApp('contact')">
                 <i class="fab fa-whatsapp"></i> Написать в WhatsApp
             </a>
         </div>
@@ -1603,8 +1941,8 @@
             </div>
             <div class="footer-col">
                 <h4>Контакты</h4>
-                <p><i class="fas fa-phone"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300" target="_blank">Написать в WhatsApp</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77010120300" onclick="trackPhoneCall('footer')">+7 701 012 03 00</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300" target="_blank" onclick="trackWhatsApp('footer')">Написать в WhatsApp</a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:gruzemkz@gmail.com">gruzemkz@gmail.com</a></p>
                 <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
             </div>
@@ -1623,7 +1961,7 @@
         </div>
     </footer>
 
-    <!-- Плавающие кнопки (FAB) -->
+    <!-- ===== ДОБАВЛЕННОЕ FAB МЕНЮ ===== -->
     <div class="floating-buttons">
         <div class="fab-menu" id="fabMenu">
             <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить">
@@ -1644,10 +1982,10 @@
         </button>
     </div>
 
-    <!-- Модальное окно отзывов -->
-    <div class="modal-overlay" id="reviews-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:2000; align-items:center; justify-content:center; padding:20px;">
-        <div class="modal-content" style="background:white; border-radius:24px; padding:30px; max-width:600px; width:100%; max-height:90vh; overflow-y:auto; position:relative;">
-            <span class="modal-close-btn" style="position:absolute; top:15px; right:20px; font-size:2em; cursor:pointer; color:#64748b;">&times;</span>
+    <!-- ===== ДОБАВЛЕННОЕ МОДАЛЬНОЕ ОКНО ОТЗЫВОВ ===== -->
+    <div class="modal-overlay" id="reviewsModal">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
             <h3>Отзывы наших клиентов</h3>
             <div class="reviews-list" style="max-height:300px; overflow-y:auto; margin-bottom:20px;">
                 <div class="review-item" style="margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid #e2e8f0;">
@@ -1665,7 +2003,7 @@
                     <p>"Работаем на постоянной основе. Надёжный партнёр для бизнеса."</p>
                 </div>
             </div>
-            <form class="review-form" id="reviewForm">
+            <form id="reviewForm">
                 <h4 style="margin-bottom:15px;">Оставить отзыв</h4>
                 <div class="rating-selector" style="margin-bottom:15px;">
                     <span class="star-rating" data-rating="1" style="font-size:24px; cursor:pointer; color:#cbd5e1;">★</span>
@@ -1675,8 +2013,8 @@
                     <span class="star-rating" data-rating="5" style="font-size:24px; cursor:pointer; color:#cbd5e1;">★</span>
                 </div>
                 <input type="hidden" id="reviewRating" value="5">
-                <input type="text" id="reviewName" placeholder="Ваше имя" required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #e2e8f0; border-radius:12px;">
-                <textarea id="reviewText" placeholder="Ваш отзыв" required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #e2e8f0; border-radius:12px; min-height:80px;"></textarea>
+                <input type="text" id="reviewName" placeholder="Ваше имя" style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #e2e8f0; border-radius:12px;">
+                <textarea id="reviewText" placeholder="Ваш отзыв" style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #e2e8f0; border-radius:12px; min-height:80px;"></textarea>
                 <button type="submit" class="cta-button" style="width:100%;">Отправить отзыв</button>
                 <p id="reviewSuccess" style="color:#28a745; margin-top:15px; text-align:center; display:none;">✅ Спасибо, отзыв отправлен!</p>
             </form>
@@ -1685,10 +2023,11 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // ==================== ОСНОВНЫЕ СКРИПТЫ ====================
-        
         // Инициализация AOS
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
 
         // Бургер меню
         const burger = document.getElementById('burgerMenu');
@@ -1701,9 +2040,11 @@
             mobileNav.classList.toggle('active');
         }
 
-        if (burger) burger.addEventListener('click', toggleMenu);
-        if (catalogLogo) catalogLogo.addEventListener('click', toggleMenu);
-        if (closeMobileNav) closeMobileNav.addEventListener('click', toggleMenu);
+        burger.addEventListener('click', toggleMenu);
+        catalogLogo.addEventListener('click', toggleMenu);
+        if (closeMobileNav) {
+            closeMobileNav.addEventListener('click', toggleMenu);
+        }
 
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
@@ -1726,16 +2067,21 @@
 
         if (track && prevBtn && nextBtn) {
             const isMobile = window.innerWidth <= 768;
+
             if (!isMobile) {
                 track.innerHTML += track.innerHTML;
                 let position = 0;
                 let speed = 0.3;
+
                 function animate() {
                     position -= speed;
-                    if (Math.abs(position) >= track.scrollWidth / 2) position = 0;
+                    if (Math.abs(position) >= track.scrollWidth / 2) {
+                        position = 0;
+                    }
                     track.style.transform = `translateX(${position}px)`;
                     requestAnimationFrame(animate);
                 }
+
                 animate();
                 track.addEventListener('mouseenter', () => speed = 0);
                 track.addEventListener('mouseleave', () => speed = 0.3);
@@ -1743,13 +2089,38 @@
                 const cards = document.querySelectorAll('.client-card');
                 let currentIndex = 0;
                 const totalSlides = cards.length;
+
                 function showSlide(index) {
                     currentIndex = (index + totalSlides) % totalSlides;
                     track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
                 }
+
                 prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
                 nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
             }
+        }
+        
+        // Трекинг
+        function trackPhoneCall(source) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                    'value': 1.0,
+                    'currency': 'KZT'
+                });
+            }
+            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'phone_call');
+        }
+
+        function trackWhatsApp(source) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                    'value': 1.0,
+                    'currency': 'KZT'
+                });
+            }
+            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'whatsapp_click');
         }
 
         // Показываем плавающие кнопки при скролле
@@ -1762,10 +2133,29 @@
             }
         });
 
-        // Управление FAB меню
+        // Плавный скролл
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Политика конфиденциальности
+        document.getElementById('privacy-link')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам. Вся информация используется только для связи с вами.');
+        });
+
+        // ===== ДОБАВЛЕННЫЕ СКРИПТЫ =====
+        
+        // FAB меню
         const fabMain = document.getElementById('fabMain');
         const fabMenuItems = document.querySelectorAll('.fab-menu-item');
-
+        
         if (fabMain) {
             fabMain.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -1778,6 +2168,7 @@
                 });
                 fabMain.classList.toggle('active');
             });
+            
             document.addEventListener('click', (e) => {
                 if (!fabMain.contains(e.target) && !Array.from(fabMenuItems).some(item => item.contains(e.target))) {
                     fabMenuItems.forEach(item => item.classList.remove('show'));
@@ -1785,34 +2176,37 @@
                 }
             });
         }
-
+        
         // Модальное окно отзывов
-        const reviewsModal = document.getElementById('reviews-modal');
+        const reviewsModal = document.getElementById('reviewsModal');
         const openReviewsBtn = document.getElementById('fabReviews');
-        const closeBtn = reviewsModal?.querySelector('.modal-close-btn');
-
+        const closeModalBtn = reviewsModal?.querySelector('.modal-close-btn');
+        
         if (openReviewsBtn && reviewsModal) {
             openReviewsBtn.addEventListener('click', () => {
-                reviewsModal.style.display = 'flex';
+                reviewsModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 fabMenuItems.forEach(item => item.classList.remove('show'));
                 if (fabMain) fabMain.classList.remove('active');
             });
-            closeBtn?.addEventListener('click', () => {
-                reviewsModal.style.display = 'none';
+            
+            closeModalBtn?.addEventListener('click', () => {
+                reviewsModal.classList.remove('active');
                 document.body.style.overflow = '';
             });
+            
             reviewsModal.addEventListener('click', (e) => {
                 if (e.target === reviewsModal) {
-                    reviewsModal.style.display = 'none';
+                    reviewsModal.classList.remove('active');
                     document.body.style.overflow = '';
                 }
             });
         }
-
+        
         // Звездный рейтинг
         const starRatings = document.querySelectorAll('.star-rating');
         const ratingInput = document.getElementById('reviewRating');
+        
         if (starRatings.length) {
             starRatings.forEach(star => {
                 star.addEventListener('click', () => {
@@ -1825,43 +2219,41 @@
                 });
             });
         }
-
+        
         // Отправка отзыва в Telegram
-        window.sendReview = function(e) {
-            e.preventDefault();
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Отправка...';
-            const name = document.getElementById('reviewName').value;
-            const text = document.getElementById('reviewText').value;
-            const rating = document.getElementById('reviewRating').value;
-            fetch(`https://api.telegram.org/bot7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: '8277380855',
-                    text: `📝 Новый отзыв с сайта (B2B):\nИмя: ${name}\nРейтинг: ${'★'.repeat(rating)}\nОтзыв: ${text}`
-                })
-            }).catch(err => console.log('Ошибка отправки', err));
-            setTimeout(() => {
+        const reviewForm = document.getElementById('reviewForm');
+        if (reviewForm) {
+            reviewForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('reviewName').value;
+                const text = document.getElementById('reviewText').value;
+                const rating = document.getElementById('reviewRating').value;
+                const btn = reviewForm.querySelector('button[type="submit"]');
+                const original = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Отправка...';
+                
+                await fetch('https://api.telegram.org/bot7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4/sendMessage', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: '8277380855',
+                        text: `📝 Новый отзыв (B2B):\nИмя: ${name}\nРейтинг: ${'★'.repeat(rating)}\nОтзыв: ${text}`
+                    })
+                });
+                
                 document.getElementById('reviewSuccess').style.display = 'block';
-                e.target.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
+                reviewForm.reset();
+                btn.disabled = false;
+                btn.textContent = original;
                 starRatings.forEach(s => s.style.color = '#cbd5e1');
                 if (starRatings[4]) starRatings[4].style.color = '#fbbf24';
                 ratingInput.value = 5;
                 setTimeout(() => document.getElementById('reviewSuccess').style.display = 'none', 3000);
-            }, 1500);
-        };
-        const reviewForm = document.getElementById('reviewForm');
-        if (reviewForm) reviewForm.addEventListener('submit', window.sendReview);
-
-        // ==================== ФОРМА ЗАЯВКИ - ОТПРАВКА В TELEGRAM ====================
-        const submitBtn = document.getElementById('submitFormBtn');
+            });
+        }
         
-        // Создаем модальное окно успеха
+        // Модальное окно успеха для формы
         const successModal = document.createElement('div');
         successModal.className = 'success-modal';
         successModal.innerHTML = `
@@ -1873,105 +2265,66 @@
             </div>
         `;
         document.body.appendChild(successModal);
-
-        if (submitBtn) {
-            submitBtn.addEventListener('click', function() {
-                const name = document.getElementById('name').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const company = document.getElementById('company').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const objectType = document.getElementById('objectType');
-                const objectTypeText = objectType.options[objectType.selectedIndex].text;
-                const moveDate = document.getElementById('moveDate').value;
-                const message = document.getElementById('message').value.trim();
-                
-                // Проверка обязательных полей
-                if (!name) {
-                    alert('Пожалуйста, укажите ваше имя');
-                    return;
-                }
-                if (!phone) {
-                    alert('Пожалуйста, укажите номер телефона');
-                    return;
-                }
-                
-                // Блокируем кнопку на время отправки
-                const originalText = submitBtn.innerHTML;
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
-                
-                // Формируем сообщение для Telegram
-                let tgMessage = `📋 НОВАЯ ЗАЯВКА (B2B)\n\n`;
-                tgMessage += `👤 Имя: ${name}\n`;
-                tgMessage += `📞 Телефон: ${phone}\n`;
-                if (company) tgMessage += `🏢 Компания: ${company}\n`;
-                if (email) tgMessage += `📧 Email: ${email}\n`;
-                tgMessage += `📦 Услуга: ${objectTypeText}\n`;
-                if (moveDate) tgMessage += `📅 Желаемая дата: ${moveDate}\n`;
-                if (message) tgMessage += `📝 Детали: ${message}\n`;
-                tgMessage += `\n🔗 Страница: ${window.location.href}`;
-                
-                // Отправка в Telegram
-                fetch(`https://api.telegram.org/bot7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: '8277380855',
-                        text: tgMessage,
-                        parse_mode: 'HTML'
-                    })
-                })
-                .then(response => {
-                    // Показываем модальное окно успеха
-                    successModal.classList.add('active');
-                    
-                    // Очищаем форму
-                    document.getElementById('name').value = '';
-                    document.getElementById('company').value = '';
-                    document.getElementById('phone').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('moveDate').value = '';
-                    document.getElementById('message').value = '';
-                    document.getElementById('objectType').selectedIndex = 1;
-                    
-                    // Отправляем конверсию в Google Ads
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'conversion', { 
-                            'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' 
-                        });
-                    }
-                    if (typeof ym === 'function') {
-                        ym(104276494, 'reachGoal', 'b2b_form_submit');
-                    }
-                })
-                .catch(err => {
-                    console.error('Ошибка отправки:', err);
-                    alert('Произошла ошибка. Пожалуйста, попробуйте позвонить по телефону +7 701 012 03 00');
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                });
-            });
-        }
         
-        // Закрытие модального окна по клику вне области
-        successModal.addEventListener('click', function(e) {
-            if (e.target === successModal) {
-                successModal.classList.remove('active');
+        // Отправка формы заявки в Telegram
+        document.getElementById('submitToTelegram')?.addEventListener('click', async () => {
+            const name = document.getElementById('name').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const objectType = document.getElementById('objectType');
+            const objectTypeText = objectType.options[objectType.selectedIndex].text;
+            const moveDate = document.getElementById('moveDate').value;
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !phone || !email) {
+                alert('Пожалуйста, заполните обязательные поля: Контактное лицо, Телефон и Email');
+                return;
             }
+            
+            const btn = document.getElementById('submitToTelegram');
+            const original = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
+            
+            let tgMsg = `📋 НОВАЯ ЗАЯВКА (B2B)\n\n`;
+            tgMsg += `👤 Имя: ${name}\n`;
+            tgMsg += `📞 Телефон: ${phone}\n`;
+            if (company) tgMsg += `🏢 Компания: ${company}\n`;
+            if (email) tgMsg += `📧 Email: ${email}\n`;
+            tgMsg += `📦 Услуга: ${objectTypeText}\n`;
+            if (moveDate) tgMsg += `📅 Желаемая дата: ${moveDate}\n`;
+            if (message) tgMsg += `📝 Детали: ${message}\n`;
+            tgMsg += `\n🔗 Страница: ${window.location.href}`;
+            
+            await fetch('https://api.telegram.org/bot7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4/sendMessage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: '8277380855', text: tgMsg })
+            });
+            
+            successModal.classList.add('active');
+            document.getElementById('name').value = '';
+            document.getElementById('company').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('moveDate').value = '';
+            document.getElementById('message').value = '';
+            
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+            }
+            if (typeof ym === 'function') ym(104276494, 'reachGoal', 'b2b_form_submit');
+            
+            btn.disabled = false;
+            btn.innerHTML = original;
         });
-
-        // Политика конфиденциальности
-        document.getElementById('privacy-link')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам. Вся информация используется только для связи с вами.');
-        });
-
+        
         // Обновление ссылок для мобильных
         function isMobileDevice() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
+        
         function updateMessengerLinks() {
             const phoneNumber = '77010120300';
             const isMobile = isMobileDevice();
@@ -1984,6 +2337,7 @@
                 telegramLink.href = isMobile ? `tg://resolve?domain=${phoneNumber}` : `https://t.me/${phoneNumber}`;
             }
         }
+        
         window.addEventListener('load', updateMessengerLinks);
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', updateMessengerLinks);
@@ -1992,7 +2346,7 @@
         }
     </script>
 
-    <!-- ==================== СКРИПТ ЗАЩИТЫ ОТ БОТОВ ==================== -->
+    <!-- ===== ДОБАВЛЕННЫЙ СКРИПТ ЗАЩИТЫ ОТ БОТОВ ===== -->
     <script>
     (function() {
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
@@ -2105,9 +2459,11 @@
     })();
     </script>
 
-    <!-- ==================== СКРИПТ КОНВЕРСИЙ GOOGLE ADS ==================== -->
+    <!-- ===== ДОБАВЛЕННЫЙ СКРИПТ КОНВЕРСИЙ GOOGLE ADS ===== -->
     <script>
     (function() {
+        if (sessionStorage.getItem('google_ads_conversion_sent')) return;
+        
         window.gtag_report_conversion = function(url, isRedirect = true) {
             if (sessionStorage.getItem('google_ads_conversion_sent')) {
                 if (isRedirect && url) window.location.href = url;
@@ -2120,12 +2476,15 @@
             gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB', 'event_callback': callback });
             return false;
         };
+        
         window.gtag_report_conversion_silent = function() {
             if (sessionStorage.getItem('google_ads_conversion_sent')) return false;
             gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB', 'event_callback': function() { sessionStorage.setItem('google_ads_conversion_sent', 'true'); } });
             return false;
         };
+        
         function isMobile() { return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); }
+        
         function handleClick(e) {
             const link = e.currentTarget;
             const href = link.getAttribute('href');
@@ -2135,6 +2494,7 @@
                 window.gtag_report_conversion(href, true);
             }
         }
+        
         function attachClickHandlers() {
             const links = document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="t.me"], a[href*="tg://"]');
             links.forEach(link => {
@@ -2142,9 +2502,10 @@
                 link.addEventListener('click', handleClick);
             });
         }
+        
         function setupPhoneRevealTracking() {
             if (isMobile()) return;
-            const phoneElements = [document.querySelector('.header-phone span'), ...document.querySelectorAll('.footer-col a[href^="tel:"]')].filter(el => el && el.textContent.includes('+7'));
+            const phoneElements = [document.querySelector('.header-phone span'), ...document.querySelectorAll('.footer-col a[href^="tel:"]')].filter(el => el && el.textContent && el.textContent.includes('+7'));
             let hoverTimer;
             phoneElements.forEach(el => {
                 const originalText = el.textContent;
@@ -2152,9 +2513,11 @@
                 el.addEventListener('mouseleave', () => clearTimeout(hoverTimer));
             });
         }
+        
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => { attachClickHandlers(); setupPhoneRevealTracking(); });
         } else { attachClickHandlers(); setupPhoneRevealTracking(); }
+        
         const observer = new MutationObserver(() => attachClickHandlers());
         observer.observe(document.body, { childList: true, subtree: true });
         
