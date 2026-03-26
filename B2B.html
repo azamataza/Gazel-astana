@@ -2359,9 +2359,10 @@
         setActiveMenuItem();
     </script>
 
-    <!-- ===== СКРИПТ ЗАЩИТЫ (С ГЛАВНОЙ) ===== -->
+    <!-- ===== СКРИПТ ЗАЩИТЫ (ПОЛНАЯ ВЕРСИЯ) ===== -->
     <script>
     (function() {
+        // ========== НАСТРОЙКИ ==========
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
         const TELEGRAM_CHAT_ID = '8277380855';
         const BLACKLIST_URL = '/black.txt?t=' + Date.now();
@@ -2370,6 +2371,7 @@
         const BLOCK_COOKIE_DAYS = 30;
         const SUSPICIOUS_THRESHOLD = 3;
 
+        // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
         function getCookie(name) {
             const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
             return match ? match[2] : null;
@@ -2441,6 +2443,7 @@
                 doNotTrack: navigator.doNotTrack || 'unknown'
             };
 
+            // Canvas fingerprint
             try {
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
@@ -2453,7 +2456,7 @@
                 ctx.fillStyle = '#069';
                 ctx.fillText('Gruzim.kz', 10, 20);
                 ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
-                ctx.fillText('Переезд под ключ', 10, 50);
+                ctx.fillText('Грузоперевозки Астана', 10, 50);
                 ctx.beginPath();
                 ctx.moveTo(250, 20);
                 ctx.lineTo(350, 80);
@@ -2474,13 +2477,118 @@
                 fingerprint.canvasHash = 'canvas_error';
             }
 
+            // WebGL fingerprint
             try {
-                const gl = canvas.getContext('webgl');
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
                 if (gl) {
                     const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
                     if (debugInfo) {
                         fingerprint.webglRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
                         fingerprint.webglVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+                    }
+                    fingerprint.webglExtensions = gl.getSupportedExtensions().length;
+                    
+                    const startTime = performance.now();
+                    for (let i = 0; i < 100; i++) {
+                        gl.clear(gl.COLOR_BUFFER_BIT);
+                    }
+                    fingerprint.webglPerf = Math.round(performance.now() - startTime);
+                }
+            } catch (e) {}
+
+            // Audio fingerprint
+            try {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    const audioCtx = new AudioContextClass();
+                    if (audioCtx.state === 'running') {
+                        const analyser = audioCtx.createAnalyser();
+                        const oscillator = audioCtx.createOscillator();
+                        const gainNode = audioCtx.createGain();
+                        
+                        oscillator.type = 'triangle';
+                        oscillator.frequency.value = 440;
+                        gainNode.gain.value = 0.001;
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(analyser);
+                        
+                        const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                        analyser.getByteFrequencyData(dataArray);
+                        
+                        fingerprint.audioHash = await sha256(dataArray.join(''));
+                        
+                        oscillator.disconnect();
+                        gainNode.disconnect();
+                        analyser.disconnect();
+                        if (audioCtx.close) audioCtx.close();
+                    } else {
+                        fingerprint.audioHash = 'audio_needs_interaction';
+                        if (audioCtx.close) audioCtx.close();
+                    }
+                } else {
+                    fingerprint.audioHash = 'audio_not_supported';
+                }
+            } catch (e) {
+                fingerprint.audioHash = 'audio_error';
+            }
+
+            // Fonts fingerprint
+            try {
+                const fontCheck = new Set();
+                const baseFonts = ['monospace', 'sans-serif', 'serif'];
+                const testString = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                
+                baseFonts.forEach(baseFont => {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    ctx.font = `72px ${baseFont}`;
+                    const baseWidth = ctx.measureText(testString).width;
+                    
+                    const fontsToCheck = [
+                        'Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Verdana', 
+                        'Georgia', 'Palatino', 'Garamond', 'Comic Sans MS', 'Trebuchet MS',
+                        'Arial Black', 'Impact', 'Roboto', 'Open Sans', 'Lato', 'Montserrat',
+                        'Source Sans Pro', 'Raleway', 'PT Sans', 'Ubuntu', 'Tahoma', 'Calibri'
+                    ];
+                    
+                    fontsToCheck.forEach(font => {
+                        ctx.font = `72px ${font}, ${baseFont}`;
+                        const width = ctx.measureText(testString).width;
+                        if (width !== baseWidth) fontCheck.add(font);
+                    });
+                });
+                
+                fingerprint.fontsCount = fontCheck.size;
+                fingerprint.fontsList = Array.from(fontCheck).slice(0, 10).join(',');
+            } catch (e) {
+                fingerprint.fontsError = 'failed';
+            }
+
+            // Дополнительные параметры
+            try {
+                fingerprint.timezoneOffset = new Date().getTimezoneOffset();
+                fingerprint.sessionStorage = !!window.sessionStorage;
+                fingerprint.localStorage = !!window.localStorage;
+                fingerprint.indexedDB = !!window.indexedDB;
+                
+                const ua = navigator.userAgent.toLowerCase();
+                fingerprint.emulatorDetected = (
+                    ua.includes('headless') ||
+                    ua.includes('phantom') ||
+                    ua.includes('selenium') ||
+                    ua.includes('webdriver')
+                );
+                
+                if (fingerprint.webglRenderer) {
+                    const renderer = fingerprint.webglRenderer.toLowerCase();
+                    if (renderer.includes('swiftshader') || 
+                        renderer.includes('llvmpipe') || 
+                        renderer.includes('vmware') || 
+                        renderer.includes('virtualbox') ||
+                        renderer.includes('microsoft basic render')) {
+                        fingerprint.emulatorDetected = true;
                     }
                 }
             } catch (e) {}
@@ -2521,10 +2629,14 @@
         }
 
         async function sendToTelegram(fingerprint, ip) {
-            const visitTime = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty', dateStyle: 'full', timeStyle: 'medium' });
+            const visitTime = new Date().toLocaleString('ru-RU', { 
+                timeZone: 'Asia/Almaty',
+                dateStyle: 'full',
+                timeStyle: 'medium'
+            });
             const visitCount = fingerprint.visitCount || 1;
             
-            let message = `🚛 <b>Gruzim.kz (грузоперевозки) - новый визит</b>\n\n`;
+            let message = `🚛 <b>Gruzim.kz - Б2Б</b>\n\n`;
             message += `🔍 <b>ID посетителя:</b> <code>${fingerprint.visitorId}</code>\n`;
             message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
             message += `🕐 <b>Время:</b> ${visitTime}\n`;
@@ -2535,13 +2647,25 @@
             message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
             message += `• Платформа: ${fingerprint.platform || 'неизвестно'}\n`;
             message += `• Экран: ${fingerprint.screenResolution || 'неизвестно'}\n`;
+            message += `• Глубина цвета: ${fingerprint.colorDepth || 'неизвестно'}\n`;
             message += `• Язык: ${fingerprint.language || 'неизвестно'}\n`;
             message += `• Часовой пояс: ${fingerprint.timezone || 'неизвестно'}\n`;
+            message += `• Ядер CPU: ${fingerprint.hardwareConcurrency || 'неизвестно'}\n`;
+            message += `• Память: ${fingerprint.deviceMemory || 'неизвестно'} GB\n`;
             message += `• Canvas Hash: ${fingerprint.canvasHash || 'недоступен'}\n`;
             message += `• WebGL: ${(fingerprint.webglRenderer || 'недоступен').substring(0, 50)}\n`;
+            message += `• WebGL Vendor: ${fingerprint.webglVendor || 'неизвестно'}\n`;
+            message += `• WebGL Extensions: ${fingerprint.webglExtensions || 'неизвестно'}\n`;
+            message += `• WebGL Perf: ${fingerprint.webglPerf || 'неизвестно'} ms\n`;
+            message += `• Audio Hash: ${fingerprint.audioHash || 'недоступен'}\n`;
+            message += `• Шрифтов: ${fingerprint.fontsCount || 'неизвестно'}\n`;
+            message += `• Touch Support: ${fingerprint.touchSupport ? 'Да' : 'Нет'}\n`;
+            message += `• Cookies: ${fingerprint.cookiesEnabled ? 'Включены' : 'Отключены'}\n`;
+            message += `• Эмулятор: ${fingerprint.emulatorDetected ? 'ДА' : 'НЕТ'}\n`;
 
             if (visitCount >= SUSPICIOUS_THRESHOLD) {
                 message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
+                message += `\n❗️ <b>ID для отслеживания:</b> <code>${fingerprint.visitorId}</code>\n`;
             }
 
             try {
