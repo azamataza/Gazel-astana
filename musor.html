@@ -1149,7 +1149,6 @@
         .fab-menu-item.call { background: #2563eb; }
         .fab-menu-item.whatsapp { background: #25D366; }
         .fab-menu-item.telegram { background: #0088cc; }
-        .fab-menu-item.reviews { background: #f97316; }
 
         .fab-menu-item:hover {
             transform: scale(1.1) !important;
@@ -1183,61 +1182,6 @@
             0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(249, 115, 22, 0); }
             100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
-        }
-
-        /* Модальное окно отзывов */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.is-active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 24px;
-            padding: 30px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2em;
-            cursor: pointer;
-            color: #64748b;
-        }
-
-        .modal-close-btn:hover {
-            color: #2563eb;
-        }
-
-        .star-rating {
-            font-size: 24px;
-            cursor: pointer;
-            color: #cbd5e1;
-            transition: color 0.2s;
-        }
-
-        .star-rating:hover,
-        .star-rating.active {
-            color: #fbbf24;
         }
 
         .phone-wrap {
@@ -1881,7 +1825,7 @@
         </div>
     </section>
 
-    <!-- ===== НОВАЯ ФОРМА ЗАЯВКИ НАД ПОДВАЛОМ ===== -->
+    <!-- ===== ФОРМА ЗАЯВКИ НАД ПОДВАЛОМ ===== -->
     <div class="request-section-bottom" id="request-bottom">
         <h2 data-aos="fade-up">Оставьте заявку на вывоз мусора</h2>
         <p class="form-subtitle" data-aos="fade-up" data-aos-delay="100">Мы свяжемся с вами в ближайшее время и рассчитаем точную стоимость</p>
@@ -1977,66 +1921,10 @@
             <a href="#" class="fab-menu-item telegram" id="fabTelegram" title="Telegram" target="_blank">
                 <i class="fab fa-telegram-plane"></i>
             </a>
-            <button class="fab-menu-item reviews" id="fabReviews" title="Отзывы">
-                <i class="fas fa-star"></i>
-            </button>
         </div>
         <button class="fab-main" id="fabMain" aria-label="Открыть меню">
             <i class="fas fa-phone"></i>
         </button>
-    </div>
-
-    <!-- Модальное окно отзывов -->
-    <div class="modal-overlay" id="reviews-modal">
-        <div class="modal-content">
-            <span class="modal-close-btn">&times;</span>
-            <h3>Отзывы наших клиентов</h3>
-
-            <div class="reviews-list" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;">
-                <div class="review-item" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0;">
-                    <div class="review-header" style="display: flex; justify-content: space-between;">
-                        <span class="reviewer-name" style="font-weight: 700;">Нургуль</span>
-                        <span class="stars" style="color: #fbbf24;">★★★★★</span>
-                    </div>
-                    <span class="review-date" style="font-size: 0.85em; color: #64748b;">11 сентября 2025</span>
-                    <p class="review-text" style="margin-top: 8px;">"Заказывали вывоз мусора после ремонта. Приехали быстро, все погрузили, убрали за собой. Спасибо!"</p>
-                </div>
-                <div class="review-item" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0;">
-                    <div class="review-header" style="display: flex; justify-content: space-between;">
-                        <span class="reviewer-name" style="font-weight: 700;">Даке</span>
-                        <span class="stars" style="color: #fbbf24;">★★★★★</span>
-                    </div>
-                    <span class="review-date" style="font-size: 0.85em; color: #64748b;">10 июля 2025</span>
-                    <p class="review-text" style="margin-top: 8px;">"Вывозили старую мебель и технику. Всё сделали аккуратно, даже полы не поцарапали."</p>
-                </div>
-                <div class="review-item" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0;">
-                    <div class="review-header" style="display: flex; justify-content: space-between;">
-                        <span class="reviewer-name" style="font-weight: 700;">Сауле</span>
-                        <span class="stars" style="color: #fbbf24;">★★★★★</span>
-                    </div>
-                    <span class="review-date" style="font-size: 0.85em; color: #64748b;">5 июня 2025</span>
-                    <p class="review-text" style="margin-top: 8px;">"Очень довольна! Приехали вовремя, быстро загрузили, цена адекватная. Рекомендую!"</p>
-                </div>
-            </div>
-
-            <form class="review-form" id="reviewForm">
-                <h4 style="margin-bottom: 15px;">Оставить отзыв</h4>
-                
-                <div class="rating-selector">
-                    <span class="star-rating" data-rating="1">★</span>
-                    <span class="star-rating" data-rating="2">★</span>
-                    <span class="star-rating" data-rating="3">★</span>
-                    <span class="star-rating" data-rating="4">★</span>
-                    <span class="star-rating" data-rating="5">★</span>
-                </div>
-                <input type="hidden" id="reviewRating" value="5">
-                
-                <input type="text" id="reviewName" placeholder="Ваше имя" required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #e2e8f0; border-radius:12px;">
-                <textarea id="reviewText" placeholder="Ваш отзыв" required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #e2e8f0; border-radius:12px; min-height:80px;"></textarea>
-                <button type="submit" class="cta-button" style="width:100%;">Отправить отзыв</button>
-                <p id="reviewSuccess" style="color: #28a745; margin-top: 15px; text-align: center; display: none;">✅ Спасибо, отзыв отправлен!</p>
-            </form>
-        </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -2102,7 +1990,7 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправка...';
             
-            const text = `📝 <b>НОВАЯ ЗАЯВКА С САЙТА</b>\n\n` +
+            const text = `📝 <b>НОВАЯ ЗАЯВКА С САЙТА (мусор)</b>\n\n` +
                 `📄 <b>Страница:</b> ${pageTitle}\n` +
                 `🔗 <b>URL:</b> ${pageUrl}\n\n` +
                 `👤 <b>Имя:</b> ${name}\n` +
@@ -2255,10 +2143,8 @@
 
             fabMenuItems.forEach(item => {
                 item.addEventListener('click', (e) => {
-                    if (item.id !== 'fabReviews') {
-                        fabMenuItems.forEach(i => i.classList.remove('show'));
-                        fabMain.classList.remove('active');
-                    }
+                    fabMenuItems.forEach(i => i.classList.remove('show'));
+                    fabMain.classList.remove('active');
                 });
             });
 
@@ -2279,94 +2165,6 @@
                 floatingButtons.classList.remove('is-visible');
             }
         });
-
-        // Модальное окно отзывов
-        const reviewsModal = document.getElementById('reviews-modal');
-        const openReviewsBtn = document.getElementById('fabReviews');
-        const closeModalBtn = reviewsModal?.querySelector('.modal-close-btn');
-
-        if (openReviewsBtn && reviewsModal) {
-            openReviewsBtn.addEventListener('click', () => {
-                reviewsModal.classList.add('is-active');
-                document.body.style.overflow = 'hidden';
-                if (fabMenuDiv) {
-                    fabMenuItems.forEach(item => item.classList.remove('show'));
-                    if (fabMain) fabMain.classList.remove('active');
-                }
-            });
-
-            closeModalBtn?.addEventListener('click', () => {
-                reviewsModal.classList.remove('is-active');
-                document.body.style.overflow = '';
-            });
-
-            reviewsModal.addEventListener('click', (e) => {
-                if (e.target === reviewsModal) {
-                    reviewsModal.classList.remove('is-active');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-
-        // Звездный рейтинг
-        const starRatings = document.querySelectorAll('.star-rating');
-        const ratingInput = document.getElementById('reviewRating');
-        
-        starRatings.forEach(star => {
-            star.addEventListener('click', () => {
-                const rating = star.dataset.rating;
-                ratingInput.value = rating;
-                
-                starRatings.forEach(s => {
-                    if (s.dataset.rating <= rating) {
-                        s.classList.add('active');
-                    } else {
-                        s.classList.remove('active');
-                    }
-                });
-            });
-        });
-
-        // Отправка отзыва
-        function sendReview(e) {
-            e.preventDefault();
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Отправка...';
-            
-            const name = document.getElementById('reviewName').value;
-            const text = document.getElementById('reviewText').value;
-            const rating = document.getElementById('reviewRating').value;
-            
-            fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: `📝 Новый отзыв с сайта (вывоз мусора):\nИмя: ${name}\nРейтинг: ${'★'.repeat(rating)}\nОтзыв: ${text}`
-                })
-            }).catch(err => console.log('Ошибка отправки в Telegram', err));
-            
-            setTimeout(() => {
-                document.getElementById('reviewSuccess').style.display = 'block';
-                e.target.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-                
-                starRatings.forEach(s => s.classList.remove('active'));
-                if (starRatings[4]) starRatings[4].classList.add('active');
-                ratingInput.value = 5;
-                
-                setTimeout(() => document.getElementById('reviewSuccess').style.display = 'none', 3000);
-            }, 1500);
-        }
-
-        const reviewForm = document.getElementById('reviewForm');
-        if (reviewForm) {
-            reviewForm.addEventListener('submit', sendReview);
-        }
 
         // ===== ОПРЕДЕЛЕНИЕ УСТРОЙСТВА И ПОДМЕНА ССЫЛОК ДЛЯ TELEGRAM/WHATSAPP =====
         function isMobileDevice() {
@@ -2431,7 +2229,7 @@
         });
     </script>
 
-       <!-- ===== СКРИПТ ЗАЩИТЫ (ПОЛНАЯ ВЕРСИЯ) ===== -->
+    <!-- ===== СКРИПТ ЗАЩИТЫ (ПОЛНАЯ ВЕРСИЯ) ===== -->
     <script>
     (function() {
         // ========== НАСТРОЙКИ ==========
@@ -2774,38 +2572,255 @@
     })();
     </script>
 
-    <!-- ===== СКРИПТ КОНВЕРСИЙ GOOGLE ADS ===== -->
+    <!-- ===== СКРИПТ КАЧЕСТВЕННЫХ КОНВЕРСИЙ GOOGLE ADS ===== -->
     <script>
     (function() {
-        if (sessionStorage.getItem('google_ads_conversion_sent')) return;
-
-        function findPhoneElements() {
-            const selectors = ['.header-phone', '.header-phone span', '.footer-col a[href^="tel:"]', '.contact-section a[href^="tel:"]', '[href^="tel:"]'];
-            return selectors.flatMap(selector => Array.from(document.querySelectorAll(selector))).filter(el => el && el.textContent.includes('+7'));
-        }
-
-        let conversionSent = false;
-        const phoneElements = findPhoneElements();
-        let hoverTimer;
-
-        function sendHoverConversion() {
-            if (conversionSent) return;
-            conversionSent = true;
-            sessionStorage.setItem('google_ads_conversion_sent', 'true');
+        // Ключи для sessionStorage
+        const CONVERSION_SENT_KEY = 'gruzim_ga4_conversion_sent';
+        const BASE_CONDITIONS_MET_KEY = 'gruzim_base_conditions_met';
+        
+        // Настройки
+        const MIN_TIME_SEC = 30;
+        const MIN_SCROLL_PERCENT = 50;
+        
+        // Флаги
+        let timeConditionMet = false;
+        let scrollConditionMet = false;
+        let baseConditionsMet = false;
+        let startTime = Date.now();
+        let scrollCheckDone = false;
+        let timerCheckDone = false;
+        
+        // Функция отправки конверсии
+        function sendConversion(triggerName) {
+            if (sessionStorage.getItem(CONVERSION_SENT_KEY)) {
+                console.log('[GA4 Conv] Конверсия уже была отправлена ранее');
+                return false;
+            }
+            
             if (typeof gtag === 'function') {
-                gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                    'event_callback': function() {
+                        console.log('[GA4 Conv] ✅ Конверсия отправлена! Триггер: ' + triggerName);
+                    }
+                });
+                sessionStorage.setItem(CONVERSION_SENT_KEY, 'true');
+                return true;
+            } else {
+                console.warn('[GA4 Conv] gtag не найден');
+                return false;
             }
         }
-
-        phoneElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                if (conversionSent) return;
-                clearTimeout(hoverTimer);
-                hoverTimer = setTimeout(sendHoverConversion, 200);
+        
+        // Проверка базовых условий (30 сек + 50% скролла)
+        function checkBaseConditions() {
+            if (baseConditionsMet) return true;
+            
+            const isTimeMet = timeConditionMet;
+            const isScrollMet = scrollConditionMet;
+            
+            if (isTimeMet && isScrollMet) {
+                baseConditionsMet = true;
+                sessionStorage.setItem(BASE_CONDITIONS_MET_KEY, 'true');
+                console.log('[GA4 Conv] ✅ Базовые условия выполнены (30 сек + 50% скролла)');
+                return true;
+            }
+            return false;
+        }
+        
+        // Функция для действий, которые требуют базовых условий
+        function trySendAfterBaseConditions(actionName) {
+            if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false;
+            
+            const baseMet = checkBaseConditions();
+            
+            if (baseMet) {
+                sendConversion(actionName + ' (после базовых условий)');
+                return true;
+            } else {
+                console.log('[GA4 Conv] Базовые условия не выполнены, конверсия не отправлена (' + actionName + ')');
+                return false;
+            }
+        }
+        
+        // ========== 1. ОТСЛЕЖИВАНИЕ ВРЕМЕНИ ==========
+        function checkTimeCondition() {
+            if (timerCheckDone) return;
+            
+            const elapsedSeconds = (Date.now() - startTime) / 1000;
+            if (elapsedSeconds >= MIN_TIME_SEC) {
+                timeConditionMet = true;
+                timerCheckDone = true;
+                console.log('[GA4 Conv] ✅ Условие по времени выполнено (' + Math.floor(elapsedSeconds) + ' сек)');
+                checkBaseConditions();
+            }
+        }
+        
+        const timeInterval = setInterval(checkTimeCondition, 1000);
+        
+        // ========== 2. ОТСЛЕЖИВАНИЕ СКРОЛЛА ==========
+        function checkScrollCondition() {
+            if (scrollCheckDone) return;
+            
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrolledPercent = (scrollTop + windowHeight) / documentHeight * 100;
+            
+            if (scrolledPercent >= MIN_SCROLL_PERCENT) {
+                scrollConditionMet = true;
+                scrollCheckDone = true;
+                console.log('[GA4 Conv] ✅ Условие по скроллу выполнено (' + Math.floor(scrolledPercent) + '%)');
+                
+                window.removeEventListener('scroll', checkScrollCondition);
+                window.removeEventListener('wheel', checkScrollCondition);
+                window.removeEventListener('touchmove', checkScrollCondition);
+                
+                checkBaseConditions();
+            }
+        }
+        
+        window.addEventListener('scroll', checkScrollCondition);
+        window.addEventListener('wheel', checkScrollCondition);
+        window.addEventListener('touchmove', checkScrollCondition);
+        setTimeout(checkScrollCondition, 500);
+        
+        // ========== 3. ОТСЛЕЖИВАНИЕ КЛИКОВ ПО КОНТАКТАМ ==========
+        function attachContactClickHandlers() {
+            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+            const telegramLinks = document.querySelectorAll('a[href*="t.me"], a[href*="tg://"]');
+            
+            const contactLinks = [...phoneLinks, ...whatsappLinks, ...telegramLinks];
+            
+            contactLinks.forEach(link => {
+                link.removeEventListener('click', handleContactClick);
+                link.addEventListener('click', handleContactClick);
             });
-            el.addEventListener('mouseleave', () => clearTimeout(hoverTimer));
-        });
+        }
+        
+        function handleContactClick(e) {
+            const href = e.currentTarget.getAttribute('href');
+            if (!href) return;
+            trySendAfterBaseConditions('клик по ' + href.split(':')[0]);
+        }
+        
+        // ========== 4. НАВЕДЕНИЕ НА НОМЕР (только десктоп) ==========
+        function setupHoverTracking() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobile) return;
+            
+            const phoneSelectors = [
+                '.header-phone',
+                '.header-phone span',
+                '.footer-col a[href^="tel:"]',
+                '.contact-section a[href^="tel:"]',
+                '[href^="tel:"]'
+            ];
+            
+            const phoneElements = phoneSelectors.flatMap(selector => 
+                Array.from(document.querySelectorAll(selector))
+            ).filter(el => el && el.textContent && el.textContent.includes('+7'));
+            
+            if (phoneElements.length === 0) return;
+            
+            let hoverTimer;
+            
+            function sendHoverConversion() {
+                trySendAfterBaseConditions('наведение на номер');
+            }
+            
+            phoneElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return;
+                    clearTimeout(hoverTimer);
+                    hoverTimer = setTimeout(sendHoverConversion, 100);
+                });
+                el.addEventListener('mouseleave', () => {
+                    clearTimeout(hoverTimer);
+                });
+            });
+        }
+        
+        // ========== 5. ВЗАИМОДЕЙСТВИЕ С КАЛЬКУЛЯТОРОМ ==========
+        let calculatorTracked = false;
+        
+        function setupCalculatorTracking() {
+            if (calculatorTracked) return;
+            
+            const calcSelects = document.querySelectorAll('.calc-select, .calc-input, #demolition, #packaging, #infected');
+            const calcCheckboxes = document.querySelectorAll('.calc-check input');
+            
+            function onCalculatorInteraction() {
+                if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return;
+                trySendAfterBaseConditions('взаимодействие с калькулятором');
+            }
+            
+            calcSelects.forEach(el => {
+                el.removeEventListener('change', onCalculatorInteraction);
+                el.addEventListener('change', onCalculatorInteraction);
+            });
+            
+            calcCheckboxes.forEach(el => {
+                el.removeEventListener('change', onCalculatorInteraction);
+                el.addEventListener('change', onCalculatorInteraction);
+            });
+            
+            calculatorTracked = true;
+        }
+        
+        // ========== 6. ФОРМА ЗАЯВКИ (ВСЕГДА КОНВЕРСИЯ) ==========
+        function setupFormConversion() {
+            const callbackForm = document.getElementById('bottomRequestForm');
+            if (!callbackForm) return;
+            
+            const originalSubmit = callbackForm.onsubmit;
+            callbackForm.addEventListener('submit', function() {
+                if (!sessionStorage.getItem(CONVERSION_SENT_KEY)) {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
+                        });
+                        sessionStorage.setItem(CONVERSION_SENT_KEY, 'true');
+                        console.log('[GA4 Conv] ✅ Конверсия по форме заявки отправлена');
+                    }
+                }
+            });
+        }
+        
+        // ========== ЗАПУСК ==========
+        function init() {
+            console.log('[GA4 Conv] Скрипт качественных конверсий запущен');
+            
+            attachContactClickHandlers();
+            setupHoverTracking();
+            setupCalculatorTracking();
+            setupFormConversion();
+            
+            const observer = new MutationObserver(() => {
+                attachContactClickHandlers();
+                setupHoverTracking();
+                setupCalculatorTracking();
+            });
+            
+            if (document.body) {
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+            
+            window.addEventListener('beforeunload', function() {
+                clearInterval(timeInterval);
+            });
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
     })();
     </script>
+    <!-- ===== КОНЕЦ СКРИПТА КАЧЕСТВЕННЫХ КОНВЕРСИЙ ===== -->
+
 </body>
 </html>
