@@ -4,14 +4,14 @@
   <!-- Главные страницы (самые важные) -->
   <url>
     <loc>https://www.gruzim.kz/</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.gruzim.kz/indexkz.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -19,28 +19,44 @@
   <!-- Страницы услуг (очень важные) -->
   <url>
     <loc>https://www.gruzim.kz/pereezdkay.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-    <url>
+  <url>
     <loc>https://www.gruzim.kz/office.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.gruzim.kz/musor.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.gruzim.kz/mebel.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- НОВАЯ СТРАНИЦА: Аренда рохли и перевозка банкоматов/сейфов -->
+  <url>
+    <loc>https://www.gruzim.kz/rokhla-astana.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- НОВАЯ СТРАНИЦА: Такелажные работы -->
+  <url>
+    <loc>https://www.gruzim.kz/takelazh.html</loc>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -48,7 +64,7 @@
   <!-- Страница для юридических лиц (важная) -->
   <url>
     <loc>https://www.gruzim.kz/B2B.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -56,14 +72,14 @@
   <!-- Магазин (важный, но чуть ниже приоритет) -->
   <url>
     <loc>https://www.gruzim.kz/shop.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.gruzim.kz/shopkz.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -72,28 +88,49 @@
   <!--
   <url>
     <loc>https://www.gruzim.kz/pereezdkaykz.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.gruzim.kz/musorkz.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.gruzim.kz/mebelkz.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.gruzim.kz/B2Bkz.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gruzim.kz/officekz.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gruzim.kz/takelazhkz.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gruzim.kz/rokhla-astana-kz.html</loc>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
