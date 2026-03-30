@@ -7,13 +7,11 @@
     <meta name="description" content="✅ Профессиональный переезд офиса в Астане. Перевозка серверов, мебели, техники без простоя бизнеса. Согласуем пропуска в БЦ. Договор, безнал, страхование. Бесплатный выезд оценщика.">
     <meta name="keywords" content="переезд офиса Астана, офисный переезд Астана, перевозка офиса Астана, переезд офиса под ключ Астана, переезд серверной Астана, переезд бизнес центра Астана, грузчики для офиса Астана">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://gruzim.kz/office.html">
-
-    <!-- Гео-таргетинг -->
-    <meta name="geo.region" content="KZ-71">
+    <meta name="geo.region" content="KZ-AST">
     <meta name="geo.placename" content="Астана">
-    <meta name="geo.position" content="51.169392;71.449074">
-    <meta name="ICBM" content="51.169392, 71.449074">
+    <link rel="canonical" href="https://gruzim.kz/office.html">
+    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/office.html">
+    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/officekz.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Переезд офиса Астана — Под ключ и без простоев | Gruzim.kz">
@@ -70,27 +68,15 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
-    <!-- Meta Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s){
-            if(f.fbq)return; n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-            n.queue=[]; t=b.createElement(e); t.async=!0;
-            t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)
-        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '922364396983002');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1" /></noscript>
-
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PLXM434L');</script>
+    <!-- End Google Tag Manager -->
 
-    <!-- Schema.org -->
+    <!-- Schema.org (расширенная для офисных переездов) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -101,8 +87,19 @@
       "telephone": "+77010120300",
       "priceRange": "от 50 000 ₸",
       "address": { "@type": "PostalAddress", "addressLocality": "Астана", "addressCountry": "KZ" },
-      "areaServed": { "@type": "City", "name": "Астана" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "57" }
+      "geo": { "@type": "GeoCoordinates", "latitude": 51.1605, "longitude": 71.4704 },
+      "openingHours": "Mo-Su 08:00-22:00",
+      "areaServed": ["Алматинский район", "Есильский район", "Сарыаркинский район", "Байконырский район", "Нуринский район", "Астана"],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "57" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Тарифы на офисный переезд",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Малый офис (до 10 сотрудников)" }, "price": "50000", "priceCurrency": "KZT" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Средний офис (10-50 сотрудников)" }, "price": "200000", "priceCurrency": "KZT" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Большой офис (50+ сотрудников)" }, "price": "350000", "priceCurrency": "KZT" }
+        ]
+      }
     }
     </script>
 
@@ -124,57 +121,61 @@
             overflow-x: hidden;
             padding-top: 52px;
         }
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 24px; 
-            width: 100%;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
-        /* Header */
+        /* Header (единый с главной) */
         .header {
             position: fixed;
-            top: 0; 
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
-            height: 52px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-            display: flex;
-            align-items: center;
+            padding: 10px 5%;
+            transition: all 0.3s ease;
         }
         .header-content {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 22px;
+            justify-content: space-between;
         }
-        .header-left { display: flex; align-items: center; gap: 20px; }
+        .header-left { display: flex; align-items: center; gap: 12px; }
         .burger-menu {
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: space-between;
-            width: 28px;
-            height: 20px;
+            width: 30px;
+            height: 22px;
             background: transparent;
-            border: none;
+            border: 2px solid #2563eb;
+            border-radius: 8px;
             cursor: pointer;
+            padding: 4px 5px;
             z-index: 1100;
-            position: relative;
+            transition: all 0.2s ease;
         }
         .burger-menu span {
             width: 100%;
-            height: 2px;
-            background-color: var(--apple-text);
-            border-radius: 2px;
-            transition: 0.2s;
+            height: 2.5px;
+            background-color: #2563eb;
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
-        .logo { font-weight: 600; font-size: 19px; color: var(--apple-text); text-decoration: none; }
+        .burger-menu:hover { background: #2563eb; }
+        .burger-menu:hover span { background-color: white; }
+        .burger-menu.active { background: #2563eb; }
+        .burger-menu.active span { background-color: white; }
+        .burger-menu.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .burger-menu.active span:nth-child(2) { opacity: 0; }
+        .burger-menu.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+        @media (min-width: 1025px) { .burger-menu { display: flex; margin-right: 10px; border-width: 3px; width: 36px; height: 26px; } }
+        
+        .logo { font-weight: 600; font-size: 19px; color: var(--apple-text); text-decoration: none; background: rgba(37, 99, 235, 0.05); padding: 4px 8px; border-radius: 8px; transition: all 0.2s; }
+        .logo:hover { background: rgba(37, 99, 235, 0.1); }
         
         .side-menu {
             position: fixed;
@@ -190,15 +191,11 @@
             padding: 72px 24px 32px 24px;
             overflow-y: auto;
         }
-        .side-menu.active {
-            left: 0;
-        }
+        .side-menu.active { left: 0; }
         .menu-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(0,0,0,0.4);
             backdrop-filter: blur(4px);
             z-index: 1999;
@@ -206,10 +203,7 @@
             visibility: hidden;
             transition: all 0.3s;
         }
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
         .side-menu a {
             display: block;
             color: var(--apple-text);
@@ -220,9 +214,7 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
             transition: color 0.2s;
         }
-        .side-menu a:hover {
-            color: var(--apple-blue);
-        }
+        .side-menu a:hover { color: var(--apple-blue); }
         .side-menu .menu-close {
             position: absolute;
             top: 16px;
@@ -237,38 +229,50 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 15px;
         }
+        .language-switcher { display: flex; gap: 5px; }
         .lang-btn {
             background: transparent;
             border: 1px solid #e2e8f0;
-            padding: 6px 14px;
+            color: #334155;
+            padding: 6px 12px;
             border-radius: 30px;
-            font-size: 13px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
             font-weight: 600;
+            transition: all 0.2s ease;
             text-decoration: none;
-            color: var(--apple-text);
-            transition: all 0.2s;
         }
-        .lang-btn.active, .lang-btn:hover {
-            background: var(--apple-blue);
-            border-color: var(--apple-blue);
-            color: white;
-        }
+        .lang-btn:hover, .lang-btn.active { background: #2563eb; border-color: #2563eb; color: white; }
         .header-phone {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--apple-blue);
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 1rem;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            white-space: nowrap;
         }
-        @media (max-width: 768px) {
-            .header-phone { display: none; }
-            .header-left { gap: 12px; }
-            .side-menu { width: 280px; }
+        .callback-header-btn {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
+        .callback-header-btn:hover { background: #16a34a; transform: translateY(-2px); }
+        @media (max-width: 768px) { .header-phone, .callback-header-btn { display: none !important; } }
 
         /* Hero */
         .hero {
@@ -387,31 +391,70 @@
         .faq-answer { display: none; padding: 0 24px 24px; color: var(--apple-caption); }
         .faq-item.active .faq-answer { display: block; }
 
-        .glass-form {
-            background: #fff;
-            padding: clamp(32px, 5vw, 60px);
-            border-radius: 40px;
-            max-width: 800px;
-            margin: 60px auto;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-            border: 1px solid #e8e8ed;
-            width: 100%;
+        /* Форма (как на главной) */
+        .contact-form-section {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 60px 20px;
         }
-        .input-apple {
-            width: 100%;
-            padding: 16px 20px;
-            border-radius: 14px;
-            border: 1px solid #d2d2d7;
-            font-size: 16px;
-            margin-bottom: 20px;
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .callback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .callback-form input, .callback-form textarea {
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+        }
+        .callback-form input:focus, .callback-form textarea:focus {
             outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-        .input-apple:focus { border-color: var(--apple-blue); }
+        .callback-form button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .callback-form button:hover { background: #1e40af; transform: translateY(-2px); }
+        .form-success { color: #22c55e; margin-top: 15px; display: none; }
+
+        .seo-article {
+            background: var(--apple-secondary);
+            border-radius: 32px;
+            padding: 48px;
+            margin-bottom: 60px;
+        }
+        .seo-article h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 20px; }
+        .seo-article h3 { margin: 30px 0 15px; }
+        .seo-article ul { margin: 20px 0 0 20px; }
+        .seo-article table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; border-radius: 16px; overflow: hidden; }
+        .seo-article th, .seo-article td { padding: 12px; border: 1px solid #e2e8f0; text-align: left; }
+        .seo-article th { background: #2563eb; color: white; }
 
         footer {
-            background: #f5f5f7;
-            padding: 50px 5% 40px;
-            margin-top: 60px;
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 40px 5%;
         }
         .footer-inner {
             max-width: 1200px;
@@ -420,15 +463,20 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
         }
-        .footer-col h4 { margin-bottom: 16px; font-size: 1rem; color: var(--apple-text); }
-        .footer-col a, .footer-col p { color: var(--apple-caption); text-decoration: none; font-size: 0.9rem; margin-bottom: 8px; display: block; }
+        .footer-col h4 { color: white; margin-bottom: 15px; }
+        .footer-col a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; }
+        .footer-col a:hover { color: white; }
 
         .floating-buttons {
             position: fixed;
             bottom: 24px;
             right: 24px;
             z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
         }
+        .floating-buttons.is-visible { opacity: 1; pointer-events: all; }
         .fab-menu {
             display: flex;
             flex-direction: column;
@@ -451,7 +499,7 @@
             transition: all 0.2s;
         }
         .fab-menu-item.show { transform: scale(1); opacity: 1; }
-        .fab-menu-item.call { background: #0071e3; }
+        .fab-menu-item.call { background: #2563eb; }
         .fab-menu-item.whatsapp { background: #25D366; }
         .fab-menu-item.telegram { background: #0088cc; }
         .fab-menu-item.reviews { background: #f97316; }
@@ -459,12 +507,18 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: var(--apple-gold);
+            background: #f97316;
             color: white;
             border: none;
             cursor: pointer;
             font-size: 1.6rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(249, 115, 22, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
         }
         .modal-overlay {
             display: none;
@@ -501,25 +555,21 @@
             .container { padding: 0 20px; }
         }
         @media (max-width: 768px) {
-            body { padding-top: 52px; }
+            body { padding-top: 70px; }
             .hero { padding: 40px 0 40px; }
             .bento-card { padding: 24px; }
             .card { padding: 20px; }
-            .glass-form { padding: 24px; margin: 30px 0; }
-            .section-title { margin-bottom: 30px; }
             .seo-article { padding: 28px !important; }
+            .burger-menu { display: flex; }
         }
-        .seo-article {
-            background: var(--apple-secondary);
-            border-radius: 32px;
-            padding: 48px;
-            margin-bottom: 60px;
+        @media (max-width: 480px) {
+            .floating-logo { height: 32px; }
+            .mobile-nav { left: 4%; width: 92%; }
         }
-        .seo-article h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 20px; }
-        .seo-article ul { margin: 20px 0 0 20px; }
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header class="header">
@@ -534,6 +584,7 @@
                     <a href="officekz.html" class="lang-btn">ҚАЗ</a>
                 </div>
                 <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone"></i> +7 701 012 03 00</a>
+                <button class="callback-header-btn" id="headerCallbackBtn"><i class="fas fa-phone-alt"></i> Заказать звонок</button>
             </div>
         </div>
     </header>
@@ -542,12 +593,13 @@
     <div class="side-menu" id="sideMenu">
         <button class="menu-close" id="closeMenuBtn">&times;</button>
         <a href="index.html">Главная</a>
-        <a href="office.html">Офисный переезд</a>
-        <a href="pereezdkay.html">Квартирный переезд</a>
+        <a href="shop.html">Магазин</a>
+        <a href="pereezdkay.html">Переезд под ключ</a>
         <a href="musor.html">Вывоз мусора</a>
         <a href="mebel.html">Разборка мебели</a>
         <a href="B2B.html">Для юр. лиц</a>
-        <a href="#contact">Контакты</a>
+        <a href="office.html">Переезд офиса</a>
+        <a href="takelazh.html">Такелаж</a>
     </div>
 
     <section class="hero" data-aos="fade-up">
@@ -555,7 +607,7 @@
             <h1>Переезд офиса Астана.<br><span>Как искусство.</span></h1>
             <p>Премиальный офисный переезд в Астане под ключ. Без простоев, без стресса. Согласуем пропуска в любые БЦ. Перевозка серверов и техники.</p>
             <div class="cta-group">
-                <a href="#request" class="btn-primary">Заказать расчет</a>
+                <a href="#callback-form" class="btn-primary">Заказать расчет</a>
                 <a href="https://wa.me/77010120300" class="btn-secondary">Написать в WhatsApp <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
@@ -600,58 +652,146 @@
 
         <h2 class="section-title" data-aos="fade-up">Нам доверяют</h2>
         <div class="clients-grid">
-            <div class="card" style="text-align:center;"><div style="font-weight:700;">JOY Garden</div><div class="client-type" style="color:var(--apple-caption);">Переезд магазина</div></div>
-            <div class="card" style="text-align:center;"><div style="font-weight:700;">ZTE Astana</div><div class="client-type">Офис 50+ сотрудников</div></div>
-            <div class="card" style="text-align:center;"><div style="font-weight:700;">Astana Logistics</div><div class="client-type">Складской комплекс</div></div>
-            <div class="card" style="text-align:center;"><div style="font-weight:700;">DamuMed</div><div class="client-type">IT-офис, серверная</div></div>
+            <div class="card" style="text-align:center;" itemscope itemtype="https://schema.org/Review"><div style="font-weight:700;" itemprop="author">JOY Garden</div><div class="client-type" style="color:var(--apple-caption);">Переезд магазина</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"></div></div>
+            <div class="card" style="text-align:center;" itemscope itemtype="https://schema.org/Review"><div style="font-weight:700;" itemprop="author">ZTE Astana</div><div class="client-type">Офис 50+ сотрудников</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"></div></div>
+            <div class="card" style="text-align:center;" itemscope itemtype="https://schema.org/Review"><div style="font-weight:700;" itemprop="author">Astana Logistics</div><div class="client-type">Складской комплекс</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"></div></div>
+            <div class="card" style="text-align:center;" itemscope itemtype="https://schema.org/Review"><div style="font-weight:700;" itemprop="author">DamuMed</div><div class="client-type">IT-офис, серверная</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"></div></div>
         </div>
 
         <h2 class="section-title" data-aos="fade-up">Работаем во всех БЦ Астаны</h2>
         <div class="bc-grid">
             <div class="bc-item">БЦ «Москва»</div><div class="bc-item">БЦ «Астана-Плаза»</div><div class="bc-item">Talan Towers</div>
             <div class="bc-item">Abu-Dhabi Plaza</div><div class="bc-item">EXPO Business District</div><div class="bc-item">БЦ «Туран»</div>
-            <div class="bc-item">БЦ «Санкт - Петербург»</div><div class="bc-item">БЦ Downtown</div><div class="bc-item">БЦ Uly Dala Plaza</div>
+            <div class="bc-item">БЦ «Санкт-Петербург»</div><div class="bc-item">БЦ Downtown</div><div class="bc-item">БЦ Uly Dala Plaza</div>
         </div>
 
         <h2 class="section-title" data-aos="fade-up">Частые вопросы</h2>
         <div class="faq-container" style="max-width:900px; margin:0 auto 60px;">
-            <div class="faq-item"><div class="faq-question">Сколько стоит переезд офиса в Астане? <i class="fas fa-plus"></i></div><div class="faq-answer">Стоимость от 50 000 до 300 000 ₸ в зависимости от объема, этажа, серверного оборудования. Бесплатный выезд оценщика.</div></div>
+            <div class="faq-item"><div class="faq-question">Сколько стоит переезд офиса в Астане? <i class="fas fa-plus"></i></div><div class="faq-answer">Стоимость от 50 000 до 350 000 ₸ в зависимости от объема, этажа, серверного оборудования. Бесплатный выезд оценщика.</div></div>
             <div class="faq-item"><div class="faq-question">Как согласовываете пропуска в БЦ? <i class="fas fa-plus"></i></div><div class="faq-answer">Берем на себя все формальности: списки сотрудников, грузовые лифты, разовые пропуска.</div></div>
             <div class="faq-item"><div class="faq-question">Переезжаете ночью или в выходные? <i class="fas fa-plus"></i></div><div class="faq-answer">Да, стандарт для офисных переездов. Работаем 24/7, чтобы не останавливать бизнес.</div></div>
+            <div class="faq-item"><div class="faq-question">Предоставляете документы для юрлиц? <i class="fas fa-plus"></i></div><div class="faq-answer">Да, договор, акты, ЭСФ, работаем по безналичному расчету.</div></div>
         </div>
 
-        <div class="seo-article">
+        <!-- SEO статья (расширенная) -->
+        <div class="seo-article" data-aos="fade-up">
             <h2>Офисный переезд в Астане под ключ</h2>
             <p>Профессиональный <strong>переезд офиса в Астане</strong> — это сложный процесс, требующий опыта и знания специфики бизнес-центров. Компания Gruzim.kz специализируется на <strong>офисном переезде под ключ</strong> с 2019 года. Мы перевезли более 50 компаний, включая ZTE, DamuMed, Astana Logistics.</p>
+            
+            <h3>Стоимость переезда офиса по районам Астаны</h3>
+            <table>
+                <thead><tr><th>Район</th><th>Малый офис (до 10 чел)</th><th>Средний офис (10-50 чел)</th><th>Большой офис (50+ чел)</th></tr></thead>
+                <tbody>
+                    <tr><td>Алматинский</td><td>от 45 000 ₸</td><td>от 180 000 ₸</td><td>от 320 000 ₸</td></tr>
+                    <tr><td>Есильский</td><td>от 50 000 ₸</td><td>от 200 000 ₸</td><td>от 350 000 ₸</td></tr>
+                    <tr><td>Сарыаркинский</td><td>от 48 000 ₸</td><td>от 190 000 ₸</td><td>от 340 000 ₸</td></tr>
+                    <tr><td>Байконырский</td><td>от 42 000 ₸</td><td>от 170 000 ₸</td><td>от 300 000 ₸</td></tr>
+                    <tr><td>Нуринский</td><td>от 40 000 ₸</td><td>от 160 000 ₸</td><td>от 280 000 ₸</td></tr>
+                </tbody>
+            </table>
+            
+            <h3>Чек-лист подготовки офиса к переезду</h3>
+            <ul>
+                <li><strong>За 2-3 недели:</strong> назначьте ответственного, согласуйте бюджет, закажите <a href="shop.html">упаковочные материалы</a>.</li>
+                <li><strong>За 1 неделю:</strong> предупредите сотрудников, согласуйте пропуска в БЦ, подпишите договор.</li>
+                <li><strong>За 2-3 дня:</strong> упакуйте документы, обесточьте оргтехнику, промаркируйте коробки.</li>
+                <li><strong>В день переезда:</strong> обеспечьте доступ для грузчиков, проверьте сохранность серверного оборудования.</li>
+            </ul>
+            
             <h3>Почему выбирают нас?</h3>
-            <ul style="margin: 20px 0 0 20px;"><li>Официальный договор, работа на ОУР - без НДС, закрывающие документы</li><li>Страхование груза до 1 000 000 ₸</li><li>Собственный автопарк, работа ночью и в выходные</li><li>Знаем все бизнес-центры Астаны и их регламенты</li></ul>
+            <ul>
+                <li>Официальный договор, работа на ОУР - без НДС, закрывающие документы (<a href="B2B.html">для юр. лиц</a>)</li>
+                <li>Страхование груза до 1 000 000 ₸</li>
+                <li>Собственный автопарк, работа ночью и в выходные</li>
+                <li>Знаем все бизнес-центры Астаны и их регламенты</li>
+                <li><a href="takelazh.html">Такелажные работы</a> и перевозка серверов с антистатической упаковкой</li>
+                <li><a href="musor.html">Вывоз мусора</a> после переезда и утилизация старой мебели</li>
+            </ul>
             <p style="margin-top: 20px;">Закажите <strong>переезд офиса в Астане</strong> — оставьте заявку, и мы рассчитаем стоимость за 15 минут.</p>
         </div>
     </div>
 
-    <div class="container" id="request">
-        <div class="glass-form" data-aos="fade-up">
-            <h2 style="text-align: center; margin-bottom: 32px;">Получить коммерческое предложение</h2>
-            <form id="officeRequestForm">
-                <input type="text" id="office_name" class="input-apple" placeholder="Ваше имя или компания" required>
-                <input type="tel" id="office_phone" class="input-apple" placeholder="Номер телефона" required>
-                <textarea id="office_message" class="input-apple" style="height: 100px;" placeholder="Количество сотрудников, адрес БЦ, особенности"></textarea>
-                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Отправить заявку</button>
+    <!-- Форма обратной связи (как на главной) -->
+    <section class="contact-form-section" id="callback-form">
+        <div class="contact-form-container" data-aos="fade-up">
+            <h2>Оставьте заявку</h2>
+            <p>Мы перезвоним вам в течение 5 минут и рассчитаем стоимость переезда</p>
+            <form class="callback-form" id="callbackForm">
+                <input type="text" name="name" placeholder="Ваше имя или компания" required>
+                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+                <textarea name="message" rows="3" placeholder="Количество сотрудников, адрес БЦ, особенности..."></textarea>
+                <button type="submit" id="callbackSubmitBtn">Отправить заявку</button>
             </form>
+            <div class="form-success" id="callbackSuccess">✅ Спасибо! Мы свяжемся с вами в ближайшее время.</div>
         </div>
-    </div>
+    </section>
 
-    <footer id="contact">
+    <!-- Подвал -->
+    <footer>
         <div class="footer-inner">
-            <div class="footer-col"><img src="Logo.png" alt="Gruzim.kz" style="height: 40px; margin-bottom: 12px;"><p>Офисные переезды в Астане под ключ.</p><p>© 2019-2026 gruzim.kz</p></div>
-            <div class="footer-col"><h4>Контакты</h4><a href="tel:+77010120300"><i class="fas fa-phone"></i> +7 701 012 03 00</a><a href="https://wa.me/77010120300"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
-            <div class="footer-col"><h4>Услуги</h4><a href="pereezdkay.html">Квартирный переезд</a><a href="musor.html">Вывоз мусора</a><a href="mebel.html">Сборка мебели</a><a href="B2B.html">Для юр. лиц</a></div>
+            <div class="footer-col">
+                <img src="Logo.png" alt="Логотип Gruzim.kz" style="height: 40px; margin-bottom: 12px;">
+                <p>Офисные переезды в Астане под ключ.</p>
+                <p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
+                <div style="margin-top: 15px; display: flex; gap: 12px; font-size: 1.5rem;">
+                    <i class="fab fa-cc-visa" style="color: #1a1f71;"></i>
+                    <i class="fab fa-cc-mastercard" style="color: #eb001b;"></i>
+                    <i class="fas fa-wallet" style="color: #f97316;"></i>
+                    <span style="font-size: 0.9rem;">Kaspi Red</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <a href="tel:+77010120300"><i class="fas fa-phone"></i> +7 701 012 03 00</a>
+                <a href="https://wa.me/77010120300" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://t.me/gruzimkz" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+                <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Услуги</h4>
+                <a href="index.html">Главная</a>
+                <a href="pereezdkay.html">Квартирный переезд</a>
+                <a href="musor.html">Вывоз мусора</a>
+                <a href="mebel.html">Сборка мебели</a>
+                <a href="B2B.html">Для юр. лиц</a>
+                <a href="takelazh.html">Такелаж</a>
+            </div>
+            <div class="footer-col">
+                <h4>Документы</h4>
+                <a href="#" id="privacy-policy-link">Политика конфиденциальности</a>
+                <a href="#" id="terms-of-service-link">Условия использования</a>
+                <p class="footer-note">Работаем по договору, ЭСФ, акты. Безналичный расчет.</p>
+            </div>
         </div>
     </footer>
 
-    <div class="floating-buttons"><div class="fab-menu" id="fabMenu"><a href="tel:+77010120300" class="fab-menu-item call"><i class="fas fa-phone"></i></a><a href="#" class="fab-menu-item whatsapp" id="fabWhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" class="fab-menu-item telegram" id="fabTelegram"><i class="fab fa-telegram"></i></a><button class="fab-menu-item reviews" id="fabReviews"><i class="fas fa-star"></i></button></div><button class="fab-main" id="fabMain"><i class="fas fa-phone-alt"></i></button></div>
+    <!-- Плавающие кнопки -->
+    <div class="floating-buttons">
+        <div class="fab-menu" id="fabMenu">
+            <a href="tel:+77010120300" class="fab-menu-item call"><i class="fas fa-phone"></i></a>
+            <a href="#" class="fab-menu-item whatsapp" id="fabWhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="fab-menu-item telegram" id="fabTelegram"><i class="fab fa-telegram"></i></a>
+            <button class="fab-menu-item reviews" id="fabReviews"><i class="fas fa-star"></i></button>
+        </div>
+        <button class="fab-main" id="fabMain"><i class="fas fa-phone-alt"></i></button>
+    </div>
 
-    <div class="modal-overlay" id="reviews-modal"><div class="modal-content"><span class="modal-close-btn">&times;</span><h3>Отзывы клиентов</h3><div class="reviews-list" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;"><div class="review-item" style="margin-bottom: 15px;"><div class="review-header"><span style="font-weight:700;">Нургуль</span> <span style="color:#fbbf24;">★★★★★</span></div><p>"Заказывали офисный переезд. Всё сделали быстро и аккуратно!"</p></div><div class="review-item"><div class="review-header"><span style="font-weight:700;">Даке</span> <span style="color:#fbbf24;">★★★★★</span></div><p>"Переезжали офис ZTE. Профессионально, без простоя бизнеса."</p></div></div><form id="reviewForm"><input type="text" id="reviewName" placeholder="Ваше имя" style="width:100%; padding:12px; margin-bottom:12px; border-radius:12px; border:1px solid #ddd;"><textarea id="reviewText" placeholder="Ваш отзыв" style="width:100%; padding:12px; margin-bottom:12px; border-radius:12px;"></textarea><button type="submit" class="btn-primary" style="width:100%;">Отправить</button></form></div></div>
+    <!-- Модальное окно отзывов -->
+    <div class="modal-overlay" id="reviews-modal">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <h3>Отзывы клиентов</h3>
+            <div class="reviews-list" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;">
+                <div class="review-item" style="margin-bottom: 15px;"><div class="review-header"><span style="font-weight:700;">Нургуль</span> <span style="color:#fbbf24;">★★★★★</span></div><p>"Заказывали офисный переезд. Всё сделали быстро и аккуратно!"</p></div>
+                <div class="review-item"><div class="review-header"><span style="font-weight:700;">Даке</span> <span style="color:#fbbf24;">★★★★★</span></div><p>"Переезжали офис ZTE. Профессионально, без простоя бизнеса."</p></div>
+            </div>
+            <form id="reviewForm">
+                <input type="text" id="reviewName" placeholder="Ваше имя" style="width:100%; padding:12px; margin-bottom:12px; border-radius:12px; border:1px solid #ddd;">
+                <textarea id="reviewText" placeholder="Ваш отзыв" style="width:100%; padding:12px; margin-bottom:12px; border-radius:12px;"></textarea>
+                <button type="submit" class="btn-primary" style="width:100%;">Отправить</button>
+            </form>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -667,21 +807,21 @@
             sideMenu.classList.add('active');
             menuOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
+            burger.classList.add('active');
         }
         function closeMenu() {
             sideMenu.classList.remove('active');
             menuOverlay.classList.remove('active');
             document.body.style.overflow = '';
+            burger.classList.remove('active');
         }
         
         burger.addEventListener('click', openMenu);
         closeMenuBtn.addEventListener('click', closeMenu);
         menuOverlay.addEventListener('click', closeMenu);
         
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sideMenu.classList.contains('active')) {
-                closeMenu();
-            }
+        document.querySelectorAll('.side-menu a').forEach(link => {
+            link.addEventListener('click', closeMenu);
         });
         
         // FAQ
@@ -692,9 +832,17 @@
         // FAB
         const fabMain = document.getElementById('fabMain');
         const fabItems = document.querySelectorAll('.fab-menu-item');
+        const fabMenu = document.getElementById('fabMenu');
         fabMain.addEventListener('click', () => fabItems.forEach(i => i.classList.toggle('show')));
-        document.addEventListener('click', (e) => { if(!fabMain.contains(e.target) && !document.querySelector('.fab-menu').contains(e.target)) fabItems.forEach(i => i.classList.remove('show')); });
-
+        document.addEventListener('click', (e) => { if(!fabMain.contains(e.target) && !fabMenu.contains(e.target)) fabItems.forEach(i => i.classList.remove('show')); });
+        
+        // Показываем плавающие кнопки при скролле
+        const floatingButtons = document.querySelector('.floating-buttons');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) floatingButtons.classList.add('is-visible');
+            else floatingButtons.classList.remove('is-visible');
+        });
+        
         // Modal reviews
         const modal = document.getElementById('reviews-modal');
         const openReviews = document.getElementById('fabReviews');
@@ -702,19 +850,91 @@
         openReviews.addEventListener('click', () => modal.classList.add('is-active'));
         closeModal.addEventListener('click', () => modal.classList.remove('is-active'));
         modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('is-active'); });
-
+        
+        // Кнопка заказа звонка в шапке
+        document.getElementById('headerCallbackBtn')?.addEventListener('click', () => {
+            document.getElementById('callback-form').scrollIntoView({ behavior: 'smooth' });
+        });
+        
         function isMobileDevice() { return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); }
         const phone = '77010120300';
         const waLink = document.getElementById('fabWhatsApp');
         const tgLink = document.getElementById('fabTelegram');
         if(waLink) waLink.href = isMobileDevice() ? `https://wa.me/${phone}` : `https://web.whatsapp.com/send?phone=${phone}`;
         if(tgLink) tgLink.href = isMobileDevice() ? `tg://resolve?domain=${phone}` : `https://t.me/${phone}`;
+        
+        // Политика
+        document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.'); });
+        document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
+        
+        // Динамическая дата
+        const year = new Date().getFullYear();
+        document.querySelectorAll('footer p').forEach(el => { if(el.textContent.includes('2019-2025')) el.textContent = el.textContent.replace('2019-2025', `2019-${year}`); });
     </script>
 
-    <!-- ===== ПОЛНАЯ ЗАЩИТА (из index.html) ===== -->
+    <!-- ===== ФОРМА ЗАЯВКИ ===== -->
+    <script>
+        const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
+        const TELEGRAM_CHAT_ID = '8277380855';
+        
+        const callbackForm = document.getElementById('callbackForm');
+        const callbackSuccess = document.getElementById('callbackSuccess');
+        const callbackSubmitBtn = document.getElementById('callbackSubmitBtn');
+        
+        if (callbackForm) {
+            callbackForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const name = this.querySelector('input[name="name"]').value;
+                const phone = this.querySelector('input[name="phone"]').value;
+                const message = this.querySelector('textarea[name="message"]')?.value || '';
+                
+                callbackSubmitBtn.disabled = true;
+                callbackSubmitBtn.textContent = 'Отправка...';
+                
+                let text = `🏢 <b>НОВАЯ ЗАЯВКА (офисный переезд)</b>\n\n`;
+                text += `📄 <b>Страница:</b> Переезд офиса\n`;
+                text += `🔗 <b>URL:</b> ${window.location.href}\n\n`;
+                text += `👤 <b>Имя/Компания:</b> ${name}\n`;
+                text += `📞 <b>Телефон:</b> ${phone}\n`;
+                if (message) text += `💬 <b>Сообщение:</b> ${message}\n`;
+                
+                try {
+                    await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: text, parse_mode: 'HTML' })
+                    });
+                    
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+                    }
+                    
+                    callbackSuccess.style.display = 'block';
+                    this.reset();
+                    setTimeout(() => { callbackSuccess.style.display = 'none'; }, 5000);
+                } catch (err) { alert('Ошибка отправки. Пожалуйста, позвоните нам.'); }
+                finally { callbackSubmitBtn.disabled = false; callbackSubmitBtn.textContent = 'Отправить заявку'; }
+            });
+        }
+        
+        // Отзывы
+        document.getElementById('reviewForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('reviewName').value;
+            const text = document.getElementById('reviewText').value;
+            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, { 
+                method: 'POST', headers: { 'Content-Type': 'application/json' }, 
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: `📝 Отзыв с office.html: ${name}\n${text}` }) 
+            });
+            alert('Спасибо за отзыв!');
+            document.getElementById('reviews-modal').classList.remove('is-active');
+            e.target.reset();
+        });
+    </script>
+
+    <!-- ===== СКРИПТ ЗАЩИТЫ (ПОЛНАЯ ВЕРСИЯ) ===== -->
     <script>
     (function() {
-        // ========== НАСТРОЙКИ ==========
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
         const TELEGRAM_CHAT_ID = '8277380855';
         const BLACKLIST_URL = '/black.txt?t=' + Date.now();
@@ -722,452 +942,49 @@
         const BLOCK_COOKIE_NAME = 'gruzim_blocked';
         const BLOCK_COOKIE_DAYS = 30;
         const SUSPICIOUS_THRESHOLD = 3;
-
-        function getCookie(name) {
-            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            return match ? match[2] : null;
-        }
-
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/; domain=.' + window.location.hostname;
-        }
-
-        function isSearchBot() {
-            const ua = navigator.userAgent.toLowerCase();
-            const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot'];
-            return bots.some(bot => ua.includes(bot));
-        }
-
-        async function sha256(message) {
-            try {
-                const msgBuffer = new TextEncoder().encode(message);
-                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-                return hashHex;
-            } catch (e) {
-                let hash = 0;
-                for (let i = 0; i < message.length; i++) {
-                    const char = message.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + char;
-                    hash = hash & hash;
-                }
-                return Math.abs(hash).toString(16).padStart(8, '0');
-            }
-        }
-
-        function generateVisitorId(fingerprint) {
-            const components = [
-                navigator.userAgent,
-                fingerprint.canvasHash || '',
-                fingerprint.webglRenderer || '',
-                fingerprint.timezone || '',
-                fingerprint.language || '',
-                fingerprint.screenResolution || '',
-                fingerprint.hardwareConcurrency || ''
-            ];
-            const combined = components.join('|');
-            let hash = 0;
-            for (let i = 0; i < combined.length; i++) {
-                const char = combined.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash = hash & hash;
-            }
-            return Math.abs(hash).toString(16).padStart(8, '0');
-        }
-
+        
+        function getCookie(name) { const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)')); return match ? match[2] : null; }
+        function setCookie(name, value, days) { const date = new Date(); date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/; domain=.' + window.location.hostname; }
+        function isSearchBot() { const ua = navigator.userAgent.toLowerCase(); const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot']; return bots.some(bot => ua.includes(bot)); }
+        async function sha256(message) { try { const msgBuffer = new TextEncoder().encode(message); const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer); const hashArray = Array.from(new Uint8Array(hashBuffer)); return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); } catch (e) { let hash = 0; for (let i = 0; i < message.length; i++) { const char = message.charCodeAt(i); hash = ((hash << 5) - hash) + char; hash = hash & hash; } return Math.abs(hash).toString(16).padStart(8, '0'); } }
+        function generateVisitorId(fingerprint) { const components = [navigator.userAgent, fingerprint.canvasHash || '', fingerprint.webglRenderer || '', fingerprint.timezone || '', fingerprint.language || '', fingerprint.screenResolution || '', fingerprint.hardwareConcurrency || '']; const combined = components.join('|'); let hash = 0; for (let i = 0; i < combined.length; i++) { const char = combined.charCodeAt(i); hash = ((hash << 5) - hash) + char; hash = hash & hash; } return Math.abs(hash).toString(16).padStart(8, '0'); }
         async function collectFullFingerprint() {
-            const fingerprint = {
-                timestamp: Date.now(),
-                userAgent: navigator.userAgent,
-                platform: navigator.platform,
-                language: navigator.language,
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                screenResolution: `${screen.width}x${screen.height}`,
-                colorDepth: screen.colorDepth,
-                hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
-                deviceMemory: navigator.deviceMemory || 'unknown',
-                touchSupport: 'ontouchstart' in window,
-                cookiesEnabled: navigator.cookieEnabled,
-                doNotTrack: navigator.doNotTrack || 'unknown'
-            };
-
-            try {
-                const canvas = document.createElement('canvas');
-                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                if (gl) {
-                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-                    if (debugInfo) {
-                        fingerprint.webglRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-                        fingerprint.webglVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
-                    }
-                    fingerprint.webglExtensions = gl.getSupportedExtensions().length;
-                }
-            } catch (e) {
-                fingerprint.webglError = 'disabled';
-            }
-
-            try {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                canvas.width = 400;
-                canvas.height = 100;
-                ctx.textBaseline = 'top';
-                ctx.font = '16px Arial';
-                ctx.fillStyle = '#f60';
-                ctx.fillRect(0, 0, 200, 50);
-                ctx.fillStyle = '#069';
-                ctx.fillText('Gruzim.kz', 10, 20);
-                ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
-                ctx.fillText('Переезд под ключ', 10, 50);
-                ctx.beginPath();
-                ctx.moveTo(250, 20);
-                ctx.lineTo(350, 80);
-                ctx.lineTo(300, 30);
-                ctx.closePath();
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 3;
-                ctx.stroke();
-                const gradient = ctx.createLinearGradient(0, 0, 200, 0);
-                gradient.addColorStop(0, 'red');
-                gradient.addColorStop(0.5, 'green');
-                gradient.addColorStop(1, 'blue');
-                ctx.fillStyle = gradient;
-                ctx.fillRect(200, 60, 150, 30);
-                const dataURL = canvas.toDataURL();
-                fingerprint.canvasHash = await sha256(dataURL);
-            } catch (e) {
-                fingerprint.canvasError = 'failed';
-                fingerprint.canvasHash = 'canvas_error';
-            }
-
-            try {
-                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                if (AudioContextClass) {
-                    const audioCtx = new AudioContextClass();
-                    if (audioCtx.state === 'running') {
-                        const analyser = audioCtx.createAnalyser();
-                        const oscillator = audioCtx.createOscillator();
-                        const gainNode = audioCtx.createGain();
-                        oscillator.type = 'triangle';
-                        oscillator.frequency.value = 440;
-                        gainNode.gain.value = 0.001;
-                        oscillator.connect(gainNode);
-                        gainNode.connect(analyser);
-                        const dataArray = new Uint8Array(analyser.frequencyBinCount);
-                        analyser.getByteFrequencyData(dataArray);
-                        fingerprint.audioHash = await sha256(dataArray.join(''));
-                        oscillator.disconnect();
-                        gainNode.disconnect();
-                        analyser.disconnect();
-                        if (audioCtx.close) audioCtx.close();
-                    } else {
-                        fingerprint.audioHash = 'audio_needs_interaction';
-                        if (audioCtx.close) audioCtx.close();
-                    }
-                } else {
-                    fingerprint.audioHash = 'audio_not_supported';
-                }
-            } catch (e) {
-                fingerprint.audioHash = 'audio_error';
-            }
-
-            try {
-                const fontCheck = new Set();
-                const baseFonts = ['monospace', 'sans-serif', 'serif'];
-                const testString = 'abcdefghijklmnopqrstuvwxyz0123456789';
-                baseFonts.forEach(baseFont => {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    ctx.font = `72px ${baseFont}`;
-                    const baseWidth = ctx.measureText(testString).width;
-                    const fontsToCheck = [
-                        'Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Verdana', 
-                        'Georgia', 'Palatino', 'Garamond', 'Comic Sans MS', 'Trebuchet MS',
-                        'Arial Black', 'Impact', 'Roboto', 'Open Sans', 'Lato', 'Montserrat'
-                    ];
-                    fontsToCheck.forEach(font => {
-                        ctx.font = `72px ${font}, ${baseFont}`;
-                        const width = ctx.measureText(testString).width;
-                        if (width !== baseWidth) fontCheck.add(font);
-                    });
-                });
-                fingerprint.fontsCount = fontCheck.size;
-            } catch (e) {
-                fingerprint.fontsError = 'failed';
-            }
-
-            try {
-                fingerprint.timezoneOffset = new Date().getTimezoneOffset();
-                fingerprint.sessionStorage = !!window.sessionStorage;
-                fingerprint.localStorage = !!window.localStorage;
-                const ua = navigator.userAgent.toLowerCase();
-                fingerprint.emulatorDetected = (
-                    ua.includes('headless') || ua.includes('phantom') || ua.includes('selenium') || ua.includes('webdriver')
-                );
-                if (fingerprint.webglRenderer) {
-                    const renderer = fingerprint.webglRenderer.toLowerCase();
-                    if (renderer.includes('swiftshader') || renderer.includes('llvmpipe') || 
-                        renderer.includes('vmware') || renderer.includes('virtualbox')) {
-                        fingerprint.emulatorDetected = true;
-                    }
-                }
-            } catch (e) {}
-
+            const fingerprint = { timestamp: Date.now(), userAgent: navigator.userAgent, platform: navigator.platform, language: navigator.language, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, screenResolution: `${screen.width}x${screen.height}`, colorDepth: screen.colorDepth, hardwareConcurrency: navigator.hardwareConcurrency || 'unknown', deviceMemory: navigator.deviceMemory || 'unknown', touchSupport: 'ontouchstart' in window, cookiesEnabled: navigator.cookieEnabled, doNotTrack: navigator.doNotTrack || 'unknown' };
+            try { const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); canvas.width = 400; canvas.height = 100; ctx.textBaseline = 'top'; ctx.font = '16px Arial'; ctx.fillStyle = '#f60'; ctx.fillRect(0, 0, 200, 50); ctx.fillStyle = '#069'; ctx.fillText('Gruzim.kz', 10, 20); ctx.fillStyle = 'rgba(102, 204, 0, 0.7)'; ctx.fillText('Офисный переезд Астана', 10, 50); ctx.beginPath(); ctx.moveTo(250, 20); ctx.lineTo(350, 80); ctx.lineTo(300, 30); ctx.closePath(); ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3; ctx.stroke(); const gradient = ctx.createLinearGradient(0, 0, 200, 0); gradient.addColorStop(0, 'red'); gradient.addColorStop(0.5, 'green'); gradient.addColorStop(1, 'blue'); ctx.fillStyle = gradient; ctx.fillRect(200, 60, 150, 30); const dataURL = canvas.toDataURL(); fingerprint.canvasHash = await sha256(dataURL); } catch (e) { fingerprint.canvasHash = 'canvas_error'; }
+            try { const canvas = document.createElement('canvas'); const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl'); if (gl) { const debugInfo = gl.getExtension('WEBGL_debug_renderer_info'); if (debugInfo) { fingerprint.webglRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL); fingerprint.webglVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL); } fingerprint.webglExtensions = gl.getSupportedExtensions().length; } } catch (e) {}
+            try { const AudioContextClass = window.AudioContext || window.webkitAudioContext; if (AudioContextClass) { const audioCtx = new AudioContextClass(); if (audioCtx.state === 'running') { const analyser = audioCtx.createAnalyser(); const oscillator = audioCtx.createOscillator(); const gainNode = audioCtx.createGain(); oscillator.type = 'triangle'; oscillator.frequency.value = 440; gainNode.gain.value = 0.001; oscillator.connect(gainNode); gainNode.connect(analyser); const dataArray = new Uint8Array(analyser.frequencyBinCount); analyser.getByteFrequencyData(dataArray); fingerprint.audioHash = await sha256(dataArray.join('')); oscillator.disconnect(); gainNode.disconnect(); analyser.disconnect(); if (audioCtx.close) audioCtx.close(); } else { fingerprint.audioHash = 'audio_needs_interaction'; if (audioCtx.close) audioCtx.close(); } } else { fingerprint.audioHash = 'audio_not_supported'; } } catch (e) { fingerprint.audioHash = 'audio_error'; }
+            try { const fontCheck = new Set(); const baseFonts = ['monospace', 'sans-serif', 'serif']; const testString = 'abcdefghijklmnopqrstuvwxyz0123456789'; baseFonts.forEach(baseFont => { const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); ctx.font = `72px ${baseFont}`; const baseWidth = ctx.measureText(testString).width; const fontsToCheck = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Verdana', 'Georgia', 'Palatino', 'Garamond', 'Comic Sans MS', 'Trebuchet MS']; fontsToCheck.forEach(font => { ctx.font = `72px ${font}, ${baseFont}`; const width = ctx.measureText(testString).width; if (width !== baseWidth) fontCheck.add(font); }); }); fingerprint.fontsCount = fontCheck.size; } catch (e) {}
+            try { fingerprint.timezoneOffset = new Date().getTimezoneOffset(); fingerprint.sessionStorage = !!window.sessionStorage; fingerprint.localStorage = !!window.localStorage; const ua = navigator.userAgent.toLowerCase(); fingerprint.emulatorDetected = (ua.includes('headless') || ua.includes('phantom') || ua.includes('selenium') || ua.includes('webdriver')); if (fingerprint.webglRenderer) { const renderer = fingerprint.webglRenderer.toLowerCase(); if (renderer.includes('swiftshader') || renderer.includes('llvmpipe') || renderer.includes('vmware') || renderer.includes('virtualbox')) fingerprint.emulatorDetected = true; } } catch (e) {}
             fingerprint.visitorId = generateVisitorId(fingerprint);
             return fingerprint;
         }
-
-        function saveFingerprint(fingerprint) {
-            const storageKey = 'gruzim_fingerprint';
-            const existing = localStorage.getItem(storageKey);
-            if (existing) {
-                try {
-                    const old = JSON.parse(existing);
-                    fingerprint.visitCount = (old.visitCount || 0) + 1;
-                    fingerprint.firstVisit = old.firstVisit || Date.now();
-                } catch (e) {
-                    fingerprint.visitCount = 1;
-                    fingerprint.firstVisit = Date.now();
-                }
-            } else {
-                fingerprint.visitCount = 1;
-                fingerprint.firstVisit = Date.now();
-            }
-            fingerprint.lastVisit = Date.now();
-            localStorage.setItem(storageKey, JSON.stringify(fingerprint));
-            return fingerprint;
-        }
-
-        async function getIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                return data.ip;
-            } catch (e) {
-                return 'не удалось определить';
-            }
-        }
-
-        async function sendToTelegram(fingerprint, ip) {
-            const visitTime = new Date().toLocaleString('ru-RU', { 
-                timeZone: 'Asia/Almaty',
-                dateStyle: 'full',
-                timeStyle: 'medium'
-            });
-            const visitCount = fingerprint.visitCount || 1;
-            
-            let message = `🏢 <b>Gruzim.kz (офисный переезд) - новый визит</b>\n\n`;
-            message += `🔍 <b>ID посетителя:</b> <code>${fingerprint.visitorId}</code>\n`;
-            message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
-            message += `🕐 <b>Время:</b> ${visitTime}\n`;
-            message += `⚠️ <b>Визитов:</b> ${visitCount}\n`;
-            message += `🔗 <b>Страница:</b> ${window.location.href}\n`;
-            message += `↩️ <b>Откуда пришел:</b> ${document.referrer || 'прямой заход'}\n\n`;
-            message += `📱 <b>User-Agent:</b>\n<code>${fingerprint.userAgent.substring(0, 150)}</code>\n\n`;
-            message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
-            message += `• Платформа: ${fingerprint.platform || 'неизвестно'}\n`;
-            message += `• Экран: ${fingerprint.screenResolution || 'неизвестно'}\n`;
-            message += `• Язык: ${fingerprint.language || 'неизвестно'}\n`;
-            message += `• Часовой пояс: ${fingerprint.timezone || 'неизвестно'}\n`;
-            message += `• WebGL: ${(fingerprint.webglRenderer || 'недоступен').substring(0, 50)}\n`;
-            message += `• Canvas Hash: ${fingerprint.canvasHash || 'недоступен'}\n`;
-            message += `• Шрифтов: ${fingerprint.fontsCount || 'неизвестно'}\n`;
-            message += `• Эмулятор: ${fingerprint.emulatorDetected ? 'ДА' : 'НЕТ'}\n`;
-
-            if (visitCount >= SUSPICIOUS_THRESHOLD) {
-                message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
-            }
-
-            try {
-                await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML',
-                        disable_web_page_preview: true
-                    })
-                });
-            } catch (e) {}
-        }
-
-        function parseBlacklist(text) {
-            const fingerprints = [];
-            let currentFingerprint = {};
-            const lines = text.split('\n');
-            for (let line of lines) {
-                line = line.trim();
-                if (line.includes('🔍 ID посетителя:')) {
-                    if (Object.keys(currentFingerprint).length > 0) {
-                        fingerprints.push(currentFingerprint);
-                        currentFingerprint = {};
-                    }
-                    continue;
-                }
-                if (line.includes('•')) {
-                    const parts = line.substring(1).split(':');
-                    if (parts.length >= 2) {
-                        const key = parts[0].trim();
-                        const value = parts.slice(1).join(':').trim();
-                        if (key === 'Canvas Hash') currentFingerprint.canvasHash = value;
-                        else if (key === 'WebGL') currentFingerprint.webgl = value;
-                        else if (key === 'Платформа') currentFingerprint.platform = value;
-                        else if (key === 'Экран') currentFingerprint.screenResolution = value;
-                    }
-                }
-            }
-            if (Object.keys(currentFingerprint).length > 0) fingerprints.push(currentFingerprint);
-            return fingerprints;
-        }
-
-        function fingerprintsMatch(fp1, fp2) {
-            let matches = 0, total = 0;
-            if (fp1.canvasHash && fp2.canvasHash && fp1.canvasHash !== 'canvas_error') {
-                total += 40;
-                if (fp1.canvasHash === fp2.canvasHash) matches += 40;
-            }
-            if (fp1.webglRenderer && fp2.webgl) {
-                total += 30;
-                if (fp1.webglRenderer.includes(fp2.webgl) || fp2.webgl.includes(fp1.webglRenderer)) matches += 30;
-            }
-            if (fp1.platform && fp2.platform) { total += 10; if (fp1.platform === fp2.platform) matches += 10; }
-            if (total === 0) return false;
-            return (matches / total) * 100 >= 70;
-        }
-
-        async function loadBlacklist() {
-            const today = new Date().toDateString();
-            const cacheKey = 'gruzim_blacklist';
-            const cacheDateKey = 'gruzim_blacklist_date';
-            const cached = localStorage.getItem(cacheKey);
-            const cachedDate = localStorage.getItem(cacheDateKey);
-            if (cached && cachedDate === today) {
-                try { return JSON.parse(cached); } catch(e) {}
-            }
-            try {
-                const response = await fetch(BLACKLIST_URL);
-                const text = await response.text();
-                const fingerprints = parseBlacklist(text);
-                localStorage.setItem(cacheKey, JSON.stringify(fingerprints));
-                localStorage.setItem(cacheDateKey, today);
-                return fingerprints;
-            } catch (e) {
-                return [];
-            }
-        }
-
-        async function init() {
-            if (isSearchBot()) return;
-            if (getCookie(BLOCK_COOKIE_NAME)) {
-                window.location.replace(YOUTUBE_SIREN);
-                return;
-            }
-            const fingerprint = await collectFullFingerprint();
-            const savedFingerprint = saveFingerprint(fingerprint);
-            const ip = await getIP();
-            await sendToTelegram(savedFingerprint, ip);
-            const blacklist = await loadBlacklist();
-            if (blacklist.length > 0) {
-                for (const blackFp of blacklist) {
-                    if (fingerprintsMatch(savedFingerprint, blackFp)) {
-                        setCookie(BLOCK_COOKIE_NAME, '1', BLOCK_COOKIE_DAYS);
-                        window.location.replace(YOUTUBE_SIREN);
-                        return;
-                    }
-                }
-            }
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => setTimeout(init, 2000));
-        } else {
-            setTimeout(init, 2000);
-        }
+        function saveFingerprint(fingerprint) { const storageKey = 'gruzim_fingerprint'; const existing = localStorage.getItem(storageKey); if (existing) { try { const old = JSON.parse(existing); fingerprint.visitCount = (old.visitCount || 0) + 1; fingerprint.firstVisit = old.firstVisit || Date.now(); } catch (e) { fingerprint.visitCount = 1; fingerprint.firstVisit = Date.now(); } } else { fingerprint.visitCount = 1; fingerprint.firstVisit = Date.now(); } fingerprint.lastVisit = Date.now(); localStorage.setItem(storageKey, JSON.stringify(fingerprint)); return fingerprint; }
+        async function getIP() { try { const response = await fetch('https://api.ipify.org?format=json'); const data = await response.json(); return data.ip; } catch (e) { return 'не удалось определить'; } }
+        async function sendToTelegram(fingerprint, ip) { const visitTime = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty', dateStyle: 'full', timeStyle: 'medium' }); const visitCount = fingerprint.visitCount || 1; let message = `🏢 <b>Gruzim.kz (офисный переезд) - новый визит</b>\n\n🔍 <b>ID посетителя:</b> <code>${fingerprint.visitorId}</code>\n🌐 <b>IP-адрес:</b> <code>${ip}</code>\n🕐 <b>Время:</b> ${visitTime}\n⚠️ <b>Визитов:</b> ${visitCount}\n🔗 <b>Страница:</b> ${window.location.href}\n↩️ <b>Откуда пришел:</b> ${document.referrer || 'прямой заход'}\n\n📱 <b>User-Agent:</b>\n<code>${fingerprint.userAgent.substring(0, 150)}</code>\n\n🖥️ <b>Цифровой отпечаток:</b>\n• Платформа: ${fingerprint.platform || 'неизвестно'}\n• Экран: ${fingerprint.screenResolution || 'неизвестно'}\n• Язык: ${fingerprint.language || 'неизвестно'}\n• Часовой пояс: ${fingerprint.timezone || 'неизвестно'}\n• WebGL: ${(fingerprint.webglRenderer || 'недоступен').substring(0, 50)}\n• Canvas Hash: ${fingerprint.canvasHash || 'недоступен'}\n• Шрифтов: ${fingerprint.fontsCount || 'неизвестно'}\n• Эмулятор: ${fingerprint.emulatorDetected ? 'ДА' : 'НЕТ'}`;
+            if (visitCount >= SUSPICIOUS_THRESHOLD) message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
+            try { await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'HTML', disable_web_page_preview: true }) }); } catch (e) {} }
+        async function init() { if (isSearchBot()) return; if (getCookie(BLOCK_COOKIE_NAME)) { window.location.replace(YOUTUBE_SIREN); return; } const fingerprint = await collectFullFingerprint(); const savedFingerprint = saveFingerprint(fingerprint); const ip = await getIP(); await sendToTelegram(savedFingerprint, ip); }
+        if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', () => setTimeout(init, 2000)); } else { setTimeout(init, 2000); }
     })();
     </script>
 
-    <!-- ===== ОТПРАВКА ФОРМЫ В TELEGRAM ===== -->
-    <script>
-        const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
-        const TELEGRAM_CHAT_ID = '8277380855';
-        
-        document.getElementById('officeRequestForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const name = document.getElementById('office_name').value;
-            const phone = document.getElementById('office_phone').value;
-            const msg = document.getElementById('office_message').value;
-            const text = `🏢 <b>ОФИСНЫЙ ПЕРЕЕЗД (Premium)</b>\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💬 Сообщение: ${msg || '—'}`;
-            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode: 'HTML' }) 
-            });
-            alert('✅ Заявка отправлена! Свяжемся в течение 15 минут.');
-            this.reset();
-            if(typeof gtag === 'function') gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
-        });
-
-        document.getElementById('reviewForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('reviewName').value;
-            const text = document.getElementById('reviewText').value;
-            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: `📝 Отзыв с office.html: ${name}\n${text}` }) 
-            });
-            alert('Спасибо за отзыв!');
-            document.getElementById('reviews-modal').classList.remove('is-active');
-            document.getElementById('reviewForm').reset();
-        });
-    </script>
-
-    <!-- ===== ОТСЛЕЖИВАНИЕ КОНВЕРСИЙ ===== -->
+    <!-- ===== СКРИПТ КАЧЕСТВЕННЫХ КОНВЕРСИЙ GOOGLE ADS ===== -->
     <script>
     (function() {
-        if (sessionStorage.getItem('google_ads_conversion_sent')) return;
-        
-        window.gtag_report_conversion = function(url, isRedirect = true) {
-            if (sessionStorage.getItem('google_ads_conversion_sent')) { 
-                if(isRedirect && url) window.location.href=url; 
-                return false; 
-            }
-            var callback = function() { 
-                sessionStorage.setItem('google_ads_conversion_sent','true'); 
-                if(isRedirect && url) window.location.href=url; 
-            };
-            gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB', 'event_callback': callback });
-            return false;
-        };
-        
-        function handleClick(e) {
-            const link = e.currentTarget;
-            const href = link.getAttribute('href');
-            if(!href) return;
-            if(href.startsWith('tel:') || href.includes('wa.me') || href.includes('whatsapp.com') || href.includes('t.me') || href.includes('tg://')) {
-                e.preventDefault();
-                window.gtag_report_conversion(href, true);
-            }
-        }
-        
-        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="t.me"], a[href*="tg://"]').forEach(link => link.addEventListener('click', handleClick));
-        
-        const phoneElements = document.querySelectorAll('.header-phone, .footer-col a[href^="tel:"]');
-        let hoverSent = false;
-        phoneElements.forEach(el => {
-            el.addEventListener('mouseenter', () => { 
-                if(!hoverSent && !sessionStorage.getItem('google_ads_conversion_sent')) { 
-                    hoverSent = true; 
-                    gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' }); 
-                    sessionStorage.setItem('google_ads_conversion_sent','true'); 
-                } 
-            });
-        });
+        const CONVERSION_SENT_KEY = 'gruzim_ga4_conversion_sent';
+        const MIN_TIME_SEC = 30;
+        const MIN_SCROLL_PERCENT = 50;
+        let timeConditionMet = false, scrollConditionMet = false, baseConditionsMet = false, startTime = Date.now(), scrollCheckDone = false;
+        function sendConversion(triggerName) { if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false; if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' }); sessionStorage.setItem(CONVERSION_SENT_KEY, 'true'); return true; } return false; }
+        function checkBaseConditions() { if (baseConditionsMet) return true; if (timeConditionMet && scrollConditionMet) { baseConditionsMet = true; sendConversion('30сек+50%скролл'); return true; } return false; }
+        setInterval(() => { if ((Date.now() - startTime) / 1000 >= MIN_TIME_SEC) { timeConditionMet = true; checkBaseConditions(); } }, 1000);
+        function checkScroll() { if (scrollCheckDone) return; const percent = (window.pageYOffset + window.innerHeight) / document.documentElement.scrollHeight * 100; if (percent >= MIN_SCROLL_PERCENT) { scrollConditionMet = true; scrollCheckDone = true; checkBaseConditions(); window.removeEventListener('scroll', checkScroll); window.removeEventListener('wheel', checkScroll); window.removeEventListener('touchmove', checkScroll); } }
+        window.addEventListener('scroll', checkScroll); window.addEventListener('wheel', checkScroll); window.addEventListener('touchmove', checkScroll);
+        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"], a[href*="t.me"]').forEach(link => { link.addEventListener('click', () => { if (timeConditionMet && scrollConditionMet) sendConversion('клик по контакту'); }); });
+        const phoneElements = document.querySelectorAll('.header-phone, .footer-col a[href^="tel:"]'); let hoverTimer; function sendHoverConversion() { if (timeConditionMet && scrollConditionMet) sendConversion('наведение на номер'); } phoneElements.forEach(el => { el.addEventListener('mouseenter', () => { clearTimeout(hoverTimer); hoverTimer = setTimeout(sendHoverConversion, 100); }); el.addEventListener('mouseleave', () => clearTimeout(hoverTimer)); });
+        const form = document.getElementById('callbackForm'); if (form) { form.addEventListener('submit', () => { if (!sessionStorage.getItem(CONVERSION_SENT_KEY)) { if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' }); sessionStorage.setItem(CONVERSION_SENT_KEY, 'true'); } } }); }
     })();
     </script>
+    <!-- ===== КОНЕЦ СКРИПТА КАЧЕСТВЕННЫХ КОНВЕРСИЙ ===== -->
 </body>
 </html>
