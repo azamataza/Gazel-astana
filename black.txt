@@ -1,23 +1,15 @@
 🖥️ Цифровой отпечаток:
 • Платформа: Linux armv81
-• Экран: 360x805
-• Язык: ru-KZ
-• Часовой пояс: Asia/Almaty
-• Ядер CPU: 8
-• WebGL: Adreno (TM) 610
-• WebGL Vendor: Qualcomm
-• WebGL Extensions: 23
-• Canvas Hash: 6f68ff598a9c39f9fe4d6649109cf8fac82c2d9c2d73a0639e958270d48f4977
-• Audio Hash: audio_needs_interaction
-• Шрифтов: 9
-• Память: 8 GB
-• Глубина цвета: 24
-• Эмулятор: НЕТ
-
-🖥️ Цифровой отпечаток:
-• Платформа: Linux armv81
 • Экран: 384x854
 • Язык: ru-RU
 • Часовой пояс: Asia/Almaty
-• Canvas Hash: 3481e75f8de530f8ac261c24415045b7609c988723fb49a471831e33860fc3e1
-• WebGL: Mali-G57 MC2
+• Ядер CPU: 8
+• WebGL: ANGLE (ARM, Mali-G57 MC2, OpenGL ES 3.2)
+• WebGL Vendor: Google Inc. (ARM)
+• WebGL Extensions: 23
+• Canvas Hash: 5bbeb2f74c0f0fb832e5ea474a2cd117e42be1976cf8a65ae6b2a79c0b4bfdb0
+• Audio Hash: audio_needs_interaction
+• Шрифтов: 9
+• Память: 4 GB
+• Глубина цвета: 24
+• Эмулятор: НЕТ
