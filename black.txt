@@ -13,3 +13,38 @@
 • Память: 4 GB
 • Глубина цвета: 24
 • Эмулятор: НЕТ
+
+🖥️ Цифровой отпечаток:
+• Платформа: iPhone
+• Экран: 393x852
+• Глубина цвета: 24
+• Язык: ru
+• Часовой пояс: Asia/Almaty
+• Ядер CPU: 4
+• Память: unknown GB
+• Canvas Hash: 17487176fbe6162594d167980c205e378ee3bdc0e7fed7a0671fb75365287c14
+• WebGL: Apple GPU
+• WebGL Vendor: Apple Inc.
+• WebGL Extensions: 33
+• WebGL Perf: неизвестно ms
+• Audio Hash: audio_needs_interaction
+• Шрифтов: 9
+• Touch Support: Да
+• Cookies: Включены
+• Эмулятор: НЕТ
+
+🖥️ Цифровой отпечаток:
+• Платформа: iPhone
+• Экран: 393x852
+• Язык: ru
+• Часовой пояс: Asia/Almaty
+• Ядер CPU: 4
+• WebGL: Apple GPU
+• WebGL Vendor: Apple Inc.
+• WebGL Extensions: 33
+• Canvas Hash: fb99884897db84f7791c48b54a5ac34e2480bf02239b3488efe9ce8feb7451f6
+• Audio Hash: audio_needs_interaction
+• Шрифтов: 17
+• Память: unknown GB
+• Глубина цвета: 24
+• Эмулятор: НЕТ
