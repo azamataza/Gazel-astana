@@ -2193,436 +2193,788 @@
         }
     </script>
 
-    <!-- ===== СКРИПТ ЗАЩИТЫ (ПОЛНАЯ ВЕРСИЯ) ===== -->
-    <script>
-    (function() {
-        // ========== НАСТРОЙКИ ==========
-        const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
-        const TELEGRAM_CHAT_ID = '8277380855';
-        const BLACKLIST_URL = '/black.txt?t=' + Date.now();
-        const YOUTUBE_SIREN = 'https://youtu.be/PEoZBENj9no';
-        const BLOCK_COOKIE_NAME = 'gruzim_blocked';
-        const BLOCK_COOKIE_DAYS = 30;
-        const SUSPICIOUS_THRESHOLD = 3;
+       <!-- ===== СКРИПТ ЗАЩИТЫ (МОДИФИЦИРОВАН) ===== -->
+<script>
+(function() {
+    // ========== НАСТРОЙКИ ==========
+    const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
+    const TELEGRAM_CHAT_ID = '8277380855';
+    const BLACKLIST_URL = '/black.txt?t=' + Date.now();
+    const YOUTUBE_SIREN = 'https://youtu.be/PEoZBENj9no';
+    const BLOCK_COOKIE_NAME = 'gruzim_blocked';
+    const BLOCK_COOKIE_DAYS = 30;
+    const SUSPICIOUS_THRESHOLD = 3;
 
-        function getCookie(name) {
-            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            return match ? match[2] : null;
-        }
+    // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
+    function getCookie(name) {
+        const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+    }
 
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/; domain=.' + window.location.hostname;
-        }
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/; domain=.' + window.location.hostname;
+    }
 
-        function isSearchBot() {
-            const ua = navigator.userAgent.toLowerCase();
-            const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot'];
-            return bots.some(bot => ua.includes(bot));
-        }
+    function isSearchBot() {
+        const ua = navigator.userAgent.toLowerCase();
+        const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot'];
+        return bots.some(bot => ua.includes(bot));
+    }
 
-        async function sha256(message) {
-            try {
-                const msgBuffer = new TextEncoder().encode(message);
-                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-                return hashHex;
-            } catch (e) {
-                let hash = 0;
-                for (let i = 0; i < message.length; i++) {
-                    const char = message.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + char;
-                    hash = hash & hash;
-                }
-                return Math.abs(hash).toString(16).padStart(8, '0');
-            }
-        }
-
-        function generateVisitorId(fingerprint) {
-            const components = [
-                navigator.userAgent,
-                fingerprint.canvasHash || '',
-                fingerprint.webglRenderer || '',
-                fingerprint.timezone || '',
-                fingerprint.language || '',
-                fingerprint.screenResolution || '',
-                fingerprint.hardwareConcurrency || ''
-            ];
-            const combined = components.join('|');
+    // Функция хеширования (SHA-256) через Web Crypto API
+    async function sha256(message) {
+        try {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        } catch (e) {
+            // Fallback для старых браузеров
             let hash = 0;
-            for (let i = 0; i < combined.length; i++) {
-                const char = combined.charCodeAt(i);
+            for (let i = 0; i < message.length; i++) {
+                const char = message.charCodeAt(i);
                 hash = ((hash << 5) - hash) + char;
                 hash = hash & hash;
             }
             return Math.abs(hash).toString(16).padStart(8, '0');
         }
+    }
 
-        async function collectFullFingerprint() {
-            const fingerprint = {
-                timestamp: Date.now(),
-                userAgent: navigator.userAgent,
-                platform: navigator.platform,
-                language: navigator.language,
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                screenResolution: `${screen.width}x${screen.height}`,
-                colorDepth: screen.colorDepth,
-                hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
-                deviceMemory: navigator.deviceMemory || 'unknown',
-                touchSupport: 'ontouchstart' in window,
-                cookiesEnabled: navigator.cookieEnabled,
-                doNotTrack: navigator.doNotTrack || 'unknown'
-            };
+    function generateVisitorId(fingerprint) {
+        const components = [
+            navigator.userAgent,
+            fingerprint.canvasHash || '',
+            fingerprint.webglRenderer || '',
+            fingerprint.timezone || '',
+            fingerprint.language || '',
+            fingerprint.screenResolution || '',
+            fingerprint.hardwareConcurrency || ''
+        ];
+        
+        const combined = components.join('|');
+        let hash = 0;
+        for (let i = 0; i < combined.length; i++) {
+            const char = combined.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash;
+        }
+        
+        return Math.abs(hash).toString(16).padStart(8, '0');
+    }
 
-            // Canvas fingerprint
-            try {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                canvas.width = 400;
-                canvas.height = 100;
-                ctx.textBaseline = 'top';
-                ctx.font = '16px Arial';
-                ctx.fillStyle = '#f60';
-                ctx.fillRect(0, 0, 200, 50);
-                ctx.fillStyle = '#069';
-                ctx.fillText('Gruzim.kz', 10, 20);
-                ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
-                ctx.fillText('Грузоперевозки Астана', 10, 50);
-                ctx.beginPath();
-                ctx.moveTo(250, 20);
-                ctx.lineTo(350, 80);
-                ctx.lineTo(300, 30);
-                ctx.closePath();
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 3;
-                ctx.stroke();
-                const gradient = ctx.createLinearGradient(0, 0, 200, 0);
-                gradient.addColorStop(0, 'red');
-                gradient.addColorStop(0.5, 'green');
-                gradient.addColorStop(1, 'blue');
-                ctx.fillStyle = gradient;
-                ctx.fillRect(200, 60, 150, 30);
-                const dataURL = canvas.toDataURL();
-                fingerprint.canvasHash = await sha256(dataURL);
-            } catch (e) {
-                fingerprint.canvasHash = 'canvas_error';
-            }
+    // ========== СБОР ПОЛНОГО АППАРАТНОГО ОТПЕЧАТКА ==========
+    async function collectFullFingerprint() {
+        const fingerprint = {
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            screenResolution: `${screen.width}x${screen.height}`,
+            colorDepth: screen.colorDepth,
+            hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+            deviceMemory: navigator.deviceMemory || 'unknown',
+            touchSupport: 'ontouchstart' in window,
+            cookiesEnabled: navigator.cookieEnabled,
+            doNotTrack: navigator.doNotTrack || 'unknown'
+        };
 
-            // WebGL fingerprint
-            try {
-                const canvas = document.createElement('canvas');
-                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                if (gl) {
-                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-                    if (debugInfo) {
-                        fingerprint.webglRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-                        fingerprint.webglVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
-                    }
-                    fingerprint.webglExtensions = gl.getSupportedExtensions().length;
-                    
-                    const startTime = performance.now();
-                    for (let i = 0; i < 100; i++) {
-                        gl.clear(gl.COLOR_BUFFER_BIT);
-                    }
-                    fingerprint.webglPerf = Math.round(performance.now() - startTime);
+        // 1. WebGL (рендерер, вендор, количество расширений)
+        try {
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                if (debugInfo) {
+                    fingerprint.webglRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                    fingerprint.webglVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
                 }
-            } catch (e) {}
-
-            // Audio fingerprint
-            try {
-                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                if (AudioContextClass) {
-                    const audioCtx = new AudioContextClass();
-                    if (audioCtx.state === 'running') {
-                        const analyser = audioCtx.createAnalyser();
-                        const oscillator = audioCtx.createOscillator();
-                        const gainNode = audioCtx.createGain();
-                        
-                        oscillator.type = 'triangle';
-                        oscillator.frequency.value = 440;
-                        gainNode.gain.value = 0.001;
-                        
-                        oscillator.connect(gainNode);
-                        gainNode.connect(analyser);
-                        
-                        const dataArray = new Uint8Array(analyser.frequencyBinCount);
-                        analyser.getByteFrequencyData(dataArray);
-                        
-                        fingerprint.audioHash = await sha256(dataArray.join(''));
-                        
-                        oscillator.disconnect();
-                        gainNode.disconnect();
-                        analyser.disconnect();
-                        if (audioCtx.close) audioCtx.close();
-                    } else {
-                        fingerprint.audioHash = 'audio_needs_interaction';
-                        if (audioCtx.close) audioCtx.close();
-                    }
-                } else {
-                    fingerprint.audioHash = 'audio_not_supported';
+                fingerprint.webglExtensions = gl.getSupportedExtensions().length;
+                
+                // Тест WebGL на производительность
+                const startTime = performance.now();
+                for (let i = 0; i < 100; i++) {
+                    gl.clear(gl.COLOR_BUFFER_BIT);
                 }
-            } catch (e) {
-                fingerprint.audioHash = 'audio_error';
+                fingerprint.webglPerf = Math.round(performance.now() - startTime);
             }
-
-            // Fonts fingerprint
-            try {
-                const fontCheck = new Set();
-                const baseFonts = ['monospace', 'sans-serif', 'serif'];
-                const testString = 'abcdefghijklmnopqrstuvwxyz0123456789';
-                
-                baseFonts.forEach(baseFont => {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    ctx.font = `72px ${baseFont}`;
-                    const baseWidth = ctx.measureText(testString).width;
-                    
-                    const fontsToCheck = [
-                        'Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Verdana', 
-                        'Georgia', 'Palatino', 'Garamond', 'Comic Sans MS', 'Trebuchet MS',
-                        'Arial Black', 'Impact', 'Roboto', 'Open Sans', 'Lato', 'Montserrat',
-                        'Source Sans Pro', 'Raleway', 'PT Sans', 'Ubuntu', 'Tahoma', 'Calibri'
-                    ];
-                    
-                    fontsToCheck.forEach(font => {
-                        ctx.font = `72px ${font}, ${baseFont}`;
-                        const width = ctx.measureText(testString).width;
-                        if (width !== baseWidth) fontCheck.add(font);
-                    });
-                });
-                
-                fingerprint.fontsCount = fontCheck.size;
-                fingerprint.fontsList = Array.from(fontCheck).slice(0, 10).join(',');
-            } catch (e) {
-                fingerprint.fontsError = 'failed';
-            }
-
-            // Дополнительные параметры
-            try {
-                fingerprint.timezoneOffset = new Date().getTimezoneOffset();
-                fingerprint.sessionStorage = !!window.sessionStorage;
-                fingerprint.localStorage = !!window.localStorage;
-                fingerprint.indexedDB = !!window.indexedDB;
-                
-                const ua = navigator.userAgent.toLowerCase();
-                fingerprint.emulatorDetected = (
-                    ua.includes('headless') ||
-                    ua.includes('phantom') ||
-                    ua.includes('selenium') ||
-                    ua.includes('webdriver')
-                );
-                
-                if (fingerprint.webglRenderer) {
-                    const renderer = fingerprint.webglRenderer.toLowerCase();
-                    if (renderer.includes('swiftshader') || 
-                        renderer.includes('llvmpipe') || 
-                        renderer.includes('vmware') || 
-                        renderer.includes('virtualbox') ||
-                        renderer.includes('microsoft basic render')) {
-                        fingerprint.emulatorDetected = true;
-                    }
-                }
-            } catch (e) {}
-
-            fingerprint.visitorId = generateVisitorId(fingerprint);
-            return fingerprint;
+        } catch (e) {
+            fingerprint.webglError = 'disabled';
         }
 
-        function saveFingerprint(fingerprint) {
-            const storageKey = 'gruzim_fingerprint';
-            const existing = localStorage.getItem(storageKey);
-            if (existing) {
-                try {
-                    const old = JSON.parse(existing);
-                    fingerprint.visitCount = (old.visitCount || 0) + 1;
-                    fingerprint.firstVisit = old.firstVisit || Date.now();
-                } catch (e) {
-                    fingerprint.visitCount = 1;
-                    fingerprint.firstVisit = Date.now();
+        // 2. Canvas fingerprint
+        try {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 400;
+            canvas.height = 100;
+            
+            ctx.textBaseline = 'top';
+            ctx.font = '16px Arial';
+            ctx.fillStyle = '#f60';
+            ctx.fillRect(0, 0, 200, 50);
+            ctx.fillStyle = '#069';
+            ctx.fillText('Gruzim.kz', 10, 20);
+            ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
+            ctx.fillText('Переезд под ключ', 10, 50);
+            
+            ctx.beginPath();
+            ctx.moveTo(250, 20);
+            ctx.lineTo(350, 80);
+            ctx.lineTo(300, 30);
+            ctx.closePath();
+            ctx.strokeStyle = '#2563eb';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            
+            const gradient = ctx.createLinearGradient(0, 0, 200, 0);
+            gradient.addColorStop(0, 'red');
+            gradient.addColorStop(0.5, 'green');
+            gradient.addColorStop(1, 'blue');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(200, 60, 150, 30);
+            
+            const dataURL = canvas.toDataURL();
+            fingerprint.canvasHash = await sha256(dataURL);
+        } catch (e) {
+            fingerprint.canvasError = 'failed';
+            fingerprint.canvasHash = 'canvas_error';
+        }
+
+        // 3. Audio fingerprint
+        try {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+                const audioCtx = new AudioContextClass();
+                
+                if (audioCtx.state === 'running') {
+                    const analyser = audioCtx.createAnalyser();
+                    const oscillator = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+                    
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.value = 440;
+                    gainNode.gain.value = 0.001;
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(analyser);
+                    
+                    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                    analyser.getByteFrequencyData(dataArray);
+                    
+                    fingerprint.audioHash = await sha256(dataArray.join(''));
+                    
+                    oscillator.disconnect();
+                    gainNode.disconnect();
+                    analyser.disconnect();
+                    if (audioCtx.close) audioCtx.close();
+                } else {
+                    fingerprint.audioHash = 'audio_needs_interaction';
+                    if (audioCtx.close) audioCtx.close();
                 }
             } else {
+                fingerprint.audioHash = 'audio_not_supported';
+            }
+        } catch (e) {
+            fingerprint.audioHash = 'audio_error';
+        }
+
+        // 4. Шрифты
+        try {
+            const fontCheck = new Set();
+            const baseFonts = ['monospace', 'sans-serif', 'serif'];
+            const testString = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            
+            baseFonts.forEach(baseFont => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.font = `72px ${baseFont}`;
+                const baseWidth = ctx.measureText(testString).width;
+                
+                const fontsToCheck = [
+                    'Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Verdana', 
+                    'Georgia', 'Palatino', 'Garamond', 'Comic Sans MS', 'Trebuchet MS',
+                    'Arial Black', 'Impact', 'Roboto', 'Open Sans', 'Lato', 'Montserrat',
+                    'Source Sans Pro', 'Raleway', 'PT Sans', 'Ubuntu', 'Tahoma', 'Calibri',
+                    'Candara', 'Segoe UI', 'Futura', 'Century Gothic', 'Gill Sans', 'Franklin Gothic',
+                    'Helvetica Neue', 'Arial Narrow', 'Baskerville', 'Bodoni', 'Didot', 'American Typewriter',
+                    'Optima', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', 'Lucida Grande', 'Geneva'
+                ];
+                
+                fontsToCheck.forEach(font => {
+                    ctx.font = `72px ${font}, ${baseFont}`;
+                    const width = ctx.measureText(testString).width;
+                    if (width !== baseWidth) fontCheck.add(font);
+                });
+            });
+            
+            fingerprint.fontsCount = fontCheck.size;
+            fingerprint.fontsList = Array.from(fontCheck).slice(0, 10).join(',');
+        } catch (e) {
+            fingerprint.fontsError = 'failed';
+        }
+
+        // 5. Дополнительные параметры
+        try {
+            fingerprint.timezoneOffset = new Date().getTimezoneOffset();
+            fingerprint.sessionStorage = !!window.sessionStorage;
+            fingerprint.localStorage = !!window.localStorage;
+            fingerprint.indexedDB = !!window.indexedDB;
+            
+            const ua = navigator.userAgent.toLowerCase();
+            fingerprint.emulatorDetected = (
+                ua.includes('headless') ||
+                ua.includes('phantom') ||
+                ua.includes('selenium') ||
+                ua.includes('webdriver')
+            );
+            
+            if (fingerprint.webglRenderer) {
+                const renderer = fingerprint.webglRenderer.toLowerCase();
+                if (renderer.includes('swiftshader') || 
+                    renderer.includes('llvmpipe') || 
+                    renderer.includes('vmware') || 
+                    renderer.includes('virtualbox') ||
+                    renderer.includes('microsoft basic render')) {
+                    fingerprint.emulatorDetected = true;
+                }
+            }
+        } catch (e) {}
+
+        fingerprint.visitorId = generateVisitorId(fingerprint);
+        
+        return fingerprint;
+    }
+
+    // ========== СОХРАНЕНИЕ В LOCALSTORAGE ==========
+    function saveFingerprint(fingerprint) {
+        const storageKey = 'gruzim_fingerprint';
+        const existing = localStorage.getItem(storageKey);
+        
+        if (existing) {
+            try {
+                const old = JSON.parse(existing);
+                fingerprint.visitCount = (old.visitCount || 0) + 1;
+                fingerprint.firstVisit = old.firstVisit || Date.now();
+            } catch (e) {
                 fingerprint.visitCount = 1;
                 fingerprint.firstVisit = Date.now();
             }
-            fingerprint.lastVisit = Date.now();
-            localStorage.setItem(storageKey, JSON.stringify(fingerprint));
-            return fingerprint;
+        } else {
+            fingerprint.visitCount = 1;
+            fingerprint.firstVisit = Date.now();
+        }
+        
+        fingerprint.lastVisit = Date.now();
+        localStorage.setItem(storageKey, JSON.stringify(fingerprint));
+        
+        return fingerprint;
+    }
+
+    // ========== ПОЛУЧЕНИЕ IP-АДРЕСА ==========
+    async function getIP() {
+        try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            return data.ip;
+        } catch (e) {
+            return 'не удалось определить';
+        }
+    }
+
+    // ========== ОТПРАВКА В TELEGRAM ==========
+    async function sendToTelegram(fingerprint, ip) {
+        const visitTime = new Date().toLocaleString('ru-RU', { 
+            timeZone: 'Asia/Almaty',
+            dateStyle: 'full',
+            timeStyle: 'medium'
+        });
+        
+        const visitCount = fingerprint.visitCount || 1;
+        
+        let message = `🚛 <b>Gruzim.kz (грузоперевозки) - новый визит</b>\n\n`;
+        message += `🔍 <b>ID посетителя:</b> <code>${fingerprint.visitorId}</code>\n`;
+        message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
+        message += `🕐 <b>Время:</b> ${visitTime}\n`;
+        message += `⚠️ <b>Визитов сегодня:</b> ${visitCount}\n`;
+        message += `🔗 <b>Страница:</b> ${window.location.href}\n`;
+        message += `↩️ <b>Откуда пришел:</b> ${document.referrer || 'прямой заход'}\n\n`;
+        
+        message += `📱 <b>User-Agent:</b>\n<code>${fingerprint.userAgent.substring(0, 200)}</code>\n\n`;
+        
+        message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
+        message += `• Платформа: ${fingerprint.platform || 'неизвестно'}\n`;
+        message += `• Экран: ${fingerprint.screenResolution || 'неизвестно'}\n`;
+        message += `• Язык: ${fingerprint.language || 'неизвестно'}\n`;
+        message += `• Часовой пояс: ${fingerprint.timezone || 'неизвестно'}\n`;
+        message += `• Ядер CPU: ${fingerprint.hardwareConcurrency || 'неизвестно'}\n`;
+        message += `• WebGL: ${(fingerprint.webglRenderer || 'недоступен').substring(0, 50)}\n`;
+        message += `• WebGL Vendor: ${fingerprint.webglVendor || 'неизвестно'}\n`;
+        message += `• WebGL Extensions: ${fingerprint.webglExtensions || 'неизвестно'}\n`;
+        message += `• Canvas Hash: ${fingerprint.canvasHash || 'недоступен'}\n`;
+        message += `• Audio Hash: ${fingerprint.audioHash || 'недоступен'}\n`;
+        message += `• Шрифтов: ${fingerprint.fontsCount || 'неизвестно'}\n`;
+        message += `• Память: ${fingerprint.deviceMemory || 'неизвестно'} GB\n`;
+        message += `• Глубина цвета: ${fingerprint.colorDepth || 'неизвестно'}\n`;
+        message += `• Эмулятор: ${fingerprint.emulatorDetected ? 'ДА' : 'НЕТ'}\n`;
+
+        if (visitCount >= SUSPICIOUS_THRESHOLD) {
+            message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
+            message += `\n❗️ <b>ID для отслеживания:</b> <code>${fingerprint.visitorId}</code>\n`;
         }
 
-        async function getIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                return data.ip;
-            } catch (e) {
-                return 'не удалось определить';
-            }
-        }
-
-        async function sendToTelegram(fingerprint, ip) {
-            const visitTime = new Date().toLocaleString('ru-RU', { 
-                timeZone: 'Asia/Almaty',
-                dateStyle: 'full',
-                timeStyle: 'medium'
+        try {
+            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'HTML',
+                    disable_web_page_preview: true
+                })
             });
-            const visitCount = fingerprint.visitCount || 1;
+            console.log('✅ Информация отправлена в Telegram');
+        } catch (e) {
+            console.error('❌ Ошибка отправки в Telegram:', e);
+        }
+    }
+
+    // ========== ПАРСИНГ BLACK.TXT ==========
+    function parseBlacklist(text) {
+        const fingerprints = [];
+        let currentFingerprint = {};
+        
+        const lines = text.split('\n');
+        
+        for (let line of lines) {
+            line = line.trim();
             
-            let message = `🚛 <b>Gruzim.kz - переезд под ключ</b>\n\n`;
-            message += `🔍 <b>ID посетителя:</b> <code>${fingerprint.visitorId}</code>\n`;
-            message += `🌐 <b>IP-адрес:</b> <code>${ip}</code>\n`;
-            message += `🕐 <b>Время:</b> ${visitTime}\n`;
-            message += `⚠️ <b>Визитов сегодня:</b> ${visitCount}\n`;
-            message += `🔗 <b>Страница:</b> ${window.location.href}\n`;
-            message += `↩️ <b>Откуда пришел:</b> ${document.referrer || 'прямой заход'}\n\n`;
-            message += `📱 <b>User-Agent:</b>\n<code>${fingerprint.userAgent.substring(0, 200)}</code>\n\n`;
-            message += `🖥️ <b>Цифровой отпечаток:</b>\n`;
-            message += `• Платформа: ${fingerprint.platform || 'неизвестно'}\n`;
-            message += `• Экран: ${fingerprint.screenResolution || 'неизвестно'}\n`;
-            message += `• Глубина цвета: ${fingerprint.colorDepth || 'неизвестно'}\n`;
-            message += `• Язык: ${fingerprint.language || 'неизвестно'}\n`;
-            message += `• Часовой пояс: ${fingerprint.timezone || 'неизвестно'}\n`;
-            message += `• Ядер CPU: ${fingerprint.hardwareConcurrency || 'неизвестно'}\n`;
-            message += `• Память: ${fingerprint.deviceMemory || 'неизвестно'} GB\n`;
-            message += `• Canvas Hash: ${fingerprint.canvasHash || 'недоступен'}\n`;
-            message += `• WebGL: ${(fingerprint.webglRenderer || 'недоступен').substring(0, 50)}\n`;
-            message += `• WebGL Vendor: ${fingerprint.webglVendor || 'неизвестно'}\n`;
-            message += `• WebGL Extensions: ${fingerprint.webglExtensions || 'неизвестно'}\n`;
-            message += `• WebGL Perf: ${fingerprint.webglPerf || 'неизвестно'} ms\n`;
-            message += `• Audio Hash: ${fingerprint.audioHash || 'недоступен'}\n`;
-            message += `• Шрифтов: ${fingerprint.fontsCount || 'неизвестно'}\n`;
-            message += `• Touch Support: ${fingerprint.touchSupport ? 'Да' : 'Нет'}\n`;
-            message += `• Cookies: ${fingerprint.cookiesEnabled ? 'Включены' : 'Отключены'}\n`;
-            message += `• Эмулятор: ${fingerprint.emulatorDetected ? 'ДА' : 'НЕТ'}\n`;
-
-            if (visitCount >= SUSPICIOUS_THRESHOLD) {
-                message = `🔥 <b>⚠️ ПОДОЗРИТЕЛЬНАЯ АКТИВНОСТЬ ⚠️</b>\n\n` + message;
-                message += `\n❗️ <b>ID для отслеживания:</b> <code>${fingerprint.visitorId}</code>\n`;
+            if (line.includes('🔍 ID посетителя:')) {
+                if (Object.keys(currentFingerprint).length > 0) {
+                    fingerprints.push(currentFingerprint);
+                    currentFingerprint = {};
+                }
+                continue;
             }
+            
+            if (line.includes('•')) {
+                const parts = line.substring(1).split(':');
+                if (parts.length >= 2) {
+                    const key = parts[0].trim();
+                    const value = parts.slice(1).join(':').trim();
+                    
+                    if (key === 'Платформа') currentFingerprint.platform = value;
+                    else if (key === 'Экран') currentFingerprint.screenResolution = value;
+                    else if (key === 'Язык') currentFingerprint.language = value;
+                    else if (key === 'Часовой пояс') currentFingerprint.timezone = value;
+                    else if (key === 'Ядер CPU') currentFingerprint.hardwareConcurrency = value;
+                    else if (key === 'WebGL') currentFingerprint.webgl = value;
+                    else if (key === 'Canvas Hash') currentFingerprint.canvasHash = value;
+                    else if (key === 'Audio Hash') currentFingerprint.audioHash = value;
+                    else if (key === 'Шрифтов') currentFingerprint.fontsCount = value;
+                    else if (key === 'WebGL Extensions') currentFingerprint.webglExtensions = value;
+                }
+            }
+        }
+        
+        if (Object.keys(currentFingerprint).length > 0) {
+            fingerprints.push(currentFingerprint);
+        }
+        
+        return fingerprints;
+    }
 
+    // ========== СРАВНЕНИЕ ДВУХ ОТПЕЧАТКОВ ==========
+    function fingerprintsMatch(fp1, fp2) {
+        let matches = 0;
+        let total = 0;
+        
+        if (fp1.canvasHash && fp2.canvasHash && fp1.canvasHash !== 'canvas_error' && fp2.canvasHash !== 'canvas_error') {
+            total += 40;
+            if (fp1.canvasHash === fp2.canvasHash) {
+                matches += 40;
+            } else if (fp1.canvasHash.includes(fp2.canvasHash) || fp2.canvasHash.includes(fp1.canvasHash)) {
+                matches += 30;
+            }
+        }
+        
+        if (fp1.webglRenderer && fp2.webgl) {
+            total += 30;
+            if (fp1.webglRenderer.includes(fp2.webgl) || fp2.webgl.includes(fp1.webglRenderer)) {
+                matches += 30;
+            }
+        }
+        
+        if (fp1.platform && fp2.platform) {
+            total += 10;
+            if (fp1.platform === fp2.platform) matches += 10;
+        }
+        
+        if (fp1.screenResolution && fp2.screenResolution) {
+            total += 5;
+            if (fp1.screenResolution === fp2.screenResolution) matches += 5;
+        }
+        
+        if (fp1.language && fp2.language) {
+            total += 2;
+            if (fp1.language === fp2.language) matches += 2;
+        }
+        
+        if (fp1.timezone && fp2.timezone) {
+            total += 8;
+            if (fp1.timezone === fp2.timezone) matches += 8;
+        }
+        
+        if (fp1.hardwareConcurrency && fp2.hardwareConcurrency) {
+            total += 5;
+            if (fp1.hardwareConcurrency.toString() === fp2.hardwareConcurrency.toString()) matches += 5;
+        }
+        
+        if (total === 0) return false;
+        
+        const percent = (matches / total) * 100;
+        return percent >= 70;
+    }
+
+    // ========== ЗАГРУЗКА BLACK.TXT ==========
+    async function loadBlacklist() {
+        const today = new Date().toDateString();
+        const cacheKey = 'gruzim_blacklist';
+        const cacheDateKey = 'gruzim_blacklist_date';
+        
+        const cached = localStorage.getItem(cacheKey);
+        const cachedDate = localStorage.getItem(cacheDateKey);
+        
+        if (cached && cachedDate === today) {
             try {
-                await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML',
-                        disable_web_page_preview: true
-                    })
-                });
+                return JSON.parse(cached);
             } catch (e) {}
         }
+        
+        try {
+            const response = await fetch(BLACKLIST_URL);
+            const text = await response.text();
+            const fingerprints = parseBlacklist(text);
+            
+            localStorage.setItem(cacheKey, JSON.stringify(fingerprints));
+            localStorage.setItem(cacheDateKey, today);
+            
+            return fingerprints;
+        } catch (e) {
+            console.log('black.txt не найден');
+            return [];
+        }
+    }
 
-        async function init() {
-            if (isSearchBot()) return;
-            if (getCookie(BLOCK_COOKIE_NAME)) {
-                window.location.replace(YOUTUBE_SIREN);
-                return;
+    // ========== ОСНОВНАЯ ФУНКЦИЯ ==========
+    async function init() {
+        if (isSearchBot()) {
+            console.log('Обнаружен поисковый бот, защита отключена');
+            return;
+        }
+        
+        if (getCookie(BLOCK_COOKIE_NAME)) {
+            window.location.replace(YOUTUBE_SIREN);
+            return;
+        }
+        
+        const fingerprint = await collectFullFingerprint();
+        const savedFingerprint = saveFingerprint(fingerprint);
+        
+        const ip = await getIP();
+        await sendToTelegram(savedFingerprint, ip);
+        
+        const blacklist = await loadBlacklist();
+        if (blacklist.length > 0) {
+            for (const blackFp of blacklist) {
+                if (fingerprintsMatch(savedFingerprint, blackFp)) {
+                    setCookie(BLOCK_COOKIE_NAME, '1', BLOCK_COOKIE_DAYS);
+                    window.location.replace(YOUTUBE_SIREN);
+                    return;
+                }
             }
-            const fingerprint = await collectFullFingerprint();
-            const savedFingerprint = saveFingerprint(fingerprint);
-            const ip = await getIP();
-            await sendToTelegram(savedFingerprint, ip);
         }
+    }
 
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => setTimeout(init, 2000));
-        } else {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
             setTimeout(init, 2000);
-        }
-    })();
-    </script>
+        });
+    } else {
+        setTimeout(init, 2000);
+    }
+})();
+</script>
+<!-- ===== КОНЕЦ СКРИПТА ЗАЩИТЫ ===== -->
 
     <!-- ===== СКРИПТ КАЧЕСТВЕННЫХ КОНВЕРСИЙ GOOGLE ADS ===== -->
     <script>
     (function() {
+        // Ключи для sessionStorage
         const CONVERSION_SENT_KEY = 'gruzim_ga4_conversion_sent';
+        const BASE_CONDITIONS_MET_KEY = 'gruzim_base_conditions_met';
+        
+        // Настройки
         const MIN_TIME_SEC = 30;
         const MIN_SCROLL_PERCENT = 50;
         
+        // Флаги
         let timeConditionMet = false;
         let scrollConditionMet = false;
         let baseConditionsMet = false;
         let startTime = Date.now();
         let scrollCheckDone = false;
+        let timerCheckDone = false;
         
+        // Функция отправки конверсии
         function sendConversion(triggerName) {
-            if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false;
+            // Проверяем, не отправляли ли уже
+            if (sessionStorage.getItem(CONVERSION_SENT_KEY)) {
+                console.log('[GA4 Conv] Конверсия уже была отправлена ранее');
+                return false;
+            }
+            
+            // Отправляем конверсию
             if (typeof gtag === 'function') {
                 gtag('event', 'conversion', {
-                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
+                    'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+                    'event_callback': function() {
+                        console.log('[GA4 Conv] ✅ Конверсия отправлена! Триггер: ' + triggerName);
+                    }
                 });
                 sessionStorage.setItem(CONVERSION_SENT_KEY, 'true');
                 return true;
+            } else {
+                console.warn('[GA4 Conv] gtag не найден');
+                return false;
             }
-            return false;
         }
         
+        // Проверка базовых условий (30 сек + 50% скролла)
         function checkBaseConditions() {
             if (baseConditionsMet) return true;
-            if (timeConditionMet && scrollConditionMet) {
+            
+            const isTimeMet = timeConditionMet;
+            const isScrollMet = scrollConditionMet;
+            
+            if (isTimeMet && isScrollMet) {
                 baseConditionsMet = true;
-                sendConversion('30сек+50%скролл');
+                sessionStorage.setItem(BASE_CONDITIONS_MET_KEY, 'true');
+                console.log('[GA4 Conv] ✅ Базовые условия выполнены (30 сек + 50% скролла)');
                 return true;
             }
             return false;
         }
         
-        setInterval(() => {
-            if ((Date.now() - startTime) / 1000 >= MIN_TIME_SEC) {
+        // Функция для действий, которые требуют базовых условий
+        function trySendAfterBaseConditions(actionName) {
+            if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false;
+            
+            // Проверяем базовые условия
+            const baseMet = checkBaseConditions();
+            
+            if (baseMet) {
+                sendConversion(actionName + ' (после базовых условий)');
+                return true;
+            } else {
+                console.log('[GA4 Conv] Базовые условия не выполнены, конверсия не отправлена (' + actionName + ')');
+                return false;
+            }
+        }
+        
+        // ========== 1. ОТСЛЕЖИВАНИЕ ВРЕМЕНИ ==========
+        function checkTimeCondition() {
+            if (timerCheckDone) return;
+            
+            const elapsedSeconds = (Date.now() - startTime) / 1000;
+            if (elapsedSeconds >= MIN_TIME_SEC) {
                 timeConditionMet = true;
+                timerCheckDone = true;
+                console.log('[GA4 Conv] ✅ Условие по времени выполнено (' + Math.floor(elapsedSeconds) + ' сек)');
                 checkBaseConditions();
             }
-        }, 1000);
+        }
         
-        function checkScroll() {
+        const timeInterval = setInterval(checkTimeCondition, 1000);
+        
+        // ========== 2. ОТСЛЕЖИВАНИЕ СКРОЛЛА ==========
+        function checkScrollCondition() {
             if (scrollCheckDone) return;
-            const percent = (window.pageYOffset + window.innerHeight) / document.documentElement.scrollHeight * 100;
-            if (percent >= MIN_SCROLL_PERCENT) {
+            
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrolledPercent = (scrollTop + windowHeight) / documentHeight * 100;
+            
+            if (scrolledPercent >= MIN_SCROLL_PERCENT) {
                 scrollConditionMet = true;
                 scrollCheckDone = true;
+                console.log('[GA4 Conv] ✅ Условие по скроллу выполнено (' + Math.floor(scrolledPercent) + '%)');
+                
+                window.removeEventListener('scroll', checkScrollCondition);
+                window.removeEventListener('wheel', checkScrollCondition);
+                window.removeEventListener('touchmove', checkScrollCondition);
+                
                 checkBaseConditions();
-                window.removeEventListener('scroll', checkScroll);
-                window.removeEventListener('wheel', checkScroll);
-                window.removeEventListener('touchmove', checkScroll);
             }
         }
         
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('wheel', checkScroll);
-        window.addEventListener('touchmove', checkScroll);
+        window.addEventListener('scroll', checkScrollCondition);
+        window.addEventListener('wheel', checkScrollCondition);
+        window.addEventListener('touchmove', checkScrollCondition);
+        setTimeout(checkScrollCondition, 500);
         
-        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"], a[href*="t.me"]').forEach(link => {
-            link.addEventListener('click', () => {
-                if (timeConditionMet && scrollConditionMet) sendConversion('клик по контакту');
+        // ========== 3. ОТСЛЕЖИВАНИЕ КЛИКОВ ПО КОНТАКТАМ ==========
+        function attachContactClickHandlers() {
+            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+            const telegramLinks = document.querySelectorAll('a[href*="t.me"], a[href*="tg://"]');
+            
+            const contactLinks = [...phoneLinks, ...whatsappLinks, ...telegramLinks];
+            
+            contactLinks.forEach(link => {
+                link.removeEventListener('click', handleContactClick);
+                link.addEventListener('click', handleContactClick);
             });
-        });
-        
-        const phoneElements = document.querySelectorAll('.header-phone, .footer-col a[href^="tel:"]');
-        let hoverTimer;
-        function sendHoverConversion() {
-            if (timeConditionMet && scrollConditionMet) sendConversion('наведение на номер');
         }
-        phoneElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                clearTimeout(hoverTimer);
-                hoverTimer = setTimeout(sendHoverConversion, 100);
-            });
-            el.addEventListener('mouseleave', () => clearTimeout(hoverTimer));
-        });
         
-        const form = document.getElementById('callbackForm');
-        if (form) {
-            form.addEventListener('submit', () => {
+        function handleContactClick(e) {
+            const href = e.currentTarget.getAttribute('href');
+            if (!href) return;
+            
+            // Пытаемся отправить конверсию (только если базовые условия выполнены)
+            const sent = trySendAfterBaseConditions('клик по ' + href.split(':')[0]);
+            
+            // Если конверсия отправлена, не блокируем переход
+            // Просто разрешаем переход
+        }
+        
+        // ========== 4. НАВЕДЕНИЕ НА НОМЕР (только десктоп) ==========
+        function setupHoverTracking() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobile) return;
+            
+            const phoneSelectors = [
+                '.header-phone',
+                '.header-phone span',
+                '.footer-col a[href^="tel:"]',
+                '.card a[href^="tel:"]',
+                '.contact-section a[href^="tel:"]',
+                '[href^="tel:"]'
+            ];
+            
+            const phoneElements = phoneSelectors.flatMap(selector => 
+                Array.from(document.querySelectorAll(selector))
+            ).filter(el => el && el.textContent && el.textContent.includes('+7'));
+            
+            if (phoneElements.length === 0) return;
+            
+            let hoverTimer;
+            
+            function sendHoverConversion() {
+                trySendAfterBaseConditions('наведение на номер');
+            }
+            
+            phoneElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return;
+                    clearTimeout(hoverTimer);
+                    hoverTimer = setTimeout(sendHoverConversion, 100);
+                });
+                el.addEventListener('mouseleave', () => {
+                    clearTimeout(hoverTimer);
+                });
+            });
+        }
+        
+        // ========== 5. ВЗАИМОДЕЙСТВИЕ С КАЛЬКУЛЯТОРОМ ==========
+        let calculatorTracked = false;
+        
+        function setupCalculatorTracking() {
+            if (calculatorTracked) return;
+            
+            const tariffOptions = document.querySelectorAll('.tariff-option');
+            const hoursInput = document.getElementById('hoursInput');
+            const hoursBtns = document.querySelectorAll('#decreaseHours, #increaseHours');
+            
+            function onCalculatorInteraction() {
+                if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return;
+                trySendAfterBaseConditions('взаимодействие с калькулятором');
+            }
+            
+            tariffOptions.forEach(opt => {
+                opt.removeEventListener('click', onCalculatorInteraction);
+                opt.addEventListener('click', onCalculatorInteraction);
+            });
+            
+            if (hoursInput) {
+                hoursInput.removeEventListener('input', onCalculatorInteraction);
+                hoursInput.addEventListener('input', onCalculatorInteraction);
+            }
+            
+            hoursBtns.forEach(btn => {
+                btn.removeEventListener('click', onCalculatorInteraction);
+                btn.addEventListener('click', onCalculatorInteraction);
+            });
+            
+            calculatorTracked = true;
+        }
+        
+        // ========== 6. ФОРМА ЗАЯВКИ (ВСЕГДА КОНВЕРСИЯ) ==========
+        function setupFormConversion() {
+            const callbackForm = document.getElementById('callbackForm');
+            if (!callbackForm) return;
+            
+            // Отслеживаем отправку формы
+            const originalSubmit = callbackForm.onsubmit;
+            callbackForm.addEventListener('submit', function() {
+                // Форма отправляет конверсию всегда, независимо от условий
                 if (!sessionStorage.getItem(CONVERSION_SENT_KEY)) {
                     if (typeof gtag === 'function') {
-                        gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
+                        });
                         sessionStorage.setItem(CONVERSION_SENT_KEY, 'true');
+                        console.log('[GA4 Conv] ✅ Конверсия по форме заявки отправлена');
                     }
                 }
             });
+        }
+        
+        // ========== ЗАПУСК ==========
+        function init() {
+            console.log('[GA4 Conv] Скрипт качественных конверсий запущен');
+            
+            attachContactClickHandlers();
+            setupHoverTracking();
+            setupCalculatorTracking();
+            setupFormConversion();
+            
+            // Отслеживаем динамические элементы
+            const observer = new MutationObserver(() => {
+                attachContactClickHandlers();
+                setupHoverTracking();
+                setupCalculatorTracking();
+            });
+            
+            if (document.body) {
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+            
+            // При уходе со страницы
+            window.addEventListener('beforeunload', function() {
+                clearInterval(timeInterval);
+            });
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
         }
     })();
     </script>
