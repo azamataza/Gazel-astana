@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Грузоперевозки в Астане недорого | Gruzim.kz — переезды под ключ Астана, вывоз мусора Астана, сборка разборка мебели Астана</title>
 
     <meta name="description" content="Закажите грузоперевозки в Астане недорого. Квартирные и офисные переезды под ключ, вывоз мусора, разборка мебели. Грузчики, ГАЗель. Работаем с юрлицами, безнал. Звоните!">
@@ -233,8 +233,28 @@
             display: none;
         }
         
-        /* Адаптация под мобильные */
+        /* Визуальное ядро — круг в центре (подсказка для пользователя) */
+        .sphere-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, rgba(37,99,235,0) 70%);
+            pointer-events: none;
+            z-index: 5;
+            border: 1px dashed rgba(37,99,235,0.4);
+        }
+        
         @media (max-width: 768px) {
+            .sphere-container::after {
+                width: 45%;
+                height: 45%;
+                background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0) 80%);
+            }
             .sphere-container {
                 min-height: 320px;
             }
@@ -1460,9 +1480,6 @@
             justify-items: center;
         }
 
-        /* Стили для стеклянных кнопок (УДАЛЕНЫ по вашему требованию — заменены сферой) */
-        /* .glass-service-btn удалён */
-
         @media (min-width: 992px) {
             .hero-glass-buttons {
                 grid-template-columns: 1fr 1fr;
@@ -2480,20 +2497,19 @@
             });
         }
         
-        // ===== ИНИЦИАЛИЗАЦИЯ TAGCANVAS (3D СФЕРА) =====
-        // Определяем тип устройства
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
+        // ===== ИНИЦИАЛИЗАЦИЯ TAGCANVAS (3D СФЕРА) + ЯДРО ДЛЯ МОБИЛЬНЫХ =====
         window.onload = function() {
             if (typeof TagCanvas !== 'undefined') {
                 try {
-                    // Базовые настройки для всех устройств
-                    let options = {
+                    TagCanvas.Start('globeCanvas', 'tags', {
                         textColour: '#ffffff',
                         outlineColour: '#2563eb',
                         outlineThickness: 1,
                         reverse: true,
                         depth: 0.9,
+                        maxSpeed: 0.06,
+                        initial: [0.1, -0.1],
+                        decel: 0.98,
                         wheelZoom: false,
                         shuffleTags: true,
                         frontSelect: true,
@@ -2517,35 +2533,82 @@
                         shadow: '#000000',
                         shadowBlur: 5,
                         shadowOffset: [1, 1]
-                    };
-                    
-                    if (isMobile) {
-                        // НА МОБИЛЬНЫХ: отключаем перетаскивание, включаем автовращение
-                        options.dragControl = false;      // нельзя крутить пальцем
-                        options.autoRotate = true;        // автоматическое вращение
-                        options.autoRotateDelay = 0;      // без задержки
-                        options.autoRotateSpeed = 0.8;    // медленное плавное вращение
-                        options.maxSpeed = 0;              // скорость не регулируется пользователем
-                        options.clickToFront = true;       // клик — слово выходит на передний план
-                        options.outlineMethod = 'size';    // обводка
-                        // Убираем курсор-граббер
-                        document.getElementById('globeCanvas').style.cursor = 'default';
-                    } else {
-                        // НА ДЕСКТОПАХ: интерактивное вращение мышкой
-                        options.dragControl = true;
-                        options.autoRotate = false;
-                        options.maxSpeed = 0.06;
-                        options.initial = [0.1, -0.1];
-                        options.decel = 0.98;
-                        document.getElementById('globeCanvas').style.cursor = 'grab';
-                    }
-                    
-                    TagCanvas.Start('globeCanvas', 'tags', options);
+                    });
+                    console.log('TagCanvas запущен');
                 } catch(e) {
                     console.log('TagCanvas ошибка:', e);
                 }
             } else {
                 console.log('TagCanvas не загружен');
+            }
+
+            // ========== ДОБАВЛЯЕМ ЛОГИКУ "ЯДРА" ДЛЯ МОБИЛЬНЫХ ==========
+            const canvas = document.getElementById('globeCanvas');
+            if (!canvas) return;
+
+            let isDraggingCore = false;
+            let touchStartX, touchStartY;
+
+            // Функция определения в ядре (центральная область радиусом 40%)
+            function isInCoreArea(x, y) {
+                const rect = canvas.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const radius = Math.min(rect.width, rect.height) * 0.4;
+                const dx = x - centerX;
+                const dy = y - centerY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                return distance <= radius;
+            }
+
+            // Только для мобильных устройств
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                canvas.addEventListener('touchstart', (e) => {
+                    const touch = e.touches[0];
+                    if (isInCoreArea(touch.clientX, touch.clientY)) {
+                        isDraggingCore = true;
+                        touchStartX = touch.clientX;
+                        touchStartY = touch.clientY;
+                        // Разрешаем вращение сферы
+                        if (typeof TagCanvas !== 'undefined') {
+                            TagCanvas.SetOption('globeCanvas', 'dragControl', true);
+                        }
+                        // Не блокируем полностью, чтобы TagCanvas получил событие
+                    } else {
+                        isDraggingCore = false;
+                        // Вне ядра — отключаем вращение сферы
+                        if (typeof TagCanvas !== 'undefined') {
+                            TagCanvas.SetOption('globeCanvas', 'dragControl', false);
+                        }
+                    }
+                });
+
+                canvas.addEventListener('touchmove', (e) => {
+                    if (!isDraggingCore) {
+                        // Не в ядре — ничего не делаем, скролл страницы работает
+                        return;
+                    }
+                    // В ядре — предотвращаем скролл страницы
+                    e.preventDefault();
+                });
+
+                canvas.addEventListener('touchend', () => {
+                    isDraggingCore = false;
+                    // Восстанавливаем управление (на случай, если палец ушёл за пределы ядра)
+                    if (typeof TagCanvas !== 'undefined') {
+                        TagCanvas.SetOption('globeCanvas', 'dragControl', true);
+                    }
+                });
+
+                // Также обрабатываем отмену касания
+                canvas.addEventListener('touchcancel', () => {
+                    isDraggingCore = false;
+                    if (typeof TagCanvas !== 'undefined') {
+                        TagCanvas.SetOption('globeCanvas', 'dragControl', true);
+                    }
+                });
             }
         };
     </script>
