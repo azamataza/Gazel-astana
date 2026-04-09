@@ -204,54 +204,60 @@
         }
 
         /* --- Стили для 3D сферы TagCanvas --- */
-        .sphere-container {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            min-height: 400px;
-            margin: 30px auto 20px;
-            position: relative;
-            background: transparent;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        
-        #globeCanvas {
-            width: 100%;
-            height: auto;
-            max-width: 600px;
-            margin: 0 auto;
-            display: block;
-            cursor: grab;
-        }
-        
-        #globeCanvas:active {
-            cursor: grabbing;
-        }
-        
-        /* На мобильных — уменьшаем сферу и добавляем отступы по бокам */
-        @media (max-width: 768px) {
-            .sphere-container {
-                padding: 0 20px;
-                min-height: 320px;
-            }
-            #globeCanvas {
-                max-width: 400px;
-                width: 90%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .sphere-container {
-                padding: 0 15px;
-                min-height: 280px;
-            }
-            #globeCanvas {
-                max-width: 340px;
-                width: 100%;
-            }
-        }
+.sphere-container {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    min-height: 400px;
+    margin: 30px auto 20px;
+    position: relative;
+    background: transparent;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#globeCanvas {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    cursor: grab;
+}
+
+#globeCanvas:active {
+    cursor: grabbing;
+}
+
+/* На мобильных — увеличенные отступы слева и справа */
+@media (max-width: 768px) {
+    .sphere-container {
+        padding-left: 40px;
+        padding-right: 40px;
+        min-height: 320px;
+    }
+    #globeCanvas {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sphere-container {
+        padding-left: 30px;
+        padding-right: 30px;
+        min-height: 280px;
+    }
+}
+
+/* Для совсем маленьких экранов — ещё больше отступов */
+@media (max-width: 380px) {
+    .sphere-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
         
         /* Подсказка для мобильных: используйте два пальца */
         .sphere-hint {
