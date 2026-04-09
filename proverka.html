@@ -204,65 +204,59 @@
         }
 
         /* --- Стили для 3D сферы TagCanvas --- */
-.sphere-container {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    min-height: 400px;
-    margin: 30px auto 20px;
-    position: relative;
-    background: transparent;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-#globeCanvas {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
-    margin: 0 auto;
-    display: block;
-    cursor: grab;
-}
-
-#globeCanvas:active {
-    cursor: grabbing;
-}
-        /* === ЭТИ ТРИ СТРОЧКИ ДОБАВИТЬ СЮДА === */
-.tagcanvas-tags a {
-    pointer-events: none;
-    cursor: default;
-}
-
-/* На мобильных — увеличенные отступы слева и справа */
-@media (max-width: 768px) {
-    .sphere-container {
-        padding-left: 40px;
-        padding-right: 40px;
-        min-height: 320px;
-    }
-    #globeCanvas {
-        max-width: 100%;
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .sphere-container {
-        padding-left: 30px;
-        padding-right: 30px;
-        min-height: 280px;
-    }
-}
-
-/* Для совсем маленьких экранов — ещё больше отступов */
-@media (max-width: 380px) {
-    .sphere-container {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
+        .sphere-container {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            min-height: 400px;
+            margin: 30px auto 20px;
+            position: relative;
+            background: transparent;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        #globeCanvas {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            cursor: grab;
+        }
+        
+        #globeCanvas:active {
+            cursor: grabbing;
+        }
+        
+        /* На мобильных — увеличенные отступы слева и справа */
+        @media (max-width: 768px) {
+            .sphere-container {
+                padding-left: 40px;
+                padding-right: 40px;
+                min-height: 320px;
+            }
+            #globeCanvas {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sphere-container {
+                padding-left: 30px;
+                padding-right: 30px;
+                min-height: 280px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .sphere-container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
         
         /* Подсказка для мобильных: используйте два пальца */
         .sphere-hint {
@@ -1628,22 +1622,22 @@
                     <p>Ваш браузер не поддерживает Canvas</p>
                 </canvas>
             </div>
-            <div class="sphere-hint">вселенная Gruzim.kz</div>
+            <div class="sphere-hint">🖐️ Вращайте сферу двумя пальцами</div>
             
-            <!-- Скрытый список тегов для TagCanvas (10 слов с ссылками) -->
+            <!-- Скрытый список тегов для TagCanvas (ключевые слова, обёрнутые в span с цветами радуги, без ссылок) -->
             <div id="tags" class="tagcanvas-tags">
                 <ul>
-                    <li><span>Квартирный переезд</span></li>
-        <li><span>Офисный переезд</span></li>
-        <li><span>Вывоз мусора</span></li>
-        <li><span>Услуги такелажа</span></li>
-        <li><span>Сборка мебели</span></li>
-        <li><span>Утилизация мебели</span></li>
-        <li><span>Вывоз хлама</span></li>
-        <li><span>Демонтаж мебели</span></li>
-        <li><span>Юр. лицам</span></li>
-        <li><span>Контакты</span></li>
-                    <li><span>Грузчики</span></li>
+                    <li><span style="color:#FF6B6B;">Квартирный переезд</span></li>
+                    <li><span style="color:#4ECDC4;">Офисный переезд</span></li>
+                    <li><span style="color:#FFE66D;">Вывоз мусора</span></li>
+                    <li><span style="color:#FF9F1C;">Услуги такелажа</span></li>
+                    <li><span style="color:#9B5DE5;">Сборка мебели</span></li>
+                    <li><span style="color:#00BBF9;">Утилизация мебели</span></li>
+                    <li><span style="color:#00F5D4;">Вывоз хлама</span></li>
+                    <li><span style="color:#F15BB5;">Демонтаж мебели</span></li>
+                    <li><span style="color:#FEE440;">Юр. лицам</span></li>
+                    <li><span style="color:#9B5DE5;">Контакты</span></li>
+                    <li><span style="color:#FF6B6B;">Грузчики</span></li>
                 </ul>
             </div>
             <!-- Конец сферы -->
@@ -2520,12 +2514,12 @@
             });
         }
         
-        // ===== ИНИЦИАЛИЗАЦИЯ TAGCANVAS (3D СФЕРА) С ДВУМЯ ПАЛЬЦАМИ И ЗАДЕРЖКОЙ =====
+        // ===== ИНИЦИАЛИЗАЦИЯ TAGCANVAS (3D СФЕРА) =====
         window.onload = function() {
             if (typeof TagCanvas !== 'undefined') {
                 try {
                     TagCanvas.Start('globeCanvas', 'tags', {
-                        textColour: '#ffffff',
+                        textColour: null, // null означает, что используем цвета из span
                         outlineColour: '#2563eb',
                         outlineThickness: 1,
                         reverse: true,
@@ -2535,7 +2529,7 @@
                         decel: 0.98,
                         wheelZoom: false,
                         shuffleTags: true,
-                        frontSelect: true,
+                        frontSelect: false, // отключаем выделение и клики
                         textHeight: 26,
                         textFont: 'Inter, sans-serif',
                         weight: true,
@@ -2546,7 +2540,7 @@
                         pulsateTime: 0.5,
                         freezeActive: false,
                         freezeDecel: true,
-                        activeCursor: 'pointer',
+                        activeCursor: 'default',
                         bgColour: null,
                         bgOutline: 0,
                         bgThickness: 0,
@@ -2555,7 +2549,11 @@
                         txtScale: 1.2,
                         shadow: '#000000',
                         shadowBlur: 5,
-                        shadowOffset: [1, 1]
+                        shadowOffset: [1, 1],
+                        hideTags: false,
+                        noSelect: true,      // запрещаем выделение текста
+                        noMouse: false,
+                        dragControl: true    // вращение мышью/пальцем
                     });
                     console.log('TagCanvas запущен');
                 } catch(e) {
@@ -2563,87 +2561,6 @@
                 }
             } else {
                 console.log('TagCanvas не загружен');
-            }
-
-            // ========== ЛОГИКА ДЛЯ МОБИЛЬНЫХ: ВРАЩЕНИЕ ТОЛЬКО ДВУМЯ ПАЛЬЦАМИ, ЗАДЕРЖКА 0.3 СЕК ==========
-            const canvas = document.getElementById('globeCanvas');
-            if (!canvas) return;
-
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                let touchStartTime = 0;
-                let initialTouchesCount = 0;
-                let twoFingerTouchActive = false;
-                let rotationEnabled = false;
-                let rotationTimeout = null;
-                
-                // Отключаем встроенный dragControl TagCanvas на мобильных
-                if (typeof TagCanvas !== 'undefined') {
-                    TagCanvas.SetOption('globeCanvas', 'dragControl', false);
-                }
-                
-                canvas.style.touchAction = 'pan-y pinch-zoom'; // разрешаем вертикальный скролл
-                
-                canvas.addEventListener('touchstart', (e) => {
-                    const touches = e.touches.length;
-                    touchStartTime = Date.now();
-                    initialTouchesCount = touches;
-                    
-                    if (touches === 2) {
-                        // Два пальца — через 300 мс включаем вращение
-                        e.preventDefault();
-                        twoFingerTouchActive = true;
-                        
-                        if (rotationTimeout) clearTimeout(rotationTimeout);
-                        rotationTimeout = setTimeout(() => {
-                            if (twoFingerTouchActive && initialTouchesCount === 2) {
-                                rotationEnabled = true;
-                                if (typeof TagCanvas !== 'undefined') {
-                                    TagCanvas.SetOption('globeCanvas', 'dragControl', true);
-                                }
-                                canvas.style.touchAction = 'none';
-                            }
-                        }, 300);
-                    } else {
-                        // Один палец или три — отключаем вращение
-                        if (rotationTimeout) clearTimeout(rotationTimeout);
-                        twoFingerTouchActive = false;
-                        rotationEnabled = false;
-                        if (typeof TagCanvas !== 'undefined') {
-                            TagCanvas.SetOption('globeCanvas', 'dragControl', false);
-                        }
-                        canvas.style.touchAction = 'pan-y pinch-zoom';
-                    }
-                });
-                
-                canvas.addEventListener('touchmove', (e) => {
-                    if (rotationEnabled && e.touches.length === 2) {
-                        // Вращаем сферу — предотвращаем скролл
-                        e.preventDefault();
-                    }
-                    // Если вращение не включено — скролл работает
-                });
-                
-                canvas.addEventListener('touchend', (e) => {
-                    if (rotationTimeout) clearTimeout(rotationTimeout);
-                    twoFingerTouchActive = false;
-                    rotationEnabled = false;
-                    if (typeof TagCanvas !== 'undefined') {
-                        TagCanvas.SetOption('globeCanvas', 'dragControl', false);
-                    }
-                    canvas.style.touchAction = 'pan-y pinch-zoom';
-                });
-                
-                canvas.addEventListener('touchcancel', (e) => {
-                    if (rotationTimeout) clearTimeout(rotationTimeout);
-                    twoFingerTouchActive = false;
-                    rotationEnabled = false;
-                    if (typeof TagCanvas !== 'undefined') {
-                        TagCanvas.SetOption('globeCanvas', 'dragControl', false);
-                    }
-                    canvas.style.touchAction = 'pan-y pinch-zoom';
-                });
             }
         };
     </script>
