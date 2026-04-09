@@ -2481,18 +2481,19 @@
         }
         
         // ===== ИНИЦИАЛИЗАЦИЯ TAGCANVAS (3D СФЕРА) =====
+        // Определяем тип устройства
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
         window.onload = function() {
             if (typeof TagCanvas !== 'undefined') {
                 try {
-                    TagCanvas.Start('globeCanvas', 'tags', {
+                    // Базовые настройки для всех устройств
+                    let options = {
                         textColour: '#ffffff',
                         outlineColour: '#2563eb',
                         outlineThickness: 1,
                         reverse: true,
                         depth: 0.9,
-                        maxSpeed: 0.06,
-                        initial: [0.1, -0.1],
-                        decel: 0.98,
                         wheelZoom: false,
                         shuffleTags: true,
                         frontSelect: true,
@@ -2516,7 +2517,30 @@
                         shadow: '#000000',
                         shadowBlur: 5,
                         shadowOffset: [1, 1]
-                    });
+                    };
+                    
+                    if (isMobile) {
+                        // НА МОБИЛЬНЫХ: отключаем перетаскивание, включаем автовращение
+                        options.dragControl = false;      // нельзя крутить пальцем
+                        options.autoRotate = true;        // автоматическое вращение
+                        options.autoRotateDelay = 0;      // без задержки
+                        options.autoRotateSpeed = 0.8;    // медленное плавное вращение
+                        options.maxSpeed = 0;              // скорость не регулируется пользователем
+                        options.clickToFront = true;       // клик — слово выходит на передний план
+                        options.outlineMethod = 'size';    // обводка
+                        // Убираем курсор-граббер
+                        document.getElementById('globeCanvas').style.cursor = 'default';
+                    } else {
+                        // НА ДЕСКТОПАХ: интерактивное вращение мышкой
+                        options.dragControl = true;
+                        options.autoRotate = false;
+                        options.maxSpeed = 0.06;
+                        options.initial = [0.1, -0.1];
+                        options.decel = 0.98;
+                        document.getElementById('globeCanvas').style.cursor = 'grab';
+                    }
+                    
+                    TagCanvas.Start('globeCanvas', 'tags', options);
                 } catch(e) {
                     console.log('TagCanvas ошибка:', e);
                 }
