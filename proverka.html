@@ -213,8 +213,6 @@
             position: relative;
             background: transparent;
             border-radius: 20px;
-            display: flex;
-            justify-content: center;
         }
         
         #globeCanvas {
@@ -230,52 +228,42 @@
             cursor: grabbing;
         }
         
-        /* На мобильных — увеличенные отступы слева и справа */
+        /* Скрытый список тегов для TagCanvas */
+        .tagcanvas-tags {
+            display: none;
+        }
+        
+        /* Визуальное ядро — круг в центре (подсказка для пользователя) */
+        .sphere-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, rgba(37,99,235,0) 70%);
+            pointer-events: none;
+            z-index: 5;
+            border: 1px dashed rgba(37,99,235,0.4);
+        }
+        
         @media (max-width: 768px) {
-            .sphere-container {
-                padding-left: 40px;
-                padding-right: 40px;
-                min-height: 320px;
+            .sphere-container::after {
+                width: 45%;
+                height: 45%;
+                background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0) 80%);
             }
-            #globeCanvas {
-                max-width: 100%;
-                width: 100%;
+            .sphere-container {
+                min-height: 320px;
             }
         }
         
         @media (max-width: 480px) {
             .sphere-container {
-                padding-left: 30px;
-                padding-right: 30px;
                 min-height: 280px;
             }
-        }
-        
-        @media (max-width: 380px) {
-            .sphere-container {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-        }
-        
-        /* Подсказка для мобильных: используйте два пальца */
-        .sphere-hint {
-            text-align: center;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.7);
-            margin-top: 8px;
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .sphere-hint {
-                display: block;
-            }
-        }
-        
-        /* Скрытый список тегов для TagCanvas */
-        .tagcanvas-tags {
-            display: none;
         }
 
         /* --- Плавающая шапка --- */
@@ -1492,9 +1480,6 @@
             justify-items: center;
         }
 
-        /* Стили для стеклянных кнопок (УДАЛЕНЫ по вашему требованию — заменены сферой) */
-        /* .glass-service-btn удалён */
-
         @media (min-width: 992px) {
             .hero-glass-buttons {
                 grid-template-columns: 1fr 1fr;
@@ -1622,22 +1607,20 @@
                     <p>Ваш браузер не поддерживает Canvas</p>
                 </canvas>
             </div>
-            <div class="sphere-hint">🖐️ Вращайте сферу двумя пальцами</div>
             
-            <!-- Скрытый список тегов для TagCanvas (ключевые слова, обёрнутые в span с цветами радуги, без ссылок) -->
+            <!-- Скрытый список тегов для TagCanvas (10 слов с ссылками) -->
             <div id="tags" class="tagcanvas-tags">
                 <ul>
-                    <li><span style="color:#FF6B6B;">Квартирный переезд</span></li>
-                    <li><span style="color:#4ECDC4;">Офисный переезд</span></li>
-                    <li><span style="color:#FFE66D;">Вывоз мусора</span></li>
-                    <li><span style="color:#FF9F1C;">Услуги такелажа</span></li>
-                    <li><span style="color:#9B5DE5;">Сборка мебели</span></li>
-                    <li><span style="color:#00BBF9;">Утилизация мебели</span></li>
-                    <li><span style="color:#00F5D4;">Вывоз хлама</span></li>
-                    <li><span style="color:#F15BB5;">Демонтаж мебели</span></li>
-                    <li><span style="color:#FEE440;">Юр. лицам</span></li>
-                    <li><span style="color:#9B5DE5;">Контакты</span></li>
-                    <li><span style="color:#FF6B6B;">Грузчики</span></li>
+                    <li><a href="/pereezdkay.html">Квартирный переезд</a></li>
+                    <li><a href="/office.html">Офисный переезд</a></li>
+                    <li><a href="/musor.html">Вывоз мусора</a></li>
+                    <li><a href="/takelazh.html">Услуги такелажа</a></li>
+                    <li><a href="/mebel.html">Сборка мебели</a></li>
+                    <li><a href="/musor.html">Утилизация мебели</a></li>
+                    <li><a href="/musor.html">Вывоз хлама</a></li>
+                    <li><a href="/mebel.html">Демонтаж мебели</a></li>
+                    <li><a href="/B2B.html">Юр. лицам</a></li>
+                    <li><a href="tel:+77010120300">Контакты</a></li>
                 </ul>
             </div>
             <!-- Конец сферы -->
@@ -2514,56 +2497,120 @@
             });
         }
         
-        // ===== ИНИЦИАЛИЗАЦИЯ TAGCANVAS (3D СФЕРА) =====
-window.onload = function() {
-    if (typeof TagCanvas !== 'undefined') {
-        try {
-            TagCanvas.Start('globeCanvas', 'tags', {
-                textColour: null, // null означает, что используем цвета из span
-                outlineColour: '#2563eb',
-                outlineThickness: 1,
-                reverse: true,
-                depth: 0.9,
-                maxSpeed: 0.06,
-                initial: [0.1, -0.1],
-                decel: 0.98,
-                wheelZoom: false,
-                shuffleTags: true,
-                frontSelect: false, // отключаем выделение и клики
-                textHeight: 26,
-                textFont: 'Inter, sans-serif',
-                weight: true,
-                weightMode: 'size',
-                weightSize: 2,
-                weightGradient: { 0: '#fbbf24', 0.5: '#3b82f6', 1: '#10b981' },
-                pulsateTo: 1.2,
-                pulsateTime: 0.5,
-                freezeActive: false,
-                freezeDecel: true,
-                activeCursor: 'default',
-                bgColour: null,
-                bgOutline: 0,
-                bgThickness: 0,
-                outlineIncrease: 3,
-                txtOpt: true,
-                txtScale: 1.2,
-                shadow: '#000000',
-                shadowBlur: 5,
-                shadowOffset: [1, 1],
-                itemSelector: 'li',   // <--- ЗАПЯТАЯ В КОНЦЕ!
-                hideTags: false,
-                noSelect: true,      // запрещаем выделение текста
-                noMouse: false,
-                dragControl: true    // вращение мышью/пальцем
-            });
-            console.log('TagCanvas запущен');
-        } catch(e) {
-            console.log('TagCanvas ошибка:', e);
-        }
-    } else {
-        console.log('TagCanvas не загружен');
-    }
-};
+        // ===== ИНИЦИАЛИЗАЦИЯ TAGCANVAS (3D СФЕРА) + ЯДРО ДЛЯ МОБИЛЬНЫХ =====
+        window.onload = function() {
+            if (typeof TagCanvas !== 'undefined') {
+                try {
+                    TagCanvas.Start('globeCanvas', 'tags', {
+                        textColour: '#ffffff',
+                        outlineColour: '#2563eb',
+                        outlineThickness: 1,
+                        reverse: true,
+                        depth: 0.9,
+                        maxSpeed: 0.06,
+                        initial: [0.1, -0.1],
+                        decel: 0.98,
+                        wheelZoom: false,
+                        shuffleTags: true,
+                        frontSelect: true,
+                        textHeight: 26,
+                        textFont: 'Inter, sans-serif',
+                        weight: true,
+                        weightMode: 'size',
+                        weightSize: 2,
+                        weightGradient: { 0: '#fbbf24', 0.5: '#3b82f6', 1: '#10b981' },
+                        pulsateTo: 1.2,
+                        pulsateTime: 0.5,
+                        freezeActive: false,
+                        freezeDecel: true,
+                        activeCursor: 'pointer',
+                        bgColour: null,
+                        bgOutline: 0,
+                        bgThickness: 0,
+                        outlineIncrease: 3,
+                        txtOpt: true,
+                        txtScale: 1.2,
+                        shadow: '#000000',
+                        shadowBlur: 5,
+                        shadowOffset: [1, 1]
+                    });
+                    console.log('TagCanvas запущен');
+                } catch(e) {
+                    console.log('TagCanvas ошибка:', e);
+                }
+            } else {
+                console.log('TagCanvas не загружен');
+            }
+
+            // ========== ДОБАВЛЯЕМ ЛОГИКУ "ЯДРА" ДЛЯ МОБИЛЬНЫХ ==========
+            const canvas = document.getElementById('globeCanvas');
+            if (!canvas) return;
+
+            let isDraggingCore = false;
+            let touchStartX, touchStartY;
+
+            // Функция определения в ядре (центральная область радиусом 40%)
+            function isInCoreArea(x, y) {
+                const rect = canvas.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const radius = Math.min(rect.width, rect.height) * 0.4;
+                const dx = x - centerX;
+                const dy = y - centerY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                return distance <= radius;
+            }
+
+            // Только для мобильных устройств
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                canvas.addEventListener('touchstart', (e) => {
+                    const touch = e.touches[0];
+                    if (isInCoreArea(touch.clientX, touch.clientY)) {
+                        isDraggingCore = true;
+                        touchStartX = touch.clientX;
+                        touchStartY = touch.clientY;
+                        // Разрешаем вращение сферы
+                        if (typeof TagCanvas !== 'undefined') {
+                            TagCanvas.SetOption('globeCanvas', 'dragControl', true);
+                        }
+                        // Не блокируем полностью, чтобы TagCanvas получил событие
+                    } else {
+                        isDraggingCore = false;
+                        // Вне ядра — отключаем вращение сферы
+                        if (typeof TagCanvas !== 'undefined') {
+                            TagCanvas.SetOption('globeCanvas', 'dragControl', false);
+                        }
+                    }
+                });
+
+                canvas.addEventListener('touchmove', (e) => {
+                    if (!isDraggingCore) {
+                        // Не в ядре — ничего не делаем, скролл страницы работает
+                        return;
+                    }
+                    // В ядре — предотвращаем скролл страницы
+                    e.preventDefault();
+                });
+
+                canvas.addEventListener('touchend', () => {
+                    isDraggingCore = false;
+                    // Восстанавливаем управление (на случай, если палец ушёл за пределы ядра)
+                    if (typeof TagCanvas !== 'undefined') {
+                        TagCanvas.SetOption('globeCanvas', 'dragControl', true);
+                    }
+                });
+
+                // Также обрабатываем отмену касания
+                canvas.addEventListener('touchcancel', () => {
+                    isDraggingCore = false;
+                    if (typeof TagCanvas !== 'undefined') {
+                        TagCanvas.SetOption('globeCanvas', 'dragControl', true);
+                    }
+                });
+            }
+        };
     </script>
 
     <!-- ===== СКРИПТ ЗАЩИТЫ (МОДИФИЦИРОВАН) ===== -->
