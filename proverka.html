@@ -2515,55 +2515,55 @@
         }
         
         // ===== ИНИЦИАЛИЗАЦИЯ TAGCANVAS (3D СФЕРА) =====
-        window.onload = function() {
-            if (typeof TagCanvas !== 'undefined') {
-                try {
-                    TagCanvas.Start('globeCanvas', 'tags', {
-                        textColour: null, // null означает, что используем цвета из span
-                        outlineColour: '#2563eb',
-                        outlineThickness: 1,
-                        reverse: true,
-                        depth: 0.9,
-                        maxSpeed: 0.06,
-                        initial: [0.1, -0.1],
-                        decel: 0.98,
-                        wheelZoom: false,
-                        shuffleTags: true,
-                        frontSelect: false, // отключаем выделение и клики
-                        textHeight: 26,
-                        textFont: 'Inter, sans-serif',
-                        weight: true,
-                        weightMode: 'size',
-                        weightSize: 2,
-                        weightGradient: { 0: '#fbbf24', 0.5: '#3b82f6', 1: '#10b981' },
-                        pulsateTo: 1.2,
-                        pulsateTime: 0.5,
-                        freezeActive: false,
-                        freezeDecel: true,
-                        activeCursor: 'default',
-                        bgColour: null,
-                        bgOutline: 0,
-                        bgThickness: 0,
-                        outlineIncrease: 3,
-                        txtOpt: true,
-                        txtScale: 1.2,
-                        shadow: '#000000',
-                        shadowBlur: 5,
-                        shadowOffset: [1, 1],
-                        itemSelector: 'li'
-                        hideTags: false,
-                        noSelect: true,      // запрещаем выделение текста
-                        noMouse: false,
-                        dragControl: true    // вращение мышью/пальцем
-                    });
-                    console.log('TagCanvas запущен');
-                } catch(e) {
-                    console.log('TagCanvas ошибка:', e);
-                }
-            } else {
-                console.log('TagCanvas не загружен');
-            }
-        };
+window.onload = function() {
+    if (typeof TagCanvas !== 'undefined') {
+        try {
+            TagCanvas.Start('globeCanvas', 'tags', {
+                textColour: null, // null означает, что используем цвета из span
+                outlineColour: '#2563eb',
+                outlineThickness: 1,
+                reverse: true,
+                depth: 0.9,
+                maxSpeed: 0.06,
+                initial: [0.1, -0.1],
+                decel: 0.98,
+                wheelZoom: false,
+                shuffleTags: true,
+                frontSelect: false, // отключаем выделение и клики
+                textHeight: 26,
+                textFont: 'Inter, sans-serif',
+                weight: true,
+                weightMode: 'size',
+                weightSize: 2,
+                weightGradient: { 0: '#fbbf24', 0.5: '#3b82f6', 1: '#10b981' },
+                pulsateTo: 1.2,
+                pulsateTime: 0.5,
+                freezeActive: false,
+                freezeDecel: true,
+                activeCursor: 'default',
+                bgColour: null,
+                bgOutline: 0,
+                bgThickness: 0,
+                outlineIncrease: 3,
+                txtOpt: true,
+                txtScale: 1.2,
+                shadow: '#000000',
+                shadowBlur: 5,
+                shadowOffset: [1, 1],
+                itemSelector: 'li',   // <--- ЗАПЯТАЯ В КОНЦЕ!
+                hideTags: false,
+                noSelect: true,      // запрещаем выделение текста
+                noMouse: false,
+                dragControl: true    // вращение мышью/пальцем
+            });
+            console.log('TagCanvas запущен');
+        } catch(e) {
+            console.log('TagCanvas ошибка:', e);
+        }
+    } else {
+        console.log('TagCanvas не загружен');
+    }
+};
     </script>
 
     <!-- ===== СКРИПТ ЗАЩИТЫ (МОДИФИЦИРОВАН) ===== -->
