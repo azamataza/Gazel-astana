@@ -1999,13 +1999,13 @@
             if (typeValue === 'mattress') {
                 price = 12000;
             } else {
-                price = 15000;
+                price = 12000;
                 if (deliveryValue === 'parking') price += 5000;
                 if (workersValue > 0) price += workersValue * 2500;
             }
             
             if (workersValue > 0 && elevatorValue === 'no' && floorValue > 0) {
-                price += floorValue * 2000;
+                price += floorValue * 1000;
             }
             
             if (demolition.checked) {
