@@ -1502,7 +1502,7 @@
                     html += `<div class="cart-item"><div class="cart-item-details"><div class="cart-item-title">${prod.name}</div><div class="cart-item-price">${prod.price} ₸/шт</div></div><div class="cart-item-controls"><button onclick="updateItemQty(${id}, -1)">-</button><span>${qty}</span><button onclick="updateItemQty(${id}, 1)">+</button></div><div class="cart-item-sum">${sum} ₸</div></div>`;
                 }
                 // Добавляем строку доставки
-                html += `<div class="cart-item delivery-row"><div class="cart-item-details"><div class="cart-item-title">🚚 Доставка по Астане</div><div class="cart-item-price">(при заказе от 1 коробки)</div></div><div class="cart-item-sum">${DELIVERY_PRICE} ₸</div></div>`;
+                html += `<div class="cart-item delivery-row"><div class="cart-item-details"><div class="cart-item-title">🚚 Доставка по Астане</div><div class="cart-item-price">(доставка в течений дня)</div></div><div class="cart-item-sum">${DELIVERY_PRICE} ₸</div></div>`;
             }
             
             if (cartList) cartList.innerHTML = html;
