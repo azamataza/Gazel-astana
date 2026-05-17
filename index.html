@@ -180,8 +180,37 @@
         gtag('config', 'AW-17503887977');
     </script>
     
-    <!-- Яндекс.Карты API -->
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш-ключ-если-нужен&lang=ru_RU" type="text/javascript"></script>
+    <!-- Яндекс.Карты API - загружается только на десктопе -->
+<script>
+(function() {
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    if (!isMobile) {
+        var script = document.createElement('script');
+        script.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш-ключ-если-нужен&lang=ru_RU';
+        script.type = 'text/javascript';
+        document.head.appendChild(script);
+        window.yandexMapsLoaded = false;
+        script.onload = function() {
+            window.yandexMapsLoaded = true;
+            if (typeof window.initMapDelayed === 'function') window.initMapDelayed();
+        };
+    } else {
+        console.log('Яндекс.Карты не загружены (мобильное устройство)');
+        var mapContainer = document.getElementById('map');
+        if (mapContainer && mapContainer.parentElement) {
+            mapContainer.style.display = 'none';
+            var parent = mapContainer.parentElement;
+            if (parent && !parent.querySelector('.map-placeholder')) {
+                var placeholder = document.createElement('div');
+                placeholder.className = 'map-placeholder';
+                placeholder.style.cssText = 'background: #e2e8f0; border-radius: 20px; height: 450px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; flex-direction: column;';
+                placeholder.innerHTML = '<i class="fas fa-map-marked-alt" style="font-size: 48px; color: #2563eb; margin-bottom: 15px;"></i><br><strong style="font-size: 18px;">📱 Карта доступна на компьютере</strong><br><span style="font-size: 14px; color: #64748b;">Для просмотра маршрута и пробок откройте сайт на десктопе</span>';
+                parent.appendChild(placeholder);
+            }
+        }
+    }
+})();
+</script>
     
     <style>
         /* --- Сброс и базовые стили --- */
@@ -2241,30 +2270,38 @@
             });
         }
 
-        // Инициализация Яндекс.Карты
-        ymaps.ready(initMap);
-        
-        function initMap() {
-            var map = new ymaps.Map("map", {
-                center: [51.1605, 71.4704],
-                zoom: 12,
-                controls: ['zoomControl', 'fullscreenControl']
-            });
-            
-            var trafficControl = new ymaps.control.TrafficControl({
-                provider: 'yandex#traffic'
-            });
-            map.controls.add(trafficControl);
-            trafficControl.state.set('provider', 'yandex#traffic');
-            
-            var officePlacemark = new ymaps.Placemark([51.1605, 71.4704], {
-                hintContent: 'Gruzim.kz',
-                balloonContent: 'Наш офис в Астане'
-            }, {
-                preset: 'islands#blueIcon'
-            });
-            map.geoObjects.add(officePlacemark);
-        }
+        // Инициализация Яндекс.Карты - отложенная, только если API загружен
+function initMap() {
+    if (typeof ymaps === 'undefined') return;
+    var map = new ymaps.Map("map", {
+        center: [51.1605, 71.4704],
+        zoom: 12,
+        controls: ['zoomControl', 'fullscreenControl']
+    });
+    
+    var trafficControl = new ymaps.control.TrafficControl({
+        provider: 'yandex#traffic'
+    });
+    map.controls.add(trafficControl);
+    trafficControl.state.set('provider', 'yandex#traffic');
+    
+    var officePlacemark = new ymaps.Placemark([51.1605, 71.4704], {
+        hintContent: 'Gruzim.kz',
+        balloonContent: 'Наш офис в Астане'
+    }, {
+        preset: 'islands#blueIcon'
+    });
+    map.geoObjects.add(officePlacemark);
+}
+
+// Запускаем карту только если API уже загружен, иначе откладываем
+window.initMapDelayed = initMap;
+if (typeof ymaps !== 'undefined') {
+    ymaps.ready(initMap);
+} else if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth > 768) {
+    // API загружается асинхронно, initMapDelayed вызовется после загрузки
+    console.log('Ожидание загрузки Яндекс.Карт...');
+}
 
         // Калькулятор
         const tariffOptions = document.querySelectorAll('.tariff-option');
