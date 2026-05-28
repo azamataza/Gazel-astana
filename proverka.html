@@ -1784,9 +1784,6 @@
                             <button class="hours-btn" id="increaseHours" type="button">+</button>
                         </div>
                         <div style="display: flex; justify-content: space-between; font-size: 0.85em; margin-top: 5px;">
-                            <span>1 час</span>
-                            <span>4 часа</span>
-                            <span>8 часов</span>
                         </div>
                     </div>
                     
@@ -1994,7 +1991,7 @@
         </div>
     </section>
 
-    <!-- SEO статья с расширенным контентом -->
+    <!-- SEO  -->
     <section class="section seo-article">
         <h2>Грузоперевозки в Астане: полный гид по выбору транспорта и оптимизации затрат</h2>
 
@@ -2113,7 +2110,7 @@
         </div>
     </footer>
 
-    <!-- Плавающие кнопки (FAB) -->
+    <!--  (FAB) -->
     <div class="floating-buttons">
         <div class="fab-menu" id="fabMenu">
             <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить">
@@ -2131,14 +2128,14 @@
         </button>
     </div>
 
-    <!-- Основной скрипт с отложенной загрузкой для мобильных -->
+    <!-- мобильных -->
     <script>
         (function() {
             const isMobileForLoad = window.innerWidth <= 768;
             
-            // Функции, которые нужны сразу (легковесные)
+            // легковесные
             
-            // Бургер меню
+            // Бм
             const burger = document.getElementById('burgerMenu');
             const mobileNav = document.getElementById('mobileNav');
             const catalogLogo = document.getElementById('catalogLogo');
@@ -2160,7 +2157,7 @@
                 });
             });
 
-            // FAQ аккордеон
+            // FAQ 
             document.querySelectorAll('.faq-question').forEach(q => {
                 q.addEventListener('click', () => {
                     q.parentElement.classList.toggle('open');
@@ -2241,7 +2238,7 @@
             
             if (hoursInput) updatePrice();
 
-            // Анимация чисел статистики
+            // статистика
             function animateNumber(element, target) {
                 if (!element) return;
                 let current = 0;
@@ -2289,7 +2286,7 @@
             window.addEventListener('scroll', checkStats);
             window.addEventListener('load', checkStats);
 
-            // Плавающие кнопки
+            // Плав
             const apartmentsCard = document.getElementById('card-apartments-offices');
             const floatingButtons = document.querySelector('.floating-buttons');
             if (apartmentsCard && floatingButtons && 'IntersectionObserver' in window) {
@@ -2304,7 +2301,7 @@
                 observer.observe(apartmentsCard);
             }
 
-            // FAB меню
+            // FAB
             const fabMain = document.getElementById('fabMain');
             const fabMenuItems = document.querySelectorAll('.fab-menu-item');
             if (fabMain) {
@@ -2333,7 +2330,7 @@
                 });
             }
 
-            // Подмена ссылок для мессенджеров
+            // мессендж
             function isMobileDevice() {
                 return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             }
@@ -2352,7 +2349,7 @@
             window.addEventListener('load', updateMessengerLinks);
             updateMessengerLinks();
 
-            // Форма заявки
+            // Фз
             const callbackForm = document.getElementById('callbackForm');
             const callbackSuccess = document.getElementById('callbackSuccess');
             const callbackSubmitBtn = document.getElementById('callbackSubmitBtn');
@@ -2390,7 +2387,7 @@
             document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.'); });
             document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
 
-            // Динамическая дата в футере
+            // дата
             document.addEventListener('DOMContentLoaded', function() {
                 const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
                 const currentYear = new Date().getFullYear();
@@ -2412,9 +2409,9 @@
                 }
             });
 
-            // ===== ОТЛОЖЕННАЯ ЗАГРУЗКА ТОЛЬКО ДЛЯ МОБИЛЬНЫХ =====
+            // 
             if (isMobileForLoad) {
-                // Отложенная загрузка AOS (через 2 секунды)
+                //  AOS  2 
                 setTimeout(() => {
                     var aosScript = document.createElement('script');
                     aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
@@ -2425,7 +2422,7 @@
                     document.body.appendChild(aosScript);
                 }, 2000);
                 
-                // Отложенная загрузка карусели клиентов (через 2 секунды)
+                // кк  2 
                 setTimeout(() => {
                     const track = document.querySelector('.clients-track');
                     const prevBtn = document.querySelector('.clients-arrow--prev');
@@ -2443,7 +2440,7 @@
                     }
                 }, 2000);
                 
-                // Отложенная загрузка Яндекс.Метрики (через 3 секунды)
+                //  ЯМетрики 3 
                 setTimeout(() => {
                     if (window.yandexMetrikaDeferred && typeof ym === 'undefined') {
                         (function(m,e,t,r,i,k,a){
@@ -2456,7 +2453,7 @@
                     }
                 }, 3000);
                 
-                // Отложенная загрузка GA4 и Google Ads (через 3 секунды)
+                //  GA4 и Google Ads 3 
                 setTimeout(() => {
                     if (typeof gtag === 'undefined' && window.gtagQueue) {
                         var gaScript = document.createElement('script');
@@ -2478,7 +2475,7 @@
                 }, 3500);
                 
               
-                // Отложенная загрузка скрипта конверсий Google Ads (через 3 секунды)
+                //  Google Ads  3 
                 setTimeout(() => {
                     (function() {
                         const CONVERSION_SENT_KEY = 'gruzim_ga4_conversion_sent';
@@ -2552,14 +2549,14 @@
                     })();
                 }, 3000);
             } else {
-                // Для десктопа — всё загружаем сразу
+                
                 // AOS
                 var aosScriptDesktop = document.createElement('script');
                 aosScriptDesktop.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
                 aosScriptDesktop.onload = function() { AOS.init({ duration: 1000, once: true }); };
                 document.body.appendChild(aosScriptDesktop);
                 
-                // Карусель сразу
+                // Карусель
                 const trackDesktop = document.querySelector('.clients-track');
                 const prevBtnDesktop = document.querySelector('.clients-arrow--prev');
                 const nextBtnDesktop = document.querySelector('.clients-arrow--next');
@@ -2575,7 +2572,7 @@
                     nextBtnDesktop.addEventListener('click', () => showSlideDesktop(currentIndexDesktop + 1));
                 }
                 
-                // Яндекс.Карта для десктопа
+                // ЯК
                 function initMapDesktop() {
                     if (typeof ymaps === 'undefined') return;
                     var map = new ymaps.Map("map", { center: [51.1605, 71.4704], zoom: 12, controls: ['zoomControl', 'fullscreenControl'] });
