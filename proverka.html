@@ -2220,5 +2220,191 @@
             }
         })();
     </script>
+    <script>
+(function() {
+    // ============================================
+    // ПРОДВИНУТАЯ КАЧЕСТВЕННАЯ КОНВЕРСИЯ ДЛЯ GOOGLE ADS
+    // Условия: 30 сек на сайте + 50% скролла + клик на контакт
+    // ============================================
+    
+    // Условия для конверсии
+    const MIN_TIME_SEC = 30;           // минимальное время на сайте (секунд)
+    const MIN_SCROLL_PERCENT = 50;     // минимальный процент скролла
+    const CONVERSION_SENT_KEY = 'gruzim_qa_conversion_sent_' + window.location.pathname;
+    const BASE_CONDITIONS_MET_KEY = 'gruzim_base_conditions_met_' + window.location.pathname;
+    
+    // Флаги
+    let timeConditionMet = false;
+    let scrollConditionMet = false;
+    let baseConditionsMet = false;
+    let startTime = Date.now();
+    let scrollCheckDone = false;
+    let timerCheckDone = false;
+    
+    // Функция отправки конверсии в Google Ads
+    function sendConversion(triggerName) {
+        // Проверяем, не отправляли ли уже конверсию на этой странице
+        if (sessionStorage.getItem(CONVERSION_SENT_KEY)) {
+            console.log('[Conversion] Уже отправлено ранее');
+            return false;
+        }
+        
+        // Отправляем событие в Google Ads
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
+            });
+            sessionStorage.setItem(CONVERSION_SENT_KEY, 'true');
+            console.log('[Conversion] Отправлено! Триггер: ' + triggerName);
+            return true;
+        } 
+        else if (window.gtagQueue) {
+            window.gtagQueue.push(['event', 'conversion', {
+                'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
+            }]);
+            sessionStorage.setItem(CONVERSION_SENT_KEY, 'true');
+            console.log('[Conversion] Отправлено через очередь! Триггер: ' + triggerName);
+            return true;
+        }
+        
+        console.log('[Conversion] gtag не найден');
+        return false;
+    }
+    
+    // Проверка базовых условий (время + скролл)
+    function checkBaseConditions() {
+        if (baseConditionsMet) return true;
+        if (timeConditionMet && scrollConditionMet) {
+            baseConditionsMet = true;
+            sessionStorage.setItem(BASE_CONDITIONS_MET_KEY, 'true');
+            console.log('[Conversion] Базовые условия выполнены (30 сек + 50% скролла)');
+            return true;
+        }
+        return false;
+    }
+    
+    // Попытка отправить конверсию после выполнения условий
+    function trySendAfterBaseConditions() {
+        if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false;
+        if (checkBaseConditions()) {
+            return sendConversion('базовые условия (время + скролл)');
+        }
+        return false;
+    }
+    
+    // Проверка временного условия
+    function checkTimeCondition() {
+        if (timerCheckDone) return;
+        const elapsedSeconds = (Date.now() - startTime) / 1000;
+        if (elapsedSeconds >= MIN_TIME_SEC) {
+            timeConditionMet = true;
+            timerCheckDone = true;
+            console.log('[Conversion] Условие по времени выполнено (' + MIN_TIME_SEC + ' сек)');
+            trySendAfterBaseConditions();
+        }
+    }
+    
+    // Запускаем проверку времени каждую секунду
+    setInterval(checkTimeCondition, 1000);
+    
+    // Проверка скролла
+    function checkScrollCondition() {
+        if (scrollCheckDone) return;
+        
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrolledPercent = (scrollTop + windowHeight) / documentHeight * 100;
+        
+        if (scrolledPercent >= MIN_SCROLL_PERCENT) {
+            scrollConditionMet = true;
+            scrollCheckDone = true;
+            console.log('[Conversion] Условие по скроллу выполнено (' + MIN_SCROLL_PERCENT + '%)');
+            
+            // Отписываемся от событий скролла
+            window.removeEventListener('scroll', checkScrollCondition);
+            window.removeEventListener('wheel', checkScrollCondition);
+            window.removeEventListener('touchmove', checkScrollCondition);
+            
+            trySendAfterBaseConditions();
+        }
+    }
+    
+    // Подписываемся на события скролла
+    window.addEventListener('scroll', checkScrollCondition);
+    window.addEventListener('wheel', checkScrollCondition);
+    window.addEventListener('touchmove', checkScrollCondition);
+    
+    // Также проверяем скролл через небольшую задержку (на случай, если страница уже проскроллена)
+    setTimeout(checkScrollCondition, 500);
+    
+    // ============================================
+    // ОТСЛЕЖИВАНИЕ КЛИКОВ НА КОНТАКТЫ
+    // ============================================
+    
+    function attachContactClickHandlers() {
+        // Все ссылки на телефон
+        const phoneLinks = document.querySelectorAll('a[href^="tel:"], a[href*="tel:"]');
+        // Все ссылки на WhatsApp
+        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="web.whatsapp.com"]');
+        // Все ссылки на Telegram
+        const telegramLinks = document.querySelectorAll('a[href*="t.me"], a[href*="tg://"]');
+        // Кнопки "Заказать звонок" и прочие контактные кнопки
+        const contactButtons = document.querySelectorAll('.callback-header-btn, .cta-button, .popup-wa-btn, .fab-menu-item');
+        
+        const allContactElements = [...phoneLinks, ...whatsappLinks, ...telegramLinks, ...contactButtons];
+        
+        allContactElements.forEach(el => {
+            // Удаляем старые обработчики, чтобы не дублировать
+            el.removeEventListener('click', handleContactClick);
+            el.addEventListener('click', handleContactClick);
+        });
+    }
+    
+    function handleContactClick(e) {
+        console.log('[Conversion] Обнаружен клик по контакту');
+        // Если базовые условия уже выполнены — отправляем конверсию
+        if (checkBaseConditions()) {
+            sendConversion('клик по контакту (после выполнения условий)');
+        } else {
+            // Если условия ещё не выполнены — сохраняем, что был клик, но конверсию не отправляем
+            console.log('[Conversion] Клик по контакту, но базовые условия ещё не выполнены');
+        }
+    }
+    
+    // Первоначальная подписка
+    attachContactClickHandlers();
+    
+    // Следим за появлением новых элементов (динамическая подгрузка)
+    const observer = new MutationObserver(function() {
+        attachContactClickHandlers();
+    });
+    
+    if (document.body) {
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+    
+    // ============================================
+    // ДОПОЛНИТЕЛЬНО: конверсия при отправке формы (уже есть, но дублируем на всякий случай)
+    // ============================================
+    
+    // Находим форму и добавляем дополнительную отправку конверсии
+    const formForConversion = document.getElementById('callbackForm');
+    if (formForConversion) {
+        const originalSubmit = formForConversion.onsubmit;
+        formForConversion.addEventListener('submit', function() {
+            // Отправляем конверсию при отправке формы (если базовые условия выполнены)
+            setTimeout(() => {
+                if (checkBaseConditions()) {
+                    sendConversion('отправка формы (после выполнения условий)');
+                }
+            }, 500);
+        });
+    }
+    
+    console.log('[Conversion] Скрипт качественных конверсий загружен');
+})();
+</script>
+    
 </body>
 </html>
