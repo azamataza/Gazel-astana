@@ -20,49 +20,6 @@
     <meta property="og:url" content="https://gruzim.kz">
     <meta property="og:image" content="https://gruzim.kz/Logo.png">
 
-    <!-- CRITICAL CSS — встроен для первого экрана -->
-    <style>
-        /* CRITICAL CSS: только для первого экрана (шапка, hero, первые карточки) */
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
-        html{scroll-behavior:smooth;}
-        
-        /* Плавающая шапка */
-        .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
-        .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
-        .header-left{display:flex;align-items:center;gap:12px;}
-        .floating-logo{height:45px;width:auto;cursor:pointer;border-radius:8px;padding:4px 8px;}
-        .header-right{display:flex;align-items:center;gap:15px;}
-        .language-switcher{display:flex;gap:5px;}
-        .lang-btn{background:transparent;border:1px solid #e2e8f0;color:#334155;padding:6px 12px;border-radius:30px;cursor:pointer;font-size:0.85rem;font-weight:600;text-decoration:none;}
-        .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
-        .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
-        
-        /* Hero блок */
-        .hero-header{background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('fon.jpg') no-repeat center center/cover;color:white;padding:100px 20px;text-align:center;}
-        .hero-header h1{font-size:3em;margin-bottom:20px;}
-        .brand-blue{color:#2563eb;font-weight:800;}
-        .brand-separator{color:#fff;font-weight:600;}
-        .brand-orange{color:#f97316;font-weight:700;}
-        
-        /* Кнопки */
-        .cta-button{display:inline-block;background:#2563eb;color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1.1em;transition:all 0.3s ease;box-shadow:0 8px 20px rgba(37,99,235,0.3);border:none;cursor:pointer;}
-        .glass-service-btn{width:100%;max-width:420px;text-align:center;padding:18px 25px;border-radius:50px;text-decoration:none;font-weight:600;font-size:18px;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;background:rgba(255,255,255,0.15);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);}
-        .hero-glass-buttons{margin-top:35px;display:grid;grid-template-columns:1fr;gap:18px;justify-items:center;}
-        
-        /* Карточки (минимальные стили для первого экрана) */
-        .section{padding:80px 20px;max-width:1200px;margin:0 auto;}
-        .section h2{font-size:2.5em;margin-bottom:50px;color:#0f172a;text-align:center;}
-        .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
-        .card{background:white;border-radius:24px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:all 0.3s ease;border:1px solid #e2e8f0;text-align:center;}
-        .card .icon{font-size:2.5em;color:#2563eb;margin-bottom:20px;background:#e0f2fe;padding:15px;border-radius:60px;width:70px;height:70px;display:flex;align-items:center;justify-content:center;margin-left:auto;margin-right:auto;}
-        .card h3{font-size:1.5em;color:#0f172a;margin-bottom:15px;}
-        .card .price{font-size:1.3em;font-weight:700;color:#2563eb;margin:15px 0;}
-        
-        @media (max-width:768px){body{padding-top:70px;}.hero-header h1{font-size:2.2em;}.section h2{font-size:2em;}}
-        @media (min-width:992px){.hero-glass-buttons{grid-template-columns:1fr 1fr;max-width:900px;margin-left:auto;margin-right:auto;}.glass-service-btn{max-width:none;}}
-    </style>
-
     <!-- Микроразметка Schema.org -->
     <script type="application/ld+json">
     {
@@ -208,26 +165,20 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     
-    <!-- OPTIMIZATION: Google Fonts загружается ТОЛЬКО на десктопе -->
+    <!-- OPTIMIZATION: Google Fonts загружается ТОЛЬКО на десктопе (ширина > 768px) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
     
-    <!-- Preconnect для Google Ads (ускоряет LCP) -->
-    <link rel="preconnect" href="https://www.googleadservices.com">
-    <link rel="preconnect" href="https://www.google.com">
-    
-    <!-- Предзагрузка фонового изображения для LCP -->
-    <link rel="preload" as="image" href="fon.jpg" fetchpriority="high">
-    
     <!-- OPTIMIZATION: FontAwesome - неблокирующая загрузка -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     
-    <!-- OPTIMIZATION: AOS CSS - ТОЛЬКО для десктопа -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)" onload="this.media='all'">
+    <!-- OPTIMIZATION: AOS CSS - неблокирующая загрузка -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- Google Analytics (GA4 и Google Ads) - загружаем с задержкой на мобильных -->
     <script>
+        // Отложенная загрузка GA на мобильных
         var isMobileGA = window.innerWidth <= 768;
         if (!isMobileGA) {
             var gaScript = document.createElement('script');
@@ -241,13 +192,14 @@
             gtag('config', 'G-2VWS9V6KVJ');
             gtag('config', 'AW-17503887977');
         } else {
+            // На мобильных сохраняем gtag для последующей инициализации
             window.gtagQueue = window.gtagQueue || [];
             window.gtag = function() { window.gtagQueue.push(arguments); };
         }
     </script>
     
-    <!-- Стили вынесены в отдельный файл, загружаем неблокирующе -->
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <!-- Стили вынесены в отдельный файл для кэширования -->
+    <link rel="stylesheet" href="style.css">
 
     <!-- Yandex.Metrika counter - отложенная загрузка на мобильных -->
     <script>
@@ -408,6 +360,7 @@
                 <a href="pereezdkay.html" class="cta-button">Подробнее</a>
             </div>
 
+            <!-- Карточка разборки мебели -->
             <div class="card card--furniture" id="card-furniture" data-aos="fade-up" data-aos-delay="50">
                 <i class="fas fa-screwdriver-wrench icon"></i>
                 <h3>Сборка мебели под ключ</h3>
@@ -484,6 +437,8 @@
                             <button class="hours-btn" id="decreaseHours" type="button">−</button>
                             <input type="number" id="hoursInput" min="1" max="8" value="1" step="0.5">
                             <button class="hours-btn" id="increaseHours" type="button">+</button>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85em; margin-top: 5px;">
                         </div>
                     </div>
                     
@@ -592,23 +547,46 @@
 
             <div class="videos-viewport">
                 <div class="videos-track" style="align-items: center;">
+                    <!-- Видео 1 -->
                     <div class="video-slide">
                         <div class="video-slide-iframe">
-                            <iframe src="https://www.youtube.com/embed/YxbIeftnPz0" title="Наши работы — Gruzim.kz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe
+                                src="https://www.youtube.com/embed/YxbIeftnPz0"
+                                title="Наши работы — Gruzim.kz"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
                         </div>
                         <div class="video-slide-label">Переезд под ключ котеджа</div>
                         <div class="video-slide-meta">Астана · Gruzim.kz</div>
                     </div>
+
+                    <!-- Видео 2 -->
                     <div class="video-slide">
                         <div class="video-slide-iframe">
-                            <iframe src="https://www.youtube.com/embed/VbL_QYPKR04" title="Наши работы — Gruzim.kz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe
+                                src="https://www.youtube.com/embed/VbL_QYPKR04"
+                                title="Наши работы — Gruzim.kz"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
                         </div>
                         <div class="video-slide-label">Услуги такелажа</div>
                         <div class="video-slide-meta">Астана · Gruzim.kz</div>
                     </div>
+
+                     <!-- Видео 3 -->
                     <div class="video-slide">
                         <div class="video-slide-iframe">
-                            <iframe src="https://www.youtube.com/embed/oQpGif5srmc" title="Наши работы — Gruzim.kz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe
+                                src="https://www.youtube.com/embed/oQpGif5srmc"
+                                title="Наши работы — Gruzim.kz"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
                         </div>
                         <div class="video-slide-label">Разбор и упаковка мебели</div>
                         <div class="video-slide-meta">Астана · Gruzim.kz</div>
@@ -627,6 +605,7 @@
             </a>
         </div>
     </section>
+    <!-- КОНЕЦ БЛОКА "НАШИ РАБОТЫ" -->
 
     <!-- Шаги работы -->
     <section class="section steps-section" id="steps">
@@ -741,27 +720,54 @@
         </div>
     </section>
 
-    <!-- SEO статья -->
+    <!-- SEO  -->
     <section class="section seo-article">
         <h2>Грузоперевозки в Астане: полный гид по выбору транспорта и оптимизации затрат</h2>
+
         <p>В условиях динамичного развития столицы, грузоперевозки в Астане востребованы ежедневно: от доставки дивана из магазина до перевозки промышленного оборудования. Чтобы логистика не стала головной болью, важно понимать специфику столичного рынка.</p>
+
         <h3>Какой транспорт выбрать?</h3>
         <p>Выбор машины напрямую влияет на цену перевозки. В Астане наиболее популярны следующие виды транспорта:</p>
+
         <ul>
             <li><strong>Минивэн</strong> — идеальна для узких дворов жилых комплексов на Левом берегу. Подходит для перевозки бытовой техники, личных вещей.</li>
             <li><strong>Газель (3–4 метра)</strong> — оптимальный вариант для переездов 3–4‑комнатных квартир или доставки партий товара для бизнеса.</li>
             <li><strong>Манипуляторы</strong> — используются для перевозки тяжёлых грузов, сейфов и строительных материалов на поддонах.</li>
         </ul>
+
         <h3>Сравнение тарифов на грузоперевозки</h3>
-        <table style="width:100%;border-collapse:collapse;margin:20px 0;background:#f8fafc;">
-            <thead><tr style="background:#2563eb;color:white;"><th style="padding:12px;border:1px solid #e2e8f0;">Тариф</th><th style="padding:12px;border:1px solid #e2e8f0;">Стоимость</th><th style="padding:12px;border:1px solid #e2e8f0;">Что входит</th></tr></thead>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0; background: #f8fafc;">
+            <thead>
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 12px; border: 1px solid #e2e8f0;">Тариф</th>
+                    <th style="padding: 12px; border: 1px solid #e2e8f0;">Стоимость</th>
+                    <th style="padding: 12px; border: 1px solid #e2e8f0;">Что входит</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td style="padding:10px;border:1px solid #e2e8f0;"><strong>Грузовой</strong></td><td style="padding:10px;border:1px solid #e2e8f0;">от 7 000 ₸/час</td><td style="padding:10px;border:1px solid #e2e8f0;">Грузовик до 4м, фиксация груза</td></tr>
-                <tr style="background:#f1f5f9;"><td style="padding:10px;border:1px solid #e2e8f0;"><strong>Комплект</strong></td><td style="padding:10px;border:1px solid #e2e8f0;">от 14 000 ₸/час</td><td style="padding:10px;border:1px solid #e2e8f0;">Грузовик + 2 грузчика</td></tr>
-                <tr style="background:#f1f5f9;"><td style="padding:10px;border:1px solid #e2e8f0;"><strong>Такелаж</strong></td><td style="padding:10px;border:1px solid #e2e8f0;">от 20 000 ₸/час</td><td style="padding:10px;border:1px solid #e2e8f0;">Рохля до 2т, 2 грузчика, спецтехника</td></tr>
-                <tr style="background:#f1f5f9;"><td style="padding:10px;border:1px solid #e2e8f0;"><strong>Переезд под ключ</strong></td><td style="padding:10px;border:1px solid #e2e8f0;">от 50 000 ₸</td><td style="padding:10px;border:1px solid #e2e8f0;">Упаковка, перевозка, сборка, расстановка</td></tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Грузовой</strong></td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">от 7 000 ₸/час</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">Грузовик до 4м, фиксация груза</td>
+                </tr>
+                <tr style="background: #f1f5f9;">
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Комплект</strong></td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">от 14 000 ₸/час</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">Грузовик + 2 грузчика</td>
+                </tr>
+                <tr style="background: #f1f5f9;">
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Такелаж</strong></td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">от 20 000 ₸/час</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">Рохля до 2т, 2 грузчика, спецтехника</td>
+                </tr>
+                <tr style="background: #f1f5f9;">
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;"><strong>Переезд под ключ</strong></td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">от 50 000 ₸</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">Упаковка, перевозка, сборка, расстановка</td>
+                </tr>
             </tbody>
         </table>
+
         <h3>Частые маршруты грузоперевозок в Астане</h3>
         <ul>
             <li><strong>Алматинский район ↔ Есильский район</strong> — от 8 000 ₸ (переезд квартиры или офиса)</li>
@@ -770,6 +776,7 @@
             <li><strong>Вывоз мусора с ЖК в Алматинском районе</strong> — от 15 000 ₸</li>
             <li><strong>Переезд офиса в бизнес-центр (Есильский район)</strong> — <a href="office.html">подробнее</a></li>
         </ul>
+
         <h3>Чек-лист подготовки к переезду</h3>
         <ul>
             <li><strong>За 2–3 дня:</strong> упакуйте вещи в коробки, подпишите их (кухня, спальня, документы). <a href="shop.html">Купить упаковочные материалы</a> можно у нас.</li>
@@ -778,10 +785,13 @@
             <li><strong>Для юридических лиц:</strong> подготовьте доверенность, счёт на оплату. Работаем с <a href="B2B.html">безналичным расчётом и договором</a>.</li>
             <li><strong>После переезда:</strong> проверьте сохранность вещей, при необходимости закажите <a href="takelazh.html">такелажные услуги</a> для тяжёлого оборудования.</li>
         </ul>
+
         <h3>Особенности логистики в столице</h3>
         <p>Астана — город с интенсивным транспортным потоком, особенно в часы пик в районах проспектов Мангилик Ел и Туран. Грамотное планирование маршрута позволяет сократить время в пути и избежать лишних задержек. Наши водители знают все объездные пути и работают с учётом пробок.</p>
+
         <h3>Как сэкономить на перевозке?</h3>
         <p>Чтобы заказать грузоперевозки в Астане недорого, рекомендуется подготовить груз заранее: сгруппировать вещи, упаковать мелкие предметы в коробки и обеспечить свободный доступ к месту погрузки. Чем меньше времени автомобиль простаивает, тем ниже итоговая стоимость услуги.</p>
+
         <p><strong>Вывоз мусора</strong> после ремонта: от 15 000 ₸, утилизация старой мебели — <a href="musor.html">подробнее</a>. Для сложных грузов используем <a href="takelazh.html">такелажные услуги</a>. Мы работаем во всех районах Астаны: Алматинский, Есильский, Сарыаркинский, Байконырский, Нуринский.</p>
     </section>
 
@@ -829,7 +839,7 @@
         </div>
     </footer>
 
-    <!-- FAB -->
+    <!--  (FAB) -->
     <div class="floating-buttons">
         <div class="fab-menu" id="fabMenu">
             <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить">
@@ -847,12 +857,14 @@
         </button>
     </div>
 
-    <!-- Основной скрипт -->
+    <!-- мобильных -->
     <script>
         (function() {
             const isMobileForLoad = window.innerWidth <= 768;
             
-            // Бургер-меню
+            // легковесные
+            
+            // Бм
             const burger = document.getElementById('burgerMenu');
             const mobileNav = document.getElementById('mobileNav');
             const catalogLogo = document.getElementById('catalogLogo');
@@ -874,7 +886,7 @@
                 });
             });
 
-            // FAQ
+            // FAQ 
             document.querySelectorAll('.faq-question').forEach(q => {
                 q.addEventListener('click', () => {
                     q.parentElement.classList.toggle('open');
@@ -955,22 +967,20 @@
             
             if (hoursInput) updatePrice();
 
-            // Статистика — ИСПРАВЛЕНА (убрана принудительная компоновка)
+            // статистика
             function animateNumber(element, target) {
                 if (!element) return;
                 let current = 0;
                 const increment = target / 50;
-                function update() {
+                const timer = setInterval(() => {
                     current += increment;
                     if (current >= target) {
                         element.textContent = target;
-                        return;
+                        clearInterval(timer);
                     } else {
                         element.textContent = Math.floor(current);
-                        requestAnimationFrame(update);
                     }
-                }
-                requestAnimationFrame(update);
+                }, 30);
             }
 
             function isElementInViewport(el) {
@@ -1005,7 +1015,7 @@
             window.addEventListener('scroll', checkStats);
             window.addEventListener('load', checkStats);
 
-            // FAB
+            // Плав
             const apartmentsCard = document.getElementById('card-apartments-offices');
             const floatingButtons = document.querySelector('.floating-buttons');
             if (apartmentsCard && floatingButtons && 'IntersectionObserver' in window) {
@@ -1020,6 +1030,7 @@
                 observer.observe(apartmentsCard);
             }
 
+            // FAB
             const fabMain = document.getElementById('fabMain');
             const fabMenuItems = document.querySelectorAll('.fab-menu-item');
             if (fabMain) {
@@ -1048,7 +1059,7 @@
                 });
             }
 
-            // Мессенджеры
+            // мессендж
             function isMobileDevice() {
                 return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             }
@@ -1067,7 +1078,7 @@
             window.addEventListener('load', updateMessengerLinks);
             updateMessengerLinks();
 
-            // Форма заявки
+            // Фз
             const callbackForm = document.getElementById('callbackForm');
             const callbackSuccess = document.getElementById('callbackSuccess');
             const callbackSubmitBtn = document.getElementById('callbackSubmitBtn');
@@ -1105,7 +1116,7 @@
             document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.'); });
             document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
 
-            // Дата
+            // дата
             document.addEventListener('DOMContentLoaded', function() {
                 const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
                 const currentYear = new Date().getFullYear();
@@ -1127,7 +1138,7 @@
                 }
             });
 
-            // Видео-карусель
+            // Карусель видео (добавлена для блока "Наши работы")
             const videosTrack = document.querySelector('.videos-track');
             const videosPrev  = document.querySelector('.videos-arrow--prev');
             const videosNext  = document.querySelector('.videos-arrow--next');
@@ -1146,8 +1157,9 @@
                 videosNext.addEventListener('click', function() { showVideoSlide(videoIndex + 1); });
             }
 
-            // Мобильные: отложенная загрузка
+            // Условия для мобильных устройств
             if (isMobileForLoad) {
+                //  AOS  2 
                 setTimeout(() => {
                     var aosScript = document.createElement('script');
                     aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
@@ -1158,6 +1170,7 @@
                     document.body.appendChild(aosScript);
                 }, 2000);
                 
+                // кк  2 
                 setTimeout(() => {
                     const track = document.querySelector('.clients-track');
                     const prevBtn = document.querySelector('.clients-arrow--prev');
@@ -1175,6 +1188,7 @@
                     }
                 }, 2000);
                 
+                //  ЯМетрики 3 
                 setTimeout(() => {
                     if (window.yandexMetrikaDeferred && typeof ym === 'undefined') {
                         (function(m,e,t,r,i,k,a){
@@ -1187,6 +1201,7 @@
                     }
                 }, 3000);
                 
+                //  GA4 и Google Ads 3 
                 setTimeout(() => {
                     if (typeof gtag === 'undefined' && window.gtagQueue) {
                         var gaScript = document.createElement('script');
@@ -1198,6 +1213,7 @@
                             gtag('js', new Date());
                             gtag('config', 'G-2VWS9V6KVJ');
                             gtag('config', 'AW-17503887977');
+                            // Применяем отложенные вызовы
                             if (window.gtagQueue && window.gtagQueue.length) {
                                 window.gtagQueue.forEach(args => gtag(...args));
                             }
@@ -1205,13 +1221,90 @@
                         document.head.appendChild(gaScript);
                     }
                 }, 3500);
+                
+              
+                //  Google Ads  3 
+                setTimeout(() => {
+                    (function() {
+                        const CONVERSION_SENT_KEY = 'gruzim_ga4_conversion_sent';
+                        const BASE_CONDITIONS_MET_KEY = 'gruzim_base_conditions_met';
+                        const MIN_TIME_SEC = 30;
+                        const MIN_SCROLL_PERCENT = 50;
+                        let timeConditionMet = false, scrollConditionMet = false, baseConditionsMet = false;
+                        let startTime = Date.now(), scrollCheckDone = false, timerCheckDone = false;
+                        function sendConversion(triggerName) {
+                            if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false;
+                            if (typeof gtag === 'function') {
+                                gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+                                sessionStorage.setItem(CONVERSION_SENT_KEY, 'true');
+                                return true;
+                            } else if (window.gtagQueue) {
+                                window.gtagQueue.push(['event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' }]);
+                                sessionStorage.setItem(CONVERSION_SENT_KEY, 'true');
+                                return true;
+                            }
+                            return false;
+                        }
+                        function checkBaseConditions() {
+                            if (baseConditionsMet) return true;
+                            if (timeConditionMet && scrollConditionMet) {
+                                baseConditionsMet = true;
+                                sessionStorage.setItem(BASE_CONDITIONS_MET_KEY, 'true');
+                                return true;
+                            }
+                            return false;
+                        }
+                        function trySendAfterBaseConditions() {
+                            if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false;
+                            if (checkBaseConditions()) return sendConversion('базовые условия');
+                            return false;
+                        }
+                        function checkTimeCondition() {
+                            if (timerCheckDone) return;
+                            if ((Date.now() - startTime) / 1000 >= MIN_TIME_SEC) {
+                                timeConditionMet = true;
+                                timerCheckDone = true;
+                                trySendAfterBaseConditions();
+                            }
+                        }
+                        setInterval(checkTimeCondition, 1000);
+                        function checkScrollCondition() {
+                            if (scrollCheckDone) return;
+                            const scrolledPercent = (window.pageYOffset + window.innerHeight) / document.documentElement.scrollHeight * 100;
+                            if (scrolledPercent >= MIN_SCROLL_PERCENT) {
+                                scrollConditionMet = true;
+                                scrollCheckDone = true;
+                                window.removeEventListener('scroll', checkScrollCondition);
+                                window.removeEventListener('wheel', checkScrollCondition);
+                                window.removeEventListener('touchmove', checkScrollCondition);
+                                trySendAfterBaseConditions();
+                            }
+                        }
+                        window.addEventListener('scroll', checkScrollCondition);
+                        window.addEventListener('wheel', checkScrollCondition);
+                        window.addEventListener('touchmove', checkScrollCondition);
+                        setTimeout(checkScrollCondition, 500);
+                        function attachContactClickHandlers() {
+                            document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="t.me"], a[href*="tg://"]').forEach(link => {
+                                link.removeEventListener('click', handleContactClick);
+                                link.addEventListener('click', handleContactClick);
+                            });
+                        }
+                        function handleContactClick() { trySendAfterBaseConditions(); }
+                        attachContactClickHandlers();
+                        const observer = new MutationObserver(() => attachContactClickHandlers());
+                        if (document.body) observer.observe(document.body, { childList: true, subtree: true });
+                    })();
+                }, 3000);
             } else {
-                // Десктоп
+                
+                // AOS
                 var aosScriptDesktop = document.createElement('script');
                 aosScriptDesktop.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
                 aosScriptDesktop.onload = function() { AOS.init({ duration: 1000, once: true }); };
                 document.body.appendChild(aosScriptDesktop);
                 
+                // Карусель
                 const trackDesktop = document.querySelector('.clients-track');
                 const prevBtnDesktop = document.querySelector('.clients-arrow--prev');
                 const nextBtnDesktop = document.querySelector('.clients-arrow--next');
@@ -1227,6 +1320,7 @@
                     nextBtnDesktop.addEventListener('click', () => showSlideDesktop(currentIndexDesktop + 1));
                 }
                 
+                // ЯК
                 function initMapDesktop() {
                     if (typeof ymaps === 'undefined') return;
                     var map = new ymaps.Map("map", { center: [51.1605, 71.4704], zoom: 12, controls: ['zoomControl', 'fullscreenControl'] });
@@ -1243,6 +1337,7 @@
             }
         })();
     </script>
+    
 
 </body>
 </html>
