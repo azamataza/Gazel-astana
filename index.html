@@ -533,6 +533,80 @@
         </div>
     </section>
 
+    <!-- НАЧАЛО БЛОКА "НАШИ РАБОТЫ" (ВИДЕО-КАРУСЕЛЬ) -->
+    <section class="section videos-section" id="works">
+        <h2 data-aos="fade-up">Наши работы</h2>
+        <p class="videos-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Снимаем каждый заказ — смотрите как мы работаем вживую
+        </p>
+
+        <div class="videos-slider">
+            <button class="videos-arrow videos-arrow--prev" type="button">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="videos-viewport">
+                <div class="videos-track" style="align-items: center;">
+                    <!-- Видео 1 -->
+                    <div class="video-slide">
+                        <div class="video-slide-iframe">
+                            <iframe
+                                src="https://www.youtube.com/embed/YxbIeftnPz0"
+                                title="Наши работы — Gruzim.kz"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-slide-label">Переезд под ключ котеджа</div>
+                        <div class="video-slide-meta">Астана · Gruzim.kz</div>
+                    </div>
+
+                    <!-- Видео 2 -->
+                    <div class="video-slide">
+                        <div class="video-slide-iframe">
+                            <iframe
+                                src="https://www.youtube.com/embed/VbL_QYPKR04"
+                                title="Наши работы — Gruzim.kz"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-slide-label">Услуги такелажа</div>
+                        <div class="video-slide-meta">Астана · Gruzim.kz</div>
+                    </div>
+
+                     <!-- Видео 3 -->
+                    <div class="video-slide">
+                        <div class="video-slide-iframe">
+                            <iframe
+                                src="https://www.youtube.com/embed/oQpGif5srmc"
+                                title="Наши работы — Gruzim.kz"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-slide-label">Разбор и упаковка мебели</div>
+                        <div class="video-slide-meta">Астана · Gruzim.kz</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="videos-arrow videos-arrow--next" type="button">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="videos-cta" data-aos="fade-up">
+            <a href="https://www.youtube.com/@UC4f5yZ4PhDNNAWQw--vbmGQ" target="_blank" rel="noopener">
+                <i class="fab fa-youtube"></i> YouTube канал
+            </a>
+        </div>
+    </section>
+    <!-- КОНЕЦ БЛОКА "НАШИ РАБОТЫ" -->
+
     <!-- Шаги работы -->
     <section class="section steps-section" id="steps">
         <h2 data-aos="fade-up">Как мы работаем</h2>
@@ -1064,7 +1138,26 @@
                 }
             });
 
-            // 
+            // Карусель видео (добавлена для блока "Наши работы")
+            const videosTrack = document.querySelector('.videos-track');
+            const videosPrev  = document.querySelector('.videos-arrow--prev');
+            const videosNext  = document.querySelector('.videos-arrow--next');
+
+            if (videosTrack && videosPrev && videosNext) {
+                const videoSlides = document.querySelectorAll('.video-slide');
+                let videoIndex  = 0;
+
+                function showVideoSlide(index) {
+                    const count = videoSlides.length;
+                    videoIndex = (index + count) % count;
+                    videosTrack.style.transform = 'translateX(' + (-videoIndex * 100) + '%)';
+                }
+
+                videosPrev.addEventListener('click', function() { showVideoSlide(videoIndex - 1); });
+                videosNext.addEventListener('click', function() { showVideoSlide(videoIndex + 1); });
+            }
+
+            // Условия для мобильных устройств
             if (isMobileForLoad) {
                 //  AOS  2 
                 setTimeout(() => {
