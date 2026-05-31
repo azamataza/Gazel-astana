@@ -533,6 +533,65 @@
         </div>
     </section>
 
+    <!-- НАЧАЛО БЛОКА "НАШИ РАБОТЫ" (ВИДЕО-КАРУСЕЛЬ) -->
+    <section class="section videos-section" id="works">
+        <h2 data-aos="fade-up">Наши работы</h2>
+        <p class="videos-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Снимаем каждый заказ — смотрите как мы работаем вживую
+        </p>
+
+        <div class="videos-slider">
+            <button class="videos-arrow videos-arrow--prev" type="button">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="videos-viewport">
+                <div class="videos-track">
+                    <!-- Видео 1 -->
+                    <div class="video-slide">
+                        <div class="video-slide-iframe">
+                            <iframe
+                                src="https://www.youtube.com/embed/YxbIeftnPz0"
+                                title="Наши работы — Gruzim.kz"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-slide-label">Переезд под ключ</div>
+                        <div class="video-slide-meta">Астана · Gruzim.kz</div>
+                    </div>
+
+                    <!-- Видео 2 -->
+                    <div class="video-slide">
+                        <div class="video-slide-iframe">
+                            <iframe
+                                src="https://www.youtube.com/embed/VbL_QYPKR04"
+                                title="Наши работы — Gruzim.kz"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-slide-label">Вывоз мебели</div>
+                        <div class="video-slide-meta">Астана · Gruzim.kz</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="videos-arrow videos-arrow--next" type="button">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="videos-cta" data-aos="fade-up">
+            <a href="https://www.youtube.com/@UC4f5yZ4PhDNNAWQw--vbmGQ" target="_blank" rel="noopener">
+                <i class="fab fa-youtube"></i> Все видео на нашем YouTube канале
+            </a>
+        </div>
+    </section>
+    <!-- КОНЕЦ БЛОКА "НАШИ РАБОТЫ" -->
+
     <!-- Шаги работы -->
     <section class="section steps-section" id="steps">
         <h2 data-aos="fade-up">Как мы работаем</h2>
@@ -734,48 +793,7 @@
             <div class="form-success" id="callbackSuccess">✅ Спасибо! Мы свяжемся с вами в ближайшее время.</div>
         </div>
     </section>
-<section class="works-section" id="works">
-    <h2 data-aos="fade-up">Наши работы</h2>
-    <p class="works-subtitle" data-aos="fade-up" data-aos-delay="100">
-        Смотрите как мы работаем — вживую, без постановки
-    </p>
- 
-    <div class="works-grid">
-        <!-- Видео 1 -->
-        <div class="video-card" data-aos="fade-up" data-aos-delay="100">
-            <iframe
-                src="https://www.youtube.com/embed/YxbIeftnPz0"
-                title="Наши работы — Gruzim.kz"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy">
-            </iframe>
-        </div>
- 
-        <!-- Видео 2 -->
-        <div class="video-card" data-aos="fade-up" data-aos-delay="200">
-            <iframe
-                src="https://www.youtube.com/embed/VbL_QYPKR04"
-                title="Наши работы — Gruzim.kz"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy">
-            </iframe>
-        </div>
- 
-        <!-- Когда появятся новые видео — копируй блок выше
-             и меняй ID в src="https://www.youtube.com/embed/НОВЫЙ_ID" -->
-    </div>
- 
-    <div class="works-cta" data-aos="fade-up">
-        <p>Больше примеров работ в нашем WhatsApp</p>
-        <a href="https://wa.me/77010120300?text=Здравствуйте! Покажите больше примеров работ"
-           class="cta-button"
-           style="background: #25D366; display: inline-flex; align-items: center; gap: 10px;">
-            <i class="fab fa-whatsapp"></i> Смотреть больше работ
-        </a>
-    </div>
-</section>
+
     <!-- Подвал -->
     <footer>
         <div class="footer-inner">
@@ -1105,7 +1123,26 @@
                 }
             });
 
-            // 
+            // Карусель видео (добавлена для блока "Наши работы")
+            const videosTrack = document.querySelector('.videos-track');
+            const videosPrev  = document.querySelector('.videos-arrow--prev');
+            const videosNext  = document.querySelector('.videos-arrow--next');
+
+            if (videosTrack && videosPrev && videosNext) {
+                const videoSlides = document.querySelectorAll('.video-slide');
+                let videoIndex  = 0;
+
+                function showVideoSlide(index) {
+                    const count = videoSlides.length;
+                    videoIndex = (index + count) % count;
+                    videosTrack.style.transform = 'translateX(' + (-videoIndex * 100) + '%)';
+                }
+
+                videosPrev.addEventListener('click', function() { showVideoSlide(videoIndex - 1); });
+                videosNext.addEventListener('click', function() { showVideoSlide(videoIndex + 1); });
+            }
+
+            // Условия для мобильных устройств
             if (isMobileForLoad) {
                 //  AOS  2 
                 setTimeout(() => {
