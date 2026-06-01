@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Переезд под ключ в Астане: цена квартирного переезда | Gruzim.kz</title>
     <meta name="description" content="✅ Переезд под ключ в Астане: квартирные переезды. Упаковка, разборка мебели, перевозка, расстановка. Работаем с 2019 года. Договор, безнал. Звоните!">
     <meta name="keywords" content="переезд под ключ Астана, квартирный переезд, переезд Астана, переезд, помощь в переезде, услуги переезда, организаци переездов, премиум переезд Астана, квартирный переезд Астана под ключ, офисный переезд под ключ, переезд с упаковкой, переезд с грузчиками, переезд под ключ цена, переезд компании, переезд Астана дешево.">
@@ -38,11 +38,11 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#2563eb">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'" fetchpriority="low">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
         var isMobileAnalytics = window.innerWidth <= 768;
@@ -191,6 +191,7 @@
             overflow-x: hidden;
         }
 
+        /* Мобильные стили */
         @media (max-width: 768px) {
             body, button, input, .hero-header, .card, .section, .floating-header, .mobile-nav, .lang-btn, .header-phone, .client-name, .faq-question, .cta-button, .process-card, .advantage-card, .pricing-card, .callback-form input, .callback-form select, .callback-form textarea {
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
@@ -203,6 +204,76 @@
             [data-aos] {
                 transform: translateZ(0) !important;
                 backface-visibility: hidden !important;
+            }
+        }
+
+        /* Исправленные стили для горизонтального скролла карточек */
+        @media (max-width: 768px) {
+            .pricing-cards {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 16px;
+                padding: 10px 20px 20px 20px;
+                margin: 0;
+                scrollbar-width: thin;
+                -ms-overflow-style: auto;
+                /* Чтобы следующая карточка выглядывала на 15-20px */
+                scroll-padding: 0 20px;
+            }
+            .pricing-cards::-webkit-scrollbar {
+                height: 4px;
+            }
+            .pricing-cards::-webkit-scrollbar-track {
+                background: #e2e8f0;
+                border-radius: 10px;
+            }
+            .pricing-cards::-webkit-scrollbar-thumb {
+                background: #2563eb;
+                border-radius: 10px;
+            }
+            .pricing-card {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 0;
+                margin-right: 0;
+            }
+            /* Делаем так, чтобы последняя карточка не прилипала к краю */
+            .pricing-card:last-child {
+                margin-right: 20px;
+            }
+            /* Точки пагинации */
+            .pricing-dots {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                margin-top: 20px;
+                padding-bottom: 10px;
+            }
+            .pricing-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #cbd5e1;
+                transition: all 0.2s ease;
+                cursor: pointer;
+            }
+            .pricing-dot.active {
+                background: #2563eb;
+                width: 24px;
+                border-radius: 4px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .pricing-cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+            .pricing-dots {
+                display: none;
             }
         }
 
@@ -285,6 +356,11 @@
             transform: translateY(-6px) rotate(-45deg);
         }
 
+        @media (max-width: 1024px) {
+            .burger-menu {
+                display: flex;
+            }
+        }
         @media (min-width: 1025px) {
             .burger-menu {
                 display: flex;
@@ -447,47 +523,6 @@
             .header-phone, .callback-header-btn {
                 display: none !important;
             }
-        }
-
-        @media (max-width: 768px) {
-            .pricing-cards {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                gap: 12px;
-                padding: 10px 20px 20px;
-                margin: 0 -20px;
-                scrollbar-width: none;
-            }
-            .pricing-cards::-webkit-scrollbar {
-                display: none;
-            }
-            .pricing-card {
-                flex: 0 0 85%;
-                scroll-snap-align: center;
-                min-width: 0;
-            }
-            .pricing-dots {
-                display: flex;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 16px;
-            }
-            .pricing-dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: #cbd5e1;
-                transition: background 0.2s ease, transform 0.2s ease;
-            }
-            .pricing-dot.active {
-                background: #2563eb;
-                transform: scale(1.3);
-            }
-        }
-        @media (min-width: 769px) {
-            .pricing-dots { display: none; }
         }
 
         .hero-header {
@@ -696,13 +731,6 @@
         .process-card p {
             color: #475569;
             flex-grow: 1;
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
         }
 
         .pricing-card {
@@ -1418,12 +1446,6 @@
             visibility: visible;
         }
 
-        @media (max-width: 1024px) {
-            .burger-menu {
-                display: flex;
-            }
-        }
-
         @media (max-width: 768px) {
             body {
                 padding-top: 70px;
@@ -1459,9 +1481,6 @@
                 font-size: 2em;
             }
             .process-steps {
-                grid-template-columns: 1fr;
-            }
-            .pricing-cards {
                 grid-template-columns: 1fr;
             }
             .advantages-grid {
@@ -1673,7 +1692,7 @@
             <p data-aos="fade-up" data-aos-delay="200" style="text-align: center; margin-bottom: 40px; color: #64748b;">
                 Выберите подходящий вариант. Все тарифы включают профессиональных грузчиков и транспорт.
             </p>
-            <div class="pricing-cards">
+            <div class="pricing-cards" id="pricingCards">
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="pricing-header">
                         <h3 class="pricing-title">Часовая</h3>
@@ -2075,6 +2094,48 @@
                 nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
             }
 
+            // Работа с горизонтальным скроллом карточек и точками пагинации (исправлено)
+            const pricingCards = document.getElementById('pricingCards');
+            const dots = document.querySelectorAll('.pricing-dot');
+            
+            if (pricingCards && dots.length && window.innerWidth <= 768) {
+                // Функция обновления активной точки
+                function updateActiveDot() {
+                    const scrollLeft = pricingCards.scrollLeft;
+                    const cardWidth = pricingCards.querySelector('.pricing-card').offsetWidth;
+                    const gap = 16; // gap между карточками
+                    const totalCardWidth = cardWidth + gap;
+                    const index = Math.round(scrollLeft / totalCardWidth);
+                    
+                    dots.forEach((dot, i) => {
+                        if (i === index) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Обработчик скролла
+                pricingCards.addEventListener('scroll', updateActiveDot, { passive: true });
+                
+                // Обработчик клика по точкам
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        const cardWidth = pricingCards.querySelector('.pricing-card').offsetWidth;
+                        const gap = 16;
+                        const scrollTo = index * (cardWidth + gap);
+                        pricingCards.scrollTo({
+                            left: scrollTo,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+                
+                // Инициализация активной точки
+                setTimeout(updateActiveDot, 100);
+            }
+
             const fabMain = document.getElementById('fabMain');
             const fabMenuItems = document.querySelectorAll('.fab-menu-item');
             const fabMenuDiv = document.getElementById('fabMenu');
@@ -2176,18 +2237,6 @@
 
             setActiveMenuItem();
 
-            if (window.innerWidth <= 768) {
-                const pricingCards = document.querySelector('.pricing-cards');
-                const dots = document.querySelectorAll('.pricing-dot');
-                if (pricingCards && dots.length) {
-                    pricingCards.addEventListener('scroll', function() {
-                        const cardWidth = pricingCards.querySelector('.pricing-card').offsetWidth + 12;
-                        const index = Math.round(pricingCards.scrollLeft / cardWidth);
-                        dots.forEach((d, i) => d.classList.toggle('active', i === index));
-                    }, { passive: true });
-                }
-            }
-
             document.addEventListener('DOMContentLoaded', function() {
                 const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
                 const currentYear = new Date().getFullYear();
@@ -2275,7 +2324,7 @@
             if (calcButton) {
                 calcButton.addEventListener('click', function(e) {
                     e.stopPropagation();
-
+                    // действие не требуется
                 });
             }
 
@@ -2352,15 +2401,11 @@
     </script>
     <script>
 (function() {
-
-    
-    // Условия для конверсии
-    const MIN_TIME_SEC = 30;           // 
-    const MIN_SCROLL_PERCENT = 50;     // 
+    const MIN_TIME_SEC = 30;           
+    const MIN_SCROLL_PERCENT = 50;     
     const CONVERSION_SENT_KEY = 'gruzim_qa_conversion_sent_' + window.location.pathname;
     const BASE_CONDITIONS_MET_KEY = 'gruzim_base_conditions_met_' + window.location.pathname;
     
-
     let timeConditionMet = false;
     let scrollConditionMet = false;
     let baseConditionsMet = false;
@@ -2368,15 +2413,11 @@
     let scrollCheckDone = false;
     let timerCheckDone = false;
     
-
     function sendConversion(triggerName) {
-
         if (sessionStorage.getItem(CONVERSION_SENT_KEY)) {
             console.log('[Conversion] Уже отправлено ранее');
             return false;
         }
-        
-
         if (typeof gtag === 'function') {
             gtag('event', 'conversion', {
                 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
@@ -2393,12 +2434,10 @@
             console.log('[Conversion] Отправлено через очередь! Триггер: ' + triggerName);
             return true;
         }
-        
         console.log('[Conversion] gtag не найден');
         return false;
     }
     
-
     function checkBaseConditions() {
         if (baseConditionsMet) return true;
         if (timeConditionMet && scrollConditionMet) {
@@ -2410,7 +2449,6 @@
         return false;
     }
     
-
     function trySendAfterBaseConditions() {
         if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false;
         if (checkBaseConditions()) {
@@ -2419,7 +2457,6 @@
         return false;
     }
     
-
     function checkTimeCondition() {
         if (timerCheckDone) return;
         const elapsedSeconds = (Date.now() - startTime) / 1000;
@@ -2431,56 +2468,37 @@
         }
     }
     
-
     setInterval(checkTimeCondition, 1000);
     
-
     function checkScrollCondition() {
         if (scrollCheckDone) return;
-        
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const scrolledPercent = (scrollTop + windowHeight) / documentHeight * 100;
-        
         if (scrolledPercent >= MIN_SCROLL_PERCENT) {
             scrollConditionMet = true;
             scrollCheckDone = true;
             console.log('[Conversion] Условие по скроллу выполнено (' + MIN_SCROLL_PERCENT + '%)');
-            
-
             window.removeEventListener('scroll', checkScrollCondition);
             window.removeEventListener('wheel', checkScrollCondition);
             window.removeEventListener('touchmove', checkScrollCondition);
-            
             trySendAfterBaseConditions();
         }
     }
     
-
     window.addEventListener('scroll', checkScrollCondition);
     window.addEventListener('wheel', checkScrollCondition);
     window.addEventListener('touchmove', checkScrollCondition);
-    
-
     setTimeout(checkScrollCondition, 500);
     
-
-    
     function attachContactClickHandlers() {
-
         const phoneLinks = document.querySelectorAll('a[href^="tel:"], a[href*="tel:"]');
-
         const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="web.whatsapp.com"]');
-
         const telegramLinks = document.querySelectorAll('a[href*="t.me"], a[href*="tg://"]');
-
         const contactButtons = document.querySelectorAll('.callback-header-btn, .cta-button:not(#calcButton), .popup-wa-btn, .fab-menu-item');
-        
         const allContactElements = [...phoneLinks, ...whatsappLinks, ...telegramLinks, ...contactButtons];
-        
         allContactElements.forEach(el => {
-
             el.removeEventListener('click', handleContactClick);
             el.addEventListener('click', handleContactClick);
         });
@@ -2488,19 +2506,15 @@
     
     function handleContactClick(e) {
         console.log('[Conversion] Обнаружен клик по контакту');
-
         if (checkBaseConditions()) {
             sendConversion('клик по контакту (после выполнения условий)');
         } else {
-
             console.log('[Conversion] Клик по контакту, но базовые условия ещё не выполнены');
         }
     }
     
-
     attachContactClickHandlers();
     
-
     const observer = new MutationObserver(function() {
         attachContactClickHandlers();
     });
@@ -2509,14 +2523,10 @@
         observer.observe(document.body, { childList: true, subtree: true });
     }
     
-
-    
-
     const formForConversion = document.getElementById('callbackForm');
     if (formForConversion) {
         const originalSubmit = formForConversion.onsubmit;
         formForConversion.addEventListener('submit', function() {
-
             setTimeout(() => {
                 if (checkBaseConditions()) {
                     sendConversion('отправка формы (после выполнения условий)');
@@ -2531,7 +2541,6 @@
 
 <script>
 (function() {
-
     const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
     const TELEGRAM_CHAT_ID = '8277380855';
 
@@ -2545,7 +2554,6 @@
         const today = new Date().toLocaleDateString('ru-KZ');
         const storageKey = 'gruzim_visits';
         const stored = localStorage.getItem(storageKey);
-        
         if (stored) {
             try {
                 const data = JSON.parse(stored);
@@ -2562,7 +2570,6 @@
         const storageKey = 'gruzim_visits';
         const stored = localStorage.getItem(storageKey);
         let count = 1;
-        
         if (stored) {
             try {
                 const data = JSON.parse(stored);
@@ -2571,12 +2578,10 @@
                 }
             } catch(e) {}
         }
-        
         localStorage.setItem(storageKey, JSON.stringify({
             date: today,
             count: count
         }));
-        
         return count;
     }
 
@@ -2602,14 +2607,11 @@
             minute: '2-digit',
             second: '2-digit'
         });
-        
         const userAgent = navigator.userAgent;
         const pageUrl = window.location.href;
         const referrer = document.referrer || 'прямой заход';
         const screenSize = `${screen.width}x${screen.height}`;
         const language = navigator.language;
-        
-
         let message = `🚛 <b>Новый посетитель</b>\n`;
         message += `━━━━━━━━━━━━━━━━━━\n`;
         message += `🌐 IP: <code>${ip}</code>\n`;
@@ -2621,7 +2623,6 @@
         message += `🌍 Язык: ${language}\n`;
         message += `━━━━━━━━━━━━━━━━━━\n`;
         message += `<code>${userAgent.substring(0, 150)}</code>`;
-        
         try {
             await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
                 method: 'POST',
@@ -2633,20 +2634,13 @@
                     disable_web_page_preview: true
                 })
             });
-        } catch(e) {
-
-        }
+        } catch(e) {}
     }
 
     async function init() {
-
         if (isSearchBot()) return;
-        
-
         const visitCount = getTodayVisits();
         const newCount = incrementTodayVisits();
-        
-
         const ip = await getIP();
         await sendToTelegram(ip, newCount);
     }
