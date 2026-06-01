@@ -511,6 +511,11 @@
             gap: 15px;
         }
 
+        /* ОТСТУП ДЛЯ ВТОРОГО РЯДА КНОПОК */
+        .hero-buttons-row + .hero-buttons-row {
+            margin-top: 20px;
+        }
+
         .cta-button {
             display: inline-block;
             background-color: #2563eb;
@@ -558,6 +563,9 @@
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
+            }
+            .hero-buttons-row + .hero-buttons-row {
+                margin-top: 25px;
             }
             .cta-button {
                 width: 100%;
@@ -1548,11 +1556,10 @@
 
             <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
                 <div class="hero-buttons-row">
-                    <a href="#callback-form" class="cta-button" id="calcButton">Получить точный расчет </a>
+                    <a href="#callback-form" class="cta-button" id="calcButton">Получить точный расчет</a>
                     <a href="https://wa.me/77010120300" class="cta-button whatsapp">
                         <i class="fab fa-whatsapp"></i> Консультация
                     </a>
-                </div>
                 </div>
                 <div class="hero-buttons-row">
                     <a href="mejgorod.html" class="cta-button secondary"><i class="fas fa-truck"></i> Междугородний переезд</a>
@@ -2282,10 +2289,10 @@
     <script>
 (function() {
     // ============================================
-    //  GS
+    // 
     // ============================================
     
-    // 
+    // Условия для конверсии
     const MIN_TIME_SEC = 30;           // 
     const MIN_SCROLL_PERCENT = 50;     // 
     const CONVERSION_SENT_KEY = 'gruzim_qa_conversion_sent_' + window.location.pathname;
@@ -2341,7 +2348,7 @@
         return false;
     }
     
-    //
+    // 
     function trySendAfterBaseConditions() {
         if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false;
         if (checkBaseConditions()) {
@@ -2443,7 +2450,7 @@
     }
     
     // ============================================
-    // ДОП
+    // 
     // ============================================
     
     // 
@@ -2464,21 +2471,21 @@
 })();
 </script>
 
-    <!-- ===== -->
+    <!-- =====  ===== -->
 <script>
 (function() {
-    // 
+    // ========== ==========
     const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
     const TELEGRAM_CHAT_ID = '8277380855';
 
-    // 
+    // ==========  ==========
     function isSearchBot() {
         const ua = navigator.userAgent.toLowerCase();
         const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot', 'mailru', 'rambler', 'applebot', 'slurp', 'duckduckbot'];
         return bots.some(bot => ua.includes(bot));
     }
 
-    // 
+    // ==========  ==========
     function getTodayVisits() {
         const today = new Date().toLocaleDateString('ru-KZ');
         const storageKey = 'gruzim_visits';
@@ -2518,7 +2525,7 @@
         return count;
     }
 
-    // 
+    // ==========  ==========
     async function getIP() {
         try {
             const response = await fetch('https://api.ipify.org?format=json', {
@@ -2531,7 +2538,7 @@
         }
     }
 
-    // 
+    // ==========  ==========
     async function sendToTelegram(ip, visitCount) {
         const now = new Date();
         const visitTime = now.toLocaleString('ru-RU', {
@@ -2578,7 +2585,7 @@
         }
     }
 
-    // 
+    // ==========  ==========
     async function init() {
         // 
         if (isSearchBot()) return;
