@@ -449,6 +449,47 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .pricing-cards {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 12px;
+                padding: 10px 20px 20px;
+                margin: 0 -20px;
+                scrollbar-width: none;
+            }
+            .pricing-cards::-webkit-scrollbar {
+                display: none;
+            }
+            .pricing-card {
+                flex: 0 0 85%;
+                scroll-snap-align: center;
+                min-width: 0;
+            }
+            .pricing-dots {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 16px;
+            }
+            .pricing-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #cbd5e1;
+                transition: background 0.2s ease, transform 0.2s ease;
+            }
+            .pricing-dot.active {
+                background: #2563eb;
+                transform: scale(1.3);
+            }
+        }
+        @media (min-width: 769px) {
+            .pricing-dots { display: none; }
+        }
+
         .hero-header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.jpg') no-repeat center center/cover;
             color: white;
@@ -1697,6 +1738,11 @@
                     </div>
                 </div>
             </div>
+            <div class="pricing-dots" id="pricingDots">
+                <div class="pricing-dot active"></div>
+                <div class="pricing-dot"></div>
+                <div class="pricing-dot"></div>
+            </div>
         </div>
     </section>
 
@@ -2129,6 +2175,18 @@
             }
 
             setActiveMenuItem();
+
+            if (window.innerWidth <= 768) {
+                const pricingCards = document.querySelector('.pricing-cards');
+                const dots = document.querySelectorAll('.pricing-dot');
+                if (pricingCards && dots.length) {
+                    pricingCards.addEventListener('scroll', function() {
+                        const cardWidth = pricingCards.querySelector('.pricing-card').offsetWidth + 12;
+                        const index = Math.round(pricingCards.scrollLeft / cardWidth);
+                        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                    }, { passive: true });
+                }
+            }
 
             document.addEventListener('DOMContentLoaded', function() {
                 const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
