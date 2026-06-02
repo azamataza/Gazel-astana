@@ -350,6 +350,179 @@
         </div>
     </div>
 
+    <!-- ============================================================
+         БЫСТРЫЕ ЯРЛЫКИ КАТЕГОРИЙ
+         Стили встроены прямо здесь — при желании перенеси в style.css
+         ============================================================ -->
+    <nav class="cat-nav" aria-label="Категории услуг">
+        <style>
+            /* --- Обёртка секции --- */
+            .cat-nav {
+                background: #fff;
+                border-bottom: 1px solid #e2e8f0;
+                padding: 20px 5%;
+            }
+
+            /* --- Внутренний контейнер с максимальной шириной --- */
+            .cat-nav-inner {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            /* --- Сетка: 4 колонки на всех экранах, адаптив ниже --- */
+            .cat-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+
+            /* --- Одна карточка-ярлык --- */
+            .cat-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                text-decoration: none;
+                padding: 14px 8px 12px;
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 16px;
+                transition: border-color 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+            }
+            .cat-item:hover {
+                border-color: #2563eb;
+                box-shadow: 0 4px 12px rgba(37,99,235,0.10);
+            }
+            .cat-item:active {
+                transform: scale(0.97);
+            }
+
+            /* --- Иконка в синем кружке --- */
+            .cat-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 14px;
+                background: #EBF2FE;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+            .cat-icon svg {
+                width: 26px;
+                height: 26px;
+                stroke: #2563eb;
+                fill: none;
+                stroke-width: 1.7;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            /* --- Подпись --- */
+            .cat-label {
+                font-size: 11.5px;
+                font-weight: 600;
+                color: #1e293b;
+                text-align: center;
+                line-height: 1.3;
+            }
+
+            /* --- Мобильные: уменьшаем иконку и шрифт --- */
+            @media (max-width: 480px) {
+                .cat-nav { padding: 14px 12px; }
+                .cat-grid { gap: 8px; }
+                .cat-item { padding: 10px 4px 8px; border-radius: 12px; gap: 6px; }
+                .cat-icon { width: 44px; height: 44px; border-radius: 11px; }
+                .cat-icon svg { width: 22px; height: 22px; }
+                .cat-label { font-size: 10px; }
+            }
+
+            /* --- Десктоп: чуть просторнее --- */
+            @media (min-width: 769px) {
+                .cat-nav { padding: 24px 5%; }
+                .cat-grid { gap: 16px; }
+                .cat-item { padding: 18px 10px 14px; border-radius: 18px; gap: 10px; }
+                .cat-icon { width: 60px; height: 60px; border-radius: 16px; }
+                .cat-icon svg { width: 30px; height: 30px; stroke-width: 1.5; }
+                .cat-label { font-size: 13px; }
+            }
+        </style>
+
+        <div class="cat-nav-inner">
+            <div class="cat-grid">
+
+                <!-- 1. Грузовые перевозки → замени # на нужный URL, например: gruzovye.html -->
+                <a href="#" class="cat-item">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg>
+                    </div>
+                    <span class="cat-label">Грузовые перевозки</span>
+                </a>
+
+                <!-- 2. Юридическим лицам → замени # на нужный URL, например: B2B.html -->
+                <a href="#" class="cat-item">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/><line x1="12" y1="14" x2="12" y2="17"/></svg>
+                    </div>
+                    <span class="cat-label">Юридическим лицам</span>
+                </a>
+
+                <!-- 3. Переезды под ключ → замени # на нужный URL, например: pereezdkay.html -->
+                <a href="#" class="cat-item">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/><path d="M3 12v9h18v-9"/></svg>
+                    </div>
+                    <span class="cat-label">Переезды под ключ</span>
+                </a>
+
+                <!-- 4. Вывоз мусора → замени # на нужный URL, например: musor.html -->
+                <a href="#" class="cat-item">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                    </div>
+                    <span class="cat-label">Вывоз мусора</span>
+                </a>
+
+                <!-- 5. Сборка и разборка мебели → замени # на нужный URL, например: mebel.html -->
+                <a href="#" class="cat-item">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <span class="cat-label">Сборка мебели</span>
+                </a>
+
+                <!-- 6. Такелаж → замени # на нужный URL, например: takelazh.html -->
+                <a href="#" class="cat-item">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg>
+                    </div>
+                    <span class="cat-label">Такелаж</span>
+                </a>
+
+                <!-- 7. Упаковка → замени # на нужный URL, например: shop.html -->
+                <a href="#" class="cat-item">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/><path d="M3 8h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M10 8v12"/><path d="M3 12h7"/><path d="M14 12h7"/></svg>
+                    </div>
+                    <span class="cat-label">Упаковка</span>
+                </a>
+
+                <!-- 8. О нас → замени # на нужный URL, например: about.html -->
+                <a href="#" class="cat-item">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    </div>
+                    <span class="cat-label">О нас</span>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+    <!-- ============================================================
+         КОНЕЦ БЛОКА ЯРЛЫКОВ
+         ============================================================ -->
+
     <!-- Секция Услуги -->
     <section class="section" id="services">
         <h2 data-aos="fade-up">Наши услуги по Астане</h2>
