@@ -356,96 +356,76 @@
          ============================================================ -->
     <nav class="cat-nav" aria-label="Категории услуг">
         <style>
-            /* --- Обёртка секции --- */
             .cat-nav {
-                background: #fff;
+                background: #f8fafc;
                 border-bottom: 1px solid #e2e8f0;
-                padding: 20px 5%;
+                padding: 16px 5%;
             }
-
-            /* --- Внутренний контейнер с максимальной шириной --- */
             .cat-nav-inner {
                 max-width: 1200px;
                 margin: 0 auto;
             }
-
-            /* --- Сетка: 4 колонки на всех экранах, адаптив ниже --- */
+            /* Мобиль: 4 колонки, 2 ряда */
             .cat-grid {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                gap: 12px;
+                gap: 6px 4px;
             }
-
-            /* --- Одна карточка-ярлык --- */
+            /* Десктоп: 8 в один ряд */
+            @media (min-width: 769px) {
+                .cat-nav { padding: 14px 5%; }
+                .cat-grid { grid-template-columns: repeat(8, 1fr); gap: 8px; }
+            }
             .cat-item {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 8px;
+                gap: 6px;
                 text-decoration: none;
-                padding: 14px 8px 12px;
-                background: #fff;
-                border: 1px solid #e2e8f0;
-                border-radius: 16px;
-                transition: border-color 0.2s, box-shadow 0.2s;
-                cursor: pointer;
+                padding: 8px 4px;
+                border-radius: 12px;
+                transition: background 0.15s;
+                -webkit-tap-highlight-color: transparent;
             }
-            .cat-item:hover {
-                border-color: #2563eb;
-                box-shadow: 0 4px 12px rgba(37,99,235,0.10);
-            }
-            .cat-item:active {
-                transform: scale(0.97);
-            }
-
-            /* --- Иконка в синем кружке --- */
+            .cat-item:hover { background: #e8f0fe; }
+            .cat-item:active { transform: scale(0.94); }
+            /* Иконка — квадрат с закруглёнными углами как у iOS */
             .cat-icon {
-                width: 52px;
-                height: 52px;
+                width: 54px;
+                height: 54px;
                 border-radius: 14px;
-                background: #EBF2FE;
+                background: #2563eb;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-shrink: 0;
             }
             .cat-icon svg {
-                width: 26px;
-                height: 26px;
-                stroke: #2563eb;
+                width: 28px;
+                height: 28px;
+                stroke: #fff;
                 fill: none;
                 stroke-width: 1.7;
                 stroke-linecap: round;
                 stroke-linejoin: round;
             }
-
-            /* --- Подпись --- */
             .cat-label {
-                font-size: 11.5px;
-                font-weight: 600;
-                color: #1e293b;
+                font-size: 11px;
+                font-weight: 500;
+                color: #334155;
                 text-align: center;
                 line-height: 1.3;
+                max-width: 70px;
             }
-
-            /* --- Мобильные: уменьшаем иконку и шрифт --- */
-            @media (max-width: 480px) {
-                .cat-nav { padding: 14px 12px; }
-                .cat-grid { gap: 8px; }
-                .cat-item { padding: 10px 4px 8px; border-radius: 12px; gap: 6px; }
-                .cat-icon { width: 44px; height: 44px; border-radius: 11px; }
-                .cat-icon svg { width: 22px; height: 22px; }
-                .cat-label { font-size: 10px; }
+            @media (max-width: 380px) {
+                .cat-icon { width: 46px; height: 46px; border-radius: 12px; }
+                .cat-icon svg { width: 23px; height: 23px; }
+                .cat-label { font-size: 10px; max-width: 60px; }
             }
-
-            /* --- Десктоп: чуть просторнее --- */
             @media (min-width: 769px) {
-                .cat-nav { padding: 24px 5%; }
-                .cat-grid { gap: 16px; }
-                .cat-item { padding: 18px 10px 14px; border-radius: 18px; gap: 10px; }
-                .cat-icon { width: 60px; height: 60px; border-radius: 16px; }
-                .cat-icon svg { width: 30px; height: 30px; stroke-width: 1.5; }
-                .cat-label { font-size: 13px; }
+                .cat-icon { width: 58px; height: 58px; border-radius: 15px; }
+                .cat-icon svg { width: 30px; height: 30px; }
+                .cat-label { font-size: 12px; max-width: 90px; }
             }
         </style>
 
