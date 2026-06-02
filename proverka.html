@@ -47,8 +47,6 @@
         
         /* Кнопки */
         .cta-button{display:inline-block;background:#2563eb;color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1.1em;transition:all 0.3s ease;box-shadow:0 8px 20px rgba(37,99,235,0.3);border:none;cursor:pointer;}
-        .glass-service-btn{width:100%;max-width:420px;text-align:center;padding:18px 25px;border-radius:50px;text-decoration:none;font-weight:600;font-size:18px;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;background:rgba(255,255,255,0.15);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);}
-        .hero-glass-buttons{margin-top:35px;display:grid;grid-template-columns:1fr;gap:18px;justify-items:center;}
         
         /* Карточки (минимальные стили для первого экрана) */
         .section{padding:80px 20px;max-width:1200px;margin:0 auto;}
@@ -61,6 +59,117 @@
         
         @media (max-width:768px){body{padding-top:70px;}.hero-header h1{font-size:2.2em;}.section h2{font-size:2em;}}
         @media (min-width:992px){.hero-glass-buttons{grid-template-columns:1fr 1fr;max-width:900px;margin-left:auto;margin-right:auto;}.glass-service-btn{max-width:none;}}
+
+        /* СТЕКЛЯННЫЕ ЯРЛЫКИ — ЛЁГКИЕ, БЕЗ ТЯЖЁЛЫХ ЭФФЕКТОВ */
+        .hero-glass-icons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px 8px;
+            max-width: 800px;
+            margin: 35px auto 0;
+            padding: 0 12px;
+        }
+        
+        .glass-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 4px 10px;
+            border-radius: 18px;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 0.5px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        @media (hover: hover) {
+            .glass-icon-item:hover {
+                background: rgba(255, 255, 255, 0.22);
+                transform: scale(0.96);
+            }
+        }
+        
+        .glass-icon-item:active {
+            transform: scale(0.94);
+            transition-duration: 0.05s;
+        }
+        
+        .glass-icon-svg {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        
+        .glass-icon-svg svg {
+            width: 26px;
+            height: 26px;
+            color: white;
+            stroke: white;
+        }
+        
+        .glass-icon-item span {
+            font-size: 11px;
+            font-weight: 500;
+            color: white;
+            text-align: center;
+            line-height: 1.3;
+            max-width: 85px;
+            letter-spacing: 0.3px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 480px) {
+            .hero-glass-icons {
+                gap: 8px 6px;
+            }
+            .glass-icon-svg {
+                width: 42px;
+                height: 42px;
+                border-radius: 14px;
+            }
+            .glass-icon-svg svg {
+                width: 22px;
+                height: 22px;
+            }
+            .glass-icon-item span {
+                font-size: 9.5px;
+                max-width: 70px;
+            }
+            .glass-icon-item {
+                padding: 8px 2px 8px;
+                border-radius: 14px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .hero-glass-icons {
+                gap: 16px 12px;
+            }
+            .glass-icon-svg {
+                width: 56px;
+                height: 56px;
+                border-radius: 20px;
+            }
+            .glass-icon-svg svg {
+                width: 30px;
+                height: 30px;
+            }
+            .glass-icon-item span {
+                font-size: 12px;
+                max-width: 100px;
+            }
+        }
     </style>
 
     <!-- Микроразметка Schema.org -->
@@ -311,31 +420,96 @@
         </nav>
     </header>
 
-    <!-- Основная шапка с фоном -->
+    <!-- Основная шапка с фоном (hero-блок) -->
     <header class="hero-header">
         <div class="header-content">
-            <h1>
-                <span class="brand-blue">Gruzim.kz</span>
-                <span class="brand-separator"> | </span>
-                <span class="brand-orange">Больше, чем грузоперевозки</span>
-            </h1>
+            <!-- Весь старый H1 и кнопки удалены. Оставлен только текст и стеклянные ярлыки -->
             <p>Полный цикл услуг для дома, офиса и бизнеса.</p>
-            <div class="hero-glass-buttons">
-                <a href="#card-turnkey" class="glass-service-btn">
-                    <i class="fas fa-gem"></i>
-                    Переезд под ключ
+            
+            <!-- СТЕКЛЯННЫЕ ЯРЛЫКИ (2 ряда по 4, лёгкие, быстрые) -->
+            <div class="hero-glass-icons">
+                <a href="#" class="glass-icon-item">
+                    <div class="glass-icon-svg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="8" width="15" height="11" rx="2"/>
+                            <path d="M16 11h4l3 4v4h-7V11z"/>
+                            <circle cx="5.5" cy="19.5" r="1.5"/>
+                            <circle cx="18.5" cy="19.5" r="1.5"/>
+                        </svg>
+                    </div>
+                    <span>Грузовые перевозки</span>
                 </a>
-                <a href="#card-trash" class="glass-service-btn">
-                    <i class="fas fa-dumpster"></i>
-                    Вывоз мусора и утилизация
+                <a href="#" class="glass-icon-item">
+                    <div class="glass-icon-svg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="10" width="18" height="11" rx="2"/>
+                            <path d="M8 10V6a4 4 0 0 1 8 0v4"/>
+                            <line x1="12" y1="14" x2="12" y2="17"/>
+                        </svg>
+                    </div>
+                    <span>Юридическим лицам</span>
                 </a>
-                <a href="#card-furniture" class="glass-service-btn">
-                    <i class="fas fa-screwdriver-wrench"></i>
-                    Разборка, сборка, перевозка мебели
+                <a href="#" class="glass-icon-item">
+                    <div class="glass-icon-svg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12L12 3l9 9"/>
+                            <path d="M9 21V12h6v9"/>
+                            <path d="M3 12v9h18v-9"/>
+                        </svg>
+                    </div>
+                    <span>Переезды под ключ</span>
                 </a>
-                <a href="shop.html" class="glass-service-btn">
-                    <i class="fas fa-box-open"></i>
-                    Магазин упаковочных материалов
+                <a href="#" class="glass-icon-item">
+                    <div class="glass-icon-svg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"/>
+                            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+                            <path d="M10 11v6"/>
+                            <path d="M14 11v6"/>
+                            <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                        </svg>
+                    </div>
+                    <span>Вывоз мусора</span>
+                </a>
+                <a href="#" class="glass-icon-item">
+                    <div class="glass-icon-svg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <span>Сборка мебели</span>
+                </a>
+                <a href="#" class="glass-icon-item">
+                    <div class="glass-icon-svg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20"/>
+                            <path d="M2 12h20"/>
+                            <path d="M7 7l10 10"/>
+                            <path d="M17 7L7 17"/>
+                        </svg>
+                    </div>
+                    <span>Такелаж</span>
+                </a>
+                <a href="#" class="glass-icon-item">
+                    <div class="glass-icon-svg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/>
+                            <path d="M3 8h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <path d="M10 8v12"/>
+                            <path d="M3 12h7"/>
+                            <path d="M14 12h7"/>
+                        </svg>
+                    </div>
+                    <span>Упаковка</span>
+                </a>
+                <a href="#" class="glass-icon-item">
+                    <div class="glass-icon-svg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="4"/>
+                            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                        </svg>
+                    </div>
+                    <span>О нас</span>
                 </a>
             </div>
         </div>
@@ -349,159 +523,6 @@
             <span><i class="fas fa-file-invoice"></i> Безнал, договор, документы</span>
         </div>
     </div>
-
-    <!-- ============================================================
-         БЫСТРЫЕ ЯРЛЫКИ КАТЕГОРИЙ
-         Стили встроены прямо здесь — при желании перенеси в style.css
-         ============================================================ -->
-    <nav class="cat-nav" aria-label="Категории услуг">
-        <style>
-            .cat-nav {
-                background: #f8fafc;
-                border-bottom: 1px solid #e2e8f0;
-                padding: 16px 5%;
-            }
-            .cat-nav-inner {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-            /* Мобиль: 4 колонки, 2 ряда */
-            .cat-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 6px 4px;
-            }
-            /* Десктоп: 8 в один ряд */
-            @media (min-width: 769px) {
-                .cat-nav { padding: 14px 5%; }
-                .cat-grid { grid-template-columns: repeat(8, 1fr); gap: 8px; }
-            }
-            .cat-item {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 6px;
-                text-decoration: none;
-                padding: 8px 4px;
-                border-radius: 12px;
-                transition: background 0.15s;
-                -webkit-tap-highlight-color: transparent;
-            }
-            .cat-item:hover { background: #e8f0fe; }
-            .cat-item:active { transform: scale(0.94); }
-            /* Иконка — квадрат с закруглёнными углами как у iOS */
-            .cat-icon {
-                width: 54px;
-                height: 54px;
-                border-radius: 14px;
-                background: #2563eb;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
-            }
-            .cat-icon svg {
-                width: 28px;
-                height: 28px;
-                stroke: #fff;
-                fill: none;
-                stroke-width: 1.7;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-            }
-            .cat-label {
-                font-size: 11px;
-                font-weight: 500;
-                color: #334155;
-                text-align: center;
-                line-height: 1.3;
-                max-width: 70px;
-            }
-            @media (max-width: 380px) {
-                .cat-icon { width: 46px; height: 46px; border-radius: 12px; }
-                .cat-icon svg { width: 23px; height: 23px; }
-                .cat-label { font-size: 10px; max-width: 60px; }
-            }
-            @media (min-width: 769px) {
-                .cat-icon { width: 58px; height: 58px; border-radius: 15px; }
-                .cat-icon svg { width: 30px; height: 30px; }
-                .cat-label { font-size: 12px; max-width: 90px; }
-            }
-        </style>
-
-        <div class="cat-nav-inner">
-            <div class="cat-grid">
-
-                <!-- 1. Грузовые перевозки → замени # на нужный URL, например: gruzovye.html -->
-                <a href="#" class="cat-item">
-                    <div class="cat-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg>
-                    </div>
-                    <span class="cat-label">Грузовые перевозки</span>
-                </a>
-
-                <!-- 2. Юридическим лицам → замени # на нужный URL, например: B2B.html -->
-                <a href="#" class="cat-item">
-                    <div class="cat-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/><line x1="12" y1="14" x2="12" y2="17"/></svg>
-                    </div>
-                    <span class="cat-label">Юридическим лицам</span>
-                </a>
-
-                <!-- 3. Переезды под ключ → замени # на нужный URL, например: pereezdkay.html -->
-                <a href="#" class="cat-item">
-                    <div class="cat-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/><path d="M3 12v9h18v-9"/></svg>
-                    </div>
-                    <span class="cat-label">Переезды под ключ</span>
-                </a>
-
-                <!-- 4. Вывоз мусора → замени # на нужный URL, например: musor.html -->
-                <a href="#" class="cat-item">
-                    <div class="cat-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
-                    </div>
-                    <span class="cat-label">Вывоз мусора</span>
-                </a>
-
-                <!-- 5. Сборка и разборка мебели → замени # на нужный URL, например: mebel.html -->
-                <a href="#" class="cat-item">
-                    <div class="cat-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                    </div>
-                    <span class="cat-label">Сборка мебели</span>
-                </a>
-
-                <!-- 6. Такелаж → замени # на нужный URL, например: takelazh.html -->
-                <a href="#" class="cat-item">
-                    <div class="cat-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg>
-                    </div>
-                    <span class="cat-label">Такелаж</span>
-                </a>
-
-                <!-- 7. Упаковка → замени # на нужный URL, например: shop.html -->
-                <a href="#" class="cat-item">
-                    <div class="cat-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/><path d="M3 8h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M10 8v12"/><path d="M3 12h7"/><path d="M14 12h7"/></svg>
-                    </div>
-                    <span class="cat-label">Упаковка</span>
-                </a>
-
-                <!-- 8. О нас → замени # на нужный URL, например: about.html -->
-                <a href="#" class="cat-item">
-                    <div class="cat-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                    </div>
-                    <span class="cat-label">О нас</span>
-                </a>
-
-            </div>
-        </div>
-    </nav>
-    <!-- ============================================================
-         КОНЕЦ БЛОКА ЯРЛЫКОВ
-         ============================================================ -->
 
     <!-- Секция Услуги -->
     <section class="section" id="services">
@@ -898,7 +919,7 @@
         </ul>
         <h3>Сравнение тарифов на грузоперевозки</h3>
         <table style="width:100%;border-collapse:collapse;margin:20px 0;background:#f8fafc;">
-            <thead><tr style="background:#2563eb;color:white;"><th style="padding:12px;border:1px solid #e2e8f0;">Тариф</th><th style="padding:12px;border:1px solid #e2e8f0;">Стоимость</th><th style="padding:12px;border:1px solid #e2e8f0;">Что входит</th></tr></thead>
+            <thead><tr style="background:#2563eb;color:white;"><th style="padding:12px;border:1px solid #e2e8f0;">Тариф</th><th style="padding:12px;border:1px solid #e2e8f0;">Стоимость</th><th style="padding:12px;border:1px solid #e2e8f0;">Что входит</th></table></thead>
             <tbody>
                 <tr><td style="padding:10px;border:1px solid #e2e8f0;"><strong>Грузовой</strong></td><td style="padding:10px;border:1px solid #e2e8f0;">от 7 000 ₸/час</td><td style="padding:10px;border:1px solid #e2e8f0;">Грузовик до 4м, фиксация груза</td></tr>
                 <tr style="background:#f1f5f9;"><td style="padding:10px;border:1px solid #e2e8f0;"><strong>Комплект</strong></td><td style="padding:10px;border:1px solid #e2e8f0;">от 14 000 ₸/час</td><td style="padding:10px;border:1px solid #e2e8f0;">Грузовик + 2 грузчика</td></tr>
@@ -1099,7 +1120,7 @@
             
             if (hoursInput) updatePrice();
 
-            // Статистика — ИСПРАВЛЕНА (убрана принудительная компоновка)
+            // Статистика
             function animateNumber(element, target) {
                 if (!element) return;
                 let current = 0;
@@ -1290,7 +1311,7 @@
                 videosNext.addEventListener('click', function() { showVideoSlide(videoIndex + 1); });
             }
 
-            // Мобильные: отложенная загрузка (БЕЗ Яндекс.Метрики)
+            // Мобильные: отложенная загрузка
             if (isMobileForLoad) {
                 setTimeout(() => {
                     var aosScript = document.createElement('script');
