@@ -59,24 +59,26 @@
         
         @media (max-width:768px){body{padding-top:70px;}.hero-header h1{font-size:2.2em;}.section h2{font-size:2em;}}
 
-        /* ЯРЛЫКИ В СТИЛЕ FLIP.KZ — ПРОЗРАЧНЫЕ, БЕЛАЯ ОБВОДКА */
+        /* ЯРЛЫКИ В СТИЛЕ FLIP.KZ — ИКОНКА + ТЕКСТ, БЕЗ РАМКИ ВОКРУГ ИКОНКИ */
         .hero-chips {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             margin-top: 35px;
-            max-width: 900px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
             padding: 0 12px;
         }
         
         .chip {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 8px 18px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.35);
             border-radius: 40px;
             color: white;
             font-size: 14px;
@@ -88,9 +90,14 @@
             white-space: nowrap;
         }
         
+        .chip i {
+            font-size: 14px;
+            color: white;
+        }
+        
         .chip:hover {
             background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.7);
+            border-color: rgba(255, 255, 255, 0.6);
             transform: scale(0.97);
         }
         
@@ -105,13 +112,20 @@
             .chip {
                 padding: 6px 14px;
                 font-size: 12px;
-                white-space: nowrap;
+                gap: 6px;
+            }
+            .chip i {
+                font-size: 12px;
             }
         }
         
         @media (max-width: 480px) {
             .chip {
                 padding: 5px 12px;
+                font-size: 11px;
+                gap: 5px;
+            }
+            .chip i {
                 font-size: 11px;
             }
         }
@@ -375,16 +389,16 @@
             </h1>
             <p>Полный цикл услуг для дома, офиса и бизнеса.</p>
             
-            <!-- ЯРЛЫКИ В СТИЛЕ FLIP.KZ -->
+            <!-- ЯРЛЫКИ С ИКОНКАМИ (БЕЗ РАМКИ ВОКРУГ ИКОНОК) -->
             <div class="hero-chips">
-                <a href="#" class="chip">Грузовые перевозки</a>
-                <a href="#" class="chip">Юридическим лицам</a>
-                <a href="#" class="chip">Переезды под ключ</a>
-                <a href="#" class="chip">Вывоз мусора</a>
-                <a href="#" class="chip">Сборка мебели</a>
-                <a href="#" class="chip">Такелаж</a>
-                <a href="#" class="chip">Упаковка</a>
-                <a href="#" class="chip">О нас</a>
+                <a href="#" class="chip"><i class="fas fa-truck"></i> Грузовые перевозки</a>
+                <a href="#" class="chip"><i class="fas fa-building"></i> Юридическим лицам</a>
+                <a href="#" class="chip"><i class="fas fa-home"></i> Переезды под ключ</a>
+                <a href="#" class="chip"><i class="fas fa-trash-alt"></i> Вывоз мусора</a>
+                <a href="#" class="chip"><i class="fas fa-tools"></i> Сборка мебели</a>
+                <a href="#" class="chip"><i class="fas fa-dolly"></i> Такелаж</a>
+                <a href="#" class="chip"><i class="fas fa-boxes"></i> Упаковка</a>
+                <a href="#" class="chip"><i class="fas fa-users"></i> О нас</a>
             </div>
         </div>
     </header>
