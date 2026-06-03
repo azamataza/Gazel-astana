@@ -42,14 +42,32 @@
         
         .section{padding:80px 20px;max-width:1200px;margin:0 auto;}
         .section h2{font-size:2.5em;margin-bottom:50px;color:#0f172a;text-align:center;}
-        .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
-        .card{background:white;border-radius:24px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:all 0.3s ease;border:1px solid #e2e8f0;text-align:center;display:flex;flex-direction:column;}
-        .card .icon{font-size:2.5em;color:#2563eb;margin-bottom:20px;background:#e0f2fe;padding:15px;border-radius:60px;width:70px;height:70px;display:flex;align-items:center;justify-content:center;margin-left:auto;margin-right:auto;}
-        .card h3{font-size:1.5em;color:#0f172a;margin-bottom:15px;}
-        .card .price{font-size:1.3em;font-weight:700;color:#2563eb;margin:15px 0;}
-        .card .card-btn{margin-top:20px;align-self:center;}
-        
-        @media (max-width:768px){body{padding-top:70px;}.hero-header h1{font-size:2.2em;}.section h2{font-size:2em;}}
+
+        .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+        .card{background:#fff;border-radius:16px;padding:24px;border:1px solid #e2e8f0;display:flex;flex-direction:column;gap:12px;transition:border-color 0.2s ease;text-align:left;}
+        .card:hover{border-color:#2563eb;}
+        .card.card--premium{border:2px solid #2563eb;}
+        .card-icon-wrap{width:40px;height:40px;border-radius:10px;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+        .card.card--premium .card-icon-wrap{background:#2563eb;}
+        .card-icon-wrap i{font-size:20px;color:#2563eb;}
+        .card.card--premium .card-icon-wrap i{color:#fff;}
+        .card-badge{font-size:11px;font-weight:600;background:#2563eb;color:#fff;padding:3px 10px;border-radius:20px;align-self:flex-start;letter-spacing:0.3px;}
+        .card h3{font-size:1.05em;font-weight:700;color:#0f172a;margin:0;line-height:1.35;}
+        .card p{font-size:0.9em;color:#475569;line-height:1.6;margin:0;flex:1;}
+        .card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px;}
+        .card .price{font-size:0.88em;font-weight:700;color:#2563eb;background:#eff6ff;padding:5px 12px;border-radius:20px;white-space:nowrap;}
+        .card .card-btn{font-size:0.82em;color:#64748b;border:1px solid #e2e8f0;border-radius:20px;padding:5px 14px;text-decoration:none;background:transparent;cursor:pointer;transition:background 0.15s,color 0.15s;white-space:nowrap;}
+        .card .card-btn:hover{background:#f1f5f9;color:#0f172a;}
+
+        @media(max-width:900px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:768px){
+            body{padding-top:70px;}
+            .hero-header h1{font-size:1.8em;}
+            .section h2{font-size:1.7em;}
+            .section{padding:50px 16px;}
+            .cards-grid{grid-template-columns:1fr;gap:14px;}
+            .card{padding:20px;}
+        }
 
         .hero-icons {
             display: grid;
@@ -417,47 +435,59 @@
         <h2 data-aos="fade-up">Наши услуги по Астане</h2>
         <div class="cards-grid">
             <div class="card" data-aos="fade-up" data-aos-delay="50">
-                <i class="fas fa-truck icon"></i>
+                <div class="card-icon-wrap"><i class="fas fa-truck"></i></div>
                 <h3>Тариф «Грузовой»</h3>
-                <p> Минивэны и грузовики до 5м (с грузчиками/без): переезды, стройматериалы, доставка товаров. Лучший выбор для города!</p>
-                <p> Почасовая оплата.</p>
-                <p class="price">от 5 000 тг/час</p>
-                <a href="#" class="cta-button card-btn">Подробнее</a>
+                <p>Минивэны и грузовики до 5м с грузчиками или без. Переезды, стройматериалы, доставка товаров. Почасовая оплата.</p>
+                <div class="card-footer">
+                    <span class="price">от 5 000 ₸/час</span>
+                    <a href="#" class="card-btn">Заказать →</a>
+                </div>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="50">
-                <i class="fas fa-truck-pickup icon"></i>
+                <div class="card-icon-wrap"><i class="fas fa-truck-pickup"></i></div>
                 <h3>Тариф «Такелаж»</h3>
-                <p>Перевозка тяжелых грузов: такелажники, аренда манипулятора или доставка рохли.</p>
-                <p class="price">от 6 000 тг/час</p>
-                <a href="#" class="cta-button card-btn">Подробнее</a>
+                <p>Перевозка тяжёлых грузов: такелажники, аренда манипулятора или доставка рохли.</p>
+                <div class="card-footer">
+                    <span class="price">от 6 000 ₸/час</span>
+                    <a href="#" class="card-btn">Заказать →</a>
+                </div>
             </div>
             <div class="card" id="card-apartments-offices" data-aos="fade-up" data-aos-delay="50">
-                <i class="fas fa-truck-moving icon"></i>
+                <div class="card-icon-wrap"><i class="fas fa-box-open"></i></div>
                 <h3>Магазин</h3>
-                <p>Коробки, пленка, скотч и инструмент для переезда. Можно заказать наборы или поштучно с доставкой.</p>
-                <p class="price">от 400 тг</p>
-                <a href="#" class="cta-button card-btn">Подробнее</a>
+                <p>Коробки, плёнка, скотч и инструмент для переезда. Наборы или поштучно с доставкой.</p>
+                <div class="card-footer">
+                    <span class="price">от 400 ₸</span>
+                    <a href="shop.html" class="card-btn">В магазин →</a>
+                </div>
             </div>
             <div class="card card--premium" id="card-turnkey" data-aos="zoom-in" data-aos-delay="50">
-                <i class="fas fa-gem icon"></i>
-                <h3 class="card-title">Услуги перездов</h3>
-                <p>Полный сервис: от упаковки до расстановки вещей на новом месте. Всё включено.</p>
-                <p class="price">от 14 000 тг/час </p>
-                <a href="#" class="cta-button card-btn">Подробнее</a>
+                <span class="card-badge">Популярное</span>
+                <div class="card-icon-wrap"><i class="fas fa-home"></i></div>
+                <h3>Переезд под ключ</h3>
+                <p>Полный сервис: упаковка, погрузка, перевозка и расстановка вещей на новом месте. Всё включено.</p>
+                <div class="card-footer">
+                    <span class="price">от 14 000 ₸/час</span>
+                    <a href="pereezdkay.html" class="card-btn">Заказать →</a>
+                </div>
             </div>
-            <div class="card card--furniture" id="card-furniture" data-aos="fade-up" data-aos-delay="50">
-                <i class="fas fa-screwdriver-wrench icon"></i>
-                <h3>Сборка, разборка и упаковка мебели</h3>
-                <p>Разберём, перевезём и соберём мебель на новом месте. Всё аккуратно, быстро и без повреждений.</p>
-                <p class="price">от 12 000 тг</p>
-                <a href="#" class="cta-button card-btn">Подробнее</a>
+            <div class="card" id="card-furniture" data-aos="fade-up" data-aos-delay="50">
+                <div class="card-icon-wrap"><i class="fas fa-screwdriver-wrench"></i></div>
+                <h3>Сборка и разборка мебели</h3>
+                <p>Разберём, перевезём и соберём мебель на новом месте. Аккуратно, быстро, без повреждений.</p>
+                <div class="card-footer">
+                    <span class="price">от 12 000 ₸</span>
+                    <a href="mebel.html" class="card-btn">Заказать →</a>
+                </div>
             </div>
-            <div class="card card--trash" id="card-trash" data-aos="fade-up" data-aos-delay="50">
-                <i class="fas fa-dumpster icon"></i>
-                <h3>Вывоз мусора и утилизация</h3>
+            <div class="card" id="card-trash" data-aos="fade-up" data-aos-delay="50">
+                <div class="card-icon-wrap"><i class="fas fa-dumpster"></i></div>
+                <h3>Вывоз мусора</h3>
                 <p>Оперативный вывоз строительного и бытового мусора. Утилизация старой мебели и техники.</p>
-                <p class="price">от 12 000 тг</p>
-                <a href="#" class="cta-button card-btn">Подробнее</a>
+                <div class="card-footer">
+                    <span class="price">от 12 000 ₸</span>
+                    <a href="musor.html" class="card-btn">Заказать →</a>
+                </div>
             </div>
         </div>
     </section>
