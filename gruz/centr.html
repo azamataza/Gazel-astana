@@ -110,12 +110,10 @@
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
 
     <style>
-        /* ---- base ---- */
         *{margin:0;padding:0;box-sizing:border-box;}
         body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
         html{scroll-behavior:smooth;}
 
-        /* ---- header ---- */
         .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
         .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
         .header-left{display:flex;align-items:center;gap:12px;}
@@ -151,7 +149,6 @@
             .header-phone{display:none !important;}
         }
 
-        /* ---- breadcrumbs ---- */
         .breadcrumbs{max-width:1200px;margin:0 auto;padding:10px 20px;}
         .breadcrumbs ol{display:flex;flex-wrap:wrap;list-style:none;padding:0;}
         .breadcrumbs li{font-size:0.9rem;}
@@ -159,20 +156,64 @@
         .breadcrumbs a{color:#2563eb;text-decoration:none;}
         .breadcrumbs a:hover{text-decoration:underline;}
 
-        /* ---- hero ---- */
         .hero-header{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),url('fon.jpg') no-repeat center center/cover;color:white;padding:90px 20px 70px;text-align:center;}
         .hero-header h1{font-size:2.8em;margin-bottom:16px;line-height:1.2;}
         .hero-sub{font-size:1.15em;color:rgba(255,255,255,0.85);margin-bottom:36px;max-width:620px;margin-left:auto;margin-right:auto;}
         .brand-blue{color:#2563eb;font-weight:800;}
         .brand-orange{color:#f97316;font-weight:700;}
 
-        .hero-tabs{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:36px;}
-        .hero-tab{display:flex;flex-direction:column;align-items:center;gap:10px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.28);border-radius:16px;padding:18px 28px;text-decoration:none;color:white;transition:all 0.2s;min-width:160px;cursor:pointer;}
-        .hero-tab:hover{background:rgba(255,255,255,0.22);transform:translateY(-3px);}
-        .hero-tab.active{background:rgba(37,99,235,0.75);border-color:#2563eb;}
-        .hero-tab svg{width:36px;height:36px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
-        .hero-tab-label{font-size:0.95em;font-weight:600;}
-        .hero-tab-price{font-size:0.8em;color:rgba(255,255,255,0.75);}
+        .hero-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        .hero-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            background: transparent;
+            border: 1.5px solid rgba(255,255,255,0.6);
+            border-radius: 20px;
+            padding: 16px 28px;
+            min-width: 160px;
+        }
+        .hero-icon-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+        .hero-icon-item svg {
+            width: 42px;
+            height: 42px;
+            stroke: white;
+            stroke-width: 1.7;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .hero-icon-item span {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .hero-icons { gap: 16px; }
+            .hero-icon-item { padding: 12px 20px; min-width: 130px; }
+            .hero-icon-item svg { width: 32px; height: 32px; }
+            .hero-icon-item span { font-size: 11px; }
+        }
+        @media (max-width: 550px) {
+            .hero-icons { flex-direction: column; align-items: center; gap: 12px; }
+            .hero-icon-item { width: 80%; max-width: 260px; flex-direction: row; justify-content: center; gap: 15px; padding: 12px 20px; }
+        }
 
         .hero-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
         .btn-primary{display:inline-flex;align-items:center;gap:8px;background:#2563eb;color:white;padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;transition:all 0.25s;box-shadow:0 8px 20px rgba(37,99,235,0.35);border:none;cursor:pointer;}
@@ -180,29 +221,15 @@
         .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);color:white;padding:14px 28px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;border:1px solid rgba(255,255,255,0.4);transition:all 0.25s;}
         .btn-secondary:hover{background:rgba(255,255,255,0.25);}
 
-        @media(max-width:768px){
-            .hero-header h1{font-size:1.85em;}
-            .hero-sub{font-size:1em;}
-            .hero-tabs{gap:10px;}
-            .hero-tab{min-width:130px;padding:14px 18px;}
-        }
-        @media(max-width:480px){
-            .hero-tabs{flex-direction:column;align-items:center;}
-            .hero-tab{width:100%;max-width:280px;flex-direction:row;justify-content:flex-start;gap:14px;}
-        }
+        @media(max-width:768px){.hero-header h1{font-size:1.85em;}.hero-sub{font-size:1em;}}
 
-        /* ---- sections ---- */
         .section{padding:80px 20px;max-width:1200px;margin:0 auto;}
         .section h2{font-size:2.3em;margin-bottom:14px;color:#0f172a;text-align:center;}
         .section-sub{text-align:center;color:#64748b;font-size:1rem;margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto;}
         .section h2::after{content:'';display:block;width:60px;height:4px;background:#2563eb;border-radius:4px;margin:14px auto 0;}
 
-        @media(max-width:768px){
-            .section{padding:52px 16px;}
-            .section h2{font-size:1.7em;}
-        }
+        @media(max-width:768px){.section{padding:52px 16px;}.section h2{font-size:1.7em;}}
 
-        /* ---- tariff cards ---- */
         .tariff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
         .tariff-card{background:#fff;border-radius:20px;border:1px solid #e2e8f0;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color 0.2s,transform 0.2s;}
         .tariff-card:hover{border-color:#2563eb;transform:translateY(-4px);}
@@ -225,8 +252,7 @@
         @media(max-width:900px){.tariff-grid{grid-template-columns:1fr 1fr;}}
         @media(max-width:600px){.tariff-grid{grid-template-columns:1fr;}.tariff-card.featured{margin-top:16px;}}
 
-        /* ---- how it works ---- */
-        .steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step;}
+        .steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
         .step-box{background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:24px 20px;text-align:center;position:relative;}
         .step-num{width:42px;height:42px;background:#2563eb;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;margin:0 auto 14px;}
         .step-box h3{font-size:1em;font-weight:700;color:#0f172a;margin-bottom:8px;}
@@ -235,7 +261,6 @@
         @media(max-width:900px){.steps-row{grid-template-columns:repeat(2,1fr);}}
         @media(max-width:480px){.steps-row{grid-template-columns:1fr;}}
 
-        /* ---- what we carry ---- */
         .cargo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
         .cargo-item{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:20px 16px;text-align:center;}
         .cargo-item i{font-size:2em;color:#2563eb;margin-bottom:10px;display:block;}
@@ -245,7 +270,6 @@
         @media(max-width:900px){.cargo-grid{grid-template-columns:repeat(2,1fr);}}
         @media(max-width:480px){.cargo-grid{grid-template-columns:1fr 1fr;gap:12px;}}
 
-        /* ---- price table ---- */
         .price-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid #e2e8f0;}
         .price-table{width:100%;border-collapse:collapse;background:#fff;font-size:0.92em;}
         .price-table thead tr{background:#2563eb;color:#fff;}
@@ -254,11 +278,8 @@
         .price-table tr:last-child td{border-bottom:none;}
         .price-table tr:hover td{background:#f8fafc;}
         .price-table .highlight{color:#2563eb;font-weight:700;}
-        @media(max-width:600px){
-            .price-table th,.price-table td{padding:11px 12px;font-size:0.82em;}
-        }
+        @media(max-width:600px){.price-table th,.price-table td{padding:11px 12px;font-size:0.82em;}}
 
-        /* ---- reviews ---- */
         .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
         .review-card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:22px 20px;display:flex;flex-direction:column;gap:10px;}
         .review-stars{color:#f59e0b;font-size:0.9em;letter-spacing:2px;}
@@ -269,7 +290,6 @@
         @media(max-width:900px){.reviews-grid{grid-template-columns:repeat(2,1fr);}}
         @media(max-width:600px){.reviews-grid{grid-template-columns:1fr;}}
 
-        /* ---- faq ---- */
         .faq-item{background:#fff;border-radius:14px;margin-bottom:12px;border:1px solid #e2e8f0;overflow:hidden;}
         .faq-question{padding:17px 20px;font-weight:600;cursor:pointer;position:relative;background:#f8fafc;padding-right:48px;font-size:0.95em;}
         .faq-question::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.4em;color:#2563eb;}
@@ -277,7 +297,6 @@
         .faq-answer{display:none;padding:16px 20px;border-top:1px solid #e2e8f0;font-size:0.9em;color:#475569;line-height:1.65;}
         .faq-item.open .faq-answer{display:block;}
 
-        /* ---- seo article ---- */
         .seo-article{background:#fff;border-radius:20px;padding:40px;border:1px solid #e2e8f0;}
         .seo-article h2{text-align:left;font-size:1.6em;margin-bottom:16px;color:#0f172a;}
         .seo-article h2::after{display:none;}
@@ -289,7 +308,6 @@
         .seo-article a{color:#2563eb;}
         @media(max-width:768px){.seo-article{padding:24px 18px;}}
 
-        /* ---- cta banner ---- */
         .cta-banner{background:#2563eb;padding:60px 20px;text-align:center;}
         .cta-banner h2{color:#fff;font-size:2em;margin-bottom:14px;}
         .cta-banner h2::after{display:none;}
@@ -298,14 +316,12 @@
         .btn-white:hover{background:#f0f9ff;transform:scale(1.03);}
         @media(max-width:768px){.cta-banner h2{font-size:1.6em;}.cta-banner p{font-size:1em;}}
 
-        /* ---- stats ---- */
         .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
         .stat-box{text-align:center;background:#fff;border-radius:16px;padding:24px 16px;border:1px solid #e2e8f0;}
         .stat-num{font-size:2.4em;font-weight:800;color:#2563eb;line-height:1;}
         .stat-lbl{font-size:0.85em;color:#64748b;margin-top:6px;}
         @media(max-width:768px){.stats-row{grid-template-columns:repeat(2,1fr);}}
 
-        /* ---- contact form ---- */
         .contact-form-section{background:#f8fafc;border-top:1px solid #e2e8f0;padding:60px 20px;}
         .contact-form-container{max-width:600px;margin:0 auto;background:#fff;border-radius:24px;padding:40px;border:1px solid #e2e8f0;text-align:center;}
         .contact-form-container h2{margin-bottom:10px;color:#0f172a;font-size:1.8em;}
@@ -319,7 +335,6 @@
         .form-success{color:#22c55e;margin-top:14px;display:none;}
         @media(max-width:768px){.contact-form-container{padding:28px 20px;}}
 
-        /* ---- footer ---- */
         footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;}
         .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;}
         .footer-logo{height:40px;margin-bottom:15px;}
@@ -328,7 +343,6 @@
         .footer-col a:hover{color:#fff;}
         .footer-col p{margin-bottom:8px;font-size:0.92em;}
 
-        /* ---- FAB ---- */
         .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;align-items:flex-end;z-index:999;opacity:0;transition:opacity 0.3s;pointer-events:none;}
         .floating-buttons.is-visible{opacity:1;pointer-events:all;}
         .fab-menu{display:flex;flex-direction:column;align-items:center;margin-bottom:10px;}
@@ -401,21 +415,18 @@
         <h1>Грузовые перевозки<br>в <span class="brand-orange">Астане</span> — быстро и недорого</h1>
         <p class="hero-sub">Минивэн, газель и грузовик с грузчиками. Почасовая оплата без скрытых доплат. Работаем ежедневно с 8:00 до 22:00.</p>
 
-        <div class="hero-tabs">
-            <a href="miniven.html" class="hero-tab">
+        <div class="hero-icons">
+            <a href="bus.html" class="hero-icon-item">
                 <svg viewBox="0 0 24 24"><rect x="2" y="9" width="14" height="9" rx="2"/><path d="M16 12h3l3 3v4h-6V12z"/><circle cx="6" cy="18.5" r="1.5"/><circle cx="18" cy="18.5" r="1.5"/></svg>
-                <span class="hero-tab-label">Минивэн</span>
-                <span class="hero-tab-price">от 5 000 ₸/ч</span>
+                <span>Минивэн</span>
             </a>
-            <a href="gazeli.html" class="hero-tab active">
+            <a href="chasovoi.html" class="hero-icon-item">
                 <svg viewBox="0 0 24 24"><rect x="1" y="7" width="15" height="12" rx="2"/><path d="M16 10h4l3 5v4H16V10z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg>
-                <span class="hero-tab-label">Газель / Грузовик</span>
-                <span class="hero-tab-price">от 7 000 ₸/ч</span>
+                <span>Газель / Грузовик</span>
             </a>
-            <a href="komplekt.html" class="hero-tab">
+            <a href="komplekt.html" class="hero-icon-item">
                 <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <span class="hero-tab-label">Комплект с грузчиками</span>
-                <span class="hero-tab-price">от 14 000 ₸/ч</span>
+                <span>Комплект с грузчиками</span>
             </a>
         </div>
 
@@ -442,7 +453,7 @@
                 <li>Опция: +1 грузчик 3 500 ₸/ч</li>
                 <li>Минимальный заказ 1 час</li>
             </ul>
-            <a href="miniven.html" class="tariff-btn">Заказать минивэн →</a>
+            <a href="bus.html" class="tariff-btn">Заказать минивэн →</a>
         </div>
 
         <div class="tariff-card featured" data-aos="fade-up" data-aos-delay="80">
@@ -452,12 +463,12 @@
             <div class="tariff-price">7 000 ₸ <span>/ час</span></div>
             <p class="tariff-desc">Стандарт для переездов квартир и офисов, перевозки мебели, стройматериалов и товарных партий по Астане.</p>
             <ul class="tariff-includes">
-                <li>Газель: до 1,5 т, кузов 16–18 м³</li>
-                <li>✘ Помощь грузчиков/водителя</li>
-                <li>Возможность маршрут + почасовая</li>
+                <li>Грузоподъёмность до 1,5 т</li>
+                <li>Объём кузова 16–18 м³</li>
+                <li>Возможна помощь грузчиков</li>
                 <li>Работаем ежедневно 8:00–22:00</li>
             </ul>
-            <a href="gazeli.html" class="tariff-btn">Заказать газель →</a>
+            <a href="chasovoi.html" class="tariff-btn">Заказать газель →</a>
         </div>
 
         <div class="tariff-card" data-aos="fade-up" data-aos-delay="160">
@@ -468,8 +479,8 @@
             <ul class="tariff-includes">
                 <li>Газель или грузовик на выбор</li>
                 <li>2 грузчика в стоимости</li>
-                <li>✘ Подьем/спуск без лифта</li>
-                <li>Подходит для переездов</li>
+                <li>Подъём/спуск без лифта — 300 ₸/этаж</li>
+                <li>Подходит для переездов любой сложности</li>
             </ul>
             <a href="komplekt.html" class="tariff-btn">Заказать комплект →</a>
         </div>
@@ -518,8 +529,8 @@
                         <td>Грузовик (5–6 м)</td>
                         <td>до 5 т</td>
                         <td class="highlight">15 000 ₸/ч</td>
-                        <td>✘✘✘ ₸/ч</td>
-                        <td>✘✘✘ ₸/ч</td>
+                        <td>—</td>
+                        <td>—</td>
                     </tr>
                 </tbody>
             </table>
@@ -532,46 +543,14 @@
     <h2 data-aos="fade-up">Что перевозим</h2>
     <p class="section-sub" data-aos="fade-up">Работаем с бытовыми, офисными и коммерческими грузами любой сложности</p>
     <div class="cargo-grid">
-        <div class="cargo-item" data-aos="fade-up">
-            <i class="fas fa-couch"></i>
-            <h3>Мебель</h3>
-            <p>Диваны, шкафы, кровати, столы — разберём, упакуем и соберём</p>
-        </div>
-        <div class="cargo-item" data-aos="fade-up">
-            <i class="fas fa-blender"></i>
-            <h3>Бытовая техника</h3>
-            <p>Холодильники, стиралки, телевизоры с аккуратной упаковкой</p>
-        </div>
-        <div class="cargo-item" data-aos="fade-up">
-            <i class="fas fa-box"></i>
-            <h3>Коробки и вещи</h3>
-            <p>Личные вещи при переезде квартиры или дачи</p>
-        </div>
-        <div class="cargo-item" data-aos="fade-up">
-            <i class="fas fa-industry"></i>
-            <h3>Стройматериалы</h3>
-            <p>Плитка, кирпич, сухие смеси, инструменты — по Астане и пригороду</p>
-        </div>
-        <div class="cargo-item" data-aos="fade-up">
-            <i class="fas fa-store"></i>
-            <h3>Товары для бизнеса</h3>
-            <p>Поставки в магазины, склады, доставка партий от поставщиков</p>
-        </div>
-        <div class="cargo-item" data-aos="fade-up">
-            <i class="fas fa-desktop"></i>
-            <h3>Оргтехника</h3>
-            <p>Компьютеры, принтеры, серверное оборудование — с упаковкой</p>
-        </div>
-        <div class="cargo-item" data-aos="fade-up">
-            <i class="fas fa-dumbbell"></i>
-            <h3>Тяжёлые предметы</h3>
-            <p>Сейфы, станки, оборудование — такелажные работы</p>
-        </div>
-        <div class="cargo-item" data-aos="fade-up">
-            <i class="fas fa-archive"></i>
-            <h3>Архивы и документы</h3>
-            <p>Бережная перевозка архивных дел и корпоративной документации</p>
-        </div>
+        <div class="cargo-item" data-aos="fade-up"><i class="fas fa-couch"></i><h3>Мебель</h3><p>Диваны, шкафы, кровати, столы — разберём, упакуем и соберём</p></div>
+        <div class="cargo-item" data-aos="fade-up"><i class="fas fa-blender"></i><h3>Бытовая техника</h3><p>Холодильники, стиралки, телевизоры с аккуратной упаковкой</p></div>
+        <div class="cargo-item" data-aos="fade-up"><i class="fas fa-box"></i><h3>Коробки и вещи</h3><p>Личные вещи при переезде квартиры или дачи</p></div>
+        <div class="cargo-item" data-aos="fade-up"><i class="fas fa-industry"></i><h3>Стройматериалы</h3><p>Плитка, кирпич, сухие смеси, инструменты — по Астане и пригороду</p></div>
+        <div class="cargo-item" data-aos="fade-up"><i class="fas fa-store"></i><h3>Товары для бизнеса</h3><p>Поставки в магазины, склады, доставка партий от поставщиков</p></div>
+        <div class="cargo-item" data-aos="fade-up"><i class="fas fa-desktop"></i><h3>Оргтехника</h3><p>Компьютеры, принтеры, серверное оборудование — с упаковкой</p></div>
+        <div class="cargo-item" data-aos="fade-up"><i class="fas fa-dumbbell"></i><h3>Тяжёлые предметы</h3><p>Сейфы, станки, оборудование — такелажные работы</p></div>
+        <div class="cargo-item" data-aos="fade-up"><i class="fas fa-archive"></i><h3>Архивы и документы</h3><p>Бережная перевозка архивных дел и корпоративной документации</p></div>
     </div>
 </section>
 
@@ -580,26 +559,10 @@
         <h2 data-aos="fade-up">Как заказать перевозку</h2>
         <p class="section-sub" data-aos="fade-up">Четыре простых шага — от звонка до завершения работы</p>
         <div class="steps-row">
-            <div class="step-box" data-aos="fade-up">
-                <div class="step-num">1</div>
-                <h3>Звонок или WhatsApp</h3>
-                <p>Опишите груз, адреса и желаемое время — ответим в течение 2 минут.</p>
-            </div>
-            <div class="step-box" data-aos="fade-up">
-                <div class="step-num">2</div>
-                <h3>Расчёт стоимости</h3>
-                <p>Называем точную цену. Никаких доплат «по факту» без согласования.</p>
-            </div>
-            <div class="step-box" data-aos="fade-up">
-                <div class="step-num">3</div>
-                <h3>Подача транспорта</h3>
-                <p>Машина и грузчики приезжают вовремя. Упаковываем, грузим, везём.</p>
-            </div>
-            <div class="step-box" data-aos="fade-up">
-                <div class="step-num">4</div>
-                <h3>Оплата</h3>
-                <p>Наличными, картой или по безналичному расчёту с документами для юрлиц.</p>
-            </div>
+            <div class="step-box" data-aos="fade-up"><div class="step-num">1</div><h3>Звонок или WhatsApp</h3><p>Опишите груз, адреса и желаемое время — ответим в течение 2 минут.</p></div>
+            <div class="step-box" data-aos="fade-up"><div class="step-num">2</div><h3>Расчёт стоимости</h3><p>Называем точную цену. Никаких доплат «по факту» без согласования.</p></div>
+            <div class="step-box" data-aos="fade-up"><div class="step-num">3</div><h3>Подача транспорта</h3><p>Машина и грузчики приезжают вовремя. Упаковываем, грузим, везём.</p></div>
+            <div class="step-box" data-aos="fade-up"><div class="step-num">4</div><h3>Оплата</h3><p>Наличными, картой или по безналичному расчёту с документами для юрлиц.</p></div>
         </div>
     </div>
 </section>
@@ -628,42 +591,12 @@
     <h2 data-aos="fade-up">Отзывы клиентов</h2>
     <p class="section-sub" data-aos="fade-up">Реальные отзывы от людей, которые воспользовались нашими грузовыми перевозками в Астане</p>
     <div class="reviews-grid">
-        <div class="review-card" data-aos="fade-up">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">Заказывал газель с двумя грузчиками для переезда двушки на Правом берегу. Приехали строго вовремя, всё упаковали плёнкой, ничего не поцарапали. Уложились в 3 часа — быстрее, чем думал.</p>
-            <div class="review-author">Алибек С.</div>
-            <div class="review-date">апрель 2026</div>
-        </div>
-        <div class="review-card" data-aos="fade-up">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">Брала минивэн для перевозки вещей при переезде в новую квартиру в ЖК на Нуре. Водитель был очень вежливым, помог донести коробки до квартиры. Цена совпала с расчётом онлайн.</p>
-            <div class="review-author">Марина К.</div>
-            <div class="review-date">март 2026</div>
-        </div>
-        <div class="review-card" data-aos="fade-up">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">Перевозили офис — 25 рабочих мест. Два рейса газели. Сборка-разборка мебели включена. Команда работала чётко, укладка в грузовик была профессиональной. Рекомендую для бизнеса.</p>
-            <div class="review-author">Дмитрий Ч.</div>
-            <div class="review-date">февраль 2026</div>
-        </div>
-        <div class="review-card" data-aos="fade-up">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">Возили стройматериалы — плитку и сухие смеси из магазина на объект в Алматинском районе. Удобно что оплата почасовая, сделали 2 рейса за 3 часа. Всё аккуратно.</p>
-            <div class="review-author">Нуржан А.</div>
-            <div class="review-date">май 2026</div>
-        </div>
-        <div class="review-card" data-aos="fade-up">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">Очень понравился сервис. Заказала комплект с грузчиками для трёхкомнатной квартиры. Ребята разобрали шкафы, упаковали всё в плёнку, на новом месте собрали обратно. Цена адекватная.</p>
-            <div class="review-author">Айгерим М.</div>
-            <div class="review-date">январь 2026</div>
-        </div>
-        <div class="review-card" data-aos="fade-up">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">Хорошая компания. Оплачивали по безналу с актом выполненных работ — всё чисто и официально. Удобно для нашей компании. Будем обращаться ещё.</p>
-            <div class="review-author">ТОО «АстанаТорг»</div>
-            <div class="review-date">май 2026</div>
-        </div>
+        <div class="review-card" data-aos="fade-up"><div class="review-stars">★★★★★</div><p class="review-text">Заказывал газель с двумя грузчиками для переезда двушки на Правом берегу. Приехали строго вовремя, всё упаковали плёнкой, ничего не поцарапали. Уложились в 3 часа — быстрее, чем думал.</p><div class="review-author">Алибек С.</div><div class="review-date">апрель 2026</div></div>
+        <div class="review-card" data-aos="fade-up"><div class="review-stars">★★★★★</div><p class="review-text">Брала минивэн для перевозки вещей при переезде в новую квартиру в ЖК на Нуре. Водитель был очень вежливым, помог донести коробки до квартиры. Цена совпала с расчётом онлайн.</p><div class="review-author">Марина К.</div><div class="review-date">март 2026</div></div>
+        <div class="review-card" data-aos="fade-up"><div class="review-stars">★★★★★</div><p class="review-text">Перевозили офис — 25 рабочих мест. Два рейса газели. Сборка-разборка мебели включена. Команда работала чётко, укладка в грузовик была профессиональной. Рекомендую для бизнеса.</p><div class="review-author">Дмитрий Ч.</div><div class="review-date">февраль 2026</div></div>
+        <div class="review-card" data-aos="fade-up"><div class="review-stars">★★★★★</div><p class="review-text">Возили стройматериалы — плитку и сухие смеси из магазина на объект в Алматинском районе. Удобно что оплата почасовая, сделали 2 рейса за 3 часа. Всё аккуратно.</p><div class="review-author">Нуржан А.</div><div class="review-date">май 2026</div></div>
+        <div class="review-card" data-aos="fade-up"><div class="review-stars">★★★★★</div><p class="review-text">Очень понравился сервис. Заказала комплект с грузчиками для трёхкомнатной квартиры. Ребята разобрали шкафы, упаковали всё в плёнку, на новом месте собрали обратно. Цена адекватная.</p><div class="review-author">Айгерим М.</div><div class="review-date">январь 2026</div></div>
+        <div class="review-card" data-aos="fade-up"><div class="review-stars">★★★★★</div><p class="review-text">Хорошая компания. Оплачивали по безналу с актом выполненных работ — всё чисто и официально. Удобно для нашей компании. Будем обращаться ещё.</p><div class="review-author">ТОО «АстанаТорг»</div><div class="review-date">май 2026</div></div>
     </div>
 </section>
 
@@ -673,15 +606,10 @@
         <p class="section-sub" data-aos="fade-up">Ответы на самые популярные вопросы о грузовых перевозках в Астане</p>
 
         <div class="faq-item"><div class="faq-question">Сколько стоит грузовая перевозка по Астане?</div><div class="faq-answer">Стоимость зависит от типа транспорта и количества грузчиков. Минивэн — от 5 000 ₸/ч, газель — от 7 000 ₸/ч, комплект с 2 грузчиками — от 14 000 ₸/ч. Оплата почасовая, минимальный заказ 1 час.</div></div>
-
         <div class="faq-item"><div class="faq-question">Как быстро вы можете подать машину?</div><div class="faq-answer">В большинстве случаев подаём транспорт за 30–60 минут после подтверждения заявки. В часы пик (утро и вечер пятницы) время ожидания может быть немного больше — уточняйте при заказе.</div></div>
-
-        <div class="faq-item"><div class="faq-question">Какой транспорт выбрать для переезда квартиры?</div><div class="faq-answer">Для однокомнатной квартиры обычно хватает минивэна или небольшой газели. Для двух-трёхкомнатной рекомендуем газель 4–5 м или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Позвоните — поможем подобрать.</div></div>
-
+        <div class="faq-item"><div class="faq-question">Какой транспорт выбрать для переезда квартиры?</div><div class="faq-answer">Для однокомнатной квартиры обычно хватает минивэна или небольшой газели. Для двух-трёхкомнатной рекомендуем газель 4–5 м или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Если объём большой, лучше рассмотреть услугу «Переезд под ключ» — полная упаковка, разборка мебели и сборка на новом месте. Позвоните — поможем подобрать оптимальный вариант.</div></div>
         <div class="faq-item"><div class="faq-question">Работаете ли с юридическими лицами?</div><div class="faq-answer">Да. Предоставляем договор, накладные, акты выполненных работ и счёт-фактуру. Оплата по безналичному расчёту через банк. Для постоянных корпоративных клиентов предусмотрены специальные условия.</div></div>
-
-        <div class="faq-item"><div class="faq-question">Есть ли доплата за вывоз на верхние этажи?</div><div class="faq-answer">Нет скрытых доплат: работа грузчиков на этажах входит в почасовую ставку комплекта. Если лифта нет или груз особо тяжёлый (сейфы, пианино), это обсуждается при заказе.</div></div>
-
+        <div class="faq-item"><div class="faq-question">Есть ли доплата за вывоз на верхние этажи?</div><div class="faq-answer">Для тарифа «Комплект» работа грузчиков на этажах включена в почасовую ставку. Если лифта нет или груз особо тяжёлый (сейфы, пианино) — возможна доплата 300 ₸ за этаж, обсуждается при заказе.</div></div>
         <div class="faq-item"><div class="faq-question">Выезжаете ли за пределы Астаны?</div><div class="faq-answer">Да, работаем по Казахстану. Перевозки в другие города рассчитываются отдельно — за километраж. Подробнее — на странице <a href="mejgorod.html">межгородских перевозок</a>.</div></div>
     </div>
 </section>
@@ -694,9 +622,19 @@
             <p itemprop="description">Грузовые перевозки в Астане — одна из самых востребованных услуг в городе с населением свыше 1,3 миллиона человек. Ежегодно тысячи семей переезжают, сотни офисов меняют площадку, строительный рынок растёт — всё это создаёт постоянный спрос на надёжный грузовой транспорт. В этой статье мы разберём, как выбрать правильный тип машины, что влияет на цену и почему почасовая оплата выгоднее фиксированной ставки.</p>
 
             <h3>Минивэн, газель или грузовик: в чём разница?</h3>
-            <p>Главный критерий выбора — объём и вес груза. <strong>Минивэн</strong> (объём кузова 3-5 м³, грузоподъёмность до 0,5 т) подходит для небольших перевозок: вещи из однокомнатной квартиры, бытовая техника, коробки с документами. Его преимущество — манёвренность: он проходит в закрытые дворы жилых комплексов Левого берега и подземные парковки бизнес-центров.</p>
-            <p><strong>Газель</strong> (2–3 т, 16–24 м³) — рабочая лошадка большинства переездов в Астане. Двух- и трёхкомнатная квартира, офис на 10–15 рабочих мест, доставка строительных материалов — всё это задачи для газели. В зависимости от длины кузова (3 м или 4–5 м) один рейс может вместить всё имущество средней семьи.</p>
-            <p><strong>Грузовик от 5 т</strong> нужен при переезде большой квартиры или офиса, перевозке крупной партии товара или оборудования. Также используем манипуляторы для такелажных работ — подъёма сейфов, станков, габаритной мебели через окно или балкон.</p>
+            <p><strong>Минивэн</strong> (объём кузова 3-5 м³, грузоподъёмность до 0,5 т) подходит для небольших перевозок: вещи из однокомнатной квартиры, бытовая техника, коробки с документами. Его преимущество — манёвренность: он проходит в закрытые дворы жилых комплексов Левого берега и подземные парковки бизнес-центров.</p>
+            <p><strong>Газель</strong> (1,5–2 т, 16–24 м³) — стандартное решение для переездов. Двух- и трёхкомнатная квартира, офис на 10–15 рабочих мест, доставка строительных материалов — всё это задачи для газели. В зависимости от длины кузова (3 м или 4–5 м) один рейс может вместить всё имущество средней семьи.</p>
+            <p><strong>Грузовик от 5 т</strong> нужен при переезде большой квартиры или офиса, перевозке крупной партии товара или оборудования. Также используем манипуляторы для такелажных работ — подъёма сейфов, станков, габаритной мебели.</p>
+
+            <h3>Когда стоит заказать «Переезд под ключ»?</h3>
+            <p>Если у вас не просто несколько коробок, а целая квартира с мебелью, или вы не хотите тратить время на упаковку вещей и разборку шкафов — обратите внимание на услугу <a href="pereezdkay.html"><strong>«Переезд под ключ»</strong></a>. Это комплексное решение, включающее:</p>
+            <ul>
+                <li>Полную упаковку всех вещей в коробки, стрейч-плёнку и пузырчатую плёнку;</li>
+                <li>Разборку и сборку мебели любой сложности;</li>
+                <li>Погрузку, перевозку и выгрузку с расстановкой по комнатам;</li>
+                <li>Утилизацию упаковочных материалов после переезда.</li>
+            </ul>
+            <p>Такой формат идеален для семей с детьми, занятых профессионалов и всех, кто ценит своё время. Вы просто встречаете вещи на новом месте уже аккуратно расставленными.</p>
 
             <h3>Почему почасовая оплата выгоднее фиксированной?</h3>
             <p>Многие компании называют «цену за переезд» — 30 000, 50 000 ₸ — которая кажется привлекательной. Но она рассчитывается по максимальному сценарию, и вы платите за время, которое не использовали. При почасовой оплате вы платите ровно за столько, сколько работает машина. Если уложились быстрее — экономите. Наш опыт показывает: клиенты с почасовой оплатой в среднем экономят 15–25% относительно «пакетных» предложений конкурентов.</p>
@@ -707,11 +645,10 @@
                 <li><strong>Сарыаркинский район → Байконырский район</strong> — доставка мебели, стройматериалов, от 9 000 ₸</li>
                 <li><strong>Нуринский район → Левый берег</strong> — квартирные и корпоративные переезды, от 10 000 ₸</li>
                 <li><strong>Доставка из магазинов мебели</strong> — IKEA, Hoff, рынок «Строймаркет», от 5 000 ₸</li>
-                <li><strong>Перевозка по ЖК</strong> — переезд в пределах одного комплекса или между соседними домами</li>
             </ul>
 
             <h3>Что входит в стоимость, а что оплачивается отдельно?</h3>
-            <p>В базовую ставку тарифа входит: аренда транспорта, работа водителя, топливо по Астане. Грузчики оплачиваются отдельно либо включены в тариф «Комплект». Упаковочные материалы (плёнка, скотч, коробки) можно заказать в нашем <a href="shop.html">магазине упаковки</a> или уточнить при бронировании — часто мы берём материалы с собой бесплатно при крупных заказах.</p>
+            <p>В базовую ставку тарифа входит: аренда транспорта, работа водителя, топливо по Астане. Грузчики оплачиваются отдельно либо включены в тариф «Комплект». Упаковочные материалы (плёнка, скотч, коробки) можно заказать в нашем <a href="shop.html">магазине упаковки</a> или уточнить при бронировании.</p>
 
             <h3>Как получить скидку на грузоперевозку?</h3>
             <p>Несколько способов сэкономить: заказывайте в будни (пн–чт) — меньше загруженность, машина приедет быстрее. Планируйте переезд с утра — больше времени, меньше пробок. Для юридических лиц и постоянных клиентов действуют корпоративные условия. При заказе двух машин и более — уточняйте скидку у менеджера.</p>
