@@ -1,1 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Переезд под ключ в Астане — квартира, офис, межгород | Gruzim.kz</title>
+    <meta name="description" content="Переезд под ключ в Астане: квартирные, офисные и междугородние переезды. Полное сопровождение: упаковка, разборка мебели, перевозка, расстановка. Работаем с 2019 года.">
+    <meta name="keywords" content="переезд под ключ Астана, квартирный переезд, офисный переезд, межгород Астана, переезд квартиры, переезд офиса, грузчики Астана, упаковка мебели">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="KZ-AST">
+    <meta name="geo.placename" content="Астана">
+    <link rel="canonical" href="https://gruzim.kz/pereezd-pod-kluch.html">
+    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/pereezd-pod-kluch.html">
+    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/pereezd-pod-kluch-kz.html">
 
+    <meta property="og:title" content="Переезд под ключ в Астане | Gruzim.kz">
+    <meta property="og:description" content="Квартирный, офисный и межгород переезд под ключ. Упакуем, перевезём, расставим.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gruzim.kz/pereezd-pod-kluch.html">
+    <meta property="og:image" content="https://gruzim.kz/Logo.png">
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
+        html{scroll-behavior:smooth;}
+        
+        /* Плавающая шапка */
+        .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
+        .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+        .header-left{display:flex;align-items:center;gap:12px;}
+        .floating-logo{height:45px;width:auto;cursor:pointer;border-radius:8px;padding:4px 8px;}
+        .header-right{display:flex;align-items:center;gap:15px;}
+        .language-switcher{display:flex;gap:5px;}
+        .lang-btn{background:transparent;border:1px solid #e2e8f0;color:#334155;padding:6px 12px;border-radius:30px;cursor:pointer;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.2s;}
+        .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
+        .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+        
+        .burger-menu{display:none;flex-direction:column;justify-content:space-between;width:30px;height:22px;background:transparent;border:2px solid #2563eb;border-radius:8px;cursor:pointer;padding:4px 5px;z-index:1100;transition:all 0.2s;}
+        .burger-menu span{width:100%;height:2.5px;background:#2563eb;border-radius:10px;transition:all 0.3s;}
+        .burger-menu:hover,.burger-menu.active{background:#2563eb;}
+        .burger-menu:hover span,.burger-menu.active span{background:white;}
+        .burger-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+        .burger-menu.active span:nth-child(2){opacity:0;}
+        .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+        .mobile-nav{display:none;position:fixed;top:70px;left:5%;width:90%;max-width:400px;background:white;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.15);z-index:999;padding:15px 0;border:1px solid #e2e8f0;opacity:0;transform:translateY(-20px);pointer-events:none;transition:opacity 0.3s,transform 0.3s;}
+        .mobile-nav.active{display:block;opacity:1;transform:translateY(0);pointer-events:all;}
+        .mobile-nav a{display:block;font-size:1rem;font-weight:600;color:#1e293b;text-decoration:none;padding:12px 20px;transition:all 0.2s;}
+        .mobile-nav a:hover{background:#eef2ff;color:#2563eb;}
+        .mobile-nav-close{display:flex;justify-content:flex-end;padding:5px 15px 0;}
+        .mobile-nav-close button{background:none;border:none;font-size:1.8rem;line-height:1;cursor:pointer;color:#64748b;padding:0 5px;}
+
+        .breadcrumbs{max-width:1200px;margin:0 auto;padding:10px 20px;}
+        .breadcrumbs ol{display:flex;flex-wrap:wrap;list-style:none;padding:0;}
+        .breadcrumbs li{font-size:0.9rem;}
+        .breadcrumbs li:not(:last-child)::after{content:"/";margin:0 8px;color:#94a3b8;}
+        .breadcrumbs a{color:#2563eb;text-decoration:none;}
+        .breadcrumbs a:hover{text-decoration:underline;}
+        .breadcrumbs [aria-current="page"]{color:#64748b;}
+
+        /* Hero секция */
+        .hero-header{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),url('fon.jpg') no-repeat center center/cover;color:white;padding:90px 20px 80px;text-align:center;}
+        .hero-header h1{font-size:2.8em;margin-bottom:16px;line-height:1.2;}
+        .hero-sub{font-size:1.15em;color:rgba(255,255,255,0.85);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;}
+        .brand-blue{color:#2563eb;font-weight:800;}
+        .brand-orange{color:#f97316;font-weight:700;}
+
+        /* Стеклянные иконки (как в proverka.html) */
+        .hero-icons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px 12px;
+            margin-top: 35px;
+            margin-bottom: 45px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 12px;
+        }
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .icon-item svg {
+            width: 48px;
+            height: 48px;
+            stroke: white;
+            stroke-width: 1.7;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .icon-item span {
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: 0.3px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        .icon-item:hover { transform: scale(0.95); }
+        .icon-item:active { transform: scale(0.92); }
+        @media (max-width: 640px) {
+            .hero-icons { gap: 16px 8px; margin-top: 30px; }
+            .icon-item svg { width: 38px; height: 38px; }
+            .icon-item span { font-size: 10px; }
+        }
+
+        .cta-button{display:inline-flex;align-items:center;gap:8px;background:#2563eb;color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;transition:all 0.25s;box-shadow:0 8px 20px rgba(37,99,235,0.35);border:none;cursor:pointer;}
+        .cta-button:hover{background:#1e40af;transform:translateY(-2px);}
+        .cta-button.whatsapp{background:#25D366;box-shadow:0 8px 20px rgba(37,211,102,0.3);}
+        .cta-button.whatsapp:hover{background:#1DA851;}
+        .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:15px;}
+
+        @media(max-width:768px){
+            .hero-header h1{font-size:1.85em;}
+            .hero-sub{font-size:1em;}
+            body{padding-top:70px;}
+        }
+
+        /* Секции */
+        .section{padding:80px 20px;max-width:1200px;margin:0 auto;}
+        .section h2{font-size:2.3em;margin-bottom:14px;color:#0f172a;text-align:center;}
+        .section-sub{text-align:center;color:#64748b;font-size:1rem;margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto;}
+        .section h2::after{content:'';display:block;width:60px;height:4px;background:#2563eb;border-radius:4px;margin:14px auto 0;}
+
+        /* Карточки в стиле proverka.html */
+        .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+        .card{background:#fff;border-radius:16px;padding:24px;border:1px solid #e2e8f0;display:flex;flex-direction:column;gap:12px;transition:border-color 0.2s ease;text-align:left;}
+        .card:hover{border-color:#2563eb;}
+        .card.card--premium{border:2px solid #2563eb;position:relative;}
+        .card-badge{position:absolute;top:-12px;left:20px;font-size:11px;font-weight:600;background:#2563eb;color:#fff;padding:4px 14px;border-radius:20px;letter-spacing:0.3px;}
+        .card-icon-wrap{width:44px;height:44px;border-radius:12px;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+        .card.card--premium .card-icon-wrap{background:#2563eb;}
+        .card-icon-wrap i{font-size:22px;color:#2563eb;}
+        .card.card--premium .card-icon-wrap i{color:#fff;}
+        .card h3{font-size:1.1em;font-weight:700;color:#0f172a;margin:0;line-height:1.35;}
+        .card p{font-size:0.9em;color:#475569;line-height:1.6;margin:0;flex:1;}
+        .card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;}
+        .card .price{font-size:0.9em;font-weight:700;color:#2563eb;background:#eff6ff;padding:5px 14px;border-radius:20px;white-space:nowrap;}
+        .card .card-btn{font-size:0.85em;color:#64748b;border:1px solid #e2e8f0;border-radius:20px;padding:6px 16px;text-decoration:none;background:transparent;cursor:pointer;transition:background 0.15s,color 0.15s;white-space:nowrap;}
+        .card .card-btn:hover{background:#f1f5f9;color:#0f172a;}
+
+        @media(max-width:900px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:768px){
+            .section{padding:52px 16px;}
+            .section h2{font-size:1.7em;}
+            .cards-grid{grid-template-columns:1fr;gap:14px;}
+            .card{padding:20px;}
+        }
+
+        /* Видео-блок */
+        .videos-subtitle{text-align:center;color:#64748b;margin-bottom:30px;}
+        .videos-slider{display:flex;align-items:center;gap:12px;margin:30px 0;}
+        .videos-viewport{overflow:hidden;flex:1;border-radius:20px;}
+        .videos-track{display:flex;transition:transform 0.4s ease;}
+        .video-slide{flex:0 0 100%;padding:0 6px;}
+        .video-slide-iframe{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;}
+        .video-slide-iframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+        .video-slide-label{font-weight:600;margin-top:12px;font-size:0.9rem;text-align:center;}
+        .video-slide-meta{font-size:0.8rem;color:#64748b;text-align:center;}
+        .videos-arrow{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+        .videos-arrow:hover{background:#2563eb;border-color:#2563eb;color:white;}
+        .videos-cta{text-align:center;margin-top:30px;}
+        .videos-cta a{display:inline-flex;align-items:center;gap:10px;background:#ff0000;color:white;padding:10px 24px;border-radius:40px;text-decoration:none;font-weight:600;}
+
+        /* Преимущества */
+        .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:20px;}
+        .feature-item{background:#fff;border-radius:20px;padding:28px 20px;text-align:center;border:1px solid #e2e8f0;transition:transform 0.2s;}
+        .feature-item:hover{transform:translateY(-5px);border-color:#2563eb;}
+        .feature-item i{font-size:2.2em;color:#2563eb;margin-bottom:15px;}
+        .feature-item h3{font-size:1.1em;margin-bottom:10px;color:#0f172a;}
+        .feature-item p{font-size:0.85em;color:#64748b;}
+        @media(max-width:900px){.features-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:500px){.features-grid{grid-template-columns:1fr;}}
+
+        /* Шаги работы */
+        .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+        .step-item{background:#fff;border-radius:16px;padding:24px 20px;text-align:center;border:1px solid #e2e8f0;}
+        .step-number{width:44px;height:44px;background:#2563eb;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2em;margin:0 auto 14px;}
+        .step-item h3{font-size:1em;font-weight:700;margin-bottom:8px;}
+        .step-item p{font-size:0.85em;color:#64748b;}
+        @media(max-width:900px){.steps-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:500px){.steps-grid{grid-template-columns:1fr;}}
+
+        /* Клиенты слайдер */
+        .clients-section{background:#f8fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;}
+        .clients-subtitle{text-align:center;color:#64748b;margin-bottom:30px;}
+        .clients-slider{display:flex;align-items:center;gap:12px;}
+        .clients-viewport{overflow:hidden;flex:1;}
+        .clients-track{display:flex;transition:transform 0.4s ease;}
+        .client-card{flex:0 0 100%;background:#fff;border-radius:20px;padding:20px;border:1px solid #e2e8f0;margin:0 6px;}
+        .client-logo img{max-height:45px;margin-bottom:12px;}
+        .client-name{font-weight:700;color:#0f172a;margin-bottom:4px;}
+        .client-type{font-size:0.85em;color:#f97316;margin-bottom:10px;}
+        .client-details{font-size:0.88em;color:#475569;margin-bottom:10px;}
+        .client-meta{font-size:0.8em;color:#94a3b8;}
+        .clients-arrow{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+        .clients-arrow:hover{background:#2563eb;border-color:#2563eb;color:white;}
+
+        /* FAQ */
+        .faq-item{background:#fff;border-radius:14px;margin-bottom:12px;border:1px solid #e2e8f0;overflow:hidden;}
+        .faq-question{padding:17px 20px;font-weight:600;cursor:pointer;position:relative;background:#f8fafc;padding-right:48px;font-size:0.95em;}
+        .faq-question::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.4em;color:#2563eb;}
+        .faq-item.open .faq-question::after{content:"–";}
+        .faq-answer{display:none;padding:16px 20px;border-top:1px solid #e2e8f0;font-size:0.9em;color:#475569;line-height:1.65;}
+        .faq-item.open .faq-answer{display:block;}
+
+        /* Форма */
+        .contact-form-section{background:#f8fafc;border-top:1px solid #e2e8f0;padding:60px 20px;}
+        .contact-form-container{max-width:600px;margin:0 auto;background:#fff;border-radius:24px;padding:40px;border:1px solid #e2e8f0;text-align:center;}
+        .contact-form-container h2{margin-bottom:10px;color:#0f172a;font-size:1.8em;}
+        .contact-form-container h2::after{display:none;}
+        .contact-form-container p{margin-bottom:28px;color:#64748b;}
+        .callback-form{display:flex;flex-direction:column;gap:14px;}
+        .callback-form input{padding:14px 18px;border:2px solid #e2e8f0;border-radius:12px;font-size:1rem;transition:border-color 0.2s;}
+        .callback-form input:focus{outline:none;border-color:#2563eb;}
+        .callback-form button{background:#2563eb;color:#fff;border:none;padding:14px 24px;border-radius:50px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:background 0.2s;}
+        .callback-form button:hover{background:#1e40af;}
+        .form-success{color:#22c55e;margin-top:14px;display:none;}
+
+        /* Футер */
+        footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;}
+        .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;}
+        .footer-logo{height:40px;margin-bottom:15px;}
+        .footer-col h4{color:#fff;margin-bottom:15px;}
+        .footer-col a{color:#94a3b8;text-decoration:none;}
+        .footer-col a:hover{color:#fff;}
+        .footer-col p{margin-bottom:8px;font-size:0.92em;}
+
+        /* FAB кнопки */
+        .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;align-items:flex-end;z-index:999;opacity:0;transition:opacity 0.3s;pointer-events:none;}
+        .floating-buttons.is-visible{opacity:1;pointer-events:all;}
+        .fab-menu{display:flex;flex-direction:column;align-items:center;margin-bottom:10px;}
+        .fab-menu-item{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;color:#fff;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:all 0.2s;font-size:1.4em;transform:scale(0);opacity:0;pointer-events:none;}
+        .fab-menu-item.show{animation:fabPopIn 0.3s forwards ease-out;pointer-events:all;}
+        @keyframes fabPopIn{0%{transform:scale(0);opacity:0;}80%{transform:scale(1.1);opacity:1;}100%{transform:scale(1);opacity:1;}}
+        .fab-menu-item.call{background:#2563eb;}
+        .fab-menu-item.whatsapp{background:#25D366;}
+        .fab-menu-item.telegram{background:#0088cc;}
+        .fab-main{width:60px;height:60px;border-radius:50%;background:#f97316;color:#fff;border:none;box-shadow:0 5px 20px rgba(249,115,22,0.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.8em;transition:all 0.2s;animation:pulse 2s infinite;position:relative;z-index:1000;}
+        .fab-main:hover{transform:scale(1.1);animation:none;}
+        @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(249,115,22,0.7);}70%{box-shadow:0 0 0 15px rgba(249,115,22,0);}100%{box-shadow:0 0 0 0 rgba(249,115,22,0);}}
+
+        @media(max-width:1024px){.burger-menu{display:flex;}}
+        @media(max-width:768px){.header-phone{display:none !important;}}
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width:769px)">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width:769px)">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width:769px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width:769px)" onload="this.media='all'">
+    <link rel="preload" as="image" href="fon.jpg" fetchpriority="high">
+
+    <script>
+        var isMobileGA = window.innerWidth <= 768;
+        if (!isMobileGA) {
+            var gaScript = document.createElement('script');
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ';
+            gaScript.async = true;
+            document.head.appendChild(gaScript);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-2VWS9V6KVJ');
+            gtag('config', 'AW-17503887977');
+        } else {
+            window.gtagQueue = window.gtagQueue || [];
+            window.gtag = function() { window.gtagQueue.push(arguments); };
+        }
+    </script>
+</head>
+<body>
+
+    <nav aria-label="Breadcrumb" class="breadcrumbs">
+        <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li><span aria-current="page">Переезд под ключ</span></li>
+        </ol>
+    </nav>
+
+    <header class="floating-header">
+        <div class="floating-header-content">
+            <div class="header-left">
+                <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo"></a>
+            </div>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="pereezd-pod-kluch.html" class="lang-btn active">РУС</a>
+                    <a href="pereezd-pod-kluch-kz.html" class="lang-btn">ҚАЗ</a>
+                </div>
+                <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone"></i> <span>+7 701 012 03 00</span></a>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
+            <a href="index.html#services">Услуги</a>
+            <a href="shop.html">Магазин упаковки</a>
+            <a href="pereezd-pod-kluch.html">Переезд под ключ</a>
+            <a href="mejgorod.html">Переезд межгород</a>
+            <a href="office.html">Переезд офиса</a>
+            <a href="musor.html">Вывоз мусора</a>
+            <a href="mebel.html">Разборка мебели</a>
+            <a href="B2B.html">Для юр. лиц</a>
+            <a href="takelazh.html">Такелаж</a>
+            <a href="gruz/centr.html">Почасовой заказ</a>
+        </nav>
+    </header>
+
+    <!-- HERO секция -->
+    <header class="hero-header">
+        <div>
+            <h1><span class="brand-blue">Gruzim.kz</span> | <span class="brand-orange">Переезд под ключ в Астане</span></h1>
+            <p class="hero-sub">Квартира, офис или межгород — полное сопровождение без вашего участия</p>
+
+            <div class="hero-icons">
+                <a href="kvartirniy.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/><path d="M3 12v9h18v-9"/></svg>
+                    <span>Квартирный переезд</span>
+                </a>
+                <a href="office.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    <span>Офисный переезд</span>
+                </a>
+                <a href="mejgorod.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg>
+                    <span>Межгород</span>
+                </a>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#callback-form" class="cta-button"><i class="fas fa-calculator"></i> Рассчитать стоимость</a>
+                <a href="https://wa.me/77010120300?text=Здравствуйте!%20Нужен%20переезд%20под%20ключ%20по%20Астане." class="cta-button whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Секция с карточками (стиль proverka.html) -->
+    <section class="section" id="services">
+        <h2 data-aos="fade-up">Выберите тип переезда</h2>
+        <p class="section-sub" data-aos="fade-up">Полное сопровождение: от упаковки до расстановки вещей на новом месте</p>
+        <div class="cards-grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="50">
+                <div class="card-icon-wrap"><i class="fas fa-home"></i></div>
+                <h3>Квартирный переезд</h3>
+                <p>Упакуем, разберём мебель, перевезём и расставим всё по местам. Полный сервис для 1,2,3-комнатных квартир.</p>
+                <div class="card-footer">
+                    <span class="price">от 45 000 ₸</span>
+                    <a href="kvartirniy.html" class="card-btn">подробнее →</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon-wrap"><i class="fas fa-building"></i></div>
+                <h3>Офисный переезд</h3>
+                <p>Переезд офиса без остановки работы. Упаковка документов, оргтехники, мебели. Перевозка и расстановка.</p>
+                <div class="card-footer">
+                    <span class="price">от 80 000 ₸</span>
+                    <a href="office.html" class="card-btn">подробнее →</a>
+                </div>
+            </div>
+            <div class="card card--premium" data-aos="fade-up" data-aos-delay="150">
+                <span class="card-badge">Популярное</span>
+                <div class="card-icon-wrap"><i class="fas fa-truck"></i></div>
+                <h3>Межгород</h3>
+                <p>Переезд между городами Казахстана. Фиксированная цена, страховка груза, полное сопровождение.</p>
+                <div class="card-footer">
+                    <span class="price">по запросу</span>
+                    <a href="mejgorod.html" class="card-btn">подробнее →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Дополнительные карточки: магазин упаковки и почасовой заказ -->
+    <section class="section" style="padding-top:0">
+        <div class="cards-grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="50">
+                <div class="card-icon-wrap"><i class="fas fa-box-open"></i></div>
+                <h3>Магазин упаковочных материалов</h3>
+                <p>Коробки, стрейч-плёнка, пузырчатая плёнка, скотч — всё для безопасного переезда. Самовывоз или доставка.</p>
+                <div class="card-footer">
+                    <span class="price">от 400 ₸</span>
+                    <a href="shop.html" class="card-btn">в магазин →</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon-wrap"><i class="fas fa-truck-pickup"></i></div>
+                <h3>Почасовой заказ грузовиков</h3>
+                <p>Минивэны, газели, грузовики с грузчиками или без. Почасовая оплата от 5 000 ₸/час. Подача за 30 минут.</p>
+                <div class="card-footer">
+                    <span class="price">от 5 000 ₸/час</span>
+                    <a href="gruz/centr.html" class="card-btn">подробнее →</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="150">
+                <div class="card-icon-wrap"><i class="fas fa-screwdriver-wrench"></i></div>
+                <h3>Разборка и сборка мебели</h3>
+                <p>Профессиональная разборка, перевозка и сборка мебели любой сложности на новом месте.</p>
+                <div class="card-footer">
+                    <span class="price">от 12 000 ₸</span>
+                    <a href="mebel.html" class="card-btn">подробнее →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Видео-блок -->
+    <section class="section videos-section" id="works">
+        <h2 data-aos="fade-up">Наши работы</h2>
+        <p class="videos-subtitle" data-aos="fade-up" data-aos-delay="100">Примеры наших переездов под ключ</p>
+        <div class="videos-slider">
+            <button class="videos-arrow videos-arrow--prev" type="button"><i class="fas fa-chevron-left"></i></button>
+            <div class="videos-viewport">
+                <div class="videos-track">
+                    <div class="video-slide"><div class="video-slide-iframe"><iframe src="https://www.youtube.com/embed/YxbIeftnPz0" title="Переезд под ключ коттеджа" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-slide-label">Переезд под ключ коттеджа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
+                    <div class="video-slide"><div class="video-slide-iframe"><iframe src="https://www.youtube.com/embed/VbL_QYPKR04" title="Услуги такелажа" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-slide-label">Услуги такелажа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
+                    <div class="video-slide"><div class="video-slide-iframe"><iframe src="https://www.youtube.com/embed/oQpGif5srmc" title="Разбор и упаковка мебели" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-slide-label">Разбор и упаковка мебели</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
+                    <div class="video-slide"><div class="video-slide-iframe"><iframe src="https://www.youtube.com/embed/8uo9BBVwK9o" title="Разбор и вывоз мебели под ключ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-slide-label">Разбор и вывоз мебели под ключ</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
+                </div>
+            </div>
+            <button class="videos-arrow videos-arrow--next" type="button"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="videos-cta" data-aos="fade-up"><a href="https://www.youtube.com/@UC4f5yZ4PhDNNAWQw--vbmGQ" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube канал</a></div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="section" id="features">
+        <h2 data-aos="fade-up">Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="50"><i class="fas fa-award"></i><h3>Более 6 лет на рынке</h3><p>Накопленный опыт позволяет решать задачи любой сложности</p></div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-truck-fast"></i><h3>Более 1400 заказов</h3><p>Успешно выполненных переездов и довольных клиентов</p></div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="150"><i class="fas fa-clock"></i><h3>Работаем 8:00–22:00</h3><p>Ежедневно, без выходных и праздников</p></div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-shield-alt"></i><h3>Гарантия сохранности</h3><p>Договор материальной ответственности</p></div>
+        </div>
+    </section>
+
+    <!-- Как мы работаем -->
+    <section class="section" style="background:#f8fafc; max-width:100%; padding:70px 20px;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 data-aos="fade-up">Как проходит переезд под ключ</h2>
+            <p class="section-sub" data-aos="fade-up">Шесть простых шагов — от звонка до сдачи квартиры</p>
+            <div class="steps-grid">
+                <div class="step-item" data-aos="fade-up"><div class="step-number">1</div><h3>Консультация</h3><p>Бесплатный выезд менеджера для оценки объёма работ</p></div>
+                <div class="step-item" data-aos="fade-up"><div class="step-number">2</div><h3>Упаковка</h3><p>Профессиональная упаковка всех вещей в коробки и плёнку</p></div>
+                <div class="step-item" data-aos="fade-up"><div class="step-number">3</div><h3>Демонтаж</h3><p>Разборка мебели, защита стен и полов от повреждений</p></div>
+                <div class="step-item" data-aos="fade-up"><div class="step-number">4</div><h3>Погрузка</h3><p>Аккуратная погрузка и фиксация груза в авто</p></div>
+                <div class="step-item" data-aos="fade-up"><div class="step-number">5</div><h3>Перевозка</h3><p>Быстрая и безопасная доставка по адресу</p></div>
+                <div class="step-item" data-aos="fade-up"><div class="step-number">6</div><h3>Расстановка</h3><p>Выгрузка, сборка мебели, расстановка по местам, уборка</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Клиенты -->
+    <section class="section clients-section" id="clients">
+        <h2>Наши клиенты</h2>
+        <p class="clients-subtitle">Доверяют нам переезды под ключ — от квартир до крупных компаний</p>
+        <div class="clients-slider">
+            <button class="clients-arrow clients-arrow--prev" type="button"><i class="fas fa-chevron-left"></i></button>
+            <div class="clients-viewport">
+                <div class="clients-track">
+                    <article class="client-card"><div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden" loading="lazy"></div><div class="client-name">JOY Garden</div><div class="client-type">Переезд магазина на 3 склада</div><p class="client-details">Перевод торгового зала и склада на три точки хранения. Упаковка витрин, загрузка, доставка и расстановка товара — переезд под ключ за 10 дней, 15т товара.</p><div class="client-meta">Астана · Магазин → 3 склада</div></article>
+                    <article class="client-card"><div class="client-logo"><img src="logo-zte-astana.png" alt="ZTE Astana" loading="lazy"></div><div class="client-name">ZTE Astana</div><div class="client-type">Переезд офиса на 50 сотрудников</div><p class="client-details">Полная организация переезда: упаковка рабочих мест, оргтехника, мебель, демонтаж и сборка. Переезд без остановки работы офиса.</p><div class="client-meta">Астана · Офис 50+ мест</div></article>
+                    <article class="client-card"><div class="client-logo"><img src="logo-astana-logistics.png" alt="Astana Logistics Group" loading="lazy"></div><div class="client-name">Astana Logistics Group</div><div class="client-type">Переезд склада</div><p class="client-details">Перенос складского запаса, паллет и стеллажей. Этапная работа и ночные смены для сохранения логистики клиента.</p><div class="client-meta">Складской комплекс</div></article>
+                    <article class="client-card"><div class="client-logo"><img src="logo-dm.png" alt="DamuMed" loading="lazy"></div><div class="client-name">DamuMed</div><div class="client-type">Офисный переезд под ключ</div><p class="client-details">Комплексный переезд офиса IT‑компании: 70+ сотрудников, рабочие места, серверная зона и кухня. Поэтапный перенос отделов без остановки бизнес‑процессов.</p><div class="client-meta">Астана · Офис 70+ сотрудников</div></article>
+                </div>
+            </div>
+            <button class="clients-arrow clients-arrow--next" type="button"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="max-width:900px; margin:0 auto; padding:70px 20px;">
+        <h2 data-aos="fade-up">Часто задаваемые вопросы</h2>
+        <p class="section-sub" data-aos="fade-up">Ответы на популярные вопросы о переезде под ключ</p>
+        <div class="faq-item"><div class="faq-question">Сколько стоит переезд под ключ в Астане?</div><div class="faq-answer">Стоимость зависит от типа переезда: 1-комнатная квартира от 45 000 ₸, 2-комнатная от 80 000 ₸, 3-комнатная от 120 000 ₸. Офисный переезд — от 80 000 ₸, межгород — рассчитывается индивидуально. Точную цену называем после осмотра или по описанию.</div></div>
+        <div class="faq-item"><div class="faq-question">Что входит в услугу «Переезд под ключ»?</div><div class="faq-answer">Полный пакет: упаковка всех вещей, разборка мебели, погрузка, перевозка, выгрузка, сборка мебели на новом месте, расстановка по комнатам, вынос упаковочных материалов. Вы ничего не делаете — просто принимаете квартиру в готовом виде.</div></div>
+        <div class="faq-item"><div class="faq-question">Как быстро можно организовать переезд?</div><div class="faq-answer">Стандартный переезд — за 1-2 дня, срочный переезд можем организовать за 2-4 часа. Звоните, подберём удобное время.</div></div>
+        <div class="faq-item"><div class="faq-question">Несёте ли вы ответственность за сохранность вещей?</div><div class="faq-answer">Да, мы заключаем договор с пунктом о полной материальной ответственности. В случае повреждения имущества — компенсируем ущерб.</div></div>
+        <div class="faq-item"><div class="faq-question">Работаете ли с юридическими лицами?</div><div class="faq-answer">Да. Предоставляем договор, счёт-фактуру, акты выполненных работ. Оплата по безналичному расчёту. Для постоянных клиентов — специальные условия.</div></div>
+        <div class="faq-item"><div class="faq-question">Можно ли заказать только упаковочные материалы?</div><div class="faq-answer">Да, у нас есть <a href="shop.html">магазин упаковочных материалов</a> — коробки разных размеров, стрейч-плёнка, пузырчатая плёнка, скотч. Доставим по Астане или вы можете забрать самовывозом.</div></div>
+    </section>
+
+    <!-- Форма заявки -->
+    <section class="contact-form-section" id="callback-form">
+        <div class="contact-form-container">
+            <h2>Оставьте заявку на переезд</h2>
+            <p>Мы перезвоним в течение 5 минут и рассчитаем точную стоимость</p>
+            <form class="callback-form" id="callbackForm">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+                <button type="submit" id="callbackSubmitBtn">Отправить заявку</button>
+            </form>
+            <div class="form-success" id="callbackSuccess">✅ Спасибо! Мы свяжемся с вами в ближайшее время.</div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <img src="Logo.png" alt="Gruzim.kz" class="footer-logo" loading="lazy">
+                <p>Грузоперевозки и переезды под ключ в Астане.</p>
+                <p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
+                <div style="margin-top:14px;display:flex;gap:12px;font-size:1.5rem;">
+                    <i class="fab fa-cc-visa" style="color:#1a1f71;"></i>
+                    <i class="fab fa-cc-mastercard" style="color:#eb001b;"></i>
+                    <i class="fas fa-wallet" style="color:#f97316;"></i>
+                    <span style="font-size:0.85rem;color:#94a3b8;">Kaspi Red</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300">WhatsApp</a></p>
+                <p><i class="fab fa-telegram"></i> <a href="https://t.me/gruzimkz">Telegram</a></p>
+                <p><i class="fas fa-clock"></i> Ежедневно 8:00–22:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Услуги</h4>
+                <p><a href="kvartirniy.html">Квартирный переезд</a></p>
+                <p><a href="office.html">Офисный переезд</a></p>
+                <p><a href="mejgorod.html">Межгород</a></p>
+                <p><a href="musor.html">Вывоз мусора</a></p>
+                <p><a href="mebel.html">Сборка мебели</a></p>
+                <p><a href="gruz/centr.html">Почасовой заказ</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <p><a href="B2B.html">Для юридических лиц</a></p>
+                <p><a href="shop.html">Магазин упаковки</a></p>
+                <p><a href="#" id="privacy-policy-link">Политика конфиденциальности</a></p>
+                <p><a href="#" id="terms-of-service-link">Условия использования</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB кнопки -->
+    <div class="floating-buttons" id="floatingButtons">
+        <div class="fab-menu" id="fabMenu">
+            <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall"><i class="fas fa-phone"></i></a>
+            <a href="#" class="fab-menu-item whatsapp" id="fabWhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="fab-menu-item telegram" id="fabTelegram" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        <button class="fab-main" id="fabMain"><i class="fas fa-phone"></i></button>
+    </div>
+
+    <script>
+        (function() {
+            const isMobile = window.innerWidth <= 768;
+            
+            // Бургер-меню
+            const burger = document.getElementById('burgerMenu');
+            const mobileNav = document.getElementById('mobileNav');
+            const closeMobileNav = document.getElementById('closeMobileNav');
+            function toggleMenu() { if(burger) burger.classList.toggle('active'); if(mobileNav) mobileNav.classList.toggle('active'); }
+            if(burger) burger.addEventListener('click', toggleMenu);
+            if(closeMobileNav) closeMobileNav.addEventListener('click', toggleMenu);
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', () => { if(burger) burger.classList.remove('active'); if(mobileNav) mobileNav.classList.remove('active'); });
+            });
+
+            // FAQ
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+            });
+
+            // Видео-карусель
+            const videosTrack = document.querySelector('.videos-track');
+            const videosPrev = document.querySelector('.videos-arrow--prev');
+            const videosNext = document.querySelector('.videos-arrow--next');
+            if(videosTrack && videosPrev && videosNext) {
+                const slides = document.querySelectorAll('.video-slide');
+                let idx = 0;
+                function showSlide(i) { idx = (i + slides.length) % slides.length; videosTrack.style.transform = 'translateX(' + (-idx * 100) + '%)'; }
+                videosPrev.addEventListener('click', () => showSlide(idx - 1));
+                videosNext.addEventListener('click', () => showSlide(idx + 1));
+            }
+
+            // Клиенты-карусель
+            const clientsTrack = document.querySelector('.clients-track');
+            const clientsPrev = document.querySelector('.clients-arrow--prev');
+            const clientsNext = document.querySelector('.clients-arrow--next');
+            if(clientsTrack && clientsPrev && clientsNext) {
+                const cards = document.querySelectorAll('.client-card');
+                let idx = 0;
+                function showSlide(i) { idx = (i + cards.length) % cards.length; clientsTrack.style.transform = 'translateX(' + (-idx * 100) + '%)'; }
+                clientsPrev.addEventListener('click', () => showSlide(idx - 1));
+                clientsNext.addEventListener('click', () => showSlide(idx + 1));
+            }
+
+            // FAB
+            const fabMain = document.getElementById('fabMain');
+            const fabMenuItems = document.querySelectorAll('.fab-menu-item');
+            const floatingBtns = document.getElementById('floatingButtons');
+            setTimeout(() => { if(floatingBtns) floatingBtns.classList.add('is-visible'); }, 2000);
+            if(fabMain) {
+                fabMain.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    fabMenuItems.forEach((item, i) => {
+                        if(!item.classList.contains('show')) setTimeout(() => item.classList.add('show'), i * 50);
+                        else item.classList.remove('show');
+                    });
+                    fabMain.classList.toggle('active');
+                });
+                fabMenuItems.forEach(item => {
+                    item.addEventListener('click', () => { fabMenuItems.forEach(i => i.classList.remove('show')); fabMain.classList.remove('active'); });
+                });
+                document.addEventListener('click', (e) => {
+                    if(!fabMain.contains(e.target) && !Array.from(fabMenuItems).some(i => i.contains(e.target))) {
+                        fabMenuItems.forEach(i => i.classList.remove('show'));
+                        fabMain.classList.remove('active');
+                    }
+                });
+            }
+
+            // Мессенджеры
+            function isMobileDevice() { return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); }
+            function updateLinks() {
+                const phone = '77010120300';
+                const mob = isMobileDevice();
+                const wa = document.getElementById('fabWhatsApp');
+                const tg = document.getElementById('fabTelegram');
+                if(wa) wa.href = mob ? `https://wa.me/${phone}` : `https://web.whatsapp.com/send?phone=${phone}`;
+                if(tg) tg.href = mob ? `tg://resolve?domain=${phone}` : `https://t.me/${phone}`;
+            }
+            updateLinks();
+
+            // Форма
+            const form = document.getElementById('callbackForm');
+            const successDiv = document.getElementById('callbackSuccess');
+            const submitBtn = document.getElementById('callbackSubmitBtn');
+            if(form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const name = this.querySelector('input[name="name"]').value;
+                    const phone = this.querySelector('input[name="phone"]').value;
+                    if(submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Отправка...'; }
+                    try {
+                        await fetch('https://api.telegram.org/bot7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4/sendMessage', {
+                            method: 'POST', headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ chat_id: '8277380855', text: `📞 ЗАЯВКА (переезд под ключ)\nИмя: ${name}\nТелефон: ${phone}\nСтраница: ${window.location.href}` })
+                        });
+                    } catch(err) { console.log(err); }
+                    if(typeof gtag === 'function') gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+                    if(successDiv) successDiv.style.display = 'block';
+                    this.reset();
+                    setTimeout(() => { if(successDiv) successDiv.style.display = 'none'; }, 5000);
+                    if(submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Отправить заявку'; }
+                });
+            }
+
+            document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.'); });
+            document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
+
+            // AOS
+            if(isMobile) {
+                setTimeout(() => {
+                    var aos = document.createElement('script');
+                    aos.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+                    aos.onload = () => { AOS.init({ duration: 400, once: true, offset: 50 }); document.querySelectorAll('[data-aos-delay]').forEach(el => el.setAttribute('data-aos-delay', '0')); };
+                    document.body.appendChild(aos);
+                }, 2000);
+            } else {
+                var aosDesktop = document.createElement('script');
+                aosDesktop.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+                aosDesktop.onload = () => AOS.init({ duration: 900, once: true });
+                document.body.appendChild(aosDesktop);
+            }
+        })();
+    </script>
+</body>
+</html>
