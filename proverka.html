@@ -502,7 +502,8 @@
     </section>
     <style>
     /* YouTube facade player */
-    .yt-facade{position:relative;width:100%;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;border-radius:8px;}
+    .video-slide-iframe{width:100%;height:auto!important;padding:0!important;aspect-ratio:unset!important;}
+    .yt-facade{position:relative;width:100%;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;border-radius:8px;height:0;}
     .yt-facade img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .2s;}
     .yt-facade:hover img{opacity:.85;}
     .yt-facade .yt-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;background:rgba(255,0,0,.9);border-radius:12px;display:flex;align-items:center;justify-content:center;pointer-events:none;}
