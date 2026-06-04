@@ -19,8 +19,14 @@
     <meta property="og:image" content="https://gruzim.kz/Logo.png">
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
+        body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
         html{scroll-behavior:smooth;}
+        /* Mobile perf: skip rendering cost for off-screen sections */
+        @media(max-width:768px){
+            .section,.videos-section,.calculator-section,.clients-section,.steps-section,.faq-section,.seo-article,.contact-form-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
+            /* Reduce animation on mobile */
+            *{transition-duration:.15s!important;animation-duration:.15s!important;}
+        }
         
         .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
         .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
@@ -321,11 +327,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
     
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
     <link rel="preconnect" href="https://www.googleadservices.com">
     <link rel="preconnect" href="https://www.google.com">
-    <link rel="preload" as="image" href="fon.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="fon.jpg" fetchpriority="high" media="(max-width:768px)" imagesizes="100vw">
+    <link rel="preload" as="image" href="fon.jpg" fetchpriority="high" media="(min-width:769px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)" onload="this.media='all'">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
     <script>
         var isMobileGA = window.innerWidth <= 768;
         if (!isMobileGA) {
@@ -366,7 +375,7 @@
                 <button class="burger-menu" id="burgerMenu" aria-label="Меню">
                     <span></span><span></span><span></span>
                 </button>
-                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo">
+                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" loading="eager" fetchpriority="high">
             </div>
             <div class="header-right">
                 <div class="language-switcher">
@@ -491,6 +500,15 @@
             </div>
         </div>
     </section>
+    <style>
+    /* YouTube facade player */
+    .yt-facade{position:relative;width:100%;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;border-radius:8px;}
+    .yt-facade img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .2s;}
+    .yt-facade:hover img{opacity:.85;}
+    .yt-facade .yt-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;background:rgba(255,0,0,.9);border-radius:12px;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+    .yt-facade .yt-play-btn::after{content:'';border-style:solid;border-width:10px 0 10px 20px;border-color:transparent transparent transparent #fff;}
+    .yt-facade iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+    </style>
     <section class="section videos-section" id="works">
         <h2 data-aos="fade-up">Наши работы</h2>
         <p class="videos-subtitle" data-aos="fade-up" data-aos-delay="100">Примеры нашей работы</p>
@@ -498,10 +516,18 @@
             <button class="videos-arrow videos-arrow--prev" type="button"><i class="fas fa-chevron-left"></i></button>
             <div class="videos-viewport">
                 <div class="videos-track" style="align-items: center;">
-                    <div class="video-slide"><div class="video-slide-iframe"><iframe src="https://www.youtube.com/embed/YxbIeftnPz0" title="Наши работы — Gruzim.kz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-slide-label">Переезд под ключ котеджа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
-                    <div class="video-slide"><div class="video-slide-iframe"><iframe src="https://www.youtube.com/embed/VbL_QYPKR04" title="Наши работы — Gruzim.kz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-slide-label">Услуги такелажа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
-                    <div class="video-slide"><div class="video-slide-iframe"><iframe src="https://www.youtube.com/embed/oQpGif5srmc" title="Наши работы — Gruzim.kz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-slide-label">Разбор и упаковка мебели</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
-                    <div class="video-slide"><div class="video-slide-iframe"><iframe src="https://www.youtube.com/embed/8uo9BBVwK9o" title="Наши работы — Gruzim.kz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="video-slide-label">Разбор и вывоз мебели под ключ</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
+                    <div class="video-slide"><div class="video-slide-iframe">
+                        <div class="yt-facade" data-vid="YxbIeftnPz0"><img src="https://i.ytimg.com/vi/YxbIeftnPz0/hqdefault.jpg" alt="Переезд под ключ котеджа" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                    </div><div class="video-slide-label">Переезд под ключ котеджа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
+                    <div class="video-slide"><div class="video-slide-iframe">
+                        <div class="yt-facade" data-vid="VbL_QYPKR04"><img src="https://i.ytimg.com/vi/VbL_QYPKR04/hqdefault.jpg" alt="Услуги такелажа" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                    </div><div class="video-slide-label">Услуги такелажа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
+                    <div class="video-slide"><div class="video-slide-iframe">
+                        <div class="yt-facade" data-vid="oQpGif5srmc"><img src="https://i.ytimg.com/vi/oQpGif5srmc/hqdefault.jpg" alt="Разбор и упаковка мебели" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                    </div><div class="video-slide-label">Разбор и упаковка мебели</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
+                    <div class="video-slide"><div class="video-slide-iframe">
+                        <div class="yt-facade" data-vid="8uo9BBVwK9o"><img src="https://i.ytimg.com/vi/8uo9BBVwK9o/hqdefault.jpg" alt="Разбор и вывоз мебели под ключ" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                    </div><div class="video-slide-label">Разбор и вывоз мебели под ключ</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                 </div>
             </div>
             <button class="videos-arrow videos-arrow--next" type="button"><i class="fas fa-chevron-right"></i></button>
@@ -524,7 +550,7 @@
         <div class="calculator-container">
             <h2 class="calculator-title">🚚 Рассчитайте стоимость поездки с учётом пробок</h2>
             <div class="calculator-grid">
-                <div class="map-container" id="mapContainer"><div id="map"></div></div>
+                <div class="map-container" id="mapContainer" style="display:none"><div id="map"></div></div>
                 <div class="calculator-form">
                     <div class="form-group"><label>Выберите тариф:</label><div class="tariff-selector" id="tariffSelector"><div class="tariff-option selected" data-price="7000" data-name="Грузовой"><i class="fas fa-truck"></i><div>Грузовой</div><div class="price">7 000 ₸/час</div></div><div class="tariff-option" data-price="5000" data-name="Минивэн"><i class="fas fa-truck-pickup"></i><div>Минивэн</div><div class="price">5 000 ₸/час</div></div><div class="tariff-option" data-price="14000" data-name="Комплект"><i class="fas fa-truck-moving"></i><div>Комплект</div><div class="price">14 000 ₸/час</div></div></div></div>
                     <div class="form-group"><label>Сколько часов нужно? <span id="hoursDisplay" class="hours-value">1 ч</span></label><div class="hours-control"><button class="hours-btn" id="decreaseHours" type="button">−</button><input type="number" id="hoursInput" min="1" max="8" value="1" step="0.5"><button class="hours-btn" id="increaseHours" type="button">+</button></div></div>
@@ -716,7 +742,100 @@
             document.addEventListener('DOMContentLoaded', function() { const copyrightElements = document.querySelectorAll('footer p, .footer-col p'); const currentYear = new Date().getFullYear(); copyrightElements.forEach(el => { if (el.textContent.includes('2019-2025')) el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`); if (el.textContent.includes('2019-2026')) el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`); }); const footerCols = document.querySelectorAll('.footer-col'); if (footerCols.length > 0) { const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']; const now = new Date(); const monthName = months[now.getMonth()]; const year = now.getFullYear(); const priceNote = document.createElement('p'); priceNote.style.cssText = 'font-size:0.85em;color:#94a3b8;margin-top:10px'; priceNote.innerHTML = `Цены на грузоперевозки актуальны на ${monthName} ${year}`; const firstCol = footerCols[0]; if (firstCol) firstCol.appendChild(priceNote); } });
             const videosTrack = document.querySelector('.videos-track'); const videosPrev = document.querySelector('.videos-arrow--prev'); const videosNext = document.querySelector('.videos-arrow--next');
             if (videosTrack && videosPrev && videosNext) { const videoSlides = document.querySelectorAll('.video-slide'); let videoIndex = 0; function showVideoSlide(index) { const count = videoSlides.length; videoIndex = (index + count) % count; videosTrack.style.transform = 'translateX(' + (-videoIndex * 100) + '%)'; } videosPrev.addEventListener('click', function() { showVideoSlide(videoIndex - 1); }); videosNext.addEventListener('click', function() { showVideoSlide(videoIndex + 1); }); }
-            if (isMobileForLoad) { setTimeout(() => { var aosScript = document.createElement('script'); aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js'; aosScript.onload = function() { AOS.init({ duration: 400, once: true, offset: 50 }); document.querySelectorAll('[data-aos-delay]').forEach(el => el.setAttribute('data-aos-delay', '0')); }; document.body.appendChild(aosScript); }, 2000); setTimeout(() => { const track = document.querySelector('.clients-track'); const prevBtn = document.querySelector('.clients-arrow--prev'); const nextBtn = document.querySelector('.clients-arrow--next'); if (track && prevBtn && nextBtn) { const cards = document.querySelectorAll('.client-card'); let currentIndex = 0; function showSlide(index) { const count = cards.length; currentIndex = (index + count) % count; track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)'; } prevBtn.addEventListener('click', () => showSlide(currentIndex - 1)); nextBtn.addEventListener('click', () => showSlide(currentIndex + 1)); } }, 2000); setTimeout(() => { if (typeof gtag === 'undefined' && window.gtagQueue) { var gaScript = document.createElement('script'); gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ'; gaScript.async = true; gaScript.onload = function() { window.dataLayer = window.dataLayer || []; window.gtag = function() { dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', 'G-2VWS9V6KVJ'); gtag('config', 'AW-17503887977'); if (window.gtagQueue && window.gtagQueue.length) { window.gtagQueue.forEach(args => gtag(...args)); } }; document.head.appendChild(gaScript); } }, 3500); } else { var aosScriptDesktop = document.createElement('script'); aosScriptDesktop.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js'; aosScriptDesktop.onload = function() { AOS.init({ duration: 1000, once: true }); }; document.body.appendChild(aosScriptDesktop); const trackDesktop = document.querySelector('.clients-track'); const prevBtnDesktop = document.querySelector('.clients-arrow--prev'); const nextBtnDesktop = document.querySelector('.clients-arrow--next'); if (trackDesktop && prevBtnDesktop && nextBtnDesktop) { const cardsDesktop = document.querySelectorAll('.client-card'); let currentIndexDesktop = 0; function showSlideDesktop(index) { const count = cardsDesktop.length; currentIndexDesktop = (index + count) % count; trackDesktop.style.transform = 'translateX(' + (-currentIndexDesktop * 100) + '%)'; } prevBtnDesktop.addEventListener('click', () => showSlideDesktop(currentIndexDesktop - 1)); nextBtnDesktop.addEventListener('click', () => showSlideDesktop(currentIndexDesktop + 1)); } function initMapDesktop() { if (typeof ymaps === 'undefined') return; var map = new ymaps.Map("map", { center: [51.1605, 71.4704], zoom: 12, controls: ['zoomControl', 'fullscreenControl'] }); var trafficControl = new ymaps.control.TrafficControl({ provider: 'yandex#traffic' }); map.controls.add(trafficControl); trafficControl.state.set('provider', 'yandex#traffic'); var officePlacemark = new ymaps.Placemark([51.1605, 71.4704], { hintContent: 'Gruzim.kz', balloonContent: 'Наш офис в Астане' }, { preset: 'islands#blueIcon' }); map.geoObjects.add(officePlacemark); } var yandexScript = document.createElement('script'); yandexScript.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU'; yandexScript.onload = function() { ymaps.ready(initMapDesktop); }; document.head.appendChild(yandexScript); }
+            // --- YouTube facade: load iframe only on click ---
+            document.querySelectorAll('.yt-facade').forEach(function(facade) {
+                facade.addEventListener('click', function() {
+                    var vid = facade.dataset.vid;
+                    var iframe = document.createElement('iframe');
+                    iframe.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0';
+                    iframe.title = facade.querySelector('img').alt;
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                    iframe.allowFullscreen = true;
+                    facade.innerHTML = '';
+                    facade.appendChild(iframe);
+                }, {once: true});
+            });
+
+            if (isMobileForLoad) {
+                // Lightweight AOS replacement for mobile using CSS + IntersectionObserver
+                var mobileAosStyle = document.createElement('style');
+                mobileAosStyle.textContent = '[data-aos]{opacity:0;transform:translateY(16px);transition:opacity .35s ease,transform .35s ease;}[data-aos].aos-animate{opacity:1;transform:none;}[data-aos="zoom-in"]{transform:scale(.95);}[data-aos="zoom-in"].aos-animate{transform:none;}';
+                document.head.appendChild(mobileAosStyle);
+                if ('IntersectionObserver' in window) {
+                    var aosObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('aos-animate'); aosObserver.unobserve(e.target); } });
+                    }, { threshold: 0.08 });
+                    document.querySelectorAll('[data-aos]').forEach(function(el){ aosObserver.observe(el); });
+                } else {
+                    document.querySelectorAll('[data-aos]').forEach(function(el){ el.classList.add('aos-animate'); });
+                }
+
+                // Clients slider (mobile)
+                var track = document.querySelector('.clients-track');
+                var prevBtn = document.querySelector('.clients-arrow--prev');
+                var nextBtn = document.querySelector('.clients-arrow--next');
+                if (track && prevBtn && nextBtn) {
+                    var cards = document.querySelectorAll('.client-card');
+                    var currentIndex = 0;
+                    function showSlide(index) { var count = cards.length; currentIndex = (index + count) % count; track.style.transform = 'translateX(' + (-currentIndex * 100) + '%)'; }
+                    prevBtn.addEventListener('click', function() { showSlide(currentIndex - 1); });
+                    nextBtn.addEventListener('click', function() { showSlide(currentIndex + 1); });
+                }
+
+                // Google Analytics deferred on mobile
+                setTimeout(function() {
+                    if (typeof gtag === 'undefined' && window.gtagQueue) {
+                        var gaScript = document.createElement('script');
+                        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ';
+                        gaScript.async = true;
+                        gaScript.onload = function() {
+                            window.dataLayer = window.dataLayer || [];
+                            window.gtag = function() { dataLayer.push(arguments); };
+                            gtag('js', new Date());
+                            gtag('config', 'G-2VWS9V6KVJ');
+                            gtag('config', 'AW-17503887977');
+                            if (window.gtagQueue && window.gtagQueue.length) { window.gtagQueue.forEach(function(args){ gtag.apply(null, args); }); }
+                        };
+                        document.head.appendChild(gaScript);
+                    }
+                }, 4000);
+
+            } else {
+                // Desktop: full AOS
+                var aosScriptDesktop = document.createElement('script');
+                aosScriptDesktop.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+                aosScriptDesktop.onload = function() { AOS.init({ duration: 1000, once: true }); };
+                document.body.appendChild(aosScriptDesktop);
+
+                // Clients slider (desktop)
+                var trackDesktop = document.querySelector('.clients-track');
+                var prevBtnDesktop = document.querySelector('.clients-arrow--prev');
+                var nextBtnDesktop = document.querySelector('.clients-arrow--next');
+                if (trackDesktop && prevBtnDesktop && nextBtnDesktop) {
+                    var cardsDesktop = document.querySelectorAll('.client-card');
+                    var currentIndexDesktop = 0;
+                    function showSlideDesktop(index) { var count = cardsDesktop.length; currentIndexDesktop = (index + count) % count; trackDesktop.style.transform = 'translateX(' + (-currentIndexDesktop * 100) + '%)'; }
+                    prevBtnDesktop.addEventListener('click', function() { showSlideDesktop(currentIndexDesktop - 1); });
+                    nextBtnDesktop.addEventListener('click', function() { showSlideDesktop(currentIndexDesktop + 1); });
+                }
+
+                // Desktop: show map and load Yandex Maps
+                var mapContainer = document.getElementById('mapContainer');
+                if (mapContainer) mapContainer.style.display = '';
+                function initMapDesktop() {
+                    if (typeof ymaps === 'undefined') return;
+                    var map = new ymaps.Map("map", { center: [51.1605, 71.4704], zoom: 12, controls: ['zoomControl', 'fullscreenControl'] });
+                    var trafficControl = new ymaps.control.TrafficControl({ provider: 'yandex#traffic' });
+                    map.controls.add(trafficControl);
+                    trafficControl.state.set('provider', 'yandex#traffic');
+                    var officePlacemark = new ymaps.Placemark([51.1605, 71.4704], { hintContent: 'Gruzim.kz', balloonContent: 'Наш офис в Астане' }, { preset: 'islands#blueIcon' });
+                    map.geoObjects.add(officePlacemark);
+                }
+                var yandexScript = document.createElement('script');
+                yandexScript.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU';
+                yandexScript.onload = function() { ymaps.ready(initMapDesktop); };
+                document.head.appendChild(yandexScript);
+            }
         })();
     </script>
 </body>
