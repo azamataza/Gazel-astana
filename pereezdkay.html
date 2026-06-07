@@ -10,14 +10,14 @@
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="KZ-AST">
     <meta name="geo.placename" content="Астана">
-    <link rel="canonical" href="https://gruzim.kz/pereezdkay.html">
-    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/pereezdkay.html">
-    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/pereezdkaykz.html">
+    <link rel="canonical" href="https://gruzim.kz/pereezd-pod-kluch.html">
+    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/pereezd-pod-kluch.html">
+    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/pereezd-pod-kluch-kz.html">
 
     <meta property="og:title" content="Переезд под ключ в Астане | Gruzim.kz">
     <meta property="og:description" content="Квартирный, офисный и межгород переезд под ключ. Упакуем, перевезём, расставим.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gruzim.kz/pereezdkay.html">
+    <meta property="og:url" content="https://gruzim.kz/pereezd-pod-kluch.html">
     <meta property="og:image" content="https://gruzim.kz/Logo.png">
 
     <style>
@@ -187,6 +187,12 @@
         .video-slide-meta{font-size:0.8rem;color:#64748b;text-align:center;}
         .videos-arrow{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
         .videos-arrow:hover{background:#2563eb;border-color:#2563eb;color:white;}
+        /* Десктоп: видео-карусель показывает по 3 карточки, листание по одной (мобильная версия — 1 карточка) */
+        @media(min-width:769px){
+            .videos-viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}
+            .videos-track{display:flex!important;flex-wrap:nowrap!important;gap:24px!important;width:100%!important;align-items:stretch!important;transition:transform .4s ease!important;will-change:transform;}
+            .video-slide{flex:0 0 calc((100% - 48px) / 3)!important;max-width:calc((100% - 48px) / 3)!important;min-width:0!important;padding:0!important;box-sizing:border-box!important;}
+        }
         .videos-cta{text-align:center;margin-top:30px;}
         .videos-cta a{display:inline-flex;align-items:center;gap:10px;background:#ff0000;color:white;padding:10px 24px;border-radius:40px;text-decoration:none;font-weight:600;}
 
@@ -997,6 +1003,51 @@
         document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
             el.addEventListener('click', function () { if (timeOk && scrollOk) fire(); });
         });
+    })();
+    </script>
+    <script>
+    /* Десктоп: видео-карусель по 3 карточки, листание по одной. Мобильную версию (1 карточка) не трогаем. */
+    (function () {
+        if (!window.matchMedia('(min-width:769px)').matches) return;
+
+        function setupCarousel(trackSel, cardSel, prevSel, nextSel) {
+            var track = document.querySelector(trackSel);
+            if (!track) return;
+            var cards = track.querySelectorAll(cardSel);
+            if (!cards.length) return;
+            var prev = document.querySelector(prevSel);
+            var next = document.querySelector(nextSel);
+            // снимаем мобильные обработчики, заменяя кнопки их клонами
+            if (prev) { var p2 = prev.cloneNode(true); prev.parentNode.replaceChild(p2, prev); prev = p2; }
+            if (next) { var n2 = next.cloneNode(true); next.parentNode.replaceChild(n2, next); next = n2; }
+
+            var perView = 3;
+            var index = 0;
+
+            function step() {
+                var rect = cards[0].getBoundingClientRect();
+                var cs = getComputedStyle(track);
+                var gap = parseFloat(cs.columnGap || cs.gap || '0') || 0;
+                return rect.width + gap;
+            }
+            function maxIndex() { return Math.max(0, cards.length - perView); }
+            function update() {
+                index = Math.max(0, Math.min(index, maxIndex()));
+                track.style.transform = 'translateX(' + (-index * step()) + 'px)';
+                if (prev) prev.style.visibility = index <= 0 ? 'hidden' : 'visible';
+                if (next) next.style.visibility = index >= maxIndex() ? 'hidden' : 'visible';
+            }
+            if (prev) prev.addEventListener('click', function () { index--; update(); });
+            if (next) next.addEventListener('click', function () { index++; update(); });
+            window.addEventListener('resize', update);
+            update();
+        }
+
+        function init() {
+            setupCarousel('.videos-track', '.video-slide', '.videos-arrow--prev', '.videos-arrow--next');
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+        else init();
     })();
     </script>
 </body>
