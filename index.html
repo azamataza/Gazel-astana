@@ -334,21 +334,67 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
     <script>
-        var isMobileGA = window.innerWidth <= 768;
-        if (!isMobileGA) {
-            var gaScript = document.createElement('script');
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ';
-            gaScript.async = true;
-            document.head.appendChild(gaScript);
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
+    (function () {
+        var GZ_CFG = {
+            GA4: 'G-2VWS9V6KVJ',
+            ADS: 'AW-17503887977',
+            ADS_LABEL: 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+            GTM: 'GTM-PLXM434L',
+            YM: 104276494,
+            TG_TOKEN: '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4',
+            TG_CHAT: '8277380855'
+        };
+        var isMobile = window.innerWidth <= 768;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        window.ym = window.ym || function () { (ym.a = ym.a || []).push(arguments); };
+        ym.l = 1 * new Date();
+
+        var loaded = false;
+        function loadAnalytics() {
+            if (loaded) return;
+            loaded = true;
+            var g = document.createElement('script');
+            g.async = true;
+            g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GZ_CFG.GA4;
+            document.head.appendChild(g);
             gtag('js', new Date());
-            gtag('config', 'G-2VWS9V6KVJ');
-            gtag('config', 'AW-17503887977');
-        } else {
-            window.gtagQueue = window.gtagQueue || [];
-            window.gtag = function() { window.gtagQueue.push(arguments); };
+            gtag('config', GZ_CFG.GA4);
+            gtag('config', GZ_CFG.ADS);
+            (function (w, d, s, l, i) {
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', GZ_CFG.GTM);
+            var m = document.createElement('script');
+            m.async = true;
+            m.src = 'https://mc.yandex.ru/metrika/tag.js?id=' + GZ_CFG.YM;
+            document.head.appendChild(m);
+            ym(GZ_CFG.YM, 'init', { webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true, defer: true });
         }
+
+        window.GZ = {
+            cfg: GZ_CFG,
+            ready: loadAnalytics,
+            conversion: function () { gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL }); }
+        };
+
+        if (isMobile) {
+            var fired = false, evts = ['scroll', 'touchstart', 'click', 'keydown'];
+            function trigger() {
+                if (fired) return; fired = true;
+                evts.forEach(function (e) { window.removeEventListener(e, trigger); });
+                loadAnalytics();
+            }
+            evts.forEach(function (e) { window.addEventListener(e, trigger, { passive: true }); });
+            setTimeout(trigger, 3500);
+        } else if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAnalytics, { timeout: 2000 });
+        } else {
+            window.addEventListener('load', loadAnalytics);
+        }
+    })();
     </script>
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     <style>
@@ -374,17 +420,6 @@
     </style>
 </head>
 <body>
-    <script>
-        var isMobileGTM = window.innerWidth <= 768;
-        if (!isMobileGTM) {
-            (function(w,d,s,l,i){
-                w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-                j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PLXM434L');
-        }
-    </script>
     <nav aria-label="Breadcrumb" class="breadcrumbs">
         <ol><li><a href="index.html">Главная</a></li></ol>
     </nav>
@@ -816,7 +851,7 @@
             function updateMessengerLinks() { const phoneNumber = '77010120300'; const isMobileDeviceFlag = isMobileDevice(); const whatsappLink = document.getElementById('fabWhatsApp'); if (whatsappLink) { whatsappLink.href = isMobileDeviceFlag ? `https://wa.me/${phoneNumber}` : `https://web.whatsapp.com/send?phone=${phoneNumber}`; } const telegramLink = document.getElementById('fabTelegram'); if (telegramLink) { telegramLink.href = isMobileDeviceFlag ? `tg://resolve?domain=${phoneNumber}` : `https://t.me/${phoneNumber}`; } }
             window.addEventListener('load', updateMessengerLinks); updateMessengerLinks();
             const callbackForm = document.getElementById('callbackForm'); const callbackSuccess = document.getElementById('callbackSuccess'); const callbackSubmitBtn = document.getElementById('callbackSubmitBtn');
-            if (callbackForm) { callbackForm.addEventListener('submit', async function(e) { e.preventDefault(); const name = this.querySelector('input[name="name"]').value; const phone = this.querySelector('input[name="phone"]').value; if (callbackSubmitBtn) { callbackSubmitBtn.disabled = true; callbackSubmitBtn.textContent = 'Отправка...'; } try { await fetch(`https://api.telegram.org/bot7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: '8277380855', text: `📞 НОВАЯ ЗАЯВКА С САЙТА!\nИмя: ${name}\nТелефон: ${phone}\nСтраница: ${window.location.href}` }) }); } catch (err) { console.log(err); } if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' }); } else if (window.gtagQueue) { window.gtagQueue.push(['event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' }]); } if (callbackSuccess) callbackSuccess.style.display = 'block'; this.reset(); setTimeout(() => { if (callbackSuccess) callbackSuccess.style.display = 'none'; }, 5000); if (callbackSubmitBtn) { callbackSubmitBtn.disabled = false; callbackSubmitBtn.textContent = 'Отправить заявку'; } }); }
+            if (callbackForm) { callbackForm.addEventListener('submit', async function(e) { e.preventDefault(); const name = this.querySelector('input[name="name"]').value; const phone = this.querySelector('input[name="phone"]').value; if (callbackSubmitBtn) { callbackSubmitBtn.disabled = true; callbackSubmitBtn.textContent = 'Отправка...'; } const src = (window.GZ && GZ.source) ? GZ.source() : (document.referrer || 'прямой заход'); const text = `📞 <b>НОВАЯ ЗАЯВКА С САЙТА</b>\nИмя: ${name}\nТелефон: ${phone}\nОткуда: ${src}\nСтраница: ${window.location.href}`; try { await fetch(`https://api.telegram.org/bot${GZ.cfg.TG_TOKEN}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: text, parse_mode: 'HTML', disable_web_page_preview: true }) }); } catch (err) { console.log(err); } if (window.GZ) GZ.conversion(); if (callbackSuccess) callbackSuccess.style.display = 'block'; this.reset(); setTimeout(() => { if (callbackSuccess) callbackSuccess.style.display = 'none'; }, 5000); if (callbackSubmitBtn) { callbackSubmitBtn.disabled = false; callbackSubmitBtn.textContent = 'Отправить заявку'; } }); }
             document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.'); });
             document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
             document.addEventListener('DOMContentLoaded', function() { const copyrightElements = document.querySelectorAll('footer p, .footer-col p'); const currentYear = new Date().getFullYear(); copyrightElements.forEach(el => { if (el.textContent.includes('2019-2025')) el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`); if (el.textContent.includes('2019-2026')) el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`); }); const footerCols = document.querySelectorAll('.footer-col'); if (footerCols.length > 0) { const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']; const now = new Date(); const monthName = months[now.getMonth()]; const year = now.getFullYear(); const priceNote = document.createElement('p'); priceNote.style.cssText = 'font-size:0.85em;color:#94a3b8;margin-top:10px'; priceNote.innerHTML = `Цены на грузоперевозки актуальны на ${monthName} ${year}`; const firstCol = footerCols[0]; if (firstCol) firstCol.appendChild(priceNote); } });
@@ -859,23 +894,6 @@
                     nextBtn.addEventListener('click', function() { showSlide(currentIndex + 1); });
                 }
 
-                setTimeout(function() {
-                    if (typeof gtag === 'undefined' && window.gtagQueue) {
-                        var gaScript = document.createElement('script');
-                        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ';
-                        gaScript.async = true;
-                        gaScript.onload = function() {
-                            window.dataLayer = window.dataLayer || [];
-                            window.gtag = function() { dataLayer.push(arguments); };
-                            gtag('js', new Date());
-                            gtag('config', 'G-2VWS9V6KVJ');
-                            gtag('config', 'AW-17503887977');
-                            if (window.gtagQueue && window.gtagQueue.length) { window.gtagQueue.forEach(function(args){ gtag.apply(null, args); }); }
-                        };
-                        document.head.appendChild(gaScript);
-                    }
-                }, 4000);
-
             } else {
                 var aosScriptDesktop = document.createElement('script');
                 aosScriptDesktop.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
@@ -910,6 +928,84 @@
                 document.head.appendChild(yandexScript);
             }
         })();
+    </script>
+    <script>
+    (function () {
+        if (!window.GZ) return;
+
+        GZ.source = function () {
+            var p = new URLSearchParams(location.search);
+            if (p.get('gclid')) return 'Google Ads (реклама)';
+            var us = p.get('utm_source');
+            if (us) return 'UTM: ' + us + (p.get('utm_medium') ? ' / ' + p.get('utm_medium') : '');
+            var ref = document.referrer;
+            if (!ref) return 'прямой заход';
+            try {
+                var h = new URL(ref).hostname.replace(/^www\./, '');
+                if (h.indexOf('google') > -1) return 'поиск Google';
+                if (h.indexOf('yandex') > -1) return 'поиск Яндекс';
+                if (h.indexOf('mail.ru') > -1) return 'поиск Mail.ru';
+                if (h.indexOf('bing') > -1) return 'поиск Bing';
+                if (h.indexOf('gruzim') > -1) return 'переход по сайту';
+                if (/instagram|facebook|t\.me|vk\.com|youtube|tiktok/.test(h)) return 'соцсети: ' + h;
+                return h;
+            } catch (e) { return ref; }
+        };
+
+        function isBot() {
+            var ua = navigator.userAgent.toLowerCase();
+            return ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot', 'mail.ru', 'rambler', 'applebot', 'slurp', 'duckduckbot', 'ahrefsbot', 'semrushbot', 'petalbot'].some(function (b) { return ua.indexOf(b) > -1; });
+        }
+        function visits() {
+            var key = 'gruzim_visits', today = new Date().toLocaleDateString('ru-KZ'), n = 1;
+            try { var d = JSON.parse(localStorage.getItem(key)); if (d && d.date === today) n = d.count + 1; } catch (e) {}
+            try { localStorage.setItem(key, JSON.stringify({ date: today, count: n })); } catch (e) {}
+            return n;
+        }
+        function notifyVisitor() {
+            if (isBot()) return;
+            var n = visits();
+            var time = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+            var device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? '📱 мобильный' : '💻 десктоп';
+            var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + n + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Главная\n' + device + ' · ' + navigator.language;
+            fetch('https://api.telegram.org/bot' + GZ.cfg.TG_TOKEN + '/sendMessage', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: msg, parse_mode: 'HTML', disable_web_page_preview: true })
+            }).catch(function () {});
+        }
+        if ('requestIdleCallback' in window) requestIdleCallback(notifyVisitor, { timeout: 3000 }); else setTimeout(notifyVisitor, 2000);
+
+        var SENT = 'gruzim_conv_' + location.pathname;
+        var timeOk = false, scrollOk = false, sent = false, start = Date.now();
+        function fire() {
+            if (sent) return;
+            try { if (sessionStorage.getItem(SENT)) { sent = true; return; } } catch (e) {}
+            GZ.ready();
+            GZ.conversion();
+            sent = true;
+            try { sessionStorage.setItem(SENT, '1'); } catch (e) {}
+        }
+        function tryFire() { if (timeOk && scrollOk) fire(); }
+        var timer = setInterval(function () {
+            if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); tryFire(); }
+        }, 1000);
+        function onScroll() {
+            var sh = document.documentElement.scrollHeight, wh = window.innerHeight;
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if ((st + wh) / sh * 100 >= 50) {
+                scrollOk = true;
+                window.removeEventListener('scroll', onScroll);
+                window.removeEventListener('touchmove', onScroll);
+                tryFire();
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('touchmove', onScroll, { passive: true });
+        setTimeout(onScroll, 600);
+        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
+            el.addEventListener('click', function () { if (timeOk && scrollOk) fire(); });
+        });
+    })();
     </script>
 </body>
 </html>
