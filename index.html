@@ -21,10 +21,8 @@
         *{margin:0;padding:0;box-sizing:border-box;}
         body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
         html{scroll-behavior:smooth;}
-        /* Mobile perf: skip rendering cost for off-screen sections */
         @media(max-width:768px){
             .section,.videos-section,.calculator-section,.clients-section,.steps-section,.faq-section,.seo-article,.contact-form-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
-            /* Reduce animation on mobile */
             *{transition-duration:.15s!important;animation-duration:.15s!important;}
         }
         
@@ -354,7 +352,6 @@
     </script>
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     <style>
-        /* ===== Древовидное мобильное меню (самодостаточные стили) ===== */
         .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
         .mnav-overlay.active{opacity:1;visibility:visible;}
         #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
@@ -374,11 +371,6 @@
         #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
         #mobileNav .mnav-flat:active{background:#eff6ff;}
         #about{scroll-margin-top:90px;}
-        /* На десктопе всплывающее меню не нужно — навигация идёт через иконки и подвал */
-        @media(min-width:769px){
-            #mobileNav,.mnav-overlay{display:none!important;}
-            #catalogLogo{cursor:default;}
-        }
     </style>
 </head>
 <body>
@@ -578,7 +570,6 @@
         </div>
     </section>
     <style>
-    /* YouTube facade player */
     .video-slide-iframe{width:100%;height:auto!important;padding:0!important;aspect-ratio:unset!important;}
     .yt-facade{position:relative;width:100%;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;border-radius:8px;height:0;}
     .yt-facade img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .2s;}
@@ -785,7 +776,7 @@
             function closeMenu() { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); if (navOverlay) navOverlay.classList.remove('active'); }
             function toggleMenu() { (mobileNav && mobileNav.classList.contains('active')) ? closeMenu() : openMenu(); }
             if (burger) burger.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
-            if (catalogLogo) catalogLogo.addEventListener('click', function(e) { if (window.innerWidth >= 769) return; e.stopPropagation(); toggleMenu(); });
+            if (catalogLogo) catalogLogo.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
             if (closeMobileNav) closeMobileNav.addEventListener('click', closeMenu);
             if (navOverlay) navOverlay.addEventListener('click', closeMenu);
             document.querySelectorAll('#mobileNav a').forEach(link => { link.addEventListener('click', closeMenu); });
@@ -831,7 +822,6 @@
             document.addEventListener('DOMContentLoaded', function() { const copyrightElements = document.querySelectorAll('footer p, .footer-col p'); const currentYear = new Date().getFullYear(); copyrightElements.forEach(el => { if (el.textContent.includes('2019-2025')) el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`); if (el.textContent.includes('2019-2026')) el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`); }); const footerCols = document.querySelectorAll('.footer-col'); if (footerCols.length > 0) { const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']; const now = new Date(); const monthName = months[now.getMonth()]; const year = now.getFullYear(); const priceNote = document.createElement('p'); priceNote.style.cssText = 'font-size:0.85em;color:#94a3b8;margin-top:10px'; priceNote.innerHTML = `Цены на грузоперевозки актуальны на ${monthName} ${year}`; const firstCol = footerCols[0]; if (firstCol) firstCol.appendChild(priceNote); } });
             const videosTrack = document.querySelector('.videos-track'); const videosPrev = document.querySelector('.videos-arrow--prev'); const videosNext = document.querySelector('.videos-arrow--next');
             if (videosTrack && videosPrev && videosNext) { const videoSlides = document.querySelectorAll('.video-slide'); let videoIndex = 0; function showVideoSlide(index) { const count = videoSlides.length; videoIndex = (index + count) % count; videosTrack.style.transform = 'translateX(' + (-videoIndex * 100) + '%)'; } videosPrev.addEventListener('click', function() { showVideoSlide(videoIndex - 1); }); videosNext.addEventListener('click', function() { showVideoSlide(videoIndex + 1); }); }
-            // --- YouTube facade: load iframe only on click ---
             document.querySelectorAll('.yt-facade').forEach(function(facade) {
                 facade.addEventListener('click', function() {
                     var vid = facade.dataset.vid;
@@ -846,7 +836,6 @@
             });
 
             if (isMobileForLoad) {
-                // Lightweight AOS replacement for mobile using CSS + IntersectionObserver
                 var mobileAosStyle = document.createElement('style');
                 mobileAosStyle.textContent = '[data-aos]{opacity:0;transform:translateY(16px);transition:opacity .35s ease,transform .35s ease;}[data-aos].aos-animate{opacity:1;transform:none;}[data-aos="zoom-in"]{transform:scale(.95);}[data-aos="zoom-in"].aos-animate{transform:none;}';
                 document.head.appendChild(mobileAosStyle);
@@ -859,7 +848,6 @@
                     document.querySelectorAll('[data-aos]').forEach(function(el){ el.classList.add('aos-animate'); });
                 }
 
-                // Clients slider (mobile)
                 var track = document.querySelector('.clients-track');
                 var prevBtn = document.querySelector('.clients-arrow--prev');
                 var nextBtn = document.querySelector('.clients-arrow--next');
@@ -871,7 +859,6 @@
                     nextBtn.addEventListener('click', function() { showSlide(currentIndex + 1); });
                 }
 
-                // Google Analytics deferred on mobile
                 setTimeout(function() {
                     if (typeof gtag === 'undefined' && window.gtagQueue) {
                         var gaScript = document.createElement('script');
@@ -890,13 +877,11 @@
                 }, 4000);
 
             } else {
-                // Desktop: full AOS
                 var aosScriptDesktop = document.createElement('script');
                 aosScriptDesktop.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
                 aosScriptDesktop.onload = function() { AOS.init({ duration: 1000, once: true }); };
                 document.body.appendChild(aosScriptDesktop);
 
-                // Clients slider (desktop)
                 var trackDesktop = document.querySelector('.clients-track');
                 var prevBtnDesktop = document.querySelector('.clients-arrow--prev');
                 var nextBtnDesktop = document.querySelector('.clients-arrow--next');
@@ -908,7 +893,6 @@
                     nextBtnDesktop.addEventListener('click', function() { showSlideDesktop(currentIndexDesktop + 1); });
                 }
 
-                // Desktop: show map and load Yandex Maps
                 var mapContainer = document.getElementById('mapContainer');
                 if (mapContainer) mapContainer.style.display = '';
                 function initMapDesktop() {
