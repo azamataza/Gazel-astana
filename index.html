@@ -353,6 +353,28 @@
         }
     </script>
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <style>
+        /* ===== Древовидное мобильное меню (самодостаточные стили) ===== */
+        .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
+        .mnav-overlay.active{opacity:1;visibility:visible;}
+        #mobileNav{position:fixed;top:0;left:0;height:100%;width:84%;max-width:330px;background:#fff;z-index:1100;padding:14px 0 60px;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block;}
+        #mobileNav.active{transform:translateX(0);}
+        #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px;}
+        #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px;}
+        #mobileNav details{border-bottom:1px solid #f1f5f9;}
+        #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+        #mobileNav summary::-webkit-details-marker{display:none;}
+        #mobileNav summary::after{content:'';width:8px;height:8px;border-right:2px solid #94a3b8;border-bottom:2px solid #94a3b8;transform:rotate(45deg);transition:transform .2s ease;flex-shrink:0;margin-right:2px;}
+        #mobileNav details[open] summary::after{transform:rotate(-135deg);}
+        #mobileNav details[open] summary{color:#2563eb;}
+        #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
+        #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
+        #mobileNav .mnav-sub a:active{background:#eff6ff;}
+        #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
+        #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
+        #mobileNav .mnav-flat:active{background:#eff6ff;}
+        #about{scroll-margin-top:90px;}
+    </style>
 </head>
 <body>
     <script>
@@ -387,17 +409,67 @@
                 </a>
             </div>
         </div>
-        <nav class="mobile-nav" id="mobileNav">
+        <div class="mnav-overlay" id="mnavOverlay"></div>
+        <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
             <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
-            <a href="#services">Услуги</a>
-            <a href="shop.html">Магазин</a>
-            <a href="pereezdkay.html">Переезд под ключ</a>
-            <a href="mejgorod.html">Переезд межгород</a>
-            <a href="office.html">Переезд офиса</a>
-            <a href="musor.html">Вывоз мусора</a>
-            <a href="mebel.html">Разборка мебели</a>
-            <a href="B2B.html">Для юр. лиц</a>
-            <a href="takelazh.html">Такелаж</a>
+
+            <a href="#services" class="mnav-flat">Все услуги</a>
+
+            <details>
+                <summary>Грузоперевозки</summary>
+                <div class="mnav-sub">
+                    <a href="gruz/centr.html" class="mnav-overview">Все грузоперевозки</a>
+                    <a href="gruz/chasovoi.html">Почасовая аренда</a>
+                    <a href="gruz/bus.html">Минивэн (бус)</a>
+                    <a href="gruz/komplekt.html">Газель + 2 грузчика</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>Переезд под ключ</summary>
+                <div class="mnav-sub">
+                    <a href="kay/centr.html" class="mnav-overview">О переезде под ключ</a>
+                    <a href="kay/kvartira.html">Квартирный переезд</a>
+                    <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
+                    <a href="kay/ofice.html">Переезд офиса</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>Вывоз мусора</summary>
+                <div class="mnav-sub">
+                    <a href="musor/centr.html" class="mnav-overview">О вывозе мусора</a>
+                    <a href="musor/stroy.html">Строительный мусор</a>
+                    <a href="musor/mebel.html">Старая мебель</a>
+                    <a href="musor/tehnika.html">Бытовая техника</a>
+                    <a href="musor/matras.html">Матрасы</a>
+                    <a href="musor/night.html">Ночной вывоз</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>Сборка и разборка мебели</summary>
+                <div class="mnav-sub">
+                    <a href="mebel/centr.html" class="mnav-overview">О работе с мебелью</a>
+                    <a href="mebel/sborka.html">Сборка мебели</a>
+                    <a href="mebel/upakovka.html">Упаковка мебели</a>
+                    <a href="mebel/kay.html">Мебель под ключ</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>Такелаж</summary>
+                <div class="mnav-sub">
+                    <a href="takelazh/centr.html" class="mnav-overview">О такелаже</a>
+                    <a href="takelazh/oborud.html">Оборудование и станки</a>
+                    <a href="takelazh/roh.html">Аренда рохли</a>
+                    <a href="takelazh/save.html">Перевозка сейфов</a>
+                </div>
+            </details>
+
+            <a href="shop.html" class="mnav-flat">Магазин упаковки</a>
+            <a href="B2B.html" class="mnav-flat">Для юр. лиц</a>
+            <a href="#about" class="mnav-flat">О нас</a>
         </nav>
     </header>
     <header class="hero-header">
@@ -433,7 +505,7 @@
                     <svg viewBox="0 0 24 24"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/><path d="M3 8h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M10 8v12"/><path d="M3 12h7"/><path d="M14 12h7"/></svg>
                     <span>Упаковка</span>
                 </a>
-                <a href="what.html" class="icon-item">
+                <a href="#about" class="icon-item">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
                     <span>О нас</span>
                 </a>
@@ -616,10 +688,10 @@
         <div class="faq-item"><div class="faq-question">Вы работаете по выходным?</div><div class="faq-answer">Да, работаем ежедневно с 8:00 до 22:00 без выходных.</div></div>
         <div class="faq-item"><div class="faq-question">Из чего формируется цена на вывоз мусора?</div><div class="faq-answer">Цена складывается из нескольких обязательных расходов: полигон за городом, приём мусора, топливо, работа водителя. Минимальная стоимость от 15 000 тг.</div></div>
     </section>
-   <section class="section seo-article">
+   <section class="section seo-article" id="about">
     <h2>Gruzim.kz — Больше, чем просто грузоперевозки в Астане</h2>
     
-    <p>Мы нарушаем стереотип о том, что переезд — это стресс. Для нас это чётко отлаженный процесс, где нет места «авось» и испорченной мебели. <strong>Gruzim.kz</strong> — это не просто название, а целая экосистема логистических услуг в <a href="???">Астане</a>. Мы загружаем ваше спокойствие в кузов и доставляем его в целости в любую точку столицы.</p>
+    <p>Мы нарушаем стереотип о том, что переезд — это стресс. Для нас это чётко отлаженный процесс, где нет места «авось» и испорченной мебели. <strong>Gruzim.kz</strong> — это не просто название, а целая экосистема логистических услуг в Астане. Мы загружаем ваше спокойствие в кузов и доставляем его в целости в любую точку столицы.</p>
     
     <h3>Одна платформа — 8 решений для вашего дома и бизнеса</h3>
     <p>Вы больше не ищете разных подрядчиков. Всё, что связано с перемещением, упаковкой, демонтажем и утилизацией — закрываем одним звонком.</p>
@@ -648,14 +720,14 @@
         <li><strong>Переезд без участия клиента.</strong> Вы просто открываете дверь новой квартиры или офиса — всё уже стоит на своих местах. А если что-то пошло не так — мы всегда на связи и исправляем мгновенно.</li>
         <li><strong>Прозрачная математика без сюрпризов.</strong> Мы первыми в городе начали открыто показывать калькулятор с учётом пробок. Вы платите ровно за фактические часы работы. Никаких «потом посчитаем».</li>
         <li><strong>Опыт, который не купишь.</strong> Более 900 выполненных заказов. Мы перевезли JOY Garden, офисы ZTE Astana, DamuMed, GigaTech. Если мы справляемся с корпоративным переездом на 70 рабочих мест без остановки бизнеса — то с вашим диваном и холодильником справимся играючи.</li>
-        <li><strong>Всё своё — не перекупы.</strong> Собственный автопарк (<a href="???">минивэны</a>, <a href="gruz/chasovoi.html">газели</a>, <a href="gruz/chasovoi.html">удлинённые 4–5 м</a>, <a href="takelazh/centr.html">манипуляторы</a>), штатные <a href="takelazh/centr.html">грузчики-такелажники</a> и водители. Вы говорите с тем, кто будет выполнять работу, а не с менеджером-посредником.</li>
+        <li><strong>Всё своё — не перекупы.</strong> Собственный автопарк (<a href="gruz/bus.html">минивэны</a>, <a href="gruz/chasovoi.html">газели</a>, <a href="gruz/chasovoi.html">удлинённые 4–5 м</a>, <a href="takelazh/centr.html">манипуляторы</a>), штатные <a href="takelazh/centr.html">грузчики-такелажники</a> и водители. Вы говорите с тем, кто будет выполнять работу, а не с менеджером-посредником.</li>
     </ul>
     
     <h3>Работаем там, где нужно</h3>
     <p><a href="gruz/chasovoi.html">Алматинский</a>, <a href="gruz/chasovoi.html">Есильский</a>, <a href="gruz/chasovoi.html">Сарыаркинский</a>, <a href="gruz/chasovoi.html">Байконырский</a>, <a href="gruz/chasovoi.html">Нуринский</a> районы, Левый берег или старый город — для нас география не имеет значения. В нашем автопарке есть и юркий <a href="gruz/chasovoi.html">минивэн</a> для узких дворов, и <a href="gruz/chasovoi.html">удлинённая газель</a> для длинномеров (доски, трубы, профиль), и <a href="takelazh/centr.html">манипуляторы</a> для тяжеловесов, и <a href="takelazh/centr.html">такелажники</a> для сложных грузов.</p>
     
     <h3>Важно для бизнеса</h3>
-    <p>Мы дружим с законом и вашей бухгалтерией. Работаем с <a href="B2B.html">юрлицами</a>, выдаём договор, счёт-фактуру и акт выполненных работ. Оплата по <a href="B2B.html">безналу</a>, наличными или <a href="???">Kaspi Red</a> — подстраиваемся под вас.</p>
+    <p>Мы дружим с законом и вашей бухгалтерией. Работаем с <a href="B2B.html">юрлицами</a>, выдаём договор, счёт-фактуру и акт выполненных работ. Оплата по <a href="B2B.html">безналу</a>, наличными или Kaspi Red — подстраиваемся под вас.</p>
     
     <h3>Коротко о главном</h3>
     <ul>
@@ -667,7 +739,7 @@
         <li><a href="shop.html">Упаковочные материалы</a> — с доставкой на дом</li>
     </ul>
     
-    <p><strong>Gruzim.kz:</strong> перевезём аккуратно, как для себя. Демонтируем, упакуем, утилизируем. Просто наберите нас или напишите в <a href="???">WhatsApp</a> — и воздух перестанет пахнуть стрессом. 🚚</p>
+    <p><strong>Gruzim.kz:</strong> перевезём аккуратно, как для себя. Демонтируем, упакуем, утилизируем. Просто наберите нас или напишите в <a href="https://wa.me/77010120300" target="_blank" rel="noopener">WhatsApp</a> — и воздух перестанет пахнуть стрессом. 🚚</p>
 </section>
     <section class="contact-form-section" id="callback-form">
         <div class="contact-form-container">
@@ -703,11 +775,22 @@
             const mobileNav = document.getElementById('mobileNav');
             const catalogLogo = document.getElementById('catalogLogo');
             const closeMobileNav = document.getElementById('closeMobileNav');
-            function toggleMenu() { burger.classList.toggle('active'); mobileNav.classList.toggle('active'); }
-            if (burger) burger.addEventListener('click', toggleMenu);
-            if (catalogLogo) catalogLogo.addEventListener('click', toggleMenu);
-            if (closeMobileNav) closeMobileNav.addEventListener('click', toggleMenu);
-            document.querySelectorAll('.mobile-nav a').forEach(link => { link.addEventListener('click', () => { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); }); });
+            const navOverlay = document.getElementById('mnavOverlay');
+            function openMenu() { if (burger) burger.classList.add('active'); if (mobileNav) mobileNav.classList.add('active'); if (navOverlay) navOverlay.classList.add('active'); }
+            function closeMenu() { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); if (navOverlay) navOverlay.classList.remove('active'); }
+            function toggleMenu() { (mobileNav && mobileNav.classList.contains('active')) ? closeMenu() : openMenu(); }
+            if (burger) burger.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
+            if (catalogLogo) catalogLogo.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
+            if (closeMobileNav) closeMobileNav.addEventListener('click', closeMenu);
+            if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+            document.querySelectorAll('#mobileNav a').forEach(link => { link.addEventListener('click', closeMenu); });
+            document.addEventListener('click', function(e) {
+                if (!mobileNav || !mobileNav.classList.contains('active')) return;
+                if (mobileNav.contains(e.target)) return;
+                if (burger && burger.contains(e.target)) return;
+                if (catalogLogo && catalogLogo.contains(e.target)) return;
+                closeMenu();
+            });
             document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', () => { q.parentElement.classList.toggle('open'); }); });
             const tariffOptions = document.querySelectorAll('.tariff-option');
             const hoursInput = document.getElementById('hoursInput');
