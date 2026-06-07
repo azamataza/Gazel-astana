@@ -37,6 +37,11 @@
         .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
         
         .hero-header{background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('fon.jpg') no-repeat center center/cover;color:white;padding:100px 20px;text-align:center;}
+        .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),image-set(url('fon.webp') type('image/webp'),url('fon.jpg') type('image/jpeg'));}
+        @media(max-width:768px){
+            .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('fon-mobile.jpg');}
+            .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),image-set(url('fon-mobile.webp') type('image/webp'),url('fon-mobile.jpg') type('image/jpeg'));}
+        }
         .hero-header h1{font-size:3em;margin-bottom:20px;}
         .brand-blue{color:#2563eb;font-weight:800;}
         .brand-separator{color:#fff;font-weight:600;}
@@ -329,8 +334,8 @@
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
     <link rel="preconnect" href="https://www.googleadservices.com" media="(min-width: 769px)">
     <link rel="preconnect" href="https://www.google.com" media="(min-width: 769px)">
-    <link rel="preload" as="image" href="fon.jpg" fetchpriority="high" media="(max-width:768px)" imagesizes="100vw">
-    <link rel="preload" as="image" href="fon.jpg" fetchpriority="high" media="(min-width:769px)">
+    <link rel="preload" as="image" href="fon-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width:768px)">
+    <link rel="preload" as="image" href="fon.webp" type="image/webp" fetchpriority="high" media="(min-width:769px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
     <script>
