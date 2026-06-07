@@ -9,9 +9,9 @@
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="KZ-AST">
     <meta name="geo.placename" content="Астана">
-    <link rel="canonical" href="https://gruzim.kz/pereezdkay.html">
-    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/pereezdkay.html">
-    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/pereezdkaykz.html">
+    <link rel="canonical" href="https://gruzim.kz/pereezd-pod-kluch.html">
+    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/pereezd-pod-kluch.html">
+    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/pereezd-pod-kluch-kz.html">
 
     <meta property="og:title" content="Переезд под ключ в Астане | Gruzim.kz">
     <meta property="og:description" content="Квартирный, офисный и межгород переезд под ключ. Упакуем, перевезём, расставим.">
@@ -57,7 +57,7 @@
         body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
         html{scroll-behavior:smooth;}
 
-        /* content-visibility */
+        /* оптимизация: content-visibility для блоков вне первого экрана */
         @media(max-width:768px){
             .section,.videos-section,.clients-section,.steps-section,.faq-section,.seo-article,.contact-form-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
             *{transition-duration:.15s!important;animation-duration:.15s!important;}
@@ -74,13 +74,13 @@
         .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
         .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
 
-        /* бургер-меню */
-        .burger-menu{display:none;flex-direction:column;justify-content:space-between;width:30px;height:22px;background:transparent;border:none;cursor:pointer;padding:0;z-index:1100;}
+        /* бургер-меню — виден на всех экранах */
+        .burger-menu{display:flex;flex-direction:column;justify-content:space-between;width:30px;height:22px;background:transparent;border:none;cursor:pointer;padding:0;z-index:1100;}
         .burger-menu span{width:100%;height:2.5px;background:#2563eb;border-radius:10px;transition:all 0.3s;}
         .burger-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg);}
         .burger-menu.active span:nth-child(2){opacity:0;}
         .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
-        @media(max-width:1024px){.burger-menu{display:flex;}}
+
         @media(max-width:768px){.header-phone{display:none !important;}}
 
         /* мобильное меню-шторка */
@@ -109,7 +109,7 @@
         .breadcrumbs li:not(:last-child)::after{content:"/";margin:0 8px;color:#94a3b8;}
         .breadcrumbs a{color:#2563eb;text-decoration:none;}
 
-        /* Hero */
+        /* Hero с оптимизированным фоном */
         .hero-header{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),url('fon.jpg') no-repeat center center/cover;color:white;padding:90px 20px 80px;text-align:center;}
         .hero-header{background-image:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),image-set(url('fon.webp') type('image/webp'),url('fon.jpg') type('image/jpeg'));}
         @media(max-width:768px){
@@ -161,7 +161,7 @@
         @media(max-width:900px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
         @media(max-width:768px){.section{padding:52px 16px;}.section h2{font-size:1.7em;}.cards-grid{grid-template-columns:1fr;}}
 
-        /* видео блок */
+        /* видео блок с yt-facade */
         .video-slide-iframe{width:100%;height:auto!important;aspect-ratio:unset!important;}
         .yt-facade{position:relative;width:100%;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;border-radius:8px;height:0;}
         .yt-facade img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .2s;}
@@ -304,8 +304,8 @@
             </div>
             <div class="header-right">
                 <div class="language-switcher">
-                    <a href="https://gruzim.kz/pereezdkay.html" class="lang-btn active">РУС</a>
-                    <a href="https://gruzim.kz/pereezdkaykz.html" class="lang-btn">ҚАЗ</a>
+                    <a href="pereezd-pod-kluch.html" class="lang-btn active">РУС</a>
+                    <a href="pereezd-pod-kluch-kz.html" class="lang-btn">ҚАЗ</a>
                 </div>
                 <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone"></i> <span>+7 701 012 03 00</span></a>
             </div>
@@ -326,7 +326,7 @@
             <details>
                 <summary>Переезд под ключ</summary>
                 <div class="mnav-sub">
-                    <a href="pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
+                    <a href="kay/centr.html" class="mnav-overview">О переезде под ключ</a>
                     <a href="kay/kvartira.html">Квартирный переезд</a>
                     <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
                     <a href="kay/ofice.html">Переезд офиса</a>
@@ -395,7 +395,7 @@
         </div>
     </header>
 
-    <!-- Секция с карточками (квартирный, офисный, межгород) -->
+    <!-- Секция с карточками -->
     <section class="section" id="services">
         <h2 data-aos="fade-up">Выберите тип переезда</h2>
         <p class="section-sub" data-aos="fade-up">Полное сопровождение: от упаковки до расстановки вещей на новом месте</p>
@@ -405,7 +405,7 @@
                 <h3>Квартирный переезд</h3>
                 <p>Упакуем, разберём мебель, перевезём и расставим всё по местам. Полный сервис для 1,2,3-комнатных квартир.</p>
                 <div class="card-footer">
-                    <span class="price">от 14 000 ₸/ч </span>
+                    <span class="price">от 45 000 ₸</span>
                     <a href="kay/kvartira.html" class="card-btn">подробнее →</a>
                 </div>
             </div>
@@ -431,7 +431,7 @@
         </div>
     </section>
 
-    <!-- Видео блок с yt-facade (ленивая загрузка) -->
+    <!-- Видео блок -->
     <section class="section videos-section" id="works">
         <h2 data-aos="fade-up">Наши работы</h2>
         <p class="videos-subtitle" data-aos="fade-up" data-aos-delay="100">Примеры наших переездов под ключ</p>
@@ -515,7 +515,7 @@
         <div class="faq-item"><div class="faq-question">Можно ли заказать только упаковочные материалы?</div><div class="faq-answer">Да, у нас есть магазин упаковочных материалов — коробки разных размеров, стрейч-плёнка, пузырчатая плёнка, скотч. Доставим по Астане или вы можете забрать самовывозом.</div></div>
     </section>
 
-    <!-- SEO статья (сохранён оригинальный контент) -->
+    <!-- SEO статья -->
     <section class="section seo-article" id="about">
         <article>
             <h2>Переезд под ключ в Астане: как переехать без стресса и скрытых платежей</h2>
@@ -580,7 +580,7 @@
         </div>
     </section>
 
-    <!-- Подвал (полный, с актуальным годом и ценой месяца) -->
+    <!-- Подвал -->
     <footer>
         <div class="footer-inner">
             <div class="footer-col">
@@ -631,7 +631,7 @@
         <button class="fab-main" id="fabMain"><i class="fas fa-phone"></i></button>
     </div>
 
-    <!-- Аналитика и отслеживания (перенесены с главной) -->
+    <!-- Аналитика и отслеживания -->
     <script>
     (function () {
         var GZ_CFG = {
@@ -778,7 +778,7 @@
     (function() {
         const isMobile = window.innerWidth <= 768;
         
-        // Бургер-меню и мобильная шторка
+        // Бургер-меню и мобильная шторка — работает на всех экранах
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const closeMobileNav = document.getElementById('closeMobileNav');
@@ -824,7 +824,6 @@
             setupCarousel('.videos-track', '.video-slide', '.videos-arrow--prev', '.videos-arrow--next');
             setupCarousel('.clients-track', '.client-card', '.clients-arrow--prev', '.clients-arrow--next');
         } else {
-            // мобильные карусели
             const videosTrack = document.querySelector('.videos-track');
             const videosPrev = document.querySelector('.videos-arrow--prev');
             const videosNext = document.querySelector('.videos-arrow--next');
