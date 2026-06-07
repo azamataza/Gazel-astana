@@ -617,6 +617,29 @@
     .yt-facade .yt-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;background:rgba(255,0,0,.9);border-radius:12px;display:flex;align-items:center;justify-content:center;pointer-events:none;}
     .yt-facade .yt-play-btn::after{content:'';border-style:solid;border-width:10px 0 10px 20px;border-color:transparent transparent transparent #fff;}
     .yt-facade iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+
+    /* Десктоп: блоки "Наши работы" (видео) и "Наши клиенты" — по 3 карточки в ряд (мобильную версию не трогаем) */
+    @media (min-width:769px){
+        .videos-slider,.clients-slider{display:block!important;}
+        .videos-arrow,.clients-arrow{display:none!important;}
+        .videos-viewport,.clients-viewport{overflow:visible!important;width:100%!important;max-width:100%!important;}
+        .videos-track,.clients-track{
+            transform:none!important;
+            transition:none!important;
+            display:grid!important;
+            grid-template-columns:repeat(3,1fr)!important;
+            gap:24px!important;
+            width:100%!important;
+            align-items:stretch!important;
+        }
+        .video-slide,.client-card{
+            width:auto!important;
+            max-width:none!important;
+            flex:0 1 auto!important;
+            min-width:0!important;
+            margin:0!important;
+        }
+    }
     </style>
     <section class="section videos-section" id="works">
         <h2 data-aos="fade-up">Наши работы</h2>
