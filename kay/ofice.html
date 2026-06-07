@@ -342,6 +342,29 @@
         .callback-header-btn:hover { background: #16a34a; transform: translateY(-2px); }
         @media (max-width: 768px) { .header-phone, .callback-header-btn { display: none !important; } }
 
+        /* Хлебные крошки */
+        .breadcrumbs { background: #fff; border-bottom: 1px solid var(--apple-secondary); }
+        .breadcrumbs .container { padding-top: 14px; padding-bottom: 14px; }
+        .breadcrumbs ol {
+            display: flex; flex-wrap: wrap; align-items: center;
+            list-style: none; margin: 0; padding: 0;
+            font-size: 14px; line-height: 1.4;
+        }
+        .breadcrumbs li { display: flex; align-items: center; }
+        .breadcrumbs li:not(:last-child)::after {
+            content: '';
+            width: 6px; height: 6px; margin: 0 10px;
+            border-right: 1.5px solid #c7c7cc; border-bottom: 1.5px solid #c7c7cc;
+            transform: rotate(-45deg);
+        }
+        .breadcrumbs a { color: var(--apple-blue); text-decoration: none; font-weight: 500; transition: color .2s; }
+        .breadcrumbs a:hover { color: #0058b0; text-decoration: underline; }
+        .breadcrumbs [aria-current="page"] { color: var(--apple-caption); font-weight: 500; }
+        @media (max-width: 768px) {
+            .breadcrumbs ol { font-size: 13px; }
+            .breadcrumbs li:not(:last-child)::after { margin: 0 7px; }
+        }
+
         /* Hero */
         .hero {
             padding: 60px 0 60px;
@@ -722,6 +745,25 @@
         <a href="shop.html" class="mnav-flat">Магазин упаковки</a>
         <a href="B2B.html" class="mnav-flat">Для юр. лиц</a>
         <a href="#about" class="mnav-flat">О нас</a>
+    </nav>
+
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <div class="container">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="https://www.gruzim.kz/index.html" itemprop="item"><span itemprop="name">Главная</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="https://www.gruzim.kz/pereezdkay.html" itemprop="item"><span itemprop="name">Переезды под ключ</span></a>
+                    <meta itemprop="position" content="2">
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span aria-current="page" itemprop="name">Офисный переезд</span>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ol>
+        </div>
     </nav>
 
     <section class="hero" data-aos="fade-up">
