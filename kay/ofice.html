@@ -39,42 +39,83 @@
     <meta name="msapplication-TileColor" content="#0071e3">
     <meta name="theme-color" content="#0071e3">
 
-    <!-- Fonts -->
+    <!-- Fonts (загружаются не блокируя рендер) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" media="(min-width:769px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width:769px)">
 
-    <!-- Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ"></script>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="preconnect" href="https://www.googleadservices.com" media="(min-width:769px)">
+    <link rel="preconnect" href="https://www.google.com" media="(min-width:769px)">
+
+    <!-- Analytics: единая отложенная загрузка (GA4 + Google Ads + GTM + Яндекс.Метрика) -->
     <script>
+    (function () {
+        var GZ_CFG = {
+            GA4: 'G-2VWS9V6KVJ',
+            ADS: 'AW-17503887977',
+            ADS_LABEL: 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+            GTM: 'GTM-PLXM434L',
+            YM: 104276494,
+            TG_TOKEN: '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4',
+            TG_CHAT: '8277380855'
+        };
+        var isMobile = window.innerWidth <= 768;
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-2VWS9V6KVJ');
-        gtag('config', 'AW-17503887977');
-    </script>
+        window.gtag = function () { dataLayer.push(arguments); };
+        window.ym = window.ym || function () { (ym.a = ym.a || []).push(arguments); };
+        ym.l = 1 * new Date();
 
-    <!-- Yandex.Metrika -->
-    <script type="text/javascript">
-        (function(m, e, t, r, i, k, a) {
-            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
-        ym(104276494, 'init', { ssr: true, webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
+        var loaded = false;
+        function loadAnalytics() {
+            if (loaded) return;
+            loaded = true;
+            var g = document.createElement('script');
+            g.async = true;
+            g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GZ_CFG.GA4;
+            document.head.appendChild(g);
+            gtag('js', new Date());
+            gtag('config', GZ_CFG.GA4);
+            gtag('config', GZ_CFG.ADS);
+            (function (w, d, s, l, i) {
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', GZ_CFG.GTM);
+            var m = document.createElement('script');
+            m.async = true;
+            m.src = 'https://mc.yandex.ru/metrika/tag.js?id=' + GZ_CFG.YM;
+            document.head.appendChild(m);
+            ym(GZ_CFG.YM, 'init', { webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true, defer: true });
+        }
+
+        window.GZ = {
+            cfg: GZ_CFG,
+            ready: loadAnalytics,
+            conversion: function () { gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL }); }
+        };
+
+        if (isMobile) {
+            var fired = false, evts = ['scroll', 'touchstart', 'click', 'keydown'];
+            function trigger() {
+                if (fired) return; fired = true;
+                evts.forEach(function (e) { window.removeEventListener(e, trigger); });
+                loadAnalytics();
+            }
+            evts.forEach(function (e) { window.addEventListener(e, trigger, { passive: true }); });
+            setTimeout(trigger, 3500);
+        } else if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAnalytics, { timeout: 2000 });
+        } else {
+            window.addEventListener('load', loadAnalytics);
+        }
+    })();
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PLXM434L');</script>
-    <!-- End Google Tag Manager -->
 
     <!-- Schema.org (расширенная для офисных переездов) -->
     <script type="application/ld+json">
@@ -89,6 +130,12 @@
       "address": { "@type": "PostalAddress", "addressLocality": "Астана", "addressCountry": "KZ" },
       "geo": { "@type": "GeoCoordinates", "latitude": 51.1605, "longitude": 71.4704 },
       "openingHours": "Mo-Su 08:00-22:00",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "08:00", "closes": "22:00" }
+      ],
+      "email": "info@gruzim.kz",
+      "sameAs": ["https://wa.me/77010120300", "https://t.me/gruzimkz"],
+      "paymentAccepted": "Наличные, банковский перевод, карта, безналичный расчёт",
       "areaServed": ["Алматинский район", "Есильский район", "Сарыаркинский район", "Байконырский район", "Нуринский район", "Астана"],
       "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "57" },
       "hasOfferCatalog": {
@@ -100,6 +147,48 @@
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Большой офис (50+ сотрудников)" }, "price": "350000", "priceCurrency": "KZT" }
         ]
       }
+    }
+    </script>
+
+    <!-- FAQ Schema (для расширенных сниппетов в Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит переезд офиса в Астане?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Стоимость офисного переезда в Астане — от 50 000 до 350 000 ₸ в зависимости от объёма, этажа и серверного оборудования. Выезд оценщика бесплатный." }
+        },
+        {
+          "@type": "Question",
+          "name": "Как вы согласовываете пропуска в бизнес-центры?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Берём на себя все формальности: списки сотрудников, бронирование грузовых лифтов и оформление разовых пропусков в БЦ Астаны." }
+        },
+        {
+          "@type": "Question",
+          "name": "Переезжаете ли вы ночью или в выходные?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Да, ночные и выходные переезды — стандарт для офисов. Работаем 24/7, чтобы бизнес не простаивал." }
+        },
+        {
+          "@type": "Question",
+          "name": "Предоставляете ли документы для юридических лиц?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Да: договор, акты, ЭСФ, работаем по безналичному расчёту и предоставляем закрывающие документы." }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://gruzim.kz/" },
+        { "@type": "ListItem", "position": 2, "name": "Переезд офиса в Астане", "item": "https://gruzim.kz/office.html" }
+      ]
     }
     </script>
 
@@ -120,6 +209,15 @@
             line-height: 1.5;
             overflow-x: hidden;
             padding-top: 52px;
+        }
+        html { scroll-behavior: smooth; }
+        @media (max-width: 768px) {
+            .container > h2.section-title, .bento-grid, .grid-3, .process-grid, .clients-grid, .bc-grid, .faq-container, .seo-article, .contact-form-section {
+                content-visibility: auto;
+                contain-intrinsic-size: 0 500px;
+            }
+            * { transition-duration: .15s !important; animation-duration: .15s !important; }
+            .fab-main { animation: none !important; }
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
@@ -177,54 +275,24 @@
         .logo { font-weight: 600; font-size: 19px; color: var(--apple-text); text-decoration: none; background: rgba(37, 99, 235, 0.05); padding: 4px 8px; border-radius: 8px; transition: all 0.2s; }
         .logo:hover { background: rgba(37, 99, 235, 0.1); }
         
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 280px;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            z-index: 2000;
-            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 2px 0 20px rgba(0,0,0,0.1);
-            padding: 72px 24px 32px 24px;
-            overflow-y: auto;
-        }
-        .side-menu.active { left: 0; }
-        .menu-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(4px);
-            z-index: 1999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-        .menu-overlay.active { opacity: 1; visibility: visible; }
-        .side-menu a {
-            display: block;
-            color: var(--apple-text);
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 500;
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: color 0.2s;
-        }
-        .side-menu a:hover { color: var(--apple-blue); }
-        .side-menu .menu-close {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            font-size: 28px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--apple-caption);
-        }
+        .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1990;opacity:0;visibility:hidden;transition:opacity .28s ease;}
+        .mnav-overlay.active{opacity:1;visibility:visible;}
+        #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:2000!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
+        #mobileNav.active{transform:translateX(0);}
+        #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px;}
+        #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px;}
+        #mobileNav details{border-bottom:1px solid #f1f5f9;}
+        #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+        #mobileNav summary::-webkit-details-marker{display:none;}
+        #mobileNav summary::after{content:'';width:8px;height:8px;border-right:2px solid #94a3b8;border-bottom:2px solid #94a3b8;transform:rotate(45deg);transition:transform .2s ease;flex-shrink:0;margin-right:2px;}
+        #mobileNav details[open] summary::after{transform:rotate(-135deg);}
+        #mobileNav details[open] summary{color:#2563eb;}
+        #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
+        #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
+        #mobileNav .mnav-sub a:active{background:#eff6ff;}
+        #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
+        #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
+        #mobileNav .mnav-flat:active{background:#eff6ff;}
         
         .header-right {
             display: flex;
@@ -464,8 +532,12 @@
             gap: 40px;
         }
         .footer-col h4 { color: white; margin-bottom: 15px; }
-        .footer-col a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; }
+        .footer-col a { color: #94a3b8; text-decoration: none; }
+        .footer-col p { margin-bottom: 8px; }
         .footer-col a:hover { color: white; }
+        .footer-logo { height: 40px; margin-bottom: 12px; }
+        .footer-note { font-size: 0.85em; color: #94a3b8; margin-top: 10px; }
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0; }
 
         .floating-buttons {
             position: fixed;
@@ -561,14 +633,10 @@
             .card { padding: 20px; }
             .seo-article { padding: 28px !important; }
             .burger-menu { display: flex; }
-            /* Скрытие таблицы на мобильных устройствах */
-            .seo-article table {
-                display: none;
-            }
+            .seo-article table { font-size: 0.85em; }
         }
         @media (max-width: 480px) {
             .floating-logo { height: 32px; }
-            .mobile-nav { left: 4%; width: 92%; }
         }
     </style>
 </head>
@@ -593,19 +661,68 @@
         </div>
     </header>
 
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <div class="side-menu" id="sideMenu">
-        <button class="menu-close" id="closeMenuBtn">&times;</button>
-        <a href="index.html">Главная</a>
-             <a href="shop.html">Магазин</a>
-            <a href="pereezdkay.html">Переезд под ключ</a>
-            <a href="mejgorod.html">Переезд межгород</a>
-            <a href="office.html">Переезд офиса</a>
-            <a href="musor.html">Вывоз мусора</a>
-            <a href="mebel.html">Разборка мебели</a>
-            <a href="B2B.html">Для юр. лиц</a>
-            <a href="takelazh.html">Такелаж</a>
-    </div>
+    <div class="mnav-overlay" id="mnavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
+        <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
+
+        <a href="#services" class="mnav-flat">Все услуги</a>
+
+        <details>
+            <summary>Грузоперевозки</summary>
+            <div class="mnav-sub">
+                <a href="gruz/centr.html" class="mnav-overview">Все грузоперевозки</a>
+                <a href="gruz/chasovoi.html">Почасовая аренда</a>
+                <a href="gruz/bus.html">Минивэн (бус)</a>
+                <a href="gruz/komplekt.html">Газель + 2 грузчика</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Переезд под ключ</summary>
+            <div class="mnav-sub">
+                <a href="kay/centr.html" class="mnav-overview">О переезде под ключ</a>
+                <a href="kay/kvartira.html">Квартирный переезд</a>
+                <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
+                <a href="kay/ofice.html">Переезд офиса</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Вывоз мусора</summary>
+            <div class="mnav-sub">
+                <a href="musor/centr.html" class="mnav-overview">О вывозе мусора</a>
+                <a href="musor/stroy.html">Строительный мусор</a>
+                <a href="musor/mebel.html">Старая мебель</a>
+                <a href="musor/tehnika.html">Бытовая техника</a>
+                <a href="musor/matras.html">Матрасы</a>
+                <a href="musor/night.html">Ночной вывоз</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Сборка и разборка мебели</summary>
+            <div class="mnav-sub">
+                <a href="mebel/centr.html" class="mnav-overview">О работе с мебелью</a>
+                <a href="mebel/sborka.html">Сборка мебели</a>
+                <a href="mebel/upakovka.html">Упаковка мебели</a>
+                <a href="mebel/kay.html">Мебель под ключ</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Такелаж</summary>
+            <div class="mnav-sub">
+                <a href="takelazh/centr.html" class="mnav-overview">О такелаже</a>
+                <a href="takelazh/oborud.html">Оборудование и станки</a>
+                <a href="takelazh/roh.html">Аренда рохли</a>
+                <a href="takelazh/save.html">Перевозка сейфов</a>
+            </div>
+        </details>
+
+        <a href="shop.html" class="mnav-flat">Магазин упаковки</a>
+        <a href="B2B.html" class="mnav-flat">Для юр. лиц</a>
+        <a href="#about" class="mnav-flat">О нас</a>
+    </nav>
 
     <section class="hero" data-aos="fade-up">
         <div class="container">
@@ -684,6 +801,7 @@
             <p>Профессиональный <strong>переезд офиса в Астане</strong> — это сложный процесс, требующий опыта и знания специфики бизнес-центров. Компания Gruzim.kz специализируется на <strong>офисном переезде под ключ</strong> с 2019 года. Мы перевезли более 50 компаний, включая ZTE, DamuMed, Astana Logistics.</p>
             
             <h3>Стоимость переезда офиса по районам Астаны</h3>
+            <div class="table-scroll">
             <table>
                 <thead><tr><th>Район</th><th>Малый офис (до 10 чел)</th><th>Средний офис (10-50 чел)</th><th>Большой офис (50+ чел)</th></tr></thead>
                 <tbody>
@@ -694,6 +812,7 @@
                     <tr><td>Нуринский</td><td>от 40 000 ₸</td><td>от 160 000 ₸</td><td>от 280 000 ₸</td></tr>
                 </tbody>
             </table>
+            </div>
             
             <h3>Чек-лист подготовки офиса к переезду</h3>
             <ul>
@@ -734,39 +853,9 @@
     <!-- Подвал -->
     <footer>
         <div class="footer-inner">
-            <div class="footer-col">
-                <img src="Logo.png" alt="Логотип Gruzim.kz" style="height: 40px; margin-bottom: 12px;">
-                <p>Офисные переезды в Астане под ключ.</p>
-                <p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p>
-                <div style="margin-top: 15px; display: flex; gap: 12px; font-size: 1.5rem;">
-                    <i class="fab fa-cc-visa" style="color: #1a1f71;"></i>
-                    <i class="fab fa-cc-mastercard" style="color: #eb001b;"></i>
-                    <i class="fas fa-wallet" style="color: #f97316;"></i>
-                    <span style="font-size: 0.9rem;">Kaspi Red</span>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Контакты</h4>
-                <a href="tel:+77010120300"><i class="fas fa-phone"></i> +7 701 012 03 00</a>
-                <a href="https://wa.me/77010120300" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://t.me/gruzimkz" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-                <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
-            </div>
-            <div class="footer-col">
-                <h4>Услуги</h4>
-                <a href="index.html">Главная</a>
-                <a href="pereezdkay.html">Квартирный переезд</a>
-                <a href="musor.html">Вывоз мусора</a>
-                <a href="mebel.html">Сборка мебели</a>
-                <a href="B2B.html">Для юр. лиц</a>
-                <a href="takelazh.html">Такелаж</a>
-            </div>
-            <div class="footer-col">
-                <h4>Документы</h4>
-                <a href="#" id="privacy-policy-link">Политика конфиденциальности</a>
-                <a href="#" id="terms-of-service-link">Условия использования</a>
-                <p class="footer-note">Работаем по договору, ЭСФ, акты. Безналичный расчет.</p>
-            </div>
+            <div class="footer-col"><img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo" loading="lazy"><p>Грузоперевозки по Астане и регионам Казахстана.</p><p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p><div style="margin-top:15px;display:flex;gap:12px;font-size:1.5rem;"><i class="fab fa-cc-visa" style="color:#1a1f71;"></i><i class="fab fa-cc-mastercard" style="color:#eb001b;"></i><i class="fas fa-wallet" style="color:#f97316;"></i><span style="font-size:0.9rem;">Kaspi Red</span></div></div>
+            <div class="footer-col"><h4>Контакты</h4><p><i class="fas fa-phone"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p><p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300">Написать в WhatsApp</a></p><p><i class="fab fa-telegram"></i> <a href="https://t.me/gruzimkz">Telegram</a></p><p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p></div>
+            <div class="footer-col"><h4>Информация</h4><p><a href="#" id="privacy-policy-link">Политика конфиденциальности</a></p><p><a href="#" id="terms-of-service-link">Условия использования</a></p><p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p></div>
         </div>
     </footer>
 
@@ -798,299 +887,245 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
-        
-        // Меню
+    (function () {
+        const isMobileForLoad = window.innerWidth <= 768;
+
+        // ===== Выезжающее меню (как в index) =====
         const burger = document.getElementById('burgerMenu');
-        const sideMenu = document.getElementById('sideMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        
-        function openMenu() {
-            sideMenu.classList.add('active');
-            menuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            burger.classList.add('active');
-        }
-        function closeMenu() {
-            sideMenu.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            burger.classList.remove('active');
-        }
-        
-        burger.addEventListener('click', openMenu);
-        closeMenuBtn.addEventListener('click', closeMenu);
-        menuOverlay.addEventListener('click', closeMenu);
-        
-        document.querySelectorAll('.side-menu a').forEach(link => {
-            link.addEventListener('click', closeMenu);
+        const mobileNav = document.getElementById('mobileNav');
+        const closeMobileNav = document.getElementById('closeMobileNav');
+        const navOverlay = document.getElementById('mnavOverlay');
+        function openMenu() { if (burger) burger.classList.add('active'); if (mobileNav) mobileNav.classList.add('active'); if (navOverlay) navOverlay.classList.add('active'); }
+        function closeMenu() { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); if (navOverlay) navOverlay.classList.remove('active'); }
+        function toggleMenu() { (mobileNav && mobileNav.classList.contains('active')) ? closeMenu() : openMenu(); }
+        if (burger) burger.addEventListener('click', function (e) { e.stopPropagation(); toggleMenu(); });
+        if (closeMobileNav) closeMobileNav.addEventListener('click', closeMenu);
+        if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('#mobileNav a').forEach(link => { link.addEventListener('click', closeMenu); });
+        document.addEventListener('click', function (e) {
+            if (!mobileNav || !mobileNav.classList.contains('active')) return;
+            if (mobileNav.contains(e.target)) return;
+            if (burger && burger.contains(e.target)) return;
+            closeMenu();
         });
-        
-        // FAQ
+
+        // ===== FAQ =====
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
         });
-        
-        // FAB
+
+        // ===== Плавающие кнопки (FAB) =====
         const fabMain = document.getElementById('fabMain');
         const fabItems = document.querySelectorAll('.fab-menu-item');
         const fabMenu = document.getElementById('fabMenu');
-        fabMain.addEventListener('click', () => fabItems.forEach(i => i.classList.toggle('show')));
-        document.addEventListener('click', (e) => { if(!fabMain.contains(e.target) && !fabMenu.contains(e.target)) fabItems.forEach(i => i.classList.remove('show')); });
-        
-        // Показываем плавающие кнопки при скролле
+        if (fabMain) {
+            fabMain.addEventListener('click', () => fabItems.forEach(i => i.classList.toggle('show')));
+            document.addEventListener('click', (e) => { if (!fabMain.contains(e.target) && fabMenu && !fabMenu.contains(e.target)) fabItems.forEach(i => i.classList.remove('show')); });
+        }
+
         const floatingButtons = document.querySelector('.floating-buttons');
         window.addEventListener('scroll', () => {
+            if (!floatingButtons) return;
             if (window.scrollY > 400) floatingButtons.classList.add('is-visible');
             else floatingButtons.classList.remove('is-visible');
-        });
-        
-        // Modal reviews
+        }, { passive: true });
+
+        // ===== Модальное окно отзывов =====
         const modal = document.getElementById('reviews-modal');
         const openReviews = document.getElementById('fabReviews');
-        const closeModal = modal.querySelector('.modal-close-btn');
-        openReviews.addEventListener('click', () => modal.classList.add('is-active'));
-        closeModal.addEventListener('click', () => modal.classList.remove('is-active'));
-        modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('is-active'); });
-        
-        // Кнопка заказа звонка в шапке
+        if (modal) {
+            const closeModal = modal.querySelector('.modal-close-btn');
+            if (openReviews) openReviews.addEventListener('click', () => modal.classList.add('is-active'));
+            if (closeModal) closeModal.addEventListener('click', () => modal.classList.remove('is-active'));
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('is-active'); });
+        }
+
+        // ===== Кнопка "Заказать звонок" в шапке =====
         document.getElementById('headerCallbackBtn')?.addEventListener('click', () => {
-            document.getElementById('callback-form').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('callback-form')?.scrollIntoView({ behavior: 'smooth' });
         });
-        
+
+        // ===== Ссылки мессенджеров (как в index) =====
         function isMobileDevice() { return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); }
-        const phone = '77010120300';
-        const waLink = document.getElementById('fabWhatsApp');
-        const tgLink = document.getElementById('fabTelegram');
-        if(waLink) waLink.href = isMobileDevice() ? `https://wa.me/${phone}` : `https://web.whatsapp.com/send?phone=${phone}`;
-        if(tgLink) tgLink.href = isMobileDevice() ? `tg://resolve?domain=${phone}` : `https://t.me/${phone}`;
-        
-        // Политика
+        function updateMessengerLinks() {
+            const phoneNumber = '77010120300';
+            const flag = isMobileDevice();
+            const waLink = document.getElementById('fabWhatsApp');
+            if (waLink) waLink.href = flag ? `https://wa.me/${phoneNumber}` : `https://web.whatsapp.com/send?phone=${phoneNumber}`;
+            const tgLink = document.getElementById('fabTelegram');
+            if (tgLink) tgLink.href = flag ? `tg://resolve?domain=${phoneNumber}` : `https://t.me/${phoneNumber}`;
+        }
+        window.addEventListener('load', updateMessengerLinks); updateMessengerLinks();
+
+        // ===== Политика / условия =====
         document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.'); });
         document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
-        
-        // Динамическая дата
-        const year = new Date().getFullYear();
-        document.querySelectorAll('footer p').forEach(el => { if(el.textContent.includes('2019-2025')) el.textContent = el.textContent.replace('2019-2025', `2019-${year}`); });
-    </script>
 
-    <!-- ===== ФОРМА ЗАЯВКИ ===== -->
-    <script>
-        const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
-        const TELEGRAM_CHAT_ID = '8277380855';
-        
+        // ===== Год в копирайте + примечание о ценах (как в index) =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const els = document.querySelectorAll('footer p, .footer-col p');
+            const currentYear = new Date().getFullYear();
+            els.forEach(el => {
+                if (el.textContent.includes('2019-2025')) el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`);
+                if (el.textContent.includes('2019-2026')) el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`);
+            });
+            const footerCols = document.querySelectorAll('.footer-col');
+            if (footerCols.length > 0) {
+                const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+                const now = new Date();
+                const priceNote = document.createElement('p');
+                priceNote.className = 'footer-note';
+                priceNote.innerHTML = `Цены на офисный переезд актуальны на ${months[now.getMonth()]} ${now.getFullYear()}`;
+                if (footerCols[0]) footerCols[0].appendChild(priceNote);
+            }
+        });
+
+        // ===== Отправка формы заявки (Telegram + конверсия через GZ) =====
         const callbackForm = document.getElementById('callbackForm');
         const callbackSuccess = document.getElementById('callbackSuccess');
         const callbackSubmitBtn = document.getElementById('callbackSubmitBtn');
-        
         if (callbackForm) {
-            callbackForm.addEventListener('submit', async function(e) {
+            callbackForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 const name = this.querySelector('input[name="name"]').value;
                 const phone = this.querySelector('input[name="phone"]').value;
                 const message = this.querySelector('textarea[name="message"]')?.value || '';
-                
-                callbackSubmitBtn.disabled = true;
-                callbackSubmitBtn.textContent = 'Отправка...';
-                
-                let text = `🏢 <b>НОВАЯ ЗАЯВКА (офисный переезд)</b>\n\n`;
-                text += `📄 <b>Страница:</b> Переезд офиса\n`;
-                text += `🔗 <b>URL:</b> ${window.location.href}\n\n`;
-                text += `👤 <b>Имя/Компания:</b> ${name}\n`;
-                text += `📞 <b>Телефон:</b> ${phone}\n`;
-                if (message) text += `💬 <b>Сообщение:</b> ${message}\n`;
-                
+                if (callbackSubmitBtn) { callbackSubmitBtn.disabled = true; callbackSubmitBtn.textContent = 'Отправка...'; }
+                if (window.GZ) GZ.ready();
+                const src = (window.GZ && GZ.source) ? GZ.source() : (document.referrer || 'прямой заход');
+                let text = `🏢 <b>НОВАЯ ЗАЯВКА С САЙТА (офисный переезд)</b>\nИмя/Компания: ${name}\nТелефон: ${phone}\n`;
+                if (message) text += `💬 Сообщение: ${message}\n`;
+                text += `Откуда: ${src}\nСтраница: ${window.location.href}`;
                 try {
-                    await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: text, parse_mode: 'HTML' })
+                    await fetch(`https://api.telegram.org/bot${GZ.cfg.TG_TOKEN}/sendMessage`, {
+                        method: 'POST', headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: text, parse_mode: 'HTML', disable_web_page_preview: true })
                     });
-                    
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
-                    }
-                    
-                    callbackSuccess.style.display = 'block';
-                    this.reset();
-                    setTimeout(() => { callbackSuccess.style.display = 'none'; }, 5000);
-                } catch (err) { alert('Ошибка отправки. Пожалуйста, позвоните нам.'); }
-                finally { callbackSubmitBtn.disabled = false; callbackSubmitBtn.textContent = 'Отправить заявку'; }
+                } catch (err) { console.log(err); }
+                if (window.GZ) GZ.conversion();
+                if (callbackSuccess) callbackSuccess.style.display = 'block';
+                this.reset();
+                setTimeout(() => { if (callbackSuccess) callbackSuccess.style.display = 'none'; }, 5000);
+                if (callbackSubmitBtn) { callbackSubmitBtn.disabled = false; callbackSubmitBtn.textContent = 'Отправить заявку'; }
             });
         }
-        
-        // Отзывы
+
+        // ===== Отправка отзыва =====
         document.getElementById('reviewForm')?.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = document.getElementById('reviewName').value;
-            const text = document.getElementById('reviewText').value;
-            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, { 
-                method: 'POST', headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: `📝 Отзыв с office.html: ${name}\n${text}` }) 
-            });
+            const rName = document.getElementById('reviewName').value;
+            const rText = document.getElementById('reviewText').value;
+            try {
+                await fetch(`https://api.telegram.org/bot${GZ.cfg.TG_TOKEN}/sendMessage`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: `📝 Отзыв (офисный переезд): ${rName}\n${rText}`, disable_web_page_preview: true })
+                });
+            } catch (err) { console.log(err); }
             alert('Спасибо за отзыв!');
-            document.getElementById('reviews-modal').classList.remove('is-active');
+            document.getElementById('reviews-modal')?.classList.remove('is-active');
             e.target.reset();
         });
-    </script>
 
-   <!-- ===== ЛЁГКИЙ СКРИПТ ОТПРАВКИ В TELEGRAM (БЕЗ ТОРМОЗОВ) ===== -->
-<script>
-(function() {
-    // ========== НАСТРОЙКИ ==========
-    const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
-    const TELEGRAM_CHAT_ID = '8277380855';
-
-    // ========== ПРОВЕРКА БОТОВ ==========
-    function isSearchBot() {
-        const ua = navigator.userAgent.toLowerCase();
-        const bots = ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot', 'mailru', 'rambler', 'applebot', 'slurp', 'duckduckbot'];
-        return bots.some(bot => ua.includes(bot));
-    }
-
-    // ========== ПРОСТОЙ СЧЁТЧИК ВИЗИТОВ ЗА ДЕНЬ ==========
-    function getTodayVisits() {
-        const today = new Date().toLocaleDateString('ru-KZ');
-        const storageKey = 'gruzim_visits';
-        const stored = localStorage.getItem(storageKey);
-        
-        if (stored) {
-            try {
-                const data = JSON.parse(stored);
-                if (data.date === today) {
-                    return data.count;
-                }
-            } catch(e) {}
+        // ===== Анимации появления =====
+        if (isMobileForLoad) {
+            var mobileAosStyle = document.createElement('style');
+            mobileAosStyle.textContent = '[data-aos]{opacity:0;transform:translateY(16px);transition:opacity .35s ease,transform .35s ease;}[data-aos].aos-animate{opacity:1;transform:none;}';
+            document.head.appendChild(mobileAosStyle);
+            if ('IntersectionObserver' in window) {
+                var aosObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('aos-animate'); aosObserver.unobserve(en.target); } });
+                }, { threshold: 0.08 });
+                document.querySelectorAll('[data-aos]').forEach(function (el) { aosObserver.observe(el); });
+            } else {
+                document.querySelectorAll('[data-aos]').forEach(function (el) { el.classList.add('aos-animate'); });
+            }
+        } else {
+            var aosScript = document.createElement('script');
+            aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+            aosScript.onload = function () { AOS.init({ duration: 800, once: true }); };
+            document.body.appendChild(aosScript);
         }
-        return 0;
-    }
-
-    function incrementTodayVisits() {
-        const today = new Date().toLocaleDateString('ru-KZ');
-        const storageKey = 'gruzim_visits';
-        const stored = localStorage.getItem(storageKey);
-        let count = 1;
-        
-        if (stored) {
-            try {
-                const data = JSON.parse(stored);
-                if (data.date === today) {
-                    count = data.count + 1;
-                }
-            } catch(e) {}
-        }
-        
-        localStorage.setItem(storageKey, JSON.stringify({
-            date: today,
-            count: count
-        }));
-        
-        return count;
-    }
-
-    // ========== ПОЛУЧЕНИЕ IP ==========
-    async function getIP() {
-        try {
-            const response = await fetch('https://api.ipify.org?format=json', {
-                timeout: 3000
-            });
-            const data = await response.json();
-            return data.ip;
-        } catch(e) {
-            return 'не определен';
-        }
-    }
-
-    // ========== ОТПРАВКА В TELEGRAM ==========
-    async function sendToTelegram(ip, visitCount) {
-        const now = new Date();
-        const visitTime = now.toLocaleString('ru-RU', {
-            timeZone: 'Asia/Almaty',
-            day: 'numeric',
-            month: 'long',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        });
-        
-        const userAgent = navigator.userAgent;
-        const pageUrl = window.location.href;
-        const referrer = document.referrer || 'прямой заход';
-        const screenSize = `${screen.width}x${screen.height}`;
-        const language = navigator.language;
-        
-        // Простое сообщение без тяжёлых хешей и fingerprint
-        let message = `🚛 <b>Новый посетитель</b>\n`;
-        message += `━━━━━━━━━━━━━━━━━━\n`;
-        message += `🌐 IP: <code>${ip}</code>\n`;
-        message += `🕐 Время: ${visitTime}\n`;
-        message += `📊 Визитов сегодня: ${visitCount}\n`;
-        message += `🔗 Страница: ${pageUrl}\n`;
-        message += `↩️ Откуда: ${referrer}\n`;
-        message += `📱 Экра́н: ${screenSize}\n`;
-        message += `🌍 Язык: ${language}\n`;
-        message += `━━━━━━━━━━━━━━━━━━\n`;
-        message += `<code>${userAgent.substring(0, 150)}</code>`;
-        
-        try {
-            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: message,
-                    parse_mode: 'HTML',
-                    disable_web_page_preview: true
-                })
-            });
-        } catch(e) {
-            // Тихо падаем, не ломаем сайт
-        }
-    }
-
-    // ========== ГЛАВНАЯ ФУНКЦИЯ ==========
-    async function init() {
-        // Пропускаем поисковых ботов
-        if (isSearchBot()) return;
-        
-        // Получаем количество визитов за сегодня и увеличиваем счётчик
-        const visitCount = getTodayVisits();
-        const newCount = incrementTodayVisits();
-        
-        // Получаем IP и отправляем в Telegram
-        const ip = await getIP();
-        await sendToTelegram(ip, newCount);
-    }
-
-    // Запускаем сразу, без задержек
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
-})();
-</script>
-
-    <!-- ===== СКРИПТ КАЧЕСТВЕННЫХ КОНВЕРСИЙ GOOGLE ADS ===== -->
-    <script>
-    (function() {
-        const CONVERSION_SENT_KEY = 'gruzim_ga4_conversion_sent';
-        const MIN_TIME_SEC = 30;
-        const MIN_SCROLL_PERCENT = 50;
-        let timeConditionMet = false, scrollConditionMet = false, baseConditionsMet = false, startTime = Date.now(), scrollCheckDone = false;
-        function sendConversion(triggerName) { if (sessionStorage.getItem(CONVERSION_SENT_KEY)) return false; if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' }); sessionStorage.setItem(CONVERSION_SENT_KEY, 'true'); return true; } return false; }
-        function checkBaseConditions() { if (baseConditionsMet) return true; if (timeConditionMet && scrollConditionMet) { baseConditionsMet = true; sendConversion('30сек+50%скролл'); return true; } return false; }
-        setInterval(() => { if ((Date.now() - startTime) / 1000 >= MIN_TIME_SEC) { timeConditionMet = true; checkBaseConditions(); } }, 1000);
-        function checkScroll() { if (scrollCheckDone) return; const percent = (window.pageYOffset + window.innerHeight) / document.documentElement.scrollHeight * 100; if (percent >= MIN_SCROLL_PERCENT) { scrollConditionMet = true; scrollCheckDone = true; checkBaseConditions(); window.removeEventListener('scroll', checkScroll); window.removeEventListener('wheel', checkScroll); window.removeEventListener('touchmove', checkScroll); } }
-        window.addEventListener('scroll', checkScroll); window.addEventListener('wheel', checkScroll); window.addEventListener('touchmove', checkScroll);
-        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"], a[href*="t.me"]').forEach(link => { link.addEventListener('click', () => { if (timeConditionMet && scrollConditionMet) sendConversion('клик по контакту'); }); });
-        const phoneElements = document.querySelectorAll('.header-phone, .footer-col a[href^="tel:"]'); let hoverTimer; function sendHoverConversion() { if (timeConditionMet && scrollConditionMet) sendConversion('наведение на номер'); } phoneElements.forEach(el => { el.addEventListener('mouseenter', () => { clearTimeout(hoverTimer); hoverTimer = setTimeout(sendHoverConversion, 100); }); el.addEventListener('mouseleave', () => clearTimeout(hoverTimer)); });
-        const form = document.getElementById('callbackForm'); if (form) { form.addEventListener('submit', () => { if (!sessionStorage.getItem(CONVERSION_SENT_KEY)) { if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' }); sessionStorage.setItem(CONVERSION_SENT_KEY, 'true'); } } }); }
     })();
     </script>
-    <!-- ===== КОНЕЦ СКРИПТА КАЧЕСТВЕННЫХ КОНВЕРСИЙ ===== -->
+
+    <script>
+    (function () {
+        if (!window.GZ) return;
+
+        GZ.source = function () {
+            var p = new URLSearchParams(location.search);
+            if (p.get('gclid')) return 'Google Ads (реклама)';
+            var us = p.get('utm_source');
+            if (us) return 'UTM: ' + us + (p.get('utm_medium') ? ' / ' + p.get('utm_medium') : '');
+            var ref = document.referrer;
+            if (!ref) return 'прямой заход';
+            try {
+                var h = new URL(ref).hostname.replace(/^www\./, '');
+                if (h.indexOf('google') > -1) return 'поиск Google';
+                if (h.indexOf('yandex') > -1) return 'поиск Яндекс';
+                if (h.indexOf('mail.ru') > -1) return 'поиск Mail.ru';
+                if (h.indexOf('bing') > -1) return 'поиск Bing';
+                if (h.indexOf('gruzim') > -1) return 'переход по сайту';
+                if (/instagram|facebook|t\.me|vk\.com|youtube|tiktok/.test(h)) return 'соцсети: ' + h;
+                return h;
+            } catch (e) { return ref; }
+        };
+
+        function isBot() {
+            var ua = navigator.userAgent.toLowerCase();
+            return ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot', 'mail.ru', 'rambler', 'applebot', 'slurp', 'duckduckbot', 'ahrefsbot', 'semrushbot', 'petalbot'].some(function (b) { return ua.indexOf(b) > -1; });
+        }
+        function visits() {
+            var key = 'gruzim_visits', today = new Date().toLocaleDateString('ru-KZ'), n = 1;
+            try { var d = JSON.parse(localStorage.getItem(key)); if (d && d.date === today) n = d.count + 1; } catch (e) {}
+            try { localStorage.setItem(key, JSON.stringify({ date: today, count: n })); } catch (e) {}
+            return n;
+        }
+        function notifyVisitor() {
+            if (isBot()) return;
+            var n = visits();
+            var time = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+            var device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? '📱 мобильный' : '💻 десктоп';
+            var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + n + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Переезд офиса\n' + device + ' · ' + navigator.language;
+            fetch('https://api.telegram.org/bot' + GZ.cfg.TG_TOKEN + '/sendMessage', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: msg, parse_mode: 'HTML', disable_web_page_preview: true })
+            }).catch(function () {});
+        }
+        if ('requestIdleCallback' in window) requestIdleCallback(notifyVisitor, { timeout: 3000 }); else setTimeout(notifyVisitor, 2000);
+
+        var SENT = 'gruzim_conv_' + location.pathname;
+        var timeOk = false, scrollOk = false, sent = false, start = Date.now();
+        function fire() {
+            if (sent) return;
+            try { if (sessionStorage.getItem(SENT)) { sent = true; return; } } catch (e) {}
+            GZ.ready();
+            GZ.conversion();
+            sent = true;
+            try { sessionStorage.setItem(SENT, '1'); } catch (e) {}
+        }
+        function tryFire() { if (timeOk && scrollOk) fire(); }
+        var timer = setInterval(function () {
+            if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); tryFire(); }
+        }, 1000);
+        function onScroll() {
+            var sh = document.documentElement.scrollHeight, wh = window.innerHeight;
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if ((st + wh) / sh * 100 >= 50) {
+                scrollOk = true;
+                window.removeEventListener('scroll', onScroll);
+                window.removeEventListener('touchmove', onScroll);
+                tryFire();
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('touchmove', onScroll, { passive: true });
+        setTimeout(onScroll, 600);
+        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
+            el.addEventListener('click', function () { if (timeOk && scrollOk) fire(); });
+        });
+    })();
+    </script>
 </body>
 </html>
