@@ -618,26 +618,24 @@
     .yt-facade .yt-play-btn::after{content:'';border-style:solid;border-width:10px 0 10px 20px;border-color:transparent transparent transparent #fff;}
     .yt-facade iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
-    /* Десктоп: блоки "Наши работы" (видео) и "Наши клиенты" — по 3 карточки в ряд (мобильную версию не трогаем) */
+    /* Десктоп: карусель "Наши работы" (видео) и "Наши клиенты" показывает по 3 карточки за раз (мобильную версию не трогаем) */
     @media (min-width:769px){
-        .videos-slider,.clients-slider{display:block!important;}
-        .videos-arrow,.clients-arrow{display:none!important;}
-        .videos-viewport,.clients-viewport{overflow:visible!important;width:100%!important;max-width:100%!important;}
+        .videos-viewport,.clients-viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}
         .videos-track,.clients-track{
-            transform:none!important;
-            transition:none!important;
-            display:grid!important;
-            grid-template-columns:repeat(3,1fr)!important;
+            display:flex!important;
+            flex-wrap:nowrap!important;
             gap:24px!important;
             width:100%!important;
             align-items:stretch!important;
+            transition:transform .4s ease!important;
+            will-change:transform;
         }
         .video-slide,.client-card{
-            width:auto!important;
-            max-width:none!important;
-            flex:0 1 auto!important;
+            flex:0 0 calc((100% - 48px) / 3)!important;
+            max-width:calc((100% - 48px) / 3)!important;
             min-width:0!important;
             margin:0!important;
+            box-sizing:border-box!important;
         }
     }
     </style>
@@ -1033,6 +1031,52 @@
         document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
             el.addEventListener('click', function () { if (timeOk && scrollOk) fire(); });
         });
+    })();
+    </script>
+    <script>
+    /* Десктоп: карусель по 3 карточки, листание по одной карточке. Мобильную версию не трогаем. */
+    (function () {
+        if (!window.matchMedia('(min-width:769px)').matches) return;
+
+        function setupCarousel(trackSel, cardSel, prevSel, nextSel) {
+            var track = document.querySelector(trackSel);
+            if (!track) return;
+            var cards = track.querySelectorAll(cardSel);
+            if (!cards.length) return;
+            var prev = document.querySelector(prevSel);
+            var next = document.querySelector(nextSel);
+            // снимаем старые обработчики, заменяя кнопки их клонами
+            if (prev) { var p2 = prev.cloneNode(true); prev.parentNode.replaceChild(p2, prev); prev = p2; }
+            if (next) { var n2 = next.cloneNode(true); next.parentNode.replaceChild(n2, next); next = n2; }
+
+            var perView = 3;
+            var index = 0;
+
+            function step() {
+                var rect = cards[0].getBoundingClientRect();
+                var cs = getComputedStyle(track);
+                var gap = parseFloat(cs.columnGap || cs.gap || '0') || 0;
+                return rect.width + gap;
+            }
+            function maxIndex() { return Math.max(0, cards.length - perView); }
+            function update() {
+                index = Math.max(0, Math.min(index, maxIndex()));
+                track.style.transform = 'translateX(' + (-index * step()) + 'px)';
+                if (prev) prev.style.visibility = index <= 0 ? 'hidden' : 'visible';
+                if (next) next.style.visibility = index >= maxIndex() ? 'hidden' : 'visible';
+            }
+            if (prev) prev.addEventListener('click', function () { index--; update(); });
+            if (next) next.addEventListener('click', function () { index++; update(); });
+            window.addEventListener('resize', update);
+            update();
+        }
+
+        function init() {
+            setupCarousel('.videos-track', '.video-slide', '.videos-arrow--prev', '.videos-arrow--next');
+            setupCarousel('.clients-track', '.client-card', '.clients-arrow--prev', '.clients-arrow--next');
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+        else init();
     })();
     </script>
 </body>
