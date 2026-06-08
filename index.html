@@ -465,7 +465,7 @@
             <details>
                 <summary>Переезд под ключ</summary>
                 <div class="mnav-sub">
-                    <a href="kay/centr.html" class="mnav-overview">О переезде под ключ</a>
+                    <a href="pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
                     <a href="kay/kvartira.html">Квартирный переезд</a>
                     <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
                     <a href="kay/ofice.html">Переезд офиса</a>
@@ -475,7 +475,7 @@
             <details>
                 <summary>Вывоз мусора</summary>
                 <div class="mnav-sub">
-                    <a href="musor/centr.html" class="mnav-overview">О вывозе мусора</a>
+                    <a href="musor.html" class="mnav-overview">О вывозе мусора</a>
                     <a href="musor/stroy.html">Строительный мусор</a>
                     <a href="musor/mebel.html">Старая мебель</a>
                     <a href="musor/tehnika.html">Бытовая техника</a>
@@ -485,19 +485,9 @@
             </details>
 
             <details>
-                <summary>Сборка и разборка мебели</summary>
-                <div class="mnav-sub">
-                    <a href="mebel/centr.html" class="mnav-overview">О работе с мебелью</a>
-                    <a href="mebel/sborka.html">Сборка мебели</a>
-                    <a href="mebel/upakovka.html">Упаковка мебели</a>
-                    <a href="mebel/kay.html">Мебель под ключ</a>
-                </div>
-            </details>
-
-            <details>
                 <summary>Такелаж</summary>
                 <div class="mnav-sub">
-                    <a href="takelazh/centr.html" class="mnav-overview">О такелаже</a>
+                    <a href="takelazh.html" class="mnav-overview">О такелаже</a>
                     <a href="takelazh/oborud.html">Оборудование и станки</a>
                     <a href="takelazh/roh.html">Аренда рохли</a>
                     <a href="takelazh/save.html">Перевозка сейфов</a>
@@ -618,7 +608,6 @@
     .yt-facade .yt-play-btn::after{content:'';border-style:solid;border-width:10px 0 10px 20px;border-color:transparent transparent transparent #fff;}
     .yt-facade iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
-    /* Десктоп: карусель "Наши работы" (видео) и "Наши клиенты" показывает по 3 карточки за раз (мобильную версию не трогаем) */
     @media (min-width:769px){
         .videos-viewport,.clients-viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}
         .videos-track,.clients-track{
@@ -1002,7 +991,7 @@
         if ('requestIdleCallback' in window) requestIdleCallback(notifyVisitor, { timeout: 3000 }); else setTimeout(notifyVisitor, 2000);
 
         var SENT = 'gruzim_conv_' + location.pathname;
-        var timeOk = false, scrollOk = false, sent = false, start = Date.now();
+        var timeOk = false, scrollOk = false, sent = false;
         function fire() {
             if (sent) return;
             try { if (sessionStorage.getItem(SENT)) { sent = true; return; } } catch (e) {}
@@ -1011,10 +1000,8 @@
             sent = true;
             try { sessionStorage.setItem(SENT, '1'); } catch (e) {}
         }
-        function tryFire() { if (timeOk && scrollOk) fire(); }
-        var timer = setInterval(function () {
-            if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); tryFire(); }
-        }, 1000);
+        function fireOnEngagement() { if (timeOk && scrollOk) fire(); }
+        setTimeout(function () { timeOk = true; }, 30000);
         function onScroll() {
             var sh = document.documentElement.scrollHeight, wh = window.innerHeight;
             var st = window.pageYOffset || document.documentElement.scrollTop;
@@ -1022,19 +1009,20 @@
                 scrollOk = true;
                 window.removeEventListener('scroll', onScroll);
                 window.removeEventListener('touchmove', onScroll);
-                tryFire();
             }
         }
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('touchmove', onScroll, { passive: true });
         setTimeout(onScroll, 600);
-        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
-            el.addEventListener('click', function () { if (timeOk && scrollOk) fire(); });
-        });
+        var CONTACT_SEL = 'a[href^="tel:"], a[href*="wa.me"], a[href*="web.whatsapp.com"], a[href*="t.me"], a[href*="tg://"]';
+        document.addEventListener('click', function (e) {
+            var t = e.target;
+            var a = t && t.closest ? t.closest(CONTACT_SEL) : null;
+            if (a) fireOnEngagement();
+        }, true);
     })();
     </script>
     <script>
-    /* Десктоп: карусель по 3 карточки, листание по одной карточке. Мобильную версию не трогаем. */
     (function () {
         if (!window.matchMedia('(min-width:769px)').matches) return;
 
@@ -1045,7 +1033,6 @@
             if (!cards.length) return;
             var prev = document.querySelector(prevSel);
             var next = document.querySelector(nextSel);
-            // снимаем старые обработчики, заменяя кнопки их клонами
             if (prev) { var p2 = prev.cloneNode(true); prev.parentNode.replaceChild(p2, prev); prev = p2; }
             if (next) { var n2 = next.cloneNode(true); next.parentNode.replaceChild(n2, next); next = n2; }
 
