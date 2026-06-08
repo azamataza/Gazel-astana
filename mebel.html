@@ -1899,7 +1899,7 @@
             });
         });
 
-        // ОТПРАВКА ЗАЯВКИ В TELEGRAM
+        // ОТПРАВКА
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
         const TELEGRAM_CHAT_ID = '8277380855';
 
@@ -2143,7 +2143,7 @@
 
         setActiveMenuItem();
 
-        // Динамический год в подвале
+        // год в подвале
         (function () {
             var y = new Date().getFullYear();
             var el = document.getElementById('footerYear');
@@ -2162,14 +2162,14 @@
             alert('Стоимость услуг рассчитывается индивидуально. Точная цена подтверждается оператором до начала работ. Сроки зависят от объёма и сложности заказа.');
         });
 
-        // FAQ-аккордеон: клик по вопросу раскрывает/скрывает ответ
+        // FAQ-аккордеон: 
         document.querySelectorAll('.faq-question').forEach(function (q) {
             q.addEventListener('click', function () {
                 q.parentElement.classList.toggle('open');
             });
         });
 
-        // Ленивая загрузка YouTube: превью -> iframe по клику
+        // YouTube: превью -> iframe по клику
         document.querySelectorAll('.yt-facade').forEach(function (facade) {
             facade.addEventListener('click', function () {
                 var vid = facade.dataset.vid;
@@ -2201,7 +2201,7 @@
     </script>
 
 
-    <!-- Уведомление о посетителе + отслеживание конверсии (единая система) -->
+    <!-- Уведомление -->
     <script>
     (function () {
         if (!window.GZ) return;
@@ -2258,13 +2258,13 @@
             sent = true;
             try { sessionStorage.setItem(SENT, '1'); } catch (e) {}
         }
-        // Конверсия по клику-контакту засчитывается ТОЛЬКО после 30 сек И прокрутки 50%
+        // Конверсия
         function fire() { if (timeOk && scrollOk) send(); }
-        // Условие 1: 30 секунд на странице (только выставляем флаг, конверсию НЕ шлём)
+        // Условие 1
         var timer = setInterval(function () {
             if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); }
         }, 1000);
-        // Условие 2: прокрутка 50% страницы (только выставляем флаг)
+        // Условие 2
         function onScroll() {
             var sh = document.documentElement.scrollHeight, wh = window.innerHeight;
             var st = window.pageYOffset || document.documentElement.scrollTop;
@@ -2277,12 +2277,12 @@
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('touchmove', onScroll, { passive: true });
         setTimeout(onScroll, 600);
-        // Финальный триггер: клик по телефону / WhatsApp / Telegram.
-        // Конверсия уйдёт только если выполнены оба условия выше — так отсекаются боты «зашёл-кликнул-ушёл».
+        // Финальный 
+        // Конверсия 
         document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
             el.addEventListener('click', fire);
         });
-        // Реальная заявка через форму = живой лид, засчитывается всегда (дедуп общий с кликами)
+        // Реальная 
         GZ.tryConversion = fire;       // клик-триггер (с проверкой 30с+50%)
         GZ.leadConversion = send;      // отправка формы (без проверки)
     })();
