@@ -79,20 +79,33 @@
 
     <script>
         var isMobileGA = window.innerWidth <= 768;
-        if (!isMobileGA) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        var gtagScriptLoaded = false;
+        function ensureGtagLoaded() {
+            if (gtagScriptLoaded) return;
+            gtagScriptLoaded = true;
             var gaScript = document.createElement('script');
             gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ';
             gaScript.async = true;
             document.head.appendChild(gaScript);
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
             gtag('config', 'G-2VWS9V6KVJ');
             gtag('config', 'AW-17503887977');
-        } else {
-            window.gtagQueue = window.gtagQueue || [];
-            window.gtag = function() { window.gtagQueue.push(arguments); };
         }
+        function gtag_report_conversion(url) {
+            ensureGtagLoaded();
+            var callback = function () {
+                if (typeof(url) !== 'undefined') { window.location = url; }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17503887977/A9CaCOnFy7ocEOnEwJpB',
+                'event_callback': callback,
+                'event_timeout': 2000
+            });
+            return false;
+        }
+        if (!isMobileGA) { ensureGtagLoaded(); }
     </script>
 
     <style>
@@ -125,6 +138,11 @@
         .mobile-nav a:hover{background:#eef2ff;color:#2563eb;}
         .mobile-nav-close{display:flex;justify-content:flex-end;padding:5px 15px 0;}
         .mobile-nav-close button{background:none;border:none;font-size:1.8rem;line-height:1;cursor:pointer;color:#64748b;padding:0 5px;}
+        .mobile-nav{max-height:80vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+        .mobile-nav-head{font-weight:700;color:#2563eb;margin-top:6px;border-top:1px solid #f1f5f9;}
+        .mobile-nav-sub{padding-left:36px;font-weight:500;font-size:0.92rem;color:#475569;}
+        .mobile-nav-sub::before{content:"–";margin-right:8px;color:#94a3b8;}
+        .mobile-nav a.current{background:#eef2ff;color:#2563eb;}
 
         @media(max-width:1024px){.burger-menu{display:flex;}}
         @media(max-width:768px){
@@ -392,15 +410,32 @@
     </div>
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
-        <a href="../index.html#services">Услуги</a>
-        <a href="../shop.html">Магазин</a>
-        <a href="../pereezdkay.html">Переезд под ключ</a>
-        <a href="../mejgorod.html">Переезд межгород</a>
-        <a href="../office.html">Переезд офиса</a>
-        <a href="../musor.html">Вывоз мусора</a>
-        <a href="../mebel.html">Разборка мебели</a>
-        <a href="../B2B.html">Для юр. лиц</a>
-        <a href="../takelazh.html">Такелаж</a>
+        <a href="../index.html">Главная</a>
+
+        <a href="centr.html" class="mobile-nav-head">Грузоперевозки</a>
+        <a href="chasovoi.html" class="mobile-nav-sub">Почасовая аренда</a>
+        <a href="bus.html" class="mobile-nav-sub current">Минивэн</a>
+        <a href="komplekt.html" class="mobile-nav-sub">Газель + 2 грузчика</a>
+
+        <a href="../pereezdkay.html" class="mobile-nav-head">Переезд под ключ</a>
+        <a href="../kay/kvartira.html" class="mobile-nav-sub">Квартирный переезд</a>
+        <a href="../kay/mezhgorod.html" class="mobile-nav-sub">Переезд по Казахстану</a>
+        <a href="../kay/ofice.html" class="mobile-nav-sub">Переезд офиса</a>
+
+        <a href="../musor.html" class="mobile-nav-head">Вывоз мусора</a>
+        <a href="../musor/stroy.html" class="mobile-nav-sub">Строительный мусор</a>
+        <a href="../musor/mebel.html" class="mobile-nav-sub">Старая мебель</a>
+        <a href="../musor/tehnika.html" class="mobile-nav-sub">Бытовая техника</a>
+        <a href="../musor/matras.html" class="mobile-nav-sub">Матрасы</a>
+        <a href="../musor/night.html" class="mobile-nav-sub">Ночной вывоз</a>
+
+        <a href="../takelazh.html" class="mobile-nav-head">Такелаж</a>
+        <a href="../takelazh/oborud.html" class="mobile-nav-sub">Оборудование и станки</a>
+        <a href="../takelazh/roh.html" class="mobile-nav-sub">Аренда рохли</a>
+        <a href="../takelazh/save.html" class="mobile-nav-sub">Перевозка сейфов</a>
+
+        <a href="../B2B.html">Для юридических лиц</a>
+        <a href="../shop.html">Магазин упаковки</a>
     </nav>
 </header>
 
@@ -638,7 +673,7 @@
         </div>
         <div class="footer-col">
             <h4>Услуги</h4>
-            <p><a href="gruzovye.html">Грузовые перевозки</a></p>
+            <p><a href="centr.html">Грузовые перевозки</a></p>
             <p><a href="bus.html">Минивэн</a></p>
             <p><a href="chasovoi.html">Газель / Грузовик</a></p>
             <p><a href="komplekt.html">Комплект с грузчиками</a></p>
@@ -665,6 +700,28 @@
 <script>
     (function() {
         const isMobileForLoad = window.innerWidth <= 768;
+
+        var conversionUnlocked = false, timeReached = false, scrollReached = false;
+        function unlockCheck() { if (timeReached && scrollReached) conversionUnlocked = true; }
+        setTimeout(function() { timeReached = true; unlockCheck(); }, 30000);
+        function scrollWatch() {
+            var seen = window.scrollY + window.innerHeight;
+            var half = (document.documentElement.scrollHeight || document.body.scrollHeight) * 0.5;
+            if (seen >= half) { scrollReached = true; unlockCheck(); window.removeEventListener('scroll', scrollWatch); }
+        }
+        window.addEventListener('scroll', scrollWatch, { passive: true });
+        scrollWatch();
+        function isContactLink(a) {
+            var href = a.getAttribute('href') || '';
+            return href.indexOf('tel:') === 0 || href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1 || href.indexOf('t.me') !== -1 || href.indexOf('tg://') === 0;
+        }
+        document.addEventListener('click', function(e) {
+            var a = e.target.closest && e.target.closest('a');
+            if (a && isContactLink(a) && conversionUnlocked) {
+                ensureGtagLoaded();
+                gtag('event', 'conversion', { 'send_to': 'AW-17503887977/A9CaCOnFy7ocEOnEwJpB' });
+            }
+        }, true);
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const closeMobileNav = document.getElementById('closeMobileNav');
@@ -723,7 +780,7 @@
                         body: JSON.stringify({ chat_id: '8277380855', text: `🚐 ЗАЯВКА НА МИНИВЭН (bus.html)\nИмя: ${name}\nТелефон: ${phone}` })
                     });
                 } catch (err) { console.log(err); }
-                if (typeof gtag === 'function') gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+                if (typeof gtag === 'function') { ensureGtagLoaded(); gtag('event', 'conversion', { 'send_to': 'AW-17503887977/A9CaCOnFy7ocEOnEwJpB' }); }
                 if (callbackSuccess) callbackSuccess.style.display = 'block';
                 this.reset();
                 setTimeout(() => { if (callbackSuccess) callbackSuccess.style.display = 'none'; }, 5000);
