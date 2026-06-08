@@ -139,9 +139,16 @@
         .mobile-nav-close{display:flex;justify-content:flex-end;padding:5px 15px 0;}
         .mobile-nav-close button{background:none;border:none;font-size:1.8rem;line-height:1;cursor:pointer;color:#64748b;padding:0 5px;}
         .mobile-nav{max-height:80vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-        .mobile-nav-head{font-weight:700;color:#2563eb;margin-top:6px;border-top:1px solid #f1f5f9;}
-        .mobile-nav-sub{padding-left:36px;font-weight:500;font-size:0.92rem;color:#475569;}
-        .mobile-nav-sub::before{content:"–";margin-right:8px;color:#94a3b8;}
+        .nav-group{border-top:1px solid #f1f5f9;}
+        .nav-group-head{display:flex;align-items:center;justify-content:space-between;}
+        .nav-group-head>a{flex:1;font-weight:700;color:#2563eb;}
+        .nav-toggle{background:none;border:none;cursor:pointer;padding:12px 18px;color:#2563eb;display:flex;align-items:center;}
+        .nav-toggle svg{width:16px;height:16px;transition:transform 0.3s;}
+        .nav-group.open .nav-toggle svg{transform:rotate(180deg);}
+        .nav-sub-list{max-height:0;overflow:hidden;transition:max-height 0.35s ease;}
+        .nav-group.open .nav-sub-list{max-height:600px;}
+        .nav-sub-list a{padding-left:36px;font-weight:500;font-size:0.92rem;color:#475569;}
+        .nav-sub-list a::before{content:"–";margin-right:8px;color:#94a3b8;}
         .mobile-nav a.current{background:#eef2ff;color:#2563eb;}
 
         @media(max-width:1024px){.burger-menu{display:flex;}}
@@ -412,27 +419,55 @@
         <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
         <a href="../index.html">Главная</a>
 
-        <a href="centr.html" class="mobile-nav-head">Грузоперевозки</a>
-        <a href="chasovoi.html" class="mobile-nav-sub">Почасовая аренда</a>
-        <a href="bus.html" class="mobile-nav-sub current">Минивэн</a>
-        <a href="komplekt.html" class="mobile-nav-sub">Газель + 2 грузчика</a>
+        <div class="nav-group open">
+            <div class="nav-group-head">
+                <a href="centr.html">Грузоперевозки</a>
+                <button class="nav-toggle" aria-label="Развернуть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </div>
+            <div class="nav-sub-list">
+                <a href="chasovoi.html">Почасовая аренда</a>
+                <a href="bus.html" class="current">Минивэн</a>
+                <a href="komplekt.html">Газель + 2 грузчика</a>
+            </div>
+        </div>
 
-        <a href="../pereezdkay.html" class="mobile-nav-head">Переезд под ключ</a>
-        <a href="../kay/kvartira.html" class="mobile-nav-sub">Квартирный переезд</a>
-        <a href="../kay/mezhgorod.html" class="mobile-nav-sub">Переезд по Казахстану</a>
-        <a href="../kay/ofice.html" class="mobile-nav-sub">Переезд офиса</a>
+        <div class="nav-group">
+            <div class="nav-group-head">
+                <a href="../pereezdkay.html">Переезд под ключ</a>
+                <button class="nav-toggle" aria-label="Развернуть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </div>
+            <div class="nav-sub-list">
+                <a href="../kay/kvartira.html">Квартирный переезд</a>
+                <a href="../kay/mezhgorod.html">Переезд по Казахстану</a>
+                <a href="../kay/ofice.html">Переезд офиса</a>
+            </div>
+        </div>
 
-        <a href="../musor.html" class="mobile-nav-head">Вывоз мусора</a>
-        <a href="../musor/stroy.html" class="mobile-nav-sub">Строительный мусор</a>
-        <a href="../musor/mebel.html" class="mobile-nav-sub">Старая мебель</a>
-        <a href="../musor/tehnika.html" class="mobile-nav-sub">Бытовая техника</a>
-        <a href="../musor/matras.html" class="mobile-nav-sub">Матрасы</a>
-        <a href="../musor/night.html" class="mobile-nav-sub">Ночной вывоз</a>
+        <div class="nav-group">
+            <div class="nav-group-head">
+                <a href="../musor.html">Вывоз мусора</a>
+                <button class="nav-toggle" aria-label="Развернуть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </div>
+            <div class="nav-sub-list">
+                <a href="../musor/stroy.html">Строительный мусор</a>
+                <a href="../musor/mebel.html">Старая мебель</a>
+                <a href="../musor/tehnika.html">Бытовая техника</a>
+                <a href="../musor/matras.html">Матрасы</a>
+                <a href="../musor/night.html">Ночной вывоз</a>
+            </div>
+        </div>
 
-        <a href="../takelazh.html" class="mobile-nav-head">Такелаж</a>
-        <a href="../takelazh/oborud.html" class="mobile-nav-sub">Оборудование и станки</a>
-        <a href="../takelazh/roh.html" class="mobile-nav-sub">Аренда рохли</a>
-        <a href="../takelazh/save.html" class="mobile-nav-sub">Перевозка сейфов</a>
+        <div class="nav-group">
+            <div class="nav-group-head">
+                <a href="../takelazh.html">Такелаж</a>
+                <button class="nav-toggle" aria-label="Развернуть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </div>
+            <div class="nav-sub-list">
+                <a href="../takelazh/oborud.html">Оборудование и станки</a>
+                <a href="../takelazh/roh.html">Аренда рохли</a>
+                <a href="../takelazh/save.html">Перевозка сейфов</a>
+            </div>
+        </div>
 
         <a href="../B2B.html">Для юридических лиц</a>
         <a href="../shop.html">Магазин упаковки</a>
@@ -729,6 +764,7 @@
         if (burger) burger.addEventListener('click', toggleMenu);
         if (closeMobileNav) closeMobileNav.addEventListener('click', toggleMenu);
         document.querySelectorAll('.mobile-nav a').forEach(link => { link.addEventListener('click', () => { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); }); });
+        document.querySelectorAll('.nav-toggle').forEach(btn => { btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); btn.closest('.nav-group').classList.toggle('open'); }); });
         document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', () => { q.parentElement.classList.toggle('open'); }); });
 
         const floatingButtons = document.getElementById('floatingButtons');
