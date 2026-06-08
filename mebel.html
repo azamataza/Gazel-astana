@@ -620,43 +620,29 @@
             white-space: nowrap;
         }
         @media (max-width: 768px) {
-            .service-table, .service-table tbody, .service-table tr, .service-table td {
-                display: block;
-                width: 100%;
+            .service-table-wrapper { border-radius: 18px; }
+            .service-table { font-size: 0.9rem; }
+            .service-table th {
+                padding: 13px 12px;
+                font-size: 0.92rem;
             }
-            .service-table thead {
-                display: none;
-            }
-            .service-table tr {
-                margin-bottom: 1rem;
-                border: 1px solid #e2e8f0;
-                border-radius: 20px;
-                background: white;
-                padding: 16px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-            }
+            .service-table th:last-child,
+            .service-table td:last-child { text-align: right; }
             .service-table td {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 12px 8px;
-                border-bottom: 1px solid #f1f5f9;
-                font-size: 1rem;
+                padding: 13px 12px;
+                vertical-align: top;
+                line-height: 1.35;
             }
-            .service-table td:last-child {
-                border-bottom: none;
-            }
-            .service-table td::before {
-                content: attr(data-label);
-                font-weight: 700;
-                color: #0f172a;
-                width: 45%;
-                flex-shrink: 0;
-            }
+            .service-table td:first-child { width: 62%; }
             .price-cell {
-                white-space: normal;
-                font-size: 1.1rem;
+                font-size: 1rem;
+                white-space: nowrap;
             }
+        }
+        @media (max-width: 380px) {
+            .service-table { font-size: 0.82rem; }
+            .service-table th,
+            .service-table td { padding: 11px 8px; }
         }
         /* Карточки услуг (сохранены для других блоков) */
         .services-grid {
@@ -902,9 +888,10 @@
         .faq-item {
             background: white;
             border-radius: 16px;
-            padding: 25px;
+            padding: 0;
             border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
         }
 
         .faq-item:hover {
@@ -915,25 +902,65 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 15px;
+            margin: 0;
+            padding: 22px 25px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
 
         .faq-question i {
             font-size: 1.5rem;
             color: #2563eb;
             width: 30px;
+            flex-shrink: 0;
         }
 
         .faq-question h3 {
             font-size: 1.1rem;
             color: #0f172a;
             margin: 0;
+            flex: 1;
+        }
+
+        .faq-question::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid #94a3b8;
+            border-bottom: 2px solid #94a3b8;
+            transform: rotate(45deg);
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+            margin-top: -4px;
+        }
+
+        .faq-item.open .faq-question::after {
+            transform: rotate(-135deg);
+            margin-top: 4px;
+            border-color: #2563eb;
+        }
+
+        .faq-item.open .faq-question h3 {
+            color: #2563eb;
         }
 
         .faq-item p {
             color: #475569;
-            margin-left: 45px;
+            margin: 0;
             font-size: 0.95rem;
+            line-height: 1.6;
+            max-height: 0;
+            opacity: 0;
+            padding: 0 25px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.open p {
+            max-height: 320px;
+            opacity: 1;
+            padding: 0 25px 22px 70px;
         }
 
         /* ФОРМА ЗАЯВКИ НАД ПОДВАЛОМ */
@@ -1271,7 +1298,6 @@
             }
             .tariff-grid {
                 display: flex;
-                direction: rtl;                 /* листание справа налево */
                 gap: 14px;
                 margin-top: 24px;
                 padding: 26px 16px 16px;        /* верхний отступ под бейдж «популярный» */
@@ -1284,8 +1310,7 @@
             }
             .tariff-grid::-webkit-scrollbar { display: none; }
             .tariff-card {
-                flex: 0 0 88%;                  /* следующая карточка выглядывает ~12% */
-                direction: ltr;                 /* содержимое карточки — обычное */
+                flex: 0 0 88%;                  /* следующая карточка выглядывает справа ~12% */
                 scroll-snap-align: start;
                 margin-top: 0;
             }
@@ -1605,7 +1630,7 @@
         <div class="container">
             <h2 data-aos="fade-up">Часто задаваемые вопросы</h2>
             <div class="faq-grid">
-                <div class="faq-item" data-aos="fade-up">
+                <div class="faq-item open" data-aos="fade-up">
                     <div class="faq-question">
                         <i class="fas fa-tag"></i>
                         <h3>Сколько стоит сборка шкафа-купе?</h3>
@@ -1827,7 +1852,7 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Бургер меню
+        // Бургер
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const catalogLogo = document.getElementById('catalogLogo');
@@ -1874,7 +1899,7 @@
             });
         });
 
-        // ОТПРАВКА ЗАЯВКИ В TELEGRAM
+        // ОТПРАВК
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
         const TELEGRAM_CHAT_ID = '8277380855';
 
@@ -1919,11 +1944,10 @@
                     })
                 });
                 
-                if (window.GZ) GZ.ready();
-                if (typeof gtag === 'function') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB'
-                    });
+                if (window.GZ && GZ.leadConversion) {
+                    GZ.leadConversion();
+                } else if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
                 }
                 
                 alert('✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
@@ -2011,7 +2035,7 @@
             });
         }
 
-        // Звездный рейтинг
+        // Звезд
         const starRatings = document.querySelectorAll('.star-rating');
         const ratingInput = document.getElementById('reviewRating');
         
@@ -2119,14 +2143,14 @@
 
         setActiveMenuItem();
 
-        // Динамический год в подвале
+        // год в подвале
         (function () {
             var y = new Date().getFullYear();
             var el = document.getElementById('footerYear');
             if (el) el.textContent = '2019-' + y;
         })();
 
-        // Политика и условия
+        // Политика
         var privacyLink = document.getElementById('privacy-policy-link');
         var termsLink = document.getElementById('terms-of-service-link');
         if (privacyLink) privacyLink.addEventListener('click', function (e) {
@@ -2138,7 +2162,14 @@
             alert('Стоимость услуг рассчитывается индивидуально. Точная цена подтверждается оператором до начала работ. Сроки зависят от объёма и сложности заказа.');
         });
 
-        // Ленивая загрузка YouTube: превью -> iframe по клику
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(function (q) {
+            q.addEventListener('click', function () {
+                q.parentElement.classList.toggle('open');
+            });
+        });
+
+        // YouTube: превью -> iframe по клику
         document.querySelectorAll('.yt-facade').forEach(function (facade) {
             facade.addEventListener('click', function () {
                 var vid = facade.dataset.vid;
@@ -2170,7 +2201,7 @@
     </script>
 
 
-    <!-- Уведомление о посетителе + отслеживание конверсии (единая система) -->
+    <!-- Уведомление -->
     <script>
     (function () {
         if (!window.GZ) return;
@@ -2219,7 +2250,7 @@
 
         var SENT = 'gruzim_conv_' + location.pathname;
         var timeOk = false, scrollOk = false, sent = false, start = Date.now();
-        function fire() {
+        function send() {
             if (sent) return;
             try { if (sessionStorage.getItem(SENT)) { sent = true; return; } } catch (e) {}
             GZ.ready();
@@ -2227,10 +2258,13 @@
             sent = true;
             try { sessionStorage.setItem(SENT, '1'); } catch (e) {}
         }
-        function tryFire() { if (timeOk && scrollOk) fire(); }
+        // Конверсия 
+        function fire() { if (timeOk && scrollOk) send(); }
+        // Условие 1: 
         var timer = setInterval(function () {
-            if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); tryFire(); }
+            if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); }
         }, 1000);
+        // Условие 
         function onScroll() {
             var sh = document.documentElement.scrollHeight, wh = window.innerHeight;
             var st = window.pageYOffset || document.documentElement.scrollTop;
@@ -2238,15 +2272,19 @@
                 scrollOk = true;
                 window.removeEventListener('scroll', onScroll);
                 window.removeEventListener('touchmove', onScroll);
-                tryFire();
             }
         }
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('touchmove', onScroll, { passive: true });
         setTimeout(onScroll, 600);
-        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
-            el.addEventListener('click', function () { if (timeOk && scrollOk) fire(); });
+        // Финальный 
+        // Конверсия 
+        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
+            el.addEventListener('click', fire);
         });
+        // Реальная 
+        GZ.tryConversion = fire;       // клик
+        GZ.leadConversion = send;      // отправка
     })();
     </script>
 </body>
