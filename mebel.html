@@ -1397,6 +1397,7 @@
                 </a>
             </div>
         </div>
+        <div class="mnav-overlay" id="mnavOverlay"></div>
         <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
             <div class="mobile-nav-close">
                 <button id="closeMobileNav" aria-label="Закрыть меню">×</button>
@@ -1435,7 +1436,6 @@
             <a href="index.html#about" class="mnav-flat">О нас</a>
         </nav>
     </header>
-    <div class="mnav-overlay" id="mnavOverlay"></div>
 
     <!-- HERO СЕКЦИЯ -->
     <section class="hero-header">
@@ -1852,7 +1852,7 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Бургер
+        // Бургер меню
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const catalogLogo = document.getElementById('catalogLogo');
@@ -1899,7 +1899,7 @@
             });
         });
 
-        // ОТПРАВК
+        // ОТПРАВКА ЗАЯВКИ В TELEGRAM
         const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
         const TELEGRAM_CHAT_ID = '8277380855';
 
@@ -2035,7 +2035,7 @@
             });
         }
 
-        // Звезд
+        // Звездный рейтинг
         const starRatings = document.querySelectorAll('.star-rating');
         const ratingInput = document.getElementById('reviewRating');
         
@@ -2143,14 +2143,14 @@
 
         setActiveMenuItem();
 
-        // год в подвале
+        // Динамический год в подвале
         (function () {
             var y = new Date().getFullYear();
             var el = document.getElementById('footerYear');
             if (el) el.textContent = '2019-' + y;
         })();
 
-        // Политика
+        // Политика и условия
         var privacyLink = document.getElementById('privacy-policy-link');
         var termsLink = document.getElementById('terms-of-service-link');
         if (privacyLink) privacyLink.addEventListener('click', function (e) {
@@ -2162,14 +2162,14 @@
             alert('Стоимость услуг рассчитывается индивидуально. Точная цена подтверждается оператором до начала работ. Сроки зависят от объёма и сложности заказа.');
         });
 
-        // FAQ
+        // FAQ-аккордеон: клик по вопросу раскрывает/скрывает ответ
         document.querySelectorAll('.faq-question').forEach(function (q) {
             q.addEventListener('click', function () {
                 q.parentElement.classList.toggle('open');
             });
         });
 
-        // YouTube: превью -> iframe по клику
+        // Ленивая загрузка YouTube: превью -> iframe по клику
         document.querySelectorAll('.yt-facade').forEach(function (facade) {
             facade.addEventListener('click', function () {
                 var vid = facade.dataset.vid;
@@ -2201,7 +2201,7 @@
     </script>
 
 
-    <!-- Уведомление -->
+    <!-- Уведомление о посетителе + отслеживание конверсии (единая система) -->
     <script>
     (function () {
         if (!window.GZ) return;
@@ -2258,13 +2258,13 @@
             sent = true;
             try { sessionStorage.setItem(SENT, '1'); } catch (e) {}
         }
-        // Конверсия 
+        // Конверсия по клику-контакту засчитывается ТОЛЬКО после 30 сек И прокрутки 50%
         function fire() { if (timeOk && scrollOk) send(); }
-        // Условие 1: 
+        // Условие 1: 30 секунд на странице (только выставляем флаг, конверсию НЕ шлём)
         var timer = setInterval(function () {
             if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); }
         }, 1000);
-        // Условие 
+        // Условие 2: прокрутка 50% страницы (только выставляем флаг)
         function onScroll() {
             var sh = document.documentElement.scrollHeight, wh = window.innerHeight;
             var st = window.pageYOffset || document.documentElement.scrollTop;
@@ -2277,14 +2277,14 @@
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('touchmove', onScroll, { passive: true });
         setTimeout(onScroll, 600);
-        // Финальный 
-        // Конверсия 
+        // Финальный триггер: клик по телефону / WhatsApp / Telegram.
+        // Конверсия уйдёт только если выполнены оба условия выше — так отсекаются боты «зашёл-кликнул-ушёл».
         document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
             el.addEventListener('click', fire);
         });
-        // Реальная 
-        GZ.tryConversion = fire;       // клик
-        GZ.leadConversion = send;      // отправка
+        // Реальная заявка через форму = живой лид, засчитывается всегда (дедуп общий с кликами)
+        GZ.tryConversion = fire;       // клик-триггер (с проверкой 30с+50%)
+        GZ.leadConversion = send;      // отправка формы (без проверки)
     })();
     </script>
 </body>
