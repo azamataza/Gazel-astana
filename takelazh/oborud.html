@@ -9,14 +9,15 @@
     <meta name="robots" content="index, follow" />
     <meta name="geo.region" content="KZ-AST" />
     <meta name="geo.placename" content="Астана" />
-    <link rel="canonical" href="https://gruzim.kz/gruz/oborud.html" />
-    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/gruz/oborud.html" />
-    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/gruz/oborudkz.html" />
+    <link rel="canonical" href="https://gruzim.kz/takelazh/oborud.html" />
+    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/takelazh/oborud.html" />
+    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/takelazh/oborudkz.html" />
+    <link rel="alternate" hreflang="x-default" href="https://gruzim.kz/takelazh/oborud.html" />
 
     <meta property="og:title" content="Перевозка оборудования в Астане — от 50 000 ₸" />
     <meta property="og:description" content="Станки, прессы, генераторы, серверные стойки. Манипулятор, такелаж, антистатическая упаковка, деревянная обрешётка." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gruzim.kz/gruz/oborud.html" />
+    <meta property="og:url" content="https://gruzim.kz/takelazh/oborud.html" />
     <meta property="og:image" content="https://gruzim.kz/Logo.png" />
 
     <script type="application/ld+json">
@@ -64,6 +65,57 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://gruzim.kz/" },
+        { "@type": "ListItem", "position": 2, "name": "Такелажные работы", "item": "https://gruzim.kz/takelazh.html" },
+        { "@type": "ListItem", "position": 3, "name": "Перевозка оборудования", "item": "https://gruzim.kz/takelazh/oborud.html" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как упаковывается серверное оборудование при перевозке?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Используем антистатические плёнки, специальные коробки и прокладки. По требованию клиента — дополнительная деревянная обрешётка. Цена упаковки рассчитывается индивидуально." }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое деревянная обрешётка и когда она нужна?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Это деревянный каркас, который защищает оборудование от ударов и вибрации при перевозке. Рекомендуется для особо ценных станков, хрупкого оборудования и при междугородних перевозках." }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли отключать и консервировать станок перед перевозкой?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Желательно. Слить масла, зафиксировать подвижные части. Мы можем помочь с консервацией — отправим специалиста для осмотра бесплатно." }
+        },
+        {
+          "@type": "Question",
+          "name": "Работаете с юридическими лицами?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Да. Предоставляем договор, счёт-фактуру, акт выполненных работ. Оплата по безналичному расчёту. Для постоянных клиентов — индивидуальные условия." }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит деревянная обрешётка или антистатическая упаковка?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Стоимость зависит от габаритов оборудования и сложности. Точную цену назовём после осмотра или по вашим чертежам." }
+        },
+        {
+          "@type": "Question",
+          "name": "Выезжаете за пределы Астаны?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Да, работаем по Казахстану и межгород. Стоимость рассчитывается отдельно по километражу." }
+        }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -71,21 +123,60 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
-        var isMobileGA = window.innerWidth <= 768;
-        if (!isMobileGA) {
-            var gaScript = document.createElement('script');
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ';
-            gaScript.async = true;
-            document.head.appendChild(gaScript);
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
+    (function () {
+        var GZ_CFG = {
+            GA4: 'G-2VWS9V6KVJ',
+            ADS: 'AW-17503887977',
+            ADS_LABEL: 'AW-17503887977/LeM2CNHqtrocEOnEwJpB',
+            TG_TOKEN: '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4',
+            TG_CHAT: '8277380855'
+        };
+        var isMobile = window.innerWidth <= 768;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+
+        var loaded = false;
+        function ensureGtagLoaded() {
+            if (loaded) return;
+            loaded = true;
+            var g = document.createElement('script');
+            g.async = true;
+            g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GZ_CFG.GA4;
+            document.head.appendChild(g);
             gtag('js', new Date());
-            gtag('config', 'G-2VWS9V6KVJ');
-            gtag('config', 'AW-17503887977');
-        } else {
-            window.gtagQueue = window.gtagQueue || [];
-            window.gtag = function() { window.gtagQueue.push(arguments); };
+            gtag('config', GZ_CFG.GA4);
+            gtag('config', GZ_CFG.ADS);
         }
+
+        window.GZ = {
+            cfg: GZ_CFG,
+            ready: ensureGtagLoaded,
+            conversion: function () { ensureGtagLoaded(); gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL }); }
+        };
+
+        // Глобальная функция конверсии по клику (с необязательным переходом по url)
+        window.gtag_report_conversion = function (url) {
+            ensureGtagLoaded();
+            var cb = function () { if (typeof url !== 'undefined' && url) window.location = url; };
+            gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL, event_callback: cb });
+            return false;
+        };
+
+        if (isMobile) {
+            var fired = false, evts = ['scroll', 'touchstart', 'click', 'keydown'];
+            function trigger() {
+                if (fired) return; fired = true;
+                evts.forEach(function (e) { window.removeEventListener(e, trigger); });
+                ensureGtagLoaded();
+            }
+            evts.forEach(function (e) { window.addEventListener(e, trigger, { passive: true }); });
+            setTimeout(trigger, 3500);
+        } else if ('requestIdleCallback' in window) {
+            requestIdleCallback(ensureGtagLoaded, { timeout: 2000 });
+        } else {
+            window.addEventListener('load', ensureGtagLoaded);
+        }
+    })();
     </script>
 
     <style>
@@ -112,12 +203,25 @@
         .burger-menu.active span:nth-child(2){opacity:0;}
         .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 
-        .mobile-nav{display:none;position:fixed;top:70px;left:5%;width:90%;max-width:400px;background:white;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.15);z-index:999;padding:15px 0;border:1px solid #e2e8f0;opacity:0;transform:translateY(-20px);pointer-events:none;transition:opacity 0.3s,transform 0.3s;}
-        .mobile-nav.active{display:block;opacity:1;transform:translateY(0);pointer-events:all;}
-        .mobile-nav a{display:block;font-size:1rem;font-weight:600;color:#1e293b;text-decoration:none;padding:12px 20px;transition:all 0.2s;}
-        .mobile-nav a:hover{background:#eef2ff;color:#2563eb;}
-        .mobile-nav-close{display:flex;justify-content:flex-end;padding:5px 15px 0;}
-        .mobile-nav-close button{background:none;border:none;font-size:1.8rem;line-height:1;cursor:pointer;color:#64748b;padding:0 5px;}
+        .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
+        .mnav-overlay.active{opacity:1;visibility:visible;}
+        #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
+        #mobileNav.active{transform:translateX(0);}
+        #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px;}
+        #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px;}
+        #mobileNav details{border-bottom:1px solid #f1f5f9;}
+        #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+        #mobileNav summary::-webkit-details-marker{display:none;}
+        #mobileNav summary::after{content:'';width:8px;height:8px;border-right:2px solid #94a3b8;border-bottom:2px solid #94a3b8;transform:rotate(45deg);transition:transform .2s ease;flex-shrink:0;margin-right:2px;}
+        #mobileNav details[open] summary::after{transform:rotate(-135deg);}
+        #mobileNav details[open] summary{color:#2563eb;}
+        #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
+        #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
+        #mobileNav .mnav-sub a:active{background:#eff6ff;}
+        #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
+        #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
+        #mobileNav .mnav-flat:active{background:#eff6ff;}
+        #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
 
         @media(max-width:1024px){.burger-menu{display:flex;}}
         @media(max-width:768px){
@@ -135,7 +239,8 @@
         .breadcrumbs a{color:#2563eb;text-decoration:none;}
         .breadcrumbs a:hover{text-decoration:underline;}
 
-        .hero-header{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),url('fon.jpg') no-repeat center center/cover;color:white;padding:90px 20px 70px;text-align:center;}
+        .hero-header{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),url('../fon.jpg') no-repeat center center/cover;color:white;padding:90px 20px 70px;text-align:center;}
+        .hero-header{background-image:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),image-set(url('../fon.webp') type('image/webp'),url('../fon.jpg') type('image/jpeg'));}
         .hero-header h1{font-size:2.8em;margin-bottom:16px;line-height:1.2;}
         .hero-sub{font-size:1.15em;color:rgba(255,255,255,0.85);margin-bottom:36px;max-width:720px;margin-left:auto;margin-right:auto;}
         .brand-blue{color:#2563eb;font-weight:800;}
@@ -340,6 +445,14 @@
         .corp-badge{background:#eef2ff;border-left:4px solid #2563eb;padding:12px 20px;border-radius:12px;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto;text-align:center;}
         .corp-badge i{color:#2563eb;margin-right:8px;}
         .corp-badge span{font-weight:600;color:#1e293b;}
+
+        .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+        .related-card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px 20px;text-decoration:none;color:#0f172a;transition:border-color .2s,transform .2s;}
+        .related-card:hover{border-color:#2563eb;transform:translateY(-3px);}
+        .related-card i{font-size:1.6em;color:#2563eb;flex-shrink:0;}
+        .related-card .related-title{font-weight:700;font-size:1em;}
+        .related-card .related-desc{font-size:.82em;color:#64748b;margin-top:2px;}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr;}}
     </style>
 </head>
 <body>
@@ -363,24 +476,64 @@
         <div class="header-right">
             <div class="language-switcher">
                 <a href="oborud.html" class="lang-btn active">РУС</a>
-                <a href="oborudkz.html" class="lang-btn">ҚАЗ</a>
+                <a href="#" id="langKz" class="lang-btn">ҚАЗ</a>
             </div>
             <a href="tel:+77010120300" class="header-phone">
                 <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
             </a>
         </div>
     </div>
-    <nav class="mobile-nav" id="mobileNav">
+    <div class="mnav-overlay" id="mnavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
         <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
-        <a href="../index.html#services">Услуги</a>
-        <a href="../shop.html">Магазин</a>
-        <a href="../pereezdkay.html">Переезд под ключ</a>
-        <a href="../mejgorod.html">Переезд межгород</a>
-        <a href="../office.html">Переезд офиса</a>
-        <a href="../musor.html">Вывоз мусора</a>
-        <a href="../mebel.html">Разборка мебели</a>
-        <a href="../B2B.html">Для юр. лиц</a>
-        <a href="../takelazh.html">Такелаж</a>
+
+        <a href="../index.html#services" class="mnav-flat">Все услуги</a>
+
+        <details>
+            <summary>Грузоперевозки</summary>
+            <div class="mnav-sub">
+                <a href="../gruz/centr.html" class="mnav-overview">Все грузоперевозки</a>
+                <a href="../gruz/chasovoi.html">Почасовая аренда</a>
+                <a href="../gruz/bus.html">Минивэн (бус)</a>
+                <a href="../gruz/komplekt.html">Газель + 2 грузчика</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Переезд под ключ</summary>
+            <div class="mnav-sub">
+                <a href="../pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
+                <a href="../kay/kvartira.html">Квартирный переезд</a>
+                <a href="../kay/mezhgorod.html">Переезд по Казахстану</a>
+                <a href="../kay/ofice.html">Переезд офиса</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Вывоз мусора</summary>
+            <div class="mnav-sub">
+                <a href="../musor.html" class="mnav-overview">О вывозе мусора</a>
+                <a href="../musor/stroy.html">Строительный мусор</a>
+                <a href="../musor/mebel.html">Старая мебель</a>
+                <a href="../musor/tehnika.html">Бытовая техника</a>
+                <a href="../musor/matras.html">Матрасы</a>
+                <a href="../musor/night.html">Ночной вывоз</a>
+            </div>
+        </details>
+
+        <details open>
+            <summary>Такелаж</summary>
+            <div class="mnav-sub">
+                <a href="../takelazh.html" class="mnav-overview">О такелаже</a>
+                <a href="oborud.html" class="mnav-current">Оборудование и станки</a>
+                <a href="roh.html">Аренда рохли</a>
+                <a href="save.html">Перевозка сейфов</a>
+            </div>
+        </details>
+
+        <a href="../shop.html" class="mnav-flat">Магазин</a>
+        <a href="../B2B.html" class="mnav-flat">Для юр. лиц</a>
+        <a href="../index.html#about" class="mnav-flat">О нас</a>
     </nav>
 </header>
 
@@ -643,6 +796,25 @@
     </div>
 </section>
 
+<section class="section" id="related" style="padding-top:0;">
+    <h2 data-aos="fade-up">Другие такелажные услуги</h2>
+    <p class="section-sub" data-aos="fade-up">Полный спектр работ по перевозке тяжёлых и негабаритных грузов</p>
+    <div class="related-grid">
+        <a href="../takelazh.html" class="related-card" data-aos="fade-up">
+            <i class="fas fa-people-carry"></i>
+            <span><span class="related-title">Такелажные работы</span><span class="related-desc">Все услуги такелажа в Астане</span></span>
+        </a>
+        <a href="roh.html" class="related-card" data-aos="fade-up" data-aos-delay="80">
+            <i class="fas fa-dolly"></i>
+            <span><span class="related-title">Аренда рохли</span><span class="related-desc">Гидравлические тележки в аренду</span></span>
+        </a>
+        <a href="save.html" class="related-card" data-aos="fade-up" data-aos-delay="160">
+            <i class="fas fa-vault"></i>
+            <span><span class="related-title">Перевозка сейфов</span><span class="related-desc">Сейфы и банкоматы любого веса</span></span>
+        </a>
+    </div>
+</section>
+
 <section class="contact-form-section" id="callback-form">
     <div class="contact-form-container">
         <h2>Заказать перевозку оборудования</h2>
@@ -678,7 +850,7 @@
         </div>
         <div class="footer-col">
             <h4>Услуги</h4>
-            <p><a href="safe.html">Перевозка сейфов</a></p>
+            <p><a href="save.html">Перевозка сейфов</a></p>
             <p><a href="oborud.html">Перевозка оборудования</a></p>
             <p><a href="roh.html">Аренда рохли</a></p>
             <p><a href="../takelazh.html">Такелажные работы</a></p>
@@ -707,10 +879,45 @@
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const closeMobileNav = document.getElementById('closeMobileNav');
-        function toggleMenu() { burger.classList.toggle('active'); mobileNav.classList.toggle('active'); }
-        if (burger) burger.addEventListener('click', toggleMenu);
-        if (closeMobileNav) closeMobileNav.addEventListener('click', toggleMenu);
-        document.querySelectorAll('.mobile-nav a').forEach(link => { link.addEventListener('click', () => { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); }); });
+        const navOverlay = document.getElementById('mnavOverlay');
+        function openMenu() { if (burger) burger.classList.add('active'); if (mobileNav) mobileNav.classList.add('active'); if (navOverlay) navOverlay.classList.add('active'); }
+        function closeMenu() { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); if (navOverlay) navOverlay.classList.remove('active'); }
+        function toggleMenu() { (mobileNav && mobileNav.classList.contains('active')) ? closeMenu() : openMenu(); }
+        if (burger) burger.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
+        if (closeMobileNav) closeMobileNav.addEventListener('click', closeMenu);
+        if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('#mobileNav a').forEach(link => { link.addEventListener('click', closeMenu); });
+        document.addEventListener('click', function(e) {
+            if (!mobileNav || !mobileNav.classList.contains('active')) return;
+            if (mobileNav.contains(e.target)) return;
+            if (burger && burger.contains(e.target)) return;
+            closeMenu();
+        });
+
+        // ҚАЗ-кнопка: казахской версии пока нет
+        const langKz = document.getElementById('langKz');
+        if (langKz) langKz.addEventListener('click', function(e) { e.preventDefault(); alert('Бұл бет әзірленуде. Кешірім сұраймыз!\n\nСтраница в разработке, извините.'); });
+
+        // Гейтинг конверсий: клик по контакту засчитывается только после 30 c И 50% скролла
+        var tReached = false, sReached = false, convFired = false;
+        setTimeout(function () { tReached = true; }, 30000);
+        function onScroll() {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            var h = document.documentElement.scrollHeight - window.innerHeight;
+            if (h > 0 && (st / h) >= 0.5) { sReached = true; window.removeEventListener('scroll', onScroll); }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        function isContactLink(a) {
+            if (!a) return false;
+            var href = (a.getAttribute('href') || '').toLowerCase();
+            return href.indexOf('tel:') === 0 || href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1 || href.indexOf('t.me') > -1 || href.indexOf('tg://') === 0;
+        }
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a');
+            if (!a || !isContactLink(a)) return;
+            if (tReached && sReached && !convFired) { convFired = true; if (window.GZ) GZ.conversion(); }
+        });
+
         document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', () => { q.parentElement.classList.toggle('open'); }); });
 
         const floatingButtons = document.getElementById('floatingButtons');
@@ -742,7 +949,7 @@
                         body: JSON.stringify({ chat_id: '8277380855', text: `⚙️ ЗАЯВКА НА ПЕРЕВОЗКУ ОБОРУДОВАНИЯ (oborud.html)\nИмя: ${name}\nТелефон: ${phone}` })
                     });
                 } catch (err) { console.log(err); }
-                if (typeof gtag === 'function') gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+                if (window.GZ) GZ.conversion();
                 if (callbackSuccess) callbackSuccess.style.display = 'block';
                 this.reset();
                 setTimeout(() => { if (callbackSuccess) callbackSuccess.style.display = 'none'; }, 5000);
