@@ -23,13 +23,11 @@
         *{margin:0;padding:0;box-sizing:border-box;}
         body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
         html{scroll-behavior:smooth;}
-        /* Мобильная оптимизация */
         @media(max-width:768px){
             .section,.videos-section,.clients-section,.steps-section,.faq-section,.seo-article,.contact-form-section,.stats-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
             *{transition-duration:.15s!important;animation-duration:.15s!important;}
         }
         
-        /* Плавающая шапка */
         .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
         .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
         .header-left{display:flex;align-items:center;gap:12px;}
@@ -48,7 +46,6 @@
         .burger-menu.active span:nth-child(2){opacity:0;}
         .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 
-        /* Всплывающее (выезжающее) меню */
         .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
         .mnav-overlay.active{opacity:1;visibility:visible;}
         #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
@@ -78,7 +75,6 @@
         .breadcrumbs a:hover{text-decoration:underline;}
         .breadcrumbs [aria-current="page"]{color:#64748b;}
 
-        /* Hero секция */
         .hero-header{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),url('fon.jpg') no-repeat center center/cover;color:white;padding:90px 20px 80px;text-align:center;}
         .hero-header{background-image:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),image-set(url('fon.webp') type('image/webp'),url('fon.jpg') type('image/jpeg'));}
         @media(max-width:768px){
@@ -90,7 +86,6 @@
         .brand-blue{color:#2563eb;font-weight:800;}
         .brand-orange{color:#f97316;font-weight:700;}
 
-        /* Стеклянные иконки */
         .hero-icons {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -149,13 +144,11 @@
             body{padding-top:70px;}
         }
 
-        /* Секции */
         .section{padding:80px 20px;max-width:1200px;margin:0 auto;}
         .section h2{font-size:2.3em;margin-bottom:14px;color:#0f172a;text-align:center;}
         .section-sub{text-align:center;color:#64748b;font-size:1rem;margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto;}
         .section h2::after{content:'';display:block;width:60px;height:4px;background:#2563eb;border-radius:4px;margin:14px auto 0;}
 
-        /* Карточки в стиле proverka.html — только 3 карточки */
         .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
         .card{background:#fff;border-radius:16px;padding:24px;border:1px solid #e2e8f0;display:flex;flex-direction:column;gap:12px;transition:border-color 0.2s ease;text-align:left;}
         .card:hover{border-color:#2563eb;}
@@ -180,7 +173,6 @@
             .card{padding:20px;}
         }
 
-        /* Видео-блок */
         .videos-subtitle{text-align:center;color:#64748b;margin-bottom:30px;}
         .videos-slider{display:flex;align-items:center;gap:12px;margin:30px 0;}
         .videos-viewport{overflow:hidden;flex:1;border-radius:20px;}
@@ -188,7 +180,6 @@
         .video-slide{flex:0 0 100%;padding:0 6px;}
         .video-slide-iframe{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;}
         .video-slide-iframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
-        /* Ленивая загрузка YouTube: превью + загрузка ролика по клику */
         .yt-facade{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;cursor:pointer;}
         .yt-facade img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .2s;}
         .yt-facade:hover img{opacity:.85;}
@@ -199,7 +190,6 @@
         .video-slide-meta{font-size:0.8rem;color:#64748b;text-align:center;}
         .videos-arrow{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
         .videos-arrow:hover{background:#2563eb;border-color:#2563eb;color:white;}
-        /* Десктоп: видео-карусель показывает по 3 карточки, листание по одной (мобильная версия — 1 карточка) */
         @media(min-width:769px){
             .videos-viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}
             .videos-track{display:flex!important;flex-wrap:nowrap!important;gap:24px!important;width:100%!important;align-items:stretch!important;transition:transform .4s ease!important;will-change:transform;}
@@ -208,7 +198,6 @@
         .videos-cta{text-align:center;margin-top:30px;}
         .videos-cta a{display:inline-flex;align-items:center;gap:10px;background:#ff0000;color:white;padding:10px 24px;border-radius:40px;text-decoration:none;font-weight:600;}
 
-        /* Преимущества */
         .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:20px;}
         .feature-item{background:#fff;border-radius:20px;padding:28px 20px;text-align:center;border:1px solid #e2e8f0;transition:transform 0.2s;}
         .feature-item:hover{transform:translateY(-5px);border-color:#2563eb;}
@@ -218,7 +207,6 @@
         @media(max-width:900px){.features-grid{grid-template-columns:repeat(2,1fr);}}
         @media(max-width:500px){.features-grid{grid-template-columns:1fr;}}
 
-        /* Шаги работы */
         .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
         .step-item{background:#fff;border-radius:16px;padding:24px 20px;text-align:center;border:1px solid #e2e8f0;}
         .step-number{width:44px;height:44px;background:#2563eb;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2em;margin:0 auto 14px;}
@@ -227,7 +215,6 @@
         @media(max-width:900px){.steps-grid{grid-template-columns:repeat(2,1fr);}}
         @media(max-width:500px){.steps-grid{grid-template-columns:1fr;}}
 
-        /* Счётчик / статистика */
         .stats-section{background:#0f172a;}
         .stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:0 20px;}
         .stat-item{text-align:center;padding:18px 10px;}
@@ -238,7 +225,6 @@
             .stat-number{font-size:2.1em;}
         }
 
-        /* Клиенты слайдер */
         .clients-section{background:#f8fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;}
         .clients-subtitle{text-align:center;color:#64748b;margin-bottom:30px;}
         .clients-slider{display:flex;align-items:center;gap:12px;}
@@ -253,7 +239,6 @@
         .clients-arrow{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
         .clients-arrow:hover{background:#2563eb;border-color:#2563eb;color:white;}
 
-        /* CTA блок (полная ширина): свяжитесь удобным способом */
         .cta-band{width:100%;background:linear-gradient(135deg,#2563eb 0%,#1e40af 100%);color:#fff;padding:64px 20px;text-align:center;}
         .cta-band h2{color:#fff;font-size:2em;margin-bottom:10px;}
         .cta-band h2::after{display:none;}
@@ -270,7 +255,6 @@
             .cta-band-buttons{flex-direction:column;align-items:stretch;}
         }
 
-        /* FAQ */
         .faq-item{background:#fff;border-radius:14px;margin-bottom:12px;border:1px solid #e2e8f0;overflow:hidden;}
         .faq-question{padding:17px 20px;font-weight:600;cursor:pointer;position:relative;background:#f8fafc;padding-right:48px;font-size:0.95em;}
         .faq-question::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.4em;color:#2563eb;}
@@ -278,7 +262,6 @@
         .faq-answer{display:none;padding:16px 20px;border-top:1px solid #e2e8f0;font-size:0.9em;color:#475569;line-height:1.65;}
         .faq-item.open .faq-answer{display:block;}
 
-        /* SEO статья */
         .seo-article{background:#fff;border-radius:24px;padding:40px;margin:40px auto;max-width:1200px;box-shadow:0 5px 20px rgba(0,0,0,0.05);}
         .seo-article h2{color:#0f172a;margin-bottom:20px;font-size:2em;text-align:center;}
         .seo-article h2::after{content:'';display:block;width:80px;height:4px;background:#2563eb;border-radius:4px;margin:14px auto 0;}
@@ -289,7 +272,6 @@
         .seo-article strong{color:#0f172a;}
         @media(max-width:768px){.seo-article{padding:24px 18px;}}
 
-        /* Форма */
         .contact-form-section{background:#f8fafc;border-top:1px solid #e2e8f0;padding:60px 20px;}
         .contact-form-container{max-width:600px;margin:0 auto;background:#fff;border-radius:24px;padding:40px;border:1px solid #e2e8f0;text-align:center;}
         .contact-form-container h2{margin-bottom:10px;color:#0f172a;font-size:1.8em;}
@@ -302,7 +284,6 @@
         .callback-form button:hover{background:#1e40af;}
         .form-success{color:#22c55e;margin-top:14px;display:none;}
 
-        /* Футер */
         footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;}
         .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;}
         .footer-logo{height:40px;margin-bottom:15px;}
@@ -311,7 +292,6 @@
         .footer-col a:hover{color:#fff;}
         .footer-col p{margin-bottom:8px;font-size:0.92em;}
 
-        /* FAB кнопки */
         .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;align-items:flex-end;z-index:999;opacity:0;transition:opacity 0.3s;pointer-events:none;}
         .floating-buttons.is-visible{opacity:1;pointer-events:all;}
         .fab-menu{display:flex;flex-direction:column;align-items:center;margin-bottom:10px;}
@@ -454,7 +434,7 @@
             <details open>
                 <summary>Переезд под ключ</summary>
                 <div class="mnav-sub">
-                    <a href="kay/centr.html" class="mnav-overview mnav-current">О переезде под ключ</a>
+                    <a href="pereezdkay.html" class="mnav-overview mnav-current">О переезде под ключ</a>
                     <a href="kay/kvartira.html">Квартирный переезд</a>
                     <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
                     <a href="kay/ofice.html">Переезд офиса</a>
@@ -464,7 +444,7 @@
             <details>
                 <summary>Вывоз мусора</summary>
                 <div class="mnav-sub">
-                    <a href="musor/centr.html" class="mnav-overview">О вывозе мусора</a>
+                    <a href="musor.html" class="mnav-overview">О вывозе мусора</a>
                     <a href="musor/stroy.html">Строительный мусор</a>
                     <a href="musor/mebel.html">Старая мебель</a>
                     <a href="musor/tehnika.html">Бытовая техника</a>
@@ -474,19 +454,9 @@
             </details>
 
             <details>
-                <summary>Сборка и разборка мебели</summary>
-                <div class="mnav-sub">
-                    <a href="mebel/centr.html" class="mnav-overview">О работе с мебелью</a>
-                    <a href="mebel/sborka.html">Сборка мебели</a>
-                    <a href="mebel/upakovka.html">Упаковка мебели</a>
-                    <a href="mebel/kay.html">Мебель под ключ</a>
-                </div>
-            </details>
-
-            <details>
                 <summary>Такелаж</summary>
                 <div class="mnav-sub">
-                    <a href="takelazh/centr.html" class="mnav-overview">О такелаже</a>
+                    <a href="takelazh.html" class="mnav-overview">О такелаже</a>
                     <a href="takelazh/oborud.html">Оборудование и станки</a>
                     <a href="takelazh/roh.html">Аренда рохли</a>
                     <a href="takelazh/save.html">Перевозка сейфов</a>
@@ -499,7 +469,6 @@
         </nav>
     </header>
 
-    <!-- HERO секция -->
     <header class="hero-header">
         <div>
             <h1><span class="brand-blue">Gruzim.kz</span> | <span class="brand-orange">Переезд под ключ в Астане</span></h1>
@@ -527,7 +496,6 @@
         </div>
     </header>
 
-    <!-- Секция с карточками (только 3: квартирный, офисный, межгород) -->
     <section class="section" id="services">
         <h2 data-aos="fade-up">Выберите тип переезда</h2>
         <p class="section-sub" data-aos="fade-up">Полное сопровождение: от упаковки до расстановки вещей на новом месте</p>
@@ -557,13 +525,12 @@
                 <p>Переезд между городами Казахстана. Фиксированная цена, страховка груза, полное сопровождение.</p>
                 <div class="card-footer">
                     <span class="price">по запросу</span>
-                    <a href="kay/mezhorod.html" class="card-btn">подробнее →</a>
+                    <a href="kay/mezhgorod.html" class="card-btn">подробнее →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Видео-блок -->
     <section class="section videos-section" id="works">
         <h2 data-aos="fade-up">Наши работы</h2>
         <p class="videos-subtitle" data-aos="fade-up" data-aos-delay="100">Примеры наших переездов под ключ</p>
@@ -590,7 +557,6 @@
         <div class="videos-cta" data-aos="fade-up"><a href="https://www.youtube.com/@UC4f5yZ4PhDNNAWQw--vbmGQ" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube канал</a></div>
     </section>
 
-    <!-- Преимущества -->
     <section class="section" id="features">
         <h2 data-aos="fade-up">Почему выбирают нас</h2>
         <div class="features-grid">
@@ -601,7 +567,6 @@
         </div>
     </section>
 
-    <!-- CTA блок: свяжитесь удобным способом (на всю ширину) -->
     <section class="cta-band">
         <h2 data-aos="fade-up">Остались вопросы по переезду?</h2>
         <p data-aos="fade-up">Свяжитесь удобным способом — ответим и рассчитаем стоимость переезда за 5 минут</p>
@@ -612,7 +577,6 @@
         </div>
     </section>
 
-    <!-- Как мы работаем -->
     <section class="section" style="background:#f8fafc; max-width:100%; padding:70px 20px;">
         <div style="max-width:1200px;margin:0 auto;">
             <h2 data-aos="fade-up">Как проходит переезд под ключ</h2>
@@ -628,7 +592,6 @@
         </div>
     </section>
 
-    <!-- Счётчик / статистика -->
     <section class="stats-section" style="padding:64px 0;">
         <div class="stats-grid">
             <div class="stat-item"><div class="stat-number" id="statYears">0</div><div class="stat-label">лет на рынке</div></div>
@@ -638,7 +601,6 @@
         </div>
     </section>
 
-    <!-- Клиенты -->
     <section class="section clients-section" id="clients">
         <h2>Наши клиенты</h2>
         <p class="clients-subtitle">Доверяют нам переезды под ключ — от квартир до крупных компаний</p>
@@ -657,7 +619,6 @@
         </div>
     </section>
 
-    <!-- FAQ -->
     <section class="section" style="max-width:900px; margin:0 auto; padding:70px 20px;">
         <h2 data-aos="fade-up">Часто задаваемые вопросы</h2>
         <p class="section-sub" data-aos="fade-up">Ответы на популярные вопросы о переезде под ключ</p>
@@ -669,7 +630,6 @@
         <div class="faq-item"><div class="faq-question">Можно ли заказать только упаковочные материалы?</div><div class="faq-answer">Да, у нас есть магазин упаковочных материалов — коробки разных размеров, стрейч-плёнка, пузырчатая плёнка, скотч. Доставим по Астане или вы можете забрать самовывозом.</div></div>
     </section>
 
-    <!-- SEO  -->
     <section class="section seo-article" style="background:#fff; border-radius:24px; padding:40px; margin:40px auto; max-width:1200px;">
         <article>
             <h2>Переезд под ключ в Астане: как переехать без стресса и скрытых платежей</h2>
@@ -692,16 +652,16 @@
             <p><strong>Перевозка мебели с разбором</strong> — ключевой этап качественного переезда. Непрофессиональный подход приводит к царапинам, сколам и поломкам. Наши мастера аккуратно разбирают шкафы-купе, кровати, кухонные гарнитуры, маркируют детали, а на новом месте собирают мебель строго по инструкции. Дополнительно используем защитные уголки, стрейч-плёнку и пузырчатую плёнку для максимальной сохранности.</p>
 
             <h3>Где купить упаковочные материалы для переезда?</h3>
-            <p>Правильная упаковка — 50% успеха переезда. Вы можете <strong>купить упаковочные материалы</strong> в нашем магазине: коробки разных размеров, стрейч-плёнка, пузырчатая плёнка, скотч, маркеры, защитные уголки. <!-- ССЫЛКА: shop.html --></p>
+            <p>Правильная упаковка — 50% успеха переезда. Вы можете <strong>купить упаковочные материалы</strong> в нашем магазине: коробки разных размеров, стрейч-плёнка, пузырчатая плёнка, скотч, маркеры, защитные уголки. </p>
 
             <h3>Переезд офиса: как не остановить бизнес</h3>
-            <p><strong>Переезд офиса</strong> — ответственная задача, ведь простой компании может стоить миллионы. Мы организуем поэтапный переезд: упаковка документов и оргтехники в пятницу вечером, перевозка в субботу, распаковка и расстановка к понедельнику. Работаем с IT-отделами для корректного подключения серверов и рабочих станций. <!-- ССЫЛКА: office.html --></p>
+            <p><strong>Переезд офиса</strong> — ответственная задача, ведь простой компании может стоить миллионы. Мы организуем поэтапный переезд: упаковка документов и оргтехники в пятницу вечером, перевозка в субботу, распаковка и расстановка к понедельнику. Работаем с IT-отделами для корректного подключения серверов и рабочих станций. </p>
 
             <h3>Переезд склада: логистика больших объёмов</h3>
-            <p><strong>Переезд склада</strong> требует чёткого планирования. Мы проводим инвентаризацию, маркируем паллеты, используем гидравлические тележки и лифты. Весь процесс расписан по часам, чтобы минимизировать простой склада. Работаем с продуктовыми, строительными и товарными складами. <!-- ССЫЛКА: возможно, отдельной страницы нет, но можно оставить как текст --></p>
+            <p><strong>Переезд склада</strong> требует чёткого планирования. Мы проводим инвентаризацию, маркируем паллеты, используем гидравлические тележки и лифты. Весь процесс расписан по часам, чтобы минимизировать простой склада. Работаем с продуктовыми, строительными и товарными складами. </p>
 
             <h3>Переезд цеха с тяжелым оборудованием: такелажные работы</h3>
-            <p><strong>Переезд цеха с тяжелым оборудованием</strong> — задача для профессионалов-такелажников. Мы имеем опыт перемещения станков весом до 5 тонн, промышленных холодильников, прессов и другого тяжёлого оборудования. Используем манипуляторы, роллы, домкраты и специальные ремни. Все работы проходят под контролем инженера-такелажника. <!-- ССЫЛКА: takelazh.html --></p>
+            <p><strong>Переезд цеха с тяжелым оборудованием</strong> — задача для профессионалов-такелажников. Мы имеем опыт перемещения станков весом до 5 тонн, промышленных холодильников, прессов и другого тяжёлого оборудования. Используем манипуляторы, роллы, домкраты и специальные ремни. Все работы проходят под контролем инженера-такелажника. </p>
 
             <h3>Чек-лист подготовки к переезду</h3>
             <ul>
@@ -732,7 +692,6 @@
         </article>
     </section>
 
-    <!-- Форма заявки -->
     <section class="contact-form-section" id="callback-form">
         <div class="contact-form-container">
             <h2>Оставьте заявку на переезд</h2>
@@ -746,7 +705,6 @@
         </div>
     </section>
 
-    <!-- Футер -->
     <footer>
         <div class="footer-inner">
             <div class="footer-col">
@@ -770,10 +728,9 @@
             <div class="footer-col">
                 <h4>Услуги</h4>
                 <p><a href="kay/kvartira.html">Квартирный переезд</a></p>
-                <p><a href="kay/office.html">Офисный переезд</a></p>
+                <p><a href="kay/ofice.html">Офисный переезд</a></p>
                 <p><a href="kay/mezhgorod.html">Межгород</a></p>
                 <p><a href="musor.html">Вывоз мусора</a></p>
-                <p><a href="mebel.html">Сборка мебели</a></p>
                 <p><a href="takelazh.html">Такелаж</a></p>
             </div>
             <div class="footer-col">
@@ -786,7 +743,6 @@
         </div>
     </footer>
 
-    <!-- FAB кнопки -->
     <div class="floating-buttons" id="floatingButtons">
         <div class="fab-menu" id="fabMenu">
             <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall"><i class="fas fa-phone"></i></a>
@@ -800,7 +756,6 @@
         (function() {
             const isMobile = window.innerWidth <= 768;
             
-            // Выезжающее меню (бургер + оверлей)
             const burger = document.getElementById('burgerMenu');
             const mobileNav = document.getElementById('mobileNav');
             const closeMobileNav = document.getElementById('closeMobileNav');
@@ -819,7 +774,6 @@
                 closeMenu();
             });
 
-            // Конверсия по клику на телефон/WhatsApp/Telegram: только после 30 сек на странице + 50% скролла
             var convUnlocked = false, tReached = false, sReached = false;
             function convCheck(){ if(tReached && sReached) convUnlocked = true; }
             setTimeout(function(){ tReached = true; convCheck(); }, 30000);
@@ -839,7 +793,6 @@
                 if(a && isContactLink(a) && convUnlocked && window.GZ){ GZ.ready(); GZ.conversion(); }
             }, true);
 
-            // Счётчик выполненных заказов (цифры как на главной)
             function animateNumber(element, target) { if(!element) return; let current = 0; const increment = target / 50; function update(){ current += increment; if(current >= target){ element.textContent = target; return; } else { element.textContent = Math.floor(current); requestAnimationFrame(update); } } requestAnimationFrame(update); }
             function isElementInViewport(el) { if(!el) return false; const rect = el.getBoundingClientRect(); return rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom >= 0; }
             let statsAnimated = false;
@@ -847,12 +800,10 @@
             function checkStats() { const yearsEl = document.getElementById('statYears'); const ordersEl = document.getElementById('statOrders'); if(!statsAnimated && yearsEl && ordersEl && isElementInViewport(yearsEl)) { statsAnimated = true; animateNumber(yearsEl, 6); animateNumber(ordersEl, getCurrentOrdersCount()); } }
             window.addEventListener('scroll', checkStats, { passive: true }); window.addEventListener('load', checkStats); checkStats();
 
-            // FAQ
             document.querySelectorAll('.faq-question').forEach(q => {
                 q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
             });
 
-            // Видео-карусель
             const videosTrack = document.querySelector('.videos-track');
             const videosPrev = document.querySelector('.videos-arrow--prev');
             const videosNext = document.querySelector('.videos-arrow--next');
@@ -864,7 +815,6 @@
                 videosNext.addEventListener('click', () => showSlide(idx + 1));
             }
 
-            // Ленивая загрузка YouTube: подменяем превью на iframe по клику
             document.querySelectorAll('.yt-facade').forEach(function(facade) {
                 facade.addEventListener('click', function() {
                     var vid = facade.dataset.vid;
@@ -878,7 +828,6 @@
                 }, { once: true });
             });
 
-            // Клиенты-карусель
             const clientsTrack = document.querySelector('.clients-track');
             const clientsPrev = document.querySelector('.clients-arrow--prev');
             const clientsNext = document.querySelector('.clients-arrow--next');
@@ -890,7 +839,6 @@
                 clientsNext.addEventListener('click', () => showSlide(idx + 1));
             }
 
-            // FAB
             const fabMain = document.getElementById('fabMain');
             const fabMenuItems = document.querySelectorAll('.fab-menu-item');
             const floatingBtns = document.getElementById('floatingButtons');
@@ -915,7 +863,6 @@
                 });
             }
 
-            // Мессенджеры
             function isMobileDevice() { return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); }
             function updateLinks() {
                 const phone = '77010120300';
@@ -927,7 +874,6 @@
             }
             updateLinks();
 
-            // Форма
             const form = document.getElementById('callbackForm');
             const successDiv = document.getElementById('callbackSuccess');
             const submitBtn = document.getElementById('callbackSubmitBtn');
@@ -954,7 +900,6 @@
                 });
             }
 
-            // Футер: актуальный год + дата актуальности цен
             (function(){
                 const copyrightElements = document.querySelectorAll('footer p, .footer-col p');
                 const currentYear = new Date().getFullYear();
@@ -976,7 +921,6 @@
             document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.'); });
             document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
 
-            // AOS
             if(isMobile) {
                 setTimeout(() => {
                     var aos = document.createElement('script');
@@ -1071,7 +1015,6 @@
     })();
     </script>
     <script>
-    /* Десктоп: видео-карусель по 3 карточки, листание по одной. Мобильную версию (1 карточка) не трогаем. */
     (function () {
         if (!window.matchMedia('(min-width:769px)').matches) return;
 
@@ -1082,7 +1025,6 @@
             if (!cards.length) return;
             var prev = document.querySelector(prevSel);
             var next = document.querySelector(nextSel);
-            // снимаем мобильные обработчики, заменяя кнопки их клонами
             if (prev) { var p2 = prev.cloneNode(true); prev.parentNode.replaceChild(p2, prev); prev = p2; }
             if (next) { var n2 = next.cloneNode(true); next.parentNode.replaceChild(n2, next); next = n2; }
 
