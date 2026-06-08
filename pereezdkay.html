@@ -40,7 +40,7 @@
         .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
         .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
         
-        .burger-menu{display:none;flex-direction:column;justify-content:space-between;width:30px;height:22px;background:transparent;border:2px solid #2563eb;border-radius:8px;cursor:pointer;padding:4px 5px;z-index:1100;transition:all 0.2s;}
+        .burger-menu{display:flex;flex-direction:column;justify-content:space-between;width:30px;height:22px;background:transparent;border:2px solid #2563eb;border-radius:8px;cursor:pointer;padding:4px 5px;z-index:1100;transition:all 0.2s;}
         .burger-menu span{width:100%;height:2.5px;background:#2563eb;border-radius:10px;transition:all 0.3s;}
         .burger-menu:hover,.burger-menu.active{background:#2563eb;}
         .burger-menu:hover span,.burger-menu.active span{background:white;}
@@ -67,6 +67,7 @@
         #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
         #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
         #mobileNav .mnav-flat:active{background:#eff6ff;}
+        #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
         #about{scroll-margin-top:90px;}
 
         .breadcrumbs{max-width:1200px;margin:0 auto;padding:10px 20px;}
@@ -385,6 +386,13 @@
             conversion: function () { gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL }); }
         };
 
+        window.gtag_report_conversion = function (url) {
+            loadAnalytics();
+            var callback = function () { if (typeof (url) !== 'undefined') { window.location = url; } };
+            gtag('event', 'conversion', { 'send_to': GZ_CFG.ADS_LABEL, 'event_callback': callback, 'event_timeout': 2000 });
+            return false;
+        };
+
         if (isMobile) {
             var fired = false, evts = ['scroll', 'touchstart', 'click', 'keydown'];
             function trigger() {
@@ -446,7 +454,7 @@
             <details open>
                 <summary>Переезд под ключ</summary>
                 <div class="mnav-sub">
-                    <a href="kay/centr.html" class="mnav-overview">О переезде под ключ</a>
+                    <a href="kay/centr.html" class="mnav-overview mnav-current">О переезде под ключ</a>
                     <a href="kay/kvartira.html">Квартирный переезд</a>
                     <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
                     <a href="kay/ofice.html">Переезд офиса</a>
@@ -810,6 +818,26 @@
                 if(burger && burger.contains(e.target)) return;
                 closeMenu();
             });
+
+            // Конверсия по клику на телефон/WhatsApp/Telegram: только после 30 сек на странице + 50% скролла
+            var convUnlocked = false, tReached = false, sReached = false;
+            function convCheck(){ if(tReached && sReached) convUnlocked = true; }
+            setTimeout(function(){ tReached = true; convCheck(); }, 30000);
+            function convScroll(){
+                var seen = window.scrollY + window.innerHeight;
+                var half = (document.documentElement.scrollHeight || document.body.scrollHeight) * 0.5;
+                if(seen >= half){ sReached = true; convCheck(); window.removeEventListener('scroll', convScroll); }
+            }
+            window.addEventListener('scroll', convScroll, { passive: true });
+            convScroll();
+            function isContactLink(a){
+                var href = a.getAttribute('href') || '';
+                return href.indexOf('tel:') === 0 || href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1 || href.indexOf('t.me') !== -1 || href.indexOf('tg://') === 0;
+            }
+            document.addEventListener('click', function(e){
+                var a = e.target.closest && e.target.closest('a');
+                if(a && isContactLink(a) && convUnlocked && window.GZ){ GZ.ready(); GZ.conversion(); }
+            }, true);
 
             // Счётчик выполненных заказов (цифры как на главной)
             function animateNumber(element, target) { if(!element) return; let current = 0; const increment = target / 50; function update(){ current += increment; if(current >= target){ element.textContent = target; return; } else { element.textContent = Math.floor(current); requestAnimationFrame(update); } } requestAnimationFrame(update); }
