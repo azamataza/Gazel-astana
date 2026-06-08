@@ -2246,9 +2246,8 @@
             sent = true;
             try { sessionStorage.setItem(SENT, '1'); } catch (e) {}
         }
-        function tryFire() { if (timeOk && scrollOk) fire(); }
         var timer = setInterval(function () {
-            if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); tryFire(); }
+            if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); }
         }, 1000);
         function onScroll() {
             var sh = document.documentElement.scrollHeight, wh = window.innerHeight;
@@ -2257,13 +2256,12 @@
                 scrollOk = true;
                 window.removeEventListener('scroll', onScroll);
                 window.removeEventListener('touchmove', onScroll);
-                tryFire();
             }
         }
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('touchmove', onScroll, { passive: true });
         setTimeout(onScroll, 600);
-        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
+        document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp.com"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
             el.addEventListener('click', function () { if (timeOk && scrollOk) fire(); });
         });
     })();
