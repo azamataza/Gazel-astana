@@ -79,20 +79,33 @@
 
     <script>
         var isMobileGA = window.innerWidth <= 768;
-        if (!isMobileGA) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        var gtagScriptLoaded = false;
+        function ensureGtagLoaded() {
+            if (gtagScriptLoaded) return;
+            gtagScriptLoaded = true;
             var gaScript = document.createElement('script');
             gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ';
             gaScript.async = true;
             document.head.appendChild(gaScript);
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
             gtag('config', 'G-2VWS9V6KVJ');
             gtag('config', 'AW-17503887977');
-        } else {
-            window.gtagQueue = window.gtagQueue || [];
-            window.gtag = function() { window.gtagQueue.push(arguments); };
         }
+        function gtag_report_conversion(url) {
+            ensureGtagLoaded();
+            var callback = function () {
+                if (typeof(url) !== 'undefined') { window.location = url; }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17503887977/A9CaCOnFy7ocEOnEwJpB',
+                'event_callback': callback,
+                'event_timeout': 2000
+            });
+            return false;
+        }
+        if (!isMobileGA) { ensureGtagLoaded(); }
     </script>
 
     <style>
@@ -119,12 +132,25 @@
         .burger-menu.active span:nth-child(2){opacity:0;}
         .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 
-        .mobile-nav{display:none;position:fixed;top:70px;left:5%;width:90%;max-width:400px;background:white;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.15);z-index:999;padding:15px 0;border:1px solid #e2e8f0;opacity:0;transform:translateY(-20px);pointer-events:none;transition:opacity 0.3s,transform 0.3s;}
-        .mobile-nav.active{display:block;opacity:1;transform:translateY(0);pointer-events:all;}
-        .mobile-nav a{display:block;font-size:1rem;font-weight:600;color:#1e293b;text-decoration:none;padding:12px 20px;transition:all 0.2s;}
-        .mobile-nav a:hover{background:#eef2ff;color:#2563eb;}
-        .mobile-nav-close{display:flex;justify-content:flex-end;padding:5px 15px 0;}
-        .mobile-nav-close button{background:none;border:none;font-size:1.8rem;line-height:1;cursor:pointer;color:#64748b;padding:0 5px;}
+        .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
+        .mnav-overlay.active{opacity:1;visibility:visible;}
+        #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
+        #mobileNav.active{transform:translateX(0);}
+        #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px;}
+        #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px;}
+        #mobileNav details{border-bottom:1px solid #f1f5f9;}
+        #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+        #mobileNav summary::-webkit-details-marker{display:none;}
+        #mobileNav summary::after{content:'';width:8px;height:8px;border-right:2px solid #94a3b8;border-bottom:2px solid #94a3b8;transform:rotate(45deg);transition:transform .2s ease;flex-shrink:0;margin-right:2px;}
+        #mobileNav details[open] summary::after{transform:rotate(-135deg);}
+        #mobileNav details[open] summary{color:#2563eb;}
+        #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
+        #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
+        #mobileNav .mnav-sub a:active{background:#eff6ff;}
+        #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
+        #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
+        #mobileNav .mnav-flat:active{background:#eff6ff;}
+        #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
 
         @media(max-width:1024px){.burger-menu{display:flex;}}
         @media(max-width:768px){
@@ -390,17 +416,58 @@
             </a>
         </div>
     </div>
-    <nav class="mobile-nav" id="mobileNav">
+    <div class="mnav-overlay" id="mnavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
         <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
-        <a href="../index.html#services">Услуги</a>
-        <a href="../shop.html">Магазин</a>
-        <a href="../pereezdkay.html">Переезд под ключ</a>
-        <a href="../mejgorod.html">Переезд межгород</a>
-        <a href="../office.html">Переезд офиса</a>
-        <a href="../musor.html">Вывоз мусора</a>
-        <a href="../mebel.html">Разборка мебели</a>
-        <a href="../B2B.html">Для юр. лиц</a>
-        <a href="../takelazh.html">Такелаж</a>
+
+        <a href="../index.html#services" class="mnav-flat">Все услуги</a>
+
+        <details open>
+            <summary>Грузоперевозки</summary>
+            <div class="mnav-sub">
+                <a href="centr.html" class="mnav-overview">Все грузоперевозки</a>
+                <a href="chasovoi.html">Почасовая аренда</a>
+                <a href="bus.html">Минивэн (бус)</a>
+                <a href="komplekt.html" class="mnav-current">Газель + 2 грузчика</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Переезд под ключ</summary>
+            <div class="mnav-sub">
+                <a href="../pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
+                <a href="../kay/kvartira.html">Квартирный переезд</a>
+                <a href="../kay/mezhgorod.html">Переезд по Казахстану</a>
+                <a href="../kay/ofice.html">Переезд офиса</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Вывоз мусора</summary>
+            <div class="mnav-sub">
+                <a href="../musor.html" class="mnav-overview">О вывозе мусора</a>
+                <a href="../musor/stroy.html">Строительный мусор</a>
+                <a href="../musor/mebel.html">Старая мебель</a>
+                <a href="../musor/tehnika.html">Бытовая техника</a>
+                <a href="../musor/matras.html">Матрасы</a>
+                <a href="../musor/night.html">Ночной вывоз</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>Такелаж</summary>
+            <div class="mnav-sub">
+                <a href="../takelazh.html" class="mnav-overview">О такелаже</a>
+                <a href="../takelazh/oborud.html">Оборудование и станки</a>
+                <a href="../takelazh/roh.html">Аренда рохли</a>
+                <a href="../takelazh/save.html">Перевозка сейфов</a>
+            </div>
+        </details>
+
+        <a href="../shop.html" class="mnav-flat">Магазин упаковки</a>
+        <a href="../mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
+        <a href="../B2B.html" class="mnav-flat">Для юр. лиц</a>
+        <a href="../index.html#about" class="mnav-flat">О нас</a>
     </nav>
 </header>
 
@@ -495,7 +562,7 @@
                 </tbody>
             </table>
         </div>
-        <p style="text-align:center;font-size:0.85em;color:#94a3b8;margin-top:16px;">* Подъём без лифта — 1000 ₸/этаж за этаж. Межгород — по запросу. <a href="../mejgorod.html" style="color:#2563eb;">Межгородские перевозки →</a></p>
+        <p style="text-align:center;font-size:0.85em;color:#94a3b8;margin-top:16px;">* Подъём без лифта — 1000 ₸/этаж за этаж. Межгород — по запросу. <a href="../kay/mezhgorod.html" style="color:#2563eb;">Межгородские перевозки →</a></p>
     </div>
 </section>
 
@@ -532,7 +599,7 @@
         <a href="tel:+77010120300" class="btn-white"><i class="fas fa-phone" style="color:#2563eb;"></i> +7 701 012 03 00</a>
         <a href="https://wa.me/77010120300?text=Здравствуйте!%20Нужен%20комплект%20с%20грузчиками%20срочно." class="btn-primary" style="background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.4);" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
-    <p style="margin-top:20px;font-size:0.9rem;">Также: <a href="../pereezdkay.html" style="color:white;text-decoration:underline;">переезд под ключ</a> | <a href="../office.html" style="color:white;text-decoration:underline;">переезд офиса</a> | <a href="../mejgorod.html" style="color:white;text-decoration:underline;">межгород</a> | <a href="../takelazh.html" style="color:white;text-decoration:underline;">такелаж</a> | <a href="../shop.html" style="color:white;text-decoration:underline;">упаковка</a></p>
+    <p style="margin-top:20px;font-size:0.9rem;">Также: <a href="../pereezdkay.html" style="color:white;text-decoration:underline;">переезд под ключ</a> | <a href="../kay/ofice.html" style="color:white;text-decoration:underline;">переезд офиса</a> | <a href="../kay/mezhgorod.html" style="color:white;text-decoration:underline;">межгород</a> | <a href="../takelazh.html" style="color:white;text-decoration:underline;">такелаж</a> | <a href="../shop.html" style="color:white;text-decoration:underline;">упаковка</a></p>
 </div>
 
 <section class="section" id="stats">
@@ -566,7 +633,7 @@
         <div class="faq-item"><div class="faq-question">Нужно ли мне помогать грузчикам?</div><div class="faq-answer">Нет, вы можете просто наблюдать или заниматься своими делами. Грузчики всё сделают сами: упакуют, разберут, вынесут, погрузят, перевезут, выгрузят и расставят мебель на новом месте.</div></div>
         <div class="faq-item"><div class="faq-question">Что делать, если нужны упаковочные материалы?</div><div class="faq-answer">У нас есть <a href="../shop.html" style="color:#2563eb;">магазин упаковочных материалов</a> — коробки, скотч, пупырка, стрейч-плёнка. Можем привезти с собой по вашему запросу.</div></div>
         <div class="faq-item"><div class="faq-question">А если груз очень тяжёлый (пианино, сейф, станок)?</div><div class="faq-answer">Для тяжёлых и негабаритных грузов у нас есть <a href="../takelazh.html" style="color:#2563eb;">услуги такелажа</a>. Специальное оборудование и опытные такелажники справятся с любым весом.</div></div>
-        <div class="faq-item"><div class="faq-question">Есть ли услуга "переезд под ключ"?</div><div class="faq-answer">Да! Полный сервис: упаковка всех вещей, разборка мебели, перевозка, сборка и расстановка на новом месте — <a href="../pereezdkay.html" style="color:#2563eb;">переезд под ключ</a>. Также можем организовать <a href="../office.html" style="color:#2563eb;">переезд офиса</a> или <a href="../mejgorod.html" style="color:#2563eb;">межгород</a>.</div></div>
+        <div class="faq-item"><div class="faq-question">Есть ли услуга "переезд под ключ"?</div><div class="faq-answer">Да! Полный сервис: упаковка всех вещей, разборка мебели, перевозка, сборка и расстановка на новом месте — <a href="../pereezdkay.html" style="color:#2563eb;">переезд под ключ</a>. Также можем организовать <a href="../kay/ofice.html" style="color:#2563eb;">переезд офиса</a> или <a href="../kay/mezhgorod.html" style="color:#2563eb;">межгород</a>.</div></div>
     </div>
 </section>
 
@@ -599,7 +666,7 @@
 
             <h3>Когда нужен комплект с грузчиками, а когда — "переезд под ключ"?</h3>
             <p>Комплект "грузовик + 2 грузчика" — это базовый полный сервис. Вы всё ещё сами упаковываете вещи (или заказываете упаковку отдельно). <a href="../pereezdkay.html"><strong>Переезд под ключ</strong></a> — это премиум-сервис: мы приезжаем с коробками, скотчем и пупыркой, упаковываем ВСЕ вещи, разбираем мебель, перевозим, собираем и расставляем. Вы просто пьёте кофе и подписываете акт.</p>
-            <p>Также у нас есть специализированные решения: <a href="../office.html">переезд офиса</a> (с вывозом оргтехники и документов), <a href="../mejgorod.html">межгородские перевозки</a> (с фиксированной ценой) и <a href="../takelazh.html">такелажные услуги</a> (для тяжёлого оборудования, пианино, сейфов).</p>
+            <p>Также у нас есть специализированные решения: <a href="../kay/ofice.html">переезд офиса</a> (с вывозом оргтехники и документов), <a href="../kay/mezhgorod.html">межгородские перевозки</a> (с фиксированной ценой) и <a href="../takelazh.html">такелажные услуги</a> (для тяжёлого оборудования, пианино, сейфов).</p>
 
             <h3>Почему клиенты выбирают наш комплект</h3>
             <ul>
@@ -613,7 +680,7 @@
             <h3>Как заказать комплект — просто позвоните</h3>
             <p>Не нужно заполнять длинные формы и ждать расчёта сутками. Звоните по номеру <a href="tel:+77010120300">+7 701 012 03 00</a> или пишите в WhatsApp. Мы за 5 минут рассчитаем стоимость и подберём оптимальный транспорт. Уточните, нужна ли упаковка, разборка мебели, такелаж — мы всё организуем.</p>
 
-            <p><strong>Хотите полный сервис без вашего участия?</strong> Закажите <a href="../pereezdkay.html">переезд под ключ</a> или <a href="../office.html">офисный переезд</a>. А для межгорода у нас есть отдельный тариф — <a href="../mejgorod.html">грузовая газель по Казахстану</a>.</p>
+            <p><strong>Хотите полный сервис без вашего участия?</strong> Закажите <a href="../pereezdkay.html">переезд под ключ</a> или <a href="../kay/ofice.html">офисный переезд</a>. А для межгорода у нас есть отдельный тариф — <a href="../kay/mezhgorod.html">грузовая газель по Казахстану</a>.</p>
         </article>
     </div>
 </section>
@@ -653,7 +720,7 @@
         </div>
         <div class="footer-col">
             <h4>Услуги</h4>
-            <p><a href="gruzovye.html">Грузовые перевозки</a></p>
+            <p><a href="centr.html">Грузовые перевозки</a></p>
             <p><a href="bus.html">Минивэн</a></p>
             <p><a href="chasovoi.html">Газель / Грузовик</a></p>
             <p><a href="komplekt.html">Комплект с грузчиками</a></p>
@@ -663,8 +730,8 @@
             <p><a href="../B2B.html">Для юридических лиц</a></p>
             <p><a href="../shop.html">Магазин упаковки</a></p>
             <p><a href="../pereezdkay.html">Переезд под ключ</a></p>
-            <p><a href="../office.html">Переезд офиса</a></p>
-            <p><a href="../mejgorod.html">Межгородские перевозки</a></p>
+            <p><a href="../kay/ofice.html">Переезд офиса</a></p>
+            <p><a href="../kay/mezhgorod.html">Межгородские перевозки</a></p>
             <p><a href="../takelazh.html">Такелаж</a></p>
             <p><a href="#" id="privacy-policy-link">Политика конфиденциальности</a></p>
         </div>
@@ -683,13 +750,48 @@
 <script>
     (function() {
         const isMobileForLoad = window.innerWidth <= 768;
+
+        var conversionUnlocked = false, timeReached = false, scrollReached = false;
+        function unlockCheck() { if (timeReached && scrollReached) conversionUnlocked = true; }
+        setTimeout(function() { timeReached = true; unlockCheck(); }, 30000);
+        function scrollWatch() {
+            var seen = window.scrollY + window.innerHeight;
+            var half = (document.documentElement.scrollHeight || document.body.scrollHeight) * 0.5;
+            if (seen >= half) { scrollReached = true; unlockCheck(); window.removeEventListener('scroll', scrollWatch); }
+        }
+        window.addEventListener('scroll', scrollWatch, { passive: true });
+        scrollWatch();
+        function isContactLink(a) {
+            var href = a.getAttribute('href') || '';
+            return href.indexOf('tel:') === 0 || href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1 || href.indexOf('t.me') !== -1 || href.indexOf('tg://') === 0;
+        }
+        document.addEventListener('click', function(e) {
+            var a = e.target.closest && e.target.closest('a');
+            if (a && isContactLink(a) && conversionUnlocked) {
+                ensureGtagLoaded();
+                gtag('event', 'conversion', { 'send_to': 'AW-17503887977/A9CaCOnFy7ocEOnEwJpB' });
+            }
+        }, true);
+
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
+        const catalogLogo = document.getElementById('catalogLogo');
         const closeMobileNav = document.getElementById('closeMobileNav');
-        function toggleMenu() { burger.classList.toggle('active'); mobileNav.classList.toggle('active'); }
-        if (burger) burger.addEventListener('click', toggleMenu);
-        if (closeMobileNav) closeMobileNav.addEventListener('click', toggleMenu);
-        document.querySelectorAll('.mobile-nav a').forEach(link => { link.addEventListener('click', () => { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); }); });
+        const navOverlay = document.getElementById('mnavOverlay');
+        function openMenu() { if (burger) burger.classList.add('active'); if (mobileNav) mobileNav.classList.add('active'); if (navOverlay) navOverlay.classList.add('active'); }
+        function closeMenu() { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); if (navOverlay) navOverlay.classList.remove('active'); }
+        function toggleMenu() { (mobileNav && mobileNav.classList.contains('active')) ? closeMenu() : openMenu(); }
+        if (burger) burger.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
+        if (closeMobileNav) closeMobileNav.addEventListener('click', closeMenu);
+        if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('#mobileNav a').forEach(link => { link.addEventListener('click', closeMenu); });
+        document.addEventListener('click', function(e) {
+            if (!mobileNav || !mobileNav.classList.contains('active')) return;
+            if (mobileNav.contains(e.target)) return;
+            if (burger && burger.contains(e.target)) return;
+            if (catalogLogo && catalogLogo.contains(e.target)) return;
+            closeMenu();
+        });
         document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', () => { q.parentElement.classList.toggle('open'); }); });
 
         const floatingButtons = document.getElementById('floatingButtons');
@@ -741,7 +843,7 @@
                         body: JSON.stringify({ chat_id: '8277380855', text: `📦 ЗАЯВКА НА КОМПЛЕКТ (komplekt.html)\nИмя: ${name}\nТелефон: ${phone}` })
                     });
                 } catch (err) { console.log(err); }
-                if (typeof gtag === 'function') gtag('event', 'conversion', { 'send_to': 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB' });
+                if (typeof gtag === 'function') { ensureGtagLoaded(); gtag('event', 'conversion', { 'send_to': 'AW-17503887977/A9CaCOnFy7ocEOnEwJpB' }); }
                 if (callbackSuccess) callbackSuccess.style.display = 'block';
                 this.reset();
                 setTimeout(() => { if (callbackSuccess) callbackSuccess.style.display = 'none'; }, 5000);
