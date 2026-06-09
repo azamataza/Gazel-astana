@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Грузоперевозки в Астане недорого — переезды, грузчики, ГАЗель</title>
+    <title>Грузоперевозки в Астане недорого — переезды, грузчики, ГАЗель, вывоз мусора</title>
     <meta name="description" content="Закажите грузоперевозки в Астане недорого. Квартирные и офисные переезды под ключ, вывоз мусора, разборка мебели. Грузчики, ГАЗель. Работаем с юрлицами, безнал. Звоните!">
     <meta name="keywords" content="грузоперевозки Астана, переезды под ключ Астана, вывоз мусора Астана, разборка мебели Астана, грузчики Астана, газель Астана, грузовое такси Астана, переезд офиса Астана, услуги грузчиков, безналичный расчет">
     <meta name="robots" content="index, follow">
@@ -45,12 +45,11 @@
         .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
         .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
         
-        .hero-header{background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('fon.jpg') no-repeat center center/cover;color:white;padding:100px 20px;text-align:center;}
-        .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),image-set(url('fon.webp') type('image/webp'),url('fon.jpg') type('image/jpeg'));}
-        @media(max-width:768px){
-            .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('fon-mobile.jpg');}
-            .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),image-set(url('fon-mobile.webp') type('image/webp'),url('fon-mobile.jpg') type('image/jpeg'));}
-        }
+        .hero-header{position:relative;color:white;padding:100px 20px;text-align:center;overflow:hidden;background:#1f2937;}
+        .hero-bg{position:absolute;inset:0;z-index:0;margin:0;line-height:0;}
+        .hero-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+        .hero-header::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.7);z-index:1;pointer-events:none;}
+        .hero-header .header-content{position:relative;z-index:2;}
         .hero-header h1{font-size:3em;margin-bottom:20px;}
         .brand-blue{color:#2563eb;font-weight:800;}
         .brand-separator{color:#fff;font-weight:600;}
@@ -404,8 +403,6 @@
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
     <link rel="preconnect" href="https://www.googleadservices.com" media="(min-width: 769px)">
     <link rel="preconnect" href="https://www.google.com" media="(min-width: 769px)">
-    <link rel="preload" as="image" href="fon-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width:768px)">
-    <link rel="preload" as="image" href="fon.webp" type="image/webp" fetchpriority="high" media="(min-width:769px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
     <script>
@@ -492,6 +489,8 @@
         #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
         #mobileNav .mnav-flat:active{background:#eff6ff;}
         #about{scroll-margin-top:90px;}
+        .calculator-grid.no-map{display:block!important;max-width:560px;margin-left:auto;margin-right:auto;}
+        .calculator-grid.no-map .calculator-form{width:100%;}
     </style>
 </head>
 <body>
@@ -504,7 +503,7 @@
                 <button class="burger-menu" id="burgerMenu" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
                     <span></span><span></span><span></span>
                 </button>
-                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" width="120" height="45" loading="eager" fetchpriority="high" decoding="async">
+                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" width="120" height="45" loading="eager" fetchpriority="low" decoding="async">
             </div>
             <div class="header-right">
                 <div class="language-switcher">
@@ -571,6 +570,12 @@
         </nav>
     </header>
     <header class="hero-header">
+        <picture class="hero-bg">
+            <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
+            <source media="(max-width:768px)" srcset="fon-mobile.jpg">
+            <source type="image/webp" srcset="fon.webp">
+            <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+        </picture>
         <div class="header-content">
             <h1><span class="brand-blue">Gruzim.kz</span><span class="brand-separator"> | </span><span class="brand-orange">Больше, чем грузоперевозки</span></h1>
             <p>Полный цикл услуг для дома, офиса и бизнеса.</p>
@@ -739,7 +744,7 @@
     <section class="calculator-section" id="calculator">
         <div class="calculator-container">
             <h2 class="calculator-title">🚚 Рассчитайте стоимость поездки с учётом пробок</h2>
-            <div class="calculator-grid">
+            <div class="calculator-grid no-map">
                 <div class="map-container" id="mapContainer" style="display:none"><div id="map"></div></div>
                 <div class="calculator-form">
                     <div class="form-group"><span class="form-group-label" id="tariffLabel">Выберите тариф:</span><div class="tariff-selector" id="tariffSelector" role="group" aria-labelledby="tariffLabel"><div class="tariff-option selected" data-price="7000" data-name="Грузовой"><i class="fas fa-truck" aria-hidden="true"></i><div>Грузовой</div><div class="price">7 000 ₸/час</div></div><div class="tariff-option" data-price="5000" data-name="Минивэн"><i class="fas fa-truck-pickup" aria-hidden="true"></i><div>Минивэн</div><div class="price">5 000 ₸/час</div></div><div class="tariff-option" data-price="14000" data-name="Комплект"><i class="fas fa-truck-moving" aria-hidden="true"></i><div>Комплект</div><div class="price">14 000 ₸/час</div></div></div></div>
@@ -875,7 +880,7 @@
     </section>
     <footer>
         <div class="footer-inner">
-            <div class="footer-col"><img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo" width="160" height="50" loading="lazy" decoding="async"><p>Грузоперевозки по Астане и регионам Казахстана.</p><p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p><div style="margin-top:15px;display:flex;gap:12px;font-size:1.5rem;"><i class="fab fa-cc-visa" style="color:#1a1f71;" aria-hidden="true"></i><i class="fab fa-cc-mastercard" style="color:#eb001b;" aria-hidden="true"></i><i class="fas fa-wallet" style="color:#f97316;" aria-hidden="true"></i><span style="font-size:0.9rem;">Kaspi Red</span></div></div>
+            <div class="footer-col"><img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo" width="48" height="48" loading="lazy" decoding="async" style="width:48px;height:48px;object-fit:contain;border-radius:8px;"><p>Грузоперевозки по Астане и регионам Казахстана.</p><p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p><div style="margin-top:15px;display:flex;gap:12px;font-size:1.5rem;"><i class="fab fa-cc-visa" style="color:#1a1f71;" aria-hidden="true"></i><i class="fab fa-cc-mastercard" style="color:#eb001b;" aria-hidden="true"></i><i class="fas fa-wallet" style="color:#f97316;" aria-hidden="true"></i><span style="font-size:0.9rem;">Kaspi Red</span></div></div>
             <div class="footer-col"><h4>Контакты</h4><p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p><p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/77010120300">Написать в WhatsApp</a></p><p><i class="fab fa-telegram" aria-hidden="true"></i> <a href="https://t.me/gruzimkz">Telegram</a></p><p><i class="fas fa-clock" aria-hidden="true"></i> Ежедневно с 8:00 до 22:00</p></div>
             <div class="footer-col"><h4>Информация</h4><p><a href="#" id="privacy-policy-link">Политика конфиденциальности</a></p><p><a href="#" id="terms-of-service-link">Условия использования</a></p><p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p></div>
         </div>
@@ -1018,7 +1023,10 @@
                     map.geoObjects.add(officePlacemark);
                 }
                 var YMAPS_KEY = ''; // TODO: вставьте реальный ключ API Яндекс.Карт
+                var calcGrid = document.querySelector('.calculator-grid');
                 if (mapContainer && YMAPS_KEY) {
+                    mapContainer.style.display = '';
+                    if (calcGrid) calcGrid.classList.remove('no-map');
                     var yandexScript = document.createElement('script');
                     yandexScript.src = 'https://api-maps.yandex.ru/2.1/?apikey=' + YMAPS_KEY + '&lang=ru_RU';
                     yandexScript.onload = function() { ymaps.ready(initMapDesktop); };
