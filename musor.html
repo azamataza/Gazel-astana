@@ -11,7 +11,6 @@
     <meta name="geo.placename" content="Астана">
     <link rel="canonical" href="https://gruzim.kz/musor.html">
     <link rel="alternate" hreflang="ru" href="https://gruzim.kz/musor.html">
-    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/musorkz.html">
 
     <meta property="og:title" content="Вывоз мусора в Астане | Gruzim.kz">
     <meta property="og:description" content="Вывоз матрасов, мебели, техники, строймусора. Ночной вывоз для ТЦ. Вывоз мусора Астана от 3500 тенге.">
@@ -66,6 +65,7 @@
         #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
         #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
         #mobileNav .mnav-flat:active{background:#eff6ff;}
+        #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
 
         .breadcrumbs{max-width:1200px;margin:0 auto;padding:10px 20px;}
         .breadcrumbs ol{display:flex;flex-wrap:wrap;list-style:none;padding:0;}
@@ -506,7 +506,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="musor.html" class="lang-btn active">РУС</a>
-                    <a href="musorkz.html" class="lang-btn">ҚАЗ</a>
+                    <a href="#" id="langKz" class="lang-btn">ҚАЗ</a>
                 </div>
                 <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone"></i> <span>+7 701 012 03 00</span></a>
             </div>
@@ -515,7 +515,7 @@
         <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
             <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
 
-            <a href="#services" class="mnav-flat">Все услуги</a>
+            <a href="index.html#services" class="mnav-flat">Все услуги</a>
 
             <details>
                 <summary>Грузоперевозки</summary>
@@ -530,17 +530,17 @@
             <details>
                 <summary>Переезд под ключ</summary>
                 <div class="mnav-sub">
-                    <a href="kay/centr.html" class="mnav-overview">О переезде под ключ</a>
+                    <a href="pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
                     <a href="kay/kvartira.html">Квартирный переезд</a>
                     <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
                     <a href="kay/ofice.html">Переезд офиса</a>
                 </div>
             </details>
 
-            <details>
+            <details open>
                 <summary>Вывоз мусора</summary>
                 <div class="mnav-sub">
-                    <a href="musor/centr.html" class="mnav-overview">О вывозе мусора</a>
+                    <a href="musor.html" class="mnav-overview mnav-current">О вывозе мусора</a>
                     <a href="musor/stroy.html">Строительный мусор</a>
                     <a href="musor/mebel.html">Старая мебель</a>
                     <a href="musor/tehnika.html">Бытовая техника</a>
@@ -550,19 +550,9 @@
             </details>
 
             <details>
-                <summary>Сборка и разборка мебели</summary>
-                <div class="mnav-sub">
-                    <a href="mebel/centr.html" class="mnav-overview">О работе с мебелью</a>
-                    <a href="mebel/sborka.html">Сборка мебели</a>
-                    <a href="mebel/upakovka.html">Упаковка мебели</a>
-                    <a href="mebel/kay.html">Мебель под ключ</a>
-                </div>
-            </details>
-
-            <details>
                 <summary>Такелаж</summary>
                 <div class="mnav-sub">
-                    <a href="takelazh/centr.html" class="mnav-overview">О такелаже</a>
+                    <a href="takelazh.html" class="mnav-overview">О такелаже</a>
                     <a href="takelazh/oborud.html">Оборудование и станки</a>
                     <a href="takelazh/roh.html">Аренда рохли</a>
                     <a href="takelazh/save.html">Перевозка сейфов</a>
@@ -570,8 +560,9 @@
             </details>
 
             <a href="shop.html" class="mnav-flat">Магазин упаковки</a>
+            <a href="mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
             <a href="B2B.html" class="mnav-flat">Для юр. лиц</a>
-            <a href="#about" class="mnav-flat">О нас</a>
+            <a href="index.html#about" class="mnav-flat">О нас</a>
         </nav>
     </header>
 
@@ -906,6 +897,10 @@
                 if(catalogLogo && catalogLogo.contains(e.target)) return;
                 closeMenu();
             });
+
+            // Казахская версия в разработке
+            const langKz = document.getElementById('langKz');
+            if(langKz) langKz.addEventListener('click', function(e){ e.preventDefault(); alert('Бұл бет әзірленуде. Кешірім сұраймыз!\n\nСтраница в разработке, извините.'); });
 
             // FAQ
             document.querySelectorAll('.faq-question').forEach(q => {
