@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- ==================== ГЛАВНЫЕ СТРАНИЦЫ (приоритет 1.0) ==================== -->
+  <!-- ==================== ГЛАВНЫЕ СТРАНИЦЫ ==================== -->
   <url>
     <loc>https://www.gruzim.kz/</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/indexkz.html</loc>
     <lastmod>2026-06-07</lastmod>
@@ -16,48 +15,37 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- ==================== ОСНОВНЫЕ УСЛУГИ (приоритет 0.9) ==================== -->
-  
-  <!-- Переезд под ключ -->
+  <!-- ==================== ОСНОВНЫЕ УСЛУГИ ==================== -->
   <url>
     <loc>https://www.gruzim.kz/pereezdkay.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/pereezdkaykz.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Вывоз мусора -->
   <url>
     <loc>https://www.gruzim.kz/musor.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Такелаж -->
   <url>
     <loc>https://www.gruzim.kz/takelazh.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Для юридических лиц -->
   <url>
     <loc>https://www.gruzim.kz/B2B.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Мебель (отдельная страница) -->
   <url>
     <loc>https://www.gruzim.kz/mebel.html</loc>
     <lastmod>2026-06-07</lastmod>
@@ -65,29 +53,25 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- ==================== ГРУЗОПЕРЕВОЗКИ (gruz/) - приоритет 0.85 ==================== -->
-  
+  <!-- ==================== ГРУЗОПЕРЕВОЗКИ ==================== -->
   <url>
     <loc>https://www.gruzim.kz/gruz/centr.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/gruz/chasovoi.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/gruz/bus.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/gruz/komplekt.html</loc>
     <lastmod>2026-06-07</lastmod>
@@ -95,22 +79,19 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- ==================== ПЕРЕЕЗД ПОД КЛЮЧ (kay/) - приоритет 0.85 ==================== -->
-  
+  <!-- ==================== ПЕРЕЕЗД ПОД КЛЮЧ ==================== -->
   <url>
     <loc>https://www.gruzim.kz/kay/kvartira.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/kay/mezhgorod.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/kay/ofice.html</loc>
     <lastmod>2026-06-07</lastmod>
@@ -118,36 +99,31 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- ==================== ВЫВОЗ МУСОРА (musor/) - приоритет 0.80 ==================== -->
-  
+  <!-- ==================== ВЫВОЗ МУСОРА ==================== -->
   <url>
     <loc>https://www.gruzim.kz/musor/stroy.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/musor/mebel.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/musor/tehnika.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/musor/matras.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/musor/night.html</loc>
     <lastmod>2026-06-07</lastmod>
@@ -155,22 +131,19 @@
     <priority>0.80</priority>
   </url>
 
-  <!-- ==================== ТАКЕЛАЖ (takelazh/) - приоритет 0.80 ==================== -->
-  
+  <!-- ==================== ТАКЕЛАЖ ==================== -->
   <url>
     <loc>https://www.gruzim.kz/takelazh/oborud.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/takelazh/roh.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/takelazh/save.html</loc>
     <lastmod>2026-06-07</lastmod>
@@ -178,15 +151,13 @@
     <priority>0.80</priority>
   </url>
 
-  <!-- ==================== МАГАЗИН (приоритет 0.75) ==================== -->
-  
+  <!-- ==================== МАГАЗИН ==================== -->
   <url>
     <loc>https://www.gruzim.kz/shop.html</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
-
   <url>
     <loc>https://www.gruzim.kz/shopkz.html</loc>
     <lastmod>2026-06-07</lastmod>
