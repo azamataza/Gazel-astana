@@ -8,6 +8,8 @@
     <meta name="keywords" content="магазин упаковки Астана, коробки для переезда, стрейч пленка, пузырчатая пленка, скотч купить, упаковка для вещей">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://gruzim.kz/shop.html">
+    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/shop.html">
+    <link rel="alternate" hreflang="x-default" href="https://gruzim.kz/shop.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Магазин упаковки для переезда в Астане | Gruzim.kz">
@@ -37,57 +39,81 @@
     <meta name="theme-color" content="#2563eb">
 
     <!-- Шрифты -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
 
-    <!-- Google Analytics (GA4 и Google Ads) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ"></script>
+    <!-- Аналитика и конверсии: единый отложенный загрузчик (GA4, Ads, GTM, Яндекс.Метрика, Meta Pixel) -->
     <script>
+    (function () {
+        var GZ_CFG = {
+            GA4: 'G-2VWS9V6KVJ',
+            ADS: 'AW-17503887977',
+            ADS_LABEL: 'AW-17503887977/TUqiCPPKpJMbEOnEwJpB',
+            GTM: 'GTM-PLXM434L',
+            YM: 104276494,
+            FB: '922364396983002'
+        };
+        var isMobile = window.innerWidth <= 768;
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-2VWS9V6KVJ');
-        gtag('config', 'AW-17503887977');
-    </script>
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m, e, t, r, i, k, a) {
-            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=104276494', 'ym');
+        window.gtag = function () { dataLayer.push(arguments); };
+        window.ym = window.ym || function () { (ym.a = ym.a || []).push(arguments); };
+        ym.l = 1 * new Date();
 
-        ym(104276494, 'init', { ssr: true, webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
+        var loaded = false;
+        function loadAnalytics() {
+            if (loaded) return;
+            loaded = true;
+            var g = document.createElement('script');
+            g.async = true;
+            g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GZ_CFG.GA4;
+            document.head.appendChild(g);
+            gtag('js', new Date());
+            gtag('config', GZ_CFG.GA4);
+            gtag('config', GZ_CFG.ADS);
+            (function (w, d, s, l, i) {
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', GZ_CFG.GTM);
+            var m = document.createElement('script');
+            m.async = true;
+            m.src = 'https://mc.yandex.ru/metrika/tag.js?id=' + GZ_CFG.YM;
+            document.head.appendChild(m);
+            ym(GZ_CFG.YM, 'init', { webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true, defer: true });
+            !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', GZ_CFG.FB);
+            fbq('track', 'PageView');
+        }
+
+        window.GZ = {
+            cfg: GZ_CFG,
+            ready: loadAnalytics,
+            conversion: function () { loadAnalytics(); gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL }); }
+        };
+
+        if (isMobile) {
+            var fired = false, evts = ['scroll', 'touchstart', 'click', 'keydown'];
+            function trigger() {
+                if (fired) return; fired = true;
+                evts.forEach(function (e) { window.removeEventListener(e, trigger); });
+                loadAnalytics();
+            }
+            evts.forEach(function (e) { window.addEventListener(e, trigger, { passive: true }); });
+            setTimeout(trigger, 3500);
+        } else if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAnalytics, { timeout: 2000 });
+        } else {
+            window.addEventListener('load', loadAnalytics);
+        }
+    })();
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-    <!-- Meta Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '922364396983002');
-        fbq('track', 'PageView');
-    </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1"/></noscript>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PLXM434L');</script>
-    <!-- End Google Tag Manager -->
 
     <!-- Schema.org разметка -->
     <script type="application/ld+json">
@@ -112,6 +138,31 @@
     </script>
 
     <style>
+        /* ===== Эталонное всплывающее меню + мобильная оптимизация ===== */
+        @media(max-width:768px){
+            .section,.seo-article,.contact-section,footer{content-visibility:auto;contain-intrinsic-size:0 400px;}
+            *{transition-duration:.15s!important;animation-duration:.15s!important;}
+            [data-aos]{opacity:1!important;transform:none!important;}
+        }
+        .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
+        .mnav-overlay.active{opacity:1;visibility:visible;}
+        #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
+        #mobileNav.active{transform:translateX(0);}
+        #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px;}
+        #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px;}
+        #mobileNav details{border-bottom:1px solid #f1f5f9;}
+        #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+        #mobileNav summary::-webkit-details-marker{display:none;}
+        #mobileNav summary::after{content:'';width:8px;height:8px;border-right:2px solid #94a3b8;border-bottom:2px solid #94a3b8;transform:rotate(45deg);transition:transform .2s ease;flex-shrink:0;margin-right:2px;}
+        #mobileNav details[open] summary::after{transform:rotate(-135deg);}
+        #mobileNav details[open] summary{color:#2563eb;}
+        #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
+        #mobileNav .mnav-sub a{padding:12px 22px 12px 40px!important;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
+        #mobileNav .mnav-sub a:active{background:#eff6ff;}
+        #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
+        #mobileNav .mnav-flat{display:block;padding:15px 22px!important;font-size:1.02rem;font-weight:600;color:#0f172a!important;text-decoration:none;border-bottom:1px solid #f1f5f9;}
+        #mobileNav .mnav-flat:active{background:#eff6ff;}
+        #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb!important;font-weight:700;border-left:3px solid #2563eb;}
         /* ===== ВСЕ ОРИГИНАЛЬНЫЕ СТИЛИ ===== */
         * {
             margin: 0;
@@ -1226,7 +1277,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="shop.html" class="lang-btn active">РУС</a>
-                    <a href="shopkz.html" class="lang-btn">ҚАЗ</a>
+                    <a href="#" id="langKz" class="lang-btn">ҚАЗ</a>
                 </div>
                 <a href="tel:+77010120300" class="header-phone">
                     <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
@@ -1234,19 +1285,60 @@
             </div>
         </div>
 
-        <nav class="mobile-nav" id="mobileNav">
+        <div class="mnav-overlay" id="mnavOverlay"></div>
+        <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
             <div class="mobile-nav-close">
                 <button id="closeMobileNav" aria-label="Закрыть меню">&times;</button>
             </div>
-            <a href="index.html">Главная</a>
-             <a href="shop.html">Магазин</a>
-            <a href="pereezdkay.html">Переезд под ключ</a>
-            <a href="mejgorod.html">Переезд межгород</a>
-            <a href="office.html">Переезд офиса</a>
-            <a href="musor.html">Вывоз мусора</a>
-            <a href="mebel.html">Разборка мебели</a>
-            <a href="B2B.html">Для юр. лиц</a>
-            <a href="takelazh.html">Такелаж</a>
+
+            <a href="index.html#services" class="mnav-flat">Все услуги</a>
+
+            <details>
+                <summary>Грузоперевозки</summary>
+                <div class="mnav-sub">
+                    <a href="gruz/centr.html" class="mnav-overview">Все грузоперевозки</a>
+                    <a href="gruz/chasovoi.html">Почасовая аренда</a>
+                    <a href="gruz/bus.html">Минивэн (бус)</a>
+                    <a href="gruz/komplekt.html">Газель + 2 грузчика</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>Переезд под ключ</summary>
+                <div class="mnav-sub">
+                    <a href="pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
+                    <a href="kay/kvartira.html">Квартирный переезд</a>
+                    <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
+                    <a href="kay/ofice.html">Переезд офиса</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>Вывоз мусора</summary>
+                <div class="mnav-sub">
+                    <a href="musor.html" class="mnav-overview">О вывозе мусора</a>
+                    <a href="musor/stroy.html">Строительный мусор</a>
+                    <a href="musor/mebel.html">Старая мебель</a>
+                    <a href="musor/tehnika.html">Бытовая техника</a>
+                    <a href="musor/matras.html">Матрасы</a>
+                    <a href="musor/night.html">Ночной вывоз</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>Такелаж</summary>
+                <div class="mnav-sub">
+                    <a href="takelazh.html" class="mnav-overview">О такелаже</a>
+                    <a href="takelazh/oborud.html">Оборудование и станки</a>
+                    <a href="takelazh/roh.html">Аренда рохли</a>
+                    <a href="takelazh/save.html">Перевозка сейфов</a>
+                </div>
+            </details>
+
+            <a href="shop.html" class="mnav-flat mnav-current">Магазин упаковки</a>
+            <a href="mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
+            <a href="B2B.html" class="mnav-flat">Для юр. лиц</a>
+            <a href="index.html#about" class="mnav-flat">О нас</a>
         </nav>
     </header>
 
@@ -1380,29 +1472,33 @@
         const DELIVERY_PRICE = 2500;
 
         // ===== ИНИЦИАЛИЗАЦИЯ AOS =====
-        AOS.init({ duration: 1000, once: true });
+        if (window.AOS) { AOS.init({ duration: 1000, once: true, disable: 'mobile' }); }
 
         // ===== БУРГЕР МЕНЮ =====
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
-        const catalogLogo = document.getElementById('catalogLogo');
         const closeMobileNav = document.getElementById('closeMobileNav');
+        const navOverlay = document.getElementById('mnavOverlay');
 
-        function toggleMenu() {
-            burger.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-        }
+        function openMenu(){ if(burger) burger.classList.add('active'); if(mobileNav) mobileNav.classList.add('active'); if(navOverlay) navOverlay.classList.add('active'); }
+        function closeMenu(){ if(burger) burger.classList.remove('active'); if(mobileNav) mobileNav.classList.remove('active'); if(navOverlay) navOverlay.classList.remove('active'); }
+        function toggleMenu(){ (mobileNav && mobileNav.classList.contains('active')) ? closeMenu() : openMenu(); }
 
-        if (burger) burger.addEventListener('click', toggleMenu);
-        if (catalogLogo) catalogLogo.addEventListener('click', toggleMenu);
-        if (closeMobileNav) closeMobileNav.addEventListener('click', toggleMenu);
-        
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                burger.classList.remove('active');
-                mobileNav.classList.remove('active');
-            });
+        if (burger) burger.addEventListener('click', function(e){ e.stopPropagation(); toggleMenu(); });
+        if (closeMobileNav) closeMobileNav.addEventListener('click', closeMenu);
+        if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('#mobileNav a').forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('click', function(e){
+            if(!mobileNav || !mobileNav.classList.contains('active')) return;
+            if(mobileNav.contains(e.target)) return;
+            if(burger && burger.contains(e.target)) return;
+            closeMenu();
         });
+        document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+
+        // Казахская версия в разработке
+        const langKz = document.getElementById('langKz');
+        if (langKz) langKz.addEventListener('click', function(e){ e.preventDefault(); alert('Бұл бет әзірленуде. Кешірім сұраймыз!\n\nСтраница в разработке, извините.'); });
 
         // ===== БАЗА ТОВАРОВ =====
         const productsDB = [
@@ -1725,6 +1821,7 @@
     <script>
     (function() {
         window.gtag_report_conversion = function(url, isRedirect = true) {
+            if (window.GZ && GZ.ready) GZ.ready();
             if (sessionStorage.getItem('google_ads_conversion_sent')) {
                 if (isRedirect && url) {
                     window.location.href = url;
@@ -1748,6 +1845,7 @@
         };
 
         window.gtag_report_conversion_silent = function() {
+            if (window.GZ && GZ.ready) GZ.ready();
             if (sessionStorage.getItem('google_ads_conversion_sent')) {
                 return false;
             }
