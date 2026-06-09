@@ -45,12 +45,11 @@
         .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
         .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
         
-        .hero-header{background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('fon.jpg') no-repeat center center/cover;color:white;padding:100px 20px;text-align:center;}
-        .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),image-set(url('fon.webp') type('image/webp'),url('fon.jpg') type('image/jpeg'));}
-        @media(max-width:768px){
-            .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('fon-mobile.jpg');}
-            .hero-header{background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),image-set(url('fon-mobile.webp') type('image/webp'),url('fon-mobile.jpg') type('image/jpeg'));}
-        }
+        .hero-header{position:relative;color:white;padding:100px 20px;text-align:center;overflow:hidden;background:#1f2937;}
+        .hero-bg{position:absolute;inset:0;z-index:0;margin:0;line-height:0;}
+        .hero-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+        .hero-header::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.7);z-index:1;pointer-events:none;}
+        .hero-header .header-content{position:relative;z-index:2;}
         .hero-header h1{font-size:3em;margin-bottom:20px;}
         .brand-blue{color:#2563eb;font-weight:800;}
         .brand-separator{color:#fff;font-weight:600;}
@@ -404,8 +403,6 @@
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
     <link rel="preconnect" href="https://www.googleadservices.com" media="(min-width: 769px)">
     <link rel="preconnect" href="https://www.google.com" media="(min-width: 769px)">
-    <link rel="preload" as="image" href="fon-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width:768px)">
-    <link rel="preload" as="image" href="fon.webp" type="image/webp" fetchpriority="high" media="(min-width:769px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
     <script>
@@ -504,7 +501,7 @@
                 <button class="burger-menu" id="burgerMenu" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
                     <span></span><span></span><span></span>
                 </button>
-                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" width="120" height="45" loading="eager" fetchpriority="high" decoding="async">
+                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" width="120" height="45" loading="eager" fetchpriority="low" decoding="async">
             </div>
             <div class="header-right">
                 <div class="language-switcher">
@@ -571,6 +568,12 @@
         </nav>
     </header>
     <header class="hero-header">
+        <picture class="hero-bg">
+            <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
+            <source media="(max-width:768px)" srcset="fon-mobile.jpg">
+            <source type="image/webp" srcset="fon.webp">
+            <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+        </picture>
         <div class="header-content">
             <h1><span class="brand-blue">Gruzim.kz</span><span class="brand-separator"> | </span><span class="brand-orange">Больше, чем грузоперевозки</span></h1>
             <p>Полный цикл услуг для дома, офиса и бизнеса.</p>
