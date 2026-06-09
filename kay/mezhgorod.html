@@ -11,13 +11,13 @@
     <meta name="geo.placename" content="Астана">
     <link rel="canonical" href="https://gruzim.kz/kay/mezhgorod.html">
     <link rel="alternate" hreflang="ru" href="https://gruzim.kz/kay/mezhgorod.html">
-    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/kay/mezhgorodkz.html">
+    <link rel="alternate" hreflang="x-default" href="https://gruzim.kz/kay/mezhgorod.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Переезд межгород по Казахстану из Астаны | Под ключ | Gruzim.kz">
     <meta property="og:description" content="Переезд в другой город под ключ: упаковка, разбор мебели, погрузка, перевозка, выгрузка, расстановка. Фиксированная цена.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gruzim.kzkay/mezhgorod.html">
+    <meta property="og:url" content="https://gruzim.kz/kay/mezhgorod.html">
     <meta property="og:site_name" content="Gruzim.kz">
     <meta property="og:image" content="https://gruzim.kz/Logo.png">
 
@@ -131,7 +131,7 @@
       "@type": "MovingCompany",
       "name": "Gruzim.kz — Переезд межгород по Казахстану",
       "image": "https://gruzim.kz/Logo.png",
-      "url": "https://gruzim.kz/pereezd-mezhgorod.html",
+      "url": "https://gruzim.kz/kay/mezhgorod.html",
       "telephone": "+77010120300",
       "email": "info@gruzim.kz",
       "priceRange": "20000 - 2000000 KZT",
@@ -188,7 +188,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://gruzim.kz/" },
-        { "@type": "ListItem", "position": 2, "name": "Переезд межгород по Казахстану", "item": "https://gruzim.kz/pereezd-mezhgorod.html" }
+        { "@type": "ListItem", "position": 2, "name": "Переезд межгород по Казахстану", "item": "https://gruzim.kz/kay/mezhgorod.html" }
       ]
     }
     </script>
@@ -441,22 +441,17 @@
 
         /* Hero секция */
         .hero-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.jpg') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+            background: #1f2937;
             color: white;
             padding: 100px 20px;
             text-align: center;
         }
-        .hero-header {
-            background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), image-set(url('fon.webp') type('image/webp'), url('fon.jpg') type('image/jpeg'));
-        }
-        @media (max-width: 768px) {
-            .hero-header {
-                background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('fon-mobile.jpg');
-            }
-            .hero-header {
-                background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), image-set(url('fon-mobile.webp') type('image/webp'), url('fon-mobile.jpg') type('image/jpeg'));
-            }
-        }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; margin: 0; line-height: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hero-header::before { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 1; pointer-events: none; }
+        .hero-header .header-content { position: relative; z-index: 2; }
 
         .hero-header h1 {
             font-size: 3em;
@@ -1297,8 +1292,8 @@
             </div>
             <div class="header-right">
                 <div class="language-switcher">
-                    <a href="pereezd-mezhgorod.html" class="lang-btn active">РУС</a>
-                    <a href="pereezd-mezhgorodkz.html" class="lang-btn">ҚАЗ</a>
+                    <a href="mezhgorod.html" class="lang-btn active">РУС</a>
+                    <a href="#" id="langKz" class="lang-btn">ҚАЗ</a>
                 </div>
                 <a href="tel:+77010120300" class="header-phone">
                     <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
@@ -1355,6 +1350,7 @@
             </details>
 
             <a href="../shop.html" class="mnav-flat">Магазин упаковки</a>
+            <a href="../mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
             <a href="../B2B.html" class="mnav-flat">Для юр. лиц</a>
             <a href="../index.html#about" class="mnav-flat">О нас</a>
         </nav>
@@ -1362,6 +1358,12 @@
 
     <!-- Hero секция -->
     <header class="hero-header">
+        <picture class="hero-bg">
+            <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
+            <source media="(max-width:768px)" srcset="fon-mobile.jpg">
+            <source type="image/webp" srcset="fon.webp">
+            <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+        </picture>
         <div class="header-content">
             <h1 data-aos="fade-up">
                 <span class="brand-blue">Gruzim.kz</span>
@@ -1656,6 +1658,10 @@
             if (catalogLogo && catalogLogo.contains(e.target)) return;
             closeMenu();
         });
+
+        // Казахская версия в разработке
+        const langKz = document.getElementById('langKz');
+        if (langKz) langKz.addEventListener('click', function (e) { e.preventDefault(); alert('Бұл бет әзірленуде. Кешірім сұраймыз!\n\nСтраница в разработке, извините.'); });
 
         // ===== FAQ =====
         document.querySelectorAll('.faq-question').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
