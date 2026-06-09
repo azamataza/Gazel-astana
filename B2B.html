@@ -511,12 +511,17 @@
         }
 
         .hero-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.jpg') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+            background: #1f2937;
             color: white;
             padding: 100px 20px;
             text-align: center;
-            background-attachment: fixed;
         }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; margin: 0; line-height: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hero-header::before { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 1; pointer-events: none; }
+        .hero-header .header-content { position: relative; z-index: 2; }
 
         .hero-header h1 {
             font-size: 3em;
@@ -1457,6 +1462,12 @@
     </header>
 
     <header class="hero-header">
+        <picture class="hero-bg">
+            <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
+            <source media="(max-width:768px)" srcset="fon-mobile.jpg">
+            <source type="image/webp" srcset="fon.webp">
+            <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+        </picture>
         <div class="header-content">
             <h1 data-aos="fade-up">
                 <span class="brand-blue">Gruzim.kz</span>
