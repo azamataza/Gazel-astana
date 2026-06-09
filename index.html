@@ -191,6 +191,13 @@
             transform: scale(1.02);
             background: #f0f9ff;
         }
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+        .form-group-label{display:block;}
+        .yt-facade:focus-visible,.faq-question:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #2563eb;outline-offset:2px;}
+        @media (prefers-reduced-motion: reduce){
+            *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+            [data-aos]{opacity:1!important;transform:none!important;}
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -494,10 +501,10 @@
     <header class="floating-header">
         <div class="floating-header-content">
             <div class="header-left">
-                <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                <button class="burger-menu" id="burgerMenu" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
                     <span></span><span></span><span></span>
                 </button>
-                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" loading="eager" fetchpriority="high">
+                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" width="120" height="45" loading="eager" fetchpriority="high" decoding="async">
             </div>
             <div class="header-right">
                 <div class="language-switcher">
@@ -505,7 +512,7 @@
                     <a href="indexkz.html" class="lang-btn">ҚАЗ</a>
                 </div>
                 <a href="tel:+77010120300" class="header-phone" data-phone-type="floating-header">
-                    <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
+                    <i class="fas fa-phone" aria-hidden="true"></i> <span>+7 701 012 03 00</span>
                 </a>
             </div>
         </div>
@@ -607,7 +614,7 @@
         <h2 data-aos="fade-up">Наши услуги по Астане</h2>
         <div class="cards-grid">
             <div class="card" data-aos="fade-up" data-aos-delay="50">
-                <div class="card-icon-wrap"><i class="fas fa-truck"></i></div>
+                <div class="card-icon-wrap"><i class="fas fa-truck" aria-hidden="true"></i></div>
                 <h3>Тариф «Грузовой»</h3>
                 <p>Минивэны и грузовики до 5м с грузчиками или без. Переезды, стройматериалы, доставка товаров. Почасовая оплата.</p>
                 <div class="card-footer">
@@ -616,7 +623,7 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="50">
-                <div class="card-icon-wrap"><i class="fas fa-truck-pickup"></i></div>
+                <div class="card-icon-wrap"><i class="fas fa-truck-pickup" aria-hidden="true"></i></div>
                 <h3>Тариф «Такелаж»</h3>
                 <p>Перевозка тяжёлых грузов: такелажники, аренда манипулятора или доставка рохли.</p>
                 <div class="card-footer">
@@ -625,7 +632,7 @@
                 </div>
             </div>
             <div class="card" id="card-apartments-offices" data-aos="fade-up" data-aos-delay="50">
-                <div class="card-icon-wrap"><i class="fas fa-box-open"></i></div>
+                <div class="card-icon-wrap"><i class="fas fa-box-open" aria-hidden="true"></i></div>
                 <h3>Магазин</h3>
                 <p>Коробки, плёнка, скотч и инструмент для переезда. Наборы или поштучно с доставкой.</p>
                 <div class="card-footer">
@@ -635,7 +642,7 @@
             </div>
             <div class="card card--premium" id="card-turnkey" data-aos="zoom-in" data-aos-delay="50">
                 <span class="card-badge">Популярное</span>
-                <div class="card-icon-wrap"><i class="fas fa-home"></i></div>
+                <div class="card-icon-wrap"><i class="fas fa-home" aria-hidden="true"></i></div>
                 <h3>Переезд под ключ</h3>
                 <p>Полный сервис: упаковка, погрузка, перевозка и расстановка вещей на новом месте. Всё включено.</p>
                 <div class="card-footer">
@@ -644,7 +651,7 @@
                 </div>
             </div>
             <div class="card" id="card-furniture" data-aos="fade-up" data-aos-delay="50">
-                <div class="card-icon-wrap"><i class="fas fa-screwdriver-wrench"></i></div>
+                <div class="card-icon-wrap"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></div>
                 <h3>Сборка и разборка мебели</h3>
                 <p>Разберём, перевезём и соберём мебель на новом месте. Аккуратно, быстро, без повреждений.</p>
                 <div class="card-footer">
@@ -653,7 +660,7 @@
                 </div>
             </div>
             <div class="card" id="card-trash" data-aos="fade-up" data-aos-delay="50">
-                <div class="card-icon-wrap"><i class="fas fa-dumpster"></i></div>
+                <div class="card-icon-wrap"><i class="fas fa-dumpster" aria-hidden="true"></i></div>
                 <h3>Вывоз мусора</h3>
                 <p>Оперативный вывоз строительного и бытового мусора. Утилизация старой мебели и техники.</p>
                 <div class="card-footer">
@@ -696,30 +703,30 @@
         <h2 data-aos="fade-up">Наши работы</h2>
         <p class="videos-subtitle" data-aos="fade-up" data-aos-delay="100">Примеры нашей работы</p>
         <div class="videos-slider">
-            <button class="videos-arrow videos-arrow--prev" type="button"><i class="fas fa-chevron-left"></i></button>
+            <button class="videos-arrow videos-arrow--prev" type="button" aria-label="Предыдущее видео"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
             <div class="videos-viewport">
                 <div class="videos-track" style="align-items: center;">
                     <div class="video-slide"><div class="video-slide-iframe">
-                        <div class="yt-facade" data-vid="YxbIeftnPz0"><img src="https://i.ytimg.com/vi/YxbIeftnPz0/hqdefault.jpg" alt="Переезд под ключ котеджа" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                        <div class="yt-facade" data-vid="YxbIeftnPz0" role="button" tabindex="0" aria-label="Смотреть видео: Переезд под ключ котеджа"><img src="https://i.ytimg.com/vi/YxbIeftnPz0/hqdefault.jpg" alt="Переезд под ключ котеджа" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
                     </div><div class="video-slide-label">Переезд под ключ котеджа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                     <div class="video-slide"><div class="video-slide-iframe">
-                        <div class="yt-facade" data-vid="VbL_QYPKR04"><img src="https://i.ytimg.com/vi/VbL_QYPKR04/hqdefault.jpg" alt="Услуги такелажа" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                        <div class="yt-facade" data-vid="VbL_QYPKR04" role="button" tabindex="0" aria-label="Смотреть видео: Услуги такелажа"><img src="https://i.ytimg.com/vi/VbL_QYPKR04/hqdefault.jpg" alt="Услуги такелажа" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
                     </div><div class="video-slide-label">Услуги такелажа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                     <div class="video-slide"><div class="video-slide-iframe">
-                        <div class="yt-facade" data-vid="oQpGif5srmc"><img src="https://i.ytimg.com/vi/oQpGif5srmc/hqdefault.jpg" alt="Разбор и упаковка мебели" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                        <div class="yt-facade" data-vid="oQpGif5srmc" role="button" tabindex="0" aria-label="Смотреть видео: Разбор и упаковка мебели"><img src="https://i.ytimg.com/vi/oQpGif5srmc/hqdefault.jpg" alt="Разбор и упаковка мебели" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
                     </div><div class="video-slide-label">Разбор и упаковка мебели</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                     <div class="video-slide"><div class="video-slide-iframe">
-                        <div class="yt-facade" data-vid="8uo9BBVwK9o"><img src="https://i.ytimg.com/vi/8uo9BBVwK9o/hqdefault.jpg" alt="Разбор и вывоз мебели под ключ" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                        <div class="yt-facade" data-vid="8uo9BBVwK9o" role="button" tabindex="0" aria-label="Смотреть видео: Разбор и вывоз мебели под ключ"><img src="https://i.ytimg.com/vi/8uo9BBVwK9o/hqdefault.jpg" alt="Разбор и вывоз мебели под ключ" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
                     </div><div class="video-slide-label">Разбор и вывоз мебели под ключ</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                 </div>
             </div>
-            <button class="videos-arrow videos-arrow--next" type="button"><i class="fas fa-chevron-right"></i></button>
+            <button class="videos-arrow videos-arrow--next" type="button" aria-label="Следующее видео"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
         </div>
-        <div class="videos-cta" data-aos="fade-up"><a href="https://www.youtube.com/@gruzimkz" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube канал</a></div>
+        <div class="videos-cta" data-aos="fade-up"><a href="https://www.youtube.com/@gruzimkz" target="_blank" rel="noopener"><i class="fab fa-youtube" aria-hidden="true"></i> YouTube канал</a></div>
     </section>
     <div class="contact-full-width">
         <h3>Связаться с нами</h3>
-        <a href="tel:+77010120300" class="phone-link"><i class="fas fa-phone-alt"></i> +7 701 012 03 00</a>
+        <a href="tel:+77010120300" class="phone-link"><i class="fas fa-phone-alt" aria-hidden="true"></i> +7 701 012 03 00</a>
     </div>
     <section class="section">
         <div class="stats-grid">
@@ -735,11 +742,11 @@
             <div class="calculator-grid">
                 <div class="map-container" id="mapContainer" style="display:none"><div id="map"></div></div>
                 <div class="calculator-form">
-                    <div class="form-group"><label>Выберите тариф:</label><div class="tariff-selector" id="tariffSelector"><div class="tariff-option selected" data-price="7000" data-name="Грузовой"><i class="fas fa-truck"></i><div>Грузовой</div><div class="price">7 000 ₸/час</div></div><div class="tariff-option" data-price="5000" data-name="Минивэн"><i class="fas fa-truck-pickup"></i><div>Минивэн</div><div class="price">5 000 ₸/час</div></div><div class="tariff-option" data-price="14000" data-name="Комплект"><i class="fas fa-truck-moving"></i><div>Комплект</div><div class="price">14 000 ₸/час</div></div></div></div>
-                    <div class="form-group"><label>Сколько часов нужно? <span id="hoursDisplay" class="hours-value">1 ч</span></label><div class="hours-control"><button class="hours-btn" id="decreaseHours" type="button">−</button><input type="number" id="hoursInput" min="1" max="8" value="1" step="0.5"><button class="hours-btn" id="increaseHours" type="button">+</button></div></div>
+                    <div class="form-group"><span class="form-group-label" id="tariffLabel">Выберите тариф:</span><div class="tariff-selector" id="tariffSelector" role="group" aria-labelledby="tariffLabel"><div class="tariff-option selected" data-price="7000" data-name="Грузовой"><i class="fas fa-truck" aria-hidden="true"></i><div>Грузовой</div><div class="price">7 000 ₸/час</div></div><div class="tariff-option" data-price="5000" data-name="Минивэн"><i class="fas fa-truck-pickup" aria-hidden="true"></i><div>Минивэн</div><div class="price">5 000 ₸/час</div></div><div class="tariff-option" data-price="14000" data-name="Комплект"><i class="fas fa-truck-moving" aria-hidden="true"></i><div>Комплект</div><div class="price">14 000 ₸/час</div></div></div></div>
+                    <div class="form-group"><label for="hoursInput">Сколько часов нужно? <span id="hoursDisplay" class="hours-value">1 ч</span></label><div class="hours-control"><button class="hours-btn" id="decreaseHours" type="button" aria-label="Уменьшить количество часов">−</button><input type="number" id="hoursInput" min="1" max="8" value="1" step="0.5" aria-label="Количество часов"><button class="hours-btn" id="increaseHours" type="button" aria-label="Увеличить количество часов">+</button></div></div>
                     <div class="total-price" id="totalPrice">7 000 ₸</div>
                     <a href="tel:+77010120300" class="cta-button" style="display: block; text-align: center; background: #22c55e; margin-bottom: 10px;">📞 Заказать</a>
-                    <p class="calculator-note"><i class="fas fa-info-circle"></i> Минимальный заказ — 1 час. Далее с шагом 30 минут.</p>
+                    <p class="calculator-note"><i class="fas fa-info-circle" aria-hidden="true"></i> Минимальный заказ — 1 час. Далее с шагом 30 минут.</p>
                 </div>
             </div>
         </div>
@@ -748,15 +755,15 @@
         <h2>Наши клиенты</h2>
         <p class="clients-subtitle">Работаем и с магазинами, и с офисами, и со складами. Ниже несколько переездов под ключ.</p>
         <div class="clients-slider">
-            <button class="clients-arrow clients-arrow--prev" type="button"><i class="fas fa-chevron-left"></i></button>
+            <button class="clients-arrow clients-arrow--prev" type="button" aria-label="Предыдущий клиент"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
             <div class="clients-viewport"><div class="clients-track">
-                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden" loading="lazy"></div><div class="client-name" itemprop="author">JOY Garden</div><div class="client-type" itemprop="itemReviewed">Переезд магазина на 3 склада</div><p class="client-details" itemprop="reviewBody">Перевод торгового зала и склада на три точки хранения. Упаковка витрин, загрузка, доставка и расстановка товара — переезд под ключ за 10 дней, 15т товара.</p><div class="client-meta">Астана · Магазин → 3 склада</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
-                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-zte-astana.png" alt="ZTE Astana" loading="lazy"></div><div class="client-name" itemprop="author">ZTE Astana</div><div class="client-type" itemprop="itemReviewed">Переезд офиса на 50 сотрудников</div><p class="client-details" itemprop="reviewBody">Полная организация переезда: упаковка рабочих мест, оргтехника, мебель, демонтаж и сборка. Переезд без остановки работы офиса.</p><div class="client-meta">Астана · Офис 50+ мест</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
-                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-astana-logistics.png" alt="Astana Logistics Group" loading="lazy"></div><div class="client-name" itemprop="author">Astana Logistics Group</div><div class="client-type" itemprop="itemReviewed">Переезд склада</div><p class="client-details" itemprop="reviewBody">Перенос складского запаса, паллет и стеллажей. Этапная работа и ночные смены для сохранения логистики клиента.</p><div class="client-meta">Складской комплекс</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
-                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-dm.png" alt="DamuMed" loading="lazy"></div><div class="client-name" itemprop="author">DamuMed</div><div class="client-type" itemprop="itemReviewed">Офисный переезд под ключ</div><p class="client-details" itemprop="reviewBody">Комплексный переезд офиса IT‑компании: 70+ сотрудников, рабочие места, серверная зона и кухня. Поэтапный перенос отделов без остановки бизнес‑процессов.</p><div class="client-meta">Астана · Офис 70+ сотрудников</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
-                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-gch.png" alt="Office & Warehouse" loading="lazy"></div><div class="client-name" itemprop="author">GigaTech</div><div class="client-type" itemprop="itemReviewed">Переезд офиса и склада</div><p class="client-details" itemprop="reviewBody">Организованный переезд офиса и складских зон: 20+ сотрудников, техника, документы.</p><div class="client-meta">Астана · Офис и склад</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-joy-garden.png" width="120" height="60" loading="lazy" decoding="async" alt="JOY Garden"></div><div class="client-name" itemprop="author">JOY Garden</div><div class="client-type" itemprop="itemReviewed">Переезд магазина на 3 склада</div><p class="client-details" itemprop="reviewBody">Перевод торгового зала и склада на три точки хранения. Упаковка витрин, загрузка, доставка и расстановка товара — переезд под ключ за 10 дней, 15т товара.</p><div class="client-meta">Астана · Магазин → 3 склада</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-zte-astana.png" width="120" height="60" loading="lazy" decoding="async" alt="ZTE Astana"></div><div class="client-name" itemprop="author">ZTE Astana</div><div class="client-type" itemprop="itemReviewed">Переезд офиса на 50 сотрудников</div><p class="client-details" itemprop="reviewBody">Полная организация переезда: упаковка рабочих мест, оргтехника, мебель, демонтаж и сборка. Переезд без остановки работы офиса.</p><div class="client-meta">Астана · Офис 50+ мест</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-astana-logistics.png" width="120" height="60" loading="lazy" decoding="async" alt="Astana Logistics Group"></div><div class="client-name" itemprop="author">Astana Logistics Group</div><div class="client-type" itemprop="itemReviewed">Переезд склада</div><p class="client-details" itemprop="reviewBody">Перенос складского запаса, паллет и стеллажей. Этапная работа и ночные смены для сохранения логистики клиента.</p><div class="client-meta">Складской комплекс</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-dm.png" width="120" height="60" loading="lazy" decoding="async" alt="DamuMed"></div><div class="client-name" itemprop="author">DamuMed</div><div class="client-type" itemprop="itemReviewed">Офисный переезд под ключ</div><p class="client-details" itemprop="reviewBody">Комплексный переезд офиса IT‑компании: 70+ сотрудников, рабочие места, серверная зона и кухня. Поэтапный перенос отделов без остановки бизнес‑процессов.</p><div class="client-meta">Астана · Офис 70+ сотрудников</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-gch.png" width="120" height="60" loading="lazy" decoding="async" alt="Office & Warehouse"></div><div class="client-name" itemprop="author">GigaTech</div><div class="client-type" itemprop="itemReviewed">Переезд офиса и склада</div><p class="client-details" itemprop="reviewBody">Организованный переезд офиса и складских зон: 20+ сотрудников, техника, документы.</p><div class="client-meta">Астана · Офис и склад</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
             </div></div>
-            <button class="clients-arrow clients-arrow--next" type="button"><i class="fas fa-chevron-right"></i></button>
+            <button class="clients-arrow clients-arrow--next" type="button" aria-label="Следующий клиент"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
         </div>
     </section>
     <section class="section steps-section" id="steps">
@@ -776,27 +783,27 @@
     <section class="section" id="features">
         <h2>Почему выбирают нас</h2>
         <div class="features-grid">
-            <div class="feature-item"><i class="fas fa-award icon"></i><h3>Более 6 лет на рынке</h3><p>Накопленный опыт позволяет решать задачи любой сложности.</p></div>
-            <div class="feature-item"><i class="fas fa-truck-fast icon"></i><h3>Более 500 заказов</h3><p>Успешно выполненных перевозок и довольных клиентов.</p></div>
-            <div class="feature-item"><i class="fas fa-clock icon"></i><h3>Работаем с 8:00 до 22:00</h3><p>Ежедневно, без выходных и праздников для вашего удобства.</p></div>
-            <div class="feature-item"><i class="fas fa-user-tie icon"></i><h3>Профессиональные водители</h3><p>Опытные и ответственные сотрудники.</p></div>
+            <div class="feature-item"><i class="fas fa-award icon" aria-hidden="true"></i><h3>Более 6 лет на рынке</h3><p>Накопленный опыт позволяет решать задачи любой сложности.</p></div>
+            <div class="feature-item"><i class="fas fa-truck-fast icon" aria-hidden="true"></i><h3>Более 500 заказов</h3><p>Успешно выполненных перевозок и довольных клиентов.</p></div>
+            <div class="feature-item"><i class="fas fa-clock icon" aria-hidden="true"></i><h3>Работаем с 8:00 до 22:00</h3><p>Ежедневно, без выходных и праздников для вашего удобства.</p></div>
+            <div class="feature-item"><i class="fas fa-user-tie icon" aria-hidden="true"></i><h3>Профессиональные водители</h3><p>Опытные и ответственные сотрудники.</p></div>
         </div>
     </section>
     <section class="section legal-entities-section" id="legal-entities">
         <h2><a href="B2B.html">Работаем с юридическими лицами</a></h2>
         <p class="description" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Мы предлагаем удобные условия сотрудничества для бизнеса. Принимаем оплату по безналичному расчету, с документами для юр. лиц.</p>
         <div class="legal-entities-grid">
-            <div class="legal-entity-item"><i class="fas fa-money-check-alt icon"></i><h3>Безналичный расчет</h3><p>Удобная оплата услуг для компаний через банк.</p></div>
-            <div class="legal-entity-item"><i class="fas fa-file-invoice-dollar icon"></i><h3>Работа с документами</h3><p>Полный пакет закрывающих документов.</p></div>
-            <div class="legal-entity-item"><i class="fas fa-handshake icon"></i><h3>Договорная основа</h3><p>Гарантия выполнения обязательств.</p></div>
+            <div class="legal-entity-item"><i class="fas fa-money-check-alt icon" aria-hidden="true"></i><h3>Безналичный расчет</h3><p>Удобная оплата услуг для компаний через банк.</p></div>
+            <div class="legal-entity-item"><i class="fas fa-file-invoice-dollar icon" aria-hidden="true"></i><h3>Работа с документами</h3><p>Полный пакет закрывающих документов.</p></div>
+            <div class="legal-entity-item"><i class="fas fa-handshake icon" aria-hidden="true"></i><h3>Договорная основа</h3><p>Гарантия выполнения обязательств.</p></div>
         </div>
     </section>
     <section class="section faq-section" id="faq">
         <h2>Вопросы и ответы</h2>
-        <div class="faq-item"><div class="faq-question">Сколько стоит перевозка?</div><div class="faq-answer">Стоимость зависит от расстояния, объёма груза и дополнительных услуг. Точную цену называем по телефону или в WhatsApp.</div></div>
-        <div class="faq-item"><div class="faq-question">Работаете ли вы с юридическими лицами?</div><div class="faq-answer">Да, предоставляем договор, безналичный расчёт и закрывающие документы.</div></div>
-        <div class="faq-item"><div class="faq-question">Вы работаете по выходным?</div><div class="faq-answer">Да, работаем ежедневно с 8:00 до 22:00 без выходных.</div></div>
-        <div class="faq-item"><div class="faq-question">Из чего формируется цена на вывоз мусора?</div><div class="faq-answer">Цена складывается из нескольких обязательных расходов: полигон за городом, приём мусора, топливо, работа водителя. Минимальная стоимость от 15 000 тг.</div></div>
+        <div class="faq-item"><div class="faq-question" role="button" tabindex="0" aria-expanded="false">Сколько стоит перевозка?</div><div class="faq-answer">Стоимость зависит от расстояния, объёма груза и дополнительных услуг. Точную цену называем по телефону или в WhatsApp.</div></div>
+        <div class="faq-item"><div class="faq-question" role="button" tabindex="0" aria-expanded="false">Работаете ли вы с юридическими лицами?</div><div class="faq-answer">Да, предоставляем договор, безналичный расчёт и закрывающие документы.</div></div>
+        <div class="faq-item"><div class="faq-question" role="button" tabindex="0" aria-expanded="false">Вы работаете по выходным?</div><div class="faq-answer">Да, работаем ежедневно с 8:00 до 22:00 без выходных.</div></div>
+        <div class="faq-item"><div class="faq-question" role="button" tabindex="0" aria-expanded="false">Из чего формируется цена на вывоз мусора?</div><div class="faq-answer">Цена складывается из нескольких обязательных расходов: полигон за городом, приём мусора, топливо, работа водителя. Минимальная стоимость от 15 000 тг.</div></div>
     </section>
    <section class="section seo-article" id="about">
     <h2>Gruzim.kz — Больше, чем просто грузоперевозки в Астане</h2>
@@ -857,8 +864,10 @@
             <h2>Оставьте заявку</h2>
             <p>Мы перезвоним вам в течение 5 минут и рассчитаем стоимость</p>
             <form class="callback-form" id="callbackForm">
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+                <label for="cbName" class="sr-only">Ваше имя</label>
+                <input type="text" id="cbName" name="name" placeholder="Ваше имя" autocomplete="name" required>
+                <label for="cbPhone" class="sr-only">Номер телефона</label>
+                <input type="tel" id="cbPhone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" required>
                 <button type="submit" id="callbackSubmitBtn">Отправить заявку</button>
             </form>
             <div class="form-success" id="callbackSuccess">✅ Спасибо! Мы свяжемся с вами в ближайшее время.</div>
@@ -866,18 +875,18 @@
     </section>
     <footer>
         <div class="footer-inner">
-            <div class="footer-col"><img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo" loading="lazy"><p>Грузоперевозки по Астане и регионам Казахстана.</p><p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p><div style="margin-top:15px;display:flex;gap:12px;font-size:1.5rem;"><i class="fab fa-cc-visa" style="color:#1a1f71;"></i><i class="fab fa-cc-mastercard" style="color:#eb001b;"></i><i class="fas fa-wallet" style="color:#f97316;"></i><span style="font-size:0.9rem;">Kaspi Red</span></div></div>
-            <div class="footer-col"><h4>Контакты</h4><p><i class="fas fa-phone"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p><p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300">Написать в WhatsApp</a></p><p><i class="fab fa-telegram"></i> <a href="https://t.me/gruzimkz">Telegram</a></p><p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p></div>
+            <div class="footer-col"><img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo" width="160" height="50" loading="lazy" decoding="async"><p>Грузоперевозки по Астане и регионам Казахстана.</p><p>&copy; 2019-2025 gruzim.kz. Все права защищены.</p><div style="margin-top:15px;display:flex;gap:12px;font-size:1.5rem;"><i class="fab fa-cc-visa" style="color:#1a1f71;" aria-hidden="true"></i><i class="fab fa-cc-mastercard" style="color:#eb001b;" aria-hidden="true"></i><i class="fas fa-wallet" style="color:#f97316;" aria-hidden="true"></i><span style="font-size:0.9rem;">Kaspi Red</span></div></div>
+            <div class="footer-col"><h4>Контакты</h4><p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p><p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/77010120300">Написать в WhatsApp</a></p><p><i class="fab fa-telegram" aria-hidden="true"></i> <a href="https://t.me/gruzimkz">Telegram</a></p><p><i class="fas fa-clock" aria-hidden="true"></i> Ежедневно с 8:00 до 22:00</p></div>
             <div class="footer-col"><h4>Информация</h4><p><a href="#" id="privacy-policy-link">Политика конфиденциальности</a></p><p><a href="#" id="terms-of-service-link">Условия использования</a></p><p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p></div>
         </div>
     </footer>
     <div class="floating-buttons">
         <div class="fab-menu" id="fabMenu">
-            <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить"><i class="fas fa-phone"></i></a>
-            <a href="#" class="fab-menu-item whatsapp" id="fabWhatsApp" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="fab-menu-item telegram" id="fabTelegram" title="Telegram" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+            <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить" aria-label="Позвонить"><i class="fas fa-phone" aria-hidden="true"></i></a>
+            <a href="#" class="fab-menu-item whatsapp" id="fabWhatsApp" title="WhatsApp" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="#" class="fab-menu-item telegram" id="fabTelegram" title="Telegram" target="_blank" rel="noopener" aria-label="Написать в Telegram"><i class="fab fa-telegram-plane" aria-hidden="true"></i></a>
         </div>
-        <button class="fab-main" id="fabMain" aria-label="Открыть меню"><i class="fas fa-phone"></i></button>
+        <button class="fab-main" id="fabMain" aria-label="Открыть меню связи" aria-expanded="false"><i class="fas fa-phone" aria-hidden="true"></i></button>
     </div>
     <script>
         (function() {
@@ -887,8 +896,8 @@
             const catalogLogo = document.getElementById('catalogLogo');
             const closeMobileNav = document.getElementById('closeMobileNav');
             const navOverlay = document.getElementById('mnavOverlay');
-            function openMenu() { if (burger) burger.classList.add('active'); if (mobileNav) mobileNav.classList.add('active'); if (navOverlay) navOverlay.classList.add('active'); }
-            function closeMenu() { if (burger) burger.classList.remove('active'); if (mobileNav) mobileNav.classList.remove('active'); if (navOverlay) navOverlay.classList.remove('active'); }
+            function openMenu() { if (burger) { burger.classList.add('active'); burger.setAttribute('aria-expanded','true'); } if (mobileNav) mobileNav.classList.add('active'); if (navOverlay) navOverlay.classList.add('active'); }
+            function closeMenu() { if (burger) { burger.classList.remove('active'); burger.setAttribute('aria-expanded','false'); } if (mobileNav) mobileNav.classList.remove('active'); if (navOverlay) navOverlay.classList.remove('active'); }
             function toggleMenu() { (mobileNav && mobileNav.classList.contains('active')) ? closeMenu() : openMenu(); }
             if (burger) burger.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
             if (catalogLogo) catalogLogo.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
@@ -902,7 +911,11 @@
                 if (catalogLogo && catalogLogo.contains(e.target)) return;
                 closeMenu();
             });
-            document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', () => { q.parentElement.classList.toggle('open'); }); });
+            document.querySelectorAll('.faq-question').forEach(q => {
+                function toggle() { const open = q.parentElement.classList.toggle('open'); q.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+                q.addEventListener('click', toggle);
+                q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+            });
             const tariffOptions = document.querySelectorAll('.tariff-option');
             const hoursInput = document.getElementById('hoursInput');
             const hoursDisplay = document.getElementById('hoursDisplay');
@@ -926,7 +939,7 @@
             const apartmentsCard = document.getElementById('card-apartments-offices'); const floatingButtons = document.querySelector('.floating-buttons');
             if (apartmentsCard && floatingButtons && 'IntersectionObserver' in window) { const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { floatingButtons.classList.add('is-visible'); observer.disconnect(); } }); }, { threshold: 0.3 }); observer.observe(apartmentsCard); }
             const fabMain = document.getElementById('fabMain'); const fabMenuItems = document.querySelectorAll('.fab-menu-item');
-            if (fabMain) { fabMain.addEventListener('click', (e) => { e.stopPropagation(); fabMenuItems.forEach((item, index) => { if (!item.classList.contains('show')) { setTimeout(() => { item.classList.add('show'); }, index * 50); } else { item.classList.remove('show'); } }); fabMain.classList.toggle('active'); }); fabMenuItems.forEach(item => { item.addEventListener('click', () => { fabMenuItems.forEach(i => i.classList.remove('show')); fabMain.classList.remove('active'); }); }); document.addEventListener('click', (e) => { if (!fabMain.contains(e.target) && !Array.from(fabMenuItems).some(item => item.contains(e.target))) { fabMenuItems.forEach(item => item.classList.remove('show')); fabMain.classList.remove('active'); } }); }
+            if (fabMain) { fabMain.addEventListener('click', (e) => { e.stopPropagation(); fabMenuItems.forEach((item, index) => { if (!item.classList.contains('show')) { setTimeout(() => { item.classList.add('show'); }, index * 50); } else { item.classList.remove('show'); } }); fabMain.classList.toggle('active'); fabMain.setAttribute('aria-expanded', fabMain.classList.contains('active') ? 'true' : 'false'); }); fabMenuItems.forEach(item => { item.addEventListener('click', () => { fabMenuItems.forEach(i => i.classList.remove('show')); fabMain.classList.remove('active'); fabMain.setAttribute('aria-expanded','false'); }); }); document.addEventListener('click', (e) => { if (!fabMain.contains(e.target) && !Array.from(fabMenuItems).some(item => item.contains(e.target))) { fabMenuItems.forEach(item => item.classList.remove('show')); fabMain.classList.remove('active'); fabMain.setAttribute('aria-expanded','false'); } }); }
             function isMobileDevice() { return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); }
             function updateMessengerLinks() { const phoneNumber = '77010120300'; const isMobileDeviceFlag = isMobileDevice(); const whatsappLink = document.getElementById('fabWhatsApp'); if (whatsappLink) { whatsappLink.href = isMobileDeviceFlag ? `https://wa.me/${phoneNumber}` : `https://web.whatsapp.com/send?phone=${phoneNumber}`; } const telegramLink = document.getElementById('fabTelegram'); if (telegramLink) { telegramLink.href = isMobileDeviceFlag ? `tg://resolve?domain=${phoneNumber}` : `https://t.me/${phoneNumber}`; } }
             window.addEventListener('load', updateMessengerLinks); updateMessengerLinks();
@@ -934,11 +947,11 @@
             if (callbackForm) { callbackForm.addEventListener('submit', async function(e) { e.preventDefault(); const name = this.querySelector('input[name="name"]').value; const phone = this.querySelector('input[name="phone"]').value; if (callbackSubmitBtn) { callbackSubmitBtn.disabled = true; callbackSubmitBtn.textContent = 'Отправка...'; } const src = (window.GZ && GZ.source) ? GZ.source() : (document.referrer || 'прямой заход'); const text = `📞 <b>НОВАЯ ЗАЯВКА С САЙТА</b>\nИмя: ${name}\nТелефон: ${phone}\nОткуда: ${src}\nСтраница: ${window.location.href}`; try { await fetch(`https://api.telegram.org/bot${GZ.cfg.TG_TOKEN}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: text, parse_mode: 'HTML', disable_web_page_preview: true }) }); } catch (err) { console.log(err); } if (window.GZ) GZ.conversion(); if (callbackSuccess) callbackSuccess.style.display = 'block'; this.reset(); setTimeout(() => { if (callbackSuccess) callbackSuccess.style.display = 'none'; }, 5000); if (callbackSubmitBtn) { callbackSubmitBtn.disabled = false; callbackSubmitBtn.textContent = 'Отправить заявку'; } }); }
             document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности: мы не передаем ваши данные третьим лицам.'); });
             document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
-            document.addEventListener('DOMContentLoaded', function() { const copyrightElements = document.querySelectorAll('footer p, .footer-col p'); const currentYear = new Date().getFullYear(); copyrightElements.forEach(el => { if (el.textContent.includes('2019-2025')) el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`); if (el.textContent.includes('2019-2026')) el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`); }); const footerCols = document.querySelectorAll('.footer-col'); if (footerCols.length > 0) { const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']; const now = new Date(); const monthName = months[now.getMonth()]; const year = now.getFullYear(); const priceNote = document.createElement('p'); priceNote.style.cssText = 'font-size:0.85em;color:#94a3b8;margin-top:10px'; priceNote.innerHTML = `Цены на грузоперевозки актуальны на ${monthName} ${year}`; const firstCol = footerCols[0]; if (firstCol) firstCol.appendChild(priceNote); } });
+            document.addEventListener('DOMContentLoaded', function() { const copyrightElements = document.querySelectorAll('footer p, .footer-col p'); const currentYear = new Date().getFullYear(); copyrightElements.forEach(el => { if (el.textContent.includes('2019-2025')) el.textContent = el.textContent.replace('2019-2025', `2019-${currentYear}`); if (el.textContent.includes('2019-2026')) el.textContent = el.textContent.replace('2019-2026', `2019-${currentYear}`); }); const footerCols = document.querySelectorAll('.footer-col'); if (footerCols.length > 0) { const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']; const now = new Date(); const monthName = months[now.getMonth()]; const year = now.getFullYear(); const priceNote = document.createElement('p'); priceNote.style.cssText = 'font-size:0.85em;color:#64748b;margin-top:10px'; priceNote.innerHTML = `Цены на грузоперевозки актуальны на ${monthName} ${year}`; const firstCol = footerCols[0]; if (firstCol) firstCol.appendChild(priceNote); } });
             const videosTrack = document.querySelector('.videos-track'); const videosPrev = document.querySelector('.videos-arrow--prev'); const videosNext = document.querySelector('.videos-arrow--next');
             if (videosTrack && videosPrev && videosNext) { const videoSlides = document.querySelectorAll('.video-slide'); let videoIndex = 0; function showVideoSlide(index) { const count = videoSlides.length; videoIndex = (index + count) % count; videosTrack.style.transform = 'translateX(' + (-videoIndex * 100) + '%)'; } videosPrev.addEventListener('click', function() { showVideoSlide(videoIndex - 1); }); videosNext.addEventListener('click', function() { showVideoSlide(videoIndex + 1); }); }
             document.querySelectorAll('.yt-facade').forEach(function(facade) {
-                facade.addEventListener('click', function() {
+                function activate() {
                     var vid = facade.dataset.vid;
                     var iframe = document.createElement('iframe');
                     iframe.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0';
@@ -947,7 +960,9 @@
                     iframe.allowFullscreen = true;
                     facade.innerHTML = '';
                     facade.appendChild(iframe);
-                }, {once: true});
+                }
+                facade.addEventListener('click', activate, {once: true});
+                facade.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } }, {once: true});
             });
 
             if (isMobileForLoad) {
@@ -992,7 +1007,7 @@
                 }
 
                 var mapContainer = document.getElementById('mapContainer');
-                if (mapContainer) mapContainer.style.display = '';
+                if (mapContainer) mapContainer.style.display = 'none';
                 function initMapDesktop() {
                     if (typeof ymaps === 'undefined') return;
                     var map = new ymaps.Map("map", { center: [51.1605, 71.4704], zoom: 12, controls: ['zoomControl', 'fullscreenControl'] });
@@ -1002,10 +1017,15 @@
                     var officePlacemark = new ymaps.Placemark([51.1605, 71.4704], { hintContent: 'Gruzim.kz', balloonContent: 'Наш офис в Астане' }, { preset: 'islands#blueIcon' });
                     map.geoObjects.add(officePlacemark);
                 }
-                var yandexScript = document.createElement('script');
-                yandexScript.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU';
-                yandexScript.onload = function() { ymaps.ready(initMapDesktop); };
-                document.head.appendChild(yandexScript);
+                var YMAPS_KEY = ''; // TODO: вставьте реальный ключ API Яндекс.Карт
+                if (mapContainer && YMAPS_KEY) {
+                    var yandexScript = document.createElement('script');
+                    yandexScript.src = 'https://api-maps.yandex.ru/2.1/?apikey=' + YMAPS_KEY + '&lang=ru_RU';
+                    yandexScript.onload = function() { ymaps.ready(initMapDesktop); };
+                    document.head.appendChild(yandexScript);
+                } else if (mapContainer) {
+                    mapContainer.style.display = 'none';
+                }
             }
         })();
     </script>
