@@ -13,7 +13,6 @@
     <meta name="ICBM" content="51.160523, 71.470356">
     <link rel="canonical" href="https://gruzim.kz/musor/stroy.html">
     <link rel="alternate" hreflang="ru" href="https://gruzim.kz/musor/stroy.html">
-    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/musor/stroykz.html">
     <link rel="alternate" hreflang="x-default" href="https://gruzim.kz/musor/stroy.html">
 
     <!-- Open Graph -->
@@ -106,29 +105,64 @@
     </script>
 
     <script>
-        var isMobileGA = window.innerWidth <= 768;
+    (function () {
+        var GZ_CFG = {
+            GA4: 'G-2VWS9V6KVJ',
+            ADS: 'AW-17503887977',
+            ADS_LABEL: 'AW-17503887977/Bhv2CLu4y7ocEOnEwJpB',
+            GTM: 'GTM-PLXM434L',
+            YM: 104276494
+        };
+        var isMobile = window.innerWidth <= 768;
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        var gtagScriptLoaded = false;
-        function ensureGtagLoaded() {
-            if (gtagScriptLoaded) return;
-            gtagScriptLoaded = true;
-            var s = document.createElement('script');
-            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ';
-            s.async = true;
-            document.head.appendChild(s);
-            gtag('config', 'G-2VWS9V6KVJ');
-            gtag('config', 'AW-17503887977');
+        window.gtag = function () { dataLayer.push(arguments); };
+        window.ym = window.ym || function () { (ym.a = ym.a || []).push(arguments); };
+        ym.l = 1 * new Date();
+
+        var loaded = false;
+        function loadAnalytics() {
+            if (loaded) return;
+            loaded = true;
+            var g = document.createElement('script');
+            g.async = true;
+            g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GZ_CFG.GA4;
+            document.head.appendChild(g);
+            gtag('js', new Date());
+            gtag('config', GZ_CFG.GA4);
+            gtag('config', GZ_CFG.ADS);
+            (function (w, d, s, l, i) {
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', GZ_CFG.GTM);
+            var m = document.createElement('script');
+            m.async = true;
+            m.src = 'https://mc.yandex.ru/metrika/tag.js?id=' + GZ_CFG.YM;
+            document.head.appendChild(m);
+            ym(GZ_CFG.YM, 'init', { webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true, defer: true });
         }
-        function gtag_report_conversion(url) {
-            ensureGtagLoaded();
-            var callback = function () { if (typeof(url) !== 'undefined') { window.location = url; } };
-            gtag('event', 'conversion', { 'send_to': 'AW-17503887977/Bhv2CLu4y7ocEOnEwJpB', 'event_callback': callback, 'event_timeout': 2000 });
+        window.ensureGtagLoaded = loadAnalytics;
+        window.GZ = { cfg: GZ_CFG, ready: loadAnalytics, conversion: function () { loadAnalytics(); gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL }); } };
+        window.gtag_report_conversion = function (url) {
+            loadAnalytics();
+            var cb = function () { if (typeof url !== 'undefined' && url) window.location = url; };
+            gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL, event_callback: cb, event_timeout: 2000 });
             return false;
+        };
+        if (isMobile) {
+            var fired = false, evts = ['scroll', 'touchstart', 'click', 'keydown'];
+            function trigger() { if (fired) return; fired = true; evts.forEach(function (e) { window.removeEventListener(e, trigger); }); loadAnalytics(); }
+            evts.forEach(function (e) { window.addEventListener(e, trigger, { passive: true }); });
+            setTimeout(trigger, 3500);
+        } else if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAnalytics, { timeout: 2000 });
+        } else {
+            window.addEventListener('load', loadAnalytics);
         }
-        if (!isMobileGA) { ensureGtagLoaded(); }
+    })();
     </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
@@ -181,7 +215,16 @@
         .breadcrumbs a:hover{text-decoration:underline;}
         .breadcrumbs [aria-current="page"]{color:#64748b;}
 
-        .hero-header{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),url('fon.jpg') no-repeat center center/cover;color:white;padding:90px 20px 80px;text-align:center;}
+        .hero-header{position:relative;overflow:hidden;background:#1f2937;color:white;padding:90px 20px 80px;text-align:center;}
+        .hero-bg{position:absolute;inset:0;z-index:0;margin:0;line-height:0;}
+        .hero-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+        .hero-header::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.72);z-index:1;pointer-events:none;}
+        .hero-header > div{position:relative;z-index:2;}
+        @media(max-width:768px){
+            .table-section,.seo-article,.section,.contact-form-section,footer{content-visibility:auto;contain-intrinsic-size:0 400px;}
+            *{transition-duration:.15s!important;animation-duration:.15s!important;}
+            [data-aos]{opacity:1!important;transform:none!important;}
+        }
         .hero-header h1{font-size:2.8em;margin-bottom:16px;line-height:1.2;}
         .hero-sub{font-size:1.15em;color:rgba(255,255,255,0.85);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;}
         .brand-blue{color:#2563eb;font-weight:800;}
@@ -287,14 +330,17 @@
         .related-grid a:hover{background:#2563eb;color:#fff;}
     </style>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="preload" as="image" href="fon.jpg" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="fon-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width:768px)">
+    <link rel="preload" as="image" href="fon.webp" type="image/webp" fetchpriority="high" media="(min-width:769px)">
 </head>
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <nav aria-label="Breadcrumb" class="breadcrumbs">
         <ol>
@@ -369,12 +415,19 @@
             </details>
 
             <a href="../shop.html" class="mnav-flat">Магазин упаковки</a>
+            <a href="../mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
             <a href="../B2B.html" class="mnav-flat">Для юр. лиц</a>
             <a href="../index.html#about" class="mnav-flat">О нас</a>
         </nav>
     </header>
 
     <header class="hero-header">
+        <picture class="hero-bg">
+            <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
+            <source media="(max-width:768px)" srcset="fon-mobile.jpg">
+            <source type="image/webp" srcset="fon.webp">
+            <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+        </picture>
         <div>
             <h1><span class="brand-blue">Gruzim.kz</span> | <span class="brand-orange">Вывоз и утилизация строительного мусора в Астане</span></h1>
             <p class="hero-sub">Мешки, бетон, кирпич, гипсокартон, грунт, бой после ремонта и сноса. Забор с паркинга +5000 ₸ до 1,5 т. С грузчиками или самостоятельно. Для юр.лиц с документами.</p>
