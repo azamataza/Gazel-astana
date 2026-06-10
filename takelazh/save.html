@@ -11,7 +11,6 @@
     <meta name="geo.placename" content="Астана" />
     <link rel="canonical" href="https://gruzim.kz/takelazh/save.html" />
     <link rel="alternate" hreflang="ru" href="https://gruzim.kz/takelazh/save.html" />
-    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/takelazh/savekz.html" />
     <link rel="alternate" hreflang="x-default" href="https://gruzim.kz/takelazh/save.html" />
 
     <meta property="og:title" content="Перевозка сейфов в Астане — от 30 000 ₸" />
@@ -111,11 +110,14 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="fon-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width:768px)">
+    <link rel="preload" as="image" href="fon.webp" type="image/webp" fetchpriority="high" media="(min-width:769px)">
 
     <script>
     (function () {
@@ -123,12 +125,16 @@
             GA4: 'G-2VWS9V6KVJ',
             ADS: 'AW-17503887977',
             ADS_LABEL: 'AW-17503887977/LeM2CNHqtrocEOnEwJpB',
+            GTM: 'GTM-PLXM434L',
+            YM: 104276494,
             TG_TOKEN: '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4',
             TG_CHAT: '8277380855'
         };
         var isMobile = window.innerWidth <= 768;
         window.dataLayer = window.dataLayer || [];
         window.gtag = function () { dataLayer.push(arguments); };
+        window.ym = window.ym || function () { (ym.a = ym.a || []).push(arguments); };
+        ym.l = 1 * new Date();
 
         var loaded = false;
         function ensureGtagLoaded() {
@@ -141,6 +147,17 @@
             gtag('js', new Date());
             gtag('config', GZ_CFG.GA4);
             gtag('config', GZ_CFG.ADS);
+            (function (w, d, s, l, i) {
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', GZ_CFG.GTM);
+            var m = document.createElement('script');
+            m.async = true;
+            m.src = 'https://mc.yandex.ru/metrika/tag.js?id=' + GZ_CFG.YM;
+            document.head.appendChild(m);
+            ym(GZ_CFG.YM, 'init', { webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true, defer: true });
         }
 
         window.GZ = {
@@ -234,8 +251,16 @@
         .breadcrumbs a{color:#2563eb;text-decoration:none;}
         .breadcrumbs a:hover{text-decoration:underline;}
 
-        .hero-header{background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),url('../fon.jpg') no-repeat center center/cover;color:white;padding:90px 20px 70px;text-align:center;}
-        .hero-header{background-image:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)),image-set(url('../fon.webp') type('image/webp'),url('../fon.jpg') type('image/jpeg'));}
+        .hero-header{position:relative;overflow:hidden;background:#1f2937;color:white;padding:90px 20px 70px;text-align:center;}
+        .hero-bg{position:absolute;inset:0;z-index:0;margin:0;line-height:0;}
+        .hero-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+        .hero-header::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.72);z-index:1;pointer-events:none;}
+        .hero-header > div{position:relative;z-index:2;}
+        @media(max-width:768px){
+            .section,.seo-article,footer{content-visibility:auto;contain-intrinsic-size:0 400px;}
+            *{transition-duration:.15s!important;animation-duration:.15s!important;}
+            [data-aos]{opacity:1!important;transform:none!important;}
+        }
         .hero-header h1{font-size:2.8em;margin-bottom:16px;line-height:1.2;}
         .hero-sub{font-size:1.15em;color:rgba(255,255,255,0.85);margin-bottom:36px;max-width:720px;margin-left:auto;margin-right:auto;}
         .brand-blue{color:#2563eb;font-weight:800;}
@@ -440,6 +465,8 @@
     </style>
 </head>
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
 
 <nav aria-label="Breadcrumb" class="breadcrumbs">
     <ol>
@@ -515,13 +542,20 @@
             </div>
         </details>
 
-        <a href="../shop.html" class="mnav-flat">Магазин</a>
+        <a href="../shop.html" class="mnav-flat">Магазин упаковки</a>
+        <a href="../mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
         <a href="../B2B.html" class="mnav-flat">Для юр. лиц</a>
         <a href="../index.html#about" class="mnav-flat">О нас</a>
     </nav>
 </header>
 
 <header class="hero-header">
+    <picture class="hero-bg">
+        <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
+        <source media="(max-width:768px)" srcset="fon-mobile.jpg">
+        <source type="image/webp" srcset="fon.webp">
+        <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+    </picture>
     <div>
         <h1>Перевозка <span class="brand-orange">сейфов</span> в Астане — от 30 000 ₸</h1>
         <p class="hero-sub">Сейфы для оружия, документов, денег. Котлы длительного горения, кулеры, фильтры для воды. Подъём без лифта. Фиксированные цены под ключ. Работаем ежедневно 8:00–22:00.</p>
