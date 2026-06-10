@@ -9,15 +9,14 @@
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="KZ-AST">
     <meta name="geo.placename" content="Астана">
-    <link rel="canonical" href="https://gruzim.kz/pereezdkay.html">
-    <link rel="alternate" hreflang="ru" href="https://gruzim.kz/pereezdkay.html">
-    <link rel="alternate" hreflang="kk" href="https://gruzim.kz/pereezdkaykz.html">
+    <link rel="canonical" href="https://www.gruzim.kz/pereezdkay.html">
+    <link rel="alternate" hreflang="ru" href="https://www.gruzim.kz/pereezdkay.html">
 
     <meta property="og:title" content="Переезд под ключ в Астане | Gruzim.kz">
     <meta property="og:description" content="Квартирный, офисный и межгород переезд под ключ. Упакуем, перевезём, расставим.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gruzim.kz/pereezdkay.html">
-    <meta property="og:image" content="https://gruzim.kz/Logo.png">
+    <meta property="og:url" content="https://www.gruzim.kz/pereezdkay.html">
+    <meta property="og:image" content="https://www.gruzim.kz/Logo.png">
 
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
@@ -410,7 +409,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="pereezdkay.html" class="lang-btn active">РУС</a>
-                    <a href="pereezdkaykz.html" class="lang-btn">ҚАЗ</a>
+                    <a href="#" id="langKz" class="lang-btn">ҚАЗ</a>
                 </div>
                 <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone"></i> <span>+7 701 012 03 00</span></a>
             </div>
@@ -1057,6 +1056,10 @@
         if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
         else init();
     })();
+    </script>
+    <script>
+        const langKz = document.getElementById('langKz');
+        if(langKz) langKz.addEventListener('click', function(e){ e.preventDefault(); alert('Бұл бет әзірленуде. Кешірім сұраймыз!\n\nСтраница в разработке, извините.'); });
     </script>
 </body>
 </html>
