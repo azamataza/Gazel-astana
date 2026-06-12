@@ -349,6 +349,23 @@
         .related-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
         .related-grid a{background:#eff6ff;color:#2563eb;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:30px;border:1px solid #dbeafe;transition:all 0.2s;}
         .related-grid a:hover{background:#2563eb;color:#fff;}
+
+        /* Вложенное меню "Старая мебель" с плюсиком */
+        #mobileNav .mnav-sub details{border-bottom:none;}
+        #mobileNav .mnav-sub summary{padding:12px 22px 12px 40px;font-size:.95rem;font-weight:600;color:#334155;}
+        #mobileNav .mnav-sub summary::after{content:'+';border:none;width:auto;height:auto;transform:none;margin-right:2px;color:#2563eb;font-size:1.35rem;font-weight:700;line-height:1;}
+        #mobileNav .mnav-sub details[open] > summary::after{content:'\2013';transform:none;}
+        #mobileNav .mnav-sub details[open] > summary{color:#2563eb;}
+        #mobileNav .mnav-sub2{display:flex;flex-direction:column;background:#fff;}
+        #mobileNav .mnav-sub2 a{padding:11px 22px 11px 58px;font-size:.9rem;color:#475569;text-decoration:none;font-weight:500;}
+        #mobileNav .mnav-sub2 a:active{background:#eff6ff;}
+        #mobileNav .mnav-sub2 a.mnav-overview{color:#2563eb;font-weight:600;}
+        #mobileNav .mnav-sub2 a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
+
+        /* Кликабельные строки таблицы */
+        .furniture-table td a{color:#0f172a;text-decoration:none;border-bottom:1px dashed #94a3b8;transition:color .15s,border-color .15s;}
+        .furniture-table td a:hover{color:#2563eb;border-bottom-color:#2563eb;}
+        .furniture-table td a strong{font-weight:700;}
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
@@ -418,7 +435,19 @@
                 <div class="mnav-sub">
                     <a href="../musor.html" class="mnav-overview">О вывозе мусора</a>
                     <a href="stroy.html">Строительный мусор</a>
-                    <a href="mebel.html" class="mnav-current">Старая мебель</a>
+                    <details class="mnav-nested" open>
+                        <summary>Старая мебель</summary>
+                        <div class="mnav-sub2">
+                            <a href="mebel.html" class="mnav-overview mnav-current">Вся мебель — цены</a>
+                            <a href="type/divan.html">Вывоз дивана</a>
+                            <a href="type/shkaf.html">Вывоз шкафа</a>
+                            <a href="type/shkaf-kupe.html">Вывоз шкафа-купе</a>
+                            <a href="type/kuhnya.html">Вывоз кухни</a>
+                            <a href="type/krovat.html">Вывоз кровати</a>
+                            <a href="type/stenka.html">Вывоз стенки</a>
+                            <a href="type/melkaya.html">Мелкая мебель (комод, стол, кресло…)</a>
+                        </div>
+                    </details>
                     <a href="tehnika.html">Бытовая техника</a>
                     <a href="matras.html">Матрасы</a>
                     <a href="night.html">Ночной вывоз</a>
@@ -499,19 +528,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr itemscope itemtype="https://schema.org/Product"><td itemprop="name"><strong>Диван (прямой / угловой)</strong></td><td class="price-cell">15 000 ₸</td><td class="price-cell">18 000 ₸</td><td class="price-cell">20 000 ₸</td></tr>
-                    <tr><td><strong>Шкаф (платяной / шифоньер)</strong></td><td class="price-cell">12 000 ₸</td><td class="price-cell">18 000 ₸</td><td class="price-cell">20 000 ₸</td></tr>
-                    <tr><td><strong>Кухонный гарнитур (за погонный метр)</strong></td><td class="price-cell">7 000 ₸/м</td><td class="price-cell">9 000 ₸/м</td><td class="price-cell">10 000 ₸/м</td></tr>
-                    <tr><td><strong>Кровать (с разборкой каркаса)</strong></td><td class="price-cell">12 000 ₸</td><td class="price-cell">15 000 ₸</td><td class="price-cell">18 000 ₸</td></tr>
-                    <tr><td><strong>Стенка / мебельная стенка</strong></td><td class="price-cell">12 000 ₸</td><td class="price-cell">18 000 ₸</td><td class="price-cell">22 000 ₸</td></tr>
-                    <tr><td><strong>Комод (большой, до 5 ящиков)</strong></td><td class="price-cell">8 000 ₸</td><td class="price-cell">10 000 ₸</td><td class="price-cell">12 000 ₸</td></tr>
-                    <tr><td><strong>Стол письменный / компьютерный</strong></td><td class="price-cell">3 500 ₸</td><td class="price-cell">3 500 ₸</td><td class="price-cell">3 500 ₸</td></tr>
-                    <tr><td><strong>Стеллаж / этажерка</strong></td><td class="price-cell">5 000 ₸</td><td class="price-cell">5 000 ₸</td><td class="price-cell">5 000 ₸</td></tr>
-                    <tr><td><strong>Тумба под телевизор</strong></td><td class="price-cell">3 000 ₸</td><td class="price-cell">3 000 ₸</td><td class="price-cell">3 000 ₸</td></tr>
-                    <tr><td><strong>Кресло мягкое</strong></td><td class="price-cell">8 000 ₸</td><td class="price-cell">8 000 ₸</td><td class="price-cell">8 000 ₸</td></tr>
-                    <tr><td><strong>Банкетка / пуф</strong></td><td class="price-cell">2 500 ₸</td><td class="price-cell">2 500 ₸</td><td class="price-cell">2 500 ₸</td></tr>
-                    <tr><td><strong>Шкаф-купе </strong></td><td class="price-cell">15 000 ₸</td><td class="price-cell">20 000 ₸</td><td class="price-cell">25 000 ₸</td></tr>
-                     <tr><td><strong>Вывоз мебели под ключ / полное освобождение квартиры</strong> </td><td class="price-cell">от 50 000 ₸</td><td class="price-cell">0 ₸</td><td class="price-cell">0 ₸</td></tr>
+                    <tr itemscope itemtype="https://schema.org/Product"><td itemprop="name"><a href="type/divan.html"><strong>Диван (прямой / угловой)</strong></a></td><td class="price-cell">15 000 ₸</td><td class="price-cell">18 000 ₸</td><td class="price-cell">20 000 ₸</td></tr>
+                    <tr><td><a href="type/shkaf.html"><strong>Шкаф (платяной / шифоньер)</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">18 000 ₸</td><td class="price-cell">20 000 ₸</td></tr>
+                    <tr><td><a href="type/kuhnya.html"><strong>Кухонный гарнитур (за погонный метр)</strong></a></td><td class="price-cell">7 000 ₸/м</td><td class="price-cell">9 000 ₸/м</td><td class="price-cell">10 000 ₸/м</td></tr>
+                    <tr><td><a href="type/krovat.html"><strong>Кровать (с разборкой каркаса)</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">15 000 ₸</td><td class="price-cell">18 000 ₸</td></tr>
+                    <tr><td><a href="type/stenka.html"><strong>Стенка / мебельная стенка</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">18 000 ₸</td><td class="price-cell">22 000 ₸</td></tr>
+                    <tr><td><a href="type/melkaya.html"><strong>Комод (большой, до 5 ящиков)</strong></a></td><td class="price-cell">8 000 ₸</td><td class="price-cell">10 000 ₸</td><td class="price-cell">12 000 ₸</td></tr>
+                    <tr><td><a href="type/melkaya.html"><strong>Стол письменный / компьютерный</strong></a></td><td class="price-cell">3 500 ₸</td><td class="price-cell">3 500 ₸</td><td class="price-cell">3 500 ₸</td></tr>
+                    <tr><td><a href="type/melkaya.html"><strong>Стеллаж / этажерка</strong></a></td><td class="price-cell">5 000 ₸</td><td class="price-cell">5 000 ₸</td><td class="price-cell">5 000 ₸</td></tr>
+                    <tr><td><a href="type/melkaya.html"><strong>Тумба под телевизор</strong></a></td><td class="price-cell">3 000 ₸</td><td class="price-cell">3 000 ₸</td><td class="price-cell">3 000 ₸</td></tr>
+                    <tr><td><a href="type/melkaya.html"><strong>Кресло мягкое</strong></a></td><td class="price-cell">8 000 ₸</td><td class="price-cell">8 000 ₸</td><td class="price-cell">8 000 ₸</td></tr>
+                    <tr><td><a href="type/melkaya.html"><strong>Банкетка / пуф</strong></a></td><td class="price-cell">2 500 ₸</td><td class="price-cell">2 500 ₸</td><td class="price-cell">2 500 ₸</td></tr>
+                    <tr><td><a href="type/shkaf-kupe.html"><strong>Шкаф-купе</strong></a></td><td class="price-cell">15 000 ₸</td><td class="price-cell">20 000 ₸</td><td class="price-cell">25 000 ₸</td></tr>
+                     <tr><td><a href="../pereezdkay.html"><strong>Вывоз мебели под ключ / полное освобождение квартиры</strong></a> </td><td class="price-cell">от 50 000 ₸</td><td class="price-cell">0 ₸</td><td class="price-cell">0 ₸</td></tr>
                 </tbody>
             </table>
         </div>
