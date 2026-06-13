@@ -8,22 +8,24 @@
     <meta name="description" content="Астанада жүк тасымалына арзан бағамен тапсырыс беріңіз. Пәтерлік және кеңселік толық көшіру, қоқыс шығару, жиһаз құрастыру. Жүкшілер, ГАЗель. Заңды тұлғалармен жұмыс, қолма-қол емес. Қоңырау шалыңыз!">
     <meta name="keywords" content="жүк тасымалы Астана, көшу Астана, жүкшілер Астана, құрылыс материалдарын жеткізу, қоқыс шығару Астана, жүк такси Астана, Қазақстан бойынша тасымал, өңірлерге жүк тасымалы, газель қызметі Астана, қолма-қол емес есеп айырысу, заңды тұлғаларға құжаттар">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://gruzim.kz/indexkz.html">
+    <link rel="canonical" href="https://www.gruzim.kz/indexkz.html">
+    <link rel="alternate" hreflang="ru" href="https://www.gruzim.kz/">
+    <link rel="alternate" hreflang="kk" href="https://www.gruzim.kz/indexkz.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.gruzim.kz/">
 
     <meta property="og:title" content="Gruzim.kz | Астанада жүк тасымалы">
     <meta property="og:description" content="Астана және бүкіл Қазақстан бойынша сенімді жүк жеткізу. Жылдам, ұқыпты, кәсіби.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gruzim.kz/indexkz.html">
-    <meta property="og:image" content="https://gruzim.kz/Logo.png">
+    <meta property="og:url" content="https://www.gruzim.kz/indexkz.html">
+    <meta property="og:image" content="https://www.gruzim.kz/Logo.png">
 
-    <!-- Микроразметка Schema.org - РАСШИРЕННАЯ ВЕРСИЯ на казахском -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Gruzim.kz",
-      "image": "https://gruzim.kz/Logo.png",
-      "url": "https://gruzim.kz",
+      "image": "https://www.gruzim.kz/Logo.png",
+      "url": "https://www.gruzim.kz",
       "telephone": "+77010120300",
       "email": "info@gruzim.kz",
       "priceRange": "5000 - 50000 ₸",
@@ -174,12 +176,11 @@
         gtag('js', new Date());
         gtag('config', 'G-2VWS9V6KVJ');
     </script>
-    
-    <!-- Яндекс.Карты API -->
+
     <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш-ключ-если-нужен&lang=ru_RU" type="text/javascript"></script>
     
     <style>
-        /* --- Сброс и базовые стили --- */
+        
         * {
             margin: 0;
             padding: 0;
@@ -195,7 +196,6 @@
             overflow-x: hidden;
         }
 
-        /* --- Плавающая шапка --- */
         .floating-header {
             position: fixed;
             top: 0;
@@ -224,7 +224,6 @@
             gap: 12px;
         }
 
-        /* Бургер-меню с яркой подсветкой для десктопа */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -280,7 +279,6 @@
             transform: translateY(-6px) rotate(-45deg);
         }
 
-        /* На десктопе кнопка меню видна */
         @media (min-width: 1025px) {
             .burger-menu {
                 display: flex;
@@ -308,7 +306,6 @@
             border-color: #2563eb;
         }
 
-        /* Мобильное меню с анимацией */
         .mobile-nav {
             display: none;
             position: fixed;
@@ -497,7 +494,6 @@
             border-radius: 4px;
         }
 
-        /* --- Калькулятор с картой (после карточек) --- */
         .calculator-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -532,7 +528,7 @@
             background: #e2e8f0;
             border-radius: 20px;
             overflow: hidden;
-            height: 450px; /* Увеличили высоту карты */
+            height: 450px; 
             border: 3px solid white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
@@ -549,7 +545,7 @@
             color: #1e293b;
             display: flex;
             flex-direction: column;
-            height: 450px; /* Сделали одной высоты с картой */
+            height: 450px; 
             justify-content: space-between;
         }
 
@@ -598,7 +594,6 @@
             margin-top: 3px;
         }
 
-        /* Обновлённый контрол времени с шагом 30 минут */
         .hours-control {
             display: flex;
             align-items: center;
@@ -676,7 +671,6 @@
             flex-shrink: 0;
         }
 
-        /* Карточки услуг с интерактивностью */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -739,7 +733,6 @@
             color: #d97706;
         }
 
-        /* Карточка разборки мебели — светло-графитовый */
         .card--furniture {
             background: #f5f7fa;
             border: 2px solid #94a3b8;
@@ -767,7 +760,6 @@
             color: #2563eb;
         }
 
-        /* Статистика с анимацией */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -794,7 +786,6 @@
             margin-top: 8px;
         }
 
-        /* Туристические подсказки */
         .tooltip-icon {
             position: relative;
             display: inline-block;
@@ -817,7 +808,6 @@
             z-index: 10;
         }
 
-        /* Хлебные крошки */
         .breadcrumbs {
             max-width: 1200px;
             margin: 0 auto;
@@ -854,7 +844,6 @@
             color: #64748b;
         }
 
-        /* Рейтинг в звёздах */
         .rating-selector {
             margin-bottom: 15px;
         }
@@ -1202,7 +1191,6 @@
             transform: scale(1.1);
         }
 
-        /* Липкая кнопка для мобильных - скрыта */
         .mobile-sticky-call {
             display: none;
         }
@@ -1282,10 +1270,10 @@
                 grid-template-columns: 1fr;
             }
             .map-container {
-                height: 400px; /* На планшетах чуть меньше */
+                height: 400px; 
             }
             .calculator-form {
-                height: auto; /* Автовысота на мобильных */
+                height: auto; 
             }
         }
 
@@ -1322,8 +1310,7 @@
             .section h2 {
                 font-size: 2em;
             }
-            
-            /* Скрываем карту на мобильных устройствах */
+
             .map-container {
                 display: none;
             }
@@ -1352,8 +1339,7 @@
                 width: 34px;
                 height: 34px;
             }
-            
-            /* Липкая кнопка скрыта */
+
             .mobile-sticky-call {
                 display: none;
             }
@@ -1362,8 +1348,7 @@
                 font-size: 0.8em;
             }
         }
-    
-/* === Mobile fixes for hours selector === */
+
 @media (max-width: 768px) {
     .calculator-form .hours-control {
         justify-content: center;
@@ -1374,8 +1359,6 @@
     }
 }
 
-
-/* === Hero Glass Buttons Update === */
 .hero-glass-buttons {
     margin-top: 35px;
     display: grid;
@@ -1408,7 +1391,7 @@
 
 .glass-service-btn i {
     font-size: 18px;
-    color: #f97316; /* оранжевые иконки */
+    color: #f97316; 
 }
 
 .glass-service-btn:hover {
@@ -1416,7 +1399,6 @@
     transform: translateY(-3px);
 }
 
-/* Desktop: 2 buttons per row */
 @media (min-width: 992px) {
     .hero-glass-buttons {
         grid-template-columns: 1fr 1fr;
@@ -1439,34 +1421,28 @@
     }
 }
 
-
-/* === Anchor scroll fix (header offset + mobile safe) === */
 #card-turnkey,
 #card-trash,
 #card-furniture {
-    scroll-margin-top: 120px; /* desktop header offset */
+    scroll-margin-top: 120px; 
 }
 
 @media (max-width: 768px) {
     #card-turnkey,
     #card-trash,
     #card-furniture {
-        scroll-margin-top: 100px; /* mobile header offset */
+        scroll-margin-top: 100px; 
     }
 }
 
-/* Smooth scroll */
 html {
     scroll-behavior: smooth;
 }
 
-
-/* === Brand Blue Title === */
 .brand-blue {
-    color: #2563eb; /* фирменный синий */
+    color: #2563eb; 
     font-weight: 800;
 }
-
 
 .brand-separator {
     color: #ffffff;
@@ -1474,13 +1450,12 @@ html {
 }
 
 .brand-orange {
-    color: #f97316; /* фирменный оранжевый */
+    color: #f97316; 
     font-weight: 700;
 }
 
 </style>
 
-    <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m, e, t, r, i, k, a) {
             m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
@@ -1493,7 +1468,6 @@ html {
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
-    <!-- Meta Pixel Code -->
     <script>
         ! function(f, b, e, v, n, t, s) {
             if (f.fbq) return;
@@ -1517,7 +1491,6 @@ html {
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1" /></noscript>
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -1532,15 +1505,14 @@ html {
 </head>
 
 <body>
-        <!-- Google Tag Manager -->
+        
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PLXM434L');</script>
-    <!-- End Google Tag Manager -->
+
     
-    <!-- Хлебные крошки (на казахском) -->
     <nav aria-label="Breadcrumb" class="breadcrumbs">
         <ol>
             <li><a href="indexkz.html">Басты бет</a></li>
@@ -1549,7 +1521,6 @@ html {
         </ol>
     </nav>
 
-    <!-- Плавающая шапка -->
     <header class="floating-header">
         <div class="floating-header-content">
             <div class="header-left">
@@ -1578,15 +1549,14 @@ html {
             </div>
             <a href="#services">Қызметтер</a>
             <a href="shopkz.html">Дүкен</a>
-            <a href="pereezdkaykz.html">Толық көшіру қызметі</a>
-            <a href="musorkz.html">Қоқыс шығару</a>
-            <a href="mebelkz.html">Жиһазды құрастыру/бөлшектеу</a>
+            <a href="pereezdkay.html">Толық көшіру қызметі</a>
+            <a href="musor.html">Қоқыс шығару</a>
+            <a href="mebel.html">Жиһазды құрастыру/бөлшектеу</a>
             <a href="#legal-entities">Заңды тұлғаларға</a>
             <a href="#contact">Байланыс</a>
         </nav>
     </header>
 
-    <!-- Основная шапка с фоном (на казахском) -->
     <header class="hero-header">
         <div class="header-content">
             <h1>
@@ -1617,7 +1587,6 @@ html {
             </div>
     </header>
 
-    <!-- Верхняя полоска с фактами (на казахском) -->
     <div class="top-facts">
         <div class="top-facts-inner">
             <span><i class="fas fa-calendar-check"></i> 2019 жылдан бері жұмыс істейміз</span>
@@ -1626,7 +1595,6 @@ html {
         </div>
     </div>
 
-    <!-- Секция Услуги (на казахском) -->
     <section class="section" id="services">
         <h2 data-aos="fade-up">Біздің қызметтер</h2>
         <div class="cards-grid">
@@ -1665,16 +1633,15 @@ html {
                 <h3 class="card-title">Толық көшіру қызметі</h3>
                 <p>Толық сервис: ораудан бастап заттарды жаңа жерге қоюға дейін. Барлығы кіреді.</p>
                 <p class="price">50000 тг бастап</p>
-                <a href="pereezdkaykz.html" class="cta-button">Толығырақ</a>
+                <a href="pereezdkay.html" class="cta-button">Толығырақ</a>
             </div>
 
-            <!-- Карточка разборки мебели (светло-графитовый) -->
             <div class="card card--furniture" id="card-furniture" data-aos="fade-up" data-aos-delay="400">
                 <i class="fas fa-screwdriver-wrench icon"></i>
                 <h3>Жиһазды құрастыру/бөлшектеу</h3>
                 <p>Жиһазды бөлшектейміз, тасымалдаймыз және жаңа жерде құрастырамыз. Барлығы ұқыпты, жылдам әрі зақымсыз.</p>
                 <p class="price">30000 тг бастап</p>
-                <a href="mebelkz.html" class="cta-button">Толығырақ</a>
+                <a href="mebel.html" class="cta-button">Толығырақ</a>
             </div>
 
             <div class="card card--trash" id="card-trash" data-aos="fade-up" data-aos-delay="500">
@@ -1682,12 +1649,11 @@ html {
                 <h3>Қоқыс шығару</h3>
                 <p>Құрылыс және тұрмыстық қоқыстарды жедел шығару. Ескі жиһаз бен техниканы кәдеге жарату.</p>
                 <p class="price">15000 тг бастап</p>
-                <a href="musorkz.html" class="cta-button">Толығырақ</a>
+                <a href="musor.html" class="cta-button">Толығырақ</a>
             </div>
         </div>
     </section>
 
-    <!-- Статистика компании с анимацией (на казахском) -->
     <section class="section">
         <div class="stats-grid">
             <div class="stat-item">
@@ -1709,7 +1675,6 @@ html {
         </div>
     </section>
 
-    <!-- Калькулятор с картой (ТЕПЕРЬ ПОСЛЕ КАРТОЧЕК) (текст на казахском) -->
     <section class="calculator-section" id="calculator">
         <div class="calculator-container">
             <h2 class="calculator-title">🚚 Кептелістерді ескере отырып, сапар құнын есептеңіз</h2>
@@ -1768,7 +1733,6 @@ html {
         </div>
     </section>
 
-    <!-- Карусель клиентов (на казахском) -->
     <section class="section clients-section" id="clients">
         <h2>Біздің клиенттер</h2>
         <p class="clients-subtitle">Дүкендермен де, кеңселермен де, қоймалармен де жұмыс істейміз. Төменде бірнеше Толық көшіру қызметі.</p>
@@ -1824,7 +1788,6 @@ html {
         </div>
     </section>
 
-    <!-- Шаги работы (на казахском) -->
     <section class="section steps-section" id="steps">
         <h2 data-aos="fade-up">Біз қалай жұмыс істейміз</h2>
         <div class="steps-grid">
@@ -1851,14 +1814,12 @@ html {
         </div>
     </section>
 
-    <!-- CTA WhatsApp (на казахском) -->
     <section class="mid-cta-section" style="background: #2563eb; color: white; padding: 60px 20px; text-align: center;">
         <h2 style="color: white; font-size: 2.5em; margin-bottom: 20px;">WhatsApp арқылы лезде есеп алыңыз!</h2>
         <p style="margin-bottom: 30px; font-size: 1.3em;">Жүкті немесе көшу мәліметтерін сипаттаңыз — біз жылдам жауап береміз.</p>
         <a href="https://wa.me/77010120300?text=Сәлеметсізбе!%20Жүк%20тасымалының%20құнын%20білгім%20келеді." class="cta-button" style="background: white; color: #2563eb;">WhatsApp-қа жазу</a>
     </section>
 
-    <!-- Преимущества (на казахском) -->
     <section class="section" id="features">
         <h2>Неліктен бізді таңдайды</h2>
         <div class="features-grid">
@@ -1885,7 +1846,6 @@ html {
         </div>
     </section>
 
-    <!-- Юридическим лицам (на казахском) -->
     <section class="section legal-entities-section" id="legal-entities">
         <h2>Заңды тұлғалармен жұмыс істейміз</h2>
         <p class="description" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
@@ -1910,7 +1870,6 @@ html {
         </div>
     </section>
 
-    <!-- FAQ (на казахском) -->
     <section class="section faq-section" id="faq">
         <h2>Сұрақтар мен жауаптар</h2>
 
@@ -1937,7 +1896,6 @@ html {
         </div>
     </section>
 
-    <!-- SEO статья (на казахском) -->
     <section class="section seo-article">
         <h2>Астанада жүк тасымалы: көлік таңдау және шығындарды оңтайландыру бойынша толық нұсқаулық</h2>
 
@@ -1959,7 +1917,6 @@ html {
         <p>Астанада жүк тасымалын арзанға тапсырыс беру үшін жүкті алдын ала дайындау ұсынылады: заттарды топтастыру, ұсақ заттарды қораптарға орау және тиеу орнына еркін кіруді қамтамасыз ету. Автокөлік неғұрлым аз тұрса, қызметтің түпкілікті құны соғұрлым төмен болады.</p>
     </section>
 
-    <!-- Контакты (на казахском) -->
     <section class="contact-section" id="contact">
         <h2>Бізбен байланысыңыз</h2>
         <div class="contact-info">
@@ -1971,7 +1928,6 @@ html {
         </div>
     </section>
 
-    <!-- Подвал (на казахском) -->
     <footer>
         <div class="footer-inner">
             <div class="footer-col">
@@ -1994,21 +1950,18 @@ html {
         </div>
     </footer>
 
-    <!-- Липкая кнопка для мобильных - скрыта (текст на казахском) -->
     <div class="mobile-sticky-call" id="mobileStickyCall" style="display: none;">
         <a href="tel:+77010120300" class="cta-button" onclick="ym(104276494,'reachGoal','klik_telefon');">
             📞 Қазір қоңырау шалу
         </a>
     </div>
 
-    <!-- Плавающие кнопки -->
     <div class="floating-buttons">
         <a href="tel:+77010120300" class="floating-btn call"><i class="fas fa-phone"></i></a>
         <a href="https://wa.me/77010120300" class="floating-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
         <button class="floating-btn reviews" id="open-reviews-modal"><i class="fas fa-star"></i></button>
     </div>
 
-    <!-- Модальное окно отзывов (на казахском) -->
     <div class="modal-overlay" id="reviews-modal">
         <div class="modal-content">
             <span class="modal-close-btn">&times;</span>
@@ -2043,8 +1996,7 @@ html {
 
             <form class="review-form" id="reviewForm" onsubmit="sendReview(event)">
                 <h4 style="margin-bottom: 15px;">Пікір қалдыру</h4>
-                
-                <!-- Рейтинг звёздами -->
+
                 <div class="rating-selector">
                     <span class="star-rating" data-rating="1">★</span>
                     <span class="star-rating" data-rating="2">★</span>
@@ -2064,13 +2016,12 @@ html {
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Инициализация AOS
+        
         AOS.init({
             duration: 1000,
             once: true
         });
 
-        // Бургер меню + закрытие по крестику
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const catalogLogo = document.getElementById('catalogLogo');
@@ -2087,7 +2038,6 @@ html {
             closeMobileNav.addEventListener('click', toggleMenu);
         }
 
-        // Закрыть меню при клике на ссылку
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 burger.classList.remove('active');
@@ -2095,14 +2045,12 @@ html {
             });
         });
 
-        // FAQ аккордеон
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
                 q.parentElement.classList.toggle('open');
             });
         });
 
-        // Карусель клиентов
         const track = document.querySelector('.clients-track');
         const prevBtn = document.querySelector('.clients-arrow--prev');
         const nextBtn = document.querySelector('.clients-arrow--next');
@@ -2121,7 +2069,6 @@ html {
             nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
         }
 
-        // Модальное окно отзывов
         const reviewsModal = document.getElementById('reviews-modal');
         const openReviewsBtn = document.getElementById('open-reviews-modal');
         const closeBtn = reviewsModal?.querySelector('.modal-close-btn');
@@ -2145,7 +2092,6 @@ html {
             });
         }
 
-        // Рейтинг звёздами
         const starRatings = document.querySelectorAll('.star-rating');
         const ratingInput = document.getElementById('reviewRating');
         
@@ -2179,7 +2125,6 @@ html {
             });
         });
 
-        // Анимация чисел статистики с динамическим обновлением
         function animateNumber(element, target) {
             if (!element) return;
             let current = 0;
@@ -2207,15 +2152,13 @@ html {
         }
 
         let animated = false;
-        
-        // Функция для получения текущей даты и расчета количества заказов
+
         function getCurrentOrdersCount() {
-            const startDate = new Date(2025, 1, 26); // 26 февраля 2025 (начало отсчета)
+            const startDate = new Date(2025, 1, 26); 
             const today = new Date();
             const diffTime = Math.abs(today - startDate);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
-            // Каждый день добавляем по 2 заказа, начиная с 523
+
             const baseOrders = 523;
             const additionalOrders = diffDays * 2;
             return baseOrders + additionalOrders;
@@ -2228,8 +2171,7 @@ html {
             if (!animated && yearsEl && ordersEl && isElementInViewport(yearsEl)) {
                 animated = true;
                 animateNumber(yearsEl, 6);
-                
-                // Получаем актуальное количество заказов
+
                 const currentOrders = getCurrentOrdersCount();
                 animateNumber(ordersEl, currentOrders);
             }
@@ -2238,7 +2180,6 @@ html {
         window.addEventListener('scroll', checkStats);
         window.addEventListener('load', checkStats);
 
-        // Показываем плавающие кнопки при скролле
         const apartmentsCard = document.getElementById('card-apartments-offices');
         const floatingButtons = document.querySelector('.floating-buttons');
 
@@ -2255,24 +2196,21 @@ html {
             observer.observe(apartmentsCard);
         }
 
-        // Инициализация Яндекс.Карты
         ymaps.ready(initMap);
         
         function initMap() {
             var map = new ymaps.Map("map", {
-                center: [51.1605, 71.4704], // Астана
+                center: [51.1605, 71.4704], 
                 zoom: 12,
                 controls: ['zoomControl', 'fullscreenControl']
             });
-            
-            // Включение слоя пробок
+
             var trafficControl = new ymaps.control.TrafficControl({
                 provider: 'yandex#traffic'
             });
             map.controls.add(trafficControl);
             trafficControl.state.set('provider', 'yandex#traffic');
-            
-            // Добавить метку офиса
+
             var officePlacemark = new ymaps.Placemark([51.1605, 71.4704], {
                 hintContent: 'Gruzim.kz',
                 balloonContent: 'Біздің Астанадағы кеңсеміз'
@@ -2282,7 +2220,6 @@ html {
             map.geoObjects.add(officePlacemark);
         }
 
-        // Калькулятор с шагом 30 минут
         const tariffOptions = document.querySelectorAll('.tariff-option');
         const hoursInput = document.getElementById('hoursInput');
         const hoursDisplay = document.getElementById('hoursDisplay');
@@ -2290,7 +2227,7 @@ html {
         const decreaseBtn = document.getElementById('decreaseHours');
         const increaseBtn = document.getElementById('increaseHours');
         
-        let currentPrice = 7000; // Грузовой по умолчанию
+        let currentPrice = 7000; 
         
         tariffOptions.forEach(option => {
             option.addEventListener('click', () => {
@@ -2324,8 +2261,7 @@ html {
             let val = parseFloat(this.value);
             if (isNaN(val) || val < 1) val = 1;
             if (val > 8) val = 8;
-            
-            // Округляем до ближайшего 0.5
+
             val = Math.round(val * 2) / 2;
             this.value = val;
             
@@ -2346,7 +2282,6 @@ html {
             updatePrice();
         });
 
-        // Enhanced Conversions
         function setEnhancedUserData() {
             try {
                 let email = "", phone = "";
@@ -2373,7 +2308,6 @@ html {
             });
         }
 
-        // Отслеживание кликов
         document.querySelectorAll('a[href^="tel:"]').forEach(el => {
             el.addEventListener('click', () => sendConversion('phone'));
         });
@@ -2381,7 +2315,6 @@ html {
             el.addEventListener('click', () => sendConversion('whatsapp'));
         });
 
-        // Отправка отзывов в Telegram (ЗАМЕНИ ТОКЕН И CHAT_ID)
         window.sendReview = function(e) {
             e.preventDefault();
             const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -2393,25 +2326,22 @@ html {
             const name = document.getElementById('reviewName').value;
             const text = document.getElementById('reviewText').value;
             const rating = document.getElementById('reviewRating').value;
-            
-            // Отправка в Telegram (вставь свои данные)
-            fetch(`https://api.telegram.org/bot<ТОКЕН_БОТА>/sendMessage`, {
+
+            fetch('https://gruzim-lead.turkestanvshiaza.workers.dev', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    chat_id: '<ID_ЧАТА>',
+                    chat_id: '8277380855',
                     text: `📝 Сайттан жаңа пікір:\nАты: ${name}\nРейтинг: ${'★'.repeat(rating)}\nПікір: ${text}`
                 })
             }).catch(err => console.log('Telegram-ға жіберу қатесі', err));
-            
-            // Имитация отправки
+
             setTimeout(() => {
                 document.getElementById('reviewSuccess').style.display = 'block';
                 e.target.reset();
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
-                
-                // Сброс звёзд
+
                 starRatings.forEach(s => s.classList.remove('active'));
                 starRatings[4].classList.add('active');
                 ratingInput.value = 5;
@@ -2420,7 +2350,6 @@ html {
             }, 1500);
         }
 
-        // Политика и условия (заглушки на казахском)
         document.getElementById('privacy-policy-link')?.addEventListener('click', (e) => {
             e.preventDefault();
             alert('Құпиялылық саясаты: біз сіздің деректеріңізді үшінші тұлғаларға бермейміз.');
@@ -2431,7 +2360,6 @@ html {
             alert('Пайдалану шарттары: қызметтерге тапсырыс беру арқылы сіз біздің ережелерімізбен келісесіз.');
         });
 
-        // Улучшенная интерактивность карточек
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mouseenter', () => {
                 card.style.transform = 'translateY(-12px)';
@@ -2441,7 +2369,6 @@ html {
             });
         });
 
-        // Установка начального значения для часов
         updatePrice();
     </script>
 </body>
