@@ -9,7 +9,6 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.gruzim.kz/mebel.html">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Сборка мебели в Астане — быстро, аккуратно, фиксированная цена">
     <meta property="og:description" content="Профессиональная сборка и разборка любой мебели. Фиксированные цены, упаковка в подарок.">
     <meta property="og:type" content="website">
@@ -17,7 +16,6 @@
     <meta property="og:site_name" content="Gruzim.kz">
     <meta property="og:image" content="https://www.gruzim.kz/Logo.png">
 
-    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -36,7 +34,6 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#2563eb">
 
-    <!-- Шрифты Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
@@ -46,7 +43,6 @@
     <link rel="dns-prefetch" href="https://i.ytimg.com">
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
 
-    <!-- Аналитика и конверсии: единый отложенный загрузчик (GA4, Ads, GTM, Яндекс.Метрика, Meta Pixel) -->
     <script>
     (function () {
         var GZ_CFG = {
@@ -56,7 +52,7 @@
             GTM: 'GTM-PLXM434L',
             YM: 104276494,
             FB: '922364396983002',
-            TG_TOKEN: '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4',
+            TG_TOKEN: '',
             TG_CHAT: '8277380855'
         };
         var isMobile = window.innerWidth <= 768;
@@ -87,7 +83,7 @@
             m.async = true;
             m.src = 'https://mc.yandex.ru/metrika/tag.js?id=' + GZ_CFG.YM;
             document.head.appendChild(m);
-            ym(GZ_CFG.YM, 'init', { webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true, defer: true });
+            ym(GZ_CFG.YM, 'init', { webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
             var fb = document.createElement('script');
             fb.async = true;
             fb.src = 'https://connect.facebook.net/en_US/fbevents.js';
@@ -121,7 +117,6 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1" /></noscript>
 
-    <!-- Schema.org разметка -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -156,7 +151,7 @@
     </script>
 
     <style>
-        /* ===== ВСЕ СТИЛИ СОХРАНЕНЫ ===== */
+        
         * {
             margin: 0;
             padding: 0;
@@ -172,7 +167,7 @@
             overflow-x: hidden;
         }
         html { scroll-behavior: smooth; }
-        /* Мобильная оптимизация рендера */
+        
         @media (max-width: 768px) {
             .section, .videos-section, .tariff-section, .faq-section, .contact-section, footer {
                 content-visibility: auto;
@@ -284,7 +279,6 @@
             background: rgba(37, 99, 235, 0.1);
         }
 
-        /* Выезжающее меню (как на главной) */
         .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
         .mnav-overlay.active{opacity:1;visibility:visible;}
         #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;border-radius:0!important;border:0!important;opacity:1!important;pointer-events:auto!important;}
@@ -484,7 +478,6 @@
             border-radius: 4px;
         }
 
-        /* Тарифы */
         .tariff-section {
             background: #f1f5f9;
         }
@@ -589,7 +582,6 @@
             color: #ef4444;
         }
 
-        /* Адаптивная таблица */
         .service-table-wrapper {
             background: white;
             border-radius: 32px;
@@ -651,7 +643,7 @@
             .service-table th,
             .service-table td { padding: 11px 8px; }
         }
-        /* Карточки услуг (сохранены для других блоков) */
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -672,7 +664,6 @@
             height: 100%;
         }
 
-        /* Видео-карусель */
         .videos-section {
             background: #f8fafc;
         }
@@ -753,7 +744,6 @@
             }
         }
 
-        /* Работы (галерея) */
         .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -799,7 +789,6 @@
             font-weight: 600;
         }
 
-        /* Преимущества */
         .advantages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -838,7 +827,6 @@
             color: #475569;
         }
 
-        /* Процесс работы */
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -879,7 +867,6 @@
             margin-bottom: 15px;
         }
 
-        /* FAQ */
         .faq-section {
             background: #f8fafc;
         }
@@ -970,7 +957,6 @@
             padding: 0 25px 22px 70px;
         }
 
-        /* ФОРМА ЗАЯВКИ НАД ПОДВАЛОМ */
         .request-section-bottom {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 24px;
@@ -1055,7 +1041,6 @@
             background: #ea580c;
         }
 
-        /* Контакты */
         .contact-section {
             background: #f8fafc;
             border-top: 1px solid #e2e8f0;
@@ -1130,7 +1115,6 @@
             text-decoration: none;
         }
 
-        /* Плавающие кнопки (FAB) */
         .floating-buttons {
             position: fixed;
             bottom: 20px;
@@ -1226,7 +1210,6 @@
             100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
         }
 
-        /* Модальное окно отзывов */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -1307,7 +1290,7 @@
                 display: flex;
                 gap: 14px;
                 margin-top: 24px;
-                padding: 26px 16px 16px;        /* верхний отступ под бейдж «популярный» */
+                padding: 26px 16px 16px;        
                 margin-left: -16px;
                 margin-right: -16px;
                 overflow-x: auto;
@@ -1317,7 +1300,7 @@
             }
             .tariff-grid::-webkit-scrollbar { display: none; }
             .tariff-card {
-                flex: 0 0 88%;                  /* следующая карточка выглядывает справа ~12% */
+                flex: 0 0 88%;                  
                 scroll-snap-align: start;
                 margin-top: 0;
             }
@@ -1369,13 +1352,68 @@
             }
         }
     </style>
+<style id="unified-nav-style">
+        .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
+        .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+        .header-left{display:flex;align-items:center;gap:12px;}
+        .floating-logo{height:45px;width:auto;cursor:pointer;border-radius:8px;padding:4px 8px;}
+        .header-right{display:flex;align-items:center;gap:15px;}
+        .language-switcher{display:flex;gap:5px;}
+        .lang-btn{background:transparent;border:1px solid #e2e8f0;color:#334155;padding:6px 12px;border-radius:30px;cursor:pointer;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.2s;}
+        .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
+        .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+        .burger-menu{display:flex;flex-direction:column;justify-content:space-between;width:30px;height:22px;background:transparent;border:2px solid #2563eb;border-radius:8px;cursor:pointer;padding:4px 5px;z-index:1100;transition:all 0.2s;}
+        .burger-menu span{width:100%;height:2.5px;background:#2563eb;border-radius:10px;transition:all 0.3s;}
+        .burger-menu:hover,.burger-menu.active{background:#2563eb;}
+        .burger-menu:hover span,.burger-menu.active span{background:white;}
+        .burger-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+        .burger-menu.active span:nth-child(2){opacity:0;}
+        .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+        .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
+        .mnav-overlay.active{opacity:1;visibility:visible;}
+        #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
+        #mobileNav.active{transform:translateX(0);}
+        #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px;}
+        #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px;}
+        #mobileNav details{border-bottom:1px solid #f1f5f9;}
+        #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+        #mobileNav summary::-webkit-details-marker{display:none;}
+        #mobileNav summary::after{content:'';width:8px;height:8px;border-right:2px solid #94a3b8;border-bottom:2px solid #94a3b8;transform:rotate(45deg);transition:transform .2s ease;flex-shrink:0;margin-right:2px;}
+        #mobileNav details[open] summary::after{transform:rotate(-135deg);}
+        #mobileNav details[open] summary{color:#2563eb;}
+        #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
+        #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
+        #mobileNav .mnav-sub a:active{background:#eff6ff;}
+        #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
+        #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
+        #mobileNav .mnav-flat:active{background:#eff6ff;}
+        #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
+        #mobileNav .mnav-sub details{border-bottom:none;}
+        #mobileNav .mnav-sub summary{padding:12px 22px 12px 40px;font-size:.95rem;font-weight:600;color:#334155;}
+        #mobileNav .mnav-sub summary::after{content:'+';border:none;width:auto;height:auto;transform:none;margin-right:2px;color:#2563eb;font-size:1.35rem;font-weight:700;line-height:1;}
+        #mobileNav .mnav-sub details[open] > summary::after{content:'3';transform:none;}
+        #mobileNav .mnav-sub details[open] > summary{color:#2563eb;}
+        #mobileNav .mnav-sub2{display:flex;flex-direction:column;background:#fff;}
+        #mobileNav .mnav-sub2 a{padding:11px 22px 11px 58px;font-size:.9rem;color:#475569;text-decoration:none;font-weight:500;}
+        #mobileNav .mnav-sub2 a:active{background:#eff6ff;}
+        #mobileNav .mnav-sub2 a.mnav-overview{color:#2563eb;font-weight:600;}
+        #mobileNav .mnav-sub2 a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
+        footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;}
+        .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;}
+        .footer-logo{height:40px;margin-bottom:15px;}
+        .footer-col h4{color:#fff;margin-bottom:15px;}
+        .footer-col a{color:#94a3b8;text-decoration:none;}
+        .footer-col a:hover{color:#fff;}
+        .footer-col p{margin-bottom:8px;font-size:0.92em;}
+        @media(max-width:1024px){.burger-menu{display:flex;}}
+        @media(max-width:768px){.header-phone{display:none !important;}}
+    </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     
-    <!-- Хлебные крошки -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    
     <nav aria-label="Breadcrumb" class="breadcrumbs">
         <ol>
             <li><a href="index.html">Главная</a></li>
@@ -1383,32 +1421,26 @@
         </ol>
     </nav>
 
-    <!-- Плавающая шапка -->
     <header class="floating-header">
         <div class="floating-header-content">
             <div class="header-left">
-                <button class="burger-menu" id="burgerMenu" aria-label="Меню">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="burger-menu" id="burgerMenu" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav">
+                    <span></span><span></span><span></span>
                 </button>
-                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo">
+                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo"></a>
             </div>
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="mebel.html" class="lang-btn active">РУС</a>
                     <a href="#" id="langKz" class="lang-btn">ҚАЗ</a>
                 </div>
-                <a href="tel:+77010120300" class="header-phone">
-                    <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
-                </a>
+                <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone" aria-hidden="true"></i> <span>+7 701 012 03 00</span></a>
             </div>
         </div>
         <div class="mnav-overlay" id="mnavOverlay"></div>
         <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
-            <div class="mobile-nav-close">
-                <button id="closeMobileNav" aria-label="Закрыть меню">×</button>
-            </div>
+            <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
+
             <a href="index.html#services" class="mnav-flat">Все услуги</a>
 
             <details>
@@ -1436,7 +1468,19 @@
                 <div class="mnav-sub">
                     <a href="musor.html" class="mnav-overview">О вывозе мусора</a>
                     <a href="musor/stroy.html">Строительный мусор</a>
-                    <a href="musor/mebel.html">Старая мебель</a>
+                    <details class="mnav-nested">
+                        <summary>Старая мебель</summary>
+                        <div class="mnav-sub2">
+                            <a href="musor/mebel.html" class="mnav-overview">Вся мебель — цены</a>
+                            <a href="musor/type/divan.html">Вывоз дивана</a>
+                            <a href="musor/type/shkaf.html">Вывоз шкафа</a>
+                            <a href="musor/type/shkaf-kupe.html">Вывоз шкафа-купе</a>
+                            <a href="musor/type/kuhnya.html">Вывоз кухни</a>
+                            <a href="musor/type/krovat.html">Вывоз кровати</a>
+                            <a href="musor/type/stenka.html">Вывоз стенки</a>
+                            <a href="musor/type/melkaya.html">Мелкая мебель (комод, стол, кресло…)</a>
+                        </div>
+                    </details>
                     <a href="musor/tehnika.html">Бытовая техника</a>
                     <a href="musor/matras.html">Матрасы</a>
                     <a href="musor/night.html">Ночной вывоз</a>
@@ -1460,7 +1504,6 @@
         </nav>
     </header>
 
-    <!-- HERO СЕКЦИЯ -->
     <section class="hero-header">
         <picture class="hero-bg">
             <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
@@ -1494,7 +1537,6 @@
         </div>
     </section>
 
-    <!-- ТАРИФЫ -->
     <section class="section tariff-section" id="tariffs">
         <div class="container">
             <h2 data-aos="fade-up">Выберите подходящий вариант</h2>
@@ -1545,7 +1587,6 @@
         </div>
     </section>
 
-    <!-- С какой мебелью работаем — АДАПТИВНАЯ ТАБЛИЦА -->
     <section class="section" id="services">
         <div class="container">
             <h2 data-aos="fade-up">С какой мебелью работаем</h2>
@@ -1567,7 +1608,6 @@
         </div>
     </section>
 
-    <!-- НАШИ РАБОТЫ — ВИДЕО-КАРУСЕЛЬ  -->
     <section class="section videos-section" id="works">
         <h2 data-aos="fade-up">Наши работы</h2>
         <p class="videos-subtitle" data-aos="fade-up" data-aos-delay="100">Примеры сборки и разборки мебели в Астане</p>
@@ -1597,7 +1637,6 @@
         </div>
     </section>
 
-    <!-- Преимущества -->
     <section class="section" id="advantages">
         <div class="container">
             <h2 data-aos="fade-up">Почему нас выбирают</h2>
@@ -1621,7 +1660,6 @@
         </div>
     </section>
 
-    <!-- Как мы работаем -->
     <section class="section" id="process">
         <div class="container">
             <h2 data-aos="fade-up">Как мы работаем</h2>
@@ -1654,7 +1692,6 @@
         </div>
     </section>
 
-    <!-- FAQ -->
     <section class="section faq-section" id="faq">
         <div class="container">
             <h2 data-aos="fade-up">Часто задаваемые вопросы</h2>
@@ -1705,7 +1742,6 @@
         </div>
     </section>
 
-    <!-- =====  ===== -->
     <div class="request-section-bottom" id="request-bottom">
         <h2 data-aos="fade-up">Оставьте заявку на сборку/разборку мебели</h2>
         <p class="form-subtitle" data-aos="fade-up" data-aos-delay="100">Мы свяжемся с вами в ближайшее время и рассчитаем стоимость</p>
@@ -1751,7 +1787,6 @@
         </form>
     </div>
 
-    <!-- Контакты -->
     <section class="contact-section" id="contact">
         <h2 style="font-size: 2.5em; margin-bottom: 50px; color: #0f172a;">Свяжитесь с нами</h2>
         <div class="contact-info">
@@ -1765,45 +1800,46 @@
         </div>
     </section>
 
-    <!-- Подвал -->
     <footer>
         <div class="footer-inner">
             <div class="footer-col">
-                <img src="Logo.png" alt="Логотип Gruzim.kz" class="footer-logo" loading="lazy">
-                <p>Сборка, разборка, упаковка мебели в Астане.</p>
-                <p>&copy; <span id="footerYear">2019-2025</span> gruzim.kz. Все права защищены.</p>
-                <div style="margin-top:15px;display:flex;gap:12px;align-items:center;font-size:1.5rem;">
-                    <i class="fab fa-cc-visa" style="color:#1a1f71;"></i>
-                    <i class="fab fa-cc-mastercard" style="color:#eb001b;"></i>
-                    <i class="fas fa-wallet" style="color:#f97316;"></i>
-                    <span style="font-size:0.9rem;">Kaspi Red</span>
+                <img src="Logo.png" alt="Gruzim.kz" class="footer-logo" loading="lazy">
+                <p>Грузоперевозки и переезды под ключ в Астане. Работаем с 2019 года.</p>
+                <p>&copy; 2019–2026 gruzim.kz. Все права защищены.</p>
+                <div style="margin-top:14px;display:flex;gap:12px;font-size:1.5rem;align-items:center;">
+                    <i class="fab fa-cc-visa" style="color:#1a1f71;" aria-hidden="true"></i>
+                    <i class="fab fa-cc-mastercard" style="color:#eb001b;" aria-hidden="true"></i>
+                    <i class="fas fa-wallet" style="color:#f97316;" aria-hidden="true"></i>
+                    <span style="font-size:0.85rem;color:#94a3b8;">Kaspi Red</span>
                 </div>
             </div>
             <div class="footer-col">
                 <h4>Контакты</h4>
-                <p><i class="fas fa-phone"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300" target="_blank" rel="noopener">Написать в WhatsApp</a></p>
-                <p><i class="fab fa-telegram"></i> <a href="https://t.me/gruzimkz" target="_blank" rel="noopener">Telegram</a></p>
-                <p><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</p>
+                <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p>
+                <p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/77010120300">WhatsApp</a></p>
+                <p><i class="fab fa-telegram" aria-hidden="true"></i> <a href="https://t.me/gruzimkz">Telegram</a></p>
+                <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:gruzemkz@gmail.com">gruzemkz@gmail.com</a></p>
+                <p><i class="fas fa-clock" aria-hidden="true"></i> Ежедневно 8:00–22:00</p>
             </div>
             <div class="footer-col">
                 <h4>Услуги</h4>
-                <p><a href="index.html">Главная</a></p>
+                <p><a href="gruz/centr.html">Грузоперевозки</a></p>
                 <p><a href="pereezdkay.html">Переезд под ключ</a></p>
+                <p><a href="kay/ofice.html">Офисный переезд</a></p>
                 <p><a href="musor.html">Вывоз мусора</a></p>
-                <p><a href="shop.html">Магазин упаковки</a></p>
-                <p><a href="B2B.html">Для юр. лиц</a></p>
+                <p><a href="mebel.html">Сборка мебели</a></p>
+                <p><a href="takelazh.html">Такелаж</a></p>
             </div>
             <div class="footer-col">
                 <h4>Информация</h4>
+                <p><a href="B2B.html">Для юридических лиц</a></p>
+                <p><a href="shop.html">Магазин упаковки</a></p>
                 <p><a href="#" id="privacy-policy-link">Политика конфиденциальности</a></p>
                 <p><a href="#" id="terms-of-service-link">Условия использования</a></p>
-                <p class="footer-note">Безналичный расчет, договор, закрывающие документы для юр. лиц.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Плавающие кнопки (FAB) -->
     <div class="floating-buttons">
         <div class="fab-menu" id="fabMenu">
             <a href="tel:+77010120300" class="fab-menu-item call" id="fabCall" title="Позвонить">
@@ -1824,7 +1860,6 @@
         </button>
     </div>
 
-    <!-- Модальное окно отзывов -->
     <div class="modal-overlay" id="reviews-modal">
         <div class="modal-content">
             <span class="modal-close-btn">&times;</span>
@@ -1883,11 +1918,9 @@
             AOS.init({ duration: 1000, once: true, disable: 'mobile' });
         }
 
-        // Казахская версия в разработке
         const langKz = document.getElementById('langKz');
         if (langKz) langKz.addEventListener('click', function(e) { e.preventDefault(); alert('Бұл бет әзірленуде. Кешірім сұраймыз!\n\nСтраница в разработке, извините.'); });
 
-        // Бургер меню
         const burger = document.getElementById('burgerMenu');
         const mobileNav = document.getElementById('mobileNav');
         const catalogLogo = document.getElementById('catalogLogo');
@@ -1921,7 +1954,6 @@
             link.addEventListener('click', closeMenu);
         });
 
-        // Плавный скролл
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const id = this.getAttribute('href');
@@ -1934,8 +1966,7 @@
             });
         });
 
-        // ОТПРАВКА
-        const TELEGRAM_TOKEN = '7870225416:AAH8sOQB5V-BaCEdAm9n9iq8pOW-JsHwDA4';
+        const TELEGRAM_TOKEN = '';
         const TELEGRAM_CHAT_ID = '8277380855';
 
         document.getElementById('bottomRequestForm').addEventListener('submit', async function(e) {
@@ -1969,7 +2000,7 @@
                 (message ? `💬 <b>Сообщение:</b> ${message}\n` : '');
             
             try {
-                await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+                await fetch('https://gruzim-lead.turkestanvshiaza.workers.dev', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1996,7 +2027,6 @@
             }
         });
 
-        // ПЛАВАЮЩИЕ КНОПКИ
         const fabMain = document.getElementById('fabMain');
         const fabMenuItems = document.querySelectorAll('.fab-menu-item');
         const fabMenuDiv = document.getElementById('fabMenu');
@@ -2042,7 +2072,6 @@
             }
         });
 
-        // Модальное окно отзывов
         const reviewsModal = document.getElementById('reviews-modal');
         const openReviewsBtn = document.getElementById('fabReviews');
         const closeModalBtn = reviewsModal?.querySelector('.modal-close-btn');
@@ -2070,7 +2099,6 @@
             });
         }
 
-        // Звездный рейтинг
         const starRatings = document.querySelectorAll('.star-rating');
         const ratingInput = document.getElementById('reviewRating');
         
@@ -2101,7 +2129,7 @@
             const text = document.getElementById('reviewText').value;
             const rating = document.getElementById('reviewRating').value;
             
-            fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+            fetch('https://gruzim-lead.turkestanvshiaza.workers.dev', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -2178,14 +2206,12 @@
 
         setActiveMenuItem();
 
-        // год в подвале
         (function () {
             var y = new Date().getFullYear();
             var el = document.getElementById('footerYear');
             if (el) el.textContent = '2019-' + y;
         })();
 
-        // Политика и условия
         var privacyLink = document.getElementById('privacy-policy-link');
         var termsLink = document.getElementById('terms-of-service-link');
         if (privacyLink) privacyLink.addEventListener('click', function (e) {
@@ -2197,14 +2223,12 @@
             alert('Стоимость услуг рассчитывается индивидуально. Точная цена подтверждается оператором до начала работ. Сроки зависят от объёма и сложности заказа.');
         });
 
-        // FAQ-аккордеон: 
         document.querySelectorAll('.faq-question').forEach(function (q) {
             q.addEventListener('click', function () {
                 q.parentElement.classList.toggle('open');
             });
         });
 
-        // YouTube: превью -> iframe по клику
         document.querySelectorAll('.yt-facade').forEach(function (facade) {
             facade.addEventListener('click', function () {
                 var vid = facade.dataset.vid;
@@ -2218,7 +2242,6 @@
             }, { once: true });
         });
 
-        // ВИДЕО-КАРУСЕЛЬ (НАШИ РАБОТЫ)
         const videosTrack = document.querySelector('.videos-track');
         const videosPrev = document.querySelector('.videos-arrow--prev');
         const videosNext = document.querySelector('.videos-arrow--next');
@@ -2235,8 +2258,7 @@
         }
     </script>
 
-
-    <!-- Уведомление -->
+    
     <script>
     (function () {
         if (!window.GZ) return;
@@ -2276,7 +2298,7 @@
             var time = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
             var device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? '📱 мобильный' : '💻 десктоп';
             var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + n + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Сборка/разборка мебели\n' + device + ' · ' + navigator.language;
-            fetch('https://api.telegram.org/bot' + GZ.cfg.TG_TOKEN + '/sendMessage', {
+            fetch('https://gruzim-lead.turkestanvshiaza.workers.dev', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: msg, parse_mode: 'HTML', disable_web_page_preview: true })
             }).catch(function () {});
@@ -2293,13 +2315,13 @@
             sent = true;
             try { sessionStorage.setItem(SENT, '1'); } catch (e) {}
         }
-        // Конверсия
+        
         function fire() { if (timeOk && scrollOk) send(); }
-        // Условие 1
+        
         var timer = setInterval(function () {
             if ((Date.now() - start) / 1000 >= 30) { timeOk = true; clearInterval(timer); }
         }, 1000);
-        // Условие 2
+        
         function onScroll() {
             var sh = document.documentElement.scrollHeight, wh = window.innerHeight;
             var st = window.pageYOffset || document.documentElement.scrollTop;
@@ -2312,14 +2334,13 @@
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('touchmove', onScroll, { passive: true });
         setTimeout(onScroll, 600);
-        // Финальный 
-        // Конверсия 
+
         document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"], a[href*="t.me"], a[href*="tg://"]').forEach(function (el) {
             el.addEventListener('click', fire);
         });
-        // Реальная 
-        GZ.tryConversion = fire;       // клик-триггер (с проверкой 30с+50%)
-        GZ.leadConversion = send;      // отправка формы (без проверки)
+        
+        GZ.tryConversion = fire;       
+        GZ.leadConversion = send;      
     })();
     </script>
 </body>
