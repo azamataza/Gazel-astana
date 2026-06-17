@@ -35,7 +35,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,800&family=Pinyon+Script&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,800&family=Pinyon+Script&display=swap"></noscript>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
@@ -90,20 +91,14 @@
             conversion: function () { gtag('event', 'conversion', { send_to: GZ_CFG.ADS_LABEL }); }
         };
 
-        if (isMobile) {
-            var fired = false, evts = ['scroll', 'touchstart', 'click', 'keydown'];
-            function trigger() {
-                if (fired) return; fired = true;
-                evts.forEach(function (e) { window.removeEventListener(e, trigger); });
-                loadAnalytics();
-            }
-            evts.forEach(function (e) { window.addEventListener(e, trigger, { passive: true }); });
-            setTimeout(trigger, 3500);
-        } else if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadAnalytics, { timeout: 2000 });
-        } else {
-            window.addEventListener('load', loadAnalytics);
+        var fired = false, evts = ['scroll', 'touchstart', 'pointerdown', 'click', 'keydown', 'mousemove'];
+        function trigger() {
+            if (fired) return; fired = true;
+            evts.forEach(function (e) { window.removeEventListener(e, trigger); });
+            loadAnalytics();
         }
+        evts.forEach(function (e) { window.addEventListener(e, trigger, { passive: true }); });
+        setTimeout(trigger, 7000);
     })();
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
@@ -218,20 +213,20 @@
     .cta:focus-visible{outline:3px solid rgba(37,99,235,.45);outline-offset:2px;}
 
     /* ---------- block scaffold (Untitled-UI centered) ---------- */
-    .block{padding:84px 0;border-top:1px solid var(--rule-soft);}
+    .block{padding:100px 0;border-top:1px solid var(--rule-soft);}
     .block:first-of-type{border-top:none;}
     .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--paper-2);border:1px solid var(--rule);border-radius:999px;padding:7px 14px;}
     .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);}
     .eyebrow .arr{color:var(--muted-2);}
-    .block-head{text-align:center;max-width:720px;margin:0 auto 44px;}
-    .block-head h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.08;letter-spacing:-.01em;margin:18px 0 14px;}
-    .block-head p{color:var(--muted);font-size:1.04rem;max-width:560px;margin:0 auto;}
-    .block-cta{text-align:center;margin-top:46px;}
-    .block-cta .note{display:block;margin-top:14px;font-size:.82rem;color:var(--muted-2);}
+    .block-head{text-align:center;max-width:720px;margin:0 auto 54px;}
+    .block-head h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.12;letter-spacing:-.01em;margin:20px 0 16px;}
+    .block-head p{color:var(--muted);font-size:1.04rem;line-height:1.65;max-width:560px;margin:0 auto;}
+    .block-cta{text-align:center;margin-top:60px;}
+    .block-cta .note{display:block;margin-top:16px;font-size:.82rem;color:var(--muted-2);}
 
     /* ---------- hero ---------- */
-    .hero{padding:72px 0 40px;text-align:center;}
-    .hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.04;letter-spacing:-.015em;margin:22px auto 18px;max-width:880px;}
+    .hero{padding:88px 0 60px;text-align:center;}
+    .hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.08;letter-spacing:-.015em;margin:26px auto 22px;max-width:880px;}
     .hero h1 em{font-style:italic;}
     .hero .lead{color:var(--muted);font-size:clamp(1rem,1.5vw,1.18rem);max-width:560px;margin:0 auto 30px;}
     .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
@@ -239,12 +234,12 @@
     .hero-trust b{color:var(--ink-2);}
 
     /* ---------- coverflow carousel ---------- */
-    .routes{padding:64px 0 88px;border-top:1px solid var(--rule-soft);overflow:hidden;}
-    .stage{position:relative;height:520px;perspective:1600px;margin-top:8px;touch-action:pan-y;}
+    .routes{padding:72px 0 100px;border-top:1px solid var(--rule-soft);overflow:hidden;}
+    .stage{position:relative;height:540px;perspective:1600px;margin-top:24px;touch-action:pan-y;}
     .track{position:absolute;inset:0;}
-    .route-card{position:absolute;top:24px;left:50%;width:var(--cw,300px);will-change:transform;transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .45s ease,filter .45s ease;cursor:pointer;transform-style:preserve-3d;}
-    .album{position:relative;border-radius:6px;padding:30px 26px 26px;color:var(--ink);overflow:hidden;
-      aspect-ratio:1 / 1.16;
+    .route-card{position:absolute;top:28px;left:50%;width:var(--cw,300px);will-change:transform;transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .45s ease,filter .45s ease;cursor:pointer;transform-style:preserve-3d;}
+    .album{position:relative;border-radius:6px;padding:28px 24px 24px;color:var(--ink);overflow:hidden;
+      aspect-ratio:1 / 1.18;
       background:
         radial-gradient(120% 80% at 30% 8%, rgba(255,255,255,.85), rgba(255,255,255,0) 42%),
         linear-gradient(158deg,#fcfcfd 0%,#e9eaee 24%,#d0d2d8 50%,#b8bac2 73%,#d6d8dd 100%);
@@ -352,15 +347,17 @@
     .seo-article td:last-child{font-family:var(--serif);font-weight:700;}
 
     /* ---------- contact form ---------- */
-    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;}
+    .contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch;}
+    .contact-form-container,.contact-side{background:#fff;border:1px solid var(--rule);border-radius:18px;padding:34px;display:flex;flex-direction:column;}
     .contact-form-container .callback-form{display:flex;flex-direction:column;gap:14px;}
     .contact-form-container .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
     .form-success{color:var(--blue);margin-top:14px;display:none;font-weight:600;}
     .contact-side h3{font-family:var(--serif);font-weight:700;font-size:1.3rem;margin-bottom:6px;}
     .contact-side p{color:var(--muted);font-size:.95rem;margin-bottom:18px;}
-    .contact-side .ci{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:.98rem;}
+    .contact-side .ci{display:flex;align-items:center;gap:12px;padding:15px 0;border-top:1px solid var(--rule);font-size:.98rem;}
     .contact-side .ci i{width:22px;color:var(--blue);}
     .contact-side .ci a:hover{color:var(--blue);}
+    .contact-side .side-cta{margin-top:auto;padding-top:26px;}
 
     /* ---------- footer ---------- */
     footer{background:var(--ink);color:#c9cad0;padding:64px 0 40px;margin-top:0;}
@@ -539,8 +536,8 @@
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
                             <div class="al-price">от 350 000 ₸</div>
                             <div class="al-foot">Под ключ · фиксированная цена</div>
-                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Караганду." target="_blank" rel="noopener">Заказать переезд</a></div>
                         </div>
+                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Караганду." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
                     <article class="route-card" data-city="Кокшетау" data-km="296" data-price="470 000" data-days="1">
                         <div class="album">
@@ -552,8 +549,8 @@
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
                             <div class="al-price">от 470 000 ₸</div>
                             <div class="al-foot">Под ключ · фиксированная цена</div>
-                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Кокшетау." target="_blank" rel="noopener">Заказать переезд</a></div>
                         </div>
+                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Кокшетау." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
                     <article class="route-card" data-city="Павлодар" data-km="438" data-price="700 000" data-days="2">
                         <div class="album">
@@ -565,8 +562,8 @@
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
                             <div class="al-price">от 700 000 ₸</div>
                             <div class="al-foot">Под ключ · фиксированная цена</div>
-                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Павлодар." target="_blank" rel="noopener">Заказать переезд</a></div>
                         </div>
+                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Павлодар." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
                     <article class="route-card" data-city="Алматы" data-km="973" data-price="1 090 000" data-days="3">
                         <div class="album">
@@ -578,8 +575,8 @@
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
                             <div class="al-price">от 1 090 000 ₸</div>
                             <div class="al-foot">Самый частый маршрут · под ключ</div>
-                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Алматы." target="_blank" rel="noopener">Заказать переезд</a></div>
                         </div>
+                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Алматы." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
                     <article class="route-card" data-city="Шымкент" data-km="996" data-price="1 115 000" data-days="3">
                         <div class="album">
@@ -591,8 +588,8 @@
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
                             <div class="al-price">от 1 115 000 ₸</div>
                             <div class="al-foot">Под ключ · фиксированная цена</div>
-                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Шымкент." target="_blank" rel="noopener">Заказать переезд</a></div>
                         </div>
+                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Шымкент." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
                     <article class="route-card" data-city="Актобе" data-km="1009" data-price="1 130 000" data-days="3">
                         <div class="album">
@@ -604,8 +601,8 @@
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
                             <div class="al-price">от 1 130 000 ₸</div>
                             <div class="al-foot">Под ключ · фиксированная цена</div>
-                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Актобе." target="_blank" rel="noopener">Заказать переезд</a></div>
                         </div>
+                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Актобе." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
                     <article class="route-card" data-city="Семей" data-km="800" data-price="900 000" data-days="2">
                         <div class="album">
@@ -617,8 +614,8 @@
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
                             <div class="al-price">от 900 000 ₸</div>
                             <div class="al-foot">Под ключ · фиксированная цена</div>
-                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Семей." target="_blank" rel="noopener">Заказать переезд</a></div>
                         </div>
+                            <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд в Семей." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
                 </div>
             </div>
@@ -855,7 +852,7 @@
                     <div class="ci"><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/77010120300" target="_blank" rel="noopener">Написать в WhatsApp</a></div>
                     <div class="ci"><i class="fab fa-telegram" aria-hidden="true"></i><a href="https://t.me/gruzimkz" target="_blank" rel="noopener">Написать в Telegram</a></div>
                     <div class="ci"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:gruzemkz@gmail.com">gruzemkz@gmail.com</a></div>
-                    <div class="block-cta" style="text-align:left;margin-top:24px;">
+                    <div class="side-cta">
                         <a href="tel:+77010120300" class="cta">Позвонить сейчас</a>
                     </div>
                 </aside>
@@ -942,6 +939,8 @@
         function layout() {
             var m = metrics();
             stage.style.setProperty('--cw', m.cw + 'px');
+            var albumH = m.cw * 1.18;
+            stage.style.height = Math.round(28 + albumH + 78) + 'px'; // top + album + CTA room
             cards.forEach(function (card, i) {
                 var off = i - active;
                 if (off > n / 2) off -= n;
@@ -1172,7 +1171,7 @@
         };
         function isBot() {
             var ua = navigator.userAgent.toLowerCase();
-            return ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot', 'mail.ru', 'rambler', 'applebot', 'slurp', 'duckduckbot', 'ahrefsbot', 'semrushbot', 'petalbot'].some(function (b) { return ua.indexOf(b) > -1; });
+            return ['googlebot', 'yandexbot', 'bingbot', 'baiduspider', 'facebookexternalhit', 'twitterbot', 'linkedinbot', 'mail.ru', 'rambler', 'applebot', 'slurp', 'duckduckbot', 'ahrefsbot', 'semrushbot', 'petalbot', 'lighthouse', 'chrome-lighthouse', 'pagespeed', 'gtmetrix', 'headlesschrome'].some(function (b) { return ua.indexOf(b) > -1; });
         }
         function visits() {
             var key = 'gruzim_visits', today = new Date().toLocaleDateString('ru-KZ'), nn = 1;
@@ -1191,7 +1190,10 @@
                 body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: msg, parse_mode: 'HTML', disable_web_page_preview: true })
             }).catch(function () {});
         }
-        if ('requestIdleCallback' in window) requestIdleCallback(notifyVisitor, { timeout: 3000 }); else setTimeout(notifyVisitor, 2000);
+        var notified = false;
+        function fireNotify() { if (notified) return; notified = true; notifyVisitor(); }
+        ['scroll', 'touchstart', 'pointerdown', 'click', 'keydown'].forEach(function (e) { window.addEventListener(e, fireNotify, { passive: true, once: true }); });
+        setTimeout(fireNotify, 7000);
 
         var SENT = 'gruzim_conv_' + location.pathname;
         var timeOk = false, scrollOk = false, sent = false, start = Date.now();
