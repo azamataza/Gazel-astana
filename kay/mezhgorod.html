@@ -441,7 +441,66 @@
       *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
       [data-reveal]{opacity:1;transform:none;}
     }
-    </style>
+    
+    /* ====== v2 polish · alignment, focus, anchors, mobile ====== */
+    :root{ --header-h:64px; }
+    html{scroll-padding-top:calc(var(--header-h) + 18px);}
+    [id]{scroll-margin-top:calc(var(--header-h) + 18px);}
+    *{-webkit-tap-highlight-color:rgba(37,99,235,.14);}
+
+    /* keyboard focus ring everywhere (a11y + finish) */
+    a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,
+    textarea:focus-visible,summary:focus-visible,.faq-question:focus-visible,.route-card:focus-visible{
+      outline:3px solid rgba(37,99,235,.5);outline-offset:2px;border-radius:8px;
+    }
+
+    /* no ragged wraps, no overflow surprises */
+    h1,h2,h3,h4{text-wrap:balance;overflow-wrap:break-word;}
+    p,li,a,td,th{overflow-wrap:break-word;}
+
+    /* tidy, equal-height cards with aligned edges */
+    .grid-3,.grid-adv{align-items:stretch;}
+    .p-card{display:flex;flex-direction:column;}
+    .p-card h3{margin-top:4px;}
+
+    /* one consistent button system */
+    .cta{min-height:48px;line-height:1.2;}
+    .cta.pill{min-height:42px;}
+    .arrow-btn:active,.counter-btn:active,.cta:active{transform:translateY(1px);}
+
+    /* FAQ: vertically-centred +/- marker, comfortable target */
+    .faq-question{min-height:58px;padding-top:18px;padding-bottom:18px;}
+    .faq-question::after{top:50%;transform:translateY(-50%);line-height:1;}
+
+    /* hero: drop forced break on phones so the line never looks off */
+    @media(max-width:560px){ .hero h1 br{display:none;} }
+
+    /* tables readable on small screens */
+    @media(max-width:600px){
+      .seo-article table{min-width:0;font-size:.9rem;}
+      .seo-article th,.seo-article td{padding:11px 8px;}
+    }
+
+    /* mobile comfort + bigger tap targets */
+    @media(max-width:768px){
+      .wrap{padding-left:18px;padding-right:18px;}
+      .hero{padding:60px 0 44px;}
+      .block{padding:56px 0;}
+      .footer-col a{display:inline-block;padding:3px 0;}
+      .breadcrumbs li{font-size:.74rem;}
+    }
+    @media(max-width:520px){
+      .hero-cta{flex-direction:column;}
+      .hero-cta .cta,.messenger-buttons .cta,.block-cta .cta{width:100%;}
+      .stage-arrows{gap:18px;}
+    }
+
+    /* FAB respects iOS safe-area */
+    .floating-buttons{
+      bottom:calc(20px + env(safe-area-inset-bottom));
+      right:calc(20px + env(safe-area-inset-right));
+    }
+</style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -453,6 +512,46 @@
         { "@type": "HowToStep", "position": 2, "name": "Хрупкое — вперёд", "text": "Хрупкие вещи грузим в переднюю часть кузова: у рессорной газели сзади стоят рессоры и задний борт жёстче, там трясёт сильнее." },
         { "@type": "HowToStep", "position": 3, "name": "Мягкое — по бортам", "text": "Мягкую мебель ставим вдоль стенок кузова: в дороге она трётся о борта, поэтому всё, что можно поцарапать, уходит в центр." },
         { "@type": "HowToStep", "position": 4, "name": "Фиксация ремнями", "text": "Каждый последующий ряд груза стягиваем стяжными ремнями, чтобы при торможении он не сдвинулся и не зажал передние, более хрупкие вещи." }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.gruzim.kz/#org",
+          "name": "Gruzim.kz",
+          "url": "https://www.gruzim.kz/",
+          "logo": "https://www.gruzim.kz/Logo.png",
+          "telephone": "+77010120300",
+          "email": "info@gruzim.kz",
+          "sameAs": ["https://wa.me/77010120300", "https://t.me/gruzimkz"],
+          "address": { "@type": "PostalAddress", "addressLocality": "Астана", "addressCountry": "KZ" },
+          "contactPoint": { "@type": "ContactPoint", "telephone": "+77010120300", "contactType": "customer service", "areaServed": "KZ", "availableLanguage": ["ru", "kk"] }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.gruzim.kz/#website",
+          "url": "https://www.gruzim.kz/",
+          "name": "Gruzim.kz",
+          "inLanguage": "ru",
+          "publisher": { "@id": "https://www.gruzim.kz/#org" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.gruzim.kz/kay/mezhgorod.html#webpage",
+          "url": "https://www.gruzim.kz/kay/mezhgorod.html",
+          "name": "Переезд межгород по Казахстану из Астаны | Под ключ с грузчиками | Gruzim.kz",
+          "description": "Переезд в другой город под ключ: упаковка, разбор мебели, погрузка, перевозка, выгрузка, расстановка. Фиксированная цена. Работаем по всему Казахстану из Астаны.",
+          "inLanguage": "ru",
+          "isPartOf": { "@id": "https://www.gruzim.kz/#website" },
+          "about": { "@id": "https://www.gruzim.kz/#org" },
+          "primaryImageOfPage": "https://www.gruzim.kz/Logo.png",
+          "dateModified": "2026-06-18",
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero .lead", ".seo-article .lead"] }
+        }
       ]
     }
     </script>
