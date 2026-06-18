@@ -500,6 +500,19 @@
       bottom:calc(20px + env(safe-area-inset-bottom));
       right:calc(20px + env(safe-area-inset-right));
     }
+
+    /* ====== desktop header dropdown menu ====== */
+    .nav-desk{gap:22px;}
+    .nav-desk .nd-item{position:relative;display:flex;align-items:center;}
+    .nav-desk .nd-top{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;font-weight:500;color:var(--ink-2);padding:21px 0;border-bottom:0;cursor:pointer;transition:color .18s;}
+    .nav-desk .nd-item:hover .nd-top,.nav-desk .nd-item:focus-within .nd-top{color:var(--ink);}
+    .nav-desk .nd-item:has(.nd-menu) .nd-top::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg);margin-top:-3px;opacity:.65;transition:transform .18s,margin-top .18s;}
+    .nav-desk .nd-item:hover .nd-top::after,.nav-desk .nd-item:focus-within .nd-top::after{transform:rotate(-135deg);margin-top:2px;}
+    .nav-desk .nd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);min-width:236px;background:#fff;border:1px solid var(--rule);border-radius:14px;box-shadow:0 26px 54px -26px rgba(15,17,21,.5);padding:8px;display:flex;flex-direction:column;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:1200;}
+    .nav-desk .nd-menu::before{content:"";position:absolute;top:-10px;left:0;right:0;height:12px;}
+    .nav-desk .nd-item:hover .nd-menu,.nav-desk .nd-item:focus-within .nd-menu{opacity:1;visibility:visible;pointer-events:auto;}
+    .nav-desk .nd-menu a{padding:10px 14px;border-radius:9px;font-size:.9rem;font-weight:500;color:var(--ink-2);white-space:nowrap;border-bottom:0;transition:background .15s,color .15s;}
+    .nav-desk .nd-menu a:hover{background:var(--paper-2);color:var(--ink);}
 </style>
     <script type="application/ld+json">
     {
@@ -563,11 +576,45 @@
         <div class="hbar">
             <a href="../index.html" class="wordmark">Gruzim<span>.kz</span></a>
             <nav class="nav-desk" aria-label="Основное меню">
-                <a href="../gruz/centr.html">Перевозки</a>
-                <a href="../pereezdkay.html">Переезды</a>
-                <a href="../musor.html">Вывоз мусора</a>
-                <a href="../takelazh.html">Такелаж</a>
-                <a href="../B2B.html">Для юрлиц</a>
+                <div class="nd-item">
+                    <a href="../gruz/centr.html" class="nd-top" aria-haspopup="true">Перевозки</a>
+                    <div class="nd-menu">
+                        <a href="../gruz/centr.html">Все грузоперевозки</a>
+                        <a href="../gruz/chasovoi.html">Почасовая аренда</a>
+                        <a href="../gruz/bus.html">Минивэн (бус)</a>
+                        <a href="../gruz/komplekt.html">Газель + 2 грузчика</a>
+                    </div>
+                </div>
+                <div class="nd-item">
+                    <a href="../pereezdkay.html" class="nd-top" aria-haspopup="true">Переезды</a>
+                    <div class="nd-menu">
+                        <a href="../pereezdkay.html">О переезде под ключ</a>
+                        <a href="../kay/kvartira.html">Квартирный переезд</a>
+                        <a href="../kay/mezhgorod.html">Переезд по Казахстану</a>
+                        <a href="../kay/ofice.html">Переезд офиса</a>
+                    </div>
+                </div>
+                <div class="nd-item">
+                    <a href="../musor.html" class="nd-top" aria-haspopup="true">Вывоз мусора</a>
+                    <div class="nd-menu">
+                        <a href="../musor.html">О вывозе мусора</a>
+                        <a href="../musor/stroy.html">Строительный мусор</a>
+                        <a href="../musor/mebel.html">Старая мебель</a>
+                        <a href="../musor/tehnika.html">Бытовая техника</a>
+                        <a href="../musor/night.html">Ночной вывоз</a>
+                    </div>
+                </div>
+                <div class="nd-item">
+                    <a href="../takelazh.html" class="nd-top" aria-haspopup="true">Такелаж</a>
+                    <div class="nd-menu">
+                        <a href="../takelazh.html">О такелаже</a>
+                        <a href="../takelazh/oborud.html">Оборудование и станки</a>
+                        <a href="../takelazh/save.html">Перевозка сейфов</a>
+                    </div>
+                </div>
+                <div class="nd-item">
+                    <a href="../B2B.html" class="nd-top">Для юрлиц</a>
+                </div>
             </nav>
             <div class="hcta">
                 <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone" aria-hidden="true"></i><span>+7 701 012 03 00</span></a>
@@ -830,7 +877,7 @@
                 <p>Шесть шагов от заявки до расставленной мебели — всё под ключ силами одной бригады.</p>
             </div>
             <div class="grid-3">
-                <div class="p-card" data-reveal><div class="p-num">01</div><i class="fas fa-users" aria-hidden="true"></i><h3>Выезд оценщика</h3><p>Оцениваем имущество и утверждаем график. Выезд команды по переезду.</p></div>
+                <a class="p-card" href="#callback-form" data-reveal><div class="p-num">01</div><i class="fas fa-users" aria-hidden="true"></i><h3>Выезд оценщика</h3><p>Оцениваем имущество и утверждаем график. Выезд команды по переезду.</p></a>
                 <div class="p-card" data-reveal><div class="p-num">02</div><i class="fas fa-boxes" aria-hidden="true"></i><h3>Аккуратная упаковка</h3><p>Упаковываем вещи в коробки и плёнку, защищаем хрупкое.</p></div>
                 <div class="p-card" data-reveal><div class="p-num">03</div><i class="fas fa-tools" aria-hidden="true"></i><h3>Разбор мебели</h3><p>Разбираем шкафы, кровати, столы для компактной погрузки.</p></div>
                 <div class="p-card" data-reveal><div class="p-num">04</div><i class="fas fa-truck-loading" aria-hidden="true"></i><h3>Погрузка в машину</h3><p>Аккуратно загружаем всё в грузовик и фиксируем груз.</p></div>
