@@ -169,6 +169,47 @@
       ]
     }
     </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.gruzim.kz/#org",
+          "name": "Gruzim.kz",
+          "url": "https://www.gruzim.kz/",
+          "logo": "https://www.gruzim.kz/Logo.png",
+          "telephone": "+77010120300",
+          "email": "info@gruzim.kz",
+          "sameAs": ["https://wa.me/77010120300", "https://t.me/gruzimkz"],
+          "address": { "@type": "PostalAddress", "addressLocality": "Астана", "addressCountry": "KZ" },
+          "contactPoint": { "@type": "ContactPoint", "telephone": "+77010120300", "contactType": "customer service", "areaServed": "KZ", "availableLanguage": ["ru", "kk"] }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.gruzim.kz/#website",
+          "url": "https://www.gruzim.kz/",
+          "name": "Gruzim.kz",
+          "inLanguage": "ru",
+          "publisher": { "@id": "https://www.gruzim.kz/#org" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.gruzim.kz/kay/ofice.html#webpage",
+          "url": "https://www.gruzim.kz/kay/ofice.html",
+          "name": "Переезд офиса в Астане под ключ | Без простоя бизнеса | Gruzim.kz",
+          "description": "Переезд офиса в Астане под ключ: упаковка, демонтаж, перевозка серверов и техники, сборка, согласование пропусков в БЦ. Ночные и выходные переезды, договор, безнал, ЭСФ.",
+          "inLanguage": "ru",
+          "isPartOf": { "@id": "https://www.gruzim.kz/#website" },
+          "about": { "@id": "https://www.gruzim.kz/#org" },
+          "primaryImageOfPage": "https://www.gruzim.kz/Logo.png",
+          "dateModified": "2026-06-18",
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero .lead", ".seo-article .lead"] }
+        }
+      ]
+    }
+    </script>
     <style>
     /* ===== Gruzim.kz · «The Platinum Routes» — B&W edition ===== */
     :root{
@@ -448,7 +489,79 @@
       *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
       [data-reveal]{opacity:1;transform:none;}
     }
-    </style>
+    
+    /* ====== v2 polish · alignment, focus, anchors, mobile ====== */
+    :root{ --header-h:64px; }
+    html{scroll-padding-top:calc(var(--header-h) + 18px);}
+    [id]{scroll-margin-top:calc(var(--header-h) + 18px);}
+    *{-webkit-tap-highlight-color:rgba(37,99,235,.14);}
+
+    /* keyboard focus ring everywhere (a11y + finish) */
+    a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,
+    textarea:focus-visible,summary:focus-visible,.faq-question:focus-visible,.route-card:focus-visible{
+      outline:3px solid rgba(37,99,235,.5);outline-offset:2px;border-radius:8px;
+    }
+
+    /* no ragged wraps, no overflow surprises */
+    h1,h2,h3,h4{text-wrap:balance;overflow-wrap:break-word;}
+    p,li,a,td,th{overflow-wrap:break-word;}
+
+    /* tidy, equal-height cards with aligned edges */
+    .grid-3,.grid-adv{align-items:stretch;}
+    .p-card{display:flex;flex-direction:column;}
+    .p-card h3{margin-top:4px;}
+
+    /* one consistent button system */
+    .cta{min-height:48px;line-height:1.2;}
+    .cta.pill{min-height:42px;}
+    .arrow-btn:active,.counter-btn:active,.cta:active{transform:translateY(1px);}
+
+    /* FAQ: vertically-centred +/- marker, comfortable target */
+    .faq-question{min-height:58px;padding-top:18px;padding-bottom:18px;}
+    .faq-question::after{top:50%;transform:translateY(-50%);line-height:1;}
+
+    /* hero: drop forced break on phones so the line never looks off */
+    @media(max-width:560px){ .hero h1 br{display:none;} }
+
+    /* tables readable on small screens */
+    @media(max-width:600px){
+      .seo-article table{min-width:0;font-size:.9rem;}
+      .seo-article th,.seo-article td{padding:11px 8px;}
+    }
+
+    /* mobile comfort + bigger tap targets */
+    @media(max-width:768px){
+      .wrap{padding-left:18px;padding-right:18px;}
+      .hero{padding:60px 0 44px;}
+      .block{padding:56px 0;}
+      .footer-col a{display:inline-block;padding:3px 0;}
+      .breadcrumbs li{font-size:.74rem;}
+    }
+    @media(max-width:520px){
+      .hero-cta{flex-direction:column;}
+      .hero-cta .cta,.messenger-buttons .cta,.block-cta .cta{width:100%;}
+      .stage-arrows{gap:18px;}
+    }
+
+    /* FAB respects iOS safe-area */
+    .floating-buttons{
+      bottom:calc(20px + env(safe-area-inset-bottom));
+      right:calc(20px + env(safe-area-inset-right));
+    }
+
+    /* ====== desktop header dropdown menu ====== */
+    .nav-desk{gap:22px;}
+    .nav-desk .nd-item{position:relative;display:flex;align-items:center;}
+    .nav-desk .nd-top{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;font-weight:500;color:var(--ink-2);padding:21px 0;border-bottom:0;cursor:pointer;transition:color .18s;}
+    .nav-desk .nd-item:hover .nd-top,.nav-desk .nd-item:focus-within .nd-top{color:var(--ink);}
+    .nav-desk .nd-item:has(.nd-menu) .nd-top::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg);margin-top:-3px;opacity:.65;transition:transform .18s,margin-top .18s;}
+    .nav-desk .nd-item:hover .nd-top::after,.nav-desk .nd-item:focus-within .nd-top::after{transform:rotate(-135deg);margin-top:2px;}
+    .nav-desk .nd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);min-width:236px;background:#fff;border:1px solid var(--rule);border-radius:14px;box-shadow:0 26px 54px -26px rgba(15,17,21,.5);padding:8px;display:flex;flex-direction:column;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:1200;}
+    .nav-desk .nd-menu::before{content:"";position:absolute;top:-10px;left:0;right:0;height:12px;}
+    .nav-desk .nd-item:hover .nd-menu,.nav-desk .nd-item:focus-within .nd-menu{opacity:1;visibility:visible;pointer-events:auto;}
+    .nav-desk .nd-menu a{padding:10px 14px;border-radius:9px;font-size:.9rem;font-weight:500;color:var(--ink-2);white-space:nowrap;border-bottom:0;transition:background .15s,color .15s;}
+    .nav-desk .nd-menu a:hover{background:var(--paper-2);color:var(--ink);}
+</style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -457,11 +570,45 @@
         <div class="hbar">
             <a href="../index.html" class="wordmark">Gruzim<span>.kz</span></a>
             <nav class="nav-desk" aria-label="Основное меню">
-                <a href="../gruz/centr.html">Перевозки</a>
-                <a href="../pereezdkay.html">Переезды</a>
-                <a href="../musor.html">Вывоз мусора</a>
-                <a href="../takelazh.html">Такелаж</a>
-                <a href="../B2B.html">Для юрлиц</a>
+                <div class="nd-item">
+                    <a href="../gruz/centr.html" class="nd-top" aria-haspopup="true">Перевозки</a>
+                    <div class="nd-menu">
+                        <a href="../gruz/centr.html">Все грузоперевозки</a>
+                        <a href="../gruz/chasovoi.html">Почасовая аренда</a>
+                        <a href="../gruz/bus.html">Минивэн (бус)</a>
+                        <a href="../gruz/komplekt.html">Газель + 2 грузчика</a>
+                    </div>
+                </div>
+                <div class="nd-item">
+                    <a href="../pereezdkay.html" class="nd-top" aria-haspopup="true">Переезды</a>
+                    <div class="nd-menu">
+                        <a href="../pereezdkay.html">О переезде под ключ</a>
+                        <a href="../kay/kvartira.html">Квартирный переезд</a>
+                        <a href="../kay/mezhgorod.html">Переезд по Казахстану</a>
+                        <a href="../kay/ofice.html">Переезд офиса</a>
+                    </div>
+                </div>
+                <div class="nd-item">
+                    <a href="../musor.html" class="nd-top" aria-haspopup="true">Вывоз мусора</a>
+                    <div class="nd-menu">
+                        <a href="../musor.html">О вывозе мусора</a>
+                        <a href="../musor/stroy.html">Строительный мусор</a>
+                        <a href="../musor/mebel.html">Старая мебель</a>
+                        <a href="../musor/tehnika.html">Бытовая техника</a>
+                        <a href="../musor/night.html">Ночной вывоз</a>
+                    </div>
+                </div>
+                <div class="nd-item">
+                    <a href="../takelazh.html" class="nd-top" aria-haspopup="true">Такелаж</a>
+                    <div class="nd-menu">
+                        <a href="../takelazh.html">О такелаже</a>
+                        <a href="../takelazh/oborud.html">Оборудование и станки</a>
+                        <a href="../takelazh/save.html">Перевозка сейфов</a>
+                    </div>
+                </div>
+                <div class="nd-item">
+                    <a href="../B2B.html" class="nd-top">Для юрлиц</a>
+                </div>
             </nav>
             <div class="hcta">
                 <a href="tel:+77010120300" class="header-phone"><i class="fas fa-phone" aria-hidden="true"></i><span>+7 701 012 03 00</span></a>
@@ -517,7 +664,7 @@
     <section class="hero">
         <div class="wrap">
             <span class="eyebrow" data-reveal><span class="dot"></span>Офисный переезд под ключ в Астане<span class="arr">›</span></span>
-            <h1 data-reveal>Перевезём ваш офис<br>в Астане — <em>без простоя бизнеса</em></h1>
+            <h1 data-reveal>Переедем ваш офис<br>в Астане — <em>без простоя бизнеса</em></h1>
             <p class="lead" data-reveal>Упакуем рабочие места, перевезём серверы и технику, соберём мебель на новом месте. Работаем ночью и в выходные, сами согласуем пропуска в любой БЦ. Фиксированная цена в договоре.</p>
             <div class="hero-cta" data-reveal>
                 <a href="#callback-form" class="cta cta--solid">Заказать расчёт</a>
@@ -622,7 +769,7 @@
                 <p>Полный цикл силами одной бригады — от бесплатной оценки до подключённой техники на новом месте.</p>
             </div>
             <div class="grid-3">
-                <div class="p-card" data-reveal><div class="p-num">01</div><i class="fas fa-chalkboard-user" aria-hidden="true"></i><h3>Выезд оценщика</h3><p>Бесплатно оцениваем объём, серверы, мебель и технику, фиксируем цену в договоре.</p></div>
+                <a class="p-card" href="#callback-form" data-reveal><div class="p-num">01</div><i class="fas fa-chalkboard-user" aria-hidden="true"></i><h3>Выезд оценщика</h3><p>Бесплатно оцениваем объём, серверы, мебель и технику, фиксируем цену в договоре.</p></a>
                 <div class="p-card" data-reveal><div class="p-num">02</div><i class="fas fa-passport" aria-hidden="true"></i><h3>Согласуем пропуска</h3><p>Оформляем доступ в БЦ, бронируем грузовые лифты и удобное время.</p></div>
                 <div class="p-card" data-reveal><div class="p-num">03</div><i class="fas fa-boxes" aria-hidden="true"></i><h3>Упаковка и маркировка</h3><p>Антистатическая упаковка техники, коробки по отделам и рабочим местам.</p></div>
                 <div class="p-card" data-reveal><div class="p-num">04</div><i class="fas fa-tools" aria-hidden="true"></i><h3>Демонтаж мебели</h3><p>Разбираем столы, шкафы и перегородки для компактной и безопасной перевозки.</p></div>
@@ -677,7 +824,7 @@
             <p class="lead">Офисный переезд ломается не на дороге, а в деталях: незабронированный грузовой лифт, неоформленные пропуска, перепутанные коробки и сервер, который собирали «на глаз». Мы перевезли более 50 компаний Астаны — от магазинов до IT-офисов — и за это время поняли: хороший переезд офиса это на 80% планирование. Поэтому ниже не реклама, а то, как мы реально работаем.</p>
 
             <h3>Стоимость переезда офиса по районам Астаны</h3>
-            <p>Ниже — ориентир по объёму. Точную цену считаем после бесплатного выезда оценщика и фиксируем в договоре, без доплат в процессе.</p>
+            <p>Ниже — ориентир по объёму. Точную цену считаем после бесплатного <a href="#callback-form">выезда оценщика</a> и фиксируем в договоре, без доплат в процессе.</p>
             <div class="table-scroll">
             <table>
                 <thead><tr><th>Район</th><th>Малый офис (до 10 чел)</th><th>Средний офис (10–50)</th><th>Большой офис (50+)</th></tr></thead>
