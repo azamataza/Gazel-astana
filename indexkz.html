@@ -418,7 +418,7 @@
         }
 
         .hero-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.webp') no-repeat center center/cover;
             color: white;
             padding: 100px 20px;
             text-align: center;
@@ -1466,7 +1466,7 @@ html {
 
         ym(104276494, 'init', { ssr: true, webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" / loading="lazy" decoding="async"></div></noscript>
 
     <script>
         ! function(f, b, e, v, n, t, s) {
@@ -1489,7 +1489,7 @@ html {
         fbq('init', '922364396983002');
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1" /></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922364396983002&ev=PageView&noscript=1" / loading="lazy" decoding="async"></noscript>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503887977"></script>
     <script>
@@ -1502,6 +1502,51 @@ html {
         gtag('config', 'AW-17503887977');
         gtag('config', 'G-2VWS9V6KVJ');
     </script>
+
+<style id="gz-perf-2026">
+/* === Gruzim.kz — perf & UX layer (overrides earlier inline rules) === */
+:root{--gz-header-h:64px;--gz-crumb-h:38px;}
+
+/* Sticky stack: header + breadcrumbs fixed together */
+.floating-header{transition:box-shadow .25s ease,background-color .25s ease;}
+nav.breadcrumbs{
+  position:fixed;left:0;right:0;top:var(--gz-header-h);width:100%;
+  max-width:none;margin:0;padding:7px 5%;
+  background:rgba(255,255,255,.98);border-bottom:1px solid #e6eaf1;
+  z-index:998;transition:box-shadow .25s ease,background-color .25s ease;
+}
+nav.breadcrumbs ol{max-width:1400px;margin:0 auto;}
+body{padding-top:calc(var(--gz-header-h) + var(--gz-crumb-h))!important;}
+
+/* Compositor-only emphasis while scrolling (no layout change = no jitter) */
+html.gz-scrolled .floating-header{box-shadow:0 6px 24px rgba(15,23,42,.12);}
+html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
+
+/* FAB: GPU pulse via transform/opacity instead of animated box-shadow */
+.fab-main{animation:none!important;}
+.fab-main::after{
+  content:'';position:absolute;inset:0;border-radius:50%;background:#f97316;
+  z-index:-1;will-change:transform,opacity;
+  animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite;
+}
+@keyframes gzRing{
+  0%{transform:scale(1);opacity:.55;}
+  70%{transform:scale(1.85);opacity:0;}
+  100%{transform:scale(1.85);opacity:0;}
+}
+
+/* Mobile: static, bold, zero animation cost */
+@media (max-width:768px){
+  .fab-main::after{display:none;animation:none;}
+  .fab-main{box-shadow:0 4px 14px rgba(249,115,22,.55),0 0 0 4px rgba(249,115,22,.22)!important;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .fab-main::after{animation:none;}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
+}
+</style>
 </head>
 
 <body>
@@ -1529,7 +1574,7 @@ html {
                     <span></span>
                     <span></span>
                 </button>
-                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo">
+                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" loading="lazy" decoding="async">
             </div>
 
             <div class="header-right">
@@ -1743,7 +1788,7 @@ html {
             <div class="clients-viewport">
                 <div class="clients-track">
                     <article class="client-card">
-                        <div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden"></div>
+                        <div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden" loading="lazy" decoding="async"></div>
                         <div class="client-name">JOY Garden</div>
                         <div class="client-type">Дүкенді 3 қоймаға көшіру</div>
                         <p class="client-details">Сауда залы мен қойманы үш сақтау орнына ауыстыру. Витриналарды орау, тиеу, жеткізу және тауарды орналастыру — 10 күн ішінде Толық көшіру қызметі, 15т тауар.</p>
@@ -1751,7 +1796,7 @@ html {
                     </article>
 
                     <article class="client-card">
-                        <div class="client-logo"><img src="logo-zte-astana.png" alt="ZTE Astana"></div>
+                        <div class="client-logo"><img src="logo-zte-astana.png" alt="ZTE Astana" loading="lazy" decoding="async"></div>
                         <div class="client-name">ZTE Astana</div>
                         <div class="client-type">50 қызметкерге арналған кеңсені көшіру</div>
                         <p class="client-details">Көшіруді толық ұйымдастыру: жұмыс орындарын орау, ұйымдастыру техникасы, жиһаз, бөлшектеу және құрастыру. Кеңсе жұмысын тоқтатпай көшіру.</p>
@@ -1759,7 +1804,7 @@ html {
                     </article>
 
                     <article class="client-card">
-                        <div class="client-logo"><img src="logo-astana-logistics.png" alt="Astana Logistics Group"></div>
+                        <div class="client-logo"><img src="logo-astana-logistics.png" alt="Astana Logistics Group" loading="lazy" decoding="async"></div>
                         <div class="client-name">Astana Logistics Group</div>
                         <div class="client-type">Қойманы көшіру</div>
                         <p class="client-details">Қойма қорын, паллеттер мен сөрелерді ауыстыру. Клиенттің логистикасын сақтау үшін кезеңдік жұмыс және түнгі ауысымдар.</p>
@@ -1767,7 +1812,7 @@ html {
                     </article>
 
                     <article class="client-card">
-                        <div class="client-logo"><img src="logo-dm.png" alt="DamuMed"></div>
+                        <div class="client-logo"><img src="logo-dm.png" alt="DamuMed" loading="lazy" decoding="async"></div>
                         <div class="client-name">DamuMed</div>
                         <div class="client-type">Кеңсені Толық көшіру қызметі</div>
                         <p class="client-details">IT‑компания кеңсесін кешенді көшіру: 70+ қызметкер, жұмыс орындары, серверлік аймақ және ас үй. Бөлімдерді бизнес‑процестерді тоқтатпай кезең-кезеңімен ауыстыру.</p>
@@ -1775,7 +1820,7 @@ html {
                     </article>
 
                     <article class="client-card">
-                        <div class="client-logo"><img src="logo-gch.png" alt="Office & Warehouse"></div>
+                        <div class="client-logo"><img src="logo-gch.png" alt="Office & Warehouse" loading="lazy" decoding="async"></div>
                         <div class="client-name">GigaTech</div>
                         <div class="client-type">Кеңсе мен қойманы көшіру</div>
                         <p class="client-details">Кеңсе мен қойма аймақтарын ұйымдасқан түрде көшіру: 20+ қызметкер, техника, құжаттар.</p>
@@ -1931,7 +1976,7 @@ html {
     <footer>
         <div class="footer-inner">
             <div class="footer-col">
-                <img src="Logo.png" alt="Gruzim.kz логотипі" class="footer-logo">
+                <img src="Logo.png" alt="Gruzim.kz логотипі" class="footer-logo" loading="lazy" decoding="async">
                 <p>Астана және Қазақстан өңірлері бойынша жүк тасымалы.</p>
                 <p>&copy; 2019-2025 gruzim.kz. Барлық құқықтар қорғалған.</p>
             </div>
@@ -2371,6 +2416,31 @@ html {
 
         updatePrice();
     </script>
+
+<script id="gz-sticky-2026">
+(function(){
+  var hdr=document.querySelector('.floating-header'),
+      crumb=document.querySelector('nav.breadcrumbs'),
+      root=document.documentElement;
+  function measure(){
+    if(hdr)root.style.setProperty('--gz-header-h',hdr.offsetHeight+'px');
+    root.style.setProperty('--gz-crumb-h',(crumb?crumb.offsetHeight:0)+'px');
+  }
+  measure();
+  window.addEventListener('load',measure);
+  if('ResizeObserver' in window){
+    var ro=new ResizeObserver(measure);
+    if(hdr)ro.observe(hdr); if(crumb)ro.observe(crumb);
+  }else{window.addEventListener('resize',measure,{passive:true});}
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(ticking)return; ticking=true;
+    requestAnimationFrame(function(){
+      root.classList.toggle('gz-scrolled',window.scrollY>8); ticking=false;
+    });
+  },{passive:true});
+})();
+</script>
 </body>
 
 </html>
