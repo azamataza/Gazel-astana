@@ -206,6 +206,7 @@
       "@context": "https://schema.org",
       "@type": "MovingCompany",
       "name": "Gruzim.kz",
+      "slogan": "Люди покупают не услугу, а уверенность, что их проблема решится",
       "description": "Грузоперевозки в Астане: переезды под ключ, грузчики, ГАЗель, вывоз мусора, такелаж. Работаем с юрлицами по безналу.",
       "image": "https://www.gruzim.kz/Logo.png",
       "url": "https://www.gruzim.kz",
@@ -552,6 +553,51 @@
         @media(max-width:1024px){.burger-menu{display:flex;}}
         @media(max-width:768px){.header-phone{display:none !important;}}
     </style>
+
+<style id="gz-perf-2026">
+/* === Gruzim.kz — perf & UX layer (overrides earlier inline rules) === */
+:root{--gz-header-h:64px;--gz-crumb-h:38px;}
+
+/* Sticky stack: header + breadcrumbs fixed together */
+.floating-header{transition:box-shadow .25s ease,background-color .25s ease;}
+nav.breadcrumbs{
+  position:fixed;left:0;right:0;top:var(--gz-header-h);width:100%;
+  max-width:none;margin:0;padding:7px 5%;
+  background:rgba(255,255,255,.98);border-bottom:1px solid #e6eaf1;
+  z-index:998;transition:box-shadow .25s ease,background-color .25s ease;
+}
+nav.breadcrumbs ol{max-width:1400px;margin:0 auto;}
+body{padding-top:calc(var(--gz-header-h) + var(--gz-crumb-h))!important;}
+
+/* Compositor-only emphasis while scrolling (no layout change = no jitter) */
+html.gz-scrolled .floating-header{box-shadow:0 6px 24px rgba(15,23,42,.12);}
+html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
+
+/* FAB: GPU pulse via transform/opacity instead of animated box-shadow */
+.fab-main{animation:none!important;}
+.fab-main::after{
+  content:'';position:absolute;inset:0;border-radius:50%;background:#f97316;
+  z-index:-1;will-change:transform,opacity;
+  animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite;
+}
+@keyframes gzRing{
+  0%{transform:scale(1);opacity:.55;}
+  70%{transform:scale(1.85);opacity:0;}
+  100%{transform:scale(1.85);opacity:0;}
+}
+
+/* Mobile: static, bold, zero animation cost */
+@media (max-width:768px){
+  .fab-main::after{display:none;animation:none;}
+  .fab-main{box-shadow:0 4px 14px rgba(249,115,22,.55),0 0 0 4px rgba(249,115,22,.22)!important;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .fab-main::after{animation:none;}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
+}
+</style>
 </head>
 <body>
     <nav aria-label="Breadcrumb" class="breadcrumbs">
@@ -563,7 +609,7 @@
                 <button class="burger-menu" id="burgerMenu" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav">
                     <span></span><span></span><span></span>
                 </button>
-                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo"></a>
+                <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" loading="lazy" decoding="async"></a>
             </div>
             <div class="header-right">
                 <div class="language-switcher">
@@ -649,7 +695,13 @@
         <div class="header-content">
             <h1><span class="brand-blue">Грузоперевозки в Астане</span></h1>
             <p class="hero-slogan"><span class="brand-orange">Gruzim.kz — больше, чем грузоперевозки</span></p>
+            <p style="font-size:1.12em;font-weight:600;max-width:760px;margin:0 auto 14px;">Вы платите не за машину и грузчиков — вы платите за&nbsp;уверенность, что вещи доедут целыми, точно в&nbsp;срок и без&nbsp;доплат сверх названной цены.</p>
             <p>Переезды под ключ, грузчики, ГАЗель, вывоз мусора и такелаж. Полный цикл услуг для дома, офиса и бизнеса.</p>
+            <ul class="hero-trust" style="list-style:none;display:flex;flex-wrap:wrap;gap:10px 14px;justify-content:center;margin:22px auto 0;padding:0;max-width:760px;">
+                <li style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:50px;padding:8px 16px;font-size:.95em;font-weight:600;"><i class="fas fa-tag" aria-hidden="true" style="color:#f97316;"></i> Фиксированная цена в договоре</li>
+                <li style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:50px;padding:8px 16px;font-size:.95em;font-weight:600;"><i class="fas fa-shield-halved" aria-hidden="true" style="color:#f97316;"></i> Бережная перевозка под ответственность</li>
+                <li style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:50px;padding:8px 16px;font-size:.95em;font-weight:600;"><i class="fas fa-clock" aria-hidden="true" style="color:#f97316;"></i> Приедем точно к назначенному времени</li>
+            </ul>
             <div class="hero-icons">
                 <a href="gruz/centr.html" class="icon-item">
                     <svg viewBox="0 0 24 24"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg>
@@ -783,16 +835,16 @@
             <div class="videos-viewport">
                 <div class="videos-track" style="align-items: center;">
                     <div class="video-slide"><div class="video-slide-iframe">
-                        <div class="yt-facade" data-vid="YxbIeftnPz0" role="button" tabindex="0" aria-label="Смотреть видео: Переезд под ключ котеджа"><img src="https://i.ytimg.com/vi/YxbIeftnPz0/hqdefault.jpg" alt="Переезд под ключ котеджа" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                        <div class="yt-facade" data-vid="YxbIeftnPz0" role="button" tabindex="0" aria-label="Смотреть видео: Переезд под ключ котеджа"><img src="https://i.ytimg.com/vi/YxbIeftnPz0/hqdefault.jpg" alt="Переезд под ключ котеджа" loading="lazy" width="480" height="270" decoding="async"><div class="yt-play-btn"></div></div>
                     </div><div class="video-slide-label">Переезд под ключ котеджа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                     <div class="video-slide"><div class="video-slide-iframe">
-                        <div class="yt-facade" data-vid="VbL_QYPKR04" role="button" tabindex="0" aria-label="Смотреть видео: Услуги такелажа"><img src="https://i.ytimg.com/vi/VbL_QYPKR04/hqdefault.jpg" alt="Услуги такелажа" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                        <div class="yt-facade" data-vid="VbL_QYPKR04" role="button" tabindex="0" aria-label="Смотреть видео: Услуги такелажа"><img src="https://i.ytimg.com/vi/VbL_QYPKR04/hqdefault.jpg" alt="Услуги такелажа" loading="lazy" width="480" height="270" decoding="async"><div class="yt-play-btn"></div></div>
                     </div><div class="video-slide-label">Услуги такелажа</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                     <div class="video-slide"><div class="video-slide-iframe">
-                        <div class="yt-facade" data-vid="oQpGif5srmc" role="button" tabindex="0" aria-label="Смотреть видео: Разбор и упаковка мебели"><img src="https://i.ytimg.com/vi/oQpGif5srmc/hqdefault.jpg" alt="Разбор и упаковка мебели" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                        <div class="yt-facade" data-vid="oQpGif5srmc" role="button" tabindex="0" aria-label="Смотреть видео: Разбор и упаковка мебели"><img src="https://i.ytimg.com/vi/oQpGif5srmc/hqdefault.jpg" alt="Разбор и упаковка мебели" loading="lazy" width="480" height="270" decoding="async"><div class="yt-play-btn"></div></div>
                     </div><div class="video-slide-label">Разбор и упаковка мебели</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                     <div class="video-slide"><div class="video-slide-iframe">
-                        <div class="yt-facade" data-vid="8uo9BBVwK9o" role="button" tabindex="0" aria-label="Смотреть видео: Разбор и вывоз мебели под ключ"><img src="https://i.ytimg.com/vi/8uo9BBVwK9o/hqdefault.jpg" alt="Разбор и вывоз мебели под ключ" loading="lazy" width="480" height="270"><div class="yt-play-btn"></div></div>
+                        <div class="yt-facade" data-vid="8uo9BBVwK9o" role="button" tabindex="0" aria-label="Смотреть видео: Разбор и вывоз мебели под ключ"><img src="https://i.ytimg.com/vi/8uo9BBVwK9o/hqdefault.jpg" alt="Разбор и вывоз мебели под ключ" loading="lazy" width="480" height="270" decoding="async"><div class="yt-play-btn"></div></div>
                     </div><div class="video-slide-label">Разбор и вывоз мебели под ключ</div><div class="video-slide-meta">Астана · Gruzim.kz</div></div>
                 </div>
             </div>
@@ -858,11 +910,12 @@
     </section>
     <section class="section" id="features">
         <h2>Почему выбирают нас</h2>
+        <p style="text-align:center;max-width:780px;margin:-30px auto 40px;color:#475569;font-size:1.05em;">Главное, что вы получаете — это спокойствие: чёткие договорённости, отсутствие сюрпризов и понимание, что вашу задачу доведут до конца.</p>
         <div class="features-grid">
-            <div class="feature-item"><i class="fas fa-award icon" aria-hidden="true"></i><h3>Более 6 лет на рынке</h3><p>Накопленный опыт позволяет решать задачи любой сложности.</p></div>
-            <div class="feature-item"><i class="fas fa-truck-fast icon" aria-hidden="true"></i><h3>Более 500 заказов</h3><p>Успешно выполненных перевозок и довольных клиентов.</p></div>
-            <div class="feature-item"><i class="fas fa-clock icon" aria-hidden="true"></i><h3>Работаем с 8:00 до 22:00</h3><p>Ежедневно, без выходных и праздников для вашего удобства.</p></div>
-            <div class="feature-item"><i class="fas fa-user-tie icon" aria-hidden="true"></i><h3>Профессиональные водители</h3><p>Опытные и ответственные сотрудники.</p></div>
+            <div class="feature-item"><i class="fas fa-award icon" aria-hidden="true"></i><h3>6 лет опыта — решаем без импровизаций</h3><p>За плечами сотни переездов: типовые сложности мы проходили десятки раз, поэтому ваш заказ идёт по отработанному сценарию.</p></div>
+            <div class="feature-item"><i class="fas fa-truck-fast icon" aria-hidden="true"></i><h3>Более 500 выполненных заказов</h3><p>Клиенты возвращаются и рекомендуют нас — лучшее подтверждение, что мы держим слово.</p></div>
+            <div class="feature-item"><i class="fas fa-clock icon" aria-hidden="true"></i><h3>Работаем с 8:00 до 22:00 без выходных</h3><p>Подстроимся под ваш график и приедем в удобное время — даже на ночной вывоз.</p></div>
+            <div class="feature-item"><i class="fas fa-user-tie icon" aria-hidden="true"></i><h3>Ответственные водители и грузчики</h3><p>Аккуратность и бережное отношение к вещам — то, ради чего вы и обращаетесь к профессионалам.</p></div>
         </div>
     </section>
     <section class="section legal-entities-section" id="legal-entities">
@@ -952,7 +1005,7 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-col">
-                <img src="Logo.png" alt="Gruzim.kz" class="footer-logo" loading="lazy">
+                <img src="Logo.png" alt="Gruzim.kz" class="footer-logo" loading="lazy" decoding="async">
                 <p>Грузоперевозки и переезды под ключ в Астане. Работаем с 2019 года.</p>
                 <p>&copy; 2019–2026 gruzim.kz. Все права защищены.</p>
                 <div style="margin-top:14px;display:flex;gap:12px;font-size:1.5rem;align-items:center;">
@@ -1262,5 +1315,30 @@
         else init();
     })();
     </script>
+
+<script id="gz-sticky-2026">
+(function(){
+  var hdr=document.querySelector('.floating-header'),
+      crumb=document.querySelector('nav.breadcrumbs'),
+      root=document.documentElement;
+  function measure(){
+    if(hdr)root.style.setProperty('--gz-header-h',hdr.offsetHeight+'px');
+    root.style.setProperty('--gz-crumb-h',(crumb?crumb.offsetHeight:0)+'px');
+  }
+  measure();
+  window.addEventListener('load',measure);
+  if('ResizeObserver' in window){
+    var ro=new ResizeObserver(measure);
+    if(hdr)ro.observe(hdr); if(crumb)ro.observe(crumb);
+  }else{window.addEventListener('resize',measure,{passive:true});}
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(ticking)return; ticking=true;
+    requestAnimationFrame(function(){
+      root.classList.toggle('gz-scrolled',window.scrollY>8); ticking=false;
+    });
+  },{passive:true});
+})();
+</script>
 </body>
 </html>
