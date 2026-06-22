@@ -201,7 +201,7 @@
         }
     })();
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute; left:-9999px;" alt="" / loading="lazy" decoding="async"></div></noscript>
 
 <style>
         *{margin:0;padding:0;box-sizing:border-box;}
@@ -448,6 +448,51 @@
         @media(max-width:1024px){.burger-menu{display:flex;}}
         @media(max-width:768px){.header-phone{display:none !important;}}
     </style>
+
+<style id="gz-perf-2026">
+/* === Gruzim.kz — perf & UX layer (overrides earlier inline rules) === */
+:root{--gz-header-h:64px;--gz-crumb-h:38px;}
+
+/* Sticky stack: header + breadcrumbs fixed together */
+.floating-header{transition:box-shadow .25s ease,background-color .25s ease;}
+nav.breadcrumbs{
+  position:fixed;left:0;right:0;top:var(--gz-header-h);width:100%;
+  max-width:none;margin:0;padding:7px 5%;
+  background:rgba(255,255,255,.98);border-bottom:1px solid #e6eaf1;
+  z-index:998;transition:box-shadow .25s ease,background-color .25s ease;
+}
+nav.breadcrumbs ol{max-width:1400px;margin:0 auto;}
+body{padding-top:calc(var(--gz-header-h) + var(--gz-crumb-h))!important;}
+
+/* Compositor-only emphasis while scrolling (no layout change = no jitter) */
+html.gz-scrolled .floating-header{box-shadow:0 6px 24px rgba(15,23,42,.12);}
+html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
+
+/* FAB: GPU pulse via transform/opacity instead of animated box-shadow */
+.fab-main{animation:none!important;}
+.fab-main::after{
+  content:'';position:absolute;inset:0;border-radius:50%;background:#f97316;
+  z-index:-1;will-change:transform,opacity;
+  animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite;
+}
+@keyframes gzRing{
+  0%{transform:scale(1);opacity:.55;}
+  70%{transform:scale(1.85);opacity:0;}
+  100%{transform:scale(1.85);opacity:0;}
+}
+
+/* Mobile: static, bold, zero animation cost */
+@media (max-width:768px){
+  .fab-main::after{display:none;animation:none;}
+  .fab-main{box-shadow:0 4px 14px rgba(249,115,22,.55),0 0 0 4px rgba(249,115,22,.22)!important;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .fab-main::after{animation:none;}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
+}
+</style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -467,7 +512,7 @@
                 <button class="burger-menu" id="burgerMenu" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav">
                     <span></span><span></span><span></span>
                 </button>
-                <a href="../../index.html"><img src="../../Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo"></a>
+                <a href="../../index.html"><img src="../../Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" loading="lazy" decoding="async"></a>
             </div>
             <div class="header-right">
                 <div class="language-switcher">
@@ -599,7 +644,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr itemscope itemtype="https://schema.org/Product"><td itemprop="name"><strong>Кровать (с разборкой каркаса)</strong></td><td class="price-cell">12 000 ₸</td><td class="price-cell">15 000 ₸</td><td class="price-cell">18 000 ₸</td></tr>
+                    <tr><td><strong>Кровать (с разборкой каркаса)</strong></td><td class="price-cell">12 000 ₸</td><td class="price-cell">15 000 ₸</td><td class="price-cell">18 000 ₸</td></tr>
                 </tbody>
             </table>
         </div>
@@ -681,7 +726,7 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-col">
-                <img src="../../Logo.png" alt="Gruzim.kz" class="footer-logo" loading="lazy">
+                <img src="../../Logo.png" alt="Gruzim.kz" class="footer-logo" loading="lazy" decoding="async">
                 <p>Грузоперевозки и переезды под ключ в Астане. Работаем с 2019 года.</p>
                 <p>&copy; 2019–2026 gruzim.kz. Все права защищены.</p>
                 <div style="margin-top:14px;display:flex;gap:12px;font-size:1.5rem;align-items:center;">
@@ -873,6 +918,31 @@
     }).catch(function(){});
   }
   if('requestIdleCallback' in window) requestIdleCallback(notifyVisitor,{timeout:3000}); else setTimeout(notifyVisitor,2000);
+})();
+</script>
+
+<script id="gz-sticky-2026">
+(function(){
+  var hdr=document.querySelector('.floating-header'),
+      crumb=document.querySelector('nav.breadcrumbs'),
+      root=document.documentElement;
+  function measure(){
+    if(hdr)root.style.setProperty('--gz-header-h',hdr.offsetHeight+'px');
+    root.style.setProperty('--gz-crumb-h',(crumb?crumb.offsetHeight:0)+'px');
+  }
+  measure();
+  window.addEventListener('load',measure);
+  if('ResizeObserver' in window){
+    var ro=new ResizeObserver(measure);
+    if(hdr)ro.observe(hdr); if(crumb)ro.observe(crumb);
+  }else{window.addEventListener('resize',measure,{passive:true});}
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(ticking)return; ticking=true;
+    requestAnimationFrame(function(){
+      root.classList.toggle('gz-scrolled',window.scrollY>8); ticking=false;
+    });
+  },{passive:true});
 })();
 </script>
 </body>
