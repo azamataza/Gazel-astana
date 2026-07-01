@@ -1,3 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /mebel/
+Disallow: /proverka.html
+
 Sitemap: https://www.gruzim.kz/sitemap.xml
