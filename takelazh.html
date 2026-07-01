@@ -265,57 +265,20 @@
         .brand-blue{color:#2563eb;font-weight:800;}
         .brand-orange{color:#f97316;font-weight:700;}
 
-        .hero-icons {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-        }
-        .hero-icon-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            background: transparent;
-            border: 1.5px solid rgba(255,255,255,0.6);
-            border-radius: 20px;
-            padding: 16px 28px;
-            min-width: 180px;
-        }
-        .hero-icon-item:hover {
-            transform: translateY(-4px);
-            background: rgba(255,255,255,0.1);
-            border-color: white;
-        }
-        .hero-icon-item svg {
-            width: 48px;
-            height: 48px;
-            stroke: white;
-            stroke-width: 1.7;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-        .hero-icon-item span {
-            font-size: 16px;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
+        
+        
+        
+        
+        
         @media (max-width: 768px) {
-            .hero-icons { gap: 16px; }
-            .hero-icon-item { padding: 12px 20px; min-width: 140px; }
-            .hero-icon-item svg { width: 36px; height: 36px; }
-            .hero-icon-item span { font-size: 13px; }
+            
+            
+            
+            
         }
         @media (max-width: 550px) {
-            .hero-icons { flex-direction: column; align-items: center; gap: 12px; }
-            .hero-icon-item { width: 80%; max-width: 260px; flex-direction: row; justify-content: center; gap: 15px; padding: 12px 20px; }
+            
+            
         }
 
         .hero-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
@@ -473,7 +436,15 @@
         .fab-main{width:60px;height:60px;border-radius:50%;background:#f97316;color:#fff;border:none;box-shadow:0 5px 20px rgba(249,115,22,0.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.8em;transition:all 0.2s;animation:pulse 2s infinite;position:relative;z-index:1000;}
         .fab-main:hover{transform:scale(1.1);animation:none;}
         @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(249,115,22,0.7);}70%{box-shadow:0 0 0 15px rgba(249,115,22,0);}100%{box-shadow:0 0 0 0 rgba(249,115,22,0);}}
-    </style>
+    
+.hero-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 12px;margin-top:35px;margin-bottom:45px;max-width:900px;margin-left:auto;margin-right:auto;padding:0 12px;}
+.icon-item{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transition:all 0.2s ease;cursor:pointer;}
+.icon-item svg{width:44px;height:44px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.icon-item span{font-size:12px;font-weight:500;color:white;text-align:center;line-height:1.3;letter-spacing:0.3px;text-shadow:0 1px 2px rgba(0,0,0,0.3);}
+.icon-item:hover{transform:scale(0.95);}
+.icon-item:active{transform:scale(0.92);}
+@media(max-width:900px){.hero-icons{grid-template-columns:repeat(3,1fr);gap:16px 8px;max-width:520px;}.icon-item svg{width:38px;height:38px;}.icon-item span{font-size:10px;}}
+</style>
 <style id="unified-nav-style">
         .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
         .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
@@ -536,11 +507,11 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav aria-label="Breadcrumb" class="breadcrumbs">
-    <ol>
-        <li><a href="index.html">Главная</a></li>
-        <li><span aria-current="page">Такелажные услуги</span></li>
-    </ol>
-</nav>
+        <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li aria-current="page">Такелаж</li>
+        </ol>
+    </nav>
 
 <header class="floating-header">
         <div class="floating-header-content">
@@ -562,120 +533,120 @@
         <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
             <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
 
-            <a href="/index.html#services" class="mnav-flat">Все услуги</a>
+            <a href="index.html#services" class="mnav-flat">Все услуги</a>
 
             <details>
                 <summary>Грузоперевозки</summary>
                 <div class="mnav-sub">
-                    <a href="/gruz/centr.html" class="mnav-overview">Все грузоперевозки</a>
-                    <a href="/gruz/chasovoi.html">Почасовая аренда</a>
-                    <a href="/gruz/bus.html">Минивэн (бус)</a>
-                    <a href="/gruz/komplekt.html">Газель + 2 грузчика</a>
+                    <a href="gruz/centr.html" class="mnav-overview">Все грузоперевозки</a>
+                    <a href="gruz/chasovoi.html">Почасовая аренда</a>
+                    <a href="gruz/bus.html">Минивэн (бус)</a>
+                    <a href="gruz/komplekt.html">Газель + 2 грузчика</a>
                 </div>
             </details>
 
             <details>
                 <summary>Переезд под ключ</summary>
                 <div class="mnav-sub">
-                    <a href="/pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
-                    <a href="/kay/kvartira.html">Квартирный переезд</a>
-                    <a href="/kay/mezhgorod.html">Переезд по Казахстану</a>
-                    <a href="/kay/ofice.html">Переезд офиса</a>
+                    <a href="pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
+                    <a href="kay/kvartira.html">Квартирный переезд</a>
+                    <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
+                    <a href="kay/ofice.html">Переезд офиса</a>
                 </div>
             </details>
 
             <details>
                 <summary>Упаковка вещей</summary>
                 <div class="mnav-sub">
-                    <a href="/upakovka.html" class="mnav-overview">Об упаковке вещей</a>
-                    <a href="/upakovka/mebel.html">Упаковка мебели</a>
-                    <a href="/upakovka/posuda.html">Упаковка посуды и кухни</a>
-                    <a href="/upakovka/odezhda.html">Упаковка одежды и вещей</a>
-                    <a href="/upakovka/tehnika.html">Упаковка техники</a>
-                    <a href="/upakovka/hrupkoe.html">Хрупкое, зеркала, картины</a>
-                    <a href="/shop.html">Упаковочные материалы</a>
+                    <a href="upakovka.html" class="mnav-overview">Об упаковке вещей</a>
+                    <a href="upakovka/mebel.html">Упаковка мебели</a>
+                    <a href="upakovka/posuda.html">Упаковка посуды и кухни</a>
+                    <a href="upakovka/odezhda.html">Упаковка одежды и вещей</a>
+                    <a href="upakovka/tehnika.html">Упаковка техники</a>
+                    <a href="upakovka/hrupkoe.html">Хрупкое, зеркала, картины</a>
+                    <a href="shop.html">Упаковочные материалы</a>
                 </div>
             </details>
 
             <details>
                 <summary>Вывоз мусора</summary>
                 <div class="mnav-sub">
-                    <a href="/musor.html" class="mnav-overview">О вывозе мусора</a>
+                    <a href="musor.html" class="mnav-overview">О вывозе мусора</a>
                     <details class="mnav-nested">
                         <summary>Строительный мусор</summary>
                         <div class="mnav-sub2">
-                            <a href="/musor/stroy.html" class="mnav-overview">Стройка — обзор и цены</a>
-                            <a href="/musor/stroy/remont.html">После ремонта</a>
-                            <a href="/musor/stroy/beton.html">Бетон, кирпич, стяжка</a>
-                            <a href="/musor/stroy/grunt.html">Грунт и земля</a>
-                            <a href="/musor/stroy/demontazh.html">Демонтаж + вывоз</a>
-                            <a href="/musor/stroy/meshki.html">Мешками (малый объём)</a>
-                            <a href="/musor/stroy/krupnogabarit.html">Крупногабаритный</a>
-                            <a href="/musor/stroy/plitka-santehnika.html">Плитка, сантехника, окна</a>
+                            <a href="musor/stroy.html" class="mnav-overview">Стройка — обзор и цены</a>
+                            <a href="musor/stroy/remont.html">После ремонта</a>
+                            <a href="musor/stroy/beton.html">Бетон, кирпич, стяжка</a>
+                            <a href="musor/stroy/grunt.html">Грунт и земля</a>
+                            <a href="musor/stroy/demontazh.html">Демонтаж + вывоз</a>
+                            <a href="musor/stroy/meshki.html">Мешками (малый объём)</a>
+                            <a href="musor/stroy/krupnogabarit.html">Крупногабаритный</a>
+                            <a href="musor/stroy/plitka-santehnika.html">Плитка, сантехника, окна</a>
                         </div>
                     </details>
                     <details class="mnav-nested">
                         <summary>Старая мебель</summary>
                         <div class="mnav-sub2">
-                            <a href="/musor/mebel.html" class="mnav-overview">Вся мебель — цены</a>
-                            <a href="/musor/mebel/divan.html">Вывоз дивана</a>
-                            <a href="/musor/mebel/shkaf.html">Вывоз шкафа</a>
-                            <a href="/musor/mebel/shkaf-kupe.html">Вывоз шкафа-купе</a>
-                            <a href="/musor/mebel/kuhnya.html">Вывоз кухни</a>
-                            <a href="/musor/mebel/krovat.html">Вывоз кровати</a>
-                            <a href="/musor/mebel/stenka.html">Вывоз стенки</a>
-                            <a href="/musor/mebel/melkaya.html">Мелкая мебель</a>
+                            <a href="musor/mebel.html" class="mnav-overview">Вся мебель — цены</a>
+                            <a href="musor/mebel/divan.html">Вывоз дивана</a>
+                            <a href="musor/mebel/shkaf.html">Вывоз шкафа</a>
+                            <a href="musor/mebel/shkaf-kupe.html">Вывоз шкафа-купе</a>
+                            <a href="musor/mebel/kuhnya.html">Вывоз кухни</a>
+                            <a href="musor/mebel/krovat.html">Вывоз кровати</a>
+                            <a href="musor/mebel/stenka.html">Вывоз стенки</a>
+                            <a href="musor/mebel/melkaya.html">Мелкая мебель</a>
                         </div>
                     </details>
                     <details class="mnav-nested">
                         <summary>Бытовая техника</summary>
                         <div class="mnav-sub2">
-                            <a href="/musor/tehnika.html" class="mnav-overview">Техника — обзор и цены</a>
-                            <a href="/musor/tehnika/holodilnik.html">Холодильник</a>
-                            <a href="/musor/tehnika/stiralnaya-mashina.html">Стиральная машина</a>
-                            <a href="/musor/tehnika/plita.html">Плита и духовка</a>
-                            <a href="/musor/tehnika/posudomoyka.html">Посудомоечная машина</a>
-                            <a href="/musor/tehnika/televizor.html">Телевизор, монитор</a>
-                            <a href="/musor/tehnika/konditsioner.html">Кондиционер</a>
-                            <a href="/musor/tehnika/boiler.html">Водонагреватель (бойлер)</a>
-                            <a href="/musor/tehnika/melkaya-tehnika.html">Мелкая техника</a>
+                            <a href="musor/tehnika.html" class="mnav-overview">Техника — обзор и цены</a>
+                            <a href="musor/tehnika/holodilnik.html">Холодильник</a>
+                            <a href="musor/tehnika/stiralnaya-mashina.html">Стиральная машина</a>
+                            <a href="musor/tehnika/plita.html">Плита и духовка</a>
+                            <a href="musor/tehnika/posudomoyka.html">Посудомоечная машина</a>
+                            <a href="musor/tehnika/televizor.html">Телевизор, монитор</a>
+                            <a href="musor/tehnika/konditsioner.html">Кондиционер</a>
+                            <a href="musor/tehnika/boiler.html">Водонагреватель (бойлер)</a>
+                            <a href="musor/tehnika/melkaya-tehnika.html">Мелкая техника</a>
                         </div>
                     </details>
                     <details class="mnav-nested">
                         <summary>Хлам и старые вещи</summary>
                         <div class="mnav-sub2">
-                            <a href="/musor/hlam.html" class="mnav-overview">Хлам — обзор и цены</a>
-                            <a href="/musor/hlam/kvartira.html">Хлам из квартиры</a>
-                            <a href="/musor/hlam/balkon.html">С балкона и лоджии</a>
-                            <a href="/musor/hlam/dacha.html">С дачи и участка</a>
-                            <a href="/musor/hlam/garazh.html">Из гаража</a>
-                            <a href="/musor/hlam/podval-kladovka.html">Из подвала и кладовки</a>
-                            <a href="/musor/hlam/starye-veshchi.html">Старые вещи и одежда</a>
-                            <a href="/musor/hlam/raskhlamlenie.html">Расхламление под ключ</a>
-                            <a href="/musor/hlam/osvobozhdenie.html">Освобождение квартиры</a>
+                            <a href="musor/hlam.html" class="mnav-overview">Хлам — обзор и цены</a>
+                            <a href="musor/hlam/kvartira.html">Хлам из квартиры</a>
+                            <a href="musor/hlam/balkon.html">С балкона и лоджии</a>
+                            <a href="musor/hlam/dacha.html">С дачи и участка</a>
+                            <a href="musor/hlam/garazh.html">Из гаража</a>
+                            <a href="musor/hlam/podval-kladovka.html">Из подвала и кладовки</a>
+                            <a href="musor/hlam/starye-veshchi.html">Старые вещи и одежда</a>
+                            <a href="musor/hlam/raskhlamlenie.html">Расхламление под ключ</a>
+                            <a href="musor/hlam/osvobozhdenie.html">Освобождение квартиры</a>
                         </div>
                     </details>
-                    <a href="/musor/matras.html">Матрасы</a>
-                    <a href="/musor/night.html">Ночной вывоз</a>
+                    <a href="musor/matras.html">Матрасы</a>
+                    <a href="musor/night.html">Ночной вывоз</a>
                     <details class="mnav-nested">
                         <summary>Форматы услуги</summary>
                         <div class="mnav-sub2">
-                            <a href="/musor/uslugi.html" class="mnav-overview">Форматы — обзор и цены</a>
-                            <a href="/musor/uslugi/gazel.html">Газель для мусора</a>
-                            <a href="/musor/uslugi/gruzchiki.html">Грузчики для выноса</a>
-                            <a href="/musor/uslugi/srochno.html">Срочно / в день обращения</a>
-                            <a href="/musor/uslugi/nedorogo.html">Недорого — как считаем</a>
+                            <a href="musor/uslugi.html" class="mnav-overview">Форматы — обзор и цены</a>
+                            <a href="musor/uslugi/gazel.html">Газель для мусора</a>
+                            <a href="musor/uslugi/gruzchiki.html">Грузчики для выноса</a>
+                            <a href="musor/uslugi/srochno.html">Срочно / в день обращения</a>
+                            <a href="musor/uslugi/nedorogo.html">Недорого — как считаем</a>
                         </div>
                     </details>
                     <details class="mnav-nested">
                         <summary>По районам Астаны</summary>
                         <div class="mnav-sub2">
-                            <a href="/musor/rayony.html" class="mnav-overview">Районы — обзор</a>
-                            <a href="/musor/rayony/esil.html">Есильский район</a>
-                            <a href="/musor/rayony/almaty.html">Алматинский район</a>
-                            <a href="/musor/rayony/saryarka.html">Район Сарыарка</a>
-                            <a href="/musor/rayony/levyj-bereg.html">Левый берег</a>
-                            <a href="/musor/rayony/pravyj-bereg.html">Правый берег</a>
+                            <a href="musor/rayony.html" class="mnav-overview">Районы — обзор</a>
+                            <a href="musor/rayony/esil.html">Есильский район</a>
+                            <a href="musor/rayony/almaty.html">Алматинский район</a>
+                            <a href="musor/rayony/saryarka.html">Район Сарыарка</a>
+                            <a href="musor/rayony/levyj-bereg.html">Левый берег</a>
+                            <a href="musor/rayony/pravyj-bereg.html">Правый берег</a>
                         </div>
                     </details>
                 </div>
@@ -684,17 +655,17 @@
             <details>
                 <summary>Такелаж</summary>
                 <div class="mnav-sub">
-                    <a href="/takelazh.html" class="mnav-overview">О такелаже</a>
-                    <a href="/takelazh/oborud.html">Оборудование и станки</a>
-                    <a href="/takelazh/roh.html">Аренда рохли</a>
-                    <a href="/takelazh/save.html">Перевозка сейфов</a>
+                    <a href="takelazh.html" class="mnav-overview">О такелаже</a>
+                    <a href="takelazh/oborud.html">Оборудование и станки</a>
+                    <a href="takelazh/roh.html">Аренда рохли</a>
+                    <a href="takelazh/save.html">Перевозка сейфов</a>
                 </div>
             </details>
 
-            <a href="/shop.html" class="mnav-flat">Магазин упаковки</a>
-            <a href="/mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
-            <a href="/B2B.html" class="mnav-flat">Для юр. лиц</a>
-            <a href="/index.html#about" class="mnav-flat">О нас</a>
+            <a href="shop.html" class="mnav-flat">Магазин упаковки</a>
+            <a href="mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
+            <a href="B2B.html" class="mnav-flat">Для юр. лиц</a>
+            <a href="index.html#about" class="mnav-flat">О нас</a>
         </nav>
     </header>
 
@@ -710,33 +681,19 @@
         <p class="hero-sub">Профессиональный такелаж, перевозка банкоматов, сейфов, промышленных станков и тяжёлой техники. Аренда рохли с грузчиками. Работаем по Астане ежедневно.</p>
 
         <div class="hero-icons">
-            <a href="takelazh/save.html" class="hero-icon-item">
-                <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                    <circle cx="12" cy="18" r="1"></circle>
-                </svg>
-                <span>Перевозка сейфа</span>
-            </a>
-            <a href="takelazh/oborud.html" class="hero-icon-item">
-                <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 2 L12 12 L17 17"></path>
-                    <line x1="12" y1="12" x2="12" y2="22"></line>
-                </svg>
-                <span>Перевозка оборудования</span>
-            </a>
-            <a href="takelazh/roh.html" class="hero-icon-item">
-                <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none">
-                    <rect x="3" y="8" width="18" height="10" rx="1"></rect>
-                    <circle cx="7" cy="18" r="2"></circle>
-                    <circle cx="17" cy="18" r="2"></circle>
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                </svg>
-                <span>Аренда рохли</span>
-            </a>
-        </div>
+                <a href="takelazh/oborud.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 2v10l6 6"/></svg>
+                    <span>Оборудование и станки</span>
+                </a>
+                <a href="takelazh/roh.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="10" rx="1"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+                    <span>Аренда рохли</span>
+                </a>
+                <a href="takelazh/save.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/><circle cx="12" cy="18" r="1"/></svg>
+                    <span>Перевозка сейфов</span>
+                </a>
+            </div>
 
         <div class="hero-cta-row">
             <a href="tel:+77010120300" class="btn-primary"><i class="fas fa-phone"></i> Позвонить</a>
@@ -967,7 +924,7 @@
             <p>Оставьте заявку — мы рассчитаем стоимость такелажных работ под вашу задачу. Работаем во всех районах Астаны: Алматинский, Есильский, Сарыаркинский, Байконырский, Нуринский.</p>
         <div class="gz-interlink-block" style="max-width:900px;margin:0 auto;padding:0 20px 10px;font-size:.95rem;color:#334155;">
 
-            <p><strong>Другие услуги Gruzim.kz:</strong> <a href="/gruz/centr.html">Грузовые перевозки в Астане</a> &middot; <a href="/pereezdkay.html">Переезд под ключ</a> &middot; <a href="/upakovka.html">Упаковка вещей</a> &middot; <a href="/musor.html">Вывоз мусора в Астане</a> &middot; <a href="/index.html">Главная</a>.</p></div>
+            <p><strong>Другие услуги Gruzim.kz:</strong> <a href="gruz/centr.html">Грузовые перевозки в Астане</a> &middot; <a href="pereezdkay.html">Переезд под ключ</a> &middot; <a href="upakovka.html">Упаковка вещей</a> &middot; <a href="musor.html">Вывоз мусора в Астане</a> &middot; <a href="index.html">Главная</a>.</p></div>
         </article>
     </div>
 </section>
