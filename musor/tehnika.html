@@ -75,7 +75,7 @@
         {
           "@type": "Question",
           "name": "Сколько стоит вывоз бытовой техники в Астане?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Вывоз холодильника или стиральной машины — от 7000 ₸, телевизора — от 4000 ₸, плиты или микроволновки — от 4000 ₸, крупной встраиваемой техники — от 8000 ₸. Цена фиксированная и включает грузчиков." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Подача машины — 12 000 ₸, для любой техники: холодильник, стиральная машина, телевизор, плита. Если нужны грузчики для выноса — дополнительно 3 500 ₸ в час." }
         },
         {
           "@type": "Question",
@@ -193,9 +193,9 @@
         #mobileNav details{border-bottom:1px solid #f1f5f9;}
         #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
         #mobileNav summary::-webkit-details-marker{display:none;}
-        #mobileNav summary::after{content:'';width:8px;height:8px;border-right:2px solid #94a3b8;border-bottom:2px solid #94a3b8;transform:rotate(45deg);transition:transform .2s ease;flex-shrink:0;margin-right:2px;}
-        #mobileNav details[open] summary::after{transform:rotate(-135deg);}
-        #mobileNav details[open] summary{color:#2563eb;}
+        
+        
+        
         #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
         #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
         #mobileNav .mnav-sub a:active{background:#eff6ff;}
@@ -361,9 +361,9 @@
         #mobileNav details{border-bottom:1px solid #f1f5f9;}
         #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
         #mobileNav summary::-webkit-details-marker{display:none;}
-        #mobileNav summary::after{content:'';width:8px;height:8px;border-right:2px solid #94a3b8;border-bottom:2px solid #94a3b8;transform:rotate(45deg);transition:transform .2s ease;flex-shrink:0;margin-right:2px;}
-        #mobileNav details[open] summary::after{transform:rotate(-135deg);}
-        #mobileNav details[open] summary{color:#2563eb;}
+        
+        
+        
         #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
         #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
         #mobileNav .mnav-sub a:active{background:#eff6ff;}
@@ -373,9 +373,9 @@
         #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
         #mobileNav .mnav-sub details{border-bottom:none;}
         #mobileNav .mnav-sub summary{padding:12px 22px 12px 40px;font-size:.95rem;font-weight:600;color:#334155;}
-        #mobileNav .mnav-sub summary::after{content:'+';border:none;width:auto;height:auto;transform:none;margin-right:2px;color:#2563eb;font-size:1.35rem;font-weight:700;line-height:1;}
-        #mobileNav .mnav-sub details[open] > summary::after{content:'3';transform:none;}
-        #mobileNav .mnav-sub details[open] > summary{color:#2563eb;}
+        
+        
+        
         #mobileNav .mnav-sub2{display:flex;flex-direction:column;background:#fff;}
         #mobileNav .mnav-sub2 a{padding:11px 22px 11px 58px;font-size:.9rem;color:#475569;text-decoration:none;font-weight:500;}
         #mobileNav .mnav-sub2 a:active{background:#eff6ff;}
@@ -468,66 +468,139 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         <nav class="mobile-nav" id="mobileNav" aria-label="Главное меню">
             <div class="mobile-nav-close"><button id="closeMobileNav" aria-label="Закрыть меню">&times;</button></div>
 
-            <a href="../index.html#services" class="mnav-flat">Все услуги</a>
+            <a href="/index.html#services" class="mnav-flat">Все услуги</a>
 
             <details>
                 <summary>Грузоперевозки</summary>
                 <div class="mnav-sub">
-                    <a href="../gruz/centr.html" class="mnav-overview">Все грузоперевозки</a>
-                    <a href="../gruz/chasovoi.html">Почасовая аренда</a>
-                    <a href="../gruz/bus.html">Минивэн (бус)</a>
-                    <a href="../gruz/komplekt.html">Газель + 2 грузчика</a>
+                    <a href="/gruz/centr.html" class="mnav-overview">Все грузоперевозки</a>
+                    <a href="/gruz/chasovoi.html">Почасовая аренда</a>
+                    <a href="/gruz/bus.html">Минивэн (бус)</a>
+                    <a href="/gruz/komplekt.html">Газель + 2 грузчика</a>
                 </div>
             </details>
 
             <details>
                 <summary>Переезд под ключ</summary>
                 <div class="mnav-sub">
-                    <a href="../pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
-                    <a href="../kay/kvartira.html">Квартирный переезд</a>
-                    <a href="../kay/mezhgorod.html">Переезд по Казахстану</a>
-                    <a href="../kay/ofice.html">Переезд офиса</a>
+                    <a href="/pereezdkay.html" class="mnav-overview">О переезде под ключ</a>
+                    <a href="/kay/kvartira.html">Квартирный переезд</a>
+                    <a href="/kay/mezhgorod.html">Переезд по Казахстану</a>
+                    <a href="/kay/ofice.html">Переезд офиса</a>
                 </div>
             </details>
 
-            <details open>
+            <details>
+                <summary>Упаковка вещей</summary>
+                <div class="mnav-sub">
+                    <a href="/upakovka.html" class="mnav-overview">Об упаковке вещей</a>
+                    <a href="/upakovka/mebel.html">Упаковка мебели</a>
+                    <a href="/upakovka/posuda.html">Упаковка посуды и кухни</a>
+                    <a href="/upakovka/odezhda.html">Упаковка одежды и вещей</a>
+                    <a href="/upakovka/tehnika.html">Упаковка техники</a>
+                    <a href="/upakovka/hrupkoe.html">Хрупкое, зеркала, картины</a>
+                    <a href="/shop.html">Упаковочные материалы</a>
+                </div>
+            </details>
+
+            <details>
                 <summary>Вывоз мусора</summary>
                 <div class="mnav-sub">
-                    <a href="../musor.html" class="mnav-overview">О вывозе мусора</a>
-                    <a href="../musor/stroy.html">Строительный мусор</a>
+                    <a href="/musor.html" class="mnav-overview">О вывозе мусора</a>
+                    <details class="mnav-nested">
+                        <summary>Строительный мусор</summary>
+                        <div class="mnav-sub2">
+                            <a href="/musor/stroy.html" class="mnav-overview">Стройка — обзор и цены</a>
+                            <a href="/musor/stroy/remont.html">После ремонта</a>
+                            <a href="/musor/stroy/beton.html">Бетон, кирпич, стяжка</a>
+                            <a href="/musor/stroy/grunt.html">Грунт и земля</a>
+                            <a href="/musor/stroy/demontazh.html">Демонтаж + вывоз</a>
+                            <a href="/musor/stroy/meshki.html">Мешками (малый объём)</a>
+                            <a href="/musor/stroy/krupnogabarit.html">Крупногабаритный</a>
+                            <a href="/musor/stroy/plitka-santehnika.html">Плитка, сантехника, окна</a>
+                        </div>
+                    </details>
                     <details class="mnav-nested">
                         <summary>Старая мебель</summary>
                         <div class="mnav-sub2">
-                            <a href="../musor/mebel.html" class="mnav-overview">Вся мебель — цены</a>
-                            <a href="../musor/type/divan.html">Вывоз дивана</a>
-                            <a href="../musor/type/shkaf.html">Вывоз шкафа</a>
-                            <a href="../musor/type/shkaf-kupe.html">Вывоз шкафа-купе</a>
-                            <a href="../musor/type/kuhnya.html">Вывоз кухни</a>
-                            <a href="../musor/type/krovat.html">Вывоз кровати</a>
-                            <a href="../musor/type/stenka.html">Вывоз стенки</a>
-                            <a href="../musor/type/melkaya.html">Мелкая мебель (комод, стол, кресло…)</a>
+                            <a href="/musor/mebel.html" class="mnav-overview">Вся мебель — цены</a>
+                            <a href="/musor/mebel/divan.html">Вывоз дивана</a>
+                            <a href="/musor/mebel/shkaf.html">Вывоз шкафа</a>
+                            <a href="/musor/mebel/shkaf-kupe.html">Вывоз шкафа-купе</a>
+                            <a href="/musor/mebel/kuhnya.html">Вывоз кухни</a>
+                            <a href="/musor/mebel/krovat.html">Вывоз кровати</a>
+                            <a href="/musor/mebel/stenka.html">Вывоз стенки</a>
+                            <a href="/musor/mebel/melkaya.html">Мелкая мебель</a>
                         </div>
                     </details>
-                    <a href="../musor/tehnika.html" class="mnav-current">Бытовая техника</a>
-                    <a href="../musor/matras.html">Матрасы</a>
-                    <a href="../musor/night.html">Ночной вывоз</a>
+                    <details class="mnav-nested">
+                        <summary>Бытовая техника</summary>
+                        <div class="mnav-sub2">
+                            <a href="/musor/tehnika.html" class="mnav-overview">Техника — обзор и цены</a>
+                            <a href="/musor/tehnika/holodilnik.html">Холодильник</a>
+                            <a href="/musor/tehnika/stiralnaya-mashina.html">Стиральная машина</a>
+                            <a href="/musor/tehnika/plita.html">Плита и духовка</a>
+                            <a href="/musor/tehnika/posudomoyka.html">Посудомоечная машина</a>
+                            <a href="/musor/tehnika/televizor.html">Телевизор, монитор</a>
+                            <a href="/musor/tehnika/konditsioner.html">Кондиционер</a>
+                            <a href="/musor/tehnika/boiler.html">Водонагреватель (бойлер)</a>
+                            <a href="/musor/tehnika/melkaya-tehnika.html">Мелкая техника</a>
+                        </div>
+                    </details>
+                    <details class="mnav-nested">
+                        <summary>Хлам и старые вещи</summary>
+                        <div class="mnav-sub2">
+                            <a href="/musor/hlam.html" class="mnav-overview">Хлам — обзор и цены</a>
+                            <a href="/musor/hlam/kvartira.html">Хлам из квартиры</a>
+                            <a href="/musor/hlam/balkon.html">С балкона и лоджии</a>
+                            <a href="/musor/hlam/dacha.html">С дачи и участка</a>
+                            <a href="/musor/hlam/garazh.html">Из гаража</a>
+                            <a href="/musor/hlam/podval-kladovka.html">Из подвала и кладовки</a>
+                            <a href="/musor/hlam/starye-veshchi.html">Старые вещи и одежда</a>
+                            <a href="/musor/hlam/raskhlamlenie.html">Расхламление под ключ</a>
+                            <a href="/musor/hlam/osvobozhdenie.html">Освобождение квартиры</a>
+                        </div>
+                    </details>
+                    <a href="/musor/matras.html">Матрасы</a>
+                    <a href="/musor/night.html">Ночной вывоз</a>
+                    <details class="mnav-nested">
+                        <summary>Форматы услуги</summary>
+                        <div class="mnav-sub2">
+                            <a href="/musor/uslugi.html" class="mnav-overview">Форматы — обзор и цены</a>
+                            <a href="/musor/uslugi/gazel.html">Газель для мусора</a>
+                            <a href="/musor/uslugi/gruzchiki.html">Грузчики для выноса</a>
+                            <a href="/musor/uslugi/srochno.html">Срочно / в день обращения</a>
+                            <a href="/musor/uslugi/nedorogo.html">Недорого — как считаем</a>
+                        </div>
+                    </details>
+                    <details class="mnav-nested">
+                        <summary>По районам Астаны</summary>
+                        <div class="mnav-sub2">
+                            <a href="/musor/rayony.html" class="mnav-overview">Районы — обзор</a>
+                            <a href="/musor/rayony/esil.html">Есильский район</a>
+                            <a href="/musor/rayony/almaty.html">Алматинский район</a>
+                            <a href="/musor/rayony/saryarka.html">Район Сарыарка</a>
+                            <a href="/musor/rayony/levyj-bereg.html">Левый берег</a>
+                            <a href="/musor/rayony/pravyj-bereg.html">Правый берег</a>
+                        </div>
+                    </details>
                 </div>
             </details>
 
             <details>
                 <summary>Такелаж</summary>
                 <div class="mnav-sub">
-                    <a href="../takelazh.html" class="mnav-overview">О такелаже</a>
-                    <a href="../takelazh/oborud.html">Оборудование и станки</a>
-                    <a href="../takelazh/roh.html">Аренда рохли</a>
-                    <a href="../takelazh/save.html">Перевозка сейфов</a>
+                    <a href="/takelazh.html" class="mnav-overview">О такелаже</a>
+                    <a href="/takelazh/oborud.html">Оборудование и станки</a>
+                    <a href="/takelazh/roh.html">Аренда рохли</a>
+                    <a href="/takelazh/save.html">Перевозка сейфов</a>
                 </div>
             </details>
 
-            <a href="../shop.html" class="mnav-flat">Магазин упаковки</a>
-            <a href="../mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
-            <a href="../B2B.html" class="mnav-flat">Для юр. лиц</a>
-            <a href="../index.html#about" class="mnav-flat">О нас</a>
+            <a href="/shop.html" class="mnav-flat">Магазин упаковки</a>
+            <a href="/mebel.html" class="mnav-flat">Сборка/разборка мебели</a>
+            <a href="/B2B.html" class="mnav-flat">Для юр. лиц</a>
+            <a href="/index.html#about" class="mnav-flat">О нас</a>
         </nav>
     </header>
 
@@ -579,25 +652,25 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <thead>
                     <tr>
                         <th>Тип техники </th>
-                        <th>Вывоз</th>
-                        <th>С грузчиками</th>
-                        <th>Для юр. лиц под ключ</th>
+                        <th>Тип техники</th>
+                        <th>Подача машины</th>
+                        <th>Грузчики</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Холодильник</strong></td><td class="price-cell">12 000 ₸</td><td class="price-cell">16 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Стиральная машина</strong></td><td class="price-cell">12 000 ₸</td><td class="price-cell">16 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Плита (электрическая / газовая)</strong></td><td class="price-cell">10 000 ₸</td><td class="price-cell">12 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Телевизор / плазма</strong></td><td class="price-cell">10 000 ₸</td><td class="price-cell">12 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Компьютер / системный блок + монитор</strong></td><td class="price-cell">8 000 ₸</td><td class="price-cell">10 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Микроволновая печь</strong></td><td class="price-cell">6 000 ₸</td><td class="price-cell">6 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Посудомоечная машина</strong></td><td class="price-cell">12 000 ₸</td><td class="price-cell">16 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Кондиционер (сплит-система)</strong></td><td class="price-cell">6 000 ₸</td><td class="price-cell">9 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Морозильная камера</strong></td><td class="price-cell">10 000 ₸</td><td class="price-cell">12 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Водонагреватель / бойлер</strong></td><td class="price-cell">6 000 ₸</td><td class="price-cell">8 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Пылесос</strong></td><td class="price-cell">6 000 ₸</td><td class="price-cell">6 000 ₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr><td><strong>Встраиваемая техника</strong></td><td class="price-cell">6 000 ₸</td><td class="price-cell">6 000₸</td><td class="price-cell">кг 400 ₸</td></tr>
-                    <tr style="background:#fef3c7;"><td><strong>💼 Под ключ: любая мебель + техника (комплексно)</strong> — вывоз мебели и техники одной машиной, демонтаж, погрузка, утилизация</td><td class="price-cell" colspan="3"><strong>от 50 000 ₸ — обсуждается индивидуально, звоните!</strong></td></tr>
+                    <tr><td><a href="tehnika/holodilnik.html"><strong>Холодильник</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/stiralnaya-mashina.html"><strong>Стиральная машина</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/plita.html"><strong>Плита (электрическая / газовая)</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/televizor.html"><strong>Телевизор / плазма</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/melkaya-tehnika.html"><strong>Компьютер / системный блок + монитор</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/melkaya-tehnika.html"><strong>Микроволновая печь</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/posudomoyka.html"><strong>Посудомоечная машина</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/konditsioner.html"><strong>Кондиционер (сплит-система)</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/melkaya-tehnika.html"><strong>Морозильная камера</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/boiler.html"><strong>Водонагреватель / бойлер</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/melkaya-tehnika.html"><strong>Пылесос</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr><td><a href="tehnika/melkaya-tehnika.html"><strong>Встраиваемая техника</strong></a></td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
+                    <tr style="background:#fef3c7;"><td><strong>💼 Под ключ: любая мебель + техника (комплексно)</strong> — вывоз мебели и техники одной машиной, демонтаж, погрузка, утилизация</td><td class="price-cell">12 000 ₸</td><td class="price-cell">3 500 ₸/час</td></tr>
                 </tbody>
             </table>
         </div>
@@ -649,19 +722,21 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <li>Приезжаем в удобное время, при необходимости откачиваем фреон (для холодильников и кондиционеров), грузим технику в машину.</li>
                 <li>Вывозим на специализированный полигон, утилизируем, предоставляем акт выполненных работ (для юрлиц — полный пакет документов).</li>
             </ol>
-            <p><strong>Важно:</strong> если техника заражена <strong>клопами, плесенью, грибком</strong> или имеет биологические загрязнения, обязательно сообщите об этом оператору — потребуется герметичная упаковка и отдельная стоимость. Также <strong>вынос без лифта (по лестнице)</strong> обсуждается индивидуально. Для комплексного вывоза мебели и техники (от 50 000 ₸) — звоните, договоримся.</p>
+            <p><strong>Важно:</strong> если техника заражена <strong>клопами, плесенью, грибком</strong> или имеет биологические загрязнения, обязательно сообщите об этом оператору — потребуется герметичная упаковка и отдельная стоимость. Также <strong>вынос без лифта (по лестнице)</strong> обсуждается индивидуально. Для комплексного вывоза мебели и техники — те же 12 000 ₸ за подачу машины и 3 500 ₸ в час за грузчиков.</p>
             
             <h3>Сколько стоит вывезти технику в Астане?</h3>
             <p>Цены на <strong>утилизацию бытовой техники</strong> зависят от типа и объёма работ:</p>
             <ul>
-                <li><strong>Холодильник</strong> — вывоз от 5 000 ₸, с грузчиками от 8 000 ₸, для юр.лиц от 7 000 ₸.</li>
-                <li><strong>Стиральная машина, плита, посудомойка</strong> — от 4 000–4 500 ₸, с грузчиками от 7 000–7 500 ₸.</li>
-                <li><strong>Телевизор, компьютер, микроволновка, пылесос</strong> — от 1 500 до 3 500 ₸.</li>
-                <li><strong>Кондиционер, морозильная камера, бойлер</strong> — от 4 000 до 6 000 ₸.</li>
-                <li><strong>Комплекс «под ключ» (мебель + техника)</strong> — от 50 000 ₸, цена обсуждается индивидуально.</li>
+                <li><strong>Подача машины</strong> — 12 000 ₸, для холодильника, стиральной машины, плиты, телевизора и любой другой техники.</li>
+                <li><strong>Грузчики</strong> (демонтаж, вынос, погрузка) — 3 500 ₸ в час, оплата по факту отработанного времени.</li>
+                <li><strong>Комплекс «под ключ» (мебель + техника)</strong> — по той же формуле: подача машины 12 000 ₸ + грузчики по часам.</li>
             </ul>
             <p>Точную стоимость вы можете рассчитать по таблице выше. Для нестандартной техники или сложного демонтажа (вынос с верхних этажей без лифта, утилизация фреона) — звоните, договоримся.</p>
             <p>Не выбрасывайте старую технику во дворе — это незаконно, неэкологично и грозит штрафом. Доверьте <strong>утилизацию и вывоз бытовой техники в Астане</strong> профессионалам <strong>Gruzim.kz</strong>. Работаем с 2019 года, тысячи вывезенных приборов, довольные клиенты. Звоните или пишите в WhatsApp прямо сейчас!</p>
+        <div class="gz-interlink-block" style="max-width:900px;margin:0 auto;padding:0 20px 10px;font-size:.95rem;color:#334155;">
+
+            <p><strong>Другие категории вывоза мусора:</strong> <a href="/musor/stroy.html">Вывоз строительного мусора</a> &middot; <a href="/musor/mebel.html">Вывоз старой мебели</a> &middot; <a href="/musor/hlam.html">Вывоз хлама и старых вещей</a> &middot; <a href="/musor/uslugi.html">Форматы вывоза мусора</a> &middot; <a href="/musor/rayony.html">Вывоз мусора по районам Астаны</a>.</p>
+            <p><a href="/musor.html">Вывоз мусора в Астане</a> &middot; <a href="/index.html">Главная</a>.</p></div>
         </article>
     </section>
 
@@ -670,7 +745,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         <div class="matras-faq">
             <details class="mfaq-item" open>
                 <summary>Сколько стоит вывоз бытовой техники в Астане?</summary>
-                <p>Вывоз холодильника или стиральной машины — от 7000 ₸, телевизора — от 4000 ₸, плиты или микроволновки — от 4000 ₸, крупной встраиваемой техники — от 8000 ₸. Цена фиксированная и включает грузчиков.</p>
+                <p>Подача машины — 12 000 ₸, для любой техники: холодильник, стиральная машина, телевизор, плита, микроволновка, встраиваемая техника. Если нужны грузчики для выноса — дополнительно 3 500 ₸ в час.</p>
             </details>
             <details class="mfaq-item">
                 <summary>Какую технику вы вывозите и утилизируете?</summary>
@@ -934,6 +1009,25 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     });
   },{passive:true});
 })();
+</script>
+<script id="mnav-current-highlight-script">
+document.addEventListener('DOMContentLoaded', function() {
+    var path = location.pathname.replace(/\/index\.html$/, '/');
+    document.querySelectorAll('#mobileNav a[href]').forEach(function(link) {
+        var a = document.createElement('a');
+        a.href = link.getAttribute('href');
+        var linkPath = a.pathname.replace(/\/index\.html$/, '/');
+        if (linkPath === path || a.pathname === location.pathname) {
+            link.classList.add('mnav-current');
+            link.setAttribute('aria-current', 'page');
+            var d = link.parentElement;
+            while (d) {
+                if (d.tagName === 'DETAILS') d.setAttribute('open', '');
+                d = d.parentElement;
+            }
+        }
+    });
+});
 </script>
 </body>
 </html>
