@@ -685,7 +685,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             <span class="tariff-badge">⭐ Полный сервис — хит сезона</span>
             <div class="tariff-icon"><i class="fas fa-people-carry-box"></i></div>
             <div class="tariff-name">Комплект: Газель 4,20м + 2 грузчика</div>
-            <div class="tariff-price">14 000 ₸ <span>/ час</span></div>
+            <div class="tariff-price">15 000 ₸ <span>/ час</span></div>
             <p class="tariff-desc">Идеально для переезда 2-3 комнатной квартиры или офиса. Всё включено: транспорт, погрузка, выгрузка.</p>
             <ul class="tariff-includes">
                 <li>Грузовик до 1,5 тонн (объём до 16 м³)</li>
@@ -693,10 +693,10 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <li>С квором</li>
                 <li>Минимальный заказ — 2 часа</li>
             </ul>
-            <button class="tariff-btn" onclick="document.getElementById('callback-form').scrollIntoView({behavior:'smooth'});">Заказать комплект →</button>
+            <a id="tariffKomplektBtn" href="tel:+77010120300" class="tariff-btn" onclick="if(window.GZ&&GZ.conversion)GZ.conversion();"><i class="fas fa-phone"></i> +7 701 012 03 00</a>
         </div>
 
-        <a href="chasovoi.html" class="tariff-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="tariff-card" data-aos="fade-up" data-aos-delay="80">
             <div class="tariff-icon"><i class="fas fa-truck"></i></div>
             <div class="tariff-name">Газель (3 м) + 2 грузчика</div>
             <div class="tariff-price">14 000 ₸ <span>/ час</span></div>
@@ -706,8 +706,8 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <li>2 грузчика в стоимости</li>
                 <li>Быстрая подача</li>
             </ul>
-            <div class="tariff-btn">Выбрать газель →</div>
-        </a>
+            <a id="tariffGazel3mBtn" href="tel:+77010120300" class="tariff-btn" onclick="if(window.GZ&&GZ.conversion)GZ.conversion();"><i class="fas fa-phone"></i> +7 701 012 03 00</a>
+        </div>
 
         <a href="../pereezdkay.html" class="tariff-card" data-aos="fade-up" data-aos-delay="160">
             <div class="tariff-icon"><i class="fas fa-truck-long"></i></div>
