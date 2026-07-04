@@ -366,8 +366,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
     <link rel="preload" as="image" href="../fon-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width:768px)">
     <link rel="preload" as="image" href="../fon.webp" type="image/webp" fetchpriority="high" media="(min-width:769px)">
@@ -928,7 +928,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                     try {
                         await fetch('https://gruzim-lead.turkestanvshiaza.workers.dev', {
                             method: 'POST', headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ chat_id: '8277380855', text: `🪑 ЗАЯВКА (вывоз мебели с разбором)\nИмя: ${name}\nТелефон: ${phone}\nСтраница: ${window.location.href}` })
+                            body: JSON.stringify({ chat_id: '8277380855', text: `📥 ЗАЯВКА: ${document.title.split("|")[0].trim()}\nИмя: ${name}\nТелефон: ${phone}\nСтраница: ${window.location.href}` })
                         });
                     } catch(err) { console.log(err); }
                     if(typeof gtag === 'function') { ensureGtagLoaded(); gtag('event', 'conversion', { 'send_to': 'AW-17503887977/Bhv2CLu4y7ocEOnEwJpB' }); }
