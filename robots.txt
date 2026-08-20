@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /mebel/
 Disallow: /proverka.html
+Disallow: /karaganda/mebel/
+Disallow: /karaganda/proverka.html
 
 Sitemap: https://www.gruzim.kz/sitemap.xml

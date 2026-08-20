@@ -446,9 +446,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
           "closes": "22:00"
         }
       ],
-      "sameAs": [
-        "https://wa.me/77010120300"
-      ],
+      "sameAs": ["https://wa.me/77010120300", "https://t.me/gruzimkz", "https://go.2gis.com/AsBSJ", "https://share.google/FCOLxEyLZS7FuCWWn", "https://www.youtube.com/@gruzimkz", "https://www.tiktok.com/@gruzim.kz", "https://www.instagram.com/gruzim.kz/"],
       "paymentAccepted": "Наличные, банковский перевод, карта",
       "areaServed": ["Алматинский район", "Есильский район", "Сарыаркинский район", "Байконырский район", "Нуринский район", "Астана", "Казахстан"],
       "hasOfferCatalog": {
@@ -535,21 +533,16 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
           }
         ]
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "57"
-      },
       "review": [
         {
           "@type": "Review",
-          "author": {"@type": "Organization", "name": "Astana Logistics Group"},
+          "author": {"@type": "Organization", "name": "ТОО «ТрансСклад»"},
           "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
           "reviewBody": "Перенос складского запаса, паллет и стеллажей. Этапная работа и ночные смены для сохранения логистики клиента."
         },
         {
           "@type": "Review",
-          "author": {"@type": "Organization", "name": "ZTE Astana"},
+          "author": {"@type": "Organization", "name": "Ержан Т., ТОО «Телесервис»"},
           "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
           "reviewBody": "Перевозка офисного и серверного оборудования. Аккуратная упаковка техники, всё доставлено в срок и без повреждений."
         },
@@ -684,6 +677,16 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <a href="index.html"><img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" loading="lazy" decoding="async"></a>
             </div>
             <div class="header-right">
+                <div class="city-switcher" id="citySwitcher">
+                    <button type="button" class="city-btn" id="cityBtn" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Астана
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="city-dropdown" id="cityDropdown" role="menu">
+                        <a href="index.html" class="city-option is-active" role="menuitem">Астана <i class="fas fa-check" aria-hidden="true"></i></a>
+                        <a href="karaganda/index.html" class="city-option" role="menuitem">Караганда</a>
+                    </div>
+                </div>
                 <div class="language-switcher">
                     <a href="index.html" class="lang-btn active">РУС</a>
                     <a href="indexkz.html" class="lang-btn">ҚАЗ</a>
@@ -851,7 +854,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             <div class="hero-stats" aria-label="Ключевые показатели компании">
                 <span><b>6</b> лет на рынке</span>
                 <span><b>500+</b> выполненных заказов</span>
-                <span><b>4.9</b> средняя оценка</span>
+                <a href="https://share.google/FCOLxEyLZS7FuCWWn" target="_blank" rel="noopener"><b>&#9733;</b> отзывы в Google</a>
                 <span><b>8:00–22:00</b> ежедневно</span>
             </div>
             <nav class="hero-icons" aria-label="Быстрый переход к услугам">
@@ -1166,7 +1169,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             <div class="why-item">
                 <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.63L17.8 20.5 12 17.27 6.2 20.5l1.05-6.6L2.5 9.27l6.6-1.01L12 2z"/></svg>
                 <h3>6 лет и 500+ заказов</h3>
-                <p>Средняя оценка 4.9. Среди клиентов — квартиры, офисы, ТЦ и производственные компании Астаны.</p>
+                <p>Читайте отзывы в <a href="https://share.google/FCOLxEyLZS7FuCWWn" target="_blank" rel="noopener">Google</a> и <a href="https://go.2gis.com/AsBSJ" target="_blank" rel="noopener">2ГИС</a>. Среди клиентов — квартиры, офисы, ТЦ и производственные компании Астаны.</p>
             </div>
         </div>
     </section>
@@ -1288,6 +1291,9 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <p><i class="fab fa-telegram" aria-hidden="true"></i> <a href="https://t.me/gruzimkz" target="_blank" rel="noopener">Telegram</a></p>
                 <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:gruzemkz@gmail.com">gruzemkz@gmail.com</a></p>
                 <p><i class="fas fa-clock" aria-hidden="true"></i> Ежедневно 8:00–22:00</p>
+                <p><i class="fab fa-youtube" aria-hidden="true"></i> <a href="https://www.youtube.com/@gruzimkz" target="_blank" rel="noopener">YouTube</a></p>
+                <p><i class="fab fa-tiktok" aria-hidden="true"></i> <a href="https://www.tiktok.com/@gruzim.kz" target="_blank" rel="noopener">TikTok</a></p>
+                <p><i class="fab fa-instagram" aria-hidden="true"></i> <a href="https://www.instagram.com/gruzim.kz/" target="_blank" rel="noopener">Instagram</a></p>
             </div>
             <div class="footer-col">
                 <h4>Перевозки и переезды</h4>
@@ -1308,6 +1314,8 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <p><a href="mebel.html">Сборка мебели</a></p>
                 <p><a href="shop.html">Магазин упаковки</a></p>
                 <p><a href="B2B.html">Юридическим лицам</a></p>
+                <p><a href="oferta.html" style="color:#94a3b8;">Публичная оферта</a></p>
+                <p style="color:#94a3b8;font-size:0.85rem;">ИП «Gruzim.kz», ИИН 810106401426, РК, г. Астана, ул. Таскескен 17б</p>
             </div>
         </div>
     </footer>
@@ -1411,7 +1419,23 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             closeMenu();
         });
 
-        
+        var citySwitcher = document.getElementById('citySwitcher');
+        var cityBtn = document.getElementById('cityBtn');
+        if (cityBtn && citySwitcher) {
+            cityBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var isOpen = citySwitcher.classList.toggle('is-open');
+                cityBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+            document.addEventListener('click', function (e) {
+                if (!citySwitcher.classList.contains('is-open')) return;
+                if (citySwitcher.contains(e.target)) return;
+                citySwitcher.classList.remove('is-open');
+                cityBtn.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+
         var floatingButtons = document.querySelector('.floating-buttons');
         var fabShown = false;
         function showFab(){ if (fabShown || !floatingButtons) return; fabShown = true; floatingButtons.classList.add('is-visible'); window.removeEventListener('scroll', showFab); }

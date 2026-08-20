@@ -237,6 +237,93 @@ html {
     color: white;
 }
 
+.city-switcher {
+    position: relative;
+}
+
+.city-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    padding: 6px 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.city-btn:hover,
+.city-switcher.is-open .city-btn {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
+
+.city-btn .fa-chevron-down {
+    font-size: 0.7em;
+    transition: transform 0.2s ease;
+}
+
+.city-switcher.is-open .city-btn .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.city-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 170px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    padding: 6px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 1000;
+}
+
+.city-switcher.is-open .city-dropdown {
+    display: flex;
+}
+
+.city-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    color: #334155;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.15s ease;
+}
+
+.city-option:hover {
+    background: #f1f5f9;
+}
+
+.city-option.is-active {
+    color: #2563eb;
+}
+
+.city-option .fa-check {
+    color: #2563eb;
+    font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+    .city-btn { padding: 4px 10px; font-size: 0.8rem; }
+}
+
 .header-phone {
     color: #2563eb;
     font-family: 'Inter', sans-serif;
