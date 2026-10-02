@@ -363,13 +363,13 @@
         .furniture-table td a:hover{color:#2563eb;border-bottom-color:#2563eb;}
         .furniture-table td a strong{font-weight:700;}
     
-.hero-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 12px;margin-top:35px;margin-bottom:45px;max-width:900px;margin-left:auto;margin-right:auto;padding:0 12px;}
-.icon-item{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transition:all 0.2s ease;cursor:pointer;}
+.hero-icons{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 12px;margin-top:35px;margin-bottom:45px;max-width:900px;margin-left:auto;margin-right:auto;padding:0 12px;}
+.icon-item{display:flex;flex:0 1 190px;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transition:all 0.2s ease;cursor:pointer;}
 .icon-item svg{width:44px;height:44px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 .icon-item span{font-size:12px;font-weight:500;color:white;text-align:center;line-height:1.3;letter-spacing:0.3px;text-shadow:0 1px 2px rgba(0,0,0,0.3);}
 .icon-item:hover{transform:scale(0.95);}
 .icon-item:active{transform:scale(0.92);}
-@media(max-width:900px){.hero-icons{grid-template-columns:repeat(3,1fr);gap:16px 8px;max-width:520px;}.icon-item svg{width:38px;height:38px;}.icon-item span{font-size:10px;}}
+@media(max-width:900px){.hero-icons{gap:16px 8px;max-width:520px;}.icon-item{flex-basis:150px;}.icon-item svg{width:38px;height:38px;}.icon-item span{font-size:10px;}}
 </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
@@ -657,13 +657,19 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 </div>
             </details>
 
-            <details>
+                        <details>
                 <summary>Такелаж</summary>
                 <div class="mnav-sub">
                     <a href="../../takelazh.html" class="mnav-overview">О такелаже</a>
                     <a href="../../takelazh/oborud.html">Оборудование и станки</a>
                     <a href="../../takelazh/roh.html">Аренда рохли</a>
                     <a href="../../takelazh/save.html">Перевозка сейфов</a>
+                    <a href="../../takelazh/domkrat.html">Аренда домкрата</a>
+                    <a href="../../takelazh/roliki.html">Роликовые платформы</a>
+                    <a href="../../takelazh/lebedka.html">Аренда лебёдки</a>
+                    <a href="../../takelazh/shtabeler.html">Электрический штабелер</a>
+                    <a href="../../takelazh/kran-kozlovoy.html">Козловой кран</a>
+                    <a href="../../takelazh/stupenkohod.html">Ступенькоход (без лифта)</a>
                 </div>
             </details>
 
