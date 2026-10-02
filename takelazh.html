@@ -84,6 +84,48 @@
             "price": "0",
             "priceCurrency": "KZT",
             "description": "Индивидуальный расчёт: манипулятор, подкатные ролики, низкозахватный домкрат"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Аренда гидравлического домкрата" },
+            "price": "0",
+            "priceCurrency": "KZT",
+            "description": "Низкозахватный трубный домкрат, 10 т по лапе / 20 т по верхней площадке"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Аренда роликовых платформ" },
+            "price": "0",
+            "priceCurrency": "KZT",
+            "description": "Роликовые платформы 6 т каждая, комплектом от 4 штук"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Аренда лебёдки" },
+            "price": "0",
+            "priceCurrency": "KZT",
+            "description": "Электрическая лебёдка грузоподъёмностью до 5 тонн"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Аренда электрического штабелера" },
+            "price": "0",
+            "priceCurrency": "KZT",
+            "description": "Штабелер 1,5 т, высота подъёма до 5 м, с оператором"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Аренда козлового крана" },
+            "price": "0",
+            "priceCurrency": "KZT",
+            "description": "Мобильный козловой кран 3 тонны, с бригадой монтажа"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Подъём техники по лестнице без лифта (ступенькоход)" },
+            "price": "0",
+            "priceCurrency": "KZT",
+            "description": "Электрический ступенькоход, груз до 420 кг"
           }
         ]
       },
@@ -346,6 +388,16 @@
         .cta-row-full p{color:rgba(255,255,255,0.9);margin-bottom:25px;font-size:1.1em;}
         .cta-row-full .btn-white{background:white;color:#2563eb;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
         .cta-row-full .btn-white:hover{transform:scale(1.03);background:#f8fafc;}
+
+        .equip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+        .equip-card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform 0.2s,border-color 0.2s;}
+        .equip-card:hover{transform:translateY(-4px);border-color:#2563eb;}
+        .equip-card img{width:100%;height:200px;object-fit:contain;background:#f8fafc;padding:16px;display:block;}
+        .equip-card-body{padding:14px 18px 20px;}
+        .equip-card-name{font-weight:700;color:#0f172a;margin-bottom:4px;}
+        .equip-card-desc{font-size:0.85em;color:#64748b;}
+        @media(max-width:900px){.equip-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:560px){.equip-grid{grid-template-columns:1fr;}}
 
         .cargo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
         .cargo-item{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:20px 16px;text-align:center;}
@@ -661,13 +713,19 @@
                 </div>
             </details>
 
-            <details>
+                        <details>
                 <summary>Такелаж</summary>
                 <div class="mnav-sub">
                     <a href="takelazh.html" class="mnav-overview">О такелаже</a>
                     <a href="takelazh/oborud.html">Оборудование и станки</a>
                     <a href="takelazh/roh.html">Аренда рохли</a>
                     <a href="takelazh/save.html">Перевозка сейфов</a>
+                    <a href="takelazh/domkrat.html">Аренда домкрата</a>
+                    <a href="takelazh/roliki.html">Роликовые платформы</a>
+                    <a href="takelazh/lebedka.html">Аренда лебёдки</a>
+                    <a href="takelazh/shtabeler.html">Электрический штабелер</a>
+                    <a href="takelazh/kran-kozlovoy.html">Козловой кран</a>
+                    <a href="takelazh/stupenkohod.html">Ступенькоход (без лифта)</a>
                 </div>
             </details>
 
@@ -702,6 +760,30 @@
                     <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/><circle cx="12" cy="18" r="1"/></svg>
                     <span>Перевозка сейфов</span>
                 </a>
+                <a href="takelazh/domkrat.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 21V9"/><path d="M8 13l4-4 4 4"/><rect x="5" y="19" width="14" height="3" rx="1"/></svg>
+                    <span>Аренда домкрата</span>
+                </a>
+                <a href="takelazh/roliki.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><circle cx="7" cy="17" r="2.3"/><circle cx="17" cy="17" r="2.3"/><rect x="4" y="8" width="16" height="7" rx="1.2"/></svg>
+                    <span>Роликовые платформы</span>
+                </a>
+                <a href="takelazh/lebedka.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v6M12 16v6M2 12h4"/><path d="M18 12h4"/></svg>
+                    <span>Аренда лебёдки</span>
+                </a>
+                <a href="takelazh/shtabeler.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><path d="M6 21V5"/><path d="M6 11h5"/><rect x="11" y="9" width="2" height="12"/><rect x="3" y="20" width="9" height="2" rx="0.5"/></svg>
+                    <span>Электрический штабелер</span>
+                </a>
+                <a href="takelazh/kran-kozlovoy.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><path d="M4 21V9"/><path d="M20 21V9"/><path d="M2 9h20"/><path d="M11 9v4"/></svg>
+                    <span>Козловой кран</span>
+                </a>
+                <a href="takelazh/stupenkohod.html" class="icon-item">
+                    <svg viewBox="0 0 24 24"><path d="M3 21h4v-4h4v-4h4v-4h4V5"/></svg>
+                    <span>Ступенькоход (без лифта)</span>
+                </a>
             </div>
 
         <div class="hero-cta-row">
@@ -710,6 +792,57 @@
         </div>
     </div>
 </header>
+
+<section class="section" id="equipment-gallery" style="background:#f8fafc;max-width:100%;padding:70px 20px;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 data-aos="fade-up">Наша спецтехника для такелажа</h2>
+        <p class="section-sub" data-aos="fade-up">Реальное оборудование, которое выезжает с нашими такелажниками на объекты</p>
+        <div class="equip-grid">
+            <a href="takelazh/domkrat.html" class="equip-card" data-aos="fade-up">
+                <img src="takelazh/domkrat.webp" alt="Низкозахватный гидравлический домкрат для такелажных работ — подъём оборудования до 20 тонн" loading="lazy" decoding="async" width="351" height="400">
+                <div class="equip-card-body">
+                    <div class="equip-card-name">Гидравлический домкрат</div>
+                    <div class="equip-card-desc">10 т по лапе / 20 т по верхней площадке</div>
+                </div>
+            </a>
+            <a href="takelazh/roliki.html" class="equip-card" data-aos="fade-up" data-aos-delay="40">
+                <img src="takelazh/roliki.webp" alt="Роликовая платформа для перемещения промышленного оборудования — грузоподъёмность 6 тонн" loading="lazy" decoding="async" width="800" height="522">
+                <div class="equip-card-body">
+                    <div class="equip-card-name">Роликовые платформы</div>
+                    <div class="equip-card-desc">6 тонн каждая, комплектом от 4 штук</div>
+                </div>
+            </a>
+            <a href="takelazh/lebedka.html" class="equip-card" data-aos="fade-up" data-aos-delay="80">
+                <img src="takelazh/lebedka.webp" alt="Электрическая лебёдка для такелажных работ — грузоподъёмность до 5 тонн" loading="lazy" decoding="async" width="238" height="208">
+                <div class="equip-card-body">
+                    <div class="equip-card-name">Лебёдка</div>
+                    <div class="equip-card-desc">До 5 тонн, трос ~25–30 м</div>
+                </div>
+            </a>
+            <a href="takelazh/shtabeler.html" class="equip-card" data-aos="fade-up" data-aos-delay="120">
+                <img src="takelazh/shtabeler.webp" alt="Электрический штабелер для складских работ — грузоподъёмность 1,5 тонны, высота подъёма 5 метров" loading="lazy" decoding="async" width="574" height="712">
+                <div class="equip-card-body">
+                    <div class="equip-card-name">Электрический штабелер</div>
+                    <div class="equip-card-desc">1,5 т, высота подъёма до 5 м</div>
+                </div>
+            </a>
+            <a href="takelazh/kran-kozlovoy.html" class="equip-card" data-aos="fade-up" data-aos-delay="160">
+                <img src="takelazh/kran-kozlovoy.webp" alt="Мобильный козловой кран для монтажа оборудования — грузоподъёмность 3 тонны" loading="lazy" decoding="async" width="854" height="1046">
+                <div class="equip-card-body">
+                    <div class="equip-card-name">Козловой кран</div>
+                    <div class="equip-card-desc">Мобильный, 3 тонны, с бригадой монтажа</div>
+                </div>
+            </a>
+            <a href="takelazh/stupenkohod.html" class="equip-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="takelazh/stupenkohod.webp" alt="Электрический ступенькоход для подъёма техники по лестнице без лифта — до 420 кг" loading="lazy" decoding="async" width="445" height="660">
+                <div class="equip-card-body">
+                    <div class="equip-card-name">Ступенькоход</div>
+                    <div class="equip-card-desc">До 420 кг, подъём по лестнице без лифта</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
 
 <section class="section" id="tariffs">
     <h2 data-aos="fade-up">Тарифы такелажных услуг</h2>
@@ -750,11 +883,83 @@
             <p class="tariff-desc">Полный комплекс такелажных работ для промышленного оборудования, станков и тяжёлых грузов.</p>
             <ul class="tariff-includes">
                 <li>Манипулятор / кран-балка</li>
-                <li>Подкатные ролики, домкраты</li>
+                <li><a href="takelazh/roliki.html">Подкатные ролики</a>, <a href="takelazh/domkrat.html">домкраты</a></li>
                 <li>Низкозахватный гидравлический домкрат</li>
                 <li>Расчёт под вашу задачу</li>
             </ul>
             <a href="takelazh/oborud.html" class="tariff-btn">подробнее →</a>
+        </div>
+
+        <div class="tariff-card" data-aos="fade-up">
+            <div class="tariff-icon"><i class="fas fa-arrows-up-down"></i></div>
+            <div class="tariff-name">Аренда домкрата</div>
+            <div class="tariff-price">по договорённости</div>
+            <p class="tariff-desc">Низкозахватный трубный домкрат: 10 т по лапе, 20 т по верхней площадке.</p>
+            <ul class="tariff-includes">
+                <li>Подъём и расклинка оборудования</li>
+                <li>Самовывоз или с такелажником</li>
+            </ul>
+            <a href="takelazh/domkrat.html" class="tariff-btn">подробнее →</a>
+        </div>
+
+        <div class="tariff-card" data-aos="fade-up">
+            <div class="tariff-icon"><i class="fas fa-dolly"></i></div>
+            <div class="tariff-name">Роликовые платформы</div>
+            <div class="tariff-price">по договорённости</div>
+            <p class="tariff-desc">Платформы 6 тонн каждая, комплектом от 4 штук — для перемещения оборудования внутри помещений.</p>
+            <ul class="tariff-includes">
+                <li>Поворотная площадка</li>
+                <li>Работают в связке с домкратом</li>
+            </ul>
+            <a href="takelazh/roliki.html" class="tariff-btn">подробнее →</a>
+        </div>
+
+        <div class="tariff-card" data-aos="fade-up">
+            <div class="tariff-icon"><i class="fas fa-truck-ramp-box"></i></div>
+            <div class="tariff-name">Аренда лебёдки</div>
+            <div class="tariff-price">по договорённости</div>
+            <p class="tariff-desc">До 5 тонн — протяжка оборудования по полу, подъём по аппарели.</p>
+            <ul class="tariff-includes">
+                <li>Трос ~25–30 м</li>
+                <li>Самовывоз или с такелажником</li>
+            </ul>
+            <a href="takelazh/lebedka.html" class="tariff-btn">подробнее →</a>
+        </div>
+
+        <div class="tariff-card" data-aos="fade-up">
+            <div class="tariff-icon"><i class="fas fa-warehouse"></i></div>
+            <div class="tariff-name">Электрический штабелер</div>
+            <div class="tariff-price">по договорённости</div>
+            <p class="tariff-desc">1,5 тонны, высота подъёма до 5 м. Складские работы, расстановка паллет.</p>
+            <ul class="tariff-includes">
+                <li>Только с оператором</li>
+                <li>Почасово или посуточно</li>
+            </ul>
+            <a href="takelazh/shtabeler.html" class="tariff-btn">подробнее →</a>
+        </div>
+
+        <div class="tariff-card" data-aos="fade-up">
+            <div class="tariff-icon"><i class="fas fa-truck-field"></i></div>
+            <div class="tariff-name">Козловой кран</div>
+            <div class="tariff-price">по договорённости</div>
+            <p class="tariff-desc">Мобильный, 3 тонны — монтаж и подъём оборудования там, где нет потолочного крана.</p>
+            <ul class="tariff-includes">
+                <li>С бригадой монтажа</li>
+                <li>Цех, склад, гараж, улица</li>
+            </ul>
+            <a href="takelazh/kran-kozlovoy.html" class="tariff-btn">подробнее →</a>
+        </div>
+
+        <div class="tariff-card" data-aos="fade-up">
+            <div class="tariff-icon"><i class="fas fa-stairs"></i></div>
+            <div class="tariff-name">Ступенькоход (без лифта)</div>
+            <div class="tariff-price">по договорённости</div>
+            <p class="tariff-desc">До 420 кг — подъём и спуск вендинговых автоматов, сейфов, техники по лестнице.</p>
+            <ul class="tariff-includes">
+                <li>Безопасно, без царапин</li>
+                <li>Бригада 2 такелажника</li>
+            </ul>
+            <a href="takelazh/stupenkohod.html" class="tariff-btn">подробнее →</a>
         </div>
     </div>
 </section>
@@ -824,6 +1029,12 @@
                     <tr><td>Перевозка банкомата</td><td>спецтранспорт</td><td class="highlight">от 35 000 ₸</td></tr>
                     <tr><td>Перевозка оборудования / станков</td><td>до 5 т</td><td class="highlight">от 45 000 ₸</td></tr>
                     <tr><td>Манипулятор с такелажниками</td><td>до 5 т</td><td class="highlight">от 45 000 ₸/час</td></tr>
+                    <tr><td><a href="takelazh/domkrat.html">Аренда домкрата</a></td><td>10 т / 20 т</td><td class="highlight">по договорённости</td></tr>
+                    <tr><td><a href="takelazh/roliki.html">Роликовые платформы</a></td><td>6 т / платформа</td><td class="highlight">по договорённости</td></tr>
+                    <tr><td><a href="takelazh/lebedka.html">Аренда лебёдки</a></td><td>до 5 т</td><td class="highlight">по договорённости</td></tr>
+                    <tr><td><a href="takelazh/shtabeler.html">Электрический штабелер</a></td><td>1,5 т / 5 м</td><td class="highlight">по договорённости</td></tr>
+                    <tr><td><a href="takelazh/kran-kozlovoy.html">Козловой кран</a></td><td>3 т</td><td class="highlight">по договорённости</td></tr>
+                    <tr><td><a href="takelazh/stupenkohod.html">Ступенькоход (без лифта)</a></td><td>до 420 кг</td><td class="highlight">по договорённости</td></tr>
                 </tbody>
             </table>
         </div>
@@ -896,6 +1107,9 @@
         <div class="faq-item"><div class="faq-question">Сколько стоит аренда рохли с грузчиками на смену?</div><div class="faq-answer">Стоимость смены (8 часов) от 60 000 ₸. Точную цену рассчитаем индивидуально под вашу задачу: вес груза, этажность, необходимость спецтехники.</div></div>
         <div class="faq-item"><div class="faq-question">Работаете ли с юридическими лицами?</div><div class="faq-answer">Да. Предоставляем договор, накладные, акты выполненных работ и счёт-фактуру. Оплата по безналичному расчёту. Для постоянных корпоративных клиентов — специальные условия.</div></div>
         <div class="faq-item"><div class="faq-question">Выезжаете ли за пределы Астаны?</div><div class="faq-answer">Да, работаем по Астане и пригороду. Перевозки в другие города Казахстана рассчитываются отдельно — по километражу.</div></div>
+        <div class="faq-item"><div class="faq-question">Какую ещё спецтехнику вы предоставляете, кроме рохли и манипулятора?</div><div class="faq-answer">У нас есть <a href="takelazh/domkrat.html">гидравлический домкрат</a> (10/20 тонн), <a href="takelazh/roliki.html">роликовые платформы</a> (6 тонн), <a href="takelazh/lebedka.html">лебёдка</a> (до 5 тонн), <a href="takelazh/shtabeler.html">электрический штабелер</a> (1,5 т, высота 5 м), <a href="takelazh/kran-kozlovoy.html">мобильный козловой кран</a> (3 тонны) и <a href="takelazh/stupenkohod.html">ступенькоход</a> для подъёма техники по лестнице без лифта (до 420 кг).</div></div>
+        <div class="faq-item"><div class="faq-question">Можно ли арендовать домкрат или ролики отдельно, без остальных такелажных услуг?</div><div class="faq-answer">Да, юридическим лицам мы можем передать домкрат, ролики или лебёдку в самостоятельную аренду по договору. Штабелер и козловой кран выдаём только с нашим оператором или бригадой монтажа — эта техника требует допуска и навыка.</div></div>
+        <div class="faq-item"><div class="faq-question">Сколько стоит аренда домкрата, лебёдки, штабелера или крана?</div><div class="faq-answer">Фиксированных тарифов на эту технику нет — цена зависит от объёма и сложности работ, веса оборудования и срока аренды. Позвоните или напишите в WhatsApp — рассчитаем стоимость индивидуально под вашу задачу.</div></div>
     </div>
 </section>
 
@@ -909,7 +1123,7 @@
             <p>Такелаж — это не просто погрузка. Это комплекс мероприятий:</p>
             <ul>
                 <li><strong>Оценка груза</strong> — вес, габариты, центр тяжести, хрупкость.</li>
-                <li><strong>Подбор оборудования</strong> — рохля, манипулятор, подкатные ролики, низкозахватный домкрат, стропы.</li>
+                <li><strong>Подбор оборудования</strong> — рохля, манипулятор, <a href="takelazh/roliki.html">подкатные ролики</a>, <a href="takelazh/domkrat.html">низкозахватный домкрат</a>, <a href="takelazh/lebedka.html">лебёдка</a>, стропы.</li>
                 <li><strong>Погрузка и фиксация</strong> — аккуратное перемещение с помощью спецтехники и усиленная фиксация ремнями.</li>
                 <li><strong>Транспортировка</strong> — использование транспорта с гидробортом для тяжёлых грузов.</li>
                 <li><strong>Разгрузка и расстановка</strong> — перемещение груза на новом месте согласно вашим требованиям.</li>
@@ -929,6 +1143,17 @@
             </ul>
             <p>Мы перевезли более 50 сейфов и банкоматов.</p>
             
+            <h3>Парк такелажного оборудования: что ещё есть в наличии</h3>
+            <p>Кроме рохли и манипулятора, для сложных задач по перемещению и монтажу тяжёлого оборудования мы используем специализированную технику:</p>
+            <ul>
+                <li><strong><a href="takelazh/domkrat.html">Гидравлический домкрат</a></strong> — низкозахватный, трубный: 10 тонн по лапе, 20 тонн по верхней площадке. Поднимает угол станка перед подкаткой роликов.</li>
+                <li><strong><a href="takelazh/roliki.html">Роликовые платформы</a></strong> — 6 тонн каждая, комплектом от 4 штук. Горизонтальное перемещение оборудования внутри цеха или склада.</li>
+                <li><strong><a href="takelazh/lebedka.html">Лебёдка</a></strong> — до 5 тонн. Протяжка оборудования по полу, подъём по аппарели.</li>
+                <li><strong><a href="takelazh/shtabeler.html">Электрический штабелер</a></strong> — 1,5 тонны, высота подъёма до 5 метров. Складские работы, расстановка паллет на стеллажи.</li>
+                <li><strong><a href="takelazh/kran-kozlovoy.html">Мобильный козловой кран</a></strong> — 3 тонны. Монтаж и подъём оборудования там, где нет потолочной кран-балки.</li>
+                <li><strong><a href="takelazh/stupenkohod.html">Ступенькоход</a></strong> — до 420 кг. Подъём и спуск вендинговых автоматов, сейфов и техники по лестнице без лифта.</li>
+            </ul>
+
             <h3>Сравнение стоимости такелажных услуг в Астане</h3>
             <table style="width:100%;border-collapse:collapse;margin:20px 0;background:#f8fafc;">
                 <thead><tr style="background:#2563eb;color:white;"><th style="padding:12px;border:1px solid #e2e8f0;">Услуга</th><th style="padding:12px;border:1px solid #e2e8f0;">Цена</th><th style="padding:12px;border:1px solid #e2e8f0;">Примечание</th></tr></thead>
@@ -950,7 +1175,7 @@
             </ul>
             
             <h3>Почему выбирают Gruzim.kz для такелажа в Астане?</h3>
-            <p>Мы работаем с 2019 года. За это время выполнили более 100 такелажных проектов: от перевозки одного сейфа до комплексного перемещения цеха с 8 станками. В нашем распоряжении рохли до 2 тонн, манипуляторы, подкатные ролики, низкозахватные домкраты. Все такелажники имеют опыт работы с ценным оборудованием. Работаем официально, предоставляем полный пакет документов для юридических лиц. </p>
+            <p>Мы работаем с 2019 года. За это время выполнили более 100 такелажных проектов: от перевозки одного сейфа до комплексного перемещения цеха с 8 станками. В нашем распоряжении рохли до 2 тонн, манипуляторы, <a href="takelazh/roliki.html">подкатные ролики</a>, <a href="takelazh/domkrat.html">низкозахватные домкраты</a>, <a href="takelazh/lebedka.html">лебёдка</a>, <a href="takelazh/shtabeler.html">электрический штабелер</a>, <a href="takelazh/kran-kozlovoy.html">козловой кран</a> и <a href="takelazh/stupenkohod.html">ступенькоход</a> для подъёма техники по лестнице. Все такелажники имеют опыт работы с ценным оборудованием. Работаем официально, предоставляем полный пакет документов для юридических лиц. </p>
             <p>Оставьте заявку — мы рассчитаем стоимость такелажных работ под вашу задачу. Работаем во всех районах Астаны: Алматинский, Есильский, Сарыаркинский, Байконырский, Нуринский.</p>
         <div class="gz-interlink-block" style="max-width:900px;margin:0 auto;padding:0 20px 10px;font-size:.95rem;color:#334155;">
 

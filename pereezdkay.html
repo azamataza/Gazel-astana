@@ -273,13 +273,13 @@
         @media(max-width:1024px){.burger-menu{display:flex;}}
         @media(max-width:768px){.header-phone{display:none !important;}}
     
-.hero-icons{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 12px;margin-top:35px;margin-bottom:45px;max-width:700px;margin-left:auto;margin-right:auto;padding:0 12px;justify-items:center;}
-.icon-item{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transition:all 0.2s ease;cursor:pointer;}
+.hero-icons{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 12px;margin-top:35px;margin-bottom:45px;max-width:700px;margin-left:auto;margin-right:auto;padding:0 12px;}
+.icon-item{display:flex;flex:0 1 190px;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transition:all 0.2s ease;cursor:pointer;}
 .icon-item svg{width:44px;height:44px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 .icon-item span{font-size:12px;font-weight:500;color:white;text-align:center;line-height:1.3;letter-spacing:0.3px;text-shadow:0 1px 2px rgba(0,0,0,0.3);}
 .icon-item:hover{transform:scale(0.95);}
 .icon-item:active{transform:scale(0.92);}
-@media(max-width:900px){.hero-icons{grid-template-columns:repeat(3,1fr);gap:16px 8px;max-width:520px;}.icon-item svg{width:38px;height:38px;}.icon-item span{font-size:10px;}}
+@media(max-width:900px){.hero-icons{gap:16px 8px;max-width:520px;}.icon-item{flex-basis:150px;}.icon-item svg{width:38px;height:38px;}.icon-item span{font-size:10px;}}
 </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width:769px)">
@@ -628,13 +628,19 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 </div>
             </details>
 
-            <details>
+                        <details>
                 <summary>Такелаж</summary>
                 <div class="mnav-sub">
                     <a href="takelazh.html" class="mnav-overview">О такелаже</a>
                     <a href="takelazh/oborud.html">Оборудование и станки</a>
                     <a href="takelazh/roh.html">Аренда рохли</a>
                     <a href="takelazh/save.html">Перевозка сейфов</a>
+                    <a href="takelazh/domkrat.html">Аренда домкрата</a>
+                    <a href="takelazh/roliki.html">Роликовые платформы</a>
+                    <a href="takelazh/lebedka.html">Аренда лебёдки</a>
+                    <a href="takelazh/shtabeler.html">Электрический штабелер</a>
+                    <a href="takelazh/kran-kozlovoy.html">Козловой кран</a>
+                    <a href="takelazh/stupenkohod.html">Ступенькоход (без лифта)</a>
                 </div>
             </details>
 
@@ -783,11 +789,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             <button class="clients-arrow clients-arrow--prev" type="button"><i class="fas fa-chevron-left"></i></button>
             <div class="clients-viewport">
                 <div class="clients-track">
-                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden" loading="lazy" decoding="async"></div><div class="client-name" itemprop="author">JOY Garden</div><div class="client-type" itemprop="itemReviewed">Переезд магазина на 3 склада</div><p class="client-details" itemprop="reviewBody">Перевод торгового зала и склада на три точки хранения. Упаковка витрин, загрузка, доставка и расстановка товара — переезд под ключ за 10 дней, 15т товара.</p><div class="client-meta">Астана · Магазин → 3 склада</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
-                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-name" itemprop="author">Ержан Т., ТОО «Телесервис»</div><div class="client-type" itemprop="itemReviewed">Переезд офиса на 50 сотрудников</div><p class="client-details" itemprop="reviewBody">Полная организация переезда: упаковка рабочих мест, оргтехника, мебель, демонтаж и сборка. Переезд без остановки работы офиса.</p><div class="client-meta">Астана · Офис 50+ мест</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
-                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-name" itemprop="author">ТОО «ТрансСклад»</div><div class="client-type" itemprop="itemReviewed">Переезд склада</div><p class="client-details" itemprop="reviewBody">Перенос складского запаса, паллет и стеллажей. Этапная работа и ночные смены для сохранения логистики клиента.</p><div class="client-meta">Складской комплекс</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
-                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-dm.png" alt="DamuMed" loading="lazy" decoding="async"></div><div class="client-name" itemprop="author">DamuMed</div><div class="client-type" itemprop="itemReviewed">Офисный переезд под ключ</div><p class="client-details" itemprop="reviewBody">Комплексный переезд офиса IT‑компании: 70+ сотрудников, рабочие места, серверная зона и кухня. Поэтапный перенос отделов без остановки бизнес‑процессов.</p><div class="client-meta">Астана · Офис 70+ сотрудников</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
-                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-gch.png" alt="GigaTech" loading="lazy" decoding="async"></div><div class="client-name" itemprop="author">GigaTech</div><div class="client-type" itemprop="itemReviewed">Переезд офиса и склада</div><p class="client-details" itemprop="reviewBody">Организованный переезд офиса и складских зон: 20+ сотрудников, техника, документы.</p><div class="client-meta">Астана · Офис и склад</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden" loading="lazy" decoding="async"></div><div class="client-name" itemprop="author">JOY Garden</div><div class="client-type" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service"><span itemprop="name">Переезд магазина на 3 склада</span></div><p class="client-details" itemprop="reviewBody">Перевод торгового зала и склада на три точки хранения. Упаковка витрин, загрузка, доставка и расстановка товара — переезд под ключ за 10 дней, 15т товара.</p><div class="client-meta">Астана · Магазин → 3 склада</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-name" itemprop="author">Ержан Т., ТОО «Телесервис»</div><div class="client-type" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service"><span itemprop="name">Переезд офиса на 50 сотрудников</span></div><p class="client-details" itemprop="reviewBody">Полная организация переезда: упаковка рабочих мест, оргтехника, мебель, демонтаж и сборка. Переезд без остановки работы офиса.</p><div class="client-meta">Астана · Офис 50+ мест</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-name" itemprop="author">ТОО «ТрансСклад»</div><div class="client-type" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service"><span itemprop="name">Переезд склада</span></div><p class="client-details" itemprop="reviewBody">Перенос складского запаса, паллет и стеллажей. Этапная работа и ночные смены для сохранения логистики клиента.</p><div class="client-meta">Складской комплекс</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-dm.png" alt="DamuMed" loading="lazy" decoding="async"></div><div class="client-name" itemprop="author">DamuMed</div><div class="client-type" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service"><span itemprop="name">Офисный переезд под ключ</span></div><p class="client-details" itemprop="reviewBody">Комплексный переезд офиса IT‑компании: 70+ сотрудников, рабочие места, серверная зона и кухня. Поэтапный перенос отделов без остановки бизнес‑процессов.</p><div class="client-meta">Астана · Офис 70+ сотрудников</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
+                    <article class="client-card" itemscope itemtype="https://schema.org/Review"><div class="client-logo"><img src="logo-gch.png" alt="GigaTech" loading="lazy" decoding="async"></div><div class="client-name" itemprop="author">GigaTech</div><div class="client-type" itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service"><span itemprop="name">Переезд офиса и склада</span></div><p class="client-details" itemprop="reviewBody">Организованный переезд офиса и складских зон: 20+ сотрудников, техника, документы.</p><div class="client-meta">Астана · Офис и склад</div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div></article>
                 </div>
             </div>
             <button class="clients-arrow clients-arrow--next" type="button"><i class="fas fa-chevron-right"></i></button>
