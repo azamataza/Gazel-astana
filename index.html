@@ -230,7 +230,26 @@
         .hub-sub ul{margin-left:14px;}
         .hub-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;}
 
-        
+
+        #nasha-tehnika h2{margin-bottom:14px;}
+        .section-sub{text-align:center;color:var(--gz-muted);font-size:.98em;max-width:680px;margin:0 auto 36px;}
+
+
+        .gallery-groups{display:flex;flex-direction:column;gap:34px;}
+        .gallery-group-title{font-size:1.1em;font-weight:700;color:var(--gz-ink);margin:0 0 14px;display:flex;align-items:center;gap:10px;}
+        .gallery-group-title::before{content:'';width:4px;height:18px;background:var(--gz-blue);border-radius:2px;}
+        .gallery-slider{display:flex;align-items:center;gap:10px;}
+        .gallery-arrow{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--gz-line);color:var(--gz-ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;box-shadow:0 2px 8px rgba(15,23,42,.07);font-size:.85em;}
+        .gallery-arrow:hover{background:var(--gz-blue);color:#fff;border-color:var(--gz-blue);}
+        .gallery-viewport{overflow-x:auto;overflow-y:hidden;flex:1;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;}
+        .gallery-viewport::-webkit-scrollbar{display:none;}
+        .gallery-track{display:flex;gap:14px;padding:4px 2px;}
+        .gallery-slide{scroll-snap-align:start;flex:0 0 190px;background:#fff;border:1px solid var(--gz-line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,border-color .2s;}
+        .gallery-slide:hover{transform:translateY(-4px);border-color:var(--gz-blue);}
+        .gallery-slide img{width:100%;height:130px;object-fit:contain;background:var(--gz-bg);padding:12px;display:block;}
+        .gallery-slide-label{padding:0 12px 14px;font-size:.84em;font-weight:600;color:var(--gz-ink);text-align:center;}
+
+
         .price-list{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--gz-line);border-radius:16px;padding:12px 24px;}
         .price-row{display:flex;align-items:baseline;gap:10px;padding:13px 0;text-decoration:none;border-bottom:1px solid #f1f5f9;}
         .price-row:last-child{border-bottom:0;}
@@ -309,6 +328,10 @@
             .price-row i{display:none;}
             .price-row b{margin-left:auto;}
             .final-cta h2{font-size:1.45em;}
+            .section-sub{margin-bottom:28px;}
+            .gallery-slide{flex:0 0 130px;}
+            .gallery-slide img{height:95px;padding:8px;}
+            .gallery-arrow{width:32px;height:32px;font-size:.75em;}
         }
     </style>
 
@@ -1156,7 +1179,100 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         </div>
     </section>
 
-   
+    <section class="section" id="nasha-tehnika">
+        <h2>Наша техника и оборудование</h2>
+        <p class="section-sub">Собственный автопарк и такелажное оборудование — всё в наличии, без субаренды у третьих лиц</p>
+        <div class="gallery-groups">
+            <div class="gallery-group">
+                <h3 class="gallery-group-title">Транспорт</h3>
+                <div class="gallery-slider">
+                    <button class="gallery-arrow gallery-arrow--prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+                    <div class="gallery-viewport">
+                        <div class="gallery-track">
+                            <a href="gruz/chasovoi.html" class="gallery-slide">
+                                <img src="gallery/gazel_tent.webp" alt="Тентованная Газель для почасовой аренды — грузоперевозки в Астане" width="552" height="435" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Газель тентованная</span>
+                            </a>
+                            <a href="gruz/komplekt.html" class="gallery-slide">
+                                <img src="gallery/gazel_bort.webp" alt="Бортовая Газель для перевозки крупногабаритных грузов" width="501" height="191" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Газель бортовая</span>
+                            </a>
+                            <a href="takelazh/oborud.html" class="gallery-slide">
+                                <img src="gallery/kamaz.webp" alt="КАМАЗ с крано-манипулятором для перевозки тяжёлого оборудования" width="720" height="500" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">КАМАЗ с манипулятором</span>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="gallery-arrow gallery-arrow--next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="gallery-group">
+                <h3 class="gallery-group-title">Упаковка и защита груза</h3>
+                <div class="gallery-slider">
+                    <button class="gallery-arrow gallery-arrow--prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+                    <div class="gallery-viewport">
+                        <div class="gallery-track">
+                            <a href="upakovka.html" class="gallery-slide">
+                                <img src="gallery/korobki.webp" alt="Упаковка вещей картонными коробками при переезде" width="571" height="455" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Коробки для переезда</span>
+                            </a>
+                            <a href="upakovka/mebel.html" class="gallery-slide">
+                                <img src="gallery/strech.webp" alt="Упаковка мебели стрейч-плёнкой для защиты при перевозке" width="720" height="478" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Стрейч-плёнка</span>
+                            </a>
+                            <a href="upakovka/hrupkoe.html" class="gallery-slide">
+                                <img src="gallery/penopolietilen.webp" alt="Пенополиэтилен для упаковки хрупких вещей — зеркал, посуды, техники" width="281" height="400" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Пенополиэтилен</span>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="gallery-arrow gallery-arrow--next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="gallery-group">
+                <h3 class="gallery-group-title">Такелажное оборудование</h3>
+                <div class="gallery-slider">
+                    <button class="gallery-arrow gallery-arrow--prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+                    <div class="gallery-viewport">
+                        <div class="gallery-track">
+                            <a href="takelazh/roh.html" class="gallery-slide">
+                                <img src="gallery/rohlya.webp" alt="Гидравлическая рохля для перемещения тяжёлых грузов" width="699" height="559" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Рохля</span>
+                            </a>
+                            <a href="takelazh/domkrat.html" class="gallery-slide">
+                                <img src="gallery/domkrat_new.webp" alt="Гидравлический домкрат для подъёма тяжёлого оборудования до 20 тонн" width="358" height="400" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Домкрат</span>
+                            </a>
+                            <a href="takelazh/roliki.html" class="gallery-slide">
+                                <img src="gallery/roliki_new.webp" alt="Подкатные ролики грузоподъёмностью 6 тонн для такелажа" width="720" height="486" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Подкатные ролики</span>
+                            </a>
+                            <a href="takelazh/lebedka.html" class="gallery-slide">
+                                <img src="gallery/lebedka_new.webp" alt="Лебёдка для такелажных работ грузоподъёмностью до 5 тонн" width="238" height="207" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Лебёдка</span>
+                            </a>
+                            <a href="takelazh/shtabeler.html" class="gallery-slide">
+                                <img src="gallery/shtabeler_new.webp" alt="Электрический штабелер, грузоподъёмность 1,5 т, высота подъёма 5 м" width="568" height="720" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Электрический штабелер</span>
+                            </a>
+                            <a href="takelazh/kran-kozlovoy.html" class="gallery-slide">
+                                <img src="gallery/kran_kozlovoy_new.webp" alt="Мобильный козловой кран грузоподъёмностью 3 тонны" width="586" height="720" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Козловой кран</span>
+                            </a>
+                            <a href="takelazh/stupenkohod.html" class="gallery-slide">
+                                <img src="gallery/stupenkohod_new.webp" alt="Ступенькоход для подъёма техники по лестнице без лифта до 420 кг" width="408" height="660" loading="lazy" decoding="async">
+                                <span class="gallery-slide-label">Ступенькоход</span>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="gallery-arrow gallery-arrow--next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section" id="ceny">
         <h2>Цены на грузоперевозки и переезды</h2>
         <div class="price-list">
@@ -1430,10 +1546,29 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     })();
     </script>
 
-   
+    <script id="gz-gallery-sliders">
+    (function () {
+        var sliders = document.querySelectorAll('.gallery-slider');
+        sliders.forEach(function (slider) {
+            var viewport = slider.querySelector('.gallery-viewport');
+            var prev = slider.querySelector('.gallery-arrow--prev');
+            var next = slider.querySelector('.gallery-arrow--next');
+            if (!viewport || !prev || !next) return;
+            function step() {
+                var card = viewport.querySelector('.gallery-slide');
+                var cardWidth = card ? card.getBoundingClientRect().width : 200;
+                return (cardWidth + 14) * 2;
+            }
+            prev.addEventListener('click', function () { viewport.scrollBy({ left: -step(), behavior: 'smooth' }); });
+            next.addEventListener('click', function () { viewport.scrollBy({ left: step(), behavior: 'smooth' }); });
+        });
+    })();
+    </script>
+
+
     <script>
     (function () {
-        
+
         var burger = document.getElementById('burgerMenu');
         var mobileNav = document.getElementById('mobileNav');
         var catalogLogo = document.getElementById('catalogLogo');
