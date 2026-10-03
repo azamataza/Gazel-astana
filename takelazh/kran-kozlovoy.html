@@ -23,6 +23,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Service",
+      "image": "https://www.gruzim.kz/takelazh/kran-kozlovoy.webp",
       "name": "Аренда козлового крана в Астане",
       "provider": {
         "@type": "LocalBusiness",
@@ -271,6 +272,9 @@
         .tariff-card:hover{border-color:#2563eb;transform:translateY(-4px);}
         .tariff-card.featured{border:2px solid #2563eb;position:relative;}
         .tariff-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#2563eb;color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap;letter-spacing:0.4px;}
+        .tariff-photo{margin:-28px -24px 2px;height:190px;background:#fff;border-bottom:1px solid #e2e8f0;border-radius:19px 19px 0 0;overflow:hidden;}
+        .tariff-photo img{width:100%;height:100%;object-fit:contain;padding:14px;display:block;}
+        @media(max-width:600px){.tariff-photo{height:170px;}}
         .tariff-icon{width:48px;height:48px;border-radius:12px;background:#eff6ff;display:flex;align-items:center;justify-content:center;}
         .tariff-card.featured .tariff-icon{background:#2563eb;}
         .tariff-icon i{font-size:22px;color:#2563eb;}
@@ -739,7 +743,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     <div class="tariff-grid tariff-grid--few">
         <div class="tariff-card featured" data-aos="fade-up">
             <span class="tariff-badge">Единственный тариф</span>
-            <div class="tariff-icon"><i class="fas fa-truck-field"></i></div>
+            <div class="tariff-photo"><img src="kran-kozlovoy.webp" alt="Мобильный козловой кран грузоподъёмностью 3 тонны — аренда с бригадой монтажа в Астане" width="854" height="1046" loading="lazy" decoding="async"></div>
             <div class="tariff-name">Козловой кран с бригадой монтажа</div>
             <div class="tariff-price">по договорённости</div>
             <p class="tariff-desc">Подъём и монтаж оборудования грузоподъёмностью до 3 тонн — для юридических лиц.</p>

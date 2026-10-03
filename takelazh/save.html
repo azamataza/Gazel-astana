@@ -300,6 +300,9 @@
         .tariff-card:hover{border-color:#2563eb;transform:translateY(-4px);}
         .tariff-card.featured{border:2px solid #2563eb;position:relative;}
         .tariff-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#2563eb;color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap;letter-spacing:0.4px;}
+        .tariff-photo{margin:-28px -24px 2px;height:190px;background:#fff;border-bottom:1px solid #e2e8f0;border-radius:19px 19px 0 0;overflow:hidden;}
+        .tariff-photo img{width:100%;height:100%;object-fit:contain;padding:14px;display:block;}
+        @media(max-width:600px){.tariff-photo{height:170px;}}
         .tariff-icon{width:48px;height:48px;border-radius:12px;background:#eff6ff;display:flex;align-items:center;justify-content:center;}
         .tariff-card.featured .tariff-icon{background:#2563eb;}
         .tariff-icon i{font-size:22px;color:#2563eb;}
@@ -756,7 +759,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     <p class="section-sub" data-aos="fade-up">Цена за перевозку под ключ — без скрытых доплат. Оплата по факту выполнения.</p>
     <div class="tariff-grid">
         <div class="tariff-card" data-aos="fade-up">
-            <div class="tariff-icon"><i class="fas fa-lock"></i></div>
+            <div class="tariff-photo"><img src="../gallery/rohlya.webp" alt="Гидравлическая рохля — перевозка сейфов и аппаратов до 200 кг в Астане" width="699" height="559" loading="lazy" decoding="async"></div>
             <div class="tariff-name">Сейф / аппарат до 200 кг</div>
             <div class="tariff-price">30 000 ₸</div>
             <p class="tariff-desc">Идеально для домашних сейфов, кулеров, фильтров, небольших котлов. Перевозка по Астане + занос до 2 этажа без лифта.</p>
@@ -770,7 +773,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 
         <div class="tariff-card featured" data-aos="fade-up" data-aos-delay="80">
             <span class="tariff-badge">Часто заказывают</span>
-            <div class="tariff-icon"><i class="fas fa-weight-hanging"></i></div>
+            <div class="tariff-photo"><img src="roliki.webp" alt="Подкатные ролики и рохля — перемещение сейфов до 500 кг" width="800" height="522" loading="lazy" decoding="async"></div>
             <div class="tariff-name">Сейф / аппарат до 500 кг</div>
             <div class="tariff-price">50 000 ₸</div>
             <p class="tariff-desc">Для массивных сейфов для оружия, тяжелых котлов длительного горения, промышленных фильтров.</p>
@@ -783,7 +786,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         </div>
 
         <div class="tariff-card" data-aos="fade-up" data-aos-delay="160">
-            <div class="tariff-icon"><i class="fas fa-truck"></i></div>
+            <div class="tariff-photo"><img src="../gallery/kamaz.webp" alt="КАМАЗ с манипулятором — перевозка сейфов и аппаратов весом от 500 кг до 2 тонн в Астане" width="720" height="500" loading="lazy" decoding="async"></div>
             <div class="tariff-name">Сейф / аппарат 500 кг – 2 т</div>
             <div class="tariff-price">от 150 000 ₸</div>
             <p class="tariff-desc">Для особо тяжёлых сейфов, крупных котлов и промышленного оборудования.</p>

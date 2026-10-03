@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Такелажные работы в Астане — сейфы, оборудование, рохля | Gruzim.kz</title>
-    <meta name="description" content="✅ Такелажные работы в Астане. Перевозка сейфов, банкоматов, промышленного оборудования. Аренда рохли с грузчиками. Работаем ежедневно. Звоните!">
-    <meta name="keywords" content="такелажные работы Астана, перевозка сейфа Астана, перевозка оборудования Астана, аренда рохли Астана, перевозка банкоматов Астана, такелаж сейфов, перевозка станков Астана">
+    <title>Такелажные работы в Астане — сейфы, станки, аренда оборудования | Gruzim.kz</title>
+    <meta name="description" content="✅ Такелажные работы в Астане. Перевозка сейфов, банкоматов, станков. Аренда рохли, домкрата, роликов, лебёдки, штабелера, козлового крана. Работаем ежедневно. Звоните!">
+    <meta name="keywords" content="такелажные работы Астана, перевозка сейфа Астана, перевозка оборудования Астана, аренда такелажного оборудования Астана, аренда рохли Астана, перевозка банкоматов Астана, такелаж сейфов, перевозка станков Астана">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="KZ-AST">
     <meta name="geo.placename" content="Астана">
@@ -13,8 +13,8 @@
     <link rel="alternate" hreflang="ru" href="https://www.gruzim.kz/takelazh.html">
     <link rel="alternate" hreflang="x-default" href="https://www.gruzim.kz/takelazh.html">
 
-    <meta property="og:title" content="Такелажные работы в Астане | Перевозка сейфов и оборудования | Gruzim.kz">
-    <meta property="og:description" content="Такелажные работы, перевозка сейфов, банкоматов, промышленного оборудования. Аренда рохли с грузчиками. Работаем ежедневно.">
+    <meta property="og:title" content="Такелажные работы в Астане — перевозка сейфов и станков, аренда такелажного оборудования | Gruzim.kz">
+    <meta property="og:description" content="Такелажные работы, перевозка сейфов, банкоматов и станков. Аренда такелажного оборудования: рохля, домкрат, ролики, лебёдка, штабелер, козловой кран. Работаем ежедневно.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.gruzim.kz/takelazh.html">
     <meta property="og:image" content="https://www.gruzim.kz/og-image.png">
@@ -389,15 +389,18 @@
         .cta-row-full .btn-white{background:white;color:#2563eb;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
         .cta-row-full .btn-white:hover{transform:scale(1.03);background:#f8fafc;}
 
-        .equip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-        .equip-card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform 0.2s,border-color 0.2s;}
-        .equip-card:hover{transform:translateY(-4px);border-color:#2563eb;}
-        .equip-card img{width:100%;height:200px;object-fit:contain;background:#f8fafc;padding:16px;display:block;}
-        .equip-card-body{padding:14px 18px 20px;}
-        .equip-card-name{font-weight:700;color:#0f172a;margin-bottom:4px;}
-        .equip-card-desc{font-size:0.85em;color:#64748b;}
-        @media(max-width:900px){.equip-grid{grid-template-columns:repeat(2,1fr);}}
-        @media(max-width:560px){.equip-grid{grid-template-columns:1fr;}}
+        .gallery-slider{display:flex;align-items:center;gap:10px;}
+        .gallery-arrow{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;color:#0f172a;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;box-shadow:0 2px 8px rgba(15,23,42,.07);font-size:.85em;}
+        .gallery-arrow:hover{background:#2563eb;color:#fff;border-color:#2563eb;}
+        .gallery-viewport{overflow-x:auto;overflow-y:hidden;flex:1;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;}
+        .gallery-viewport::-webkit-scrollbar{display:none;}
+        .gallery-track{display:flex;gap:14px;padding:4px 2px;}
+        .gallery-slide{scroll-snap-align:start;flex:0 0 190px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,border-color .2s;}
+        .gallery-slide:hover{transform:translateY(-4px);border-color:#2563eb;}
+        .gallery-slide img{width:100%;height:130px;object-fit:contain;background:#f8fafc;padding:12px;display:block;}
+        .gallery-slide-label{padding:10px 12px 2px;font-size:.84em;font-weight:600;color:#0f172a;text-align:center;}
+        .gallery-slide-desc{padding:0 10px 14px;font-size:.74em;color:#64748b;text-align:center;}
+        @media(max-width:768px){.gallery-slide{flex:0 0 130px;}.gallery-slide img{height:95px;padding:8px;}.gallery-arrow{width:32px;height:32px;font-size:.75em;}}
 
         .cargo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
         .cargo-item{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:20px 16px;text-align:center;}
@@ -744,8 +747,8 @@
         <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
     </picture>
     <div>
-        <h1><span class="brand-orange">Такелажные работы</span> в Астане — перевозка сейфов, оборудования и аренда рохли</h1>
-        <p class="hero-sub">Профессиональный такелаж, перевозка банкоматов, сейфов, промышленных станков и тяжёлой техники. Аренда рохли с грузчиками. Работаем по Астане ежедневно.</p>
+        <h1><span class="brand-orange">Такелажные работы</span> в Астане — перевозка сейфов и станков, аренда такелажного оборудования</h1>
+        <p class="hero-sub">Профессиональный такелаж, перевозка банкоматов, сейфов, промышленных станков и тяжёлой техники. Аренда рохли, домкрата, роликовых платформ, лебёдки, штабелера и козлового крана. Работаем по Астане ежедневно.</p>
 
         <div class="hero-icons">
                 <a href="takelazh/oborud.html" class="icon-item">
@@ -796,49 +799,53 @@
     <div style="max-width:1200px;margin:0 auto;">
         <h2 data-aos="fade-up">Наша спецтехника для такелажа</h2>
         <p class="section-sub" data-aos="fade-up">Реальное оборудование, которое выезжает с нашими такелажниками на объекты</p>
-        <div class="equip-grid">
-            <a href="takelazh/domkrat.html" class="equip-card" data-aos="fade-up">
-                <img src="takelazh/domkrat.webp" alt="Низкозахватный гидравлический домкрат для такелажных работ — подъём оборудования до 20 тонн" loading="lazy" decoding="async" width="351" height="400">
-                <div class="equip-card-body">
-                    <div class="equip-card-name">Гидравлический домкрат</div>
-                    <div class="equip-card-desc">10 т по лапе / 20 т по верхней площадке</div>
+        <div class="gallery-slider">
+            <button class="gallery-arrow gallery-arrow--prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+            <div class="gallery-viewport">
+                <div class="gallery-track">
+                    <a href="takelazh/roh.html" class="gallery-slide">
+                        <img src="gallery/rohlya.webp" alt="Гидравлическая рохля для перемещения паллет и тяжёлых грузов — грузоподъёмность 2–3 тонны" width="699" height="559" loading="lazy" decoding="async">
+                        <span class="gallery-slide-label">Рохля</span>
+                        <span class="gallery-slide-desc">2–3 тонны, с такелажником</span>
+                    </a>
+                    <a href="takelazh/domkrat.html" class="gallery-slide">
+                        <img src="takelazh/domkrat.webp" alt="Низкозахватный гидравлический домкрат для такелажных работ — подъём оборудования до 20 тонн" width="351" height="400" loading="lazy" decoding="async">
+                        <span class="gallery-slide-label">Гидравлический домкрат</span>
+                        <span class="gallery-slide-desc">10 т по лапе / 20 т сверху</span>
+                    </a>
+                    <a href="takelazh/roliki.html" class="gallery-slide">
+                        <img src="takelazh/roliki.webp" alt="Роликовая платформа для перемещения промышленного оборудования — грузоподъёмность 6 тонн" width="800" height="522" loading="lazy" decoding="async">
+                        <span class="gallery-slide-label">Роликовые платформы</span>
+                        <span class="gallery-slide-desc">6 т каждая, от 4 штук</span>
+                    </a>
+                    <a href="takelazh/lebedka.html" class="gallery-slide">
+                        <img src="takelazh/lebedka.webp" alt="Электрическая лебёдка для такелажных работ — грузоподъёмность до 5 тонн" width="238" height="208" loading="lazy" decoding="async">
+                        <span class="gallery-slide-label">Лебёдка</span>
+                        <span class="gallery-slide-desc">До 5 тонн, трос ~25–30 м</span>
+                    </a>
+                    <a href="takelazh/shtabeler.html" class="gallery-slide">
+                        <img src="takelazh/shtabeler.webp" alt="Электрический штабелер для складских работ — грузоподъёмность 1,5 тонны, высота подъёма 5 метров" width="574" height="712" loading="lazy" decoding="async">
+                        <span class="gallery-slide-label">Электрический штабелер</span>
+                        <span class="gallery-slide-desc">1,5 т, подъём до 5 м</span>
+                    </a>
+                    <a href="takelazh/kran-kozlovoy.html" class="gallery-slide">
+                        <img src="takelazh/kran-kozlovoy.webp" alt="Мобильный козловой кран для монтажа оборудования — грузоподъёмность 3 тонны" width="854" height="1046" loading="lazy" decoding="async">
+                        <span class="gallery-slide-label">Козловой кран</span>
+                        <span class="gallery-slide-desc">Мобильный, 3 тонны</span>
+                    </a>
+                    <a href="takelazh/stupenkohod.html" class="gallery-slide">
+                        <img src="takelazh/stupenkohod.webp" alt="Электрический ступенькоход для подъёма техники по лестнице без лифта — до 420 кг" width="445" height="660" loading="lazy" decoding="async">
+                        <span class="gallery-slide-label">Ступенькоход</span>
+                        <span class="gallery-slide-desc">До 420 кг, без лифта</span>
+                    </a>
+                    <a href="takelazh/oborud.html" class="gallery-slide">
+                        <img src="gallery/kamaz.webp" alt="КАМАЗ с крано-манипулятором для перевозки тяжёлого оборудования до 5 тонн" width="720" height="500" loading="lazy" decoding="async">
+                        <span class="gallery-slide-label">КАМАЗ с манипулятором</span>
+                        <span class="gallery-slide-desc">Оборудование до 5 т</span>
+                    </a>
                 </div>
-            </a>
-            <a href="takelazh/roliki.html" class="equip-card" data-aos="fade-up" data-aos-delay="40">
-                <img src="takelazh/roliki.webp" alt="Роликовая платформа для перемещения промышленного оборудования — грузоподъёмность 6 тонн" loading="lazy" decoding="async" width="800" height="522">
-                <div class="equip-card-body">
-                    <div class="equip-card-name">Роликовые платформы</div>
-                    <div class="equip-card-desc">6 тонн каждая, комплектом от 4 штук</div>
-                </div>
-            </a>
-            <a href="takelazh/lebedka.html" class="equip-card" data-aos="fade-up" data-aos-delay="80">
-                <img src="takelazh/lebedka.webp" alt="Электрическая лебёдка для такелажных работ — грузоподъёмность до 5 тонн" loading="lazy" decoding="async" width="238" height="208">
-                <div class="equip-card-body">
-                    <div class="equip-card-name">Лебёдка</div>
-                    <div class="equip-card-desc">До 5 тонн, трос ~25–30 м</div>
-                </div>
-            </a>
-            <a href="takelazh/shtabeler.html" class="equip-card" data-aos="fade-up" data-aos-delay="120">
-                <img src="takelazh/shtabeler.webp" alt="Электрический штабелер для складских работ — грузоподъёмность 1,5 тонны, высота подъёма 5 метров" loading="lazy" decoding="async" width="574" height="712">
-                <div class="equip-card-body">
-                    <div class="equip-card-name">Электрический штабелер</div>
-                    <div class="equip-card-desc">1,5 т, высота подъёма до 5 м</div>
-                </div>
-            </a>
-            <a href="takelazh/kran-kozlovoy.html" class="equip-card" data-aos="fade-up" data-aos-delay="160">
-                <img src="takelazh/kran-kozlovoy.webp" alt="Мобильный козловой кран для монтажа оборудования — грузоподъёмность 3 тонны" loading="lazy" decoding="async" width="854" height="1046">
-                <div class="equip-card-body">
-                    <div class="equip-card-name">Козловой кран</div>
-                    <div class="equip-card-desc">Мобильный, 3 тонны, с бригадой монтажа</div>
-                </div>
-            </a>
-            <a href="takelazh/stupenkohod.html" class="equip-card" data-aos="fade-up" data-aos-delay="200">
-                <img src="takelazh/stupenkohod.webp" alt="Электрический ступенькоход для подъёма техники по лестнице без лифта — до 420 кг" loading="lazy" decoding="async" width="445" height="660">
-                <div class="equip-card-body">
-                    <div class="equip-card-name">Ступенькоход</div>
-                    <div class="equip-card-desc">До 420 кг, подъём по лестнице без лифта</div>
-                </div>
-            </a>
+            </div>
+            <button class="gallery-arrow gallery-arrow--next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 </section>
@@ -966,7 +973,7 @@
 <section class="videos-section" id="videos">
     <div class="container">
         <h2 data-aos="fade-up">Такелажные работы в деле</h2>
-        <p class="videos-subtitle" data-aos="fade-up">Реальные примеры нашей работы: перевозка сейфов, оборудования, аренда рохли</p>
+        <p class="videos-subtitle" data-aos="fade-up">Реальные примеры нашей работы: перевозка сейфов и станков, аренда такелажного оборудования</p>
         <div class="videos-slider">
             <button class="videos-arrow videos-arrow--prev" type="button"><i class="fas fa-chevron-left"></i></button>
             <div class="videos-viewport">
@@ -1085,7 +1092,7 @@
 
 <section class="section" id="reviews">
     <h2 data-aos="fade-up">Отзывы о такелажных работах</h2>
-    <p class="section-sub" data-aos="fade-up">Реальные отзывы от клиентов, заказавших перевозку сейфов, оборудования и аренду рохли в Астане</p>
+    <p class="section-sub" data-aos="fade-up">Реальные отзывы от клиентов, заказавших перевозку сейфов, станков и аренду такелажного оборудования в Астане</p>
     <div class="reviews-grid">
         <div class="review-card" data-aos="fade-up"><div class="review-stars">★★★★★</div><p class="review-text">Заказывали такелаж для перевозки трёх станков между цехами. Приехали с рохлей и бригадой, всё аккуратно погрузили, зафиксировали. Рекомендую!</p><div class="review-author">Арман»</div><div class="review-date">май 2026</div></div>
         <div class="review-card" data-aos="fade-up"><div class="review-stars">★★★★★</div><p class="review-text">Перевозили промышленный станок на заводе. Использовали манипулятор и подкатные ролики. Всё чётко, без повреждений. Спасибо профессионалам!</p><div class="review-author">Марат А.</div><div class="review-date">апрель 2026</div></div>
@@ -1099,7 +1106,7 @@
 <section class="section" id="faq" style="background:#f8fafc;max-width:100%;padding:70px 20px;">
     <div style="max-width:800px;margin:0 auto;">
         <h2 data-aos="fade-up">Часто задаваемые вопросы о такелаже</h2>
-        <p class="section-sub" data-aos="fade-up">Ответы на популярные вопросы о перевозке сейфов, оборудования и аренде рохли</p>
+        <p class="section-sub" data-aos="fade-up">Ответы на популярные вопросы о перевозке сейфов, станков и аренде такелажного оборудования</p>
         <div class="faq-item"><div class="faq-question">Что такое такелажные работы?</div><div class="faq-answer">Такелаж — это комплекс мероприятий по погрузке, перемещению, фиксации и разгрузке тяжёлого, крупногабаритного или ценного груза с использованием спецоборудования: рохли, манипулятора, подкатных роликов, домкратов и т.д.</div></div>
         <div class="faq-item"><div class="faq-question">Какую грузоподъёмность имеют ваши рохли?</div><div class="faq-answer">Мы используем гидравлические рохли грузоподъёмностью до 2-3 тонн. Для более тяжёлых грузов применяем манипуляторы и дополнительное такелажное оборудование.</div></div>
         <div class="faq-item"><div class="faq-question">Перевозите ли вы сейфы и банкоматы?</div><div class="faq-answer">Да, это одно из наших основных направлений. Обеспечиваем усиленную фиксацию, работаем с ценным оборудованием, предоставляем страховку груза. Работаем в присутствии ответственного лица.</div></div>
@@ -1394,6 +1401,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+</script>
+<script id="gz-gallery-sliders">
+(function () {
+    document.querySelectorAll('.gallery-slider').forEach(function (slider) {
+        var viewport = slider.querySelector('.gallery-viewport');
+        var prev = slider.querySelector('.gallery-arrow--prev');
+        var next = slider.querySelector('.gallery-arrow--next');
+        if (!viewport || !prev || !next) return;
+        function step() {
+            var card = viewport.querySelector('.gallery-slide');
+            var cardWidth = card ? card.getBoundingClientRect().width : 200;
+            return (cardWidth + 14) * 2;
+        }
+        prev.addEventListener('click', function () { viewport.scrollBy({ left: -step(), behavior: 'smooth' }); });
+        next.addEventListener('click', function () { viewport.scrollBy({ left: step(), behavior: 'smooth' }); });
+    });
+})();
 </script>
 <script src="/gz-crm.js" defer></script>
 </body>
