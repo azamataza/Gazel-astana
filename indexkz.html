@@ -1616,6 +1616,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
   *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
 }
 </style>
+    <link rel="stylesheet" href="assets/gz-ui.css?v=1">
 </head>
 
 <body>
@@ -1633,48 +1634,47 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         </ol>
     </nav>
 
-    <header class="floating-header">
-        <div class="floating-header-content">
-            <div class="header-left">
-                <button class="burger-menu" id="burgerMenu" aria-label="Мәзір">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <img src="Logo.png" alt="Gruzim.kz" class="floating-logo" id="catalogLogo" loading="lazy" decoding="async">
-            </div>
-
-            <div class="header-right">
-                <div class="city-switcher" id="citySwitcher">
-                    <button type="button" class="city-btn" id="cityBtn" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Астана
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </button>
-                    <div class="city-dropdown" id="cityDropdown" role="menu">
-                        <a href="indexkz.html" class="city-option is-active" role="menuitem">Астана <i class="fas fa-check" aria-hidden="true"></i></a>
-                        <a href="karaganda/indexkz.html" class="city-option" role="menuitem">Қарағанды</a>
-                    </div>
-                </div>
-                <div class="language-switcher">
-                    <a href="index.html" class="lang-btn">РУС</a>
-                    <a href="indexkz.html" class="lang-btn active">ҚАЗ</a>
-                </div>
-                <a href="tel:+77010120300" class="header-phone" data-phone-type="floating-header">
-                    <i class="fas fa-phone"></i> <span>+7 701 012 03 00</span>
-                </a>
-            </div>
-        </div>
-
-        <nav class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-close">
-                <button id="closeMobileNav" aria-label="Мәзірді жабу">&times;</button>
-            </div>
-            <a href="#services">Қызметтер</a>
-            <a href="shopkz.html">Дүкен</a>
-            <a href="#legal-entities">Заңды тұлғаларға</a>
-            <a href="#contact">Байланыс</a>
-        </nav>
-    </header>
+    <!-- GZ-UI:HEADER -->
+<header id="gz-header">
+<div class="gz-bar">
+<button type="button" class="gz-burger" id="gz-burger" aria-label="Мәзір" aria-expanded="false" aria-controls="gz-drawer"><span></span><span></span><span></span></button>
+<a class="gz-logo" href="indexkz.html" aria-label="Gruzim.kz — басты бетке"><img src="assets/logo.svg" alt="Gruzim.kz" width="163" height="34"></a>
+<nav class="gz-nav" aria-label="Негізгі мәзір">
+<div class="gz-nav-item"><a class="gz-nav-top" href="#services">Қызметтер</a></div>
+<div class="gz-nav-item"><a class="gz-nav-top" href="shopkz.html">Дүкен</a></div>
+<div class="gz-nav-item"><a class="gz-nav-top" href="#legal-entities">Заңды тұлғаларға</a></div>
+<div class="gz-nav-item"><a class="gz-nav-top" href="#contact">Байланыс</a></div>
+</nav>
+<div class="gz-tools">
+<div class="gz-city" id="gz-city">
+<button type="button" class="gz-chip" id="gz-city-btn" aria-haspopup="true" aria-expanded="false" aria-label="Қала: Астана"><svg class="gz-pin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Астана</span><svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></button>
+<div class="gz-city-menu" role="menu">
+<a href="indexkz.html" role="menuitem" class="is-active">Астана<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 5"/></svg></a>
+<a href="karaganda/indexkz.html" role="menuitem">Қарағанды</a>
+</div>
+</div>
+<div class="gz-lang" aria-label="Язык / Тіл"><a href="index.html" lang="ru">РУС</a><a href="indexkz.html" class="is-active" lang="kk">ҚАЗ</a></div>
+<a class="gz-phone" href="tel:+77010120300"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>+7 701 012 03 00</span></a>
+</div>
+</div>
+</header>
+<div id="gz-overlay"></div>
+<nav id="gz-drawer" aria-label="Негізгі мәзір" aria-hidden="true">
+<div class="gz-drawer-head"><img src="assets/logo.svg" alt="Gruzim.kz" width="144" height="30" loading="lazy"><button type="button" class="gz-close" id="gz-close" aria-label="Мәзірді жабу"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 3l12 12M15 3 3 15"/></svg></button></div>
+<div class="gz-drawer-body">
+<a href="indexkz.html" class="gz-d-link" aria-current="page">Басты бет</a>
+<a href="#services" class="gz-d-link">Қызметтер</a>
+<a href="shopkz.html" class="gz-d-link">Дүкен</a>
+<a href="#legal-entities" class="gz-d-link">Заңды тұлғаларға</a>
+<a href="#contact" class="gz-d-link">Байланыс</a>
+</div>
+<div class="gz-drawer-foot">
+<div class="gz-drawer-row"><a class="gz-d-phone" href="tel:+77010120300">+7 701 012 03 00</a><div class="gz-lang" aria-label="Язык / Тіл"><a href="index.html" lang="ru">РУС</a><a href="indexkz.html" class="is-active" lang="kk">ҚАЗ</a></div></div>
+<a class="gz-d-wa" href="https://wa.me/77010120300" target="_blank" rel="noopener" data-gz-conv><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.32A10 10 0 1 0 12 2zm5.47 14.14c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.77-1.09-4.53-3.9-4.67-4.08-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.18.69-.8.87-1.08.18-.28.37-.23.62-.14.25.09 1.59.75 1.86.89.27.14.46.2.53.32.06.11.06.66-.18 1.31z"/></svg>WhatsApp-қа жазу</a>
+<p class="gz-d-hours">Қоңырау мен WhatsApp: 8:00–20:00 · тапсырыстарды 24/7 орындаймыз</p>
+</div>
+</nav>
+<!-- /GZ-UI:HEADER -->
 
     <header class="hero-header">
         <div class="header-content">
@@ -2047,29 +2047,41 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         </div>
     </section>
 
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-col">
-                <img src="Logo.png" alt="Gruzim.kz логотипі" class="footer-logo" loading="lazy" decoding="async">
-                <p>Астана және Қазақстан өңірлері бойынша жүк тасымалы.</p>
-                <p>&copy; 2019-2025 gruzim.kz. Барлық құқықтар қорғалған.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Байланыс</h4>
-                <p><i class="fas fa-phone"></i> <a href="tel:+77010120300">+7 701 012 03 00</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77010120300">WhatsApp-қа жазу</a></p>
-                <p><i class="fas fa-clock"></i> Қоңырау мен WhatsApp: 8:00–20:00<br>Тапсырыстарды 24/7 орындаймыз</p>
-            </div>
-            <div class="footer-col">
-                <h4>Ақпарат</h4>
-                <p><a href="#" id="privacy-policy-link">Құпиялылық саясаты</a></p>
-                <p><a href="#" id="terms-of-service-link">Пайдалану шарттары</a></p>
-                <p><a href="oferta.html">Жария оферта</a></p>
-                <p style="color:#94a3b8;font-size:0.85rem;">ИП «Gruzim.kz», ИИН 810106401426, РК, г. Астана, ул. Таскескен 17б</p>
-                <p class="footer-note">Қолма-қол емес есеп айырысу, шарт, заңды тұлғаларға жабатын құжаттар.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- GZ-UI:FOOTER -->
+<footer id="gz-footer">
+<div class="gz-f-inner">
+<div class="gz-f-grid">
+<div>
+<a class="gz-f-logo" href="indexkz.html"><img src="assets/logo-light.svg" alt="Gruzim.kz" width="172" height="36" loading="lazy" decoding="async"></a>
+<p>Астана және Қазақстан өңірлері бойынша жүк тасымалы. 2019 жылдан бері жұмыс істейміз.</p><p>Қолма-қол емес есеп айырысу, шарт, заңды тұлғаларға жабатын құжаттар.</p>
+<div class="gz-f-social">
+<a href="https://www.instagram.com/gruzim.kz/" target="_blank" rel="noopener">Instagram</a>
+<a href="https://www.youtube.com/@gruzimkz" target="_blank" rel="noopener">YouTube</a>
+<a href="https://www.tiktok.com/@gruzim.kz" target="_blank" rel="noopener">TikTok</a>
+<a href="https://t.me/gruzimkz" target="_blank" rel="noopener">Telegram</a>
+</div>
+</div>
+<div><div class="gz-f-title">Қызметтер</div><ul><li><a href="indexkz.html">Басты бет</a></li><li><a href="#services">Қызметтер</a></li><li><a href="shopkz.html">Дүкен</a></li><li><a href="#legal-entities">Заңды тұлғаларға</a></li></ul></div>
+<div><div class="gz-f-title">Ақпарат</div><ul><li><a href="oferta.html">Жария оферта</a></li><li><a href="index.html">Орыс тіліндегі нұсқа</a></li></ul></div>
+<div>
+<div class="gz-f-title">Байланыс</div>
+<a class="gz-f-phone" href="tel:+77010120300">+7 701 012 03 00</a>
+<ul>
+<li><a href="https://wa.me/77010120300" target="_blank" rel="noopener">WhatsApp-қа жазу</a></li>
+<li><a href="mailto:gruzemkz@gmail.com">gruzemkz@gmail.com</a></li>
+<li class="gz-f-hours">Қоңырау мен WhatsApp: 8:00–20:00<br>Тапсырыстарды 24/7 орындаймыз</li>
+</ul>
+</div>
+</div>
+<div class="gz-f-bottom">
+<span>&copy; 2019–2026 gruzim.kz. Барлық құқықтар қорғалған.</span>
+<span>ИП «Gruzim.kz», ИИН 810106401426, РК, г. Астана, ул. Таскескен 17б</span>
+<a href="oferta.html">Жария оферта</a>
+<span class="gz-f-pay" aria-label="Способы оплаты"><i>Visa</i><i>Mastercard</i><i>Kaspi Red</i></span>
+</div>
+</div>
+</footer>
+<!-- /GZ-UI:FOOTER -->
 
     <div class="mobile-sticky-call" id="mobileStickyCall" style="display: none;">
         <a href="tel:+77010120300" class="cta-button" onclick="ym(104276494,'reachGoal','klik_telefon');">
@@ -2153,8 +2165,8 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             mobileNav.classList.toggle('active');
         }
 
-        burger.addEventListener('click', toggleMenu);
-        catalogLogo.addEventListener('click', toggleMenu);
+        if (burger) burger.addEventListener('click', toggleMenu);
+        if (catalogLogo) catalogLogo.addEventListener('click', toggleMenu);
         if (closeMobileNav) {
             closeMobileNav.addEventListener('click', toggleMenu);
         }
@@ -2534,6 +2546,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 })();
 </script>
 <script src="/gz-crm.js" defer></script>
+<script src="assets/gz-ui.js?v=1" defer></script>
 </body>
 
 </html>
