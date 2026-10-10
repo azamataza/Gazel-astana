@@ -4,5 +4,7 @@ Disallow: /mebel/
 Disallow: /proverka.html
 Disallow: /karaganda/mebel/
 Disallow: /karaganda/proverka.html
+Disallow: /black.txt
+Disallow: /karaganda/black.txt
 
 Sitemap: https://www.gruzim.kz/sitemap.xml

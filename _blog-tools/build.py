@@ -16,7 +16,20 @@ def rd(p):
     return open(os.path.join(ROOT, p), encoding="utf-8").read()
 
 
+_HREF_INDEX = re.compile(r'href="((?:\.\./)*)((?:karaganda/)?)index\.html(#[^"]*)?"')
+_ABS_INDEX = re.compile(r'https://www\.gruzim\.kz/((?:karaganda/)?)index\.html')
+
+
+def dirlinks(s):
+    """Ссылки на главную ведём на каталог (/, ../), а не на index.html —
+    иначе Google видит /index.html как дубль главной."""
+    s = _HREF_INDEX.sub(lambda m: f'href="{(m.group(1) + m.group(2)) or "./"}{m.group(3) or ""}"', s)
+    return _ABS_INDEX.sub(lambda m: "https://www.gruzim.kz/" + m.group(1), s)
+
+
 def wr(p, s):
+    if p.endswith(".html"):
+        s = dirlinks(s)
     full = os.path.join(ROOT, p)
     os.makedirs(os.path.dirname(full), exist_ok=True)
     open(full, "w", encoding="utf-8").write(s)
@@ -51,6 +64,9 @@ assert ANALYTICS and TRACKER and NOSCRIPT
 
 
 def relink(block, P, self_href):
+    # в шаблоне главной ссылки на неё — "./"; приводим к index.html, dirlinks() в wr() вернёт каталог
+    block = block.replace('href="./#', 'href="index.html#').replace('href="./"', 'href="index.html"')
+
     def fix(m):
         attr, url = m.group(1), m.group(2)
         if re.match(r"^(https?:|//|tel:|mailto:|/|data:|javascript:)", url):
