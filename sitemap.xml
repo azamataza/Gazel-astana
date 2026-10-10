@@ -1056,4 +1056,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.gruzim.kz/blog/takelazh/stoimost-takelazhnyh-rabot.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.gruzim.kz/blog/pereezd/organizaciya-pereezda-chek-list.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.gruzim.kz/blog/mebel/sborka-shkafa-ot-chego-zavisit-cena.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
