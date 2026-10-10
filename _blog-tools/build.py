@@ -197,8 +197,36 @@ def sort_key(a):
     return a["videos"][-1]["pub"] if a["videos"] else a.get("date", PUBLISHED) + "T00:00:00+05:00"
 
 
+def blog_order():
+    """Лента блога: кейсы с видео (свежие сверху) вперемешку с советами —
+    советы равномерно распределены между видео, лента начинается с видео."""
+    vids = sorted([x for x in ARTICLES if x["videos"]], key=sort_key, reverse=True)
+    tips = [x for x in ARTICLES if not x["videos"]]
+    if not vids or not tips:
+        return vids + tips
+    after = {(k + 1) * len(vids) // (len(tips) + 1): [] for k in range(len(tips))}
+    for k, t in enumerate(tips):
+        after[(k + 1) * len(vids) // (len(tips) + 1)].append(t)
+    out = []
+    for i, v in enumerate(vids, 1):
+        out.append(v)
+        out.extend(after.get(i, []))
+    return out
+
+
 def cover_id(a):
     return a["videos"][0]["id"] if a["videos"] else a["cover"]
+
+
+COVER = "assets/blog-cover.jpg"  # единая обложка (логотип) для статей-советов без видео
+
+
+def cover_src(a, P):
+    return thumb(a["videos"][0]["id"]) if a["videos"] else P + COVER
+
+
+def cover_abs(a):
+    return cover_src(a, "https://www.gruzim.kz/")
 
 
 def card(a, P, heading="h3"):
@@ -210,9 +238,9 @@ def card(a, P, heading="h3"):
         badge = f'<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1l7 4-7 4z"/></svg>' + (f"{nvid} видео" if nvid > 1 else mmss(dur))
         alt, more = v["name"], "Читать и смотреть →"
     else:
-        badge, alt, more = "Статья", a["h1"], "Читать →"
+        badge, alt, more = "Советы", a["h1"], "Читать →"
     return f"""<a class="bl-card" href="{url}" data-cat="{a['cat']}">
-<span class="bl-card-img"><img src="{thumb(cover_id(a))}" alt="{esc(alt)}" width="1080" height="1920" loading="lazy" decoding="async"><span class="bl-play">{badge}</span></span>
+<span class="bl-card-img"><img src="{cover_src(a, P)}" alt="{esc(alt)}" width="{1080 if a["videos"] else 1200}" height="{1920 if a["videos"] else 900}" loading="lazy" decoding="async"><span class="bl-play">{badge}</span></span>
 <span class="bl-card-body"><span class="bl-cat">{CATS[a['cat']]}</span><{heading}>{esc(a['h1'])}</{heading}><p>{esc(a['card'])}</p><span class="bl-card-more">{more}</span></span>
 </a>"""
 
@@ -242,7 +270,7 @@ def article_page(a):
         "datePublished": PUBLISHED, "dateModified": PUBLISHED,
         "author": ORG, "publisher": ORG,
         "mainEntityOfPage": {"@type": "WebPage", "@id": url},
-        "image": [thumb(v["id"]) for v in vids] or [thumb(a["cover"])],
+        "image": [thumb(v["id"]) for v in vids] or [cover_abs(a)],
         "articleSection": CATS[a["cat"]], "inLanguage": "ru",
     }
     if video_ld:
@@ -365,12 +393,12 @@ def hub_page():
     title = "Блог Gruzim.kz — наши работы на видео: переезды, такелаж, вывоз"
     desc = "Кейсы Gruzim.kz с видео: переезды домов и офисов, перевозка сейфов и оборудования, такелаж, упаковка, сборка мебели и вывоз мусора в Астане. Задача, техника, бригада, сроки."
     counts = {c: sum(1 for a in ARTICLES if a["cat"] == c) for c in CATS}
-    order = sorted(ARTICLES, key=sort_key, reverse=True)
+    order = blog_order()
     blog_ld = {"@context": "https://schema.org", "@type": "Blog", "name": "Блог Gruzim.kz", "url": url,
                "description": desc, "inLanguage": "ru", "publisher": ORG,
                "blogPost": [{"@type": "BlogPosting", "headline": a["h1"][:110],
                              "url": f'{BASE}blog/{a["cat"]}/{a["slug"]}.html', "datePublished": PUBLISHED,
-                             "image": thumb(cover_id(a))} for a in order]}
+                             "image": cover_abs(a)} for a in order]}
     crumbs_ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Главная", "item": BASE},
         {"@type": "ListItem", "position": 2, "name": "Блог", "item": url}]}
@@ -554,7 +582,7 @@ def cases_block(rel, slugs):
         if not a:
             continue
         more = "Смотреть кейс →" if a["videos"] else "Читать →"
-        items.append(f'''<a class="gc-card" href="{P}blog/{a['cat']}/{a['slug']}.html"><span class="gc-img"><img src="{thumb(cover_id(a))}" alt="{esc(a['h1'])}" width="1080" height="1920" loading="lazy" decoding="async"></span><span class="gc-body"><span class="gc-cat">{'Кейс с видео' if a['videos'] else 'Полезно знать'}</span><span class="gc-title">{esc(a['h1'])}</span><span class="gc-more">{more}</span></span></a>''')
+        items.append(f'''<a class="gc-card" href="{P}blog/{a['cat']}/{a['slug']}.html"><span class="gc-img"><img src="{cover_src(a, P)}" alt="{esc(a['h1'])}" width="{1080 if a['videos'] else 1200}" height="{1920 if a['videos'] else 900}" loading="lazy" decoding="async"></span><span class="gc-body"><span class="gc-cat">{'Кейс с видео' if a['videos'] else 'Советы'}</span><span class="gc-title">{esc(a['h1'])}</span><span class="gc-more">{more}</span></span></a>''')
     if not items:
         return ""
     title = "Наши работы по этой услуге" if any(by[x]["videos"] for x in slugs if x in by) else "Полезно знать"
