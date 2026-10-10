@@ -160,7 +160,11 @@ html.gz-scrolled #gz-header { box-shadow: var(--gz-shadow); }
 #gz-footer a:focus-visible { outline: 2px solid var(--gz-blue); outline-offset: 2px; }
 
 @media (min-width: 720px) { #gz-header .gz-phone { display: inline-flex; } }
-@media (min-width: 1240px) and (max-width: 1399px) { #gz-header .gz-phone svg { display: none; } #gz-header .gz-phone { font-size: 15px; } #gz-header .gz-bar { gap: 10px; } }
+/* шапка на десктопе: контейнер 1240px, 7 пунктов меню + город + язык + телефон */
+@media (min-width: 1240px) {
+  #gz-header .gz-phone svg { display: none; } #gz-header .gz-phone { font-size: 15px; } #gz-header .gz-bar { gap: 10px; }
+  #gz-header .gz-nav { margin-left: 4px; } #gz-header .gz-nav-top { padding: 9px 6px; font-size: 14px; } #gz-header .gz-nav-top svg { width: 9px; height: 9px; }
+}
 @media (min-width: 1240px) {
   #gz-header .gz-nav { display: flex; }
   #gz-header .gz-burger { display: none; }

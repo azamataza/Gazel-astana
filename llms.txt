@@ -95,6 +95,24 @@
 - [Вывоз мусора](https://www.gruzim.kz/karaganda/musor.html): те же подкатегории, что в Астане
 - [Вывоз мусора по районам Караганды](https://www.gruzim.kz/karaganda/musor/rayony.html): Юго-Восток, Майкудук, Пришахтинск, Новый город, Старый город
 
+## Блог
+
+Кейсы с видео с реальных заказов в Астане: задача, техника, бригада, ориентиры цен.
+
+- [Все статьи блога](https://www.gruzim.kz/blog.html)
+- [Перевозка двух сейфов весом 1 тонна: из цоколя по трапам и на второй этаж без лифта](https://www.gruzim.kz/blog/takelazh/perevozka-dvuh-sejfov-1-tonna.html)
+- [Переезд прачечной: 8 промышленных машин общим весом 3,5 тонны](https://www.gruzim.kz/blog/takelazh/pereezd-prachechnoj-3-5-tonny.html)
+- [Перевозка неразборного ресепшена весом 500–750 кг: из EXPO через аварийный выход](https://www.gruzim.kz/blog/takelazh/perevozka-metallicheskogo-resepshena.html)
+- [Утилизация по официальному договору с полигоном: вывоз 2,5 тонны вазонов ресторана с актами](https://www.gruzim.kz/blog/vivoz-musora/vyvoz-ulichnyh-vazonov.html)
+- [Переезд офиса KazAid: 20 рабочих мест за два выходных дня](https://www.gruzim.kz/blog/pereezd/pereezd-ofisa-kazaid.html)
+- [Переезд из частного дома в двухуровневый коттедж: разбор, упаковка и расстановка мебели](https://www.gruzim.kz/blog/pereezd/pereezd-dvuhurovnevogo-kottedzha.html)
+- [Разборка и упаковка 3-комнатной квартиры перед ремонтом: мебель, посуда и хрусталь](https://www.gruzim.kz/blog/upakovka/razborka-i-upakovka-kvartiry-pered-remontom.html)
+- [Сборка мебели без хозяина: ключи от родственников, сборка и видеоотчёт](https://www.gruzim.kz/blog/mebel/sborka-mebeli-bez-hozyaina.html)
+- [Разбор, перевозка и сборка дорогой мебели: из квартиры в новый коттедж](https://www.gruzim.kz/blog/mebel/razbor-perevozka-i-sborka-mebeli-pod-klyuch.html)
+- [Демонтаж торговой мебели и вывески магазина: 3,5 тонны в два рейса и работа на высоте в ветер](https://www.gruzim.kz/blog/vivoz-musora/demontazh-i-vyvoz-torgovoj-mebeli-iz-magazina.html)
+- [Разбор, вывоз и утилизация офисной мебели под ключ](https://www.gruzim.kz/blog/vivoz-musora/razbor-vyvoz-i-utilizaciya-ofisnoj-mebeli.html)
+- [Демонтаж встроенного шкафа-купе и вывоз старой мебели из квартиры](https://www.gruzim.kz/blog/vivoz-musora/demontazh-shkafa-kupe-i-vyvoz-mebeli.html)
+
 ## Полное содержимое сайта
 
 - [llms-full.txt](https://www.gruzim.kz/llms-full.txt): полный текст всех страниц Астаны, очищенный от навигации, форм и повторов
