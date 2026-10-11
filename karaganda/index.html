@@ -213,7 +213,8 @@
         
         .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;}
         .hub-card{background:#fff;border:1px solid var(--gz-line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s ease;}
-        .hub-card:hover{border-color:var(--gz-blue);}
+        .hub-card--link{position:relative;cursor:pointer}.hub-more{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:.9em;font-weight:600;color:#2563eb;text-decoration:none;padding:9px 16px;border:1px solid #2563eb;border-radius:10px;transition:background .2s,color .2s}.hub-more::after{content:"";position:absolute;inset:0;border-radius:18px}.hub-card--link:hover .hub-more{background:#2563eb;color:#fff}
+.hub-card:hover{border-color:var(--gz-blue);}
         .hub-card--wide{grid-column:span 2;}
         .hub-card--accent{border:2px solid var(--gz-blue);}
         .hub-head{display:flex;align-items:flex-start;gap:12px;}
@@ -1012,7 +1013,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             </article>
 
             
-            <article class="hub-card">
+            <article class="hub-card hub-card--link">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
                     <div class="hub-title">
@@ -1021,10 +1022,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                     </div>
                 </div>
                 <p>Мастер приедет за час: разборка перед переездом, сборка на новом месте, ремонт и навеска. Фиксированная цена до начала работ.</p>
+                <a class="hub-more" href="mebel.html">Подробнее →</a>
             </article>
 
             
-            <article class="hub-card">
+            <article class="hub-card hub-card--link">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/><line x1="12" y1="14" x2="12" y2="17"/></svg></span>
                     <div class="hub-title">
@@ -1033,10 +1035,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                     </div>
                 </div>
                 <p>Договор, безналичный расчёт, закрывающие документы. Офисные переезды, регулярные перевозки, утилизация мебели и техники.</p>
+                <a class="hub-more" href="B2B.html">Подробнее →</a>
             </article>
 
             
-            <article class="hub-card">
+            <article class="hub-card hub-card--link">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/><path d="M3 8h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M10 8v12"/><path d="M3 12h7"/><path d="M14 12h7"/></svg></span>
                     <div class="hub-title">
@@ -1045,6 +1048,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                     </div>
                 </div>
                 <p>Картонные коробки, стрейч- и пузырчатая плёнка, скотч, сумки. Наборы под размер квартиры, доставка по городу.</p>
+                <a class="hub-more" href="../shop.html">Подробнее →</a>
             </article>
         </div>
     </section>
