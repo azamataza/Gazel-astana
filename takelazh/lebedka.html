@@ -90,11 +90,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 769px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 769px)">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="(min-width: 769px)">
-    <link rel="preload" as="image" href="fon-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width:768px)">
-    <link rel="preload" as="image" href="fon.webp" type="image/webp" fetchpriority="high" media="(min-width:769px)">
+    <link rel="stylesheet" href="../assets/fa/fa.css?v=1">
+    <link href="../assets/vendor/aos.css" rel="stylesheet" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="../fon-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width:768px)">
+    <link rel="preload" as="image" href="../fon.webp" type="image/webp" fetchpriority="high" media="(min-width:769px) and (max-width:1440px)">
+    <link rel="preload" as="image" href="../fon-xl.webp" type="image/webp" fetchpriority="high" media="(min-width:1441px)">
 
     <script>
     (function () {
@@ -168,354 +168,272 @@
     </script>
 
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden;}
-        html{scroll-behavior:smooth;}
-
-        .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
-        .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
-        .header-left{display:flex;align-items:center;gap:12px;}
-        .floating-logo{height:45px;width:auto;cursor:pointer;border-radius:8px;padding:4px 8px;}
-        .header-right{display:flex;align-items:center;gap:15px;}
-        .language-switcher{display:flex;gap:5px;}
-        .lang-btn{background:transparent;border:1px solid #e2e8f0;color:#334155;padding:6px 12px;border-radius:30px;cursor:pointer;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.2s;}
-        .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
-        .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
-        .header-phone:hover{color:#1e40af;}
-
-        .burger-menu{display:flex;flex-direction:column;justify-content:space-between;width:30px;height:22px;background:transparent;border:2px solid #2563eb;border-radius:8px;cursor:pointer;padding:4px 5px;z-index:1100;transition:all 0.2s;}
-        .burger-menu span{width:100%;height:2.5px;background:#2563eb;border-radius:10px;transition:all 0.3s;}
-        .burger-menu:hover,.burger-menu.active{background:#2563eb;}
-        .burger-menu:hover span,.burger-menu.active span{background:white;}
-        .burger-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg);}
-        .burger-menu.active span:nth-child(2){opacity:0;}
-        .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
-
-        .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
-        .mnav-overlay.active{opacity:1;visibility:visible;}
-        #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
-        #mobileNav.active{transform:translateX(0);}
-        #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px;}
-        #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px;}
-        #mobileNav details{border-bottom:1px solid #f1f5f9;}
-        #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
-        #mobileNav summary::-webkit-details-marker{display:none;}
-        
-        
-        
-        #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
-        #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
-        #mobileNav .mnav-sub a:active{background:#eff6ff;}
-        #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
-        #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
-        #mobileNav .mnav-flat:active{background:#eff6ff;}
-        #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
-
-        @media(max-width:1024px){.burger-menu{display:flex;}}
-        @media(max-width:768px){
-            body{padding-top:70px;}
-            .floating-header{padding:8px 4%;}
-            .floating-logo{height:38px;}
-            .lang-btn{padding:4px 10px;font-size:0.8rem;}
-            .header-phone{display:none !important;}
-        }
-
-        .breadcrumbs{max-width:1200px;margin:0 auto;padding:10px 20px;}
-        .breadcrumbs ol{display:flex;flex-wrap:wrap;list-style:none;padding:0;}
-        .breadcrumbs li{font-size:0.9rem;}
-        .breadcrumbs li:not(:last-child)::after{content:"/";margin:0 8px;color:#94a3b8;}
-        .breadcrumbs a{color:#2563eb;text-decoration:none;}
-        .breadcrumbs a:hover{text-decoration:underline;}
-
-        .hero-header{position:relative;overflow:hidden;background:#1f2937;color:white;padding:90px 20px 70px;text-align:center;}
-        .hero-bg{position:absolute;inset:0;z-index:0;margin:0;line-height:0;}
-        .hero-bg img{width:100%;height:100%;object-fit:cover;display:block;}
-        .hero-header::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.72);z-index:1;pointer-events:none;}
-        .hero-header > div{position:relative;z-index:2;}
-        @media(max-width:768px){
-            .section,.seo-article,footer{content-visibility:auto;contain-intrinsic-size:0 400px;}
-            *{transition-duration:.15s!important;animation-duration:.15s!important;}
-            [data-aos]{opacity:1!important;transform:none!important;}
-        }
-        .hero-header h1{font-size:2.8em;margin-bottom:16px;line-height:1.2;}
-        .hero-sub{font-size:1.15em;color:rgba(255,255,255,0.85);margin-bottom:36px;max-width:720px;margin-left:auto;margin-right:auto;}
-        .brand-blue{color:#2563eb;font-weight:800;}
-        .brand-orange{color:#f97316;font-weight:700;}
-@media (max-width: 768px) {
-            
-            
-            
-            
-        }
-        @media (max-width: 550px) {
-            
-            
-        }
-
-        .hero-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-        .btn-primary{display:inline-flex;align-items:center;gap:8px;background:#2563eb;color:white;padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;transition:all 0.25s;box-shadow:0 8px 20px rgba(37,99,235,0.35);border:none;cursor:pointer;}
-        .btn-primary:hover{background:#1e40af;transform:translateY(-2px);}
-        .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);color:white;padding:14px 28px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;border:1px solid rgba(255,255,255,0.4);transition:all 0.25s;}
-        .btn-secondary:hover{background:rgba(255,255,255,0.25);}
-
-        @media(max-width:768px){.hero-header h1{font-size:1.85em;}.hero-sub{font-size:1em;}}
-
-        .section{padding:80px 20px;max-width:1200px;margin:0 auto;}
-        .section h2{font-size:2.3em;margin-bottom:14px;color:#0f172a;text-align:center;}
-        .section-sub{text-align:center;color:#64748b;font-size:1rem;margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto;}
-        .section h2::after{content:'';display:block;width:60px;height:4px;background:#2563eb;border-radius:4px;margin:14px auto 0;}
-
-        @media(max-width:768px){.section{padding:52px 16px;}.section h2{font-size:1.7em;}}
-
-        .tariff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-        .tariff-card{background:#fff;border-radius:20px;border:1px solid #e2e8f0;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color 0.2s,transform 0.2s;text-decoration:none;color:inherit;}
-        .tariff-card:hover{border-color:#2563eb;transform:translateY(-4px);}
-        .tariff-card.featured{border:2px solid #2563eb;position:relative;}
-        .tariff-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#2563eb;color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap;letter-spacing:0.4px;}
-        .tariff-photo{margin:-28px -24px 2px;height:190px;background:#fff;border-bottom:1px solid #e2e8f0;border-radius:19px 19px 0 0;overflow:hidden;}
-        .tariff-photo img{width:100%;height:100%;object-fit:contain;padding:14px;display:block;}
-        @media(max-width:600px){.tariff-photo{height:170px;}}
-        .tariff-icon{width:48px;height:48px;border-radius:12px;background:#eff6ff;display:flex;align-items:center;justify-content:center;}
-        .tariff-card.featured .tariff-icon{background:#2563eb;}
-        .tariff-icon i{font-size:22px;color:#2563eb;}
-        .tariff-card.featured .tariff-icon i{color:#fff;}
-        .tariff-name{font-size:1.2em;font-weight:700;color:#0f172a;}
-        .tariff-price{font-size:1.6em;font-weight:800;color:#2563eb;}
-        .tariff-price span{font-size:0.55em;font-weight:500;color:#64748b;}
-        .tariff-desc{font-size:0.88em;color:#475569;line-height:1.6;}
-        .tariff-includes{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px;}
-        .tariff-includes li{font-size:0.85em;color:#334155;display:flex;align-items:flex-start;gap:8px;}
-        .tariff-includes li::before{content:'✓';color:#2563eb;font-weight:700;flex-shrink:0;margin-top:1px;}
-        .tariff-btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#2563eb;color:#fff;padding:12px 20px;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.9em;transition:background 0.2s;border:none;cursor:pointer;width:100%;}
-        .tariff-btn:hover{background:#1e40af;}
-
-        @media(max-width:1100px){.tariff-grid{grid-template-columns:repeat(2,1fr);}}
-        @media(max-width:600px){.tariff-grid{grid-template-columns:1fr;}}
-        .tariff-grid.tariff-grid--few{grid-template-columns:repeat(auto-fit,minmax(300px,380px));justify-content:center;}
-        @media(max-width:600px){.tariff-grid.tariff-grid--few{grid-template-columns:1fr;}}
-
-        .cargo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-        .cargo-item{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:20px 16px;text-align:center;}
-        .cargo-item i{font-size:2em;color:#2563eb;margin-bottom:10px;display:block;}
-        .cargo-item h3{font-size:0.9em;font-weight:600;color:#0f172a;margin-bottom:6px;}
-        .cargo-item p{font-size:0.8em;color:#64748b;line-height:1.5;}
-        @media(max-width:900px){.cargo-grid{grid-template-columns:repeat(2,1fr);}}
-        @media(max-width:480px){.cargo-grid{grid-template-columns:1fr 1fr;gap:12px;}}
-
-        .steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-        .step-box{background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:24px 20px;text-align:center;position:relative;}
-        .step-num{width:42px;height:42px;background:#2563eb;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;margin:0 auto 14px;}
-        .step-box h3{font-size:1em;font-weight:700;color:#0f172a;margin-bottom:8px;}
-        .step-box p{font-size:0.85em;color:#64748b;line-height:1.55;}
-        @media(max-width:900px){.steps-row{grid-template-columns:repeat(2,1fr);}}
-        @media(max-width:480px){.steps-row{grid-template-columns:1fr;}}
-
-        .price-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid #e2e8f0;}
-        .price-table{width:100%;border-collapse:collapse;background:#fff;font-size:0.92em;}
-        .price-table thead tr{background:#2563eb;color:#fff;}
-        .price-table th{padding:14px 18px;text-align:left;font-weight:600;}
-        .price-table td{padding:13px 18px;border-bottom:1px solid #f1f5f9;color:#334155;}
-        .price-table tr:last-child td{border-bottom:none;}
-        .price-table tr:hover td{background:#f8fafc;}
-        .price-table .highlight{color:#2563eb;font-weight:700;}
-        @media(max-width:600px){.price-table th,.price-table td{padding:11px 12px;font-size:0.82em;}}
-
-        .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-        .review-card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:22px 20px;display:flex;flex-direction:column;gap:10px;}
-        .review-stars{color:#f59e0b;font-size:0.9em;letter-spacing:2px;}
-        .review-text{font-size:0.88em;color:#475569;line-height:1.65;flex:1;}
-        .review-author{font-size:0.82em;font-weight:600;color:#0f172a;}
-        .review-date{font-size:0.78em;color:#94a3b8;}
-        @media(max-width:900px){.reviews-grid{grid-template-columns:repeat(2,1fr);}}
-        @media(max-width:600px){.reviews-grid{grid-template-columns:1fr;}}
-
-        .faq-item{background:#fff;border-radius:14px;margin-bottom:12px;border:1px solid #e2e8f0;overflow:hidden;}
-        .faq-question{padding:17px 20px;font-weight:600;cursor:pointer;position:relative;background:#f8fafc;padding-right:48px;font-size:0.95em;}
-        .faq-question::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.4em;color:#2563eb;}
-        .faq-item.open .faq-question::after{content:"–";}
-        .faq-answer{display:none;padding:16px 20px;border-top:1px solid #e2e8f0;font-size:0.9em;color:#475569;line-height:1.65;}
-        .faq-item.open .faq-answer{display:block;}
-
-        .seo-article{background:#fff;border-radius:20px;padding:40px;border:1px solid #e2e8f0;}
-        .seo-article h2{text-align:left;font-size:1.6em;margin-bottom:16px;color:#0f172a;}
-        .seo-article h2::after{display:none;}
-        .seo-article h3{color:#0f172a;margin:24px 0 10px;font-size:1.15em;}
-        .seo-article p{color:#334155;margin-bottom:14px;line-height:1.75;}
-        .seo-article ul{padding-left:20px;margin-bottom:16px;}
-        .seo-article li{margin-bottom:8px;color:#334155;line-height:1.65;}
-        .seo-article strong{color:#0f172a;}
-        .seo-article a{color:#2563eb;}
-        @media(max-width:768px){.seo-article{padding:24px 18px;}}
-
-        .cta-banner{background:#2563eb;padding:60px 20px;text-align:center;}
-        .cta-banner h2{color:#fff;font-size:2em;margin-bottom:14px;}
-        .cta-banner h2::after{display:none;}
-        .cta-banner p{color:rgba(255,255,255,0.85);font-size:1.1em;margin-bottom:30px;}
-        .btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#2563eb;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;transition:all 0.2s;}
-        .btn-white:hover{background:#f0f9ff;transform:scale(1.03);}
-        @media(max-width:768px){.cta-banner h2{font-size:1.6em;}.cta-banner p{font-size:1em;}}
-
-        .contact-form-section{background:#f8fafc;border-top:1px solid #e2e8f0;padding:60px 20px;}
-        .contact-form-container{max-width:600px;margin:0 auto;background:#fff;border-radius:24px;padding:40px;border:1px solid #e2e8f0;text-align:center;}
-        .contact-form-container h2{margin-bottom:10px;color:#0f172a;font-size:1.8em;}
-        .contact-form-container h2::after{display:none;}
-        .contact-form-container p{margin-bottom:28px;color:#64748b;}
-        .callback-form{display:flex;flex-direction:column;gap:14px;}
-        .callback-form input{padding:14px 18px;border:2px solid #e2e8f0;border-radius:12px;font-size:1rem;transition:border-color 0.2s;}
-        .callback-form input:focus{outline:none;border-color:#2563eb;}
-        .callback-form button{background:#2563eb;color:#fff;border:none;padding:14px 24px;border-radius:50px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:background 0.2s;}
-        .callback-form button:hover{background:#1e40af;}
-        .form-success{color:#22c55e;margin-top:14px;display:none;}
-
-        footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;}
-        .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;}
-        .footer-logo{height:40px;margin-bottom:15px;}
-        .footer-col h4{color:#fff;margin-bottom:15px;}
-        .footer-col a{color:#94a3b8;text-decoration:none;}
-        .footer-col a:hover{color:#fff;}
-        .footer-col p{margin-bottom:8px;font-size:0.92em;}
-
-        .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;align-items:flex-end;z-index:999;opacity:0;transition:opacity 0.3s;pointer-events:none;}
-        .floating-buttons.is-visible{opacity:1;pointer-events:all;}
-        .fab-menu{display:flex;flex-direction:column;align-items:center;margin-bottom:10px;}
-        .fab-menu-item{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;color:#fff;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:all 0.2s;font-size:1.4em;transform:scale(0);opacity:0;pointer-events:none;}
-        .fab-menu-item.show{animation:fabPopIn 0.3s forwards ease-out;pointer-events:all;}
-        @keyframes fabPopIn{0%{transform:scale(0);opacity:0;}80%{transform:scale(1.1);opacity:1;}100%{transform:scale(1);opacity:1;}}
-        .fab-menu-item.call{background:#2563eb;}
-        .fab-menu-item.whatsapp{background:#25D366;}
-        .fab-menu-item.telegram{background:#0088cc;}
-        .fab-main{width:60px;height:60px;border-radius:50%;background:#f97316;color:#fff;border:none;box-shadow:0 5px 20px rgba(249,115,22,0.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.8em;transition:all 0.2s;animation:pulse 2s infinite;position:relative;z-index:1000;}
-        .fab-main:hover{transform:scale(1.1);animation:none;}
-        @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(249,115,22,0.7);}70%{box-shadow:0 0 0 15px rgba(249,115,22,0);}100%{box-shadow:0 0 0 0 rgba(249,115,22,0);}}
-        
-        .corp-badge{background:#eef2ff;border-left:4px solid #2563eb;padding:12px 20px;border-radius:12px;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto;text-align:center;}
-        .corp-badge i{color:#2563eb;margin-right:8px;}
-        .corp-badge span{font-weight:600;color:#1e293b;}
-
-        .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
-        .related-card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px 20px;text-decoration:none;color:#0f172a;transition:border-color .2s,transform .2s;}
-        .related-card:hover{border-color:#2563eb;transform:translateY(-3px);}
-        .related-card i{font-size:1.6em;color:#2563eb;flex-shrink:0;}
-        .related-card .related-title{font-weight:700;font-size:1em;}
-        .related-card .related-desc{font-size:.82em;color:#64748b;margin-top:2px;}
-        @media(max-width:768px){.related-grid{grid-template-columns:1fr;}}
-    
-.hero-icons{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 12px;margin-top:35px;margin-bottom:45px;max-width:900px;margin-left:auto;margin-right:auto;padding:0 12px;}
-.icon-item{display:flex;flex:0 1 190px;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transition:all 0.2s ease;cursor:pointer;}
-.icon-item svg{width:44px;height:44px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
-.icon-item span{font-size:12px;font-weight:500;color:white;text-align:center;line-height:1.3;letter-spacing:0.3px;text-shadow:0 1px 2px rgba(0,0,0,0.3);}
-.icon-item:hover{transform:scale(0.95);}
-.icon-item:active{transform:scale(0.92);}
-@media(max-width:900px){.hero-icons{gap:16px 8px;max-width:520px;}.icon-item{flex-basis:150px;}.icon-item svg{width:38px;height:38px;}.icon-item span{font-size:10px;}}@media(max-width:480px){.hero-icons{gap:14px 8px;padding:0 4px;}.icon-item{flex:0 0 calc(50% - 4px);min-width:0;}.icon-item span{overflow-wrap:anywhere;}}@media(max-width:340px){.hero-icons{gap:12px 6px;padding:0;}.icon-item{flex-basis:calc(50% - 3px);gap:6px;}.icon-item svg{width:32px;height:32px;}.icon-item span{font-size:9px;letter-spacing:0;}}
-</style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:"Inter",sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%}
+    .lang-btn.active{background:#2563eb;border-color:#2563eb;color:white}
+    .burger-menu.active{background:#2563eb}
+    .burger-menu.active span{background:white}
+    .burger-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .burger-menu.active span:nth-child(2){opacity:0}
+    .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mnav-overlay.active{opacity:1;visibility:visible}
+    #mobileNav{position:fixed !important;top:0 !important;left:0 !important;bottom:0 !important;height:100vh !important;width:84% !important;max-width:330px !important;background:#fff !important;z-index:1100 !important;padding:14px 0 60px !important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block !important}
+    #mobileNav.active{transform:translateX(0)}
+    #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px}
+    #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px}
+    #mobileNav details{border-bottom:1px solid #f1f5f9}
+    #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    #mobileNav summary::-webkit-details-marker{display:none}
+    #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc}
+    #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500}
+    #mobileNav .mnav-sub a:active{background:#eff6ff}
+    #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600}
+    #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9}
+    #mobileNav .mnav-flat:active{background:#eff6ff}
+    #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb}
+    @media(max-width:768px){
+      body{padding-top:70px}
+      .floating-header{padding:8px 4%}
+    }
+    .breadcrumbs{max-width:1200px;margin:0 auto;padding:10px 20px}
+    .breadcrumbs ol{display:flex;flex-wrap:wrap;list-style:none;padding:0}
+    .breadcrumbs li{font-size:0.9rem}
+    .breadcrumbs li:not(:last-child)::after{content:"/";margin:0 8px;color:#94a3b8}
+    .breadcrumbs a{color:#2563eb;text-decoration:none}
+    .breadcrumbs a:hover{text-decoration:underline}
+    .hero-header{position:relative;overflow:hidden;background:#1f2937;color:white;padding:90px 20px 70px;text-align:center}
+    .hero-bg{position:absolute;inset:0;z-index:0;margin:0;line-height:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-header::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.72);z-index:1;pointer-events:none}
+    .hero-header > div{position:relative;z-index:2}
+    @media(max-width:768px){
+      .section,.seo-article,footer{content-visibility:auto;contain-intrinsic-size:auto 400px}
+      *{transition-duration:.15s !important;animation-duration:.15s !important}
+      [data-aos]{opacity:1 !important;transform:none !important}
+    }
+    .hero-header h1{font-size:2.8em;margin-bottom:16px;line-height:1.2}
+    .hero-sub{font-size:1.15em;color:rgba(255,255,255,0.85);margin-bottom:36px;max-width:720px;margin-left:auto;margin-right:auto}
+    .brand-orange{color:#2563eb;font-weight:700}
+    .hero-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn-primary{gap:8px;background:#2563eb;color:white;text-decoration:none;transition:all 0.25s;box-shadow:0 8px 20px rgba(37,99,235,0.35);border:none;cursor:pointer}
+    .btn-primary:hover{background:#1e40af;transform:translateY(-2px)}
+    @media(max-width:768px){
+      .hero-header h1{font-size:1.85em}
+      .hero-sub{font-size:1em}
+    }
+    .section{padding:80px 20px;max-width:1200px;margin:0 auto}
+    .section h2{font-size:2.3em;margin-bottom:14px;color:#0f172a;text-align:center}
+    .section-sub{text-align:center;color:#64748b;font-size:1rem;margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto}
+    .section h2::after{content:"";display:block;width:60px;height:4px;background:#2563eb;border-radius:4px;margin:14px auto 0}
+    @media(max-width:768px){
+      .section{padding:52px 16px}
+      .section h2{font-size:1.7em}
+    }
+    .tariff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .tariff-card{background:#fff;border-radius:20px;border:1px solid #e2e8f0;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color 0.2s,transform 0.2s;text-decoration:none;color:inherit}
+    .tariff-card:hover{border-color:#2563eb;transform:translateY(-4px)}
+    .tariff-card.featured{border:2px solid #2563eb;position:relative}
+    .tariff-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#2563eb;color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap;letter-spacing:0.4px}
+    .tariff-photo{margin:-28px -24px 2px;height:190px;background:#fff;border-bottom:1px solid #e2e8f0;border-radius:19px 19px 0 0;overflow:hidden}
+    .tariff-photo img{width:100%;height:100%;object-fit:contain;padding:14px;display:block}
+    @media(max-width:600px){
+      .tariff-photo{height:170px}
+    }
+    .tariff-name{font-size:1.2em;font-weight:700;color:#0f172a}
+    .tariff-price{font-size:1.6em;font-weight:800;color:#2563eb}
+    .tariff-desc{font-size:0.88em;color:#475569;line-height:1.6}
+    .tariff-includes{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px}
+    .tariff-includes li{font-size:0.85em;color:#334155;display:flex;align-items:flex-start;gap:8px}
+    .tariff-includes li::before{content:"✓";color:#2563eb;font-weight:700;flex-shrink:0;margin-top:1px}
+    .tariff-btn{margin-top:auto;gap:8px;background:#2563eb;color:#fff;text-decoration:none;transition:background 0.2s;border:none;cursor:pointer;width:100%}
+    .tariff-btn:hover{background:#1e40af}
+    @media(max-width:1100px){
+      .tariff-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:600px){
+      .tariff-grid{grid-template-columns:1fr}
+    }
+    .tariff-grid.tariff-grid--few{grid-template-columns:repeat(auto-fit,minmax(300px,380px));justify-content:center}
+    @media(max-width:600px){
+      .tariff-grid.tariff-grid--few{grid-template-columns:1fr}
+    }
+    .cargo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .cargo-item{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:20px 16px;text-align:center}
+    .cargo-item i{font-size:2em;color:#2563eb;margin-bottom:10px;display:block}
+    .cargo-item h3{font-size:0.9em;font-weight:600;color:#0f172a;margin-bottom:6px}
+    .cargo-item p{font-size:0.8em;color:#64748b;line-height:1.5}
+    @media(max-width:900px){
+      .cargo-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:480px){
+      .cargo-grid{grid-template-columns:1fr 1fr;gap:12px}
+    }
+    .steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .step-box{background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:24px 20px;text-align:center;position:relative}
+    .step-num{width:42px;height:42px;background:#2563eb;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;margin:0 auto 14px}
+    .step-box h3{font-size:1em;font-weight:700;color:#0f172a;margin-bottom:8px}
+    .step-box p{font-size:0.85em;color:#64748b;line-height:1.55}
+    @media(max-width:900px){
+      .steps-row{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:480px){
+      .steps-row{grid-template-columns:1fr}
+    }
+    .faq-item{background:#fff;border-radius:14px;margin-bottom:12px;border:1px solid #e2e8f0;overflow:hidden}
+    .faq-question{padding:17px 20px;font-weight:600;cursor:pointer;position:relative;background:#f8fafc;padding-right:48px;font-size:0.95em}
+    .faq-question::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.4em;color:#2563eb}
+    .faq-item.open .faq-question::after{content:"–"}
+    .faq-answer{display:none;padding:16px 20px;border-top:1px solid #e2e8f0;font-size:0.9em;color:#475569;line-height:1.65}
+    .faq-item.open .faq-answer{display:block}
+    .seo-article{background:#fff;border-radius:20px;padding:40px;border:1px solid #e2e8f0}
+    .seo-article h2{text-align:left;font-size:1.6em;margin-bottom:16px;color:#0f172a}
+    .seo-article h2::after{display:none}
+    .seo-article h3{color:#0f172a;margin:24px 0 10px;font-size:1.15em}
+    .seo-article p{color:#334155;margin-bottom:14px;line-height:1.75}
+    .seo-article ul{padding-left:20px;margin-bottom:16px}
+    .seo-article li{margin-bottom:8px;color:#334155;line-height:1.65}
+    .seo-article strong{color:#0f172a}
+    .seo-article a{color:#2563eb}
+    @media(max-width:768px){
+      .seo-article{padding:24px 18px}
+    }
+    .cta-banner{background:#eff6ff;border-top:1px solid #dbeafe;border-bottom:1px solid #dbeafe;padding:60px 20px;text-align:center}
+    .cta-banner h2{color:#0f172a;font-size:2em;margin-bottom:14px}
+    .cta-banner h2::after{display:none}
+    .cta-banner p{color:#475569;font-size:1.1em;margin-bottom:30px}
+    .btn-white{gap:8px;background:#fff;color:#2563eb;text-decoration:none;transition:all 0.2s}
+    .btn-white:hover{background:#f0f9ff;transform:scale(1.03)}
+    @media(max-width:768px){
+      .cta-banner h2{font-size:1.6em}
+      .cta-banner p{font-size:1em}
+    }
+    .contact-form-section{background:#f8fafc;border-top:1px solid #e2e8f0;padding:60px 20px}
+    .contact-form-container{max-width:600px;margin:0 auto;background:#fff;border-radius:24px;padding:40px;border:1px solid #e2e8f0;text-align:center}
+    .contact-form-container h2{margin-bottom:10px;color:#0f172a;font-size:1.8em}
+    .contact-form-container h2::after{display:none}
+    .contact-form-container p{margin-bottom:28px;color:#64748b}
+    .callback-form{display:flex;flex-direction:column;gap:14px}
+    .callback-form input{padding:14px 18px;border:2px solid #e2e8f0;border-radius:12px;font-size:1rem;transition:border-color 0.2s}
+    .callback-form input:focus{outline:none;border-color:#2563eb}
+    .callback-form button{background:#2563eb;color:#fff;border:none;padding:14px 24px;border-radius:50px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:background 0.2s}
+    .callback-form button:hover{background:#1e40af}
+    .form-success{color:#22c55e;margin-top:14px;display:none}
+    footer{background:#0f172a;color:#cbd5e1;padding:40px 5%}
+    .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;align-items:flex-end;z-index:999;opacity:0;transition:opacity 0.3s;pointer-events:none}
+    .floating-buttons.is-visible{opacity:1;pointer-events:all}
+    .fab-menu{display:flex;flex-direction:column;align-items:center;margin-bottom:10px}
+    .fab-menu-item{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;color:#fff;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:all 0.2s;font-size:1.4em;transform:scale(0);opacity:0;pointer-events:none}
+    .fab-menu-item.show{animation:fabPopIn 0.3s forwards ease-out;pointer-events:all}
+    @keyframes fabPopIn{0%{transform:scale(0);opacity:0;}80%{transform:scale(1.1);opacity:1;}100%{transform:scale(1);opacity:1;}}
+    .fab-menu-item.call{background:#2563eb}
+    .fab-menu-item.whatsapp{background:#1FAA53}
+    .fab-menu-item.telegram{background:#0088cc}
+    .fab-main{width:60px;height:60px;border-radius:50%;background:#2563eb;color:#fff;border:none;box-shadow:0 5px 20px rgba(37,99,235,0.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.8em;transition:all 0.2s;animation:pulse 2s infinite;position:relative;z-index:1000}
+    .fab-main:hover{transform:scale(1.1);animation:none}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,0.7);}70%{box-shadow:0 0 0 15px rgba(37,99,235,0);}100%{box-shadow:0 0 0 0 rgba(37,99,235,0);}}
+    .corp-badge{background:#eef2ff;border-left:4px solid #2563eb;padding:12px 20px;border-radius:12px;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto;text-align:center}
+    .corp-badge i{color:#2563eb;margin-right:8px}
+    .corp-badge span{font-weight:600;color:#1e293b}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+    .related-card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px 20px;text-decoration:none;color:#0f172a;transition:border-color .2s,transform .2s}
+    .related-card:hover{border-color:#2563eb;transform:translateY(-3px)}
+    .related-card i{font-size:1.6em;color:#2563eb;flex-shrink:0}
+    .related-card .related-title{font-weight:700;font-size:1em}
+    .related-card .related-desc{font-size:.82em;color:#64748b;margin-top:2px}
+    @media(max-width:768px){
+      .related-grid{grid-template-columns:1fr}
+    }
+    .hero-icons{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 12px;margin-top:35px;margin-bottom:45px;max-width:900px;margin-left:auto;margin-right:auto;padding:0 12px}
+    .icon-item{display:flex;flex:0 1 190px;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transition:all 0.2s ease;cursor:pointer}
+    .icon-item svg{width:44px;height:44px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .icon-item span{font-size:12px;font-weight:500;color:white;text-align:center;line-height:1.3;letter-spacing:0.3px;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
+    .icon-item:hover{transform:scale(0.95)}
+    .icon-item:active{transform:scale(0.92)}
+    @media(max-width:900px){
+      .hero-icons{gap:16px 8px;max-width:520px}
+      .icon-item{flex-basis:150px}
+      .icon-item svg{width:38px;height:38px}
+      .icon-item span{font-size:10px}
+    }
+    @media(max-width:480px){
+      .hero-icons{gap:14px 8px;padding:0 4px}
+      .icon-item{flex:0 0 calc(50% - 4px);min-width:0}
+      .icon-item span{overflow-wrap:anywhere}
+    }
+    @media(max-width:340px){
+      .hero-icons{gap:12px 6px;padding:0}
+      .icon-item{flex-basis:calc(50% - 3px);gap:6px}
+      .icon-item svg{width:32px;height:32px}
+      .icon-item span{font-size:9px;letter-spacing:0}
+    }
+  </style>
 <style id="unified-nav-style">
-        .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%;}
-        .floating-header-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
-        .header-left{display:flex;align-items:center;gap:12px;}
-        .floating-logo{height:45px;width:auto;cursor:pointer;border-radius:8px;padding:4px 8px;}
-        .header-right{display:flex;align-items:center;gap:15px;}
-        .language-switcher{display:flex;gap:5px;}
-        .lang-btn{background:transparent;border:1px solid #e2e8f0;color:#334155;padding:6px 12px;border-radius:30px;cursor:pointer;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.2s;}
-        .lang-btn:hover,.lang-btn.active{background:#2563eb;border-color:#2563eb;color:white;}
-        .header-phone{color:#2563eb;font-weight:700;font-size:1rem;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;}
-        .burger-menu{display:flex;flex-direction:column;justify-content:space-between;width:30px;height:22px;background:transparent;border:2px solid #2563eb;border-radius:8px;cursor:pointer;padding:4px 5px;z-index:1100;transition:all 0.2s;}
-        .burger-menu span{width:100%;height:2.5px;background:#2563eb;border-radius:10px;transition:all 0.3s;}
-        .burger-menu:hover,.burger-menu.active{background:#2563eb;}
-        .burger-menu:hover span,.burger-menu.active span{background:white;}
-        .burger-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg);}
-        .burger-menu.active span:nth-child(2){opacity:0;}
-        .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
-        .mnav-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1090;opacity:0;visibility:hidden;transition:opacity .28s ease;}
-        .mnav-overlay.active{opacity:1;visibility:visible;}
-        #mobileNav{position:fixed!important;top:0!important;left:0!important;bottom:0!important;height:100vh!important;width:84%!important;max-width:330px!important;background:#fff!important;z-index:1100!important;padding:14px 0 60px!important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block!important;}
-        #mobileNav.active{transform:translateX(0);}
-        #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px;}
-        #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px;}
-        #mobileNav details{border-bottom:1px solid #f1f5f9;}
-        #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent;}
-        #mobileNav summary::-webkit-details-marker{display:none;}
-        
-        
-        
-        #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc;}
-        #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500;}
-        #mobileNav .mnav-sub a:active{background:#eff6ff;}
-        #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600;}
-        #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9;}
-        #mobileNav .mnav-flat:active{background:#eff6ff;}
-        #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
-        #mobileNav .mnav-sub details{border-bottom:none;}
-        #mobileNav .mnav-sub summary{padding:12px 22px 12px 40px;font-size:.95rem;font-weight:600;color:#334155;}
-        
-        
-        
-        #mobileNav .mnav-sub2{display:flex;flex-direction:column;background:#fff;}
-        #mobileNav .mnav-sub2 a{padding:11px 22px 11px 58px;font-size:.9rem;color:#475569;text-decoration:none;font-weight:500;}
-        #mobileNav .mnav-sub2 a:active{background:#eff6ff;}
-        #mobileNav .mnav-sub2 a.mnav-overview{color:#2563eb;font-weight:600;}
-        #mobileNav .mnav-sub2 a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb;}
-        footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;}
-        .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;}
-        .footer-logo{height:40px;margin-bottom:15px;}
-        .footer-col h4{color:#fff;margin-bottom:15px;}
-        .footer-col a{color:#94a3b8;text-decoration:none;}
-        .footer-col a:hover{color:#fff;}
-        .footer-col p{margin-bottom:8px;font-size:0.92em;}
-        @media(max-width:1024px){.burger-menu{display:flex;}}
-        @media(max-width:768px){.header-phone{display:none !important;}}
-    </style>
+    .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.08);z-index:1000;padding:10px 5%}
+    .lang-btn.active{background:#2563eb;border-color:#2563eb;color:white}
+    .burger-menu.active{background:#2563eb}
+    .burger-menu.active span{background:white}
+    .burger-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .burger-menu.active span:nth-child(2){opacity:0}
+    .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mnav-overlay.active{opacity:1;visibility:visible}
+    #mobileNav{position:fixed !important;top:0 !important;left:0 !important;bottom:0 !important;height:100vh !important;width:84% !important;max-width:330px !important;background:#fff !important;z-index:1100 !important;padding:14px 0 60px !important;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:6px 0 28px rgba(0,0,0,.18);display:block !important}
+    #mobileNav.active{transform:translateX(0)}
+    #mobileNav .mobile-nav-close{display:flex;justify-content:flex-end;padding:0 16px 4px}
+    #mobileNav .mobile-nav-close button{background:none;border:none;font-size:30px;line-height:1;color:#64748b;cursor:pointer;padding:4px 8px}
+    #mobileNav details{border-bottom:1px solid #f1f5f9}
+    #mobileNav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    #mobileNav summary::-webkit-details-marker{display:none}
+    #mobileNav .mnav-sub{display:flex;flex-direction:column;padding:2px 0 10px;background:#f8fafc}
+    #mobileNav .mnav-sub a{padding:12px 22px 12px 40px;font-size:.95rem;color:#334155;text-decoration:none;font-weight:500}
+    #mobileNav .mnav-sub a:active{background:#eff6ff}
+    #mobileNav .mnav-sub a.mnav-overview{color:#2563eb;font-weight:600}
+    #mobileNav .mnav-flat{display:block;padding:15px 22px;font-size:1.02rem;font-weight:600;color:#0f172a;text-decoration:none;border-bottom:1px solid #f1f5f9}
+    #mobileNav .mnav-flat:active{background:#eff6ff}
+    #mobileNav a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb}
+    #mobileNav .mnav-sub details{border-bottom:none}
+    #mobileNav .mnav-sub summary{padding:12px 22px 12px 40px;font-size:.95rem;font-weight:600;color:#334155}
+    #mobileNav .mnav-sub2{display:flex;flex-direction:column;background:#fff}
+    #mobileNav .mnav-sub2 a{padding:11px 22px 11px 58px;font-size:.9rem;color:#475569;text-decoration:none;font-weight:500}
+    #mobileNav .mnav-sub2 a:active{background:#eff6ff}
+    #mobileNav .mnav-sub2 a.mnav-overview{color:#2563eb;font-weight:600}
+    #mobileNav .mnav-sub2 a.mnav-current{background:#eff6ff;color:#2563eb;font-weight:700;border-left:3px solid #2563eb}
+    footer{background:#0f172a;color:#cbd5e1;padding:40px 5%}
+  </style>
 
 <style id="gz-perf-2026">
-/* === Gruzim.kz — perf & UX layer (overrides earlier inline rules) === */
-:root{--gz-header-h:64px;--gz-crumb-h:38px;}
-
-/* Sticky stack: header + breadcrumbs fixed together */
-.floating-header{transition:box-shadow .25s ease,background-color .25s ease;}
-nav.breadcrumbs{
-  position:fixed;left:0;right:0;top:var(--gz-header-h);width:100%;
-  max-width:none;margin:0;padding:7px 5%;
-  background:rgba(255,255,255,.98);border-bottom:1px solid #e6eaf1;
-  z-index:998;transition:box-shadow .25s ease,background-color .25s ease;
-}
-nav.breadcrumbs ol{max-width:1400px;margin:0 auto;}
-body{padding-top:calc(var(--gz-header-h) + var(--gz-crumb-h))!important;}
-
-/* Compositor-only emphasis while scrolling (no layout change = no jitter) */
-html.gz-scrolled .floating-header{box-shadow:0 6px 24px rgba(15,23,42,.12);}
-html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
-
-/* FAB: GPU pulse via transform/opacity instead of animated box-shadow */
-.fab-main{animation:none!important;}
-.fab-main::after{
-  content:'';position:absolute;inset:0;border-radius:50%;background:#f97316;
-  z-index:-1;will-change:transform,opacity;
-  animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite;
-}
-@keyframes gzRing{
+    :root{--gz-header-h:64px;--gz-crumb-h:38px}
+    .floating-header{transition:box-shadow .25s ease,background-color .25s ease}
+    nav.breadcrumbs{position:fixed;left:0;right:0;top:var(--gz-header-h);width:100%;max-width:none;margin:0;padding:7px 5%;background:rgba(255,255,255,.98);border-bottom:1px solid #e6eaf1;z-index:998;transition:box-shadow .25s ease,background-color .25s ease}
+    nav.breadcrumbs ol{max-width:1400px;margin:0 auto}
+    body{padding-top:calc(var(--gz-header-h) + var(--gz-crumb-h)) !important}
+    html.gz-scrolled .floating-header{box-shadow:0 6px 24px rgba(15,23,42,.12)}
+    html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07)}
+    .fab-main{animation:none !important}
+    .fab-main::after{content:"";position:absolute;inset:0;border-radius:50%;background:#2563eb;z-index:-1;will-change:transform,opacity;animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite}
+    @keyframes gzRing{
   0%{transform:scale(1);opacity:.55;}
   70%{transform:scale(1.85);opacity:0;}
   100%{transform:scale(1.85);opacity:0;}
 }
-
-/* Mobile: static, bold, zero animation cost */
-@media (max-width:768px){
-  .fab-main::after{display:none;animation:none;}
-  .fab-main{box-shadow:0 4px 14px rgba(249,115,22,.55),0 0 0 4px rgba(249,115,22,.22)!important;}
-}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  .fab-main::after{animation:none;}
-  *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
-}
-</style>
+    @media (max-width:768px){
+      .fab-main::after{display:none;animation:none}
+      .fab-main{box-shadow:0 4px 14px rgba(37,99,235,.55),0 0 0 4px rgba(37,99,235,.22) !important}
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .fab-main::after{animation:none}
+      *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+    }
+  </style>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="stylesheet" href="../assets/gz-ui.css?v=2">
+    <link rel="stylesheet" href="../assets/gz-ui.css?v=4">
 </head>
-<body>
+<body class="gzp">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <noscript><div><img src="https://mc.yandex.ru/watch/104276494" style="position:absolute;left:-9999px;" alt="" / loading="lazy" decoding="async"></div></noscript>
 
@@ -550,7 +468,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 </div>
 </div>
 <div class="gz-lang" aria-label="Язык / Тіл"><a href="lebedka.html" class="is-active" lang="ru">РУС</a><a href="../indexkz.html" lang="kk">ҚАЗ</a></div>
-<a class="gz-phone" href="tel:+77010120300"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>+7 701 012 03 00</span></a>
+<a class="gz-phone" href="tel:+77010120300"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>+7 701 012 03 00</span></a>
 </div>
 </div>
 </header>
@@ -575,7 +493,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <a href="../upakovka/hrupkoe.html">Хрупкое, зеркала, картины</a>
 <a href="../shop.html">Упаковочные материалы</a></div></details>
 <details><summary>Вывоз мусора</summary><div class="gz-d-sub"><a href="../musor.html" class="gz-d-over">О вывозе мусора</a>
-<details><summary>Строительный мусор</summary><div class="gz-d-sub"><a href="../musor/stroy.html" class="gz-d-over">Стройка — обзор и цены</a>
+<details><summary>Строительный мусор</summary><div class="gz-d-sub"><a href="../musor/stroy.html" class="gz-d-over">Стройка — обзор и цены</a>
 <a href="../musor/stroy/remont.html">После ремонта</a>
 <a href="../musor/stroy/beton.html">Бетон, кирпич, стяжка</a>
 <a href="../musor/stroy/grunt.html">Грунт и земля</a>
@@ -583,7 +501,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <a href="../musor/stroy/meshki.html">Мешками (малый объём)</a>
 <a href="../musor/stroy/krupnogabarit.html">Крупногабаритный</a>
 <a href="../musor/stroy/plitka-santehnika.html">Плитка, сантехника, окна</a></div></details>
-<details><summary>Старая мебель</summary><div class="gz-d-sub"><a href="../musor/mebel.html" class="gz-d-over">Вся мебель — цены</a>
+<details><summary>Старая мебель</summary><div class="gz-d-sub"><a href="../musor/mebel.html" class="gz-d-over">Вся мебель — цены</a>
 <a href="../musor/mebel/divan.html">Вывоз дивана</a>
 <a href="../musor/mebel/shkaf.html">Вывоз шкафа</a>
 <a href="../musor/mebel/shkaf-kupe.html">Вывоз шкафа-купе</a>
@@ -591,7 +509,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <a href="../musor/mebel/krovat.html">Вывоз кровати</a>
 <a href="../musor/mebel/stenka.html">Вывоз стенки</a>
 <a href="../musor/mebel/melkaya.html">Мелкая мебель</a></div></details>
-<details><summary>Бытовая техника</summary><div class="gz-d-sub"><a href="../musor/tehnika.html" class="gz-d-over">Техника — обзор и цены</a>
+<details><summary>Бытовая техника</summary><div class="gz-d-sub"><a href="../musor/tehnika.html" class="gz-d-over">Техника — обзор и цены</a>
 <a href="../musor/tehnika/holodilnik.html">Холодильник</a>
 <a href="../musor/tehnika/stiralnaya-mashina.html">Стиральная машина</a>
 <a href="../musor/tehnika/plita.html">Плита и духовка</a>
@@ -600,14 +518,14 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <a href="../musor/tehnika/konditsioner.html">Кондиционер</a>
 <a href="../musor/tehnika/boiler.html">Водонагреватель (бойлер)</a>
 <a href="../musor/tehnika/melkaya-tehnika.html">Мелкая техника</a></div></details>
-<details><summary>Сантехника</summary><div class="gz-d-sub"><a href="../musor/santehnika.html" class="gz-d-over">Сантехника — обзор и цены</a>
+<details><summary>Сантехника</summary><div class="gz-d-sub"><a href="../musor/santehnika.html" class="gz-d-over">Сантехника — обзор и цены</a>
 <a href="../musor/santehnika/vanna.html">Ванна</a>
 <a href="../musor/santehnika/unitaz.html">Унитаз</a>
 <a href="../musor/santehnika/dzhakuzi.html">Джакузи</a>
 <a href="../musor/santehnika/dushevaya-kabina.html">Душевая кабина</a>
 <a href="../musor/santehnika/rakovina.html">Раковина</a>
 <a href="../musor/santehnika/sanuzel-pod-klyuch.html">Санузел под ключ</a></div></details>
-<details><summary>Хлам и старые вещи</summary><div class="gz-d-sub"><a href="../musor/hlam.html" class="gz-d-over">Хлам — обзор и цены</a>
+<details><summary>Хлам и старые вещи</summary><div class="gz-d-sub"><a href="../musor/hlam.html" class="gz-d-over">Хлам — обзор и цены</a>
 <a href="../musor/hlam/kvartira.html">Хлам из квартиры</a>
 <a href="../musor/hlam/balkon.html">С балкона и лоджии</a>
 <a href="../musor/hlam/dacha.html">С дачи и участка</a>
@@ -618,12 +536,12 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <a href="../musor/hlam/osvobozhdenie.html">Освобождение квартиры</a></div></details>
 <a href="../musor/matras.html">Матрасы</a>
 <a href="../musor/night.html">Ночной вывоз</a>
-<details><summary>Форматы услуги</summary><div class="gz-d-sub"><a href="../musor/uslugi.html" class="gz-d-over">Форматы — обзор и цены</a>
+<details><summary>Форматы услуги</summary><div class="gz-d-sub"><a href="../musor/uslugi.html" class="gz-d-over">Форматы — обзор и цены</a>
 <a href="../musor/uslugi/gazel.html">Газель для мусора</a>
 <a href="../musor/uslugi/gruzchiki.html">Грузчики для выноса</a>
 <a href="../musor/uslugi/srochno.html">Срочно / в день обращения</a>
-<a href="../musor/uslugi/nedorogo.html">Недорого — как считаем</a></div></details>
-<details><summary>По районам Астаны</summary><div class="gz-d-sub"><a href="../musor/rayony.html" class="gz-d-over">Районы — обзор</a>
+<a href="../musor/uslugi/nedorogo.html">Недорого — как считаем</a></div></details>
+<details><summary>По районам Астаны</summary><div class="gz-d-sub"><a href="../musor/rayony.html" class="gz-d-over">Районы — обзор</a>
 <a href="../musor/rayony/esil.html">Есильский район</a>
 <a href="../musor/rayony/almaty.html">Алматинский район</a>
 <a href="../musor/rayony/saryarka.html">Район Сарыарка</a>
@@ -646,7 +564,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <a href="../#o-kompanii" class="gz-d-link">О нас</a>
 </div>
 <div class="gz-drawer-foot">
-<div class="gz-drawer-row"><a class="gz-d-phone" href="tel:+77010120300">+7 701 012 03 00</a><div class="gz-lang" aria-label="Язык / Тіл"><a href="lebedka.html" class="is-active" lang="ru">РУС</a><a href="../indexkz.html" lang="kk">ҚАЗ</a></div></div>
+<div class="gz-drawer-row"><a class="gz-d-phone" href="tel:+77010120300">+7 701 012 03 00</a><div class="gz-lang" aria-label="Язык / Тіл"><a href="lebedka.html" class="is-active" lang="ru">РУС</a><a href="../indexkz.html" lang="kk">ҚАЗ</a></div></div>
 <a class="gz-d-wa" href="https://wa.me/77010120300" target="_blank" rel="noopener" data-gz-conv><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.32A10 10 0 1 0 12 2zm5.47 14.14c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.77-1.09-4.53-3.9-4.67-4.08-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.18.69-.8.87-1.08.18-.28.37-.23.62-.14.25.09 1.59.75 1.86.89.27.14.46.2.53.32.06.11.06.66-.18 1.31z"/></svg>Написать в WhatsApp</a>
 <p class="gz-d-hours">Звонки и WhatsApp: 8:00–20:00 · заказы выполняем 24/7</p>
 </div>
@@ -655,14 +573,15 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 
 <header class="hero-header">
     <picture class="hero-bg">
-        <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
+        <source media="(max-width:768px)" type="image/webp" srcset="../fon-mobile.webp">
         <source media="(max-width:768px)" srcset="fon-mobile.jpg">
-        <source type="image/webp" srcset="fon.webp">
+        <source media="(min-width:1441px)" type="image/webp" srcset="../fon-xl.webp">
+        <source type="image/webp" srcset="../fon.webp">
         <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
     </picture>
 <div>
-        <h1>Аренда лебёдки в Астане <span class="brand-orange">до 5 тонн</span></h1>
-        <p class="hero-sub">Электрическая лебёдка с тросом грузоподъёмностью до 5 тонн. Протягиваем оборудование по полу, поднимаем технику по аппарели на платформу, помогаем при разгрузке и финальной установке тяжёлого груза на место.</p>
+        <h1>Аренда лебёдки в Астане <span class="brand-orange">до 5 тонн</span></h1>
+        <p class="hero-sub">Электрическая лебёдка с тросом грузоподъёмностью до 5 тонн. Протягиваем оборудование по полу, поднимаем технику по аппарели на платформу, помогаем при разгрузке и финальной установке тяжёлого груза на место.</p>
 
         <div class="hero-icons">
                 <a href="../takelazh.html" class="icon-item">
@@ -687,10 +606,10 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 
 <section class="section" id="tariffs">
     <h2 data-aos="fade-up">Тарифы аренды лебёдки</h2>
-    <p class="section-sub" data-aos="fade-up">Цена зависит от объёма и сложности работ — считаем индивидуально.</p>
+    <p class="section-sub" data-aos="fade-up">Цена зависит от объёма и сложности работ — считаем индивидуально.</p>
 
     <div class="corp-badge" data-aos="fade-up">
-        <i class="fas fa-building"></i> <span>Работаем с юридическими лицами</span> — договор, счёт-фактура, акт выполненных работ, безналичный расчёт.
+        <i class="fas fa-building"></i> <span>Работаем с юридическими лицами</span> — договор, счёт-фактура, акт выполненных работ, безналичный расчёт.
     </div>
 
     <div class="tariff-grid tariff-grid--few">
@@ -698,9 +617,9 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             <div class="tariff-photo"><img src="lebedka.webp" alt="Электрическая лебёдка до 5 тонн — аренда в Астане для юридических лиц" width="238" height="208" loading="lazy" decoding="async"></div>
             <div class="tariff-name">Лебёдка в аренду (самовывоз)</div>
             <div class="tariff-price">по договорённости</div>
-            <p class="tariff-desc">Только для юридических лиц. Электрическая лебёдка с тросом до 5 тонн.</p>
+            <p class="tariff-desc">Только для юридических лиц. Электрическая лебёдка с тросом до 5 тонн.</p>
             <ul class="tariff-includes">
-                <li>Трос ~25–30 м</li>
+                <li>Трос ~25–30 м</li>
                 <li>Без такелажника</li>
                 <li>Договор, счёт-фактура, безнал</li>
             </ul>
@@ -712,7 +631,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             <div class="tariff-photo"><img src="lebedka.webp" alt="Лебёдка с такелажником — протяжка и подъём тяжёлого груза" width="238" height="208" loading="lazy" decoding="async"></div>
             <div class="tariff-name">Лебёдка + такелажник</div>
             <div class="tariff-price">по договорённости</div>
-            <p class="tariff-desc">Протяжка и подъём груза под контролем специалиста — для физических и юридических лиц.</p>
+            <p class="tariff-desc">Протяжка и подъём груза под контролем специалиста — для физических и юридических лиц.</p>
             <ul class="tariff-includes">
                 <li>Подбор точки крепления</li>
                 <li>Контроль движения груза</li>
@@ -723,7 +642,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     </div>
 </section>
 
-<section class="section" id="cargo-types" style="background:#f8fafc;max-width:100%;padding:60px 20px;">
+<section class="section" id="cargo-types" style="background:#f8fafc;max-width:100%;padding:var(--gz-section-y) 20px;">
     <div style="max-width:1200px;margin:0 auto;">
         <h2 data-aos="fade-up">Для каких задач берут лебёдку</h2>
         <p class="section-sub" data-aos="fade-up">Там, где нужно протянуть или подтянуть груз, а не просто поднять его</p>
@@ -738,12 +657,12 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     </div>
 </section>
 
-<section class="section" id="features" style="background:#fff;max-width:100%;padding:70px 20px;">
+<section class="section" id="features" style="background:#fff;max-width:100%;padding:var(--gz-section-y) 20px;">
     <div style="max-width:1200px;margin:0 auto;">
         <h2 data-aos="fade-up">Почему берут лебёдку у нас</h2>
         <p class="section-sub" data-aos="fade-up">Преимущества работы с Gruzim.kz</p>
         <div class="steps-row">
-            <div class="step-box" data-aos="fade-up"><div class="step-num"><i class="fas fa-weight-hanging"></i></div><h3>До 5 тонн</h3><p>Электрическая лебёдка с тросом ~25–30 м</p></div>
+            <div class="step-box" data-aos="fade-up"><div class="step-num"><i class="fas fa-weight-hanging"></i></div><h3>До 5 тонн</h3><p>Электрическая лебёдка с тросом ~25–30 м</p></div>
             <div class="step-box" data-aos="fade-up"><div class="step-num"><i class="fas fa-user-shield"></i></div><h3>С такелажником</h3><p>Безопасная точка крепления и контроль троса</p></div>
             <div class="step-box" data-aos="fade-up"><div class="step-num"><i class="fas fa-bolt"></i></div><h3>Работает от сети и автономно</h3><p>Подбираем схему питания под объект</p></div>
             <div class="step-box" data-aos="fade-up"><div class="step-num"><i class="fas fa-handshake"></i></div><h3>Цена по договорённости</h3><p>Считаем после короткого звонка</p></div>
@@ -751,7 +670,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     </div>
 </section>
 
-<section class="section" id="how-it-works" style="background:#f8fafc;max-width:100%;padding:70px 20px;">
+<section class="section" id="how-it-works" style="background:#f8fafc;max-width:100%;padding:var(--gz-section-y) 20px;">
     <div style="max-width:1200px;margin:0 auto;">
         <h2 data-aos="fade-up">Как арендовать лебёдку</h2>
         <p class="section-sub" data-aos="fade-up">Четыре простых шага</p>
@@ -768,29 +687,29 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     <h2>Нужно протянуть или поднять тяжёлый груз?</h2>
     <p>Приедем с лебёдкой и такелажником, рассчитаем стоимость на месте.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="tel:+77010120300" class="btn-white"><i class="fas fa-phone" style="color:#2563eb;"></i> +7 701 012 03 00</a>
-        <a href="https://wa.me/77010120300?text=Здравствуйте!%20Нужна%20лебёдка%20для%20такелажных%20работ%20в%20Астане." class="btn-primary" style="background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.4);" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="tel:+77010120300" class="btn-white" style="background:#2563eb;color:#fff;"><i class="fas fa-phone"></i> +7 701 012 03 00</a>
+        <a href="https://wa.me/77010120300?text=Здравствуйте!%20Нужна%20лебёдка%20для%20такелажных%20работ%20в%20Астане." class="btn-primary" style="background:#1FAA53;" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
 </div>
 
 <section class="section" id="reviews">
     <h2>Отзывы клиентов</h2>
-    <p class="section-sub">Отзывы о Gruzim.kz публикуются на независимых площадках — там их нельзя отредактировать. Читайте их или оставьте свой.</p>
+    <p class="section-sub">Отзывы о Gruzim.kz публикуются на независимых площадках — там их нельзя отредактировать. Читайте их или оставьте свой.</p>
     <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px;">
-        <a href="https://2gis.kz/astana/geo/70000001112483428" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:12px;background:#0f172a;color:#fff;font-weight:700;text-decoration:none;">Отзывы в 2ГИС</a>
-        <a href="https://g.page/r/CdZy1ITbhee-EBM/review" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:12px;background:#fff;color:#0f172a;border:2px solid #0f172a;font-weight:700;text-decoration:none;">Отзывы в Google</a>
+        <a class="gz-review-btn" href="https://2gis.kz/astana/geo/70000001112483428" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:12px;background:#0f172a;color:#fff;font-weight:700;text-decoration:none;">Отзывы в 2ГИС</a>
+        <a class="gz-review-btn" href="https://g.page/r/CdZy1ITbhee-EBM/review" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:12px;background:#fff;color:#0f172a;border:2px solid #0f172a;font-weight:700;text-decoration:none;">Отзывы в Google</a>
     </div>
 </section>
 
-<section class="section" id="faq" style="background:#f8fafc;max-width:100%;padding:70px 20px;">
+<section class="section" id="faq" style="background:#f8fafc;max-width:100%;padding:var(--gz-section-y) 20px;">
     <div style="max-width:800px;margin:0 auto;">
         <h2 data-aos="fade-up">Часто задаваемые вопросы</h2>
         <p class="section-sub" data-aos="fade-up">Ответы на популярные вопросы</p>
-        <div class="faq-item"><div class="faq-question">Нужна ли точка крепления (якорь) для работы лебёдки?</div><div class="faq-answer">Да, лебёдке нужна надёжная опора — стационарная конструкция, другое транспортное средство или анкерная точка. Такелажник оценивает это на месте и подбирает безопасную схему строповки перед началом работы.</div></div>
-        <div class="faq-item"><div class="faq-question">Какой длины трос у лебёдки?</div><div class="faq-answer">Стандартный трос — около 25–30 метров, этого хватает для большинства задач по затяжке и подъёму. При необходимости используем дополнительные стропы для увеличения рабочей длины.</div></div>
+        <div class="faq-item"><div class="faq-question">Нужна ли точка крепления (якорь) для работы лебёдки?</div><div class="faq-answer">Да, лебёдке нужна надёжная опора — стационарная конструкция, другое транспортное средство или анкерная точка. Такелажник оценивает это на месте и подбирает безопасную схему строповки перед началом работы.</div></div>
+        <div class="faq-item"><div class="faq-question">Какой длины трос у лебёдки?</div><div class="faq-answer">Стандартный трос — около 25–30 метров, этого хватает для большинства задач по затяжке и подъёму. При необходимости используем дополнительные стропы для увеличения рабочей длины.</div></div>
         <div class="faq-item"><div class="faq-question">Можно ли использовать лебёдку на улице?</div><div class="faq-answer">Да, лебёдка рассчитана на уличное использование: разгрузку с платформ, затяжку техники по грунту или аппарели. В дождь и гололёд работаем с дополнительной фиксацией груза.</div></div>
         <div class="faq-item"><div class="faq-question">Сколько такелажников нужно для работы с лебёдкой?</div><div class="faq-answer">Обычно одного-двух специалистов достаточно: один управляет лебёдкой, второй контролирует движение груза и стропы со стороны. Для тяжёлых или нестандартных грузов выезжает бригада из 2–3 человек.</div></div>
-        <div class="faq-item"><div class="faq-question">Сколько стоит аренда лебёдки?</div><div class="faq-answer">Цена зависит от грузоподъёмности, длительности работ и сложности задачи — фиксированного тарифа нет, считаем индивидуально после звонка.</div></div>
+        <div class="faq-item"><div class="faq-question">Сколько стоит аренда лебёдки?</div><div class="faq-answer">Цена зависит от грузоподъёмности, длительности работ и сложности задачи — фиксированного тарифа нет, считаем индивидуально после звонка.</div></div>
     </div>
 </section>
 
@@ -799,22 +718,22 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         <article class="seo-article" itemscope itemtype="https://schema.org/Article">
             <h2 itemprop="headline">Аренда лебёдки в Астане: когда она нужна и как работает</h2>
 
-            <p itemprop="description">Лебёдка нужна тогда, когда груз нужно не поднять вертикально, а протянуть или подтянуть — по полу, по аппарели, по наклонной плоскости. Это отдельная задача, с которой не справятся ни рохля, ни ролики, ни домкрат.</p>
+            <p itemprop="description">Лебёдка нужна тогда, когда груз нужно не поднять вертикально, а протянуть или подтянуть — по полу, по аппарели, по наклонной плоскости. Это отдельная задача, с которой не справятся ни рохля, ни ролики, ни домкрат.</p>
 
             <h3>Чем лебёдка отличается от остальных такелажных инструментов</h3>
-<p>Рохля и ролики перемещают груз по ровной горизонтальной поверхности, домкрат поднимает край оборудования на несколько сантиметров. Лебёдка решает другую задачу — тянет груз на расстояние с помощью троса, в том числе под углом: вверх по аппарели, через порог, из труднодоступного места.</p>
+<p>Рохля и ролики перемещают груз по ровной горизонтальной поверхности, домкрат поднимает край оборудования на несколько сантиметров. Лебёдка решает другую задачу — тянет груз на расстояние с помощью троса, в том числе под углом: вверх по аппарели, через порог, из труднодоступного места.</p>
 
             <h3>Что нужно для безопасной работы лебёдки</h3>
-<p>Главное условие — надёжная точка крепления (якорь): это может быть стационарная конструкция, элемент здания или другое транспортное средство. Такелажник оценивает точку крепления и выбирает безопасную схему строповки перед началом работы, чтобы исключить рывки и перекос груза.</p>
+<p>Главное условие — надёжная точка крепления (якорь): это может быть стационарная конструкция, элемент здания или другое транспортное средство. Такелажник оценивает точку крепления и выбирает безопасную схему строповки перед началом работы, чтобы исключить рывки и перекос груза.</p>
 
             <h3>Типичные ситуации, где нужна лебёдка</h3>
-<p>Затяжка техники по аппарели в кузов, разгрузка оборудования с фуры там, где нет рампы, протяжка станка по неровному полу или через порог, аварийное высвобождение застрявшей техники. Во всех этих случаях ролики или ручная сила не справляются — а лебёдка тянет груз контролируемо и равномерно.</p>
+<p>Затяжка техники по аппарели в кузов, разгрузка оборудования с фуры там, где нет рампы, протяжка станка по неровному полу или через порог, аварийное высвобождение застрявшей техники. Во всех этих случаях ролики или ручная сила не справляются — а лебёдка тянет груз контролируемо и равномерно.</p>
 
             <h3>Лебёдка в комплексных такелажных работах</h3>
-<p>Часто лебёдку используют вместе с другим оборудованием: подняли угол <a href="domkrat.html">домкратом</a>, подкатили <a href="roliki.html">ролики</a> — а на финальном участке, где нужно протянуть груз на расстояние или вверх по уклону, подключаем лебёдку.</p>
+<p>Часто лебёдку используют вместе с другим оборудованием: подняли угол <a href="domkrat.html">домкратом</a>, подкатили <a href="roliki.html">ролики</a> — а на финальном участке, где нужно протянуть груз на расстояние или вверх по уклону, подключаем лебёдку.</p>
 
             <h3>Сколько стоит аренда лебёдки</h3>
-<p>Фиксированного тарифа нет — цена зависит от грузоподъёмности, длительности и сложности задачи. Опишите ситуацию по телефону или в WhatsApp — рассчитаем точную стоимость.</p>
+<p>Фиксированного тарифа нет — цена зависит от грузоподъёмности, длительности и сложности задачи. Опишите ситуацию по телефону или в WhatsApp — рассчитаем точную стоимость.</p>
 
         <div class="gz-interlink-block" style="max-width:900px;margin:0 auto;padding:0 20px 10px;font-size:.95rem;color:#334155;">
 
@@ -846,14 +765,14 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <section class="contact-form-section" id="callback-form">
     <div class="contact-form-container">
         <h2>Арендовать лебёдку</h2>
-        <p>Оставьте заявку — перезвоним через 5 минут и уточним детали</p>
+        <p>Оставьте заявку — перезвоним через 5 минут и уточним детали</p>
         <form class="callback-form" id="callbackForm">
             <input type="text" name="name" placeholder="Ваше имя" required>
             <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
             <button type="submit" id="callbackSubmitBtn">Арендовать лебёдку</button>
         </form>
         <div class="form-success" id="callbackSuccess">✅ Спасибо! Мы свяжемся с вами в ближайшее время.</div>
-            <p class="gz-oferta-note" style="font-size:.8rem;color:#94a3b8;margin-top:10px;text-align:center;">Нажимая кнопку «Отправить заявку», вы соглашаетесь с <a href="../oferta.html" style="color:#94a3b8;text-decoration:underline;">условиями публичной оферты</a> и даёте согласие на обработку персональных данных. Услуги могут оказываться привлекаемыми субподрядчиками (независимыми исполнителями).</p>
+            <p class="gz-oferta-note" style="font-size:.8rem;color:#64748b;margin-top:10px;text-align:center;">Нажимая кнопку «Отправить заявку», вы соглашаетесь с <a href="../oferta.html" style="color:#64748b;text-decoration:underline;">условиями публичной оферты</a> и даёте согласие на обработку персональных данных. Услуги могут оказываться привлекаемыми субподрядчиками (независимыми исполнителями).</p>
     </div>
 </section>
 
@@ -863,7 +782,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <div class="gz-f-grid">
 <div>
 <a class="gz-f-logo" href="../"><img src="../assets/logo-light.svg" alt="Gruzim.kz" width="172" height="36" loading="lazy" decoding="async"></a>
-<p><a href="https://www.gruzim.kz/">Грузоперевозки в Астане</a> и переезды под ключ. Работаем 6 лет.</p>
+<p><a href="https://www.gruzim.kz/">Грузоперевозки в Астане</a> и переезды под ключ. Работаем с 2019 года.</p>
 <div class="gz-f-social">
 <a href="https://www.instagram.com/gruzim.kz/" target="_blank" rel="noopener">Instagram</a>
 <a href="https://www.youtube.com/@gruzimkz" target="_blank" rel="noopener">YouTube</a>
@@ -875,7 +794,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <div><div class="gz-f-title">Сервис и вывоз</div><ul><li><a href="../musor.html">Вывоз мусора</a></li><li><a href="../musor/stroy.html">Строительный мусор</a></li><li><a href="../musor/hlam.html">Вывоз хлама</a></li><li><a href="../upakovka.html">Упаковка вещей</a></li><li><a href="../mebel.html">Сборка мебели</a></li><li><a href="../shop.html">Магазин упаковки</a></li><li><a href="../B2B.html">Юридическим лицам</a></li></ul></div>
 <div>
 <div class="gz-f-title">Контакты</div>
-<a class="gz-f-phone" href="tel:+77010120300">+7 701 012 03 00</a>
+<a class="gz-f-phone" href="tel:+77010120300">+7 701 012 03 00</a>
 <ul>
 <li><a href="https://wa.me/77010120300" target="_blank" rel="noopener">Написать в WhatsApp</a></li>
 <li><a href="mailto:gruzemkz@gmail.com">gruzemkz@gmail.com</a></li>
@@ -886,6 +805,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <div class="gz-f-bottom">
 <span>&copy; 2019–2026 gruzim.kz. Все права защищены.</span>
 <span>ИП «Gruzim.kz», ИИН 810106401426, РК, г. Астана, ул. Таскескен 17б</span>
+<a href="../o-kompanii.html">О компании</a>
 <a href="../oferta.html">Публичная оферта</a>
 <span class="gz-f-pay" aria-label="Способы оплаты"><i>Visa</i><i>Mastercard</i><i>Kaspi Red</i></span>
 </div>
@@ -988,8 +908,8 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         document.getElementById('terms-of-service-link')?.addEventListener('click', (e) => { e.preventDefault(); alert('Условия использования: заказывая услуги, вы соглашаетесь с нашими правилами.'); });
 
         if (isMobileForLoad) {
-            setTimeout(() => { var aosScript = document.createElement('script'); aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js'; aosScript.onload = function() { AOS.init({ duration: 400, once: true, offset: 50 }); }; document.body.appendChild(aosScript); }, 2000);
-        } else { var aosScriptD = document.createElement('script'); aosScriptD.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js'; aosScriptD.onload = function() { AOS.init({ duration: 900, once: true }); }; document.body.appendChild(aosScriptD); }
+            setTimeout(() => { var aosScript = document.createElement('script'); aosScript.src = '../assets/vendor/aos.js'; aosScript.onload = function() { AOS.init({ duration: 400, once: true, offset: 50 }); }; document.body.appendChild(aosScript); }, 2000);
+        } else { var aosScriptD = document.createElement('script'); aosScriptD.src = '../assets/vendor/aos.js'; aosScriptD.onload = function() { AOS.init({ duration: 900, once: true }); }; document.body.appendChild(aosScriptD); }
     })();
 </script>
 <script>

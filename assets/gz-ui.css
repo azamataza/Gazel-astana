@@ -348,3 +348,194 @@ html.gz-menu-open, html.gz-menu-open body { overflow: hidden; }
   .gz-hero .gz-hero-stats li { padding: 0 6px; }
   .gz-hero .gz-hero-stats span { font-size: 12.5px; }
 }
+
+/* ---------- 7. Кнопки ---------- */
+:root {
+  --gz-btn-radius: 12px;
+  --gz-btn-radius-s: 10px;
+  --gz-btn-h-l: 56px;
+  --gz-btn-h-m: 48px;
+  --gz-btn-h-s: 40px;
+}
+
+/* База */
+.cta-button, .cta-btn, .cta-band-btn, .btn-primary, .btn-white, .btn-secondary,
+.glass-service-btn, .bl-wa,
+.callback-form button:not(.cta), .form-submit, .related-grid > a:not(.related-card),
+.bl-links > a, .videos-cta > a, .gz-review-btn,
+.tariff-btn, .card-btn, .hub-more {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px;
+  box-sizing: border-box !important;
+  border-radius: var(--gz-btn-radius) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  text-align: center;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  vertical-align: middle;
+}
+
+/* L — 56px: hero, CTA-полосы, главные действия */
+.cta-button, .cta-btn, .cta-band-btn, .btn-primary, .btn-white, .btn-secondary,
+.glass-service-btn, .bl-wa {
+  min-height: var(--gz-btn-h-l) !important;
+  height: auto !important;
+  padding: 8px 32px !important;
+  font-size: 16px !important;
+}
+
+/* M — 48px: формы, кнопки в карточках, «смотрите также», отзывы */
+.callback-form button:not(.cta), .form-submit,
+.service-card .cta-button, .card .cta-button, .tariff-card .cta-button,
+.contact-info .cta-button, .calculator-wrapper .cta-button, .calculator-form .cta-button,
+.sec-more .cta-button,
+.related-grid > a:not(.related-card), .bl-links > a, .videos-cta > a, .gz-review-btn {
+  min-height: var(--gz-btn-h-m) !important;
+  height: auto !important;
+  padding: 6px 24px !important;
+  font-size: 16px !important;
+}
+
+/* S — 40px: тарифные карточки, «подробнее →» */
+.tariff-btn, .card-btn, .hub-more {
+  min-height: var(--gz-btn-h-s) !important;
+  height: auto !important;
+  padding: 4px 18px !important;
+  font-size: 14px !important;
+  border-radius: var(--gz-btn-radius-s) !important;
+}
+
+/* Иконки */
+.cta-button > svg, .cta-button > i, .cta-button > img,
+.cta-btn > svg, .cta-btn > i, .cta-btn > img,
+.cta-band-btn > svg, .cta-band-btn > i, .cta-band-btn > img,
+.btn-primary > svg, .btn-primary > i, .btn-white > svg, .btn-white > i,
+.bl-wa > svg, .bl-wa > i, .glass-service-btn > svg, .glass-service-btn > i {
+  flex-shrink: 0;
+  margin: 0 !important;
+}
+
+/* display:block из разметки */
+.cta-button[style*="display: block"], .cta-button[style*="display:block"],
+.btn-primary[style*="display: block"], .btn-primary[style*="display:block"] {
+  display: flex !important;
+}
+
+/* Зона нажатия */
+@media (max-width: 480px) {
+  .tariff-btn, .card-btn, .hub-more { min-height: 44px !important; }
+}
+
+/* ---------- 8. Сетка и типографика страниц (.gzp) ---------- */
+:root {
+  --gz-content: 1200px;
+  --gz-section-y: clamp(48px, 2.4vw + 40px, 80px);
+  --gz-h2: clamp(1.625rem, 1.2rem + 1.5vw, 2.25rem);
+  --gz-h2-sm: clamp(1.375rem, 1.1rem + 0.8vw, 1.75rem);
+  --gz-r-card: 16px;
+  --gz-r-panel: 20px;
+  --gz-r-row: 12px;
+  --gz-shadow-card: 0 1px 2px rgba(15, 23, 42, .04), 0 4px 16px rgba(15, 23, 42, .05);
+}
+
+/* Шрифт форм */
+.gzp button, .gzp input, .gzp select, .gzp textarea { font-family: inherit; }
+
+/* Ширина контента */
+.gzp .section:not([style*="max-width"]),
+.gzp .table-section { max-width: calc(var(--gz-content) + 40px) !important; }
+.gzp nav.breadcrumbs ol { max-width: var(--gz-content) !important; }
+
+/* Отступы секций */
+.gzp :is(.section, .table-section, .contact-form-section, .contact-section, .calculator-section,
+         .videos-section, .clients-section, .final-cta, .cta-band, .gz-cases, .mid-cta-section):not([style*="padding"]) {
+  padding-top: var(--gz-section-y) !important;
+  padding-bottom: var(--gz-section-y) !important;
+}
+
+/* Заголовки */
+.gzp :is(h1, h2, h3) { text-wrap: balance; }
+.gzp :is(p, li) { text-wrap: pretty; }
+.gzp :is(.section, .table-section, .sec-head, .contact-section, .videos-section, .clients-section,
+         .calculator-wrapper, .container, .gz-cases, .mid-cta-section) > h2,
+.gzp .section > div:not([class]) > h2, .gzp .calculator-title,
+.gzp .table-title, .gzp .category-title {
+  font-size: var(--gz-h2) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.015em;
+}
+.gzp :is(.seo-article, .contact-form-container, .request-section-bottom, .cta-fullwidth, .cta-banner,
+         .cta-band, .final-cta) h2 {
+  font-size: var(--gz-h2-sm) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em;
+}
+
+/* Ссылки в тексте */
+:where(.gzp :is(.gz-interlink-block, .seo-article, .faq-answer, .mfaq-item, .price-list, .why-item,
+                .tariff-includes, .cargo-item, td, li) a:not([class])) {
+  color: var(--gz-blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(37, 99, 235, .35);
+}
+:where(.gzp :is(.gz-interlink-block, .seo-article, .faq-answer, .mfaq-item, .price-list, .why-item,
+                .tariff-includes, .cargo-item, td, li) a:not([class])):hover {
+  color: var(--gz-blue-dark);
+  text-decoration-color: currentColor;
+}
+
+/* SEO-тексты */
+.gzp .seo-article :is(p, li, ul, ol, table, td),
+.gzp .section :is(p, ul, div)[style*="justify"] { text-align: left !important; }
+.gzp .seo-article .gz-interlink-block { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+.gzp .seo-article .gz-interlink-block p { text-align: left !important; }
+
+/* Скругления */
+.gzp :is(.cargo-item, .step-box, .step-item, .card, .service-card, .process-card, .advantage-card,
+         .product-card, .feature-item, .tariff-card, .client-card, .important-notice, .legal-entity-item,
+         .stat-item, .why-item) { border-radius: var(--gz-r-card) !important; }
+.gzp .tariff-photo { border-radius: calc(var(--gz-r-card) - 1px) calc(var(--gz-r-card) - 1px) 0 0 !important; }
+.gzp :is(.contact-form-container, .seo-article, .furniture-table, .tech-table, .price-table-wrap,
+         .calculator-wrapper, .service-table-wrapper, .matras-table, .bl-cta, .bl-facts, .bl-frame) {
+  border-radius: var(--gz-r-panel) !important;
+}
+.gzp :is(.faq-item, .mfaq-item) { border-radius: var(--gz-r-row) !important; }
+.gzp :is(.hub-card, .veh, .step, .hb-card, .gallery-slide) { border-radius: var(--gz-r-card) !important; }
+.gzp :is(.geo-box, .price-list, .ptable-wrap, .b2b-strip, .request-section-bottom, .calculator-container,
+         .videos-viewport) { border-radius: var(--gz-r-panel) !important; }
+/* Равные колонки */
+.gzp :is(.cargo-grid, .cards-grid, .tariff-grid, .why-grid, .steps-grid, .features-grid) > * { min-width: 0; }
+
+/* Тени карточек */
+.gzp :is(.mfaq-item, .seo-article, .furniture-table, .tech-table, .matras-table, .client-card,
+         .process-card, .advantage-card, .product-card, .card, .service-card, .stat-item, .step-item,
+         .feature-item, .contact-form-container, .legal-entity-item):not(:hover) {
+  box-shadow: var(--gz-shadow-card) !important;
+}
+
+/* Кнопки в карточках */
+.gzp .tariff-grid > .tariff-card, .gzp .cards-grid > .card { display: flex; flex-direction: column; }
+.gzp .hub-grid > * > :last-child { margin-top: auto; }
+.gzp .tariff-grid > .tariff-card > :is(a, button):last-child,
+.gzp .cards-grid > .card > :is(a, button, .card-footer):last-child { margin-top: auto; }
+
+/* Группы кнопок на телефоне */
+@media (max-width: 560px) {
+  .gzp :is(.hero-buttons, .cta-buttons, .cta-band-buttons, .hero-cta-row, .hero-glass-buttons) {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .gzp :is(.hero-buttons, .cta-buttons, .cta-band-buttons, .hero-cta-row, .hero-glass-buttons) > * {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}

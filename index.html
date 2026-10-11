@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Грузоперевозки в Астане от 5 000 ₸/час — газель, грузчики, переезды | Gruzim.kz</title>
-    <meta name="description" content="Грузоперевозки по Астане: минивэн от 5 000 ₸/ч, газель от 7 000 ₸/ч, грузовик до 5 т. Грузчики, переезды, вывоз мусора, такелаж. Заказы 24/7, безнал для юрлиц. 6 лет, 500+ заказов.">
+    <meta name="description" content="Грузоперевозки по Астане: минивэн от 5 000 ₸/ч, газель от 7 000 ₸/ч, грузовик до 5 т. Грузчики, переезды, вывоз мусора, такелаж. Заказы 24/7, безнал для юрлиц. с 2019 года, 500+ заказов.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="geo.region" content="KZ-AST">
     <meta name="geo.placename" content="Астана">
@@ -41,270 +41,240 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" media="(min-width: 769px)">
 
     <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img,svg{display:block;max-width:100%}
-a{color:inherit}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #2563eb;outline-offset:2px}
-
-/* hero (base; финальный вид — в assets/gz-ui.css) */
-.hero-header{position:relative;color:#fff;padding:88px 20px 72px;text-align:center;overflow:hidden;background:#1f2937}
-.hero-bg{position:absolute;inset:0;z-index:0;margin:0;line-height:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-header::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.7);z-index:1;pointer-events:none}
-.hero-header .header-content{position:relative;z-index:2}
-.hero-header h1{font-size:2.6em;line-height:1.15;margin-bottom:14px}
-.hero-sub{max-width:680px;margin:0 auto;color:rgba(255,255,255,.92)}
-.hero-cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:26px 0 8px}
-
-/* кнопки */
-.cta-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#2563eb;color:#fff;padding:14px 30px;border-radius:999px;text-decoration:none;font-weight:600;font-size:1.05em;transition:background-color .2s,transform .2s;border:0;cursor:pointer;white-space:nowrap}
-.cta-button:hover{background:#1e40af;transform:translateY(-1px)}
-.cta-button svg{width:19px;height:19px;fill:currentColor;flex-shrink:0}
-.cta-button--wa{background:#1faa53}
-.cta-button--wa:hover{background:#178a43}
-.cta-button--ghost{background:transparent;color:#2563eb;border:1.5px solid #bfdbfe}
-.cta-button--ghost:hover{background:#eff6ff;color:#1e40af}
-
-/* секции */
-.band{background:#fff;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-.section{padding:80px 20px;max-width:1200px;margin:0 auto}
-.sec-head{text-align:center;max-width:760px;margin:0 auto 44px}
-.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2563eb;margin-bottom:10px}
-.section h2{font-size:2.2em;line-height:1.2;color:#0f172a;letter-spacing:-.01em}
-.sec-head p{color:#64748b;margin-top:12px;font-size:1.02em}
-.sec-more{text-align:center;margin-top:32px}
-
-/* тарифы */
-.fleet{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.veh{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .2s;position:relative}
-.veh:hover{border-color:#2563eb;box-shadow:0 12px 32px rgba(15,23,42,.08);transform:translateY(-2px)}
-.veh--hit{border:2px solid #2563eb}
-.veh-badge{position:absolute;top:-11px;left:22px;background:#2563eb;color:#fff;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
-.veh-ico{width:52px;height:52px;border-radius:14px;background:#eff6ff;display:flex;align-items:center;justify-content:center}
-.veh-ico svg{width:30px;height:30px;stroke:#2563eb;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.veh h3{font-size:1.12em;color:#0f172a;line-height:1.3}
-.veh-price{font-size:1.6em;font-weight:800;color:#0f172a;letter-spacing:-.02em;line-height:1}
-.veh-price small{font-size:.5em;font-weight:600;color:#64748b;letter-spacing:0}
-.veh ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.92em;color:#475569;border-top:1px dashed #e2e8f0;padding-top:12px}
-.veh ul b{color:#0f172a;font-weight:600}
-.veh-link{margin-top:auto;font-size:.9em;font-weight:600;color:#2563eb}
-
-.ptable-wrap{margin-top:36px;background:#fff;border:1px solid #e2e8f0;border-radius:18px;overflow:hidden}
-.ptable-wrap h3{font-size:1.1em;color:#0f172a;padding:20px 24px 0}
-.ptable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px}
-.ptable caption{text-align:left;padding:4px 24px 14px;color:#64748b;font-size:.9em}
-.ptable th,.ptable td{padding:14px 24px;text-align:left;border-top:1px solid #f1f5f9;white-space:nowrap}
-.ptable thead th{background:#f8fafc;font-size:.82em;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:700}
-.ptable tbody th{font-weight:600;color:#0f172a}
-.ptable td b{color:#2563eb}
-.ptable-note{padding:14px 24px 20px;font-size:.88em;color:#64748b;border-top:1px solid #f1f5f9}
-
-/* что перевозим */
-.cargo{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.cargo-item{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px}
-.cargo-item svg{width:26px;height:26px;stroke:#f97316;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;margin-bottom:10px}
-.cargo-item h3{font-size:1em;color:#0f172a;margin-bottom:4px}
-.cargo-item p{font-size:.88em;color:#64748b}
-.cargo-item a{color:#2563eb;text-decoration:none}
-
-/* услуги */
-.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
-.hub-head{min-height:62px}
-@media(min-width:1240px){.hub-card .hub-chips--fill{row-gap:16px}}
-.hub-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s}
-.hub-card--link{position:relative;cursor:pointer}.hub-more{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:.9em;font-weight:600;color:#2563eb;text-decoration:none;padding:9px 16px;border:1px solid #2563eb;border-radius:10px;transition:background .2s,color .2s}.hub-more::after{content:"";position:absolute;inset:0;border-radius:18px}.hub-card--link:hover .hub-more{background:#2563eb;color:#fff}
-.hub-card:hover{border-color:#2563eb}
-.hub-card--wide{grid-column:span 2}
-.hub-card--accent{border:2px solid #2563eb}
-.hub-head{display:flex;align-items:flex-start;gap:12px}
-.hub-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:#eff6ff;display:flex;align-items:center;justify-content:center}
-.hub-ico svg{width:22px;height:22px;stroke:#2563eb;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.hub-card--accent .hub-ico{background:#2563eb}
-.hub-card--accent .hub-ico svg{stroke:#fff}
-.hub-title{flex:1}
-.hub-title h3{font-size:1.08em;line-height:1.3}
-.hub-title h3 a{color:#0f172a;text-decoration:none}
-.hub-title h3 a:hover{color:#2563eb}
-.hub-price{display:inline-block;margin-top:5px;font-size:.85em;font-weight:700;color:#2563eb;background:#eff6ff;padding:3px 11px;border-radius:20px;white-space:nowrap}
-.hub-card>p{font-size:.92em;color:#475569}
-.hub-chips{display:flex;flex-wrap:wrap;gap:8px;border-top:1px dashed #e2e8f0;padding-top:12px}
-.hub-chips a{font-size:.85em;color:#334155;text-decoration:none;background:#f1f5f9;border-radius:999px;padding:5px 12px;transition:background .15s,color .15s}
-.hub-chips a:hover{background:#eff6ff;color:#2563eb}
-
-.hub-links summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:.9em;font-weight:600;color:var(--gz-blue);padding:9px 0 2px;border-top:1px dashed var(--gz-line);user-select:none;}
-.hub-links summary::-webkit-details-marker{display:none;}
-.hub-links summary::after{content:'';width:8px;height:8px;border-right:2px solid var(--gz-blue);border-bottom:2px solid var(--gz-blue);transform:rotate(45deg);transition:transform .2s;margin-top:-4px;}
-.hub-links[open]>summary::after{transform:rotate(-135deg);margin-top:4px;}
-.hub-count{font-size:.8em;font-weight:700;color:var(--gz-muted);background:#f1f5f9;border-radius:20px;padding:1px 9px;}
-.hub-links ul{list-style:none;margin:6px 0 0;padding:0;}
-.hub-links ul li a{display:block;padding:8px 0 8px 16px;font-size:.9em;color:#334155;text-decoration:none;border-left:2px solid var(--gz-line);transition:color .15s,border-color .15s;}
-.hub-links ul li a:hover{color:var(--gz-blue);border-left-color:var(--gz-blue);}
-.hub-sub{margin-top:6px;border-left:2px solid var(--gz-line);}
-.hub-sub summary{border-top:0;padding:8px 0 8px 16px;color:var(--gz-ink);font-weight:600;font-size:.9em;}
-.hub-sub summary::after{border-color:var(--gz-muted);}
-.hub-sub ul{margin-left:14px;}
-.hub-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;}
-
-/* цены */
-.price-list{max-width:820px;margin:0 auto;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:12px 24px}
-.price-row{display:flex;align-items:baseline;gap:10px;padding:13px 0;text-decoration:none;border-bottom:1px solid #f1f5f9}
-.price-row:last-child{border-bottom:0}
-.price-row span{color:#1e293b;font-weight:600;font-size:.97em}
-.price-row i{flex:1;border-bottom:2px dotted #cbd5e1;transform:translateY(-4px)}
-.price-row b{color:#2563eb;font-weight:700;white-space:nowrap}
-.price-row:hover span{color:#2563eb}
-.price-note{text-align:center;color:#64748b;font-size:.88em;margin-top:14px}
-
-/* почему / шаги */
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.why-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:24px}
-.why-item svg{width:26px;height:26px;stroke:#f97316;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:12px}
-.why-item h3{font-size:1.02em;color:#0f172a;margin-bottom:6px}
-.why-item p{font-size:.9em;color:#475569}
-.why-item a{color:#2563eb}
-.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
-.step{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:24px 20px 20px;position:relative;counter-increment:step}
-.step::before{content:counter(step);position:absolute;top:-14px;left:20px;width:28px;height:28px;border-radius:50%;background:#2563eb;color:#fff;font-weight:700;font-size:.9em;display:flex;align-items:center;justify-content:center}
-.step h3{font-size:.98em;color:#0f172a;margin:4px 0 6px}
-.step p{font-size:.88em;color:#475569}
-
-/* техника */
-.gallery-groups{display:flex;flex-direction:column;gap:34px}
-.gallery-group-title{font-size:1.05em;font-weight:700;color:#0f172a;margin:0 0 14px;display:flex;align-items:center;gap:10px}
-.gallery-group-title::before{content:'';width:4px;height:18px;background:#2563eb;border-radius:2px}
-.gallery-slider{display:flex;align-items:center;gap:10px}
-.gallery-arrow{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;color:#0f172a;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,border-color .2s;flex-shrink:0;box-shadow:0 2px 8px rgba(15,23,42,.07)}
-.gallery-arrow svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.gallery-arrow:hover{background:#2563eb;color:#fff;border-color:#2563eb}
-.gallery-viewport{overflow-x:auto;overflow-y:hidden;flex:1;scroll-snap-type:x mandatory;scrollbar-width:none}
-.gallery-viewport::-webkit-scrollbar{display:none}
-.gallery-track{display:flex;gap:14px;padding:4px 2px}
-.gallery-slide{scroll-snap-align:start;flex:0 0 190px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
-.gallery-slide:hover{transform:translateY(-3px);border-color:#2563eb}
-.gallery-slide img{width:100%;height:130px;object-fit:contain;background:#f8fafc;padding:12px}
-.gallery-slide-label{padding:10px 12px 14px;font-size:.84em;font-weight:600;color:#0f172a;text-align:center}
-
-/* блог */
-.hb-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.hb-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid #e2e8f0;border-radius:18px;background:#fff;text-decoration:none;transition:border-color .2s}
-.hb-card:hover{border-color:#2563eb}
-.hb-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0b1220}
-.hb-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hb-body{display:flex;flex-direction:column;gap:8px;padding:16px 18px 20px}
-.hb-cat{color:#2563eb;font-size:13px;font-weight:600}
-.hb-title{color:#0f172a;font-size:17px;font-weight:700;line-height:1.35}
-
-/* районы */
-.geo{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
-.geo-box{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:24px}
-.geo-box h3{font-size:1.05em;color:#0f172a;margin-bottom:12px}
-.geo-chips{display:flex;flex-wrap:wrap;gap:8px}
-.geo-chips span,.geo-chips a{font-size:.9em;background:#f1f5f9;border-radius:999px;padding:6px 14px;color:#334155;text-decoration:none}
-.geo-chips a:hover{background:#eff6ff;color:#2563eb}
-.routes{list-style:none;display:flex;flex-direction:column}
-.routes li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #f1f5f9;font-size:.93em}
-.routes li:last-child{border-bottom:0}
-.routes b{color:#2563eb;white-space:nowrap}
-
-/* B2B */
-.b2b-strip{background:#0f172a;border-radius:22px;padding:44px 40px;color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:24px}
-.b2b-strip>div{flex:1;min-width:260px}
-.b2b-strip h2{color:#fff;font-size:1.7em;margin:0 0 10px}
-.b2b-strip p{color:#cbd5e1;font-size:.95em}
-
-/* FAQ */
-.faq-wrap{max-width:820px;margin:0 auto}
-.faq-item{background:#fff;border:1px solid #e2e8f0;border-radius:14px;margin-bottom:12px;overflow:hidden}
-.faq-item summary{list-style:none;cursor:pointer;padding:17px 48px 17px 20px;font-weight:600;color:#0f172a;position:relative;user-select:none}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'';position:absolute;right:22px;top:23px;width:9px;height:9px;border-right:2px solid #2563eb;border-bottom:2px solid #2563eb;transform:rotate(45deg);transition:transform .2s}
-.faq-item[open]>summary::after{transform:rotate(-135deg);top:27px}
-.faq-a{padding:0 20px 18px;color:#475569;font-size:.95em}
-.faq-a a{color:#2563eb}
-
-/* SEO-текст */
-.seo-article{max-width:860px}
-.seo-article h2{font-size:1.7em;margin-bottom:18px}
-.seo-article h3{font-size:1.15em;color:#0f172a;margin:26px 0 10px}
-.seo-article p,.seo-article li{color:#334155;font-size:.97em}
-.seo-article p{margin-bottom:14px}
-.seo-article ul{margin:0 0 14px 20px}
-.seo-article li{margin-bottom:6px}
-.seo-article a{color:#2563eb}
-
-/* финальный CTA */
-.final-cta{background:#2563eb;text-align:center;padding:60px 20px}
-.final-cta h2{color:#fff;font-size:1.9em;margin-bottom:8px}
-.final-cta p{color:#dbeafe;margin-bottom:24px}
-.final-cta .cta-button{background:#fff;color:#2563eb;margin:0 6px 10px}
-.final-cta .cta-button--wa{background:#1faa53;color:#fff}
-
-/* FAB */
-.floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;align-items:flex-end;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
-.floating-buttons.is-visible{opacity:1;pointer-events:all}
-.fab-menu{display:flex;flex-direction:column;align-items:center;margin-bottom:10px}
-.fab-menu-item{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;color:#fff;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,.2);transform:scale(0);opacity:0;pointer-events:none}
-.fab-menu-item svg,.fab-main svg{width:24px;height:24px;fill:currentColor}
-.fab-menu-item.show{animation:fabPopIn .3s forwards ease-out;pointer-events:all}
-@keyframes fabPopIn{0%{transform:scale(0);opacity:0}80%{transform:scale(1.1);opacity:1}100%{transform:scale(1);opacity:1}}
-.fab-menu-item.call{background:#2563eb}.fab-menu-item.whatsapp{background:#25D366}.fab-menu-item.telegram{background:#0088cc}
-.fab-main{width:60px;height:60px;border-radius:50%;background:#f97316;color:#fff;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;z-index:1000;transition:transform .2s}
-.fab-main svg{width:28px;height:28px}
-.fab-main:hover{transform:scale(1.08)}
-.fab-main::after{content:'';position:absolute;inset:0;border-radius:50%;background:#f97316;z-index:-1;animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite}
-@keyframes gzRing{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(1.85);opacity:0}}
-
-/* адаптив */
-@media(max-width:1024px){
-  .fleet{grid-template-columns:1fr 1fr}
-  .cargo{grid-template-columns:1fr 1fr}
-  .hub-grid{grid-template-columns:1fr 1fr}
-  .why-grid{grid-template-columns:1fr 1fr}
-  .steps-row{grid-template-columns:1fr 1fr;gap:28px 16px}
-}
-@media(max-width:900px){.hb-grid{grid-template-columns:1fr 1fr}.hb-card:nth-child(3){display:none}.geo{grid-template-columns:1fr}}
-@media(max-width:768px){
-  html{scroll-padding-top:60px}
-  .section,.band>.section{padding:54px 16px}
-  .section,.videos-section{content-visibility:auto;contain-intrinsic-size:auto 700px}
-  .sec-head{margin-bottom:30px}
-  .section h2{font-size:1.6em}
-  .hero-header h1{font-size:1.8em}
-  .hero-cta-row .cta-button{width:100%;max-width:340px}
-  .fleet{gap:14px}
-  .veh{padding:20px 18px}
-  .veh-price{font-size:1.4em}
-  .hub-grid,.why-grid{grid-template-columns:1fr;gap:14px}
-  .hub-card,.hub-card--wide{grid-column:auto}
-  .hub-cols{grid-template-columns:1fr}
-  .steps-row{grid-template-columns:1fr;gap:26px}
-  .b2b-strip{padding:28px 20px}
-  .b2b-strip h2{font-size:1.35em}
-  .price-list{padding:6px 16px}
-  .price-row{flex-wrap:wrap}
-  .price-row i{display:none}
-  .price-row b{margin-left:auto}
-  .final-cta h2{font-size:1.45em}
-  .gallery-slide{flex:0 0 130px}
-  .gallery-slide img{height:95px;padding:8px}
-  .gallery-arrow{width:32px;height:32px}
-  .ptable th,.ptable td{padding:12px 16px}
-  .ptable-wrap h3,.ptable caption,.ptable-note{padding-left:16px;padding-right:16px}
-  .fab-main::after{display:none}
-  .fab-main{box-shadow:0 4px 14px rgba(249,115,22,.55),0 0 0 4px rgba(249,115,22,.22)}
-}
-@media(max-width:560px){
-  .fleet,.cargo{grid-template-columns:1fr}
-  .veh-ico{display:none}
-  .veh{gap:10px}
-  .hb-grid{grid-template-columns:1fr}.hb-card:nth-child(3){display:flex}
-}
-@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
-    </style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:72px}
+    body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit}
+    .hero-header{position:relative;color:#fff;padding:88px 20px 72px;text-align:center;overflow:hidden;background:#1f2937}
+    .hero-bg{position:absolute;inset:0;z-index:0;margin:0;line-height:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover}
+    .hero-header::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.7);z-index:1;pointer-events:none}
+    .hero-header .header-content{position:relative;z-index:2}
+    .hero-header h1{font-size:2.6em;line-height:1.15;margin-bottom:14px}
+    .hero-sub{max-width:680px;margin:0 auto;color:rgba(255,255,255,.92)}
+    .hero-cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:26px 0 8px}
+    .cta-button{gap:8px;background:#2563eb;color:#fff;text-decoration:none;transition:background-color .2s,transform .2s;border:0;cursor:pointer;white-space:nowrap}
+    .cta-button:hover{background:#1e40af;transform:translateY(-1px)}
+    .cta-button svg{width:19px;height:19px;fill:currentColor;flex-shrink:0}
+    .cta-button--wa{background:#1faa53}
+    .cta-button--wa:hover{background:#178a43}
+    .cta-button--ghost{background:transparent;color:#2563eb;border:1.5px solid #bfdbfe}
+    .cta-button--ghost:hover{background:#eff6ff;color:#1e40af}
+    .band{background:#fff;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+    .section{padding:80px 20px;max-width:1200px;margin:0 auto}
+    .sec-head{text-align:center;max-width:760px;margin:0 auto 44px}
+    .eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2563eb;margin-bottom:10px}
+    .section h2{font-size:2.2em;line-height:1.2;color:#0f172a;letter-spacing:-.01em}
+    .sec-head p{color:#64748b;margin-top:12px;font-size:1.02em}
+    .sec-more{text-align:center;margin-top:32px}
+    .fleet{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .veh{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .2s;position:relative}
+    .veh:hover{border-color:#2563eb;box-shadow:0 12px 32px rgba(15,23,42,.08);transform:translateY(-2px)}
+    .veh--hit{border:2px solid #2563eb}
+    .veh-badge{position:absolute;top:-11px;left:22px;background:#2563eb;color:#fff;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+    .veh-ico{width:52px;height:52px;border-radius:14px;background:#eff6ff;display:flex;align-items:center;justify-content:center}
+    .veh-ico svg{width:30px;height:30px;stroke:#2563eb;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .veh h3{font-size:1.12em;color:#0f172a;line-height:1.3}
+    .veh-price{font-size:1.6em;font-weight:800;color:#0f172a;letter-spacing:-.02em;line-height:1}
+    .veh-price small{font-size:.5em;font-weight:600;color:#64748b;letter-spacing:0}
+    .veh ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.92em;color:#475569;border-top:1px dashed #e2e8f0;padding-top:12px}
+    .veh ul b{color:#0f172a;font-weight:600}
+    .veh-link{margin-top:auto;font-size:.9em;font-weight:600;color:#2563eb}
+    .ptable-wrap{margin-top:36px;background:#fff;border:1px solid #e2e8f0;border-radius:18px;overflow:hidden}
+    .ptable-wrap h3{font-size:1.1em;color:#0f172a;padding:20px 24px 0}
+    .ptable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px}
+    .ptable caption{text-align:left;padding:4px 24px 14px;color:#64748b;font-size:.9em}
+    .ptable th,.ptable td{padding:14px 24px;text-align:left;border-top:1px solid #f1f5f9;white-space:nowrap}
+    .ptable thead th{background:#f8fafc;font-size:.82em;text-transform:uppercase;letter-spacing:.04em;color:#64748b;font-weight:700}
+    .ptable tbody th{font-weight:600;color:#0f172a}
+    .ptable td b{color:#2563eb}
+    .ptable-note{padding:14px 24px 20px;font-size:.88em;color:#64748b;border-top:1px solid #f1f5f9}
+    .cargo{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .cargo-item{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px}
+    .cargo-item svg{width:26px;height:26px;stroke:#2563eb;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;margin-bottom:10px}
+    .cargo-item h3{font-size:1em;color:#0f172a;margin-bottom:4px}
+    .cargo-item p{font-size:.88em;color:#64748b}
+    .cargo-item a{color:#2563eb;text-decoration:none}
+    .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+    .hub-head{min-height:62px}
+    @media(min-width:1240px){
+      .hub-card .hub-chips--fill{row-gap:16px}
+    }
+    .hub-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s}
+    .hub-card--link{position:relative;cursor:pointer}
+    .hub-more{align-self:flex-start;margin-top:auto;gap:6px;color:#2563eb;text-decoration:none;border:1px solid #2563eb;transition:background .2s,color .2s}
+    .hub-more::after{content:"";position:absolute;inset:0;border-radius:18px}
+    .hub-card--link:hover .hub-more{background:#2563eb;color:#fff}
+    .hub-card:hover{border-color:#2563eb}
+    .hub-card--wide{grid-column:span 2}
+    .hub-card--accent{border:2px solid #2563eb}
+    .hub-head{display:flex;align-items:flex-start;gap:12px}
+    .hub-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:#eff6ff;display:flex;align-items:center;justify-content:center}
+    .hub-ico svg{width:22px;height:22px;stroke:#2563eb;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .hub-card--accent .hub-ico{background:#2563eb}
+    .hub-card--accent .hub-ico svg{stroke:#fff}
+    .hub-title{flex:1}
+    .hub-title h3{font-size:1.08em;line-height:1.3}
+    .hub-title h3 a{color:#0f172a;text-decoration:none}
+    .hub-title h3 a:hover{color:#2563eb}
+    .hub-price{display:inline-block;margin-top:5px;font-size:.85em;font-weight:700;color:#2563eb;background:#eff6ff;padding:3px 11px;border-radius:20px;white-space:nowrap}
+    .hub-card>p{font-size:.92em;color:#475569}
+    .hub-chips{display:flex;flex-wrap:wrap;gap:8px;border-top:1px dashed #e2e8f0;padding-top:12px}
+    .hub-chips a{font-size:.85em;color:#334155;text-decoration:none;background:#f1f5f9;border-radius:999px;padding:5px 12px;transition:background .15s,color .15s}
+    .hub-chips a:hover{background:#eff6ff;color:#2563eb}
+    .hub-links summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:.9em;font-weight:600;color:var(--gz-blue);padding:9px 0 2px;border-top:1px dashed var(--gz-line);user-select:none}
+    .hub-links summary::-webkit-details-marker{display:none}
+    .hub-links summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--gz-blue);border-bottom:2px solid var(--gz-blue);transform:rotate(45deg);transition:transform .2s;margin-top:-4px}
+    .hub-count{font-size:.8em;font-weight:700;color:var(--gz-muted);background:#f1f5f9;border-radius:20px;padding:1px 9px}
+    .hub-links ul{list-style:none;margin:6px 0 0;padding:0}
+    .hub-links ul li a{display:block;padding:8px 0 8px 16px;font-size:.9em;color:#334155;text-decoration:none;border-left:2px solid var(--gz-line);transition:color .15s,border-color .15s}
+    .hub-links ul li a:hover{color:var(--gz-blue);border-left-color:var(--gz-blue)}
+    .hub-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+    .price-list{max-width:820px;margin:0 auto;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:12px 24px}
+    .price-row{display:flex;align-items:baseline;gap:10px;padding:13px 0;text-decoration:none;border-bottom:1px solid #f1f5f9}
+    .price-row:last-child{border-bottom:0}
+    .price-row span{color:#1e293b;font-weight:600;font-size:.97em}
+    .price-row i{flex:1;border-bottom:2px dotted #cbd5e1;transform:translateY(-4px)}
+    .price-row b{color:#2563eb;font-weight:700;white-space:nowrap}
+    .price-row:hover span{color:#2563eb}
+    .price-note{text-align:center;color:#64748b;font-size:.88em;margin-top:14px}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .why-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:24px}
+    .why-item svg{width:26px;height:26px;stroke:#2563eb;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:12px}
+    .why-item h3{font-size:1.02em;color:#0f172a;margin-bottom:6px}
+    .why-item p{font-size:.9em;color:#475569}
+    .why-item a{color:#2563eb}
+    .steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
+    .step{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:24px 20px 20px;position:relative;counter-increment:step}
+    .step::before{content:counter(step);position:absolute;top:-14px;left:20px;width:28px;height:28px;border-radius:50%;background:#2563eb;color:#fff;font-weight:700;font-size:.9em;display:flex;align-items:center;justify-content:center}
+    .step h3{font-size:.98em;color:#0f172a;margin:4px 0 6px}
+    .step p{font-size:.88em;color:#475569}
+    .gallery-groups{display:flex;flex-direction:column;gap:34px}
+    .gallery-group-title{font-size:1.05em;font-weight:700;color:#0f172a;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+    .gallery-group-title::before{content:"";width:4px;height:18px;background:#2563eb;border-radius:2px}
+    .gallery-slider{display:flex;align-items:center;gap:10px}
+    .gallery-arrow{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;color:#0f172a;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,border-color .2s;flex-shrink:0;box-shadow:0 2px 8px rgba(15,23,42,.07)}
+    .gallery-arrow svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    .gallery-arrow:hover{background:#2563eb;color:#fff;border-color:#2563eb}
+    .gallery-viewport{overflow-x:auto;overflow-y:hidden;flex:1;scroll-snap-type:x mandatory;scrollbar-width:none}
+    .gallery-viewport::-webkit-scrollbar{display:none}
+    .gallery-track{display:flex;gap:14px;padding:4px 2px}
+    .gallery-slide{scroll-snap-align:start;flex:0 0 190px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+    .gallery-slide:hover{transform:translateY(-3px);border-color:#2563eb}
+    .gallery-slide img{width:100%;height:130px;object-fit:contain;background:#f8fafc;padding:12px}
+    .gallery-slide-label{padding:10px 12px 14px;font-size:.84em;font-weight:600;color:#0f172a;text-align:center}
+    .hb-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .hb-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid #e2e8f0;border-radius:18px;background:#fff;text-decoration:none;transition:border-color .2s}
+    .hb-card:hover{border-color:#2563eb}
+    .hb-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0b1220}
+    .hb-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .hb-body{display:flex;flex-direction:column;gap:8px;padding:16px 18px 20px}
+    .hb-cat{color:#2563eb;font-size:13px;font-weight:600}
+    .hb-title{color:#0f172a;font-size:17px;font-weight:700;line-height:1.35}
+    .geo{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+    .geo-box{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:24px}
+    .geo-box h3{font-size:1.05em;color:#0f172a;margin-bottom:12px}
+    .geo-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .geo-chips span,.geo-chips a{font-size:.9em;background:#f1f5f9;border-radius:999px;padding:6px 14px;color:#334155;text-decoration:none}
+    .geo-chips a:hover{background:#eff6ff;color:#2563eb}
+    .routes{list-style:none;display:flex;flex-direction:column}
+    .routes li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #f1f5f9;font-size:.93em}
+    .routes li:last-child{border-bottom:0}
+    .routes b{color:#2563eb;white-space:nowrap}
+    .b2b-strip{background:#0f172a;border-radius:22px;padding:44px 40px;color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:24px}
+    .b2b-strip>div{flex:1;min-width:260px}
+    .b2b-strip h2{color:#fff;font-size:1.7em;margin:0 0 10px}
+    .b2b-strip p{color:#cbd5e1;font-size:.95em}
+    .faq-wrap{max-width:820px;margin:0 auto}
+    .faq-item{background:#fff;border:1px solid #e2e8f0;border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .faq-item summary{list-style:none;cursor:pointer;padding:17px 48px 17px 20px;font-weight:600;color:#0f172a;position:relative;user-select:none}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:"";position:absolute;right:22px;top:23px;width:9px;height:9px;border-right:2px solid #2563eb;border-bottom:2px solid #2563eb;transform:rotate(45deg);transition:transform .2s}
+    .faq-a{padding:0 20px 18px;color:#475569;font-size:.95em}
+    .faq-a a{color:#2563eb}
+    .seo-article{max-width:860px}
+    .seo-article h2{font-size:1.7em;margin-bottom:18px}
+    .seo-article h3{font-size:1.15em;color:#0f172a;margin:26px 0 10px}
+    .seo-article p,.seo-article li{color:#334155;font-size:.97em}
+    .seo-article p{margin-bottom:14px}
+    .seo-article ul{margin:0 0 14px 20px}
+    .seo-article li{margin-bottom:6px}
+    .seo-article a{color:#2563eb}
+    .final-cta{background:#eff6ff;border-top:1px solid #dbeafe;border-bottom:1px solid #dbeafe;text-align:center;padding:60px 20px}
+    .final-cta h2{color:#0f172a;font-size:1.9em;margin-bottom:8px}
+    .final-cta p{color:#475569;margin-bottom:24px}
+    .final-cta .cta-button{background:#2563eb;color:#fff;margin:0 6px 10px}
+    .final-cta .cta-button--wa{background:#1faa53;color:#fff}
+    .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;align-items:flex-end;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+    .floating-buttons.is-visible{opacity:1;pointer-events:all}
+    .fab-menu{display:flex;flex-direction:column;align-items:center;margin-bottom:10px}
+    .fab-menu-item{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;color:#fff;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,.2);transform:scale(0);opacity:0;pointer-events:none}
+    .fab-menu-item svg,.fab-main svg{width:24px;height:24px;fill:currentColor}
+    .fab-menu-item.show{animation:fabPopIn .3s forwards ease-out;pointer-events:all}
+    @keyframes fabPopIn{0%{transform:scale(0);opacity:0}80%{transform:scale(1.1);opacity:1}100%{transform:scale(1);opacity:1}}
+    .fab-menu-item.call{background:#2563eb}
+    .fab-menu-item.whatsapp{background:#1FAA53}
+    .fab-menu-item.telegram{background:#0088cc}
+    .fab-main{width:60px;height:60px;border-radius:50%;background:#2563eb;color:#fff;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;z-index:1000;transition:transform .2s}
+    .fab-main svg{width:28px;height:28px}
+    .fab-main:hover{transform:scale(1.08)}
+    .fab-main::after{content:"";position:absolute;inset:0;border-radius:50%;background:#2563eb;z-index:-1;animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite}
+    @keyframes gzRing{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(1.85);opacity:0}}
+    @media(max-width:1024px){
+      .fleet{grid-template-columns:1fr 1fr}
+      .cargo{grid-template-columns:1fr 1fr}
+      .hub-grid{grid-template-columns:1fr 1fr}
+      .why-grid{grid-template-columns:1fr 1fr}
+      .steps-row{grid-template-columns:1fr 1fr;gap:28px 16px}
+    }
+    @media(max-width:900px){
+      .hb-grid{grid-template-columns:1fr 1fr}
+      .hb-card:nth-child(3){display:none}
+      .geo{grid-template-columns:1fr}
+    }
+    @media(max-width:768px){
+      html{scroll-padding-top:60px}
+      .section,.band>.section{padding:54px 16px}
+      .section{content-visibility:auto;contain-intrinsic-size:auto 700px}
+      .sec-head{margin-bottom:30px}
+      .section h2{font-size:1.6em}
+      .hero-header h1{font-size:1.8em}
+      .hero-cta-row .cta-button{width:100%;max-width:340px}
+      .fleet{gap:14px}
+      .veh{padding:20px 18px}
+      .veh-price{font-size:1.4em}
+      .hub-grid,.why-grid{grid-template-columns:1fr;gap:14px}
+      .hub-card,.hub-card--wide{grid-column:auto}
+      .hub-cols{grid-template-columns:1fr}
+      .steps-row{grid-template-columns:1fr;gap:26px}
+      .b2b-strip{padding:28px 20px}
+      .b2b-strip h2{font-size:1.35em}
+      .price-list{padding:6px 16px}
+      .price-row{flex-wrap:wrap}
+      .price-row i{display:none}
+      .price-row b{margin-left:auto}
+      .final-cta h2{font-size:1.45em}
+      .gallery-slide{flex:0 0 130px}
+      .gallery-slide img{height:95px;padding:8px}
+      .gallery-arrow{width:32px;height:32px}
+      .ptable th,.ptable td{padding:12px 16px}
+      .ptable-wrap h3,.ptable caption,.ptable-note{padding-left:16px;padding-right:16px}
+      .fab-main::after{display:none}
+      .fab-main{box-shadow:0 4px 14px rgba(37,99,235,.55),0 0 0 4px rgba(37,99,235,.22)}
+    }
+    @media(max-width:560px){
+      .fleet,.cargo{grid-template-columns:1fr}
+      .veh-ico{display:none}
+      .veh{gap:10px}
+      .hb-grid{grid-template-columns:1fr}
+      .hb-card:nth-child(3){display:flex}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+    }
+  </style>
 
     <script type="application/ld+json">
 {
@@ -632,7 +602,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
    "name": "Как быстро вы можете подать машину?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "При свободной машине подаём в течение 1–2 часов после заявки. Чтобы закрепить удобное время, лучше согласовать заказ заранее."
+    "text": "При свободной машине подаём в течение часа после заявки. Чтобы закрепить удобное время, лучше согласовать заказ заранее."
    }
   },
   {
@@ -678,9 +648,9 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
  ]
 }
     </script>
-    <link rel="stylesheet" href="assets/gz-ui.css?v=2">
+    <link rel="stylesheet" href="assets/gz-ui.css?v=4">
 </head>
-<body>
+<body class="gzp">
 <!-- GZ-UI:HEADER -->
 <header id="gz-header">
 <div class="gz-bar">
@@ -704,7 +674,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 </div>
 </div>
 <div class="gz-lang" aria-label="Язык / Тіл"><a href="./" class="is-active" lang="ru">РУС</a><a href="indexkz.html" lang="kk">ҚАЗ</a></div>
-<a class="gz-phone" href="tel:+77010120300"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>+7 701 012 03 00</span></a>
+<a class="gz-phone" href="tel:+77010120300"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>+7 701 012 03 00</span></a>
 </div>
 </div>
 </header>
@@ -729,7 +699,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <a href="upakovka/hrupkoe.html">Хрупкое, зеркала, картины</a>
 <a href="shop.html">Упаковочные материалы</a></div></details>
 <details><summary>Вывоз мусора</summary><div class="gz-d-sub"><a href="musor.html" class="gz-d-over">О вывозе мусора</a>
-<details><summary>Строительный мусор</summary><div class="gz-d-sub"><a href="musor/stroy.html" class="gz-d-over">Стройка — обзор и цены</a>
+<details><summary>Строительный мусор</summary><div class="gz-d-sub"><a href="musor/stroy.html" class="gz-d-over">Стройка — обзор и цены</a>
 <a href="musor/stroy/remont.html">После ремонта</a>
 <a href="musor/stroy/beton.html">Бетон, кирпич, стяжка</a>
 <a href="musor/stroy/grunt.html">Грунт и земля</a>
@@ -737,7 +707,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <a href="musor/stroy/meshki.html">Мешками (малый объём)</a>
 <a href="musor/stroy/krupnogabarit.html">Крупногабаритный</a>
 <a href="musor/stroy/plitka-santehnika.html">Плитка, сантехника, окна</a></div></details>
-<details><summary>Старая мебель</summary><div class="gz-d-sub"><a href="musor/mebel.html" class="gz-d-over">Вся мебель — цены</a>
+<details><summary>Старая мебель</summary><div class="gz-d-sub"><a href="musor/mebel.html" class="gz-d-over">Вся мебель — цены</a>
 <a href="musor/mebel/divan.html">Вывоз дивана</a>
 <a href="musor/mebel/shkaf.html">Вывоз шкафа</a>
 <a href="musor/mebel/shkaf-kupe.html">Вывоз шкафа-купе</a>
@@ -745,7 +715,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <a href="musor/mebel/krovat.html">Вывоз кровати</a>
 <a href="musor/mebel/stenka.html">Вывоз стенки</a>
 <a href="musor/mebel/melkaya.html">Мелкая мебель</a></div></details>
-<details><summary>Бытовая техника</summary><div class="gz-d-sub"><a href="musor/tehnika.html" class="gz-d-over">Техника — обзор и цены</a>
+<details><summary>Бытовая техника</summary><div class="gz-d-sub"><a href="musor/tehnika.html" class="gz-d-over">Техника — обзор и цены</a>
 <a href="musor/tehnika/holodilnik.html">Холодильник</a>
 <a href="musor/tehnika/stiralnaya-mashina.html">Стиральная машина</a>
 <a href="musor/tehnika/plita.html">Плита и духовка</a>
@@ -754,14 +724,14 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <a href="musor/tehnika/konditsioner.html">Кондиционер</a>
 <a href="musor/tehnika/boiler.html">Водонагреватель (бойлер)</a>
 <a href="musor/tehnika/melkaya-tehnika.html">Мелкая техника</a></div></details>
-<details><summary>Сантехника</summary><div class="gz-d-sub"><a href="musor/santehnika.html" class="gz-d-over">Сантехника — обзор и цены</a>
+<details><summary>Сантехника</summary><div class="gz-d-sub"><a href="musor/santehnika.html" class="gz-d-over">Сантехника — обзор и цены</a>
 <a href="musor/santehnika/vanna.html">Ванна</a>
 <a href="musor/santehnika/unitaz.html">Унитаз</a>
 <a href="musor/santehnika/dzhakuzi.html">Джакузи</a>
 <a href="musor/santehnika/dushevaya-kabina.html">Душевая кабина</a>
 <a href="musor/santehnika/rakovina.html">Раковина</a>
 <a href="musor/santehnika/sanuzel-pod-klyuch.html">Санузел под ключ</a></div></details>
-<details><summary>Хлам и старые вещи</summary><div class="gz-d-sub"><a href="musor/hlam.html" class="gz-d-over">Хлам — обзор и цены</a>
+<details><summary>Хлам и старые вещи</summary><div class="gz-d-sub"><a href="musor/hlam.html" class="gz-d-over">Хлам — обзор и цены</a>
 <a href="musor/hlam/kvartira.html">Хлам из квартиры</a>
 <a href="musor/hlam/balkon.html">С балкона и лоджии</a>
 <a href="musor/hlam/dacha.html">С дачи и участка</a>
@@ -772,12 +742,12 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <a href="musor/hlam/osvobozhdenie.html">Освобождение квартиры</a></div></details>
 <a href="musor/matras.html">Матрасы</a>
 <a href="musor/night.html">Ночной вывоз</a>
-<details><summary>Форматы услуги</summary><div class="gz-d-sub"><a href="musor/uslugi.html" class="gz-d-over">Форматы — обзор и цены</a>
+<details><summary>Форматы услуги</summary><div class="gz-d-sub"><a href="musor/uslugi.html" class="gz-d-over">Форматы — обзор и цены</a>
 <a href="musor/uslugi/gazel.html">Газель для мусора</a>
 <a href="musor/uslugi/gruzchiki.html">Грузчики для выноса</a>
 <a href="musor/uslugi/srochno.html">Срочно / в день обращения</a>
-<a href="musor/uslugi/nedorogo.html">Недорого — как считаем</a></div></details>
-<details><summary>По районам Астаны</summary><div class="gz-d-sub"><a href="musor/rayony.html" class="gz-d-over">Районы — обзор</a>
+<a href="musor/uslugi/nedorogo.html">Недорого — как считаем</a></div></details>
+<details><summary>По районам Астаны</summary><div class="gz-d-sub"><a href="musor/rayony.html" class="gz-d-over">Районы — обзор</a>
 <a href="musor/rayony/esil.html">Есильский район</a>
 <a href="musor/rayony/almaty.html">Алматинский район</a>
 <a href="musor/rayony/saryarka.html">Район Сарыарка</a>
@@ -800,7 +770,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <a href="#o-kompanii" class="gz-d-link">О нас</a>
 </div>
 <div class="gz-drawer-foot">
-<div class="gz-drawer-row"><a class="gz-d-phone" href="tel:+77010120300">+7 701 012 03 00</a><div class="gz-lang" aria-label="Язык / Тіл"><a href="./" class="is-active" lang="ru">РУС</a><a href="indexkz.html" lang="kk">ҚАЗ</a></div></div>
+<div class="gz-drawer-row"><a class="gz-d-phone" href="tel:+77010120300">+7 701 012 03 00</a><div class="gz-lang" aria-label="Язык / Тіл"><a href="./" class="is-active" lang="ru">РУС</a><a href="indexkz.html" lang="kk">ҚАЗ</a></div></div>
 <a class="gz-d-wa" href="https://wa.me/77010120300" target="_blank" rel="noopener" data-gz-conv><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.32A10 10 0 1 0 12 2zm5.47 14.14c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.77-1.09-4.53-3.9-4.67-4.08-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.18.69-.8.87-1.08.18-.28.37-.23.62-.14.25.09 1.59.75 1.86.89.27.14.46.2.53.32.06.11.06.66-.18 1.31z"/></svg>Написать в WhatsApp</a>
 <p class="gz-d-hours">Звонки и WhatsApp: 8:00–20:00 · заказы выполняем 24/7</p>
 </div>
@@ -813,60 +783,60 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
         <picture class="hero-bg">
             <source media="(max-width:768px)" type="image/webp" srcset="fon-mobile.webp">
             <source media="(max-width:768px)" srcset="fon-mobile.jpg">
+            <source media="(min-width:1441px)" type="image/webp" srcset="fon-xl.webp">
             <source type="image/webp" srcset="fon.webp">
             <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
         </picture>
         <div class="header-content">
-            <p class="gz-hero-eyebrow">Gruzim.kz — больше, чем грузоперевозки</p>
+            <p class="gz-hero-eyebrow">Gruzim.kz — больше, чем грузоперевозки</p>
             <h1>Грузоперевозки в Астане</h1>
-            <p class="hero-sub">Минивэн, газель и грузовик до 5 тонн — с грузчиками или без, от 5 000 ₸/час. Переезды под ключ, вывоз мусора, упаковка и такелаж.</p>
+            <p class="hero-sub">Минивэн, газель и грузовик до 5 тонн — с грузчиками или без, от 5 000 ₸/час. Переезды под ключ, вывоз мусора, упаковка и такелаж.</p>
             <div class="hero-cta-row">
                 <a href="https://wa.me/77010120300?text=Здравствуйте!%20Хочу%20рассчитать%20стоимость%20грузоперевозки" class="cta-button cta-button--wa" target="_blank" rel="noopener" data-gz-conv><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.32A10 10 0 1 0 12 2zm5.47 14.14c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.77-1.09-4.53-3.9-4.67-4.08-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.18.69-.8.87-1.08.18-.28.37-.23.62-.14.25.09 1.59.75 1.86.89.27.14.46.2.53.32.06.11.06.66-.18 1.31z"/></svg>Расчёт в WhatsApp</a>
             </div>
-            <p class="gz-hero-note">Отвечаем на звонки и в WhatsApp с 8:00 до 20:00</p>
+            <p class="gz-hero-note">Отвечаем на звонки и в WhatsApp с 8:00 до 20:00</p>
             <ul class="gz-hero-stats" aria-label="Ключевые показатели компании">
-                <li><b>6 лет</b><span>на рынке</span></li>
+                <li><b>2019</b><span>год основания</span></li>
                 <li><b>500+</b><span>выполненных заказов</span></li>
                 <li><b>24/7</b><span>выполняем заказы</span></li>
             </ul>
         </div>
     </header>
 
-    <!-- 1. Тарифы на грузоперевозки — главный блок под запрос «грузоперевозки Астана» -->
     <section class="section" id="tarify" aria-labelledby="tarify-h">
         <div class="sec-head">
             <span class="eyebrow">Тарифы 2026</span>
             <h2 id="tarify-h">Грузоперевозки по Астане: машины и цены</h2>
-            <p>Почасовая оплата без скрытых доплат. Минимальный заказ — 1 час, далее шаг 30 минут. В ставку входят машина, водитель и топливо по городу.</p>
+            <p>Почасовая оплата без скрытых доплат. Минимальный заказ — 1 час, далее шаг 30 минут. В ставку входят машина, водитель и топливо по городу.</p>
         </div>
         <div class="fleet">
             <a class="veh" href="gruz/bus.html">
                 <span class="veh-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 21V11a2 2 0 0 1 2-2h15l6 6v6"/><path d="M3 21h2m6 0h10m6 0h2v-6"/><circle cx="8" cy="22" r="2.5"/><circle cx="24" cy="22" r="2.5"/><path d="M20 9v6h6"/></svg></span>
                 <h3>Минивэн (бус)</h3>
-                <div class="veh-price">5 000 ₸ <small>/ час</small></div>
-                <ul><li>Грузоподъёмность: <b>до 0,5 т</b></li><li>Объём кузова: <b>3–4 м³</b></li><li>Вещи, техника, коробки</li></ul>
+                <div class="veh-price">5 000 ₸ <small>/ час</small></div>
+                <ul><li>Грузоподъёмность: <b>до 0,5 т</b></li><li>Объём кузова: <b>3–4 м³</b></li><li>Вещи, техника, коробки</li></ul>
                 <span class="veh-link">Подробнее →</span>
             </a>
             <a class="veh veh--hit" href="gruz/chasovoi.html">
                 <span class="veh-badge">Чаще всего заказывают</span>
                 <span class="veh-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="7" width="18" height="15" rx="1.5"/><path d="M20 12h5l4 5v5h-9z"/><circle cx="8" cy="23.5" r="2.5"/><circle cx="24" cy="23.5" r="2.5"/></svg></span>
-                <h3>Газель (3 м)</h3>
-                <div class="veh-price">7 000 ₸ <small>/ час</small></div>
-                <ul><li>Грузоподъёмность: <b>до 1,5 т</b></li><li>Объём кузова: <b>16–18 м³</b></li><li>Мебель, стройматериалы, товар</li></ul>
+                <h3>Газель (3 м)</h3>
+                <div class="veh-price">7 000 ₸ <small>/ час</small></div>
+                <ul><li>Грузоподъёмность: <b>до 1,5 т</b></li><li>Объём кузова: <b>16–18 м³</b></li><li>Мебель, стройматериалы, товар</li></ul>
                 <span class="veh-link">Подробнее →</span>
             </a>
             <a class="veh" href="gruz/chasovoi.html">
                 <span class="veh-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="7" width="21" height="15" rx="1.5"/><path d="M22 12h4l4 5v5h-8z"/><circle cx="7" cy="23.5" r="2.5"/><circle cx="25" cy="23.5" r="2.5"/><path d="M6 11h11"/></svg></span>
-                <h3>Газель удлинённая (4–5 м)</h3>
-                <div class="veh-price">8 000 ₸ <small>/ час</small></div>
-                <ul><li>Грузоподъёмность: <b>до 2 т</b></li><li>Длинномер, переезд 2–3 комнат</li><li>Можно с грузчиками</li></ul>
+                <h3>Газель удлинённая (4–5 м)</h3>
+                <div class="veh-price">8 000 ₸ <small>/ час</small></div>
+                <ul><li>Грузоподъёмность: <b>до 2 т</b></li><li>Длинномер, переезд 2–3 комнат</li><li>Можно с грузчиками</li></ul>
                 <span class="veh-link">Подробнее →</span>
             </a>
             <a class="veh" href="gruz/komplekt.html">
                 <span class="veh-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="5" width="20" height="17" rx="1.5"/><path d="M21 11h5l5 6v5H21z"/><circle cx="7" cy="24" r="2.5"/><circle cx="14" cy="24" r="2.5"/><circle cx="26" cy="24" r="2.5"/></svg></span>
-                <h3>Грузовик (5–6 м)</h3>
-                <div class="veh-price">15 000 ₸ <small>/ час</small></div>
-                <ul><li>Грузоподъёмность: <b>до 5 т</b></li><li>Большие переезды и партии товара</li><li>Оборудование и стройматериалы</li></ul>
+                <h3>Грузовик (5–6 м)</h3>
+                <div class="veh-price">15 000 ₸ <small>/ час</small></div>
+                <ul><li>Грузоподъёмность: <b>до 5 т</b></li><li>Большие переезды и партии товара</li><li>Оборудование и стройматериалы</li></ul>
                 <span class="veh-link">Подробнее →</span>
             </a>
         </div>
@@ -875,62 +845,60 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
             <h3>Цены на грузоперевозки с грузчиками</h3>
             <div class="ptable-scroll">
                 <table class="ptable">
-                    <caption>Стоимость за 1 час работы транспорта по Астане</caption>
+                    <caption>Стоимость за 1 час работы транспорта по Астане</caption>
                     <thead><tr><th scope="col">Транспорт</th><th scope="col">Грузоподъёмность</th><th scope="col">Без грузчиков</th><th scope="col">С 1 грузчиком</th><th scope="col">С 2 грузчиками</th></tr></thead>
                     <tbody>
-                        <tr><th scope="row">Минивэн</th><td>до 0,5 т</td><td><b>5 000 ₸</b></td><td>8 500 ₸</td><td>12 000 ₸</td></tr>
-                        <tr><th scope="row">Газель (3 м)</th><td>до 1,5 т</td><td><b>7 000 ₸</b></td><td>10 500 ₸</td><td>14 000 ₸</td></tr>
-                        <tr><th scope="row">Газель удлинённая (4–5 м)</th><td>до 2 т</td><td><b>8 000 ₸</b></td><td>11 500 ₸</td><td>15 000 ₸</td></tr>
-                        <tr><th scope="row">Грузовик (5–6 м)</th><td>до 5 т</td><td><b>15 000 ₸</b></td><td>—</td><td>—</td></tr>
+                        <tr><th scope="row">Минивэн</th><td>до 0,5 т</td><td><b>5 000 ₸</b></td><td>8 500 ₸</td><td>12 000 ₸</td></tr>
+                        <tr><th scope="row">Газель (3 м)</th><td>до 1,5 т</td><td><b>7 000 ₸</b></td><td>10 500 ₸</td><td>14 000 ₸</td></tr>
+                        <tr><th scope="row">Газель удлинённая (4–5 м)</th><td>до 2 т</td><td><b>8 000 ₸</b></td><td>11 500 ₸</td><td>15 000 ₸</td></tr>
+                        <tr><th scope="row">Грузовик (5–6 м)</th><td>до 5 т</td><td><b>15 000 ₸</b></td><td>—</td><td>—</td></tr>
                     </tbody>
                 </table>
             </div>
-            <p class="ptable-note">Подъём без лифта или тяжёлый груз — от 1 000 ₸ за этаж, обсуждается при заказе. Выезд за город и <a href="kay/mezhgorod.html">перевозки по Казахстану</a> считаем отдельно, по километражу.</p>
+            <p class="ptable-note">Подъём без лифта или тяжёлый груз — от 1 000 ₸ за этаж, обсуждается при заказе. Выезд за город и <a href="kay/mezhgorod.html">перевозки по Казахстану</a> считаем отдельно, по километражу.</p>
         </div>
         <div class="sec-more"><a href="gruz/centr.html" class="cta-button cta-button--ghost">Все тарифы на грузоперевозки</a></div>
     </section>
 
-    <!-- 2. Что перевозим -->
     <div class="band">
     <section class="section" id="chto-perevozim" aria-labelledby="cargo-h">
         <div class="sec-head">
             <span class="eyebrow">Грузы</span>
             <h2 id="cargo-h">Что перевозим по городу</h2>
-            <p>Бытовые, офисные и коммерческие грузы — подберём машину под объём, чтобы вы не переплачивали за лишний кузов.</p>
+            <p>Бытовые, офисные и коммерческие грузы — подберём машину под объём, чтобы вы не переплачивали за лишний кузов.</p>
         </div>
         <div class="cargo">
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"/><path d="M2 14h20v4H2z"/><path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg><h3>Мебель</h3><p>Диваны, шкафы, кровати — <a href="mebel.html">разберём и соберём</a></p></div>
+            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"/><path d="M2 14h20v4H2z"/><path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg><h3>Мебель</h3><p>Диваны, шкафы, кровати — <a href="mebel.html">разберём и соберём</a></p></div>
             <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 9h14"/><path d="M9 5v1M9 12v3"/></svg><h3>Бытовая техника</h3><p>Холодильники, стиральные машины, телевизоры</p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg><h3>Коробки и вещи</h3><p>Квартира, дача, склад — <a href="upakovka.html">упакуем</a> при необходимости</p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="13" width="9" height="8"/><rect x="13" y="13" width="9" height="8"/><rect x="7" y="4" width="10" height="8"/></svg><h3>Стройматериалы</h3><p>Плитка, кирпич, сухие смеси — по Астане и пригороду</p></div>
+            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg><h3>Коробки и вещи</h3><p>Квартира, дача, склад — <a href="upakovka.html">упакуем</a> при необходимости</p></div>
+            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="13" width="9" height="8"/><rect x="13" y="13" width="9" height="8"/><rect x="7" y="4" width="10" height="8"/></svg><h3>Стройматериалы</h3><p>Плитка, кирпич, сухие смеси — по Астане и пригороду</p></div>
             <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1-5h16l1 5"/><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/><path d="M5 13v8h14v-8"/></svg><h3>Товары для бизнеса</h3><p>Поставки в магазины и на склады, партии от поставщиков</p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><h3>Оргтехника</h3><p>Компьютеры, принтеры, серверы — <a href="kay/ofice.html">переезд офиса</a></p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M12 8v1M16 12h-1"/></svg><h3>Сейфы и станки</h3><p>Тяжёлые грузы — <a href="takelazh.html">такелажные работы</a></p></div>
+            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><h3>Оргтехника</h3><p>Компьютеры, принтеры, серверы — <a href="kay/ofice.html">переезд офиса</a></p></div>
+            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M12 8v1M16 12h-1"/></svg><h3>Сейфы и станки</h3><p>Тяжёлые грузы — <a href="takelazh.html">такелажные работы</a></p></div>
             <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><h3>Архивы и документы</h3><p>Бережная перевозка корпоративных архивов</p></div>
         </div>
     </section>
     </div>
 
-    <!-- 3. Все услуги -->
     <section class="section" id="uslugi" aria-labelledby="uslugi-h">
         <div class="sec-head">
             <span class="eyebrow">Полный цикл</span>
             <h2 id="uslugi-h">Услуги и цены в Астане</h2>
-            <p>Вокруг перевозки закрываем все смежные задачи — одна компания вместо пяти подрядчиков.</p>
+            <p>Вокруг перевозки закрываем все смежные задачи — одна компания вместо пяти подрядчиков.</p>
         </div>
         <div class="hub-grid">
             <article class="hub-card">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg></span>
-                    <div class="hub-title"><h3><a href="gruz/centr.html">Грузоперевозки по Астане</a></h3><span class="hub-price">от 5 000 ₸/час</span></div>
+                    <div class="hub-title"><h3><a href="gruz/centr.html">Грузоперевозки по Астане</a></h3><span class="hub-price">от 5 000 ₸/час</span></div>
                 </div>
-                <p>Минивэны, газели и грузовики до 5 тонн — с грузчиками или без. Почасовая оплата, подача за 1–2 часа.</p>
+                <p>Минивэны, газели и грузовики до 5 тонн — с грузчиками или без. Почасовая оплата, подача в течение часа.</p>
                 <div class="hub-chips"><a href="gruz/chasovoi.html">Газель почасово</a><a href="gruz/bus.html">Минивэн (бус)</a><a href="gruz/komplekt.html">Газель + 2 грузчика</a></div>
             </article>
             <article class="hub-card hub-card--accent">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/><path d="M3 12v9h18v-9"/></svg></span>
-                    <div class="hub-title"><h3><a href="pereezdkay.html">Переезд под ключ в Астане</a></h3><span class="hub-price">от 35 000 ₸</span></div>
+                    <div class="hub-title"><h3><a href="pereezdkay.html">Переезд под ключ в Астане</a></h3><span class="hub-price">от 35 000 ₸</span></div>
                 </div>
                 <p>Упаковка, разборка мебели, перевозка, сборка и расстановка на новом месте. Цена фиксируется в договоре.</p>
                 <div class="hub-chips"><a href="kay/kvartira.html">Квартирный переезд</a><a href="kay/ofice.html">Переезд офиса</a><a href="kay/mezhgorod.html">Межгород по Казахстану</a></div>
@@ -946,7 +914,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
             <article class="hub-card hub-card--wide" id="hub-musor">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></span>
-                    <div class="hub-title"><h3><a href="musor.html">Вывоз мусора в Астане</a></h3><span class="hub-price">от 5 000 ₸</span></div>
+                    <div class="hub-title"><h3><a href="musor.html">Вывоз мусора в Астане</a></h3><span class="hub-price">от 5 000 ₸</span></div>
                 </div>
                 <p>Вывоз с грузчиками и разбором мебели: строительный мусор, старая мебель, техника, хлам. Отвозим на центральный полигон по договору, выдаём акты. Выезд в день обращения во все районы.</p>
                 <div class="hub-cols">
@@ -954,7 +922,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
                         <details class="hub-links">
                             <summary>Строительный мусор <span class="hub-count">8</span></summary>
                             <ul>
-                                <li><a href="musor/stroy.html">Вывоз строительного мусора — обзор и цены</a></li>
+                                <li><a href="musor/stroy.html">Вывоз строительного мусора — обзор и цены</a></li>
                                 <li><a href="musor/stroy/remont.html">Вывоз мусора после ремонта</a></li>
                                 <li><a href="musor/stroy/beton.html">Бетон, кирпич, стяжка</a></li>
                                 <li><a href="musor/stroy/grunt.html">Вывоз грунта и земли</a></li>
@@ -967,7 +935,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
                         <details class="hub-links">
                             <summary>Старая мебель <span class="hub-count">8</span></summary>
                             <ul>
-                                <li><a href="musor/mebel.html">Вывоз старой мебели — обзор и цены</a></li>
+                                <li><a href="musor/mebel.html">Вывоз старой мебели — обзор и цены</a></li>
                                 <li><a href="musor/mebel/divan.html">Вывоз дивана</a></li>
                                 <li><a href="musor/mebel/shkaf.html">Вывоз шкафа</a></li>
                                 <li><a href="musor/mebel/shkaf-kupe.html">Вывоз шкафа-купе</a></li>
@@ -980,7 +948,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
                         <details class="hub-links">
                             <summary>Бытовая техника <span class="hub-count">9</span></summary>
                             <ul>
-                                <li><a href="musor/tehnika.html">Вывоз бытовой техники — обзор и цены</a></li>
+                                <li><a href="musor/tehnika.html">Вывоз бытовой техники — обзор и цены</a></li>
                                 <li><a href="musor/tehnika/holodilnik.html">Вывоз холодильника</a></li>
                                 <li><a href="musor/tehnika/stiralnaya-mashina.html">Вывоз стиральной машины</a></li>
                                 <li><a href="musor/tehnika/plita.html">Вывоз плиты и духовки</a></li>
@@ -994,7 +962,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
                         <details class="hub-links">
                             <summary>Сантехника <span class="hub-count">7</span></summary>
                             <ul>
-                                <li><a href="musor/santehnika.html">Вывоз сантехники — обзор и цены</a></li>
+                                <li><a href="musor/santehnika.html">Вывоз сантехники — обзор и цены</a></li>
                                 <li><a href="musor/santehnika/vanna.html">Вывоз ванны</a></li>
                                 <li><a href="musor/santehnika/unitaz.html">Вывоз унитаза</a></li>
                                 <li><a href="musor/santehnika/dzhakuzi.html">Вывоз джакузи</a></li>
@@ -1008,7 +976,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
                         <details class="hub-links">
                             <summary>Хлам и старые вещи <span class="hub-count">9</span></summary>
                             <ul>
-                                <li><a href="musor/hlam.html">Вывоз хлама — обзор и цены</a></li>
+                                <li><a href="musor/hlam.html">Вывоз хлама — обзор и цены</a></li>
                                 <li><a href="musor/hlam/kvartira.html">Вывоз хлама из квартиры</a></li>
                                 <li><a href="musor/hlam/balkon.html">Уборка балкона и лоджии</a></li>
                                 <li><a href="musor/hlam/dacha.html">Вывоз хлама с дачи и участка</a></li>
@@ -1022,17 +990,17 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
                         <details class="hub-links">
                             <summary>Форматы услуги <span class="hub-count">5</span></summary>
                             <ul>
-                                <li><a href="musor/uslugi.html">Форматы вывоза — обзор и цены</a></li>
+                                <li><a href="musor/uslugi.html">Форматы вывоза — обзор и цены</a></li>
                                 <li><a href="musor/uslugi/gazel.html">Газель для вывоза мусора</a></li>
                                 <li><a href="musor/uslugi/gruzchiki.html">Грузчики для выноса мусора</a></li>
                                 <li><a href="musor/uslugi/srochno.html">Срочный вывоз в день обращения</a></li>
-                                <li><a href="musor/uslugi/nedorogo.html">Вывоз мусора недорого — как считаем</a></li>
+                                <li><a href="musor/uslugi/nedorogo.html">Вывоз мусора недорого — как считаем</a></li>
                             </ul>
                         </details>
                         <details class="hub-links">
                             <summary>По районам Астаны <span class="hub-count">6</span></summary>
                             <ul>
-                                <li><a href="musor/rayony.html">Вывоз мусора по районам — обзор</a></li>
+                                <li><a href="musor/rayony.html">Вывоз мусора по районам — обзор</a></li>
                                 <li><a href="musor/rayony/esil.html">Есильский район</a></li>
                                 <li><a href="musor/rayony/almaty.html">Алматинский район</a></li>
                                 <li><a href="musor/rayony/saryarka.html">Район Сарыарка</a></li>
@@ -1053,7 +1021,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
             <article class="hub-card">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg></span>
-                    <div class="hub-title"><h3><a href="takelazh.html">Такелажные работы</a></h3><span class="hub-price">от 8 000 ₸/час</span></div>
+                    <div class="hub-title"><h3><a href="takelazh.html">Такелажные работы</a></h3><span class="hub-price">от 8 000 ₸/час</span></div>
                 </div>
                 <p>Перевозка сейфов, станков и оборудования. Подъём без лифта, аренда такелажного оборудования.</p>
                 <div class="hub-chips hub-chips--fill"><a href="takelazh/oborud.html">Станки и оборудование</a><a href="takelazh/save.html">Сейфы</a><a href="takelazh/roh.html">Аренда рохли</a><a href="takelazh/domkrat.html">Домкрат</a><a href="takelazh/lebedka.html">Лебёдка</a><a href="takelazh/roliki.html">Роликовые платформы</a><a href="takelazh/stupenkohod.html">Ступенькоход</a></div>
@@ -1061,7 +1029,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
             <article class="hub-card hub-card--link">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-                    <div class="hub-title"><h3><a href="mebel.html">Сборка и разборка мебели</a></h3><span class="hub-price">от 12 000 ₸</span></div>
+                    <div class="hub-title"><h3><a href="mebel.html">Сборка и разборка мебели</a></h3><span class="hub-price">от 12 000 ₸</span></div>
                 </div>
                 <p>Разборка перед переездом, сборка на новом месте, навеска. Цена фиксируется до начала работ.</p>
                 <a class="hub-more" href="mebel.html">Подробнее →</a>
@@ -1077,7 +1045,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
             <article class="hub-card hub-card--link">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/><path d="M3 8h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M10 8v12"/><path d="M3 12h7"/><path d="M14 12h7"/></svg></span>
-                    <div class="hub-title"><h3><a href="shop.html">Магазин упаковки</a></h3><span class="hub-price">от 400 ₸</span></div>
+                    <div class="hub-title"><h3><a href="shop.html">Магазин упаковки</a></h3><span class="hub-price">от 400 ₸</span></div>
                 </div>
                 <p>Коробки, стрейч- и пузырчатая плёнка, скотч, сумки. Доставка по городу.</p>
                 <a class="hub-more" href="shop.html">Подробнее →</a>
@@ -1085,7 +1053,6 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
         </div>
     </section>
 
-    <!-- 4. Цены на остальные услуги -->
     <div class="band">
     <section class="section" id="ceny" aria-labelledby="ceny-h">
         <div class="sec-head">
@@ -1093,20 +1060,19 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
             <h2 id="ceny-h">Цены на переезды и другие услуги</h2>
         </div>
         <div class="price-list">
-            <a class="price-row" href="kay/kvartira.html"><span>Квартирный переезд — эконом</span><i></i><b>от 35 000 ₸</b></a>
-            <a class="price-row" href="kay/kvartira.html"><span>Квартирный переезд под ключ</span><i></i><b>от 70 000 ₸</b></a>
-            <a class="price-row" href="kay/ofice.html"><span>Офисный переезд под ключ</span><i></i><b>от 50 000 ₸</b></a>
-            <a class="price-row" href="musor.html"><span>Вывоз мусора</span><i></i><b>от 5 000 ₸</b></a>
-            <a class="price-row" href="musor/stroy.html"><span>Вывоз строительного мусора</span><i></i><b>от 12 000 ₸</b></a>
-            <a class="price-row" href="mebel.html"><span>Сборка и разборка мебели</span><i></i><b>от 12 000 ₸</b></a>
-            <a class="price-row" href="takelazh/save.html"><span>Перевозка сейфов</span><i></i><b>от 30 000 ₸</b></a>
-            <a class="price-row" href="takelazh/roh.html"><span>Аренда рохли с доставкой (юрлицам)</span><i></i><b>от 4 000 ₸/час</b></a>
+            <a class="price-row" href="kay/kvartira.html"><span>Квартирный переезд — эконом</span><i></i><b>от 35 000 ₸</b></a>
+            <a class="price-row" href="kay/kvartira.html"><span>Квартирный переезд под ключ</span><i></i><b>от 70 000 ₸</b></a>
+            <a class="price-row" href="kay/ofice.html"><span>Офисный переезд под ключ</span><i></i><b>от 50 000 ₸</b></a>
+            <a class="price-row" href="musor.html"><span>Вывоз мусора</span><i></i><b>от 5 000 ₸</b></a>
+            <a class="price-row" href="musor/stroy.html"><span>Вывоз строительного мусора</span><i></i><b>от 12 000 ₸</b></a>
+            <a class="price-row" href="mebel.html"><span>Сборка и разборка мебели</span><i></i><b>от 12 000 ₸</b></a>
+            <a class="price-row" href="takelazh/save.html"><span>Перевозка сейфов</span><i></i><b>от 30 000 ₸</b></a>
+            <a class="price-row" href="takelazh/roh.html"><span>Аренда рохли с доставкой (юрлицам)</span><i></i><b>от 4 000 ₸/час</b></a>
         </div>
-        <p class="price-note">Точный расчёт — по телефону или в WhatsApp за 5 минут. Названную цену не меняем «по факту».</p>
+        <p class="price-note">Точный расчёт — по телефону или в WhatsApp за 5 минут. Названную цену не меняем «по факту».</p>
     </section>
     </div>
 
-    <!-- 5. Почему мы -->
     <section class="section" id="preimushchestva" aria-labelledby="why-h">
         <div class="sec-head">
             <span class="eyebrow">Почему мы</span>
@@ -1114,15 +1080,14 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
         </div>
         <div class="why-grid">
             <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12"/><path d="M18 15l2 2 4-4"/></svg><h3>Цена без доплат на месте</h3><p>Стоимость называем до начала работ и не меняем в процессе. Никаких «доплат по факту» без согласования.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg><h3>Свой автопарк и бригады</h3><p>Минивэны, газели и грузовики до 5 тонн, штатные грузчики. Не перепродаём заказы посредникам.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h3>Ответственность за груз</h3><p>Работаем по договору и отвечаем за сохранность вещей — от упаковки до расстановки.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3>Подача за 1–2 часа</h3><p>При свободной машине приезжаем в течение пары часов. Заказы выполняем 24/7, звонки и WhatsApp — ежедневно с 8:00 до 20:00.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg><h3>Безнал и документы для юрлиц</h3><p>Договор, счёт, ЭСФ и АВР. Работаем через госзакупки. Корпоративным клиентам — <a href="B2B.html">специальные условия</a>.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.63L17.8 20.5 12 17.27 6.2 20.5l1.05-6.6L2.5 9.27l6.6-1.01L12 2z"/></svg><h3>6 лет и 500+ заказов</h3><p>Отзывы клиентов — в <a href="https://g.page/r/CdZy1ITbhee-EBM/review" target="_blank" rel="noopener">Google</a> и <a href="https://2gis.kz/astana/geo/70000001112483428" target="_blank" rel="noopener">2ГИС</a>: там их нельзя отредактировать.</p></div>
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg><h3>Свой автопарк и бригады</h3><p>Свои газели, минивэн и манипулятор, свои бригады грузчиков. За сохранность вещей отвечаем сами.</p></div>
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h3>Ответственность за груз</h3><p>Работаем по договору и отвечаем за сохранность вещей — от упаковки до расстановки.</p></div>
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3>Подача в течение часа</h3><p>По городу подаём машину в течение часа, в загруженные дни сразу предлагаем ближайшее время. Заказы выполняем 24/7, звонки и WhatsApp — ежедневно с 8:00 до 20:00.</p></div>
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg><h3>Безнал и документы для юрлиц</h3><p>Договор, счёт, ЭСФ и АВР. Работаем через госзакупки. Корпоративным клиентам — <a href="B2B.html">специальные условия</a>.</p></div>
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.63L17.8 20.5 12 17.27 6.2 20.5l1.05-6.6L2.5 9.27l6.6-1.01L12 2z"/></svg><h3>С 2019 года, 500+ заказов</h3><p>Отзывы клиентов — в <a href="https://g.page/r/CdZy1ITbhee-EBM/review" target="_blank" rel="noopener">Google</a> и <a href="https://2gis.kz/astana/geo/70000001112483428" target="_blank" rel="noopener">2ГИС</a>: там их нельзя отредактировать.</p></div>
         </div>
     </section>
 
-    <!-- 6. Как работаем -->
     <div class="band">
     <section class="section" id="kak-rabotaem" aria-labelledby="steps-h">
         <div class="sec-head">
@@ -1138,12 +1103,11 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
     </section>
     </div>
 
-    <!-- 7. Техника -->
     <section class="section" id="nasha-tehnika" aria-labelledby="tech-h">
         <div class="sec-head">
             <span class="eyebrow">Автопарк</span>
             <h2 id="tech-h">Наша техника и оборудование</h2>
-            <p>Собственный автопарк и такелажное оборудование — всё в наличии, без субаренды у третьих лиц.</p>
+            <p>Собственный автопарк и такелажное оборудование: рохли, домкраты, ролики, ступенькоход.</p>
         </div>
         <div class="gallery-groups">
 
@@ -1237,7 +1201,6 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
         </div>
     </section>
 
-    <!-- 8. Районы -->
     <div class="band">
     <section class="section" id="rayony" aria-labelledby="geo-h">
         <div class="sec-head">
@@ -1257,17 +1220,16 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
             <div class="geo-box">
                 <h3>Популярные маршруты</h3>
                 <ul class="routes">
-                    <li><span>Алматинский → Есильский район</span><b>от 8 000 ₸</b></li>
-                    <li><span>Сарыарка → Байконырский район</span><b>от 9 000 ₸</b></li>
-                    <li><span>Нура → Левый берег</span><b>от 10 000 ₸</b></li>
-                    <li><span>Доставка из мебельных магазинов и «Строймаркета»</span><b>от 5 000 ₸</b></li>
+                    <li><span>Алматинский → Есильский район</span><b>от 8 000 ₸</b></li>
+                    <li><span>Сарыарка → Байконырский район</span><b>от 9 000 ₸</b></li>
+                    <li><span>Нура → Левый берег</span><b>от 10 000 ₸</b></li>
+                    <li><span>Доставка из мебельных магазинов и «Строймаркета»</span><b>от 5 000 ₸</b></li>
                 </ul>
             </div>
         </div>
     </section>
     </div>
 
-    <!-- 9. Видео / блог -->
     <section class="section" id="blog" aria-labelledby="blog-h">
         <div class="sec-head">
             <span class="eyebrow">Кейсы</span>
@@ -1292,7 +1254,6 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
         </div>
     </section>
 
-    <!-- 10. FAQ -->
     <div class="band">
     <section class="section" id="faq" aria-labelledby="faq-h">
         <div class="sec-head">
@@ -1300,45 +1261,44 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
             <h2 id="faq-h">Вопросы о грузоперевозках в Астане</h2>
         </div>
         <div class="faq-wrap">
-            <details class="faq-item"><summary>Сколько стоят грузоперевозки по Астане?</summary><div class="faq-a">Оплата почасовая: минимальный заказ — 1 час, далее шаг 30 минут. Минивэн — от 5 000 ₸/ч, газель — от 7 000 ₸/ч, удлинённая газель — от 8 000 ₸/ч, грузовик до 5 т — от 15 000 ₸/ч. В ставку входят машина, водитель и топливо по городу.</div></details>
-            <details class="faq-item"><summary>Сколько стоит газель с грузчиками?</summary><div class="faq-a">Газель с одним грузчиком — от 10 500 ₸/ч, с двумя грузчиками — от 14 000 ₸/ч. Если лифта нет или груз тяжёлый, возможна доплата от 1 000 ₸ за этаж — её обсуждаем при заказе, а не на месте.</div></details>
-            <details class="faq-item"><summary>Какую машину выбрать для переезда квартиры?</summary><div class="faq-a">Для однокомнатной квартиры обычно хватает минивэна или стандартной газели. Для двух-трёхкомнатной — удлинённая газель или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Если не хотите заниматься сборами, закажите <a href="pereezdkay.html">переезд под ключ</a>.</div></details>
-            <details class="faq-item"><summary>Как быстро вы можете подать машину?</summary><div class="faq-a">При свободной машине подаём в течение 1–2 часов после заявки. Чтобы закрепить удобное время, лучше согласовать заказ заранее.</div></details>
-            <details class="faq-item"><summary>Вы работаете ночью и в выходные?</summary><div class="faq-a">Да, без выходных: заказы выполняем 24/7, звонки и WhatsApp принимаем ежедневно с 8:00 до 20:00.</div></details>
-            <details class="faq-item"><summary>Работаете ли вы с юридическими лицами?</summary><div class="faq-a">Да. Договор, безналичный расчёт, ЭСФ и АВР. Участвуем в госзакупках, для постоянных клиентов — <a href="B2B.html">специальные условия</a>.</div></details>
-            <details class="faq-item"><summary>Сколько стоит переезд квартиры в Астане?</summary><div class="faq-a">Квартирный переезд в формате «эконом» — от 35 000 ₸, под ключ с упаковкой, разборкой и сборкой мебели — от 70 000 ₸. Итог зависит от метража, этажа и наличия лифта. Подробнее — на странице <a href="kay/kvartira.html">квартирного переезда</a>.</div></details>
-            <details class="faq-item"><summary>Сколько стоит вывоз мусора?</summary><div class="faq-a">От 5 000 ₸. Мебель с разбором — от 15 000 ₸, строительный мусор — от 12 000 ₸. Отвозим на центральный полигон по договору и выдаём акты. Подробнее — на странице <a href="musor.html">вывоза мусора</a>.</div></details>
-            <details class="faq-item"><summary>Перевозите ли вы грузы в другие города?</summary><div class="faq-a">Да, выполняем перевозки и переезды по Казахстану. Стоимость рассчитываем по километражу и объёму груза — подробнее на странице <a href="kay/mezhgorod.html">межгородских переездов</a>.</div></details>
+            <details class="faq-item"><summary>Сколько стоят грузоперевозки по Астане?</summary><div class="faq-a">Оплата почасовая: минимальный заказ — 1 час, далее шаг 30 минут. Минивэн — от 5 000 ₸/ч, газель — от 7 000 ₸/ч, удлинённая газель — от 8 000 ₸/ч, грузовик до 5 т — от 15 000 ₸/ч. В ставку входят машина, водитель и топливо по городу.</div></details>
+            <details class="faq-item"><summary>Сколько стоит газель с грузчиками?</summary><div class="faq-a">Газель с одним грузчиком — от 10 500 ₸/ч, с двумя грузчиками — от 14 000 ₸/ч. Если лифта нет или груз тяжёлый, возможна доплата от 1 000 ₸ за этаж — её обсуждаем при заказе, а не на месте.</div></details>
+            <details class="faq-item"><summary>Какую машину выбрать для переезда квартиры?</summary><div class="faq-a">Для однокомнатной квартиры обычно хватает минивэна или стандартной газели. Для двух-трёхкомнатной — удлинённая газель или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Если не хотите заниматься сборами, закажите <a href="pereezdkay.html">переезд под ключ</a>.</div></details>
+            <details class="faq-item"><summary>Как быстро вы можете подать машину?</summary><div class="faq-a">При свободной машине подаём в течение часа после заявки. Чтобы закрепить удобное время, лучше согласовать заказ заранее.</div></details>
+            <details class="faq-item"><summary>Вы работаете ночью и в выходные?</summary><div class="faq-a">Да, без выходных: заказы выполняем 24/7, звонки и WhatsApp принимаем ежедневно с 8:00 до 20:00.</div></details>
+            <details class="faq-item"><summary>Работаете ли вы с юридическими лицами?</summary><div class="faq-a">Да. Договор, безналичный расчёт, ЭСФ и АВР. Участвуем в госзакупках, для постоянных клиентов — <a href="B2B.html">специальные условия</a>.</div></details>
+            <details class="faq-item"><summary>Сколько стоит переезд квартиры в Астане?</summary><div class="faq-a">Квартирный переезд в формате «эконом» — от 35 000 ₸, под ключ с упаковкой, разборкой и сборкой мебели — от 70 000 ₸. Итог зависит от метража, этажа и наличия лифта. Подробнее — на странице <a href="kay/kvartira.html">квартирного переезда</a>.</div></details>
+            <details class="faq-item"><summary>Сколько стоит вывоз мусора?</summary><div class="faq-a">От 5 000 ₸. Мебель с разбором — от 15 000 ₸, строительный мусор — от 12 000 ₸. Отвозим на центральный полигон по договору и выдаём акты. Подробнее — на странице <a href="musor.html">вывоза мусора</a>.</div></details>
+            <details class="faq-item"><summary>Перевозите ли вы грузы в другие города?</summary><div class="faq-a">Да, выполняем перевозки и переезды по Казахстану. Стоимость рассчитываем по километражу и объёму груза — подробнее на странице <a href="kay/mezhgorod.html">межгородских переездов</a>.</div></details>
         </div>
     </section>
     </div>
 
-    <!-- 11. SEO-текст -->
     <section class="section seo-article" id="o-kompanii">
         <h2>Грузоперевозки в Астане от Gruzim.kz</h2>
-        <p>Gruzim.kz — транспортная компания полного цикла, которая 6 лет выполняет грузоперевозки по Астане для частных клиентов и бизнеса. За это время — более 500 заказов: от доставки одного холодильника до переезда офисов и цехов. Мы работаем на собственных <a href="gruz/bus.html">минивэнах</a>, <a href="gruz/chasovoi.html">газелях</a> и грузовиках грузоподъёмностью до 5 тонн, со штатными грузчиками.</p>
+        <p>Gruzim.kz — транспортная компания полного цикла, которая с 2019 года выполняет грузоперевозки по Астане для частных клиентов и бизнеса. За это время — более 500 заказов: от доставки одного холодильника до переезда офисов и цехов. Мы работаем на собственных <a href="gruz/bus.html">минивэнах</a>, <a href="gruz/chasovoi.html">газелях</a> и грузовиках грузоподъёмностью до 5 тонн, со своими бригадами грузчиков.</p>
         <h3>Как формируется цена грузоперевозки</h3>
-        <p>Мы считаем время, а не «пакет»: оплата почасовая, минимальный заказ — 1 час, дальше шаг 30 минут. Стоимость зависит от трёх вещей:</p>
+        <p>Мы считаем время, а не «пакет»: оплата почасовая, минимальный заказ — 1 час, дальше шаг 30 минут. Стоимость зависит от трёх вещей:</p>
         <ul>
-            <li><strong>тип машины</strong> — минивэн от 5 000 ₸/ч, газель от 7 000 ₸/ч, грузовик до 5 т от 15 000 ₸/ч;</li>
-            <li><strong>количество грузчиков</strong> — газель с двумя грузчиками от 14 000 ₸/ч (<a href="gruz/komplekt.html">тариф «Комплект»</a>);</li>
-            <li><strong>условия на адресе</strong> — этаж, наличие лифта, расстояние от подъезда до машины.</li>
+            <li><strong>тип машины</strong> — минивэн от 5 000 ₸/ч, газель от 7 000 ₸/ч, грузовик до 5 т от 15 000 ₸/ч;</li>
+            <li><strong>количество грузчиков</strong> — газель с двумя грузчиками от 14 000 ₸/ч (<a href="gruz/komplekt.html">тариф «Комплект»</a>);</li>
+            <li><strong>условия на адресе</strong> — этаж, наличие лифта, расстояние от подъезда до машины.</li>
         </ul>
-        <p>Цену называем до начала работ и не повышаем «по факту». Если уложились быстрее — платите меньше.</p>
+        <p>Цену называем до начала работ и не повышаем «по факту». Если уложились быстрее — платите меньше.</p>
         <h3>Какую машину выбрать</h3>
-        <p>Для вещей из однокомнатной квартиры, бытовой техники и коробок обычно хватает минивэна или стандартной газели. Для двух-трёхкомнатной квартиры или офиса на 10–15 рабочих мест — удлинённая газель или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Грузовик до 5 тонн нужен для больших переездов, партий товара и оборудования, а для сейфов и станков — <a href="takelazh.html">такелажная бригада</a> со своим оборудованием.</p>
+        <p>Для вещей из однокомнатной квартиры, бытовой техники и коробок обычно хватает минивэна или стандартной газели. Для двух-трёхкомнатной квартиры или офиса на 10–15 рабочих мест — удлинённая газель или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Грузовик до 5 тонн нужен для больших переездов, партий товара и оборудования, а для сейфов и станков — <a href="takelazh.html">такелажная бригада</a> со своим оборудованием.</p>
         <h3>Больше, чем перевозка</h3>
-        <p>Если не хочется заниматься сборами, закажите <a href="pereezdkay.html">переезд под ключ</a>: мы <a href="upakovka.html">упакуем вещи</a>, <a href="mebel.html">разберём и соберём мебель</a>, перевезём и расставим всё по комнатам. Ненужное заберём на <a href="musor.html">вывоз мусора</a> — отвозим на центральный полигон по договору. Упаковочные материалы можно купить отдельно в нашем <a href="shop.html">магазине упаковки</a>.</p>
+        <p>Если не хочется заниматься сборами, закажите <a href="pereezdkay.html">переезд под ключ</a>: мы <a href="upakovka.html">упакуем вещи</a>, <a href="mebel.html">разберём и соберём мебель</a>, перевезём и расставим всё по комнатам. Ненужное заберём на <a href="musor.html">вывоз мусора</a> — отвозим на центральный полигон по договору. Упаковочные материалы можно купить отдельно в нашем <a href="shop.html">магазине упаковки</a>.</p>
         <h3>Грузоперевозки для бизнеса</h3>
         <p>Для <a href="B2B.html">юридических лиц</a> работаем по договору с безналичным расчётом, ЭСФ и АВР, участвуем в госзакупках. Возим товар в магазины и на склады, перевозим офисы без остановки работы, для торговых центров выполняем <a href="musor/night.html">ночной вывоз мусора</a>.</p>
-        <p>Заказы выполняем 24/7 во всех районах столицы, заявки по телефону <a href="tel:+77010120300">+7 701 012 03 00</a> и в WhatsApp принимаем ежедневно с 8:00 до 20:00.</p>
+        <p>Заказы выполняем 24/7 во всех районах столицы, заявки по телефону <a href="tel:+77010120300">+7 701 012 03 00</a> и в WhatsApp принимаем ежедневно с 8:00 до 20:00.</p>
     </section>
 </main>
 
 <section class="final-cta">
-    <h2>Рассчитаем грузоперевозку за 5 минут</h2>
-    <p>Позвоните или напишите в WhatsApp — подберём машину и назовём точную цену.</p>
-    <a href="tel:+77010120300" class="cta-button" data-gz-conv>+7 701 012 03 00</a>
+    <h2>Рассчитаем грузоперевозку за 5 минут</h2>
+    <p>Позвоните или напишите в WhatsApp — подберём машину и назовём точную цену.</p>
+    <a href="tel:+77010120300" class="cta-button" data-gz-conv>+7 701 012 03 00</a>
     <a href="https://wa.me/77010120300?text=Здравствуйте!%20Хочу%20рассчитать%20стоимость%20грузоперевозки" class="cta-button cta-button--wa" target="_blank" rel="noopener" data-gz-conv>Написать в WhatsApp</a>
 </section>
 
@@ -1348,7 +1308,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <div class="gz-f-grid">
 <div>
 <a class="gz-f-logo" href="./"><img src="assets/logo-light.svg" alt="Gruzim.kz" width="172" height="36" loading="lazy" decoding="async"></a>
-<p>Грузоперевозки и переезды под ключ в Астане. Работаем 6 лет.</p>
+<p>Грузоперевозки и переезды под ключ в Астане. Работаем с 2019 года.</p>
 <div class="gz-f-social">
 <a href="https://www.instagram.com/gruzim.kz/" target="_blank" rel="noopener">Instagram</a>
 <a href="https://www.youtube.com/@gruzimkz" target="_blank" rel="noopener">YouTube</a>
@@ -1360,7 +1320,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <div><div class="gz-f-title">Сервис и вывоз</div><ul><li><a href="musor.html">Вывоз мусора</a></li><li><a href="musor/stroy.html">Строительный мусор</a></li><li><a href="musor/hlam.html">Вывоз хлама</a></li><li><a href="upakovka.html">Упаковка вещей</a></li><li><a href="mebel.html">Сборка мебели</a></li><li><a href="shop.html">Магазин упаковки</a></li><li><a href="B2B.html">Юридическим лицам</a></li></ul></div>
 <div>
 <div class="gz-f-title">Контакты</div>
-<a class="gz-f-phone" href="tel:+77010120300">+7 701 012 03 00</a>
+<a class="gz-f-phone" href="tel:+77010120300">+7 701 012 03 00</a>
 <ul>
 <li><a href="https://wa.me/77010120300" target="_blank" rel="noopener">Написать в WhatsApp</a></li>
 <li><a href="mailto:gruzemkz@gmail.com">gruzemkz@gmail.com</a></li>
@@ -1371,6 +1331,7 @@ table.ptable{width:100%;border-collapse:collapse;font-size:.95em;min-width:620px
 <div class="gz-f-bottom">
 <span>&copy; 2019–2026 gruzim.kz. Все права защищены.</span>
 <span>ИП «Gruzim.kz», ИИН 810106401426, РК, г. Астана, ул. Таскескен 17б</span>
+<a href="o-kompanii.html">О компании</a>
 <a href="oferta.html">Публичная оферта</a>
 <span class="gz-f-pay" aria-label="Способы оплаты"><i>Visa</i><i>Mastercard</i><i>Kaspi Red</i></span>
 </div>

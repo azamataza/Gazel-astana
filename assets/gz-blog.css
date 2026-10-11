@@ -81,13 +81,13 @@ img { max-width: 100%; height: auto; }
 .bl-body p { margin: 0 0 18px; }
 .bl-body ul, .bl-body ol { margin: 0 0 20px; padding-left: 22px; }
 .bl-body li { margin: 0 0 9px; padding-left: 4px; }
-.bl-body li::marker { color: var(--gz-orange); font-weight: var(--gz-fw-bold); }
+.bl-body li::marker { color: var(--gz-blue); font-weight: var(--gz-fw-bold); }
 .bl-body a { color: var(--gz-blue); text-decoration: underline; text-decoration-color: rgba(37, 99, 235, .35); text-underline-offset: 3px; }
 .bl-body a:hover { text-decoration-color: currentColor; }
 .bl-body strong { color: var(--gz-ink); }
 
 .bl-note {
-  margin: 26px 0; padding: 18px 20px; border-left: 4px solid var(--gz-orange);
+  margin: 26px 0; padding: 18px 20px; border-left: 4px solid var(--gz-blue);
   border-radius: 0 var(--gz-radius) var(--gz-radius) 0; background: #fff7ed; font-size: 16px; line-height: 1.6;
 }
 .bl-note strong { display: block; margin-bottom: 4px; color: #9a3412; }
@@ -198,3 +198,7 @@ img { max-width: 100%; height: auto; }
   html { scroll-behavior: auto; }
   .bl-card, .bl-wa { transition: none; }
 }
+
+/* Об авторе */
+.bl-author { margin: 32px 0 0; padding: 18px 20px; border: 1px solid var(--gz-line); border-radius: 16px; background: var(--gz-bg); color: var(--gz-text); font-size: 15px; line-height: 1.6; }
+.bl-author b { color: var(--gz-ink); }

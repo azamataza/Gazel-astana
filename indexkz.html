@@ -159,8 +159,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fa/fa.css?v=1">
+    <link href="assets/vendor/aos.css" rel="stylesheet">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VWS9V6KVJ"></script>
     <script>
@@ -173,1357 +173,180 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш-ключ-если-нужен&lang=ru_RU" type="text/javascript"></script>
     
     <style>
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            line-height: 1.6;
-            padding-top: 80px;
-            overflow-x: hidden;
-        }
-
-        .floating-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            z-index: 1000;
-            padding: 10px 5%;
-            transition: all 0.3s ease;
-        }
-
-        .floating-header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .burger-menu {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 22px;
-            background: transparent;
-            border: 2px solid #2563eb;
-            border-radius: 8px;
-            cursor: pointer;
-            padding: 4px 5px;
-            z-index: 1100;
-            transition: all 0.2s ease;
-            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.7), 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        .burger-menu span {
-            width: 100%;
-            height: 2.5px;
-            background-color: #2563eb;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .burger-menu:hover {
-            background: #2563eb;
-            box-shadow: 0 0 0 4px #f97316, 0 4px 12px rgba(0,0,0,0.3);
-            transform: scale(1.05);
-        }
-
-        .burger-menu:hover span {
-            background-color: white;
-        }
-
-        .burger-menu.active {
-            background: #2563eb;
-            box-shadow: 0 0 0 4px #f97316;
-        }
-
-        .burger-menu.active span {
-            background-color: white;
-        }
-
-        .burger-menu.active span:nth-child(1) {
-            transform: translateY(6px) rotate(45deg);
-        }
-
-        .burger-menu.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger-menu.active span:nth-child(3) {
-            transform: translateY(-6px) rotate(-45deg);
-        }
-
-        @media (min-width: 1025px) {
-            .burger-menu {
-                display: flex;
-                margin-right: 10px;
-                border-width: 3px;
-                width: 36px;
-                height: 26px;
-            }
-        }
-
-        .floating-logo {
-            height: 45px;
-            width: auto;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: 8px;
-            padding: 4px 8px;
-            background: rgba(37, 99, 235, 0.05);
-            border: 1px solid transparent;
-        }
-
-        .floating-logo:hover {
-            opacity: 0.9;
-            background: rgba(37, 99, 235, 0.1);
-            border-color: #2563eb;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 5%;
-            width: 90%;
-            max-width: 400px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            z-index: 999;
-            padding: 15px 0;
-            border: 1px solid #e2e8f0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            opacity: 0;
-            transform: translateY(-20px);
-            pointer-events: none;
-        }
-
-        .mobile-nav.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-
-        .mobile-nav a {
-            display: block;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #1e293b;
-            text-decoration: none;
-            padding: 12px 20px;
-            transition: all 0.2s ease;
-        }
-
-        .mobile-nav a:hover {
-            background: #eef2ff;
-            color: #2563eb;
-        }
-
-        .mobile-nav-close {
-            display: flex;
-            justify-content: flex-end;
-            padding: 5px 15px 0;
-        }
-        .mobile-nav-close button {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            line-height: 1;
-            cursor: pointer;
-            color: #64748b;
-            padding: 0 5px;
-        }
-        .mobile-nav-close button:hover {
-            color: #2563eb;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .language-switcher {
-            display: flex;
-            gap: 5px;
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: 1px solid #e2e8f0;
-            color: #334155;
-            padding: 6px 12px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .lang-btn:hover,
-        .lang-btn.active {
-            background: #2563eb;
-            border-color: #2563eb;
-            color: white;
-        }
-
-        .city-switcher { position: relative; }
-
-        .city-btn {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: transparent;
-            border: 1px solid #e2e8f0;
-            color: #334155;
-            padding: 6px 12px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .city-btn:hover,
-        .city-switcher.is-open .city-btn {
-            background: #2563eb;
-            border-color: #2563eb;
-            color: white;
-        }
-
-        .city-btn .fa-chevron-down { font-size: 0.7em; transition: transform 0.2s ease; }
-        .city-switcher.is-open .city-btn .fa-chevron-down { transform: rotate(180deg); }
-
-        .city-dropdown {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            min-width: 170px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
-            padding: 6px;
-            display: none;
-            flex-direction: column;
-            gap: 2px;
-            z-index: 1000;
-        }
-
-        .city-switcher.is-open .city-dropdown { display: flex; }
-
-        .city-option {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            padding: 9px 12px;
-            border-radius: 8px;
-            color: #334155;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: background 0.15s ease;
-        }
-
-        .city-option:hover { background: #f1f5f9; }
-        .city-option.is-active { color: #2563eb; }
-        .city-option .fa-check { color: #2563eb; font-size: 0.8em; }
-
-        @media (max-width: 768px) {
-            .city-btn { padding: 4px 10px; font-size: 0.8rem; }
-        }
-
-        .header-phone {
-            color: #2563eb;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-        }
-
-        .header-phone i {
-            font-size: 1rem;
-        }
-
-        .header-phone:hover {
-            color: #1e40af;
-        }
-
-        .hero-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fon.webp') no-repeat center center/cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-            background-attachment: fixed;
-        }
-
-        .hero-header h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        .hero-header p {
-            font-size: 1.3em;
-            max-width: 700px;
-            margin: 0 auto 20px;
-        }
-
-        .hero-guarantee {
-            color: #fbbf24;
-            font-weight: 600;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background-color: #1e40af;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
-        }
-
-        .cta-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #0f172a;
-            text-align: center;
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: #2563eb;
-            border-radius: 4px;
-        }
-
-        .calculator-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 20px;
-            margin-top: 40px;
-        }
-
-        .calculator-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .calculator-title {
-            text-align: center;
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            color: white;
-        }
-
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .map-container {
-            background: #e2e8f0;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 450px; 
-            border: 3px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-
-        .calculator-form {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            color: #1e293b;
-            display: flex;
-            flex-direction: column;
-            height: 450px; 
-            justify-content: space-between;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            flex-shrink: 0;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #2563eb;
-        }
-
-        .tariff-selector {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-        }
-
-        .tariff-option {
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 10px 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.9em;
-            font-weight: 600;
-        }
-
-        .tariff-option:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .tariff-option.selected {
-            border-color: #2563eb;
-            background: #eef2ff;
-        }
-
-        .tariff-option .price {
-            color: #2563eb;
-            font-size: 1em;
-            margin-top: 3px;
-        }
-
-        .hours-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .hours-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #2563eb;
-            background: white;
-            color: #2563eb;
-            font-size: 1.5em;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .hours-btn:hover {
-            background: #2563eb;
-            color: white;
-        }
-
-        .hours-btn:active {
-            transform: scale(0.95);
-        }
-
-        #hoursInput {
-            width: 80px;
-            text-align: center;
-            padding: 10px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1.2em;
-            font-weight: 600;
-        }
-
-        #hoursInput:focus {
-            outline: none;
-            border-color: #2563eb;
-        }
-
-        .hours-value {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #2563eb;
-            text-align: center;
-            margin: 5px 0;
-        }
-
-        .total-price {
-            font-size: 2em;
-            font-weight: 800;
-            color: #2563eb;
-            text-align: center;
-            padding: 12px;
-            background: #eef2ff;
-            border-radius: 15px;
-            margin: 10px 0;
-            flex-shrink: 0;
-            word-break: break-word;
-            line-height: 1.2;
-        }
-
-        .calculator-note {
-            font-size: 0.85em;
-            color: #64748b;
-            text-align: center;
-            margin-top: auto;
-            flex-shrink: 0;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: #2563eb;
-        }
-
-        .card .icon {
-            font-size: 2.5em;
-            color: #2563eb;
-            margin-bottom: 20px;
-            background: #e0f2fe;
-            padding: 15px;
-            border-radius: 60px;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card h3 {
-            font-size: 1.5em;
-            color: #0f172a;
-            margin-bottom: 15px;
-        }
-
-        .card .price {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #2563eb;
-            margin: 15px 0;
-        }
-
-        .card--premium {
-            background: linear-gradient(145deg, #fef9e7, #fff);
-            border: 2px solid #fbbf24;
-        }
-
-        .card--premium .icon {
-            background: #fef3c7;
-            color: #d97706;
-        }
-
-        .card--furniture {
-            background: #f5f7fa;
-            border: 2px solid #94a3b8;
-            color: #1e293b;
-        }
-        .card--furniture h3,
-        .card--furniture p {
-            color: #1e293b;
-        }
-        .card--furniture .icon {
-            background: #e2e8f0;
-            color: #475569;
-        }
-        .card--furniture .price {
-            color: #2563eb;
-        }
-
-        .card--trash {
-            background: #f0f9ff;
-            border: 2px solid #2563eb;
-        }
-
-        .card--trash .icon {
-            background: #dbeafe;
-            color: #2563eb;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: 800;
-            color: #2563eb;
-        }
-
-        .stat-label {
-            color: #64748b;
-            margin-top: 8px;
-        }
-
-        .tooltip-icon {
-            position: relative;
-            display: inline-block;
-            cursor: help;
-            margin-left: 5px;
-        }
-
-        .tooltip-icon:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1e293b;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            z-index: 10;
-        }
-
-        .breadcrumbs {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px 20px;
-        }
-
-        .breadcrumbs ol {
-            display: flex;
-            flex-wrap: wrap;
-            list-style: none;
-            padding: 0;
-        }
-
-        .breadcrumbs li {
-            font-size: 0.9rem;
-        }
-
-        .breadcrumbs li:not(:last-child)::after {
-            content: "/";
-            margin: 0 8px;
-            color: #94a3b8;
-        }
-
-        .breadcrumbs a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        .breadcrumbs a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumbs [aria-current="page"] {
-            color: #64748b;
-        }
-
-        .rating-selector {
-            margin-bottom: 15px;
-        }
-
-        .star-rating {
-            font-size: 24px;
-            cursor: pointer;
-            color: #cbd5e1;
-            transition: color 0.2s;
-        }
-
-        .star-rating:hover,
-        .star-rating.active {
-            color: #fbbf24;
-        }
-
-        .clients-section {
-            background-color: #f5f7fb;
-            border-top: 1px solid #dde3f3;
-            border-bottom: 1px solid #dde3f3;
-        }
-
-        .clients-subtitle {
-            font-size: 0.98em;
-            color: #546e7a;
-            max-width: 720px;
-            margin: 0 auto 30px;
-            text-align: center;
-        }
-
-        .clients-slider {
-            display: flex;
-            align-items: stretch;
-            gap: 16px;
-        }
-
-        .clients-arrow {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid #c5cae9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-            cursor: pointer;
-            flex-shrink: 0;
-            align-self: center;
-            transition: all 0.2s ease;
-        }
-
-        .clients-arrow i {
-            font-size: 1.1em;
-            color: #1a237e;
-        }
-
-        .clients-arrow:hover {
-            background: #e8f0ff;
-            transform: translateY(-1px);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-        }
-
-        .clients-viewport {
-            overflow: hidden;
-            flex: 1;
-        }
-
-        .clients-track {
-            display: flex;
-            width: 100%;
-            transition: transform 0.4s ease;
-        }
-
-        .client-card {
-            flex: 0 0 100%;
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-            padding: 18px 18px 16px;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            box-sizing: border-box;
-        }
-
-        .client-logo img {
-            max-height: 40px;
-            max-width: 150px;
-            object-fit: contain;
-        }
-
-        .client-name {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            color: #1a237e;
-            font-size: 1.1em;
-        }
-
-        .client-type {
-            font-size: 0.9em;
-            color: #78909c;
-        }
-
-        .client-details {
-            font-size: 0.95em;
-            color: #455a64;
-        }
-
-        .client-meta {
-            margin-top: auto;
-            font-size: 0.85em;
-            color: #9e9e9e;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .step-item {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            background: #2563eb;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-item {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .feature-item .icon {
-            font-size: 2.5em;
-            color: #2563eb;
-            margin-bottom: 15px;
-        }
-
-        .legal-entities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .legal-entity-item {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .legal-entity-item .icon {
-            font-size: 2.5em;
-            color: #2563eb;
-            margin-bottom: 15px;
-        }
-
-        .faq-item {
-            background: white;
-            border-radius: 16px;
-            margin-bottom: 15px;
-            border: 1px solid #e2e8f0;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 18px 20px;
-            font-weight: 600;
-            cursor: pointer;
-            position: relative;
-            background: #f8fafc;
-        }
-
-        .faq-question::after {
-            content: "+";
-            position: absolute;
-            right: 20px;
-            font-size: 1.5em;
-            color: #2563eb;
-        }
-
-        .faq-item.open .faq-question::after {
-            content: "–";
-        }
-
-        .faq-answer {
-            display: none;
-            padding: 18px 20px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .faq-item.open .faq-answer {
-            display: block;
-        }
-
-        .seo-article {
-            text-align: justify;
-            hyphens: auto;
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            margin-top: 40px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .seo-article h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .seo-article h3 {
-            color: #0f172a;
-            margin: 25px 0 15px;
-            font-size: 1.5em;
-        }
-
-        .seo-article p {
-            color: #334155;
-            margin-bottom: 15px;
-        }
-
-        .seo-article ul {
-            max-width: 900px;
-            margin: 20px auto;
-            padding-left: 20px;
-        }
-
-        .seo-article li {
-            margin-bottom: 8px;
-        }
-
-        .contact-section {
-            background: #f8fafc;
-            border-top: 1px solid #e2e8f0;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        footer {
-            background: #0f172a;
-            color: #cbd5e1;
-            padding: 40px 5%;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-logo {
-            height: 40px;
-            margin-bottom: 15px;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .footer-col a {
-            color: #94a3b8;
-            text-decoration: none;
-        }
-
-        .footer-col a:hover {
-            color: white;
-        }
-
-        .floating-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .floating-buttons.is-visible {
-            opacity: 1;
-        }
-
-        .floating-btn {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .floating-btn.call {
-            background: #2563eb;
-        }
-
-        .floating-btn.whatsapp {
-            background: #25D366;
-        }
-
-        .floating-btn.reviews {
-            background: #f97316;
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .mobile-sticky-call {
-            display: none;
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.is-active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 24px;
-            padding: 30px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2em;
-            cursor: pointer;
-            color: #64748b;
-        }
-
-        .modal-close-btn:hover {
-            color: #2563eb;
-        }
-
-        .top-facts {
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 15px 20px;
-        }
-
-        .top-facts-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .top-facts-inner span {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .top-facts-inner i {
-            color: #2563eb;
-        }
-
-        @media (max-width: 1024px) {
-            .burger-menu {
-                display: flex;
-            }
-            .calculator-grid {
-                grid-template-columns: 1fr;
-            }
-            .map-container {
-                height: 400px; 
-            }
-            .calculator-form {
-                height: auto; 
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-
-            .floating-header {
-                padding: 8px 4%;
-            }
-
-            .floating-logo {
-                height: 38px;
-            }
-
-            .header-phone span {
-                display: none;
-            }
-
-            .header-phone i {
-                margin-right: 0;
-            }
-
-            .lang-btn {
-                padding: 4px 10px;
-                font-size: 0.8rem;
-            }
-
-            .hero-header h1 {
-                font-size: 2.2em;
-            }
-
-            .section h2 {
-                font-size: 2em;
-            }
-
-            .map-container {
-                display: none;
-            }
-            
-            .calculator-form {
-                min-height: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .floating-logo {
-                height: 32px;
-                padding: 2px 5px;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .mobile-nav {
-                left: 4%;
-                width: 92%;
-            }
-
-            .clients-arrow {
-                width: 34px;
-                height: 34px;
-            }
-
-            .mobile-sticky-call {
-                display: none;
-            }
-            
-            .tariff-selector {
-                font-size: 0.8em;
-            }
-        }
-
-@media (max-width: 768px) {
-    .calculator-form .hours-control {
-        justify-content: center;
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:"Inter", sans-serif;background-color:#f8fafc;color:#1e293b;line-height:1.6;padding-top:80px;overflow-x:hidden}
+    .floating-header{position:fixed;top:0;left:0;width:100%;background:rgba(255, 255, 255, 0.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0, 0, 0, 0.08);z-index:1000;padding:10px 5%;transition:all 0.3s ease}
+    .burger-menu.active{background:#2563eb;box-shadow:0 0 0 4px #2563eb}
+    .burger-menu.active span{background-color:white}
+    .burger-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .burger-menu.active span:nth-child(2){opacity:0}
+    .burger-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mobile-nav{display:none;position:fixed;top:70px;left:5%;width:90%;max-width:400px;background:white;border-radius:20px;box-shadow:0 20px 40px rgba(0, 0, 0, 0.15);z-index:999;padding:15px 0;border:1px solid #e2e8f0;transition:opacity 0.3s ease, transform 0.3s ease;opacity:0;transform:translateY(-20px);pointer-events:none}
+    .mobile-nav.active{display:block;opacity:1;transform:translateY(0);pointer-events:all}
+    .mobile-nav a{display:block;font-size:1rem;font-weight:600;color:#1e293b;text-decoration:none;padding:12px 20px;transition:all 0.2s ease}
+    .mobile-nav a:hover{background:#eef2ff;color:#2563eb}
+    .lang-btn.active{background:#2563eb;border-color:#2563eb;color:white}
+    .city-switcher.is-open .city-btn{background:#2563eb;border-color:#2563eb;color:white}
+    .city-switcher.is-open .city-btn .fa-chevron-down{transform:rotate(180deg)}
+    .city-switcher.is-open .city-dropdown{display:flex}
+    .city-option.is-active{color:#2563eb}
+    .hero-header{background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("fon.webp") no-repeat center center/cover;color:white;padding:100px 20px;text-align:center;background-attachment:fixed}
+    .hero-header h1{font-size:3em;margin-bottom:20px;text-shadow:2px 2px 4px rgba(0, 0, 0, 0.4)}
+    .hero-header p{font-size:1.3em;max-width:700px;margin:0 auto 20px}
+    .cta-button{background-color:#2563eb;color:white;text-decoration:none;transition:all 0.3s ease;box-shadow:0 8px 20px rgba(37, 99, 235, 0.3);border:none;cursor:pointer}
+    .cta-button:hover{background-color:#1e40af;transform:translateY(-3px);box-shadow:0 12px 30px rgba(37, 99, 235, 0.4)}
+    .cta-button:disabled{opacity:0.6;cursor:not-allowed}
+    .section{padding:80px 20px;max-width:1200px;margin:0 auto}
+    .section h2{font-size:2.5em;margin-bottom:50px;color:#0f172a;text-align:center;position:relative}
+    .section h2::after{content:"";position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);width:80px;height:4px;background:#2563eb;border-radius:4px}
+    .calculator-section{background:#eff6ff;border-top:1px solid #dbeafe;border-bottom:1px solid #dbeafe;color:#0f172a;padding:60px 20px;margin-top:40px}
+    .calculator-container{max-width:1200px;margin:0 auto;background:#fff;border-radius:30px;padding:40px;border:1px solid #dbeafe;box-shadow:0 1px 2px rgba(15,23,42,.04),0 4px 16px rgba(15,23,42,.05)}
+    .calculator-title{text-align:center;font-size:2.2em;margin-bottom:30px;color:#0f172a}
+    .calculator-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    .map-container{background:#e2e8f0;border-radius:20px;overflow:hidden;height:450px;border:3px solid white;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+    #map{width:100%;height:100%}
+    .calculator-form{background:white;border-radius:20px;padding:30px;color:#1e293b;display:flex;flex-direction:column;height:450px;justify-content:space-between}
+    .form-group{margin-bottom:20px;flex-shrink:0}
+    .form-group label{display:block;font-weight:600;margin-bottom:10px;color:#2563eb}
+    .tariff-selector{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .tariff-option{border:2px solid #e2e8f0;border-radius:12px;padding:10px 5px;text-align:center;cursor:pointer;transition:all 0.2s ease;font-size:0.9em;font-weight:600}
+    .tariff-option:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,0.1)}
+    .tariff-option.selected{border-color:#2563eb;background:#eef2ff}
+    .tariff-option .price{color:#2563eb;font-size:1em;margin-top:3px}
+    .hours-control{display:flex;align-items:center;gap:10px;margin:15px 0}
+    .hours-btn{width:40px;height:40px;border-radius:50%;border:2px solid #2563eb;background:white;color:#2563eb;font-size:1.5em;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease}
+    .hours-btn:hover{background:#2563eb;color:white}
+    .hours-btn:active{transform:scale(0.95)}
+    #hoursInput{width:80px;text-align:center;padding:10px;border:2px solid #e2e8f0;border-radius:12px;font-size:1.2em;font-weight:600}
+    #hoursInput:focus{outline:none;border-color:#2563eb}
+    .hours-value{font-size:1.8em;font-weight:700;color:#2563eb;text-align:center;margin:5px 0}
+    .total-price{font-size:2em;font-weight:800;color:#2563eb;text-align:center;padding:12px;background:#eef2ff;border-radius:15px;margin:10px 0;flex-shrink:0;word-break:break-word;line-height:1.2}
+    .calculator-note{font-size:0.85em;color:#64748b;text-align:center;margin-top:auto;flex-shrink:0}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:30px}
+    .card{background:white;border-radius:24px;padding:30px;box-shadow:0 10px 30px rgba(0, 0, 0, 0.05);transition:all 0.3s ease;border:1px solid #e2e8f0;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .card:hover{transform:translateY(-12px);box-shadow:0 20px 40px rgba(0, 0, 0, 0.1);border-color:#2563eb}
+    .card .icon{font-size:2.5em;color:#2563eb;margin-bottom:20px;background:#e0f2fe;padding:15px;border-radius:60px;width:70px;height:70px;display:flex;align-items:center;justify-content:center}
+    .card h3{font-size:1.5em;color:#0f172a;margin-bottom:15px}
+    .card .price{font-size:1.3em;font-weight:700;color:#2563eb;margin:15px 0}
+    .card--premium{background:linear-gradient(145deg, #fef9e7, #fff);border:2px solid #fbbf24}
+    .card--premium .icon{background:#fef3c7;color:#d97706}
+    .card--furniture{background:#f5f7fa;border:2px solid #94a3b8;color:#1e293b}
+    .card--furniture h3,.card--furniture p{color:#1e293b}
+    .card--furniture .icon{background:#e2e8f0;color:#475569}
+    .card--furniture .price{color:#2563eb}
+    .card--trash{background:#f0f9ff;border:2px solid #2563eb}
+    .card--trash .icon{background:#dbeafe;color:#2563eb}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:30px;margin-top:40px}
+    .stat-item{text-align:center;padding:20px;background:white;border-radius:16px;box-shadow:0 5px 15px rgba(0,0,0,0.05)}
+    .stat-number{font-size:2.5em;font-weight:800;color:#2563eb}
+    .stat-label{color:#64748b;margin-top:8px}
+    .tooltip-icon{position:relative;display:inline-block;cursor:help;margin-left:5px}
+    .tooltip-icon:hover::after{content:attr(data-tooltip);position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:#1e293b;color:white;padding:8px 12px;border-radius:8px;font-size:0.85rem;white-space:nowrap;z-index:10}
+    .breadcrumbs{max-width:1200px;margin:0 auto;padding:10px 20px}
+    .breadcrumbs ol{display:flex;flex-wrap:wrap;list-style:none;padding:0}
+    .breadcrumbs li{font-size:0.9rem}
+    .breadcrumbs li:not(:last-child)::after{content:"/";margin:0 8px;color:#94a3b8}
+    .breadcrumbs a{color:#2563eb;text-decoration:none}
+    .breadcrumbs a:hover{text-decoration:underline}
+    .breadcrumbs [aria-current="page"]{color:#64748b}
+    .star-rating{font-size:24px;cursor:pointer;color:#cbd5e1;transition:color 0.2s}
+    .star-rating:hover,.star-rating.active{color:#fbbf24}
+    .clients-section{background-color:#f5f7fb;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+    .clients-subtitle{font-size:0.98em;color:#64748b;max-width:720px;margin:0 auto 30px;text-align:center}
+    .clients-slider{display:flex;align-items:stretch;gap:16px}
+    .clients-arrow{width:40px;height:40px;border-radius:50%;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;background:#ffffff;box-shadow:0 6px 18px rgba(0, 0, 0, 0.06);cursor:pointer;flex-shrink:0;align-self:center;transition:all 0.2s ease}
+    .clients-arrow i{font-size:1.1em;color:#0f172a}
+    .clients-arrow:hover{background:#e8f0ff;transform:translateY(-1px);box-shadow:0 8px 22px rgba(0, 0, 0, 0.08)}
+    .clients-viewport{overflow:hidden;flex:1}
+    .clients-track{display:flex;width:100%;transition:transform 0.4s ease}
+    .client-card{flex:0 0 100%;background:#ffffff;border-radius:16px;box-shadow:0 6px 18px rgba(0, 0, 0, 0.05);padding:18px 18px 16px;text-align:left;display:flex;flex-direction:column;gap:8px;box-sizing:border-box}
+    .client-logo img{max-height:40px;max-width:150px;object-fit:contain}
+    .client-name{font-family:"Inter", sans-serif;font-weight:600;color:#0f172a;font-size:1.1em}
+    .client-type{font-size:0.9em;color:#64748b}
+    .client-details{font-size:0.95em;color:#475569}
+    .client-meta{margin-top:auto;font-size:0.85em;color:#64748b}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:25px}
+    .step-item{background:white;border-radius:20px;padding:25px;box-shadow:0 5px 20px rgba(0, 0, 0, 0.05);border:1px solid #e2e8f0}
+    .step-number{width:40px;height:40px;background:#2563eb;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:15px}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:30px}
+    .feature-item{background:white;border-radius:20px;padding:30px;text-align:center;box-shadow:0 5px 20px rgba(0, 0, 0, 0.05);border:1px solid #e2e8f0}
+    .feature-item .icon{font-size:2.5em;color:#2563eb;margin-bottom:15px}
+    .legal-entities-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:30px}
+    .legal-entity-item{background:white;border-radius:20px;padding:30px;text-align:center;box-shadow:0 5px 20px rgba(0, 0, 0, 0.05);border:1px solid #e2e8f0}
+    .legal-entity-item .icon{font-size:2.5em;color:#2563eb;margin-bottom:15px}
+    .faq-item{background:white;border-radius:16px;margin-bottom:15px;border:1px solid #e2e8f0;overflow:hidden}
+    .faq-question{padding:18px 20px;font-weight:600;cursor:pointer;position:relative;background:#f8fafc}
+    .faq-question::after{content:"+";position:absolute;right:20px;font-size:1.5em;color:#2563eb}
+    .faq-item.open .faq-question::after{content:"–"}
+    .faq-answer{display:none;padding:18px 20px;border-top:1px solid #e2e8f0}
+    .faq-item.open .faq-answer{display:block}
+    .seo-article{text-align:justify;hyphens:auto;background:white;border-radius:24px;padding:40px;margin-top:40px;box-shadow:0 5px 20px rgba(0, 0, 0, 0.05)}
+    .seo-article h2{text-align:center;margin-bottom:30px}
+    .seo-article h3{color:#0f172a;margin:25px 0 15px;font-size:1.5em}
+    .seo-article p{color:#334155;margin-bottom:15px}
+    .seo-article ul{max-width:900px;margin:20px auto;padding-left:20px}
+    .seo-article li{margin-bottom:8px}
+    .contact-section{background:#f8fafc;border-top:1px solid #e2e8f0;text-align:center;padding:60px 20px}
+    footer{background:#0f172a;color:#cbd5e1;padding:40px 5%}
+    .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:999;opacity:0;transition:opacity 0.3s ease}
+    .floating-buttons.is-visible{opacity:1}
+    .floating-btn{width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;color:white;text-decoration:none;box-shadow:0 5px 20px rgba(0, 0, 0, 0.2);transition:all 0.2s ease;border:none;cursor:pointer}
+    .floating-btn.call{background:#2563eb}
+    .floating-btn.whatsapp{background:#1FAA53}
+    .floating-btn.reviews{background:#2563eb}
+    .floating-btn:hover{transform:scale(1.1)}
+    .mobile-sticky-call{display:none}
+    .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0, 0, 0, 0.7);z-index:2000;align-items:center;justify-content:center;padding:20px}
+    .modal-overlay.is-active{display:flex}
+    .modal-content{background:white;border-radius:24px;padding:30px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+    .modal-close-btn{position:absolute;top:15px;right:20px;font-size:2em;cursor:pointer;color:#64748b}
+    .modal-close-btn:hover{color:#2563eb}
+    .top-facts{background:white;border-bottom:1px solid #e2e8f0;padding:15px 20px}
+    .top-facts-inner{max-width:1200px;margin:0 auto;display:flex;gap:30px;justify-content:center;flex-wrap:wrap}
+    .top-facts-inner span{display:inline-flex;align-items:center;gap:8px}
+    .top-facts-inner i{color:#2563eb}
+    @media (max-width: 1024px){
+      .calculator-grid{grid-template-columns:1fr}
+      .map-container{height:400px}
+      .calculator-form{height:auto}
     }
-    .calculator-form label #hoursDisplay {
-        display: block;
-        margin-top: 6px;
+    @media (max-width: 768px){
+      body{padding-top:70px}
+      .floating-header{padding:8px 4%}
+      .hero-header h1{font-size:2.2em}
+      .section h2{font-size:2em}
+      .map-container{display:none}
+      .calculator-form{min-height:auto}
     }
-}
-
-.hero-glass-buttons {
-    margin-top: 35px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    justify-items: center;
-}
-
-.glass-service-btn {
-    width: 100%;
-    max-width: 420px;
-    text-align: center;
-    padding: 18px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    transition: all 0.3s ease;
-}
-
-.glass-service-btn i {
-    font-size: 18px;
-    color: #f97316; 
-}
-
-.glass-service-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-3px);
-}
-
-@media (min-width: 992px) {
-    .hero-glass-buttons {
-        grid-template-columns: 1fr 1fr;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
+    @media (max-width: 480px){
+      .cards-grid{grid-template-columns:1fr}
+      .mobile-nav{left:4%;width:92%}
+      .clients-arrow{width:34px;height:34px}
+      .mobile-sticky-call{display:none}
+      .tariff-selector{font-size:0.8em}
     }
-
-    .glass-service-btn {
-        max-width: none;
+    @media (max-width: 768px){
+      .calculator-form .hours-control{justify-content:center}
+      .calculator-form label #hoursDisplay{display:block;margin-top:6px}
     }
-}
-
-@media (max-width: 480px) {
-    .glass-service-btn {
-        font-size: 16px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    .hero-glass-buttons{margin-top:35px;display:grid;grid-template-columns:1fr;gap:18px;justify-items:center}
+    .glass-service-btn{width:100%;max-width:420px;text-align:center;text-decoration:none;color:#ffffff;gap:12px;background:rgba(255, 255, 255, 0.15);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255, 255, 255, 0.35);transition:all 0.3s ease}
+    .glass-service-btn i{font-size:18px;color:#2563eb}
+    .glass-service-btn:hover{background:rgba(255, 255, 255, 0.25);transform:translateY(-3px)}
+    @media (min-width: 992px){
+      .hero-glass-buttons{grid-template-columns:1fr 1fr;max-width:900px;margin-left:auto;margin-right:auto}
+      .glass-service-btn{max-width:none}
     }
-}
-
-#card-turnkey,
-#card-trash,
-#card-furniture {
-    scroll-margin-top: 120px; 
-}
-
-@media (max-width: 768px) {
-    #card-turnkey,
-    #card-trash,
-    #card-furniture {
-        scroll-margin-top: 100px; 
+    @media (max-width: 480px){
+      .glass-service-btn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     }
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-.brand-blue {
-    color: #2563eb; 
-    font-weight: 800;
-}
-
-.brand-separator {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.brand-orange {
-    color: #f97316; 
-    font-weight: 700;
-}
-
-
-.hero-icons{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 12px;margin-top:35px;margin-bottom:45px;max-width:900px;margin-left:auto;margin-right:auto;padding:0 12px;}
-.icon-item{display:flex;flex:0 1 190px;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transition:all 0.2s ease;cursor:pointer;}
-.icon-item svg{width:44px;height:44px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
-.icon-item span{font-size:12px;font-weight:500;color:white;text-align:center;line-height:1.3;letter-spacing:0.3px;text-shadow:0 1px 2px rgba(0,0,0,0.3);}
-.icon-item:hover{transform:scale(0.95);}
-.icon-item:active{transform:scale(0.92);}
-@media(max-width:900px){.hero-icons{gap:16px 8px;max-width:520px;}.icon-item{flex-basis:150px;}.icon-item svg{width:38px;height:38px;}.icon-item span{font-size:10px;}}@media(max-width:480px){.hero-icons{gap:14px 8px;padding:0 4px;}.icon-item{flex:0 0 calc(50% - 4px);min-width:0;}.icon-item span{overflow-wrap:anywhere;}}@media(max-width:340px){.hero-icons{gap:12px 6px;padding:0;}.icon-item{flex-basis:calc(50% - 3px);gap:6px;}.icon-item svg{width:32px;height:32px;}.icon-item span{font-size:9px;letter-spacing:0;}}
-</style>
+    #card-turnkey,#card-trash,#card-furniture{scroll-margin-top:120px}
+    @media (max-width: 768px){
+      #card-turnkey,#card-trash,#card-furniture{scroll-margin-top:100px}
+    }
+    html{scroll-behavior:smooth}
+    .brand-orange{color:#2563eb;font-weight:700}
+  </style>
 
     <script type="text/javascript">
         (function(m, e, t, r, i, k, a) {
@@ -1573,53 +396,27 @@ html {
     </script>
 
 <style id="gz-perf-2026">
-/* === Gruzim.kz — perf & UX layer (overrides earlier inline rules) === */
-:root{--gz-header-h:64px;--gz-crumb-h:38px;}
-
-/* Sticky stack: header + breadcrumbs fixed together */
-.floating-header{transition:box-shadow .25s ease,background-color .25s ease;}
-nav.breadcrumbs{
-  position:fixed;left:0;right:0;top:var(--gz-header-h);width:100%;
-  max-width:none;margin:0;padding:7px 5%;
-  background:rgba(255,255,255,.98);border-bottom:1px solid #e6eaf1;
-  z-index:998;transition:box-shadow .25s ease,background-color .25s ease;
-}
-nav.breadcrumbs ol{max-width:1400px;margin:0 auto;}
-body{padding-top:calc(var(--gz-header-h) + var(--gz-crumb-h))!important;}
-
-/* Compositor-only emphasis while scrolling (no layout change = no jitter) */
-html.gz-scrolled .floating-header{box-shadow:0 6px 24px rgba(15,23,42,.12);}
-html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
-
-/* FAB: GPU pulse via transform/opacity instead of animated box-shadow */
-.fab-main{animation:none!important;}
-.fab-main::after{
-  content:'';position:absolute;inset:0;border-radius:50%;background:#f97316;
-  z-index:-1;will-change:transform,opacity;
-  animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite;
-}
-@keyframes gzRing{
+    :root{--gz-header-h:64px;--gz-crumb-h:38px}
+    .floating-header{transition:box-shadow .25s ease,background-color .25s ease}
+    nav.breadcrumbs{position:fixed;left:0;right:0;top:var(--gz-header-h);width:100%;max-width:none;margin:0;padding:7px 5%;background:rgba(255,255,255,.98);border-bottom:1px solid #e6eaf1;z-index:998;transition:box-shadow .25s ease,background-color .25s ease}
+    nav.breadcrumbs ol{max-width:1400px;margin:0 auto}
+    body{padding-top:calc(var(--gz-header-h) + var(--gz-crumb-h)) !important}
+    html.gz-scrolled .floating-header{box-shadow:0 6px 24px rgba(15,23,42,.12)}
+    html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07)}
+    @keyframes gzRing{
   0%{transform:scale(1);opacity:.55;}
   70%{transform:scale(1.85);opacity:0;}
   100%{transform:scale(1.85);opacity:0;}
 }
-
-/* Mobile: static, bold, zero animation cost */
-@media (max-width:768px){
-  .fab-main::after{display:none;animation:none;}
-  .fab-main{box-shadow:0 4px 14px rgba(249,115,22,.55),0 0 0 4px rgba(249,115,22,.22)!important;}
-}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  .fab-main::after{animation:none;}
-  *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
-}
-</style>
-    <link rel="stylesheet" href="assets/gz-ui.css?v=2">
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+    }
+  </style>
+    <link rel="stylesheet" href="assets/gz-ui.css?v=4">
 </head>
 
-<body>
+<body class="gzp">
         
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -1627,7 +424,6 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PLXM434L');</script>
 
-    
     <nav aria-label="Breadcrumb" class="breadcrumbs">
         <ol>
             <li aria-current="page">Басты бет</li>
@@ -1654,7 +450,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 </div>
 </div>
 <div class="gz-lang" aria-label="Язык / Тіл"><a href="./" lang="ru">РУС</a><a href="indexkz.html" class="is-active" lang="kk">ҚАЗ</a></div>
-<a class="gz-phone" href="tel:+77010120300"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>+7 701 012 03 00</span></a>
+<a class="gz-phone" href="tel:+77010120300"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>+7 701 012 03 00</span></a>
 </div>
 </div>
 </header>
@@ -1669,7 +465,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <a href="#contact" class="gz-d-link">Байланыс</a>
 </div>
 <div class="gz-drawer-foot">
-<div class="gz-drawer-row"><a class="gz-d-phone" href="tel:+77010120300">+7 701 012 03 00</a><div class="gz-lang" aria-label="Язык / Тіл"><a href="./" lang="ru">РУС</a><a href="indexkz.html" class="is-active" lang="kk">ҚАЗ</a></div></div>
+<div class="gz-drawer-row"><a class="gz-d-phone" href="tel:+77010120300">+7 701 012 03 00</a><div class="gz-lang" aria-label="Язык / Тіл"><a href="./" lang="ru">РУС</a><a href="indexkz.html" class="is-active" lang="kk">ҚАЗ</a></div></div>
 <a class="gz-d-wa" href="https://wa.me/77010120300" target="_blank" rel="noopener" data-gz-conv><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.32A10 10 0 1 0 12 2zm5.47 14.14c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.77-1.09-4.53-3.9-4.67-4.08-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.18.69-.8.87-1.08.18-.28.37-.23.62-.14.25.09 1.59.75 1.86.89.27.14.46.2.53.32.06.11.06.66-.18 1.31z"/></svg>WhatsApp-қа жазу</a>
 <p class="gz-d-hours">Қоңырау мен WhatsApp: 8:00–20:00 · тапсырыстарды 24/7 орындаймыз</p>
 </div>
@@ -1718,7 +514,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <h3>«Жүк» тарифі</h3>
                 <p>Ұзындығы 4 метрге дейінгі жүк көліктері. Құрылыс материалдары мен заттарды тасымалдауға арналған ең жақсы шешім.</p>
                 <p>Кіреді: Жүк көлігін беру, үлкен жүк салоны</p>
-                <p class="price">7000 тг/сағ бастап</p>
+                <p class="price">7000 тг/сағ бастап</p>
                 <div class="tooltip-icon" data-tooltip="жүк салоны 4,50м дейін, жүк көтергіштігі 1,5т">
                     <i class="fas fa-info-circle"></i>
                 </div>
@@ -1729,7 +525,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <h3>«Минивэн» тарифі</h3>
                 <p>Шағын көшулер немесе тұрмыстық техниканы тасымалдауға арналған ең жақсы шешім.</p>
                 <p>Кіреді: Жүк көлігін беру, белгіленген жерге дейін жеткізу.</p>
-                <p class="price">5000 тг/сағ бастап</p>
+                <p class="price">5000 тг/сағ бастап</p>
                 <div class="tooltip-icon" data-tooltip="жүк салоны 2м дейін, жүк көтергіштігі 500кг">
                     <i class="fas fa-info-circle"></i>
                 </div>
@@ -1740,14 +536,14 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <h3>«Комплект» тарифі</h3>
                 <p>Жүк көлігі + 2 жүкші. Көшу немесе жиһазды тасымалдауға арналған ең жақсы шешім.</p>
                 <p>Кіреді: жүк көлігін беру, ұқыпты тиеу және түсіру.</p>
-                <p class="price">14000 тг/сағ бастап</p>
+                <p class="price">14000 тг/сағ бастап</p>
             </div>
 
             <div class="card card--premium" id="card-turnkey" data-aos="zoom-in" data-aos-delay="300">
                 <i class="fas fa-gem icon"></i>
                 <h3 class="card-title">Толық көшіру қызметі</h3>
                 <p>Толық сервис: ораудан бастап заттарды жаңа жерге қоюға дейін. Барлығы кіреді.</p>
-                <p class="price">50000 тг бастап</p>
+                <p class="price">50000 тг бастап</p>
                 <a href="pereezdkay.html" class="cta-button">Толығырақ</a>
             </div>
 
@@ -1755,7 +551,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <i class="fas fa-screwdriver-wrench icon"></i>
                 <h3>Жиһазды құрастыру/бөлшектеу</h3>
                 <p>Жиһазды бөлшектейміз, тасымалдаймыз және жаңа жерде құрастырамыз. Барлығы ұқыпты, жылдам әрі зақымсыз.</p>
-                <p class="price">30000 тг бастап</p>
+                <p class="price">30000 тг бастап</p>
                 <a href="mebel.html" class="cta-button">Толығырақ</a>
             </div>
 
@@ -1763,7 +559,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <i class="fas fa-dumpster icon"></i>
                 <h3>Қоқыс шығару</h3>
                 <p>Құрылыс және тұрмыстық қоқыстарды жедел шығару. Ескі жиһаз бен техниканы кәдеге жарату.</p>
-                <p class="price">15000 тг бастап</p>
+                <p class="price">15000 тг бастап</p>
                 <a href="musor.html" class="cta-button">Толығырақ</a>
             </div>
         </div>
@@ -1804,17 +600,17 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                             <div class="tariff-option selected" data-price="7000" data-name="Жүк">
                                 <i class="fas fa-truck"></i>
                                 <div>Жүк</div>
-                                <div class="price">7000 ₸/сағ</div>
+                                <div class="price">7000 ₸/сағ</div>
                             </div>
                             <div class="tariff-option" data-price="5000" data-name="Минивэн">
                                 <i class="fas fa-truck-pickup"></i>
                                 <div>Минивэн</div>
-                                <div class="price">5000 ₸/сағ</div>
+                                <div class="price">5000 ₸/сағ</div>
                             </div>
                             <div class="tariff-option" data-price="14000" data-name="Комплект">
                                 <i class="fas fa-truck-moving"></i>
                                 <div>Комплект</div>
-                                <div class="price">14000 ₸/сағ</div>
+                                <div class="price">14000 ₸/сағ</div>
                             </div>
                         </div>
                     </div>
@@ -1833,15 +629,15 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         </div>
                     </div>
                     
-                    <div class="total-price" id="totalPrice">7 000 ₸</div>
+                    <div class="total-price" id="totalPrice">7 000 ₸</div>
                     
-                    <a href="tel:+77010120300" class="cta-button" style="display: block; text-align: center; background: #22c55e; margin-bottom: 10px;">
+                    <a href="tel:+77010120300" class="cta-button" style="display: block; text-align: center; background: #1FAA53; margin-bottom: 10px;">
                         📞 Тапсырыс беру 
                     </a>
                     
                     <p class="calculator-note">
                         <i class="fas fa-info-circle"></i> 
-                        Ең төменгі тапсырыс — 1 сағат. Кейін 30 минуттық қадаммен.
+                        Ең төменгі тапсырыс — 1 сағат. Кейін 30 минуттық қадаммен.
                     </p>
                 </div>
             </div>
@@ -1861,7 +657,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         <div class="client-logo"><img src="logo-joy-garden.png" alt="JOY Garden" loading="lazy" decoding="async"></div>
                         <div class="client-name">JOY Garden</div>
                         <div class="client-type">Дүкенді 3 қоймаға көшіру</div>
-                        <p class="client-details">Сауда залы мен қойманы үш сақтау орнына ауыстыру. Витриналарды орау, тиеу, жеткізу және тауарды орналастыру — 10 күн ішінде Толық көшіру қызметі, 15т тауар.</p>
+                        <p class="client-details">Сауда залы мен қойманы үш сақтау орнына ауыстыру. Витриналарды орау, тиеу, жеткізу және тауарды орналастыру — 10 күн ішінде Толық көшіру қызметі, 15т тауар.</p>
                         <div class="client-meta">Астана · Дүкен → 3 қойма</div>
                     </article>
 
@@ -1929,10 +725,10 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         </div>
     </section>
 
-    <section class="mid-cta-section" style="background: #2563eb; color: white; padding: 60px 20px; text-align: center;">
-        <h2 style="color: white; font-size: 2.5em; margin-bottom: 20px;">WhatsApp арқылы лезде есеп алыңыз!</h2>
-        <p style="margin-bottom: 30px; font-size: 1.3em;">Жүкті немесе көшу мәліметтерін сипаттаңыз — біз жылдам жауап береміз.</p>
-        <a href="https://wa.me/77010120300?text=Сәлеметсізбе!%20Жүк%20тасымалының%20құнын%20білгім%20келеді." class="cta-button" style="background: white; color: #2563eb;">WhatsApp-қа жазу</a>
+    <section class="mid-cta-section" style="background:#eff6ff; border-top:1px solid #dbeafe; border-bottom:1px solid #dbeafe; color: #0f172a; padding: 60px 20px; text-align: center;">
+        <h2 style="color: #0f172a; font-size: 2.5em; margin-bottom: 20px;">WhatsApp арқылы лезде есеп алыңыз!</h2>
+        <p style="margin-bottom: 30px; font-size: 1.3em;">Жүкті немесе көшу мәліметтерін сипаттаңыз — біз жылдам жауап береміз.</p>
+        <a href="https://wa.me/77010120300?text=Сәлеметсізбе!%20Жүк%20тасымалының%20құнын%20білгім%20келеді." class="cta-button" style="background: #1FAA53; color: #fff;">WhatsApp-қа жазу</a>
     </section>
 
     <section class="section" id="features">
@@ -1940,7 +736,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         <div class="features-grid">
             <div class="feature-item">
                 <i class="fas fa-award icon"></i>
-                <h3>Нарықта 6 жыл</h3>
+                <h3>2019 жылдан бері</h3>
                 <p>Топталған тәжірибе кез келген күрделіліктегі міндеттерді шешуге мүмкіндік береді.</p>
             </div>
             <div class="feature-item">
@@ -2000,13 +796,13 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 
         <div class="faq-item">
             <div class="faq-question">Демалыс күндері жұмыс істейсіздер ме?</div>
-            <div class="faq-answer">Иә, демалыссыз жұмыс істейміз: қоңырау мен WhatsApp — күн сайын 8:00–20:00, тапсырыстарды 24/7 орындаймыз.</div>
+            <div class="faq-answer">Иә, демалыссыз жұмыс істейміз: қоңырау мен WhatsApp — күн сайын 8:00–20:00, тапсырыстарды 24/7 орындаймыз.</div>
         </div>
 
         <div class="faq-item">
             <div class="faq-question">Қоқыс шығару бағасы неден құралады?</div>
             <div class="faq-answer">
-                Баға бірнеше міндетті шығындардан тұрады: қала сыртындағы полигон, қоқыс қабылдау, отын, жүргізуші жұмысы. Ең төменгі құны 15000 тг бастап.
+                Баға бірнеше міндетті шығындардан тұрады: қала сыртындағы полигон, қоқыс қабылдау, отын, жүргізуші жұмысы. Ең төменгі құны 15000 тг бастап.
             </div>
         </div>
     </section>
@@ -2020,13 +816,13 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         <p>Көлік таңдау тасымалдау бағасына тікелей әсер етеді. Астанада келесі көлік түрлері ең танымал:</p>
 
         <ul>
-            <li><strong>Газель (3–4 метр)</strong> — Сол жағалаудағы тұрғын үй кешендерінің тар аулалары үшін өте қолайлы. Тұрмыстық техниканы, жеке заттарды және құрылыс материалдарын тасымалдауға жарамды.</li>
-            <li><strong>Бес тонналықтар</strong> — 3–4 бөлмелі пәтерлерді көшіруге немесе бизнес үшін тауар партияларын жеткізуге оңтайлы нұсқа.</li>
-            <li><strong>Манипуляторлар</strong> — ауыр жүктерді, сейфтерді және паллеттегі құрылыс материалдарын тасымалдау үшін қолданылады.</li>
+            <li><strong>Газель (3–4 метр)</strong> — Сол жағалаудағы тұрғын үй кешендерінің тар аулалары үшін өте қолайлы. Тұрмыстық техниканы, жеке заттарды және құрылыс материалдарын тасымалдауға жарамды.</li>
+            <li><strong>Бес тонналықтар</strong> — 3–4 бөлмелі пәтерлерді көшіруге немесе бизнес үшін тауар партияларын жеткізуге оңтайлы нұсқа.</li>
+            <li><strong>Манипуляторлар</strong> — ауыр жүктерді, сейфтерді және паллеттегі құрылыс материалдарын тасымалдау үшін қолданылады.</li>
         </ul>
 
         <h3>Елордадағы логистика ерекшеліктері</h3>
-        <p>Астана — қарқынды көлік ағыны бар қала, әсіресе Мәңгілік Ел және Тұран даңғылдары аудандарындағы қарбалас уақытта. Маршрутты дұрыс жоспарлау жолдағы уақытты қысқартуға және қажетсіз кідірістерден аулақ болуға мүмкіндік береді.</p>
+        <p>Астана — қарқынды көлік ағыны бар қала, әсіресе Мәңгілік Ел және Тұран даңғылдары аудандарындағы қарбалас уақытта. Маршрутты дұрыс жоспарлау жолдағы уақытты қысқартуға және қажетсіз кідірістерден аулақ болуға мүмкіндік береді.</p>
 
         <h3>Тасымалдаудан қалай үнемдеуге болады?</h3>
         <p>Астанада жүк тасымалын арзанға тапсырыс беру үшін жүкті алдын ала дайындау ұсынылады: заттарды топтастыру, ұсақ заттарды қораптарға орау және тиеу орнына еркін кіруді қамтамасыз ету. Автокөлік неғұрлым аз тұрса, қызметтің түпкілікті құны соғұрлым төмен болады.</p>
@@ -2061,7 +857,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 <div><div class="gz-f-title">Ақпарат</div><ul><li><a href="oferta.html">Жария оферта</a></li><li><a href="./">Орыс тіліндегі нұсқа</a></li></ul></div>
 <div>
 <div class="gz-f-title">Байланыс</div>
-<a class="gz-f-phone" href="tel:+77010120300">+7 701 012 03 00</a>
+<a class="gz-f-phone" href="tel:+77010120300">+7 701 012 03 00</a>
 <ul>
 <li><a href="https://wa.me/77010120300" target="_blank" rel="noopener">WhatsApp-қа жазу</a></li>
 <li><a href="mailto:gruzemkz@gmail.com">gruzemkz@gmail.com</a></li>
@@ -2103,7 +899,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/vendor/aos.js"></script>
     <script>
         
         AOS.init({
