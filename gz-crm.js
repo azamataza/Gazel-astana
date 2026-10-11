@@ -1,4 +1,4 @@
-/* Gruzim CRM: запоминает рекламный клик Google Ads (gclid), добавляет код #ЧЧММ в сообщение WhatsApp
+/* Gruzim CRM: запоминает рекламный клик Google Ads (gclid), добавляет код #ЧЧММ первой строкой сообщения WhatsApp
    и отправляет в таблицу клики по WhatsApp, телефону и Telegram. */
 (function () {
   var EP = 'https://script.google.com/macros/s/AKfycbzyJOy5cS94DVno0ELNf1ULpIRbJO9mrGuoZs4BbbgEQXaq-sizIJhQQ6uxKo45sMbO8g/exec';
@@ -36,7 +36,7 @@
         if (p.indexOf('text=') === 0) text = decodeURIComponent(p.slice(5).replace(/\+/g, ' '));
         else if (p) other.push(p);
       });
-      text = text.replace(/\s*#\d{4}\s*$/, '') + '\n\n#' + c;
+      text = '#' + c + '\n' + text.replace(/^\s*#\d{4}\s*/, '').replace(/\s*#\d{4}\s*$/, '');
       return base + '?' + other.concat('text=' + encodeURIComponent(text)).join('&');
     } catch (e) { return u; }
   }
