@@ -602,3 +602,28 @@ html.gz-menu-open, html.gz-menu-open body { overflow: hidden; }
   .gzp table.gz-compact :is(th, td):first-child { padding-left: 8px !important; }
   .gzp table.gz-compact :is(th, td):last-child { padding-right: 8px !important; }
 }
+
+/* Разделительные линии сверху и снизу ярлыков разделов — как на главной */
+.gzp .hero-icons:not(.gz-hero .hero-icons) { padding-top: 22px !important; padding-bottom: 22px !important; border-top: 1px solid rgba(255, 255, 255, .18); border-bottom: 1px solid rgba(255, 255, 255, .18); }
+@media (min-width: 769px) {
+  .gzp .hero-icons:not(.gz-hero .hero-icons) { padding-top: 26px !important; padding-bottom: 26px !important; }
+}
+
+/* Единая кнопка WhatsApp под ярлыками в первом экране — на всех страницах */
+.gz-hero-wa { margin: 28px auto 0; text-align: center; }
+.gz-hero-wa .gz-wa-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 56px; padding: 0 34px; border-radius: var(--gz-radius) !important;
+  background: var(--gz-wa); color: #fff !important; font-size: 1.0625rem; font-weight: var(--gz-fw-semibold);
+  line-height: 1.2; text-decoration: none !important; white-space: nowrap;
+  box-shadow: 0 10px 28px rgba(31, 170, 83, .35); transition: background .2s, transform .2s;
+}
+.gz-hero-wa .gz-wa-btn:hover { background: var(--gz-wa-dark); transform: translateY(-1px); }
+.gz-hero-wa .gz-wa-btn svg { width: 22px; height: 22px; flex: 0 0 22px; fill: currentColor; }
+.gz-hero-wa .gz-hero-wa-note { margin: 12px 0 0 !important; color: rgba(255, 255, 255, .66) !important; font-size: 14px !important; line-height: 1.4; }
+@media (min-width: 769px) { .gz-hero-wa { margin-top: 32px; } }
+@media (max-width: 560px) {
+  .gz-hero-wa { margin-top: 24px; }
+  .gz-hero-wa .gz-wa-btn { display: flex; width: 100%; max-width: 360px; margin: 0 auto; padding: 0 20px; }
+  .gz-hero-wa .gz-hero-wa-note { font-size: 13px !important; }
+}
