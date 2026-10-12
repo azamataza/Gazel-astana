@@ -539,3 +539,37 @@ html.gz-menu-open, html.gz-menu-open body { overflow: hidden; }
     margin: 0 !important;
   }
 }
+
+/* Любые пары и тройки кнопок (контакты, отзывы, CTA-баннеры) на телефоне — одинаковой ширины, столбиком */
+@media (max-width: 560px) {
+  .gzp :is(div, p):has(> :is(.cta-button, .cta-btn, .btn-primary, .btn-white, .btn-secondary, .gz-review-btn, .cta-band-btn) ~ :is(.cta-button, .cta-btn, .btn-primary, .btn-white, .btn-secondary, .gz-review-btn, .cta-band-btn)):not([class*="grid"]):not([class*="card"]) {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .gzp :is(div, p):has(> :is(.cta-button, .cta-btn, .btn-primary, .btn-white, .btn-secondary, .gz-review-btn, .cta-band-btn) ~ :is(.cta-button, .cta-btn, .btn-primary, .btn-white, .btn-secondary, .gz-review-btn, .cta-band-btn)):not([class*="grid"]):not([class*="card"]) > :is(.cta-button, .cta-btn, .btn-primary, .btn-white, .btn-secondary, .gz-review-btn, .cta-band-btn) {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .gzp .final-cta > .cta-button {
+    display: flex !important;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 10px !important;
+  }
+}
+
+/* Ярлыки разделов в первом экране главной: всегда по 3 в ряд */
+.gz-hero .hero-icons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 10px; max-width: 600px; margin: 32px auto 0; padding: 0; }
+.gz-hero .icon-item { display: flex; flex-direction: column; align-items: center; gap: 7px; min-width: 0; color: #fff; text-decoration: none; font-size: 12.5px; font-weight: 500; line-height: 1.25; text-align: center; }
+.gz-hero .icon-item svg { width: 26px; height: 26px; flex-shrink: 0; fill: none; stroke: #fff; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.gz-hero .icon-item:hover span { text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 769px) {
+  .gz-hero .hero-icons { gap: 20px 16px; margin-top: 40px; }
+  .gz-hero .icon-item { font-size: 13.5px; }
+  .gz-hero .icon-item svg { width: 30px; height: 30px; }
+}
