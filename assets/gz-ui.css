@@ -627,3 +627,12 @@ html.gz-menu-open, html.gz-menu-open body { overflow: hidden; }
   .gz-hero-wa .gz-wa-btn { display: flex; width: 100%; max-width: 360px; margin: 0 auto; padding: 0 20px; }
   .gz-hero-wa .gz-hero-wa-note { font-size: 13px !important; }
 }
+
+/* География на хабе грузоперевозок */
+.gz-geo { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start; max-width: 1100px; margin: 0 auto; }
+.gz-geo-box { background: #fff; border: 1px solid #e2e8f0; border-radius: var(--gz-radius-lg); padding: 24px; }
+.gz-geo-box h3 { margin: 0 0 12px; font-size: 1.05rem; color: #0f172a; }
+.gz-geo-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.gz-geo-chips span, .gz-geo-chips a { font-size: .9rem; background: #f1f5f9; border-radius: 999px; padding: 6px 14px; color: #334155; text-decoration: none; }
+.gz-geo-chips a:hover { background: #eff6ff; color: #2563eb; }
+@media (max-width: 768px) { .gz-geo { grid-template-columns: 1fr; } }

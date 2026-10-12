@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Грузоперевозки в Астане от 5 000 ₸/час — газель, грузчики, переезды | Gruzim.kz</title>
-    <meta name="description" content="Грузоперевозки по Астане: минивэн от 5 000 ₸/ч, газель от 7 000 ₸/ч, грузовик до 5 т. Грузчики, переезды, вывоз мусора, такелаж. Заказы 24/7, безнал для юрлиц. с 2019 года, 500+ заказов.">
+    <title>Gruzim.kz — грузчики, переезды и вывоз мусора в Астане</title>
+    <meta name="description" content="Gruzim.kz — грузчики, переезды под ключ и вывоз мусора в Астане с 2019 года. Грузоперевозки от 5 000 ₸/час, такелаж, сборка мебели, упаковка. Договор и безнал для юрлиц.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="geo.region" content="KZ-AST">
     <meta name="geo.placename" content="Астана">
@@ -18,8 +18,8 @@
     <meta property="og:locale" content="ru_RU">
     <meta property="og:url" content="https://www.gruzim.kz/">
     <meta property="og:site_name" content="Gruzim.kz">
-    <meta property="og:title" content="Грузоперевозки в Астане — газель, грузовик, грузчики | Gruzim.kz">
-    <meta property="og:description" content="Минивэн от 5 000 ₸/ч, газель от 7 000 ₸/ч, грузовик до 5 т. Переезды, вывоз мусора и такелаж. Заказы выполняем 24/7, звонки и WhatsApp — 8:00–20:00.">
+    <meta property="og:title" content="Gruzim.kz — грузчики, переезды и вывоз мусора в Астане">
+    <meta property="og:description" content="Переезды под ключ, вывоз мусора и старой мебели, грузоперевозки, такелаж и сборка мебели в Астане. Заказы выполняем 24/7, звонки и WhatsApp — 8:00–20:00.">
     <meta property="og:image" content="https://www.gruzim.kz/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -160,7 +160,10 @@
     .gallery-arrow:hover{background:#2563eb;color:#fff;border-color:#2563eb}
     .gallery-viewport{overflow-x:auto;overflow-y:hidden;flex:1;scroll-snap-type:x mandatory;scrollbar-width:none}
     .gallery-viewport::-webkit-scrollbar{display:none}
-    .gallery-track{display:flex;gap:14px;padding:4px 2px}
+    .gallery-track{display:flex;gap:14px;padding:4px 2px;width:max-content}
+    .gallery-slider.is-static .gallery-arrow{display:none}
+    @media(min-width:1100px){#nasha-tehnika .gallery-groups{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px}#nasha-tehnika .gallery-group:last-child{grid-column:1/-1}#nasha-tehnika .gallery-slide{flex-basis:180px}}
+    #nasha-tehnika .gallery-slide-label{min-height:calc(2.8em + 24px);display:flex;align-items:center;justify-content:center}
     .gallery-slide{scroll-snap-align:start;flex:0 0 190px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
     .gallery-slide:hover{transform:translateY(-3px);border-color:#2563eb}
     .gallery-slide img{width:100%;height:130px;object-fit:contain;background:#f8fafc;padding:12px}
@@ -274,6 +277,14 @@
     @media(prefers-reduced-motion:reduce){
       *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
     }
+      .why-grid--4{grid-template-columns:repeat(4,1fr)}
+    .gz-reviews-row{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin:20px 0 0;padding:20px 24px;border:1px solid #e2e8f0;border-radius:18px;background:#fff}
+    .gz-reviews-row p{margin:0;color:#334155;font-size:.95em}
+    .gz-reviews-btns{display:flex;gap:10px;flex-wrap:wrap}
+    .final-cta .gz-nap{margin:18px 0 0;font-size:.9em;opacity:.8}
+    @media(max-width:1024px){.why-grid--4{grid-template-columns:1fr 1fr}.hub-grid--home>.hub-card:first-child{grid-column:1/-1}}
+    @media(max-width:768px){.why-grid--4{grid-template-columns:1fr}.hub-grid--home>.hub-card:first-child{grid-column:auto}.gz-reviews-row{flex-direction:column;align-items:stretch;text-align:center}.gz-reviews-btns{display:grid;grid-template-columns:1fr 1fr}}
+    @media(max-width:374px){.gz-reviews-btns{grid-template-columns:1fr}}
   </style>
 
     <script type="application/ld+json">
@@ -285,7 +296,7 @@
  "url": "https://www.gruzim.kz/",
  "logo": "https://www.gruzim.kz/Logo.png",
  "image": "https://www.gruzim.kz/og-image.png",
- "description": "Грузоперевозки в Астане: минивэн, газель, грузовик до 5 т с грузчиками, переезды под ключ, вывоз мусора, такелаж. Работаем с юрлицами по безналу.",
+ "description": "Грузчики, переезды под ключ и вывоз мусора в Астане: грузоперевозки на минивэнах, газелях и грузовиках до 5 т, такелаж, сборка мебели, упаковка. Работаем с юрлицами по безналу.",
  "telephone": "+77010120300",
  "email": "gruzemkz@gmail.com",
  "priceRange": "₸₸",
@@ -575,42 +586,34 @@
  "mainEntity": [
   {
    "@type": "Question",
-   "name": "Сколько стоят грузоперевозки по Астане?",
+   "name": "Чем занимается Gruzim.kz?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Оплата почасовая: минимальный заказ — 1 час, далее шаг 30 минут. Минивэн — от 5 000 ₸/ч, газель — от 7 000 ₸/ч, удлинённая газель — от 8 000 ₸/ч, грузовик до 5 т — от 15 000 ₸/ч. В ставку входят машина, водитель и топливо по городу."
+    "text": "Переезды под ключ, вывоз мусора и старой мебели, грузоперевозки с грузчиками, такелаж, сборка мебели и упаковка вещей. Работаем в Астане с 2019 года, а также в Караганде."
    }
   },
   {
    "@type": "Question",
-   "name": "Сколько стоит газель с грузчиками?",
+   "name": "Может ли цена измениться на месте?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Газель с одним грузчиком — от 10 500 ₸/ч, с двумя грузчиками — от 14 000 ₸/ч. Если лифта нет или груз тяжёлый, возможна доплата от 1 000 ₸ за этаж — её обсуждаем при заказе, а не на месте."
+    "text": "Если объём и условия совпадают с заявкой — нет. Стоимость называем до начала работ и не меняем без вашего согласия. Переезд под ключ фиксируем в договоре."
    }
   },
   {
    "@type": "Question",
-   "name": "Какую машину выбрать для переезда квартиры?",
+   "name": "Кто отвечает за сохранность вещей?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Для однокомнатной квартиры обычно хватает минивэна или стандартной газели. Для двух-трёхкомнатной — удлинённая газель или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Если не хотите заниматься сборами, закажите переезд под ключ."
+    "text": "Мы. Работаем по договору, и если при работе что-то повредим — восстановим за свой счёт."
    }
   },
   {
    "@type": "Question",
-   "name": "Как быстро вы можете подать машину?",
+   "name": "Как быстро вы приедете?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "При свободной машине подаём в течение часа после заявки. Чтобы закрепить удобное время, лучше согласовать заказ заранее."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Вы работаете ночью и в выходные?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Да, без выходных: заказы выполняем 24/7, звонки и WhatsApp принимаем ежедневно с 8:00 до 20:00."
+    "text": "По городу — в течение часа, если машина свободна; в загруженные дни сразу предложим ближайшее время. Заказы выполняем 24/7, звонки и WhatsApp принимаем ежедневно с 8:00 до 20:00."
    }
   },
   {
@@ -623,32 +626,16 @@
   },
   {
    "@type": "Question",
-   "name": "Сколько стоит переезд квартиры в Астане?",
+   "name": "Где вы находитесь?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Квартирный переезд в формате «эконом» — от 35 000 ₸, под ключ с упаковкой, разборкой и сборкой мебели — от 70 000 ₸. Итог зависит от метража, этажа и наличия лифта. Подробнее — на странице квартирного переезда."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Сколько стоит вывоз мусора?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "От 5 000 ₸. Мебель с разбором — от 15 000 ₸, строительный мусор — от 12 000 ₸. Отвозим на центральный полигон по договору и выдаём акты. Подробнее — на странице вывоза мусора."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Перевозите ли вы грузы в другие города?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Да, выполняем перевозки и переезды по Казахстану. Стоимость рассчитываем по километражу и объёму груза — подробнее на странице межгородских переездов."
+    "text": "Офис — Астана, ул. Таскескен 17б. Выезжаем во все районы города и в пригород, переезды выполняем по всему Казахстану."
    }
   }
  ]
 }
-    </script>
-    <link rel="stylesheet" href="assets/gz-ui.css?v=11">
+</script>
+    <link rel="stylesheet" href="assets/gz-ui.css?v=12">
 </head>
 <body class="gzp">
 <!-- GZ-UI:HEADER -->
@@ -657,7 +644,7 @@
 <button type="button" class="gz-burger" id="gz-burger" aria-label="Меню" aria-expanded="false" aria-controls="gz-drawer"><span></span><span></span><span></span></button>
 <a class="gz-logo" href="./" aria-label="Gruzim.kz — на главную"><img src="assets/logo.svg" alt="Gruzim.kz" width="163" height="34"></a>
 <nav class="gz-nav" aria-label="Главное меню">
-<div class="gz-nav-item"><a class="gz-nav-top" href="gruz/centr.html" aria-haspopup="true">Перевозки<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="gruz/centr.html">Все грузоперевозки</a><a href="gruz/chasovoi.html">Почасовая аренда</a><a href="gruz/bus.html">Минивэн (бус)</a><a href="gruz/komplekt.html">Газель + 2 грузчика</a></div></div>
+<div class="gz-nav-item"><a class="gz-nav-top" href="gruz/centr.html" aria-haspopup="true">Перевозки<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="gruz/centr.html">Все грузоперевозки</a><a href="gruz/chasovoi.html">Газель на час</a><a href="gruz/bus.html">Минивэн (бус)</a><a href="gruz/komplekt.html">Газель с грузчиками</a></div></div>
 <div class="gz-nav-item"><a class="gz-nav-top" href="pereezdkay.html" aria-haspopup="true">Переезды<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="pereezdkay.html">О переезде под ключ</a><a href="kay/kvartira.html">Квартирный переезд</a><a href="kay/mezhgorod.html">Переезд по Казахстану</a><a href="kay/ofice.html">Переезд офиса</a></div></div>
 <div class="gz-nav-item"><a class="gz-nav-top" href="upakovka.html" aria-haspopup="true">Упаковка<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="upakovka.html">Об упаковке вещей</a><a href="upakovka/mebel.html">Упаковка мебели</a><a href="upakovka/posuda.html">Упаковка посуды и кухни</a><a href="upakovka/odezhda.html">Упаковка одежды и вещей</a><a href="upakovka/tehnika.html">Упаковка техники</a><a href="upakovka/hrupkoe.html">Хрупкое, зеркала, картины</a><a href="shop.html">Упаковочные материалы</a></div></div>
 <div class="gz-nav-item"><a class="gz-nav-top" href="musor.html" aria-haspopup="true">Вывоз мусора<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="musor.html">О вывозе мусора</a><a href="musor/stroy.html">Строительный мусор</a><a href="musor/mebel.html">Старая мебель</a><a href="musor/tehnika.html">Бытовая техника</a><a href="musor/santehnika.html">Сантехника</a><a href="musor/hlam.html">Хлам и старые вещи</a><a href="musor/matras.html">Матрасы</a><a href="musor/night.html">Ночной вывоз</a><a href="musor/uslugi.html">Форматы услуги</a><a href="musor/rayony.html">По районам Астаны</a></div></div>
@@ -684,9 +671,9 @@
 <div class="gz-drawer-body">
 <a href="#uslugi" class="gz-d-link">Все услуги</a>
 <details><summary>Грузоперевозки</summary><div class="gz-d-sub"><a href="gruz/centr.html" class="gz-d-over">Все грузоперевозки</a>
-<a href="gruz/chasovoi.html">Почасовая аренда</a>
+<a href="gruz/chasovoi.html">Газель на час</a>
 <a href="gruz/bus.html">Минивэн (бус)</a>
-<a href="gruz/komplekt.html">Газель + 2 грузчика</a></div></details>
+<a href="gruz/komplekt.html">Газель с грузчиками</a></div></details>
 <details><summary>Переезд под ключ</summary><div class="gz-d-sub"><a href="pereezdkay.html" class="gz-d-over">О переезде под ключ</a>
 <a href="kay/kvartira.html">Квартирный переезд</a>
 <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
@@ -788,9 +775,9 @@
             <img src="fon.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
         </picture>
         <div class="header-content">
-            <p class="gz-hero-eyebrow">Gruzim.kz — больше, чем грузоперевозки</p>
-            <h1>Грузоперевозки в Астане</h1>
-            <p class="hero-sub">Минивэн, газель и грузовик до 5 тонн — с грузчиками или без, от 5 000 ₸/час. Переезды под ключ, вывоз мусора, упаковка и такелаж.</p>
+            <p class="gz-hero-eyebrow">Gruzim.kz · с 2019 года</p>
+            <h1>Грузчики, переезды и вывоз мусора в Астане</h1>
+            <p class="hero-sub">Переезды под ключ, вывоз старой мебели и мусора, грузоперевозки, такелаж и сборка мебели — одна компания вместо пяти подрядчиков.</p>
             <nav class="hero-icons" aria-label="Разделы сайта">
                 <a href="gruz/centr.html" class="icon-item"><svg viewBox="0 0 24 24"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg><span>Грузоперевозки</span></a>
                 <a href="pereezdkay.html" class="icon-item"><svg viewBox="0 0 24 24"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/><path d="M3 12v9h18v-9"/></svg><span>Переезд под ключ</span></a>
@@ -809,233 +796,57 @@
         </div>
     </header>
 
-    <section class="section" id="tarify" aria-labelledby="tarify-h">
-        <div class="sec-head">
-            <span class="eyebrow">Тарифы 2026</span>
-            <h2 id="tarify-h">Грузоперевозки по Астане: машины и цены</h2>
-            <p>Почасовая оплата без скрытых доплат. Минимальный заказ — 1 час, далее шаг 30 минут. В ставку входят машина, водитель и топливо по городу.</p>
-        </div>
-        <div class="fleet">
-            <a class="veh" href="gruz/bus.html">
-                <span class="veh-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 21V11a2 2 0 0 1 2-2h15l6 6v6"/><path d="M3 21h2m6 0h10m6 0h2v-6"/><circle cx="8" cy="22" r="2.5"/><circle cx="24" cy="22" r="2.5"/><path d="M20 9v6h6"/></svg></span>
-                <h3>Минивэн (бус)</h3>
-                <div class="veh-price">5 000 ₸ <small>/ час</small></div>
-                <ul><li>Грузоподъёмность: <b>до 0,5 т</b></li><li>Объём кузова: <b>3–4 м³</b></li><li>Вещи, техника, коробки</li></ul>
-                <span class="veh-link">Подробнее →</span>
-            </a>
-            <a class="veh veh--hit" href="gruz/chasovoi.html">
-                <span class="veh-badge">Чаще всего заказывают</span>
-                <span class="veh-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="7" width="18" height="15" rx="1.5"/><path d="M20 12h5l4 5v5h-9z"/><circle cx="8" cy="23.5" r="2.5"/><circle cx="24" cy="23.5" r="2.5"/></svg></span>
-                <h3>Газель (3 м)</h3>
-                <div class="veh-price">7 000 ₸ <small>/ час</small></div>
-                <ul><li>Грузоподъёмность: <b>до 1,5 т</b></li><li>Объём кузова: <b>16–18 м³</b></li><li>Мебель, стройматериалы, товар</li></ul>
-                <span class="veh-link">Подробнее →</span>
-            </a>
-            <a class="veh" href="gruz/chasovoi.html">
-                <span class="veh-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="7" width="21" height="15" rx="1.5"/><path d="M22 12h4l4 5v5h-8z"/><circle cx="7" cy="23.5" r="2.5"/><circle cx="25" cy="23.5" r="2.5"/><path d="M6 11h11"/></svg></span>
-                <h3>Газель удлинённая (4–5 м)</h3>
-                <div class="veh-price">8 000 ₸ <small>/ час</small></div>
-                <ul><li>Грузоподъёмность: <b>до 2 т</b></li><li>Длинномер, переезд 2–3 комнат</li><li>Можно с грузчиками</li></ul>
-                <span class="veh-link">Подробнее →</span>
-            </a>
-            <a class="veh" href="gruz/komplekt.html">
-                <span class="veh-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="5" width="20" height="17" rx="1.5"/><path d="M21 11h5l5 6v5H21z"/><circle cx="7" cy="24" r="2.5"/><circle cx="14" cy="24" r="2.5"/><circle cx="26" cy="24" r="2.5"/></svg></span>
-                <h3>Грузовик (5–6 м)</h3>
-                <div class="veh-price">15 000 ₸ <small>/ час</small></div>
-                <ul><li>Грузоподъёмность: <b>до 5 т</b></li><li>Большие переезды и партии товара</li><li>Оборудование и стройматериалы</li></ul>
-                <span class="veh-link">Подробнее →</span>
-            </a>
-        </div>
-
-        <div class="ptable-wrap">
-            <h3>Цены на грузоперевозки с грузчиками</h3>
-            <div class="ptable-scroll">
-                <table class="ptable gz-compact">
-<caption>Стоимость за 1 час работы транспорта по Астане</caption>
-<thead><tr><th scope="col">Транспорт</th><th scope="col" class="gz-m-hide">Грузоподъёмность</th><th scope="col">Без грузчиков</th><th scope="col">С 1 грузчиком</th><th scope="col">С 2 грузчиками</th></tr></thead>
-<tbody>
-<tr><th data-label="Транспорт" scope="row">Минивэн</th><td data-label="Грузоподъёмность" class="gz-m-hide">до 0,5 т</td><td data-label="Без грузчиков"><b><span class="gz-nw">5 000 ₸</span></b></td><td data-label="С 1 грузчиком"><span class="gz-nw">8 500 ₸</span></td><td data-label="С 2 грузчиками"><span class="gz-nw">12 000 ₸</span></td></tr>
-<tr><th data-label="Транспорт" scope="row">Газель (3 м)</th><td data-label="Грузоподъёмность" class="gz-m-hide">до 1,5 т</td><td data-label="Без грузчиков"><b><span class="gz-nw">7 000 ₸</span></b></td><td data-label="С 1 грузчиком"><span class="gz-nw">10 500 ₸</span></td><td data-label="С 2 грузчиками"><span class="gz-nw">14 000 ₸</span></td></tr>
-<tr><th data-label="Транспорт" scope="row">Газель удлинённая (4–5 м)</th><td data-label="Грузоподъёмность" class="gz-m-hide">до 2 т</td><td data-label="Без грузчиков"><b><span class="gz-nw">8 000 ₸</span></b></td><td data-label="С 1 грузчиком"><span class="gz-nw">11 500 ₸</span></td><td data-label="С 2 грузчиками"><span class="gz-nw">15 000 ₸</span></td></tr>
-<tr><th data-label="Транспорт" scope="row">Грузовик (5–6 м)</th><td data-label="Грузоподъёмность" class="gz-m-hide">до 5 т</td><td data-label="Без грузчиков"><b><span class="gz-nw">15 000 ₸</span></b></td><td data-label="С 1 грузчиком">—</td><td data-label="С 2 грузчиками">—</td></tr>
-</tbody>
-</table>
-            </div>
-            <p class="ptable-note">Подъём без лифта или тяжёлый груз — от 1 000 ₸ за этаж, обсуждается при заказе. Выезд за город и <a href="kay/mezhgorod.html">перевозки по Казахстану</a> считаем отдельно, по километражу.</p>
-        </div>
-        <div class="sec-more"><a href="gruz/centr.html" class="cta-button cta-button--ghost">Все тарифы на грузоперевозки</a></div>
-    </section>
-
-    <div class="band">
-    <section class="section" id="chto-perevozim" aria-labelledby="cargo-h">
-        <div class="sec-head">
-            <span class="eyebrow">Грузы</span>
-            <h2 id="cargo-h">Что перевозим по городу</h2>
-            <p>Бытовые, офисные и коммерческие грузы — подберём машину под объём, чтобы вы не переплачивали за лишний кузов.</p>
-        </div>
-        <div class="cargo">
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"/><path d="M2 14h20v4H2z"/><path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg><h3>Мебель</h3><p>Диваны, шкафы, кровати — <a href="mebel.html">разберём и соберём</a></p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 9h14"/><path d="M9 5v1M9 12v3"/></svg><h3>Бытовая техника</h3><p>Холодильники, стиральные машины, телевизоры</p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg><h3>Коробки и вещи</h3><p>Квартира, дача, склад — <a href="upakovka.html">упакуем</a> при необходимости</p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="13" width="9" height="8"/><rect x="13" y="13" width="9" height="8"/><rect x="7" y="4" width="10" height="8"/></svg><h3>Стройматериалы</h3><p>Плитка, кирпич, сухие смеси — по Астане и пригороду</p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1-5h16l1 5"/><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/><path d="M5 13v8h14v-8"/></svg><h3>Товары для бизнеса</h3><p>Поставки в магазины и на склады, партии от поставщиков</p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><h3>Оргтехника</h3><p>Компьютеры, принтеры, серверы — <a href="kay/ofice.html">переезд офиса</a></p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M12 8v1M16 12h-1"/></svg><h3>Сейфы и станки</h3><p>Тяжёлые грузы — <a href="takelazh.html">такелажные работы</a></p></div>
-            <div class="cargo-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><h3>Архивы и документы</h3><p>Бережная перевозка корпоративных архивов</p></div>
-        </div>
-    </section>
-    </div>
-
     <section class="section" id="uslugi" aria-labelledby="uslugi-h">
         <div class="sec-head">
-            <span class="eyebrow">Полный цикл</span>
-            <h2 id="uslugi-h">Услуги и цены в Астане</h2>
-            <p>Вокруг перевозки закрываем все смежные задачи — одна компания вместо пяти подрядчиков.</p>
+            <span class="eyebrow">Чем занимаемся</span>
+            <h2 id="uslugi-h">Услуги Gruzim.kz в Астане</h2>
+            <p>Всё, что связано с перемещением вещей, — одна компания вместо пяти подрядчиков.</p>
         </div>
-        <div class="hub-grid">
-            <article class="hub-card">
-                <div class="hub-head">
-                    <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg></span>
-                    <div class="hub-title"><h3><a href="gruz/centr.html">Грузоперевозки по Астане</a></h3><span class="hub-price">от 5 000 ₸/час</span></div>
-                </div>
-                <p>Минивэны, газели и грузовики до 5 тонн — с грузчиками или без. Почасовая оплата, подача в течение часа.</p>
-                <div class="hub-chips"><a href="gruz/chasovoi.html">Газель почасово</a><a href="gruz/bus.html">Минивэн (бус)</a><a href="gruz/komplekt.html">Газель + 2 грузчика</a></div>
-            </article>
+        <div class="hub-grid hub-grid--home">
             <article class="hub-card hub-card--accent">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/><path d="M3 12v9h18v-9"/></svg></span>
-                    <div class="hub-title"><h3><a href="pereezdkay.html">Переезд под ключ в Астане</a></h3><span class="hub-price">от 35 000 ₸</span></div>
+                    <div class="hub-title"><h3><a href="pereezdkay.html">Переезд под ключ</a></h3><span class="hub-price">от 35 000 ₸</span></div>
                 </div>
                 <p>Упаковка, разборка мебели, перевозка, сборка и расстановка на новом месте. Цена фиксируется в договоре.</p>
-                <div class="hub-chips"><a href="kay/kvartira.html">Квартирный переезд</a><a href="kay/ofice.html">Переезд офиса</a><a href="kay/mezhgorod.html">Межгород по Казахстану</a></div>
+                <div class="hub-chips"><a href="kay/kvartira.html">Квартирный переезд</a><a href="kay/ofice.html">Переезд офиса</a><a href="upakovka.html">Упаковка вещей</a></div>
             </article>
             <article class="hub-card">
                 <div class="hub-head">
-                    <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span>
-                    <div class="hub-title"><h3><a href="upakovka.html">Упаковка вещей при переезде</a></h3><span class="hub-price">свои материалы</span></div>
-                </div>
-                <p>Упаковка с маркировкой: посуда, одежда, зеркала, техника. Материалы привозим с собой.</p>
-                <div class="hub-chips"><a href="upakovka/mebel.html">Мебель</a><a href="upakovka/posuda.html">Посуда</a><a href="upakovka/odezhda.html">Одежда</a><a href="upakovka/tehnika.html">Техника</a><a href="upakovka/hrupkoe.html">Хрупкое</a></div>
-            </article>
-            <article class="hub-card hub-card--wide" id="hub-musor">
-                <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></span>
-                    <div class="hub-title"><h3><a href="musor.html">Вывоз мусора в Астане</a></h3><span class="hub-price">от 5 000 ₸</span></div>
+                    <div class="hub-title"><h3><a href="musor.html">Вывоз мусора и старой мебели</a></h3><span class="hub-price">от 5 000 ₸</span></div>
                 </div>
-                <p>Вывоз с грузчиками и разбором мебели: строительный мусор, старая мебель, хлам — на центральный полигон по договору, с актами. Бытовую технику тоже забираем на утилизацию. Выезд в день обращения во все районы.</p>
-                <div class="hub-cols">
-                    <div>
-                        <details class="hub-links">
-                            <summary>Строительный мусор <span class="hub-count">8</span></summary>
-                            <ul>
-                                <li><a href="musor/stroy.html">Вывоз строительного мусора — обзор и цены</a></li>
-                                <li><a href="musor/stroy/remont.html">Вывоз мусора после ремонта</a></li>
-                                <li><a href="musor/stroy/beton.html">Бетон, кирпич, стяжка</a></li>
-                                <li><a href="musor/stroy/grunt.html">Вывоз грунта и земли</a></li>
-                                <li><a href="musor/stroy/demontazh.html">Демонтаж с вывозом мусора</a></li>
-                                <li><a href="musor/stroy/meshki.html">Вывоз мусора мешками</a></li>
-                                <li><a href="musor/stroy/krupnogabarit.html">Крупногабаритный мусор</a></li>
-                                <li><a href="musor/stroy/plitka-santehnika.html">Плитка, сантехника, окна</a></li>
-                            </ul>
-                        </details>
-                        <details class="hub-links">
-                            <summary>Старая мебель <span class="hub-count">8</span></summary>
-                            <ul>
-                                <li><a href="musor/mebel.html">Вывоз старой мебели — обзор и цены</a></li>
-                                <li><a href="musor/mebel/divan.html">Вывоз дивана</a></li>
-                                <li><a href="musor/mebel/shkaf.html">Вывоз шкафа</a></li>
-                                <li><a href="musor/mebel/shkaf-kupe.html">Вывоз шкафа-купе</a></li>
-                                <li><a href="musor/mebel/kuhnya.html">Вывоз кухонного гарнитура</a></li>
-                                <li><a href="musor/mebel/krovat.html">Вывоз кровати</a></li>
-                                <li><a href="musor/mebel/stenka.html">Вывоз мебельной стенки</a></li>
-                                <li><a href="musor/mebel/melkaya.html">Вывоз мелкой мебели</a></li>
-                            </ul>
-                        </details>
-                        <details class="hub-links">
-                            <summary>Бытовая техника <span class="hub-count">9</span></summary>
-                            <ul>
-                                <li><a href="musor/tehnika.html">Вывоз бытовой техники — обзор и цены</a></li>
-                                <li><a href="musor/tehnika/holodilnik.html">Вывоз холодильника</a></li>
-                                <li><a href="musor/tehnika/stiralnaya-mashina.html">Вывоз стиральной машины</a></li>
-                                <li><a href="musor/tehnika/plita.html">Вывоз плиты и духовки</a></li>
-                                <li><a href="musor/tehnika/posudomoyka.html">Вывоз посудомоечной машины</a></li>
-                                <li><a href="musor/tehnika/televizor.html">Вывоз телевизора и мониторов</a></li>
-                                <li><a href="musor/tehnika/konditsioner.html">Вывоз кондиционера</a></li>
-                                <li><a href="musor/tehnika/boiler.html">Вывоз водонагревателя (бойлера)</a></li>
-                                <li><a href="musor/tehnika/melkaya-tehnika.html">Вывоз мелкой техники</a></li>
-                            </ul>
-                        </details>
-                        <details class="hub-links">
-                            <summary>Сантехника <span class="hub-count">7</span></summary>
-                            <ul>
-                                <li><a href="musor/santehnika.html">Вывоз сантехники — обзор и цены</a></li>
-                                <li><a href="musor/santehnika/vanna.html">Вывоз ванны</a></li>
-                                <li><a href="musor/santehnika/unitaz.html">Вывоз унитаза</a></li>
-                                <li><a href="musor/santehnika/dzhakuzi.html">Вывоз джакузи</a></li>
-                                <li><a href="musor/santehnika/dushevaya-kabina.html">Вывоз душевой кабины</a></li>
-                                <li><a href="musor/santehnika/rakovina.html">Вывоз раковины</a></li>
-                                <li><a href="musor/santehnika/sanuzel-pod-klyuch.html">Демонтаж санузла под ключ</a></li>
-                            </ul>
-                        </details>
-                    </div>
-                    <div>
-                        <details class="hub-links">
-                            <summary>Хлам и старые вещи <span class="hub-count">9</span></summary>
-                            <ul>
-                                <li><a href="musor/hlam.html">Вывоз хлама — обзор и цены</a></li>
-                                <li><a href="musor/hlam/kvartira.html">Вывоз хлама из квартиры</a></li>
-                                <li><a href="musor/hlam/balkon.html">Уборка балкона и лоджии</a></li>
-                                <li><a href="musor/hlam/dacha.html">Вывоз хлама с дачи и участка</a></li>
-                                <li><a href="musor/hlam/garazh.html">Вывоз хлама из гаража</a></li>
-                                <li><a href="musor/hlam/podval-kladovka.html">Из подвала и кладовки</a></li>
-                                <li><a href="musor/hlam/starye-veshchi.html">Вывоз старых вещей и одежды</a></li>
-                                <li><a href="musor/hlam/raskhlamlenie.html">Расхламление квартиры под ключ</a></li>
-                                <li><a href="musor/hlam/osvobozhdenie.html">Освобождение квартиры от вещей</a></li>
-                            </ul>
-                        </details>
-                        <details class="hub-links">
-                            <summary>Форматы услуги <span class="hub-count">5</span></summary>
-                            <ul>
-                                <li><a href="musor/uslugi.html">Форматы вывоза — обзор и цены</a></li>
-                                <li><a href="musor/uslugi/gazel.html">Газель для вывоза мусора</a></li>
-                                <li><a href="musor/uslugi/gruzchiki.html">Грузчики для выноса мусора</a></li>
-                                <li><a href="musor/uslugi/srochno.html">Срочный вывоз в день обращения</a></li>
-                                <li><a href="musor/uslugi/nedorogo.html">Вывоз мусора недорого — как считаем</a></li>
-                            </ul>
-                        </details>
-                        <details class="hub-links">
-                            <summary>По районам Астаны <span class="hub-count">6</span></summary>
-                            <ul>
-                                <li><a href="musor/rayony.html">Вывоз мусора по районам — обзор</a></li>
-                                <li><a href="musor/rayony/esil.html">Есильский район</a></li>
-                                <li><a href="musor/rayony/almaty.html">Алматинский район</a></li>
-                                <li><a href="musor/rayony/saryarka.html">Район Сарыарка</a></li>
-                                <li><a href="musor/rayony/levyj-bereg.html">Левый берег</a></li>
-                                <li><a href="musor/rayony/pravyj-bereg.html">Правый берег</a></li>
-                            </ul>
-                        </details>
-                        <details class="hub-links">
-                            <summary>Отдельные услуги <span class="hub-count">2</span></summary>
-                            <ul>
-                                <li><a href="musor/matras.html">Вывоз и утилизация матрасов</a></li>
-                                <li><a href="musor/night.html">Ночной вывоз мусора для ТЦ и площадок</a></li>
-                            </ul>
-                        </details>
-                    </div>
+                <p>Мебель с разбором, бытовая техника, матрасы, строительный мусор и хлам — с грузчиками, в день обращения. Крупногабарит везём на полигон по договору.</p>
+                <div class="hub-chips"><a href="musor/mebel.html">Старая мебель</a><a href="musor/tehnika.html">Бытовая техника</a><a href="musor/tehnika/holodilnik.html">Холодильник</a><a href="musor/matras.html">Матрасы</a><a href="musor/stroy.html">Строительный мусор</a><a href="musor/hlam.html">Хлам</a></div>
+            </article>
+            <article class="hub-card">
+                <div class="hub-head">
+                    <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg></span>
+                    <div class="hub-title"><h3><a href="gruz/centr.html">Грузоперевозки по Астане</a></h3><span class="hub-price">от 5 000 ₸/час</span></div>
                 </div>
+                <p>Минивэны, газели и грузовики до 5 тонн — с грузчиками или без. Почасовая оплата, подача в течение часа.</p>
+                <div class="hub-chips"><a href="gruz/komplekt.html">Газель с грузчиками</a><a href="gruz/chasovoi.html">Газель на час</a><a href="gruz/bus.html">Грузовой минивэн</a></div>
+            </article>
+            <article class="hub-card hub-card--link">
+                <div class="hub-head">
+                    <span class="hub-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9s1-6.5 3.5-9z"/></svg></span>
+                    <div class="hub-title"><h3><a href="kay/mezhgorod.html">Переезд по Казахстану</a></h3><span class="hub-price">фиксированная цена</span></div>
+                </div>
+                <p>Переезд из Астаны в другой город под ключ: упаковка, погрузка, перевозка, выгрузка и расстановка.</p>
+                <a class="hub-more" href="kay/mezhgorod.html">Подробнее →</a>
             </article>
             <article class="hub-card">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg></span>
-                    <div class="hub-title"><h3><a href="takelazh.html">Такелажные работы</a></h3><span class="hub-price">от 8 000 ₸/час</span></div>
+                    <div class="hub-title"><h3><a href="takelazh.html">Такелажные работы</a></h3><span class="hub-price">от 8 000 ₸/час</span></div>
                 </div>
-                <p>Перевозка сейфов, станков и оборудования. Подъём без лифта, аренда такелажного оборудования.</p>
-                <div class="hub-chips hub-chips--fill"><a href="takelazh/oborud.html">Станки и оборудование</a><a href="takelazh/save.html">Сейфы</a><a href="takelazh/roh.html">Аренда рохли</a><a href="takelazh/domkrat.html">Домкрат</a><a href="takelazh/lebedka.html">Лебёдка</a><a href="takelazh/roliki.html">Роликовые платформы</a><a href="takelazh/stupenkohod.html">Ступенькоход</a></div>
+                <p>Перевозка сейфов, станков и оборудования, подъём без лифта, аренда такелажного оборудования.</p>
+                <div class="hub-chips"><a href="takelazh/oborud.html">Станки</a><a href="takelazh/save.html">Сейфы</a><a href="takelazh/roh.html">Аренда рохли</a></div>
             </article>
             <article class="hub-card hub-card--link">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-                    <div class="hub-title"><h3><a href="mebel.html">Сборка и разборка мебели</a></h3><span class="hub-price">от 12 000 ₸</span></div>
+                    <div class="hub-title"><h3><a href="mebel.html">Сборка и разборка мебели</a></h3><span class="hub-price">от 12 000 ₸</span></div>
                 </div>
                 <p>Разборка перед переездом, сборка на новом месте, навеска. Цена фиксируется до начала работ.</p>
                 <a class="hub-more" href="mebel.html">Подробнее →</a>
@@ -1045,13 +856,21 @@
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/><line x1="12" y1="14" x2="12" y2="17"/></svg></span>
                     <div class="hub-title"><h3><a href="B2B.html">Для юридических лиц</a></h3><span class="hub-price">безнал, ЭСФ</span></div>
                 </div>
-                <p>Договор, безналичный расчёт, закрывающие документы. Регулярные перевозки, офисные переезды, утилизация.</p>
+                <p>Договор, безналичный расчёт, закрывающие документы. Офисные переезды, регулярные перевозки, вывоз мебели.</p>
                 <a class="hub-more" href="B2B.html">Подробнее →</a>
+            </article>
+            <article class="hub-card">
+                <div class="hub-head">
+                    <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span>
+                    <div class="hub-title"><h3><a href="upakovka.html">Упаковка вещей</a></h3><span class="hub-price">свои материалы</span></div>
+                </div>
+                <p>Упаковка с маркировкой: посуда, одежда, зеркала, техника. Материалы привозим с собой.</p>
+                <div class="hub-chips"><a href="upakovka/mebel.html">Мебель</a><a href="upakovka/posuda.html">Посуда</a><a href="upakovka/hrupkoe.html">Хрупкое</a></div>
             </article>
             <article class="hub-card hub-card--link">
                 <div class="hub-head">
                     <span class="hub-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/><path d="M3 8h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M10 8v12"/><path d="M3 12h7"/><path d="M14 12h7"/></svg></span>
-                    <div class="hub-title"><h3><a href="shop.html">Магазин упаковки</a></h3><span class="hub-price">от 400 ₸</span></div>
+                    <div class="hub-title"><h3><a href="shop.html">Магазин упаковки</a></h3><span class="hub-price">от 400 ₸</span></div>
                 </div>
                 <p>Коробки, стрейч- и пузырчатая плёнка, скотч, сумки. Доставка по городу.</p>
                 <a class="hub-more" href="shop.html">Подробнее →</a>
@@ -1059,61 +878,28 @@
         </div>
     </section>
 
-    <div class="band">
-    <section class="section" id="ceny" aria-labelledby="ceny-h">
+    <section class="section" id="pochemu" aria-labelledby="why-h">
         <div class="sec-head">
-            <span class="eyebrow">Прайс</span>
-            <h2 id="ceny-h">Цены на переезды и другие услуги</h2>
-        </div>
-        <div class="price-list">
-            <a class="price-row" href="kay/kvartira.html"><span>Квартирный переезд — эконом</span><i></i><b>от 35 000 ₸</b></a>
-            <a class="price-row" href="kay/kvartira.html"><span>Квартирный переезд под ключ</span><i></i><b>от 70 000 ₸</b></a>
-            <a class="price-row" href="kay/ofice.html"><span>Офисный переезд под ключ</span><i></i><b>от 50 000 ₸</b></a>
-            <a class="price-row" href="musor.html"><span>Вывоз мусора</span><i></i><b>от 5 000 ₸</b></a>
-            <a class="price-row" href="musor/stroy.html"><span>Вывоз строительного мусора</span><i></i><b>от 12 000 ₸</b></a>
-            <a class="price-row" href="mebel.html"><span>Сборка и разборка мебели</span><i></i><b>от 12 000 ₸</b></a>
-            <a class="price-row" href="takelazh/save.html"><span>Перевозка сейфов</span><i></i><b>от 30 000 ₸</b></a>
-            <a class="price-row" href="takelazh/roh.html"><span>Аренда рохли с доставкой (юрлицам)</span><i></i><b>от 4 000 ₸/час</b></a>
-        </div>
-        <p class="price-note">Точный расчёт — по телефону или в WhatsApp за 5 минут. Названную цену не меняем «по факту».</p>
-    </section>
-    </div>
-
-    <section class="section" id="preimushchestva" aria-labelledby="why-h">
-        <div class="sec-head">
-            <span class="eyebrow">Почему мы</span>
+            <span class="eyebrow">С 2019 года · 500+ заказов</span>
             <h2 id="why-h">Почему выбирают Gruzim.kz</h2>
         </div>
-        <div class="why-grid">
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12"/><path d="M18 15l2 2 4-4"/></svg><h3>Цена без доплат на месте</h3><p>Стоимость называем до начала работ и не меняем в процессе. Никаких «доплат по факту» без согласования.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="8" width="15" height="11" rx="2"/><path d="M16 11h4l3 4v4h-7V11z"/><circle cx="5.5" cy="19.5" r="1.5"/><circle cx="18.5" cy="19.5" r="1.5"/></svg><h3>Свой автопарк и бригады</h3><p>Свои газели, минивэн и манипулятор, проверенные бригады грузчиков. За сохранность вещей отвечаем сами.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h3>Ответственность за груз</h3><p>Работаем по договору и отвечаем за сохранность вещей — от упаковки до расстановки.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3>Подача в течение часа</h3><p>По городу подаём машину в течение часа, в загруженные дни сразу предлагаем ближайшее время. Заказы выполняем 24/7, звонки и WhatsApp — ежедневно с 8:00 до 20:00.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg><h3>Безнал и документы для юрлиц</h3><p>Договор, счёт, ЭСФ и АВР. Работаем через госзакупки. Корпоративным клиентам — <a href="B2B.html">специальные условия</a>.</p></div>
-            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.63L17.8 20.5 12 17.27 6.2 20.5l1.05-6.6L2.5 9.27l6.6-1.01L12 2z"/></svg><h3>С 2019 года, 500+ заказов</h3><p>Отзывы клиентов — в <a href="https://g.page/r/CdZy1ITbhee-EBM/review" target="_blank" rel="noopener">Google</a> и <a href="https://2gis.kz/astana/geo/70000001112483428" target="_blank" rel="noopener">2ГИС</a>: там их нельзя отредактировать.</p></div>
+        <div class="why-grid why-grid--4">
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12"/><path d="M18 15l2 2 4-4"/></svg><h3>Цена до начала работ</h3><p>Стоимость называем заранее и не меняем в процессе без вашего согласия. Переезд под ключ фиксируем в договоре.</p></div>
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h3>Отвечаем за сохранность</h3><p>Работаем по договору. Если при работе что-то повредим — восстановим за свой счёт.</p></div>
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3>Подача в течение часа</h3><p>По городу — в течение часа, в загруженные дни сразу предложим ближайшее время. Заказы выполняем 24/7.</p></div>
+            <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg><h3>Документы для юрлиц</h3><p>Договор, счёт, ЭСФ и АВР. Работаем через госзакупки.</p></div>
+        </div>
+        <div class="gz-reviews-row">
+            <p>Отзывы клиентов — в Google и 2ГИС, там их нельзя отредактировать.</p>
+            <div class="gz-reviews-btns"><a href="https://g.page/r/CdZy1ITbhee-EBM/review" class="cta-button cta-button--ghost" target="_blank" rel="noopener">Отзывы в Google</a><a href="https://2gis.kz/astana/geo/70000001112483428" class="cta-button cta-button--ghost" target="_blank" rel="noopener">Отзывы в 2ГИС</a></div>
         </div>
     </section>
 
-    <div class="band">
-    <section class="section" id="kak-rabotaem" aria-labelledby="steps-h">
-        <div class="sec-head">
-            <span class="eyebrow">4 шага</span>
-            <h2 id="steps-h">Как заказать грузоперевозку</h2>
-        </div>
-        <div class="steps-row">
-            <div class="step"><h3>Заявка</h3><p>Звоните или пишите в WhatsApp. Уточняем адреса, объём и что нужно сделать.</p></div>
-            <div class="step"><h3>Расчёт цены</h3><p>Подбираем машину и число грузчиков, называем итоговую стоимость.</p></div>
-            <div class="step"><h3>Подача машины</h3><p>Приезжаем к назначенному времени: погрузка, перевозка, подъём на этаж.</p></div>
-            <div class="step"><h3>Приёмка и оплата</h3><p>Проверяете результат и платите удобным способом: наличные, Kaspi, безнал.</p></div>
-        </div>
-    </section>
-    </div>
-
-    <section class="section" id="nasha-tehnika" aria-labelledby="tech-h">
+<section class="section" id="nasha-tehnika" aria-labelledby="tech-h">
         <div class="sec-head">
             <span class="eyebrow">Автопарк</span>
             <h2 id="tech-h">Наша техника и оборудование</h2>
-            <p>Собственный автопарк и такелажное оборудование: рохли, домкраты, ролики, ступенькоход.</p>
+            <p>Свои машины, такелажное оборудование и материалы для переезда. Нажмите на фото — откроется страница услуги.</p>
         </div>
         <div class="gallery-groups">
 
@@ -1123,12 +909,12 @@
                     <button class="gallery-arrow gallery-arrow--prev" type="button" aria-label="Назад"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
                     <div class="gallery-viewport">
                         <div class="gallery-track">
-                            <a href="gruz/chasovoi.html" class="gallery-slide">
-                                <img src="gallery/gazel_tent.webp" alt="Тентованная Газель для почасовой аренды — грузоперевозки в Астане" width="552" height="435" loading="lazy" decoding="async">
+                            <a href="gruz/centr.html" class="gallery-slide">
+                                <img src="gallery/gazel_tent.webp" alt="Тентованная газель — грузоперевозки по Астане" width="552" height="435" loading="lazy" decoding="async">
                                 <span class="gallery-slide-label">Газель тентованная</span>
                             </a>
                             <a href="gruz/komplekt.html" class="gallery-slide">
-                                <img src="gallery/gazel_bort.webp" alt="Бортовая Газель для перевозки крупногабаритных грузов" width="501" height="191" loading="lazy" decoding="async">
+                                <img src="gallery/gazel_bort.webp" alt="Бортовая газель с грузчиками для перевозки крупногабаритных грузов" width="501" height="191" loading="lazy" decoding="async">
                                 <span class="gallery-slide-label">Газель бортовая</span>
                             </a>
                             <a href="takelazh/oborud.html" class="gallery-slide">
@@ -1142,12 +928,12 @@
             </div>
 
             <div class="gallery-group">
-                <h3 class="gallery-group-title">Упаковка и защита груза</h3>
+                <h3 class="gallery-group-title">Материалы для переезда</h3>
                 <div class="gallery-slider">
                     <button class="gallery-arrow gallery-arrow--prev" type="button" aria-label="Назад"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
                     <div class="gallery-viewport">
                         <div class="gallery-track">
-                            <a href="upakovka.html" class="gallery-slide">
+                            <a href="shop.html" class="gallery-slide">
                                 <img src="gallery/korobki.webp" alt="Упаковка вещей картонными коробками при переезде" width="571" height="455" loading="lazy" decoding="async">
                                 <span class="gallery-slide-label">Коробки для переезда</span>
                             </a>
@@ -1207,40 +993,11 @@
         </div>
     </section>
 
-    <div class="band">
-    <section class="section" id="rayony" aria-labelledby="geo-h">
+<section class="section" id="blog" aria-labelledby="blog-h">
         <div class="sec-head">
-            <span class="eyebrow">География</span>
-            <h2 id="geo-h">Грузоперевозки по всем районам Астаны</h2>
-            <p>Выезжаем на левый и правый берег, в пригороды и по Казахстану.</p>
-        </div>
-        <div class="geo">
-            <div class="geo-box">
-                <h3>Районы города</h3>
-                <div class="geo-chips">
-                    <span>Алматинский район</span><span>Байконырский район</span><span>Есильский район</span><span>Нура</span><span>Сарыарка</span><span>Левый берег</span><span>Правый берег</span><span>Пригород Астаны</span>
-                </div>
-                <h3 style="margin-top:22px">За пределами Астаны</h3>
-                <div class="geo-chips"><a href="kay/mezhgorod.html">Переезды по Казахстану</a><a href="karaganda/">Грузоперевозки в Караганде</a></div>
-            </div>
-            <div class="geo-box">
-                <h3>Популярные маршруты</h3>
-                <ul class="routes">
-                    <li><span>Алматинский → Есильский район</span><b>от 8 000 ₸</b></li>
-                    <li><span>Сарыарка → Байконырский район</span><b>от 9 000 ₸</b></li>
-                    <li><span>Нура → Левый берег</span><b>от 10 000 ₸</b></li>
-                    <li><span>Доставка из мебельных магазинов и «Строймаркета»</span><b>от 5 000 ₸</b></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    </div>
-
-    <section class="section" id="blog" aria-labelledby="blog-h">
-        <div class="sec-head">
-            <span class="eyebrow">Кейсы</span>
-            <h2 id="blog-h">Наши работы на видео</h2>
-            <p>Реальные заказы в Астане: какой была задача и как мы её решили.</p>
+            <span class="eyebrow">Блог</span>
+            <h2 id="blog-h">Блог: наши заказы и советы</h2>
+            <p>Разборы реальных заказов в Астане с видео и практические советы из нашей работы.</p>
         </div>
         <div class="hb-grid">
 <a class="hb-card" href="blog/mebel/razbor-perevozka-i-sborka-mebeli-pod-klyuch.html"><span class="hb-img"><img src="https://i.ytimg.com/vi/K2MmLpmhauw/oar2.jpg" alt="Разбор, упаковка, перевозка и сборка мебели под ключ" width="1080" height="1920" loading="lazy" decoding="async"></span><span class="hb-body"><span class="hb-cat">Сборка мебели</span><span class="hb-title">Разбор, перевозка и сборка дорогой мебели: из квартиры в новый коттедж</span></span></a>
@@ -1250,62 +1007,55 @@
         <div class="sec-more"><a href="blog.html" class="cta-button cta-button--ghost">Все статьи блога</a></div>
     </section>
 
-    <section class="section" id="b2b" style="padding-top:0">
-        <div class="b2b-strip">
-            <div>
-                <h2>Грузоперевозки для юридических лиц</h2>
-                <p>Регулярные перевозки, офисные переезды без простоя, утилизация мебели и техники, ночной вывоз мусора для ТЦ. Договор, безналичный расчёт, ЭСФ и закрывающие документы.</p>
-            </div>
-            <a href="B2B.html" class="cta-button">Условия для бизнеса</a>
+    <section class="section" id="kak-rabotaem" aria-labelledby="steps-h">
+        <div class="sec-head">
+            <span class="eyebrow">4 шага</span>
+            <h2 id="steps-h">Как мы работаем</h2>
+        </div>
+        <div class="steps-row">
+            <div class="step"><h3>Заявка</h3><p>Звоните или пишите в WhatsApp. Уточняем адреса, объём и что нужно сделать.</p></div>
+            <div class="step"><h3>Расчёт цены</h3><p>Подбираем машину и бригаду, называем стоимость до начала работ.</p></div>
+            <div class="step"><h3>Выезд бригады</h3><p>Приезжаем к назначенному времени и делаем работу: перевозка, переезд, вывоз.</p></div>
+            <div class="step"><h3>Приёмка и оплата</h3><p>Проверяете результат и платите удобным способом: наличные, Kaspi, безнал.</p></div>
         </div>
     </section>
 
-    <div class="band">
     <section class="section" id="faq" aria-labelledby="faq-h">
         <div class="sec-head">
             <span class="eyebrow">FAQ</span>
-            <h2 id="faq-h">Вопросы о грузоперевозках в Астане</h2>
+            <h2 id="faq-h">Вопросы о компании</h2>
         </div>
         <div class="faq-wrap">
-            <details class="faq-item"><summary>Сколько стоят грузоперевозки по Астане?</summary><div class="faq-a">Оплата почасовая: минимальный заказ — 1 час, далее шаг 30 минут. Минивэн — от 5 000 ₸/ч, газель — от 7 000 ₸/ч, удлинённая газель — от 8 000 ₸/ч, грузовик до 5 т — от 15 000 ₸/ч. В ставку входят машина, водитель и топливо по городу.</div></details>
-            <details class="faq-item"><summary>Сколько стоит газель с грузчиками?</summary><div class="faq-a">Газель с одним грузчиком — от 10 500 ₸/ч, с двумя грузчиками — от 14 000 ₸/ч. Если лифта нет или груз тяжёлый, возможна доплата от 1 000 ₸ за этаж — её обсуждаем при заказе, а не на месте.</div></details>
-            <details class="faq-item"><summary>Какую машину выбрать для переезда квартиры?</summary><div class="faq-a">Для однокомнатной квартиры обычно хватает минивэна или стандартной газели. Для двух-трёхкомнатной — удлинённая газель или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Если не хотите заниматься сборами, закажите <a href="pereezdkay.html">переезд под ключ</a>.</div></details>
-            <details class="faq-item"><summary>Как быстро вы можете подать машину?</summary><div class="faq-a">При свободной машине подаём в течение часа после заявки. Чтобы закрепить удобное время, лучше согласовать заказ заранее.</div></details>
-            <details class="faq-item"><summary>Вы работаете ночью и в выходные?</summary><div class="faq-a">Да, без выходных: заказы выполняем 24/7, звонки и WhatsApp принимаем ежедневно с 8:00 до 20:00.</div></details>
-            <details class="faq-item"><summary>Работаете ли вы с юридическими лицами?</summary><div class="faq-a">Да. Договор, безналичный расчёт, ЭСФ и АВР. Участвуем в госзакупках, для постоянных клиентов — <a href="B2B.html">специальные условия</a>.</div></details>
-            <details class="faq-item"><summary>Сколько стоит переезд квартиры в Астане?</summary><div class="faq-a">Квартирный переезд в формате «эконом» — от 35 000 ₸, под ключ с упаковкой, разборкой и сборкой мебели — от 70 000 ₸. Итог зависит от метража, этажа и наличия лифта. Подробнее — на странице <a href="kay/kvartira.html">квартирного переезда</a>.</div></details>
-            <details class="faq-item"><summary>Сколько стоит вывоз мусора?</summary><div class="faq-a">От 5 000 ₸. Мебель с разбором — от 15 000 ₸, строительный мусор — от 12 000 ₸. Отвозим на центральный полигон по договору и выдаём акты. Подробнее — на странице <a href="musor.html">вывоза мусора</a>.</div></details>
-            <details class="faq-item"><summary>Перевозите ли вы грузы в другие города?</summary><div class="faq-a">Да, выполняем перевозки и переезды по Казахстану. Стоимость рассчитываем по километражу и объёму груза — подробнее на странице <a href="kay/mezhgorod.html">межгородских переездов</a>.</div></details>
+            <details class="faq-item"><summary>Чем занимается Gruzim.kz?</summary><div class="faq-a">Переезды под ключ, вывоз мусора и старой мебели, грузоперевозки с грузчиками, такелаж, сборка мебели и упаковка вещей. Работаем в Астане с 2019 года, а также <a href="karaganda/">в Караганде</a>.</div></details>
+            <details class="faq-item"><summary>Может ли цена измениться на месте?</summary><div class="faq-a">Если объём и условия совпадают с заявкой — нет. Стоимость называем до начала работ и не меняем без вашего согласия. Переезд под ключ фиксируем в договоре.</div></details>
+            <details class="faq-item"><summary>Кто отвечает за сохранность вещей?</summary><div class="faq-a">Мы. Работаем по договору, и если при работе что-то повредим — восстановим за свой счёт.</div></details>
+            <details class="faq-item"><summary>Как быстро вы приедете?</summary><div class="faq-a">По городу — в течение часа, если машина свободна; в загруженные дни сразу предложим ближайшее время. Заказы выполняем 24/7, звонки и WhatsApp принимаем ежедневно с 8:00 до 20:00.</div></details>
+            <details class="faq-item"><summary>Работаете ли вы с юридическими лицами?</summary><div class="faq-a">Да. Договор, безналичный расчёт, ЭСФ и АВР. Участвуем в госзакупках, для постоянных клиентов — <a href="B2B.html">специальные условия</a>.</div></details>
+            <details class="faq-item"><summary>Где вы находитесь?</summary><div class="faq-a">Офис — Астана, ул. Таскескен 17б. Выезжаем во все районы города и в пригород, переезды выполняем по всему Казахстану.</div></details>
         </div>
     </section>
-    </div>
 
     <section class="section seo-article" id="o-kompanii">
-        <h2>Грузоперевозки в Астане от Gruzim.kz</h2>
-        <p>Gruzim.kz — транспортная компания полного цикла, которая с 2019 года выполняет грузоперевозки по Астане для частных клиентов и бизнеса. За это время — более 500 заказов: от доставки одного холодильника до переезда офисов и цехов. Мы работаем на собственных <a href="gruz/bus.html">минивэнах</a>, <a href="gruz/chasovoi.html">газелях</a> и грузовиках грузоподъёмностью до 5 тонн, с проверенными бригадами грузчиков.</p>
-        <h3>Как формируется цена грузоперевозки</h3>
-        <p>Мы считаем время, а не «пакет»: оплата почасовая, минимальный заказ — 1 час, дальше шаг 30 минут. Стоимость зависит от трёх вещей:</p>
-        <ul>
-            <li><strong>тип машины</strong> — минивэн от 5 000 ₸/ч, газель от 7 000 ₸/ч, грузовик до 5 т от 15 000 ₸/ч;</li>
-            <li><strong>количество грузчиков</strong> — газель с двумя грузчиками от 14 000 ₸/ч (<a href="gruz/komplekt.html">тариф «Комплект»</a>);</li>
-            <li><strong>условия на адресе</strong> — этаж, наличие лифта, расстояние от подъезда до машины.</li>
-        </ul>
-        <p>Цену называем до начала работ и не повышаем «по факту». Если уложились быстрее — платите меньше.</p>
-        <h3>Какую машину выбрать</h3>
-        <p>Для вещей из однокомнатной квартиры, бытовой техники и коробок обычно хватает минивэна или стандартной газели. Для двух-трёхкомнатной квартиры или офиса на 10–15 рабочих мест — удлинённая газель или комплект с грузчиками, чтобы уложиться в 1–2 рейса. Грузовик до 5 тонн нужен для больших переездов, партий товара и оборудования, а для сейфов и станков — <a href="takelazh.html">такелажная бригада</a> со своим оборудованием.</p>
-        <h3>Больше, чем перевозка</h3>
-        <p>Если не хочется заниматься сборами, закажите <a href="pereezdkay.html">переезд под ключ</a>: мы <a href="upakovka.html">упакуем вещи</a>, <a href="mebel.html">разберём и соберём мебель</a>, перевезём и расставим всё по комнатам. Ненужное заберём на <a href="musor.html">вывоз мусора</a> — отвозим на центральный полигон по договору. Упаковочные материалы можно купить отдельно в нашем <a href="shop.html">магазине упаковки</a>.</p>
-        <h3>Грузоперевозки для бизнеса</h3>
-        <p>Для <a href="B2B.html">юридических лиц</a> работаем по договору с безналичным расчётом, ЭСФ и АВР, участвуем в госзакупках. Возим товар в магазины и на склады, перевозим офисы без остановки работы, для торговых центров выполняем <a href="musor/night.html">ночной вывоз мусора</a>.</p>
-        <p>Заказы выполняем 24/7 во всех районах столицы, заявки по телефону <a href="tel:+77010120300">+7 701 012 03 00</a> и в WhatsApp принимаем ежедневно с 8:00 до 20:00.</p>
+        <h2>Gruzim.kz — грузчики, переезды и вывоз мусора в Астане</h2>
+        <p>Gruzim.kz работает в Астане с 2019 года и выполнил более 500 заказов для частных клиентов и бизнеса: от вывоза одного холодильника до переезда офисов и цехов. Мы берём на себя всё, что связано с перемещением вещей: перевозку, переезд, вывоз ненужного, подъём тяжёлого и сборку мебели.</p>
+        <h3>Переезды</h3>
+        <p><a href="pereezdkay.html">Переезд под ключ</a> — упаковка, разборка мебели, перевозка, сборка и расстановка на новом месте. Перевозим квартиры, <a href="kay/ofice.html">офисы</a> и выполняем <a href="kay/mezhgorod.html">переезды по Казахстану</a>. Сумму называем до начала и фиксируем в договоре.</p>
+        <h3>Вывоз мусора и старых вещей</h3>
+        <p>Забираем <a href="musor/mebel.html">старую мебель</a> с разбором, <a href="musor/tehnika.html">бытовую технику</a>, <a href="musor/matras.html">матрасы</a>, <a href="musor/stroy.html">строительный мусор</a> и хлам — с грузчиками, в день обращения. Крупногабаритный мусор отвозим на центральный полигон по договору.</p>
+        <h3>Грузчики и грузоперевозки</h3>
+        <p>Для перевозок по городу — минивэны, газели и грузовики до 5 тонн с почасовой оплатой: <a href="gruz/centr.html">грузоперевозки по Астане</a> от 5 000 ₸/час, <a href="gruz/komplekt.html">газель с грузчиками</a> от 10 500 ₸/час. Сейфы, станки и тяжёлое оборудование перевозит <a href="takelazh.html">такелажная бригада</a> со своим оборудованием.</p>
+        <h3>Для бизнеса</h3>
+        <p>С юридическими лицами работаем по договору с безналичным расчётом, ЭСФ и АВР, участвуем в госзакупках. Перевозим офисы без остановки работы, вывозим старую мебель и технику, для торговых центров выполняем <a href="musor/night.html">ночной вывоз мусора</a>. Подробнее — в разделе <a href="B2B.html">для юрлиц</a>.</p>
+        <h3>Почему нам доверяют</h3>
+        <p>Цену называем до начала работ и не меняем её на месте без согласования. Если при работе что-то повредим — восстановим за свой счёт. Отзывы клиентов — в <a href="https://g.page/r/CdZy1ITbhee-EBM/review" target="_blank" rel="noopener">Google</a> и <a href="https://2gis.kz/astana/geo/70000001112483428" target="_blank" rel="noopener">2ГИС</a>. Заказы выполняем 24/7, звонки и WhatsApp принимаем ежедневно с 8:00 до 20:00. <a href="o-kompanii.html">Подробнее о компании</a>.</p>
     </section>
-</main>
 
 <section class="final-cta">
-    <h2>Рассчитаем грузоперевозку за 5 минут</h2>
-    <p>Позвоните или напишите в WhatsApp — подберём машину и назовём точную цену.</p>
-    <a href="tel:+77010120300" class="cta-button" data-gz-conv>+7 701 012 03 00</a>
-    <a href="https://wa.me/77010120300?text=Здравствуйте!%20Хочу%20рассчитать%20стоимость%20грузоперевозки" class="cta-button cta-button--wa" target="_blank" rel="noopener" data-gz-conv>Написать в WhatsApp</a>
+    <h2>Рассчитаем стоимость за 5 минут</h2>
+    <p>Позвоните или напишите в WhatsApp — подберём машину и бригаду и назовём цену.</p>
+    <a href="tel:+77010120300" class="cta-button" data-gz-conv>+7&nbsp;701&nbsp;012 03 00</a>
+    <a href="https://wa.me/77010120300?text=Здравствуйте!%20Хочу%20рассчитать%20стоимость" class="cta-button cta-button--wa" target="_blank" rel="noopener" data-gz-conv>Написать в WhatsApp</a>
+    <p class="gz-nap">Астана, ул. Таскескен 17б · звонки и WhatsApp 8:00–20:00 · заказы 24/7</p>
 </section>
 
 <!-- GZ-UI:FOOTER -->
@@ -1322,7 +1072,7 @@
 <a href="https://t.me/gruzimkz" target="_blank" rel="noopener">Telegram</a>
 </div>
 </div>
-<div><div class="gz-f-title">Перевозки и переезды</div><ul><li><a href="gruz/centr.html">Грузоперевозки по Астане</a></li><li><a href="gruz/chasovoi.html">Газель почасово</a></li><li><a href="gruz/komplekt.html">Грузовик с грузчиками</a></li><li><a href="kay/kvartira.html">Квартирный переезд</a></li><li><a href="kay/ofice.html">Офисный переезд</a></li><li><a href="kay/mezhgorod.html">Переезд межгород</a></li><li><a href="takelazh.html">Такелажные работы</a></li></ul></div>
+<div><div class="gz-f-title">Перевозки и переезды</div><ul><li><a href="gruz/centr.html">Грузоперевозки по Астане</a></li><li><a href="gruz/chasovoi.html">Газель почасово</a></li><li><a href="gruz/komplekt.html">Газель с грузчиками</a></li><li><a href="kay/kvartira.html">Квартирный переезд</a></li><li><a href="kay/ofice.html">Офисный переезд</a></li><li><a href="kay/mezhgorod.html">Переезд межгород</a></li><li><a href="takelazh.html">Такелажные работы</a></li></ul></div>
 <div><div class="gz-f-title">Сервис и вывоз</div><ul><li><a href="musor.html">Вывоз мусора</a></li><li><a href="musor/stroy.html">Строительный мусор</a></li><li><a href="musor/hlam.html">Вывоз хлама</a></li><li><a href="upakovka.html">Упаковка вещей</a></li><li><a href="mebel.html">Сборка мебели</a></li><li><a href="shop.html">Магазин упаковки</a></li><li><a href="B2B.html">Юридическим лицам</a></li></ul></div>
 <div>
 <div class="gz-f-title">Контакты</div>
@@ -1430,6 +1180,8 @@
                 var cardWidth = card ? card.getBoundingClientRect().width : 200;
                 return (cardWidth + 14) * 2;
             }
+            function sync() { slider.classList.toggle('is-static', viewport.scrollWidth <= viewport.clientWidth + 2); }
+            sync(); window.addEventListener('resize', sync);
             prev.addEventListener('click', function () { viewport.scrollBy({ left: -step(), behavior: 'smooth' }); });
             next.addEventListener('click', function () { viewport.scrollBy({ left: step(), behavior: 'smooth' }); });
         });
