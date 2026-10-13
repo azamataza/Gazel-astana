@@ -1,6 +1,5 @@
 (function () {
   var mq = window.matchMedia('(max-width:768px)');
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var grids = [].slice.call(document.querySelectorAll('[data-gz-stack]'));
   if (!grids.length) return;
 
@@ -75,5 +74,6 @@
     lastW = window.innerWidth;
     clearTimeout(rt); rt = setTimeout(setup, 200);
   }, { passive: true });
-  if (document.readyState === 'complete') setup(); else window.addEventListener('load', setup);
+  setup();
+  if (document.readyState !== 'complete') window.addEventListener('load', setup);
 })();
