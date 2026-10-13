@@ -37,15 +37,15 @@
       if (!mq.matches || cards.length < 3) return;
       var top = headerH() + 12;
       g.style.setProperty('--gz-stk-top', top + 'px');
-      var room = window.innerHeight - top - 12 - (cards.length - 1) * 10;
-      for (var i = 0; i < cards.length; i++) if (cards[i].offsetHeight > room * 0.9) return;
+      var room = window.innerHeight - top - 12 - Math.min(cards.length - 1, 3) * 10;
+      for (var i = 0; i < cards.length; i++) if (cards[i].offsetHeight > room) return;
       var gb = g.getBoundingClientRect().bottom;
       var gaps = cards.map(function (c, i) {
         var r = c.getBoundingClientRect();
         return (i < cards.length - 1 ? cards[i + 1].getBoundingClientRect().top : gb) - r.bottom;
       });
       cards.forEach(function (c, i) {
-        c.style.setProperty('--gz-i', i);
+        c.style.setProperty('--gz-i', Math.min(i, 3));
         c.style.marginTop = '0px';
         c.style.marginBottom = Math.max(0, gaps[i]) + 'px';
         var bg = getComputedStyle(c).backgroundColor;
