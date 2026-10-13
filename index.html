@@ -285,6 +285,26 @@
     @media(max-width:1024px){.why-grid--4{grid-template-columns:1fr 1fr}.hub-grid--home>.hub-card:first-child{grid-column:1/-1}}
     @media(max-width:768px){.why-grid--4{grid-template-columns:1fr}.hub-grid--home>.hub-card:first-child{grid-column:auto}.gz-reviews-row{flex-direction:column;align-items:stretch;text-align:center}.gz-reviews-btns{display:grid;grid-template-columns:1fr 1fr}}
     @media(max-width:374px){.gz-reviews-btns{grid-template-columns:1fr}}
+      /* Услуги на телефоне: карточки стопкой при прокрутке */
+    @media(max-width:768px){
+      .hub-grid--home{display:block;counter-reset:gzsvc}
+      .hub-grid--home>.hub-card{position:sticky;top:calc(var(--gz-header-h,60px) + 12px + var(--gz-i,0) * 10px);margin:0 0 18px;background:#fff;box-shadow:0 -6px 22px rgba(15,23,42,.07);transform-origin:50% 0;transform:scale(calc(1 - var(--gz-p,0) * .06));counter-increment:gzsvc}
+      .hub-grid--home>.hub-card:last-child{margin-bottom:0}
+      .hub-grid--home>.hub-card::before{content:counter(gzsvc,decimal-leading-zero) " / 09";position:absolute;top:16px;right:18px;font-size:12px;font-weight:600;letter-spacing:.04em;color:#94a3b8}
+      .hub-grid--home>.hub-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#0f172a;opacity:calc(var(--gz-p,0) * .06);pointer-events:none}
+      .hub-grid--home>.hub-card .hub-head{padding-right:46px}
+      .hub-grid--home>.hub-card .hub-chips a:nth-child(n+4){display:none}
+      .hub-grid--home>.hub-card .hub-chips{margin-top:auto}
+      .hub-grid--home>.hub-card:nth-child(1){--gz-i:0}
+      .hub-grid--home>.hub-card:nth-child(2){--gz-i:1}
+      .hub-grid--home>.hub-card:nth-child(3){--gz-i:2}
+      .hub-grid--home>.hub-card:nth-child(4){--gz-i:3}
+      .hub-grid--home>.hub-card:nth-child(5){--gz-i:4}
+      .hub-grid--home>.hub-card:nth-child(6){--gz-i:5}
+      .hub-grid--home>.hub-card:nth-child(7){--gz-i:6}
+      .hub-grid--home>.hub-card:nth-child(8){--gz-i:7}
+      .hub-grid--home>.hub-card:nth-child(9){--gz-i:8}
+    }
   </style>
 
     <script type="application/ld+json">
@@ -1212,5 +1232,32 @@
 </script>
 <script src="/gz-crm.js" defer></script>
 <script src="assets/gz-ui.js?v=1" defer></script>
+<script id="gz-svc-stack">
+(function(){
+  var mq=window.matchMedia('(max-width:768px)'), grid=document.querySelector('.hub-grid--home');
+  if(!grid) return;
+  var cards=[].slice.call(grid.children), ticking=false;
+  function update(){
+    ticking=false;
+    if(!mq.matches){cards.forEach(function(c){c.style.removeProperty('--gz-p');});return;}
+    for(var i=0;i<cards.length-1;i++){
+      var a=cards[i].getBoundingClientRect(), b=cards[i+1].getBoundingClientRect();
+      var p=(a.bottom-b.top)/a.height; p=p<0?0:p>1?1:p;
+      cards[i].style.setProperty('--gz-p',p.toFixed(3));
+    }
+  }
+  function equalize(){
+    cards.forEach(function(c){c.style.minHeight='';});
+    if(!mq.matches) return;
+    var h=0; cards.forEach(function(c){h=Math.max(h,c.offsetHeight);});
+    cards.forEach(function(c){c.style.minHeight=h+'px';});
+  }
+  function onScroll(){ if(!ticking){ticking=true;requestAnimationFrame(update);} }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',function(){equalize();onScroll();},{passive:true});
+  window.addEventListener('load',equalize);
+  equalize(); update();
+})();
+</script>
 </body>
 </html>
