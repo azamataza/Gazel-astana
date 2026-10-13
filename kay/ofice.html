@@ -881,7 +881,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <h2>Как мы переезжаем офисы</h2>
                 <p>Полный цикл силами одной бригады — от бесплатной оценки до подключённой техники на новом месте.</p>
             </div>
-            <div class="grid-3">
+            <div class="grid-3 gz-stack">
                 <a class="p-card" href="#callback-form" data-reveal><div class="p-num">01</div><i class="fas fa-chalkboard-user" aria-hidden="true"></i><h3>Выезд оценщика</h3><p>Бесплатно оцениваем объём, серверы, мебель и технику, фиксируем цену в договоре.</p></a>
                 <div class="p-card" data-reveal><div class="p-num">02</div><i class="fas fa-passport" aria-hidden="true"></i><h3>Согласуем пропуска</h3><p>Оформляем доступ в БЦ, бронируем грузовые лифты и удобное время.</p></div>
                 <div class="p-card" data-reveal><div class="p-num">03</div><i class="fas fa-boxes" aria-hidden="true"></i><h3>Упаковка и маркировка</h3><p>Антистатическая упаковка техники, коробки по отделам и рабочим местам.</p></div>
@@ -1456,6 +1456,48 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script src="/gz-crm.js" defer></script>
 <script src="../assets/gz-ui.js?v=1" defer></script>
+<style id="gz-steps-stack">
+@media(max-width:768px){
+  .grid-3.gz-stack{display:block}
+  .grid-3.gz-stack>.p-card{position:sticky;top:calc(var(--gz-header-h,64px) + var(--gz-crumb-h,0px) + 12px + var(--gz-i,0) * 10px);margin:0 0 16px;background:var(--paper,#fff);box-shadow:0 -8px 24px -6px rgba(15,17,21,.12);transform-origin:50% 0;transform:scale(calc(1 - var(--gz-p,0) * .06))!important;opacity:1!important;transition:none!important;justify-content:center}
+  .grid-3.gz-stack>.p-card:last-child{margin-bottom:0}
+  .grid-3.gz-stack>.p-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--ink,#0f1115);opacity:calc(var(--gz-p,0) * .07);pointer-events:none}
+  .grid-3.gz-stack>.p-card:nth-child(1){--gz-i:0}
+  .grid-3.gz-stack>.p-card:nth-child(2){--gz-i:1}
+  .grid-3.gz-stack>.p-card:nth-child(3){--gz-i:2}
+  .grid-3.gz-stack>.p-card:nth-child(4){--gz-i:3}
+  .grid-3.gz-stack>.p-card:nth-child(5){--gz-i:4}
+  .grid-3.gz-stack>.p-card:nth-child(6){--gz-i:5}
+}
+</style>
+<script id="gz-steps-stack-js">
+(function(){
+  var mq=window.matchMedia('(max-width:768px)');
+  [].forEach.call(document.querySelectorAll('.gz-stack'),function(grid){
+    var cards=[].slice.call(grid.children), ticking=false;
+    function equalize(){
+      cards.forEach(function(c){c.style.minHeight='';});
+      if(!mq.matches) return;
+      var h=0; cards.forEach(function(c){h=Math.max(h,c.offsetHeight);});
+      cards.forEach(function(c){c.style.minHeight=h+'px';});
+    }
+    function update(){
+      ticking=false;
+      if(!mq.matches){cards.forEach(function(c){c.style.removeProperty('--gz-p');});return;}
+      for(var i=0;i<cards.length-1;i++){
+        var a=cards[i].getBoundingClientRect(), b=cards[i+1].getBoundingClientRect();
+        var p=(a.bottom-b.top)/a.height; p=p<0?0:p>1?1:p;
+        cards[i].style.setProperty('--gz-p',p.toFixed(3));
+      }
+    }
+    function onScroll(){ if(!ticking){ticking=true;requestAnimationFrame(update);} }
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',function(){equalize();onScroll();},{passive:true});
+    window.addEventListener('load',equalize);
+    equalize(); update();
+  });
+})();
+</script>
 <script src="/assets/gz-meta.js?v=1" defer></script>
 </body>
 </html>
