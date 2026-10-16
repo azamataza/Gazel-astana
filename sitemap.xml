@@ -980,7 +980,7 @@
   </url>
   <url>
     <loc>https://www.gruzim.kz/blog.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1089,6 +1089,18 @@
   <url>
     <loc>https://www.gruzim.kz/o-kompanii.html</loc>
     <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.gruzim.kz/blog/takelazh/snyatie-spektrometra-s-paletu-kozlovym-kranom.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.gruzim.kz/blog/pereezd/pereezd-ofisa-aktobe-astana.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

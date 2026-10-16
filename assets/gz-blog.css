@@ -202,3 +202,9 @@ img { max-width: 100%; height: auto; }
 /* Об авторе */
 .bl-author { margin: 32px 0 0; padding: 18px 20px; border: 1px solid var(--gz-line); border-radius: 16px; background: var(--gz-bg); color: var(--gz-text); font-size: 15px; line-height: 1.6; }
 .bl-author b { color: var(--gz-ink); }
+
+/* Фото в теле статьи */
+.bl-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 18px 0 26px; max-width: 560px; }
+.bl-photos figure { margin: 0; }
+.bl-photos img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; }
+.bl-photos figcaption { margin-top: 6px; color: #64748b; font-size: 13.5px; line-height: 1.4; }

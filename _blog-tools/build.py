@@ -457,38 +457,13 @@ def hub_page():
 
 
 def home_block():
+    """Обновляет 3 свежих кейса в блоке #blog на главной (вёрстку блока не трогает)."""
     s = rd("index.html")
-    s = re.sub(r'<section class="section" id="blog">.*?</section>\s*', '', s, count=1, flags=re.S)
     latest = sorted([a for a in ARTICLES if a["videos"]], key=sort_key, reverse=True)[:3]
     items = "\n".join(f"""<a class="hb-card" href="blog/{a['cat']}/{a['slug']}.html"><span class="hb-img"><img src="{thumb(a['videos'][0]['id'])}" alt="{esc(a['videos'][0]['name'])}" width="1080" height="1920" loading="lazy" decoding="async"></span><span class="hb-body"><span class="hb-cat">{CATS[a['cat']]}</span><span class="hb-title">{esc(a['h1'])}</span></span></a>""" for a in latest)
-    block = f"""<section class="section" id="blog">
-        <style>
-        #blog .hb-grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;text-align:left}}
-        #blog .hb-card{{display:flex;flex-direction:column;overflow:hidden;border:1px solid #e2e8f0;border-radius:16px;background:#fff;color:inherit;text-decoration:none;transition:border-color .2s}}
-        #blog .hb-card:hover{{border-color:#2563eb}}
-        #blog .hb-img{{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0b1220}}
-        #blog .hb-img img{{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}}
-        #blog .hb-body{{display:flex;flex-direction:column;gap:8px;padding:16px 18px 20px}}
-        #blog .hb-cat{{color:#2563eb;font-size:13px;font-weight:600}}
-        #blog .hb-title{{color:#0f172a;font-size:17px;font-weight:700;line-height:1.35}}
-        #blog .hb-sub{{max-width:640px;margin:-30px auto 32px;text-align:center;color:#475569}}
-        #blog .hb-more{{text-align:center;margin-top:28px}}
-        @media(max-width:900px){{#blog .hb-grid{{grid-template-columns:1fr 1fr}}#blog .hb-card:nth-child(3){{display:none}}}}
-        @media(max-width:560px){{#blog .hb-grid{{grid-template-columns:1fr}}#blog .hb-card:nth-child(3){{display:flex}}#blog .hb-sub{{margin-top:-20px}}}}
-        </style>
-        <h2>Наши работы на видео</h2>
-        <p class="hb-sub">Реальные заказы в Астане: какой была задача и как мы её решили.</p>
-        <div class="hb-grid">
-{items}
-        </div>
-        <div class="hb-more"><a href="blog.html" class="cta-button">Все статьи блога</a></div>
-    </section>
-
-
-    """
-    anchor = '<section class="section" id="b2b">'
-    assert s.count(anchor) == 1
-    s = s.replace(anchor, block + anchor)
+    rx = re.compile(r'(<section class="section" id="blog"[^>]*>.*?<div class="hb-grid">\n).*?(\n\s*</div>)', re.S)
+    assert len(rx.findall(s)) == 1
+    s = rx.sub(lambda m: m.group(1) + items + m.group(2), s, count=1)
     wr("index.html", s)
 
 
@@ -540,11 +515,12 @@ def llms():
 CASES = {
     "takelazh.html": ["stoimost-takelazhnyh-rabot", "perevozka-dvuh-sejfov-1-tonna", "pereezd-prachechnoj-3-5-tonny"],
     "takelazh/save.html": ["perevozka-dvuh-sejfov-1-tonna"],
-    "takelazh/oborud.html": ["pereezd-prachechnoj-3-5-tonny", "perevozka-metallicheskogo-resepshena"],
+    "takelazh/oborud.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom", "pereezd-prachechnoj-3-5-tonny", "perevozka-metallicheskogo-resepshena"],
+    "takelazh/kran-kozlovoy.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom"],
     "gruz/centr.html": ["razbor-perevozka-i-sborka-mebeli-pod-klyuch", "perevozka-metallicheskogo-resepshena"],
     "pereezdkay.html": ["organizaciya-pereezda-chek-list", "pereezd-dvuhurovnevogo-kottedzha", "pereezd-ofisa-za-vyhodnye"],
     "kay/kvartira.html": ["organizaciya-pereezda-chek-list", "razbor-perevozka-i-sborka-mebeli-pod-klyuch", "pereezd-dvuhurovnevogo-kottedzha"],
-    "kay/ofice.html": ["pereezd-ofisa-za-vyhodnye", "organizaciya-pereezda-chek-list"],
+    "kay/ofice.html": ["pereezd-ofisa-aktobe-astana", "pereezd-ofisa-za-vyhodnye", "organizaciya-pereezda-chek-list"],
     "B2B.html": ["pereezd-ofisa-za-vyhodnye", "vyvoz-ulichnyh-vazonov", "demontazh-i-vyvoz-torgovoj-mebeli-iz-magazina"],
     "upakovka.html": ["razborka-i-upakovka-kvartiry-pered-remontom"],
     "upakovka/posuda.html": ["razborka-i-upakovka-kvartiry-pered-remontom"],
