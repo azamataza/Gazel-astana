@@ -513,12 +513,12 @@ def llms():
 
 # ---------------------------------------------------------------- кейсы на страницах услуг
 CASES = {
-    "takelazh.html": ["stoimost-takelazhnyh-rabot", "perevozka-dvuh-sejfov-1-tonna", "pereezd-prachechnoj-3-5-tonny"],
+    "takelazh.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom", "stoimost-takelazhnyh-rabot", "perevozka-dvuh-sejfov-1-tonna"],
     "takelazh/save.html": ["perevozka-dvuh-sejfov-1-tonna"],
     "takelazh/oborud.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom", "pereezd-prachechnoj-3-5-tonny", "perevozka-metallicheskogo-resepshena"],
     "takelazh/kran-kozlovoy.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom"],
     "gruz/centr.html": ["razbor-perevozka-i-sborka-mebeli-pod-klyuch", "perevozka-metallicheskogo-resepshena"],
-    "pereezdkay.html": ["organizaciya-pereezda-chek-list", "pereezd-dvuhurovnevogo-kottedzha", "pereezd-ofisa-za-vyhodnye"],
+    "pereezdkay.html": ["pereezd-ofisa-aktobe-astana", "organizaciya-pereezda-chek-list", "pereezd-ofisa-za-vyhodnye"],
     "kay/kvartira.html": ["organizaciya-pereezda-chek-list", "razbor-perevozka-i-sborka-mebeli-pod-klyuch", "pereezd-dvuhurovnevogo-kottedzha"],
     "kay/ofice.html": ["pereezd-ofisa-aktobe-astana", "pereezd-ofisa-za-vyhodnye", "organizaciya-pereezda-chek-list"],
     "B2B.html": ["pereezd-ofisa-za-vyhodnye", "vyvoz-ulichnyh-vazonov", "demontazh-i-vyvoz-torgovoj-mebeli-iz-magazina"],
