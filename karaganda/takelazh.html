@@ -27,7 +27,7 @@
   "image": "https://www.gruzim.kz/Logo.png",
   "url": "https://www.gruzim.kz/karaganda/takelazh.html",
   "telephone": "+77010120300",
-  "email": "info@gruzim.kz",
+  "email": "gruzemkz@gmail.com",
   "priceRange": "7000 - 130500 ₸",
   "address": {
     "@type": "PostalAddress",
@@ -278,6 +278,13 @@
     .video-slide{flex:0 0 calc(33.333% - 14px);background:#1e293b;border-radius:16px;overflow:hidden;border:1px solid #334155}
     .video-slide-iframe{position:relative;padding-bottom:56.25%;height:0}
     .video-slide-iframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+    .video-slide-iframe{overflow:hidden}
+    .yt-facade{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;cursor:pointer}
+    .yt-facade img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+    .yt-facade:hover img{opacity:.85}
+    .yt-facade .yt-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;background:rgba(255,0,0,.9);border-radius:12px;display:flex;align-items:center;justify-content:center;pointer-events:none}
+    .yt-facade .yt-play-btn::after{content:"";border-style:solid;border-width:10px 0 10px 20px;border-color:transparent transparent transparent #fff}
+    .yt-facade iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
     .video-slide-label{color:#fff;padding:12px 15px 8px;font-weight:600;font-size:0.95em}
     .video-slide-meta{padding:0 15px 12px;font-size:0.8em;color:#94a3b8}
     .videos-cta{text-align:center;margin-top:40px}.videos-cta a i{color:#ff0000}
@@ -724,7 +731,7 @@
                 <div class="videos-track">
                     <div class="video-slide">
                         <div class="video-slide-iframe">
-                            <iframe src="https://www.youtube.com/embed/VbL_QYPKR04" title="Услуги такелажа — перевозка сейфа" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <div class="yt-facade" data-vid="VbL_QYPKR04"><img src="https://i.ytimg.com/vi/VbL_QYPKR04/hqdefault.jpg" alt="Услуги такелажа — перевозка сейфа" loading="lazy" width="480" height="270" decoding="async"><div class="yt-play-btn"></div></div>
                         </div>
                         <div class="video-slide-label">Перевозка сейфов общая масса 1 тн</div>
                         <div class="video-slide-meta">Караганда · Gruzim.kz</div>
@@ -1093,5 +1100,16 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script src="../assets/gz-ui.js?v=1" defer></script>
 <script src="/gz-crm.js?v=2" defer></script>
+<script>
+document.querySelectorAll('.yt-facade').forEach(function(f){
+  f.addEventListener('click',function(){
+    var i=document.createElement('iframe');
+    i.src='https://www.youtube-nocookie.com/embed/'+f.dataset.vid+'?autoplay=1&rel=0';
+    i.title=f.querySelector('img').alt;
+    i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    i.allowFullscreen=true; f.innerHTML=''; f.appendChild(i);
+  },{once:true});
+});
+</script>
 </body>
 </html>

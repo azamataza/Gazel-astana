@@ -227,7 +227,7 @@
     })();
     </script>
     <link rel="stylesheet" href="../../assets/gz-ui.css?v=12">
-    <link rel="stylesheet" href="../../assets/gz-blog.css?v=2">
+    <link rel="stylesheet" href="../../assets/gz-blog.css?v=4">
 </head>
 <body class="gzp">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -375,7 +375,7 @@
 
 <div class="bl-top">
 <figure class="bl-video">
-<div class="bl-frame"><iframe src="https://www.youtube-nocookie.com/embed/o67-4_8u1uY?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Вывоз уличных вазонов на утилизацию, 2,5 тонны" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="bl-frame"><button type="button" class="bl-yt" data-vid="o67-4_8u1uY" aria-label="Смотреть видео: Вывоз уличных вазонов на утилизацию, 2,5 тонны"><img src="https://i.ytimg.com/vi/o67-4_8u1uY/oar2.jpg" alt="Вывоз уличных вазонов на утилизацию, 2,5 тонны" width="1080" height="1920" decoding="async"><span class="bl-yt-play"></span></button></div>
 <figcaption>Видео с объекта · 0:18 · <a href="https://www.youtube.com/shorts/o67-4_8u1uY" target="_blank" rel="noopener">смотреть на YouTube</a></figcaption>
 </figure>
 <aside class="bl-facts">
@@ -570,5 +570,8 @@
 <script src="/gz-crm.js?v=2" defer></script>
 <script src="../../assets/gz-ui.js?v=1" defer></script>
 <script src="/assets/gz-meta.js?v=1" defer></script>
+<script>
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.bl-yt');if(!b)return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-vid')+'?autoplay=1&rel=0&playsinline=1';f.title=b.querySelector('img').alt;f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;b.parentNode.replaceChild(f,b);});
+</script>
 </body>
 </html>

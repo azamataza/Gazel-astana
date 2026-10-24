@@ -244,7 +244,7 @@
     })();
     </script>
     <link rel="stylesheet" href="../../assets/gz-ui.css?v=12">
-    <link rel="stylesheet" href="../../assets/gz-blog.css?v=2">
+    <link rel="stylesheet" href="../../assets/gz-blog.css?v=4">
 </head>
 <body class="gzp">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -392,7 +392,7 @@
 
 <div class="bl-top">
 <div><figure class="bl-video">
-<div class="bl-frame"><iframe src="https://www.youtube-nocookie.com/embed/T2Dy-bMBhnY?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Переезд офиса — начало" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="bl-frame"><button type="button" class="bl-yt" data-vid="T2Dy-bMBhnY" aria-label="Смотреть видео: Переезд офиса — начало"><img src="https://i.ytimg.com/vi/T2Dy-bMBhnY/oar2.jpg" alt="Переезд офиса — начало" width="1080" height="1920" decoding="async"><span class="bl-yt-play"></span></button></div>
 <figcaption>Переезд офиса — начало · 0:35 · <a href="https://www.youtube.com/shorts/T2Dy-bMBhnY" target="_blank" rel="noopener">смотреть на YouTube</a></figcaption>
 </figure></div>
 <aside class="bl-facts">
@@ -431,7 +431,7 @@
 
 <h2>Результат</h2>
 <div class="bl-top" style="grid-template-columns:minmax(0,340px)"><figure class="bl-video">
-<div class="bl-frame"><iframe src="https://www.youtube-nocookie.com/embed/F0BuKA47lps?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Переезд офиса — завершение" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="bl-frame"><button type="button" class="bl-yt" data-vid="F0BuKA47lps" aria-label="Смотреть видео: Переезд офиса — завершение"><img src="https://i.ytimg.com/vi/F0BuKA47lps/oar2.jpg" alt="Переезд офиса — завершение" width="1080" height="1920" loading="lazy" decoding="async"><span class="bl-yt-play"></span></button></div>
 <figcaption>Переезд офиса — завершение · 0:54 · <a href="https://www.youtube.com/shorts/F0BuKA47lps" target="_blank" rel="noopener">смотреть на YouTube</a></figcaption>
 </figure></div>
 <p>Переезд занял два выходных дня. В понедельник сотрудники заехали в готовый офис: столы собраны и расставлены, техника на местах. Ничего не повредили, претензий у заказчика нет. На первом видео — старый офис перед началом работ, на втором — новый, уже после расстановки.</p>
@@ -598,5 +598,8 @@
 <script src="/gz-crm.js?v=2" defer></script>
 <script src="../../assets/gz-ui.js?v=1" defer></script>
 <script src="/assets/gz-meta.js?v=1" defer></script>
+<script>
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.bl-yt');if(!b)return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-vid')+'?autoplay=1&rel=0&playsinline=1';f.title=b.querySelector('img').alt;f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;b.parentNode.replaceChild(f,b);});
+</script>
 </body>
 </html>

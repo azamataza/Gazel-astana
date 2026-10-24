@@ -208,3 +208,10 @@ img { max-width: 100%; height: auto; }
 .bl-photos figure { margin: 0; }
 .bl-photos img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; }
 .bl-photos figcaption { margin-top: 6px; color: #64748b; font-size: 13.5px; line-height: 1.4; }
+
+/* Лёгкое превью YouTube: плеер грузится только по клику */
+.bl-yt { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: #0b1220; cursor: pointer; }
+.bl-yt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bl-yt-play { position: absolute; top: 50%; left: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px; border-radius: 12px; background: rgba(255,0,0,.9); }
+.bl-yt-play::after { content: ""; position: absolute; top: 14px; left: 26px; border-style: solid; border-width: 10px 0 10px 18px; border-color: transparent transparent transparent #fff; }
+.bl-yt:hover img { opacity: .9; }

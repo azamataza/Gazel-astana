@@ -177,6 +177,9 @@ def tail(P):
 <div class="bl-sticky">{wa_link("Здравствуйте! Пишу с сайта, из блога. Хочу рассчитать стоимость.", "Рассчитать в WhatsApp")}</div>
 
 {CONV_JS}
+<script>
+document.addEventListener('click',function(e){{var b=e.target.closest&&e.target.closest('.bl-yt');if(!b)return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-vid')+'?autoplay=1&rel=0&playsinline=1';f.title=b.querySelector('img').alt;f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;b.parentNode.replaceChild(f,b);}});
+</script>
 {TRACKER}
 <script src="/gz-crm.js" defer></script>
 <script src="{P}assets/gz-ui.js?v=1" defer></script>
@@ -292,7 +295,7 @@ def article_page(a):
     for i, v in enumerate(vids):
         cap = v["name"] if len(vids) > 1 else "Видео с объекта"
         figs.append(f"""<figure class="bl-video">
-<div class="bl-frame"><iframe src="https://www.youtube-nocookie.com/embed/{v['id']}?rel=0&amp;modestbranding=1&amp;playsinline=1" title="{esc(v['name'])}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="bl-frame"><button type="button" class="bl-yt" data-vid="{v['id']}" aria-label="Смотреть видео: {esc(v['name'])}"><img src="{thumb(v['id'])}" alt="{esc(v['name'])}" width="1080" height="1920"{'' if i == 0 else ' loading="lazy"'} decoding="async"><span class="bl-yt-play"></span></button></div>
 <figcaption>{esc(cap)} · {mmss(v['sec'])} · <a href="https://www.youtube.com/shorts/{v['id']}" target="_blank" rel="noopener">смотреть на YouTube</a></figcaption>
 </figure>""")
 

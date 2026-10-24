@@ -219,7 +219,7 @@
     })();
     </script>
     <link rel="stylesheet" href="../../assets/gz-ui.css?v=12">
-    <link rel="stylesheet" href="../../assets/gz-blog.css?v=2">
+    <link rel="stylesheet" href="../../assets/gz-blog.css?v=4">
 </head>
 <body class="gzp">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLXM434L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -367,7 +367,7 @@
 
 <div class="bl-top">
 <figure class="bl-video">
-<div class="bl-frame"><iframe src="https://www.youtube-nocookie.com/embed/2c2BZSF_50w?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Разбор, вывоз и утилизация офисной мебели под ключ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="bl-frame"><button type="button" class="bl-yt" data-vid="2c2BZSF_50w" aria-label="Смотреть видео: Разбор, вывоз и утилизация офисной мебели под ключ"><img src="https://i.ytimg.com/vi/2c2BZSF_50w/oar2.jpg" alt="Разбор, вывоз и утилизация офисной мебели под ключ" width="1080" height="1920" decoding="async"><span class="bl-yt-play"></span></button></div>
 <figcaption>Видео с объекта · 0:17 · <a href="https://www.youtube.com/shorts/2c2BZSF_50w" target="_blank" rel="noopener">смотреть на YouTube</a></figcaption>
 </figure>
 <aside class="bl-facts">
@@ -545,5 +545,8 @@
 <script src="/gz-crm.js?v=2" defer></script>
 <script src="../../assets/gz-ui.js?v=1" defer></script>
 <script src="/assets/gz-meta.js?v=1" defer></script>
+<script>
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.bl-yt');if(!b)return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-vid')+'?autoplay=1&rel=0&playsinline=1';f.title=b.querySelector('img').alt;f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;b.parentNode.replaceChild(f,b);});
+</script>
 </body>
 </html>
