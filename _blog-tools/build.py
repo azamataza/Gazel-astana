@@ -516,8 +516,11 @@ def llms():
 
 # ---------------------------------------------------------------- кейсы на страницах услуг
 CASES = {
-    "takelazh.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom", "stoimost-takelazhnyh-rabot", "perevozka-dvuh-sejfov-1-tonna"],
-    "takelazh/save.html": ["perevozka-dvuh-sejfov-1-tonna"],
+    "takelazh.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh", "snyatie-spektrometra-s-paletu-kozlovym-kranom", "stoimost-takelazhnyh-rabot"],
+    "takelazh/save.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh", "perevozka-dvuh-sejfov-1-tonna"],
+    "takelazh/lebedka.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
+    "takelazh/roliki.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
+    "takelazh/domkrat.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
     "takelazh/oborud.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom", "pereezd-prachechnoj-3-5-tonny", "perevozka-metallicheskogo-resepshena"],
     "takelazh/kran-kozlovoy.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom"],
     "gruz/centr.html": ["razbor-perevozka-i-sborka-mebeli-pod-klyuch", "perevozka-metallicheskogo-resepshena"],
