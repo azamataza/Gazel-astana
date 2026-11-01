@@ -636,3 +636,10 @@ html.gz-menu-open, html.gz-menu-open body { overflow: hidden; }
 .gz-geo-chips span, .gz-geo-chips a { font-size: .9rem; background: #f1f5f9; border-radius: 999px; padding: 6px 14px; color: #334155; text-decoration: none; }
 .gz-geo-chips a:hover { background: #eff6ff; color: #2563eb; }
 @media (max-width: 768px) { .gz-geo { grid-template-columns: 1fr; } }
+
+/* меню «Такелаж»: две колонки */
+#gz-header .gz-menu--2col { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; min-width: 500px; }
+#gz-header .gz-menu--2col .gz-m-over { grid-column: 1 / -1; color: var(--gz-blue); font-weight: var(--gz-fw-semibold); border-bottom: 1px solid var(--gz-line); border-radius: var(--gz-radius-sm) var(--gz-radius-sm) 0 0; margin-bottom: 4px; }
+#gz-header .gz-mcol { display: flex; flex-direction: column; }
+#gz-header .gz-mlabel { padding: 8px 12px 4px; font-size: 11px; font-weight: var(--gz-fw-semibold); letter-spacing: .6px; text-transform: uppercase; color: #94a3b8; }
+#gz-drawer .gz-d-label { display: block; padding: 12px 20px 4px 34px; font-size: 11px; font-weight: var(--gz-fw-semibold); letter-spacing: .6px; text-transform: uppercase; color: #94a3b8; }
