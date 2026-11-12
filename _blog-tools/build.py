@@ -203,7 +203,7 @@ def sort_key(a):
 def blog_order():
     """Лента блога: кейсы с видео (свежие сверху) вперемешку с советами —
     советы равномерно распределены между видео, лента начинается с видео."""
-    vids = sorted([x for x in ARTICLES if x["videos"]], key=sort_key, reverse=True)
+    vids = sorted([x for x in ARTICLES if x["videos"]], key=lambda a: (bool(a.get("pinned")), sort_key(a)), reverse=True)
     tips = [x for x in ARTICLES if not x["videos"]]
     if not vids or not tips:
         return vids + tips
@@ -462,7 +462,7 @@ def hub_page():
 def home_block():
     """Обновляет 3 свежих кейса в блоке #blog на главной (вёрстку блока не трогает)."""
     s = rd("index.html")
-    latest = sorted([a for a in ARTICLES if a["videos"]], key=sort_key, reverse=True)[:3]
+    latest = sorted([a for a in ARTICLES if a["videos"]], key=lambda a: (bool(a.get("pinned")), sort_key(a)), reverse=True)[:3]
     items = "\n".join(f"""<a class="hb-card" href="blog/{a['cat']}/{a['slug']}.html"><span class="hb-img"><img src="{thumb(a['videos'][0]['id'])}" alt="{esc(a['videos'][0]['name'])}" width="1080" height="1920" loading="lazy" decoding="async"></span><span class="hb-body"><span class="hb-cat">{CATS[a['cat']]}</span><span class="hb-title">{esc(a['h1'])}</span></span></a>""" for a in latest)
     rx = re.compile(r'(<section class="section" id="blog"[^>]*>.*?<div class="hb-grid">\n).*?(\n\s*</div>)', re.S)
     assert len(rx.findall(s)) == 1
@@ -516,24 +516,26 @@ def llms():
 
 # ---------------------------------------------------------------- кейсы на страницах услуг
 CASES = {
-    "takelazh.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh", "snyatie-spektrometra-s-paletu-kozlovym-kranom", "stoimost-takelazhnyh-rabot"],
+    "takelazh/manipulyator.html": ["takelazh-stanka-12-tonn-dva-manipulyatora", "snyatie-spektrometra-s-paletu-kozlovym-kranom"],
+    "takelazh/pod-klyuch.html": ["takelazh-stanka-12-tonn-dva-manipulyatora", "takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh", "snyatie-spektrometra-s-paletu-kozlovym-kranom"],
+    "takelazh.html": ["takelazh-stanka-12-tonn-dva-manipulyatora", "takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh", "snyatie-spektrometra-s-paletu-kozlovym-kranom"],
     "takelazh/save.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh", "perevozka-dvuh-sejfov-1-tonna"],
-    "takelazh/lebedka.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
-    "takelazh/roliki.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
-    "takelazh/domkrat.html": ["takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
-    "takelazh/oborud.html": ["upakovka-i-spusk-trenazherov-v-parking", "snyatie-spektrometra-s-paletu-kozlovym-kranom", "pereezd-prachechnoj-3-5-tonny"],
+    "takelazh/lebedka.html": ["takelazh-stanka-12-tonn-dva-manipulyatora", "takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
+    "takelazh/roliki.html": ["takelazh-stanka-12-tonn-dva-manipulyatora", "takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
+    "takelazh/domkrat.html": ["takelazh-stanka-12-tonn-dva-manipulyatora", "takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
+    "takelazh/oborud.html": ["takelazh-stanka-12-tonn-dva-manipulyatora", "upakovka-i-spusk-trenazherov-v-parking", "snyatie-spektrometra-s-paletu-kozlovym-kranom"],
     "takelazh/roh.html": ["upakovka-i-spusk-trenazherov-v-parking", "takelazh-5-sejfov-do-550-kg-na-vtoroj-etazh"],
     "takelazh/kran-kozlovoy.html": ["snyatie-spektrometra-s-paletu-kozlovym-kranom"],
     "gruz/centr.html": ["razbor-perevozka-i-sborka-mebeli-pod-klyuch", "perevozka-metallicheskogo-resepshena"],
-    "pereezdkay.html": ["pereezd-ofisa-astana-almaty", "pereezd-ofisa-aktobe-astana", "organizaciya-pereezda-chek-list"],
+    "pereezdkay.html": ["kvartirnyj-pereezd-bez-krupnoj-mebeli", "pereezd-ofisa-astana-almaty", "organizaciya-pereezda-chek-list"],
     "kay/mezhgorod.html": ["pereezd-ofisa-astana-almaty", "pereezd-ofisa-aktobe-astana"],
-    "kay/kvartira.html": ["organizaciya-pereezda-chek-list", "razbor-perevozka-i-sborka-mebeli-pod-klyuch", "pereezd-dvuhurovnevogo-kottedzha"],
+    "kay/kvartira.html": ["kvartirnyj-pereezd-bez-krupnoj-mebeli", "organizaciya-pereezda-chek-list", "razbor-perevozka-i-sborka-mebeli-pod-klyuch"],
     "kay/ofice.html": ["pereezd-ofisa-astana-almaty", "pereezd-ofisa-aktobe-astana", "pereezd-ofisa-za-vyhodnye"],
     "B2B.html": ["pereezd-ofisa-astana-almaty", "pereezd-ofisa-20-rabochih-mest", "demontazh-i-vyvoz-torgovoj-mebeli-iz-magazina"],
-    "upakovka.html": ["upakovka-i-spusk-trenazherov-v-parking", "razborka-i-upakovka-kvartiry-pered-remontom"],
+    "upakovka.html": ["kvartirnyj-pereezd-bez-krupnoj-mebeli", "upakovka-i-spusk-trenazherov-v-parking", "razborka-i-upakovka-kvartiry-pered-remontom"],
     "upakovka/tehnika.html": ["upakovka-i-spusk-trenazherov-v-parking"],
     "upakovka/posuda.html": ["razborka-i-upakovka-kvartiry-pered-remontom"],
-    "upakovka/mebel.html": ["razborka-i-upakovka-kvartiry-pered-remontom", "razbor-perevozka-i-sborka-mebeli-pod-klyuch"],
+    "upakovka/mebel.html": ["kvartirnyj-pereezd-bez-krupnoj-mebeli", "razborka-i-upakovka-kvartiry-pered-remontom"],
     "mebel.html": ["sborka-shkafa-ot-chego-zavisit-cena", "sborka-mebeli-bez-hozyaina", "razbor-perevozka-i-sborka-mebeli-pod-klyuch"],
     "musor.html": ["vyvoz-razobrannoj-mebeli-s-3-etazha", "vyvoz-ulichnyh-vazonov", "demontazh-i-vyvoz-torgovoj-mebeli-iz-magazina"],
     "musor/uslugi.html": ["vyvoz-razobrannoj-mebeli-s-3-etazha"],
