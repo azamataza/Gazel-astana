@@ -20,123 +20,145 @@
     <meta property="og:image" content="https://www.gruzim.kz/og-image.png">
 
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  "name": "Gruzim.kz",
+  "image": "https://www.gruzim.kz/Logo.png",
+  "url": "https://www.gruzim.kz/",
+  "telephone": "+77010120300",
+  "email": "gruzemkz@gmail.com",
+  "priceRange": "5000 - 50000 ₸",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Астана",
+    "addressCountry": "KZ",
+    "streetAddress": "ул. Таскескен 17б"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.1605,
+    "longitude": 71.4704
+  },
+  "openingHours": "Mo-Su 08:00-20:00",
+  "openingHoursSpecification": [
     {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Gruzim.kz",
-      "image": "https://www.gruzim.kz/Logo.png",
-      "url": "https://www.gruzim.kz",
-      "telephone": "+77010120300",
-      "email": "gruzemkz@gmail.com",
-      "priceRange": "5000 - 50000 ₸",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Астана",
-        "addressCountry": "KZ"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.1605,
-        "longitude": 71.4704
-      },
-      "openingHours": "Mo-Su 08:00-20:00",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "08:00",
-          "closes": "20:00"
-        }
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
       ],
-      "sameAs": ["https://wa.me/77010120300", "https://t.me/gruzimkz", "https://2gis.kz/astana/geo/70000001112483428", "https://g.page/r/CdZy1ITbhee-EBM/review", "https://www.youtube.com/@gruzimkz", "https://www.tiktok.com/@gruzim.kz", "https://www.instagram.com/gruzim.kz/"],
-      "paymentAccepted": "Қолма-қол, банктік аударым, карта",
-      "areaServed": ["Астана", "Қазақстан"],
-      "inLanguage": "kk",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Жүк тасымалы қызметтері",
-        "itemListElement": [
-          {
+      "opens": "08:00",
+      "closes": "20:00"
+    }
+  ],
+  "sameAs": [
+    "https://wa.me/77010120300",
+    "https://t.me/gruzimkz",
+    "https://2gis.kz/astana/geo/70000001112483428",
+    "https://g.page/r/CdZy1ITbhee-EBM/review",
+    "https://www.youtube.com/@gruzimkz",
+    "https://www.tiktok.com/@gruzim.kz",
+    "https://www.instagram.com/gruzim.kz/"
+  ],
+  "paymentAccepted": "Қолма-қол, банктік аударым, карта",
+  "areaServed": [
+    "Астана",
+    "Қазақстан"
+  ],
+  "inLanguage": "kk",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Жүк тасымалы қызметтері",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Пәтерлік толық көшіру",
+          "description": "Пәтерді көшіру бойынша қызметтердің толық кешені: орау, тиеу, тасымалдау, орауышты ашу, жиһазды орналастыру.",
+          "offers": {
             "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Пәтерлік толық көшіру",
-              "description": "Пәтерді көшіру бойынша қызметтердің толық кешені: орау, тиеу, тасымалдау, орауышты ашу, жиһазды орналастыру.",
-              "offers": {
-                "@type": "Offer",
-                "price": "50000",
-                "priceCurrency": "KZT"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Кеңселік көшіру",
-              "description": "Кез келген күрделіліктегі кеңселерді жұмыс процесін сақтай отырып көшіру. Құжаттарды, ұйымдастыру техникасын, жиһазды орау.",
-              "offers": {
-                "@type": "Offer",
-                "price": "50000 бастап",
-                "priceCurrency": "KZT"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Қоқыс шығару",
-              "description": "Құрылыс және тұрмыстық қоқыстарды, ескі жиһаз бен техниканы шығару. Әртүрлі көлемдегі контейнерлер.",
-              "offers": {
-                "@type": "Offer",
-                "price": "15000 бастап",
-                "priceCurrency": "KZT"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Жиһазды құрастыру және бөлшектеу",
-              "description": "Кез келген күрделіліктегі жиһазды кәсіби бөлшектеу, тасымалдау және жаңа жерде құрастыру.",
-              "offers": {
-                "@type": "Offer",
-                "price": "30000 бастап",
-                "priceCurrency": "KZT"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Жүкшілер қызметі",
-              "description": "Тиеу-түсіру жұмыстарына, такелаждық жұмыстарға кәсіби жүкшілер.",
-              "offers": {
-                "@type": "Offer",
-                "price": "3000/сағ бастап",
-                "priceCurrency": "KZT"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "ГАЗель жалға алу",
-              "description": "Астана және өңірлер бойынша жүктерді тасымалдау үшін жүк көлігін (ГАЗель) жалға алу.",
-              "offers": {
-                "@type": "Offer",
-                "price": "5000/сағ бастап",
-                "priceCurrency": "KZT"
-              }
-            }
+            "price": "50000",
+            "priceCurrency": "KZT"
           }
-        ]
-      }}
-    </script>
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Кеңселік көшіру",
+          "description": "Кез келген күрделіліктегі кеңселерді жұмыс процесін сақтай отырып көшіру. Құжаттарды, ұйымдастыру техникасын, жиһазды орау.",
+          "offers": {
+            "@type": "Offer",
+            "price": "50000 бастап",
+            "priceCurrency": "KZT"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Қоқыс шығару",
+          "description": "Құрылыс және тұрмыстық қоқыстарды, ескі жиһаз бен техниканы шығару. Әртүрлі көлемдегі контейнерлер.",
+          "offers": {
+            "@type": "Offer",
+            "price": "15000 бастап",
+            "priceCurrency": "KZT"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Жиһазды құрастыру және бөлшектеу",
+          "description": "Кез келген күрделіліктегі жиһазды кәсіби бөлшектеу, тасымалдау және жаңа жерде құрастыру.",
+          "offers": {
+            "@type": "Offer",
+            "price": "30000 бастап",
+            "priceCurrency": "KZT"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Жүкшілер қызметі",
+          "description": "Тиеу-түсіру жұмыстарына, такелаждық жұмыстарға кәсіби жүкшілер.",
+          "offers": {
+            "@type": "Offer",
+            "price": "3000/сағ бастап",
+            "priceCurrency": "KZT"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "ГАЗель жалға алу",
+          "description": "Астана және өңірлер бойынша жүктерді тасымалдау үшін жүк көлігін (ГАЗель) жалға алу.",
+          "offers": {
+            "@type": "Offer",
+            "price": "5000/сағ бастап",
+            "priceCurrency": "KZT"
+          }
+        }
+      }
+    ]
+  },
+  "@id": "https://www.gruzim.kz/#company"
+}
+</script>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">

@@ -37,103 +37,105 @@
 
     <script type="application/ld+json">
 [
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Упаковка вещей в Астане",
-  "name": "Упаковка вещей при переезде в Астане",
-  "description": "Профессиональная упаковка вещей перед переездом: мебель, посуда, бытовая техника, одежда, хрупкие предметы. Свои материалы, разборка, маркировка коробок.",
-  "provider": {
-    "@type": "MovingCompany",
-    "name": "Gruzim.kz",
-    "url": "https://www.gruzim.kz",
-    "logo": "https://www.gruzim.kz/Logo.png",
-    "telephone": "+77010120300",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Астана",
-      "addressCountry": "KZ"
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Упаковка вещей в Астане",
+    "name": "Упаковка вещей при переезде в Астане",
+    "description": "Профессиональная упаковка вещей перед переездом: мебель, посуда, бытовая техника, одежда, хрупкие предметы. Свои материалы, разборка, маркировка коробок.",
+    "provider": {
+      "@type": "MovingCompany",
+      "name": "Gruzim.kz",
+      "url": "https://www.gruzim.kz/",
+      "logo": "https://www.gruzim.kz/Logo.png",
+      "telephone": "+77010120300",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Астана",
+        "addressCountry": "KZ",
+        "streetAddress": "ул. Таскескен 17б"
+      },
+      "@id": "https://www.gruzim.kz/#company"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Астана"
+    },
+    "url": "https://www.gruzim.kz/upakovka.html"
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "Астана"
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://www.gruzim.kz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Упаковка вещей"
+      }
+    ]
   },
-  "url": "https://www.gruzim.kz/upakovka.html"
-},
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Главная",
-      "item": "https://www.gruzim.kz/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Упаковка вещей"
-    }
-  ]
-},
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Упаковываете отдельно или только при переезде?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "И так, и так. Упаковка входит в <a href='/pereezdkay.html'>переезд под ключ</a>, но можно заказать её отдельной услугой — например, вы переезжаете сами, а нам поручаете только сборы и хрупкие вещи."
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Упаковываете отдельно или только при переезде?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "И так, и так. Упаковка входит в <a href='/pereezdkay.html'>переезд под ключ</a>, но можно заказать её отдельной услугой — например, вы переезжаете сами, а нам поручаете только сборы и хрупкие вещи."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Свои материалы привозите или нужно покупать?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Привозим свои: коробки, пузырчатую плёнку, стрейч, бумагу, скотч, уголки. Материалы считаем по ценам нашего <a href='/shop.html'>магазина упаковки</a>, без наценки. Если у вас уже есть коробки — используем их."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как рассчитывается стоимость упаковки?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "По объёму: количеству коробок и расходу материалов плюс работа упаковщиков. Мы не выставляем «среднюю цену с потолка» — смету называем после оценки вещей по фото, видео или на выезде. Никаких доплат «по факту»."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Маркируете коробки по комнатам?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. Каждую коробку подписываем: комната, содержимое и пометка «хрупкое» при необходимости. На новом месте грузчики сразу несут коробки в нужную комнату — распаковка идёт быстрее."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Успеете упаковать за один день?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Стандартную 1–2-комнатную квартиру бригада собирает за несколько часов. Объём больше — выводим больше упаковщиков. Сроки обсуждаем заранее, чтобы успеть к дате переезда."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Несёте ответственность за повреждения?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "За вещи, которые упаковали и перевезли мы, отвечаем сами. Поэтому хрупкое пакуем по правилам: плёнка, прокладки, жёсткая коробка, маркировка. Условия фиксируем в договоре."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Свои материалы привозите или нужно покупать?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Привозим свои: коробки, пузырчатую плёнку, стрейч, бумагу, скотч, уголки. Материалы считаем по ценам нашего <a href='/shop.html'>магазина упаковки</a>, без наценки. Если у вас уже есть коробки — используем их."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Как рассчитывается стоимость упаковки?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "По объёму: количеству коробок и расходу материалов плюс работа упаковщиков. Мы не выставляем «среднюю цену с потолка» — смету называем после оценки вещей по фото, видео или на выезде. Никаких доплат «по факту»."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Маркируете коробки по комнатам?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Да. Каждую коробку подписываем: комната, содержимое и пометка «хрупкое» при необходимости. На новом месте грузчики сразу несут коробки в нужную комнату — распаковка идёт быстрее."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Успеете упаковать за один день?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Стандартную 1–2-комнатную квартиру бригада собирает за несколько часов. Объём больше — выводим больше упаковщиков. Сроки обсуждаем заранее, чтобы успеть к дате переезда."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Несёте ответственность за повреждения?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "За вещи, которые упаковали и перевезли мы, отвечаем сами. Поэтому хрупкое пакуем по правилам: плёнка, прокладки, жёсткая коробка, маркировка. Условия фиксируем в договоре."
-      }
-    }
-  ]
-}
+    ]
+  }
 ]
-    </script>
+</script>
 
 <script>
     (function () {
@@ -425,10 +427,10 @@
 <a class="gz-logo" href="./" aria-label="Gruzim.kz — на главную"><img src="assets/logo.svg" alt="Gruzim.kz" width="163" height="34"></a>
 <nav class="gz-nav" aria-label="Главное меню">
 <div class="gz-nav-item"><a class="gz-nav-top" href="gruz/centr.html" aria-haspopup="true">Перевозки<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="gruz/centr.html">Все грузоперевозки</a><a href="gruz/chasovoi.html">Газель на час</a><a href="gruz/bus.html">Минивэн (бус)</a><a href="gruz/komplekt.html">Газель с грузчиками</a></div></div>
-<div class="gz-nav-item"><a class="gz-nav-top" href="pereezdkay.html" aria-haspopup="true">Переезды<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="pereezdkay.html">О переезде под ключ</a><a href="kay/kvartira.html">Квартирный переезд</a><a href="kay/mezhgorod.html">Переезд по Казахстану</a><a href="kay/ofice.html">Переезд офиса</a></div></div>
+<div class="gz-nav-item"><a class="gz-nav-top" href="pereezdkay.html" aria-haspopup="true">Переезды<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="pereezdkay.html">Услуги переезда</a><a href="kay/kvartira.html">Квартирный переезд</a><a href="kay/mezhgorod.html">Переезд по Казахстану</a><a href="kay/ofice.html">Переезд офиса</a></div></div>
 <div class="gz-nav-item"><a class="gz-nav-top" href="upakovka.html" aria-haspopup="true" aria-current="true">Упаковка<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="upakovka.html" aria-current="page">Об упаковке вещей</a><a href="upakovka/mebel.html">Упаковка мебели</a><a href="upakovka/posuda.html">Упаковка посуды и кухни</a><a href="upakovka/odezhda.html">Упаковка одежды и вещей</a><a href="upakovka/tehnika.html">Упаковка техники</a><a href="upakovka/hrupkoe.html">Хрупкое, зеркала, картины</a><a href="shop.html">Упаковочные материалы</a></div></div>
 <div class="gz-nav-item"><a class="gz-nav-top" href="musor.html" aria-haspopup="true">Вывоз мусора<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu"><a href="musor.html">О вывозе мусора</a><a href="musor/stroy.html">Строительный мусор</a><a href="musor/mebel.html">Старая мебель</a><a href="musor/tehnika.html">Бытовая техника</a><a href="musor/santehnika.html">Сантехника</a><a href="musor/hlam.html">Хлам и старые вещи</a><a href="musor/matras.html">Матрасы</a><a href="musor/night.html">Ночной вывоз</a><a href="musor/uslugi.html">Форматы услуги</a><a href="musor/rayony.html">По районам Астаны</a></div></div>
-<div class="gz-nav-item"><a class="gz-nav-top" href="takelazh.html" aria-haspopup="true">Такелаж<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu gz-menu--2col"><a href="takelazh.html" class="gz-m-over">О такелаже</a><div class="gz-mcol"><span class="gz-mlabel">Услуги</span><a href="takelazh/pod-klyuch.html">Такелаж под ключ</a><a href="takelazh/oborud.html">Оборудование и станки</a><a href="takelazh/save.html">Перевозка сейфов</a><a href="takelazh/stupenkohod.html">Ступенькоход (без лифта)</a><a href="takelazh/zanos-cherez-okno.html">Занос через окно и двери</a><a href="takelazh/manipulyator.html">Услуги манипулятора</a><a href="takelazh/obreshetka.html">Обрешётка оборудования</a><a href="takelazh/trapy.html">Изготовление трапов</a></div><div class="gz-mcol"><span class="gz-mlabel">Аренда оборудования</span><a href="takelazh/kran-kozlovoy.html">Козловой кран</a><a href="takelazh/shtabeler.html">Электрический штабелер</a><a href="takelazh/shtabeler-ruchnoy.html">Ручной штабелёр</a><a href="takelazh/domkrat.html">Аренда домкрата</a><a href="takelazh/roliki.html">Роликовые платформы</a><a href="takelazh/roh.html">Аренда рохли</a><a href="takelazh/lebedka.html">Аренда лебёдки</a><a href="takelazh/tal.html">Таль ручная</a><a href="takelazh/kran-lestnichnyy.html">Лестничный кран</a></div></div></div>
+<div class="gz-nav-item"><a class="gz-nav-top" href="takelazh.html" aria-haspopup="true">Такелаж<svg class="gz-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></a><div class="gz-menu gz-menu--2col"><a href="takelazh.html" class="gz-m-over">О такелаже</a><div class="gz-mcol"><span class="gz-mlabel">Услуги</span><a href="takelazh/pod-klyuch.html">Такелаж под ключ</a><a href="takelazh/oborud.html">Перевозка оборудования</a><a href="takelazh/peremeshchenie.html">Перемещение оборудования</a><a href="takelazh/podyom.html">Подъём оборудования</a><a href="takelazh/gruzchiki.html">Грузчики для тяжёлого</a><a href="takelazh/save.html">Перевозка сейфов</a><a href="takelazh/stupenkohod.html">Ступенькоход (без лифта)</a><a href="takelazh/zanos-cherez-okno.html">Занос через окно и двери</a><a href="takelazh/manipulyator.html">Заказ манипулятора</a><a href="takelazh/obreshetka.html">Обрешётка оборудования</a><a href="takelazh/trapy.html">Изготовление трапов</a></div><div class="gz-mcol"><span class="gz-mlabel">Аренда оборудования</span><a href="takelazh/kran-kozlovoy.html">Козловой кран</a><a href="takelazh/shtabeler.html">Электрический штабелер</a><a href="takelazh/shtabeler-ruchnoy.html">Ручной штабелёр</a><a href="takelazh/domkrat.html">Аренда домкрата</a><a href="takelazh/roliki.html">Роликовые платформы</a><a href="takelazh/roh.html">Аренда рохли</a><a href="takelazh/lebedka.html">Аренда лебёдки</a><a href="takelazh/tal.html">Таль ручная</a><a href="takelazh/kran-lestnichnyy.html">Лестничный кран</a></div></div></div>
 <div class="gz-nav-item"><a class="gz-nav-top" href="B2B.html">Бизнесу</a></div>
 <div class="gz-nav-item"><a class="gz-nav-top" href="blog.html">Блог</a></div>
 </nav>
@@ -454,7 +456,7 @@
 <a href="gruz/chasovoi.html">Газель на час</a>
 <a href="gruz/bus.html">Минивэн (бус)</a>
 <a href="gruz/komplekt.html">Газель с грузчиками</a></div></details>
-<details><summary>Переезд под ключ</summary><div class="gz-d-sub"><a href="pereezdkay.html" class="gz-d-over">О переезде под ключ</a>
+<details><summary>Переезд под ключ</summary><div class="gz-d-sub"><a href="pereezdkay.html" class="gz-d-over">Услуги переезда</a>
 <a href="kay/kvartira.html">Квартирный переезд</a>
 <a href="kay/mezhgorod.html">Переезд по Казахстану</a>
 <a href="kay/ofice.html">Переезд офиса</a></div></details>
@@ -523,11 +525,14 @@
 <details><summary>Такелаж</summary><div class="gz-d-sub"><a href="takelazh.html" class="gz-d-over">О такелаже</a>
 <span class="gz-d-label">Услуги</span>
 <a href="takelazh/pod-klyuch.html">Такелаж под ключ</a>
-<a href="takelazh/oborud.html">Оборудование и станки</a>
+<a href="takelazh/oborud.html">Перевозка оборудования</a>
+<a href="takelazh/peremeshchenie.html">Перемещение оборудования</a>
+<a href="takelazh/podyom.html">Подъём оборудования</a>
+<a href="takelazh/gruzchiki.html">Грузчики для тяжёлого</a>
 <a href="takelazh/save.html">Перевозка сейфов</a>
 <a href="takelazh/stupenkohod.html">Ступенькоход (без лифта)</a>
 <a href="takelazh/zanos-cherez-okno.html">Занос через окно и двери</a>
-<a href="takelazh/manipulyator.html">Услуги манипулятора</a>
+<a href="takelazh/manipulyator.html">Заказ манипулятора</a>
 <a href="takelazh/obreshetka.html">Обрешётка оборудования</a>
 <a href="takelazh/trapy.html">Изготовление трапов</a>
 <span class="gz-d-label">Аренда оборудования</span>
