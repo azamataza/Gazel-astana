@@ -177,7 +177,7 @@
           "@type": "Service",
           "name": "Стандарт (упаковка крупных вещей, без разборки мебели)"
         },
-        "price": "100000",
+        "price": "45000",
         "priceCurrency": "KZT"
       },
       {
@@ -226,7 +226,7 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "Сколько стоит переезд 1/2/3-комнатной квартиры?", "acceptedAnswer": { "@type": "Answer", "text": "1-комнатная квартира — от 45 000 до 150 000 ₸; 2-комнатная — от 80 000 до 200 000 ₸; 3-комнатная — от 120 000 до 500 000 ₸. Точную цену называем после оценки объёма." } },
+        { "@type": "Question", "name": "Сколько стоит переезд 1/2/3-комнатной квартиры?", "acceptedAnswer": { "@type": "Answer", "text": "Тариф «Стандарт»: 1-комнатная — от 45 000 до 150 000 ₸, 2-комнатная — от 80 000 до 200 000 ₸, 3-комнатная — от 120 000 до 500 000 ₸, в зависимости от этажа и объёма вещей; работают 2 грузчика и 1 грузовик, 4–6 часов. VIP под ключ — от 150 000 ₸ за 2-комнатную и от 250 000 ₸ за 3-комнатную; 2–4 человека, 1–2 грузовика, от 5 до 24 часов. Точную цену называем после оценки и фиксируем в договоре." } },
         { "@type": "Question", "name": "Что делать с хрупкими вещами?", "acceptedAnswer": { "@type": "Answer", "text": "Используем профессиональные материалы: посуду — в коробки с разделителями, зеркала и технику — в пузырчатую плёнку с маркировкой «осторожно»." } },
         { "@type": "Question", "name": "Как происходит оплата?", "acceptedAnswer": { "@type": "Answer", "text": "Наличными после завершения, переводом на карту, а для юрлиц — по безналичному расчёту с договором и закрывающими документами." } },
         { "@type": "Question", "name": "Как быстро можно организовать переезд?", "acceptedAnswer": { "@type": "Answer", "text": "Срочный переезд можем подать за 2–4 часа, стандартный планируем на 1–2 дня вперёд." } },
@@ -999,6 +999,67 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
         </div>
     </section>
 
+    <section class="block" id="gz-calc">
+        <div class="wrap">
+            <div class="block-head" data-reveal>
+                <span class="eyebrow"><span class="dot"></span>Стоимость</span>
+                <h2>Сколько стоит переезд квартиры в Астане</h2>
+            </div>
+            <p class="calc-lead">Переезд квартиры в Астане стоит от 45 000 ₸ по тарифу «Стандарт» — работают 2 грузчика и 1 грузовик, обычно 4–6 часов. Переезд под ключ по тарифу VIP — от 150 000 ₸ за 2-комнатную: 2–4 человека, 1–2 грузовика, от 5 до 24 часов в зависимости от мебели. Точную цену фиксируем в договоре до начала работ.</p>
+<style>
+#gz-calc .calc-box{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;background:var(--paper-2);border:1px solid var(--rule);border-radius:20px;padding:28px}
+#gz-calc .calc-lead{font-size:1.05rem;line-height:1.7;color:var(--ink-2);margin:0 0 22px;max-width:860px}
+#gz-calc label{display:block;font-size:.85rem;font-weight:600;color:var(--muted);margin:0 0 8px;letter-spacing:.02em}
+#gz-calc .calc-opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+#gz-calc .calc-opts button{font-family:var(--sans);font-size:.92rem;padding:10px 16px;border-radius:999px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+#gz-calc .calc-opts button.on{border-color:var(--ink);background:var(--ink);color:#fff}
+#gz-calc input[type=number]{width:140px;font-family:var(--sans);font-size:1.1rem;padding:12px 14px;border:1.5px solid var(--rule);border-radius:12px;background:var(--paper);color:var(--ink)}
+#gz-calc .calc-out{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:22px}
+#gz-calc .calc-price{font-family:var(--serif);font-size:2rem;line-height:1.2;color:var(--ink);margin:4px 0 10px}
+#gz-calc .calc-meta{font-size:.95rem;line-height:1.6;color:var(--ink-2);margin:0 0 16px}
+#gz-calc .calc-note{font-size:.82rem;color:var(--muted);margin:12px 0 0;line-height:1.5}
+@media(max-width:760px){#gz-calc .calc-box{grid-template-columns:1fr;padding:20px}#gz-calc .calc-price{font-size:1.6rem}}
+</style>
+            <div class="calc-box" data-reveal>
+                <div>
+                    <label>Квартира</label>
+                    <div class="calc-opts" data-k="room">
+                        <button type="button" data-v="s">Студия</button><button type="button" data-v="1">1-комнатная</button><button type="button" data-v="2" class="on">2-комнатная</button><button type="button" data-v="3">3-комнатная</button><button type="button" data-v="4">4+ / дом</button>
+                    </div>
+                    <label>Тариф</label>
+                    <div class="calc-opts" data-k="tariff">
+                        <button type="button" data-v="std" class="on">Стандарт</button><button type="button" data-v="vip">VIP под ключ</button>
+                    </div>
+                </div>
+                <div class="calc-out" aria-live="polite">
+                    <label>Ориентир по цене</label>
+                    <div class="calc-price" id="kvPrice">—</div>
+                    <p class="calc-meta" id="kvMeta"></p>
+                    <a id="kvWa" href="https://wa.me/77010120300" target="_blank" rel="noopener" class="cta cta--solid" data-gz-conv><i class="fab fa-whatsapp"></i> Рассчитать точно в WhatsApp</a>
+                    <p class="calc-note">Цена зависит от этажа, лифта и объёма вещей. Пришлите фото или список — назовём точную сумму.</p>
+                </div>
+            </div>
+        </div>
+        <script>
+        (function(){
+          var P={s:{std:[35000],vip:[70000]},1:{std:[45000,150000],vip:[90000]},2:{std:[80000,200000],vip:[150000]},3:{std:[120000,500000],vip:[250000]},4:{std:[200000],vip:null}};
+          var N={s:'студия',1:'1-комнатная',2:'2-комнатная',3:'3-комнатная',4:'4+ комнат / дом'};
+          var M={std:'Стандарт: 2 грузчика, 1 грузовик, обычно 4–6 часов. Упаковка крупных вещей без разборки мебели.',vip:'VIP под ключ: 2–4 человека, 1–2 грузовика, от 5 до 24 часов. Разборка и сборка мебели, упаковка всех вещей, расстановка.'};
+          var st={room:'2',tariff:'std'},root=document.getElementById('gz-calc');
+          function f(n){return n.toLocaleString('ru-RU').replace(/,/g,' ')+' ₸'}
+          function draw(){
+            var p=P[st.room][st.tariff],txt;
+            if(!p){txt='по расчёту';}else if(p.length===2){txt=f(p[0])+' – '+f(p[1]);}else{txt='от '+f(p[0]);}
+            document.getElementById('kvPrice').textContent=txt;
+            document.getElementById('kvMeta').textContent=M[st.tariff];
+            document.getElementById('kvWa').href='https://wa.me/77010120300?text='+encodeURIComponent('Здравствуйте! Нужен переезд: '+N[st.room]+', тариф '+(st.tariff==='vip'?'VIP под ключ':'Стандарт')+'. Ориентир на сайте: '+txt+'.');
+          }
+          root.querySelectorAll('.calc-opts').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;g.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');st[g.dataset.k]=b.dataset.v;draw();});});
+          draw();
+        })();
+        </script>
+    </section>
+
     <section class="block">
         <div class="wrap">
             <div class="block-head" data-reveal>
@@ -1046,7 +1107,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <h2>Часто задаваемые вопросы</h2>
             </div>
             <div class="faq-container">
-                <div class="faq-item"><div class="faq-question">Сколько стоит переезд 1/2/3-комнатной квартиры?</div><div class="faq-answer"><p>1-комнатная — от 45 000 до 150 000 ₸; 2-комнатная — от 80 000 до 200 000 ₸; 3-комнатная — от 120 000 до 500 000 ₸. Точную цену называем после оценки объёма.</p></div></div>
+                <div class="faq-item"><div class="faq-question">Сколько стоит переезд 1/2/3-комнатной квартиры?</div><div class="faq-answer"><p>Тариф «Стандарт»: 1-комнатная — от 45 000 до 150 000 ₸, 2-комнатная — от 80 000 до 200 000 ₸, 3-комнатная — от 120 000 до 500 000 ₸, в зависимости от этажа и объёма вещей; работают 2 грузчика и 1 грузовик, 4–6 часов. VIP под ключ — от 150 000 ₸ за 2-комнатную и от 250 000 ₸ за 3-комнатную; 2–4 человека, 1–2 грузовика, от 5 до 24 часов. Точную цену называем после оценки и фиксируем в договоре.</p></div></div>
                 <div class="faq-item"><div class="faq-question">Что делать с хрупкими вещами?</div><div class="faq-answer"><p>Посуду упаковываем в коробки с разделителями, зеркала и технику — в пузырчатую плёнку с маркировкой «осторожно».</p></div></div>
                 <div class="faq-item"><div class="faq-question">Как происходит оплата?</div><div class="faq-answer"><p>Наличными после завершения, переводом на карту, для юрлиц — безналичный расчёт с договором.</p></div></div>
                 <div class="faq-item"><div class="faq-question">Как быстро можно организовать переезд?</div><div class="faq-answer"><p>Срочный переезд подаём за 2–4 часа, стандартный планируем на 1–2 дня вперёд.</p></div></div>
@@ -1065,7 +1126,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             <p>Ориентир по объёму квартиры. Это полный <a href="../pereezdkay.html">переезд под ключ</a> с грузчиками, упаковкой и сборкой. Точную цену считаем по объёму и фиксируем в договоре — без доплат в процессе.</p>
             <div class="table-scroll">
             <table>
-                <thead><tr><th>Квартира</th><th>Эконом (без упаковки)</th><th>Под ключ (всё включено)</th></tr></thead>
+                <thead><tr><th>Квартира</th><th>Стандарт</th><th>VIP под ключ (всё включено)</th></tr></thead>
                 <tbody>
                     <tr><td>Студия</td><td>от 35 000 ₸</td><td>от 70 000 ₸</td></tr>
                     <tr><td>1-комнатная</td><td>от 45 000 ₸</td><td>от 90 000 ₸</td></tr>
@@ -1083,7 +1144,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                 <thead><tr><th>Тариф</th><th>Стоимость</th><th>Что входит</th></tr></thead>
                 <tbody>
                     <tr><td><a href="../gruz/komplekt.html">Часовая</a></td><td>14 000 ₸/час</td><td>Только грузовик + 2 грузчика: погрузка, перевозка, выгрузка. Без упаковки и других услуг — подробнее на странице <a href="../gruz/komplekt.html">газели с грузчиками</a></td></tr>
-                    <tr><td>Стандарт</td><td>от 100 000 ₸</td><td>Грузовик + 2–3 грузчика, упаковка крупных вещей без разборки: мебель, холодильник, техника. Без разборки мебели и без упаковки посуды</td></tr>
+                    <tr><td>Стандарт</td><td>от 45 000 ₸</td><td>Грузовик + 2 грузчика, обычно 4–6 часов, упаковка крупных вещей без разборки: мебель, холодильник, техника. Без разборки мебели и без упаковки посуды</td></tr>
                     <tr><td>VIP под ключ</td><td>от 150 000 ₸</td><td>Всё включено: разборка и сборка мебели, упаковка посуды и всех вещей, перевозка, расстановка, уборка</td></tr>
                 </tbody>
             </table>
