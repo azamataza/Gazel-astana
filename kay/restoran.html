@@ -1425,7 +1425,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             var nn = visits();
             var time = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
             var device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? '📱 мобильный' : '💻 десктоп';
-            var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + nn + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Квартирный переезд\n' + device + ' · ' + navigator.language;
+            var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + nn + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Переезд ресторана и кафе\n' + device + ' · ' + navigator.language;
             fetch('https://gruzim-lead.turkestanvshiaza.workers.dev', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: msg, parse_mode: 'HTML', disable_web_page_preview: true })

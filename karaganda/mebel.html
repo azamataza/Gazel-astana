@@ -1397,7 +1397,7 @@
             var n = visits();
             var time = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
             var device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? '📱 мобильный' : '💻 десктоп';
-            var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + n + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Сборка/разборка мебели\n' + device + ' · ' + navigator.language;
+            var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + n + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Сборка/разборка мебели · Караганда\n' + device + ' · ' + navigator.language;
             fetch('https://gruzim-lead.turkestanvshiaza.workers.dev', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: msg, parse_mode: 'HTML', disable_web_page_preview: true })

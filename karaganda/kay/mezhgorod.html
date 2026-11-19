@@ -168,7 +168,7 @@
       --ink:#0f1115; --ink-2:#2a2c33; --muted:#7e8089; --muted-2:#a4a6ad;
       --paper:#ffffff; --paper-2:#f6f6f7; --paper-3:#eeeef0;
       --rule:#e6e6e9; --rule-soft:#f0f0f2;
-      --blue:#2563eb; --blue-deep:#1d4ed8; --navy:#16264c;
+      --blue:#0f1115; --blue-deep:#000000; --navy:#0f1115;
       --serif:'Playfair Display',Georgia,'Times New Roman',serif;
       --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
       --script:'Pinyon Script',cursive;
@@ -210,7 +210,7 @@
     .cta--solid{background:var(--ink);border-color:var(--ink);color:#fff;}
     .cta--solid:hover{background:var(--blue);border-color:var(--blue);color:#fff;}
     .cta.pill{padding:11px 20px;font-size:.9rem;min-height:42px;}
-    .cta:focus-visible{outline:3px solid rgba(37,99,235,.45);outline-offset:2px;}
+    .cta:focus-visible{outline:3px solid rgba(15,17,21,.45);outline-offset:2px;}
 
     /* ---------- block scaffold (Untitled-UI centered) ---------- */
     .block{padding:100px 0;border-top:1px solid var(--rule-soft);}
@@ -264,19 +264,19 @@
       color:var(--navy);
       background:
         radial-gradient(120% 80% at 30% 8%, rgba(255,255,255,.8), rgba(255,255,255,0) 42%),
-        linear-gradient(158deg,#eef3ff 0%,#cfddff 22%,#a6c1f6 48%,#7197e7 74%,#b3caf5 100%);
-      box-shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 30px 60px -20px rgba(37,99,235,.55);
+        linear-gradient(158deg,#ffffff 0%,#e7e8ec 22%,#c4c6cd 48%,#9a9da6 74%,#d4d6db 100%);
+      box-shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 30px 60px -20px rgba(15,17,21,.55);
     }
-    .route-card.is-active .album::before{border-color:rgba(22,38,76,.55);}
+    .route-card.is-active .album::before{border-color:rgba(15,17,21,.55);}
     .route-card.is-active .al-mark,.route-card.is-active .al-script,.route-card.is-active .al-sub,.route-card.is-active .al-incl{color:var(--navy);}
     .route-card.is-active .al-rule{color:var(--navy);}
-    .route-card.is-active .al-rule::before,.route-card.is-active .al-rule::after{background:rgba(22,38,76,.45);}
-    .route-card.is-active .al-foot{color:#33508f;}
+    .route-card.is-active .al-rule::before,.route-card.is-active .al-rule::after{background:rgba(15,17,21,.45);}
+    .route-card.is-active .al-foot{color:#3a3c43;}
 
     .stage-arrows{display:flex;justify-content:center;gap:14px;margin-top:30px;}
     .arrow-btn{width:50px;height:50px;border-radius:50%;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
     .arrow-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff;}
-    .arrow-btn:focus-visible{outline:3px solid rgba(37,99,235,.45);outline-offset:2px;}
+    .arrow-btn:focus-visible{outline:3px solid rgba(15,17,21,.45);outline-offset:2px;}
     .stage-dots{display:flex;justify-content:center;gap:8px;margin-top:18px;flex-wrap:wrap;}
     .dot-btn{width:8px;height:8px;border-radius:50%;border:none;background:var(--rule);cursor:pointer;padding:0;transition:.2s;}
     .dot-btn.on{background:var(--ink);width:22px;border-radius:5px;}
@@ -286,7 +286,7 @@
     .calc-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px;}
     .calc-label:first-child{margin-top:0;}
     .calc-select,.callback-form input,.callback-form select,.callback-form textarea{width:100%;padding:14px 15px;border:1px solid var(--rule);border-radius:10px;font-size:1rem;font-family:var(--sans);background:#fff;color:var(--ink);}
-    .calc-select:focus,.callback-form input:focus,.callback-form select:focus,.callback-form textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.15);}
+    .calc-select:focus,.callback-form input:focus,.callback-form select:focus,.callback-form textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(15,17,21,.15);}
     .counter-container{display:flex;align-items:center;gap:14px;}
     .counter-btn{width:46px;height:46px;border-radius:10px;border:1.5px solid var(--ink);background:#fff;font-size:1.3rem;line-height:1;cursor:pointer;transition:.2s;}
     .counter-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff;}
@@ -405,7 +405,7 @@
     .fab-menu-item.call{background:var(--ink);}
     .fab-menu-item.whatsapp{background:#25D366;}
     .fab-menu-item.telegram{background:#229ED9;}
-    .fab-main{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;border:none;box-shadow:0 8px 24px rgba(37,99,235,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5em;transition:.2s;}
+    .fab-main{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;border:none;box-shadow:0 8px 24px rgba(15,17,21,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5em;transition:.2s;}
     .fab-main:hover{background:var(--blue-deep);}
 
     /* breadcrumbs */
@@ -446,12 +446,12 @@
     :root{ --header-h:64px; }
     html{scroll-padding-top:calc(var(--header-h) + 18px);}
     [id]{scroll-margin-top:calc(var(--header-h) + 18px);}
-    *{-webkit-tap-highlight-color:rgba(37,99,235,.14);}
+    *{-webkit-tap-highlight-color:rgba(15,17,21,.14);}
 
     /* keyboard focus ring everywhere (a11y + finish) */
     a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,
     textarea:focus-visible,summary:focus-visible,.faq-question:focus-visible,.route-card:focus-visible{
-      outline:3px solid rgba(37,99,235,.5);outline-offset:2px;border-radius:8px;
+      outline:3px solid rgba(15,17,21,.5);outline-offset:2px;border-radius:8px;
     }
 
     /* no ragged wraps, no overflow surprises */
@@ -599,7 +599,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
 /* FAB: GPU pulse via transform/opacity instead of animated box-shadow */
 .fab-main{animation:none!important;}
 .fab-main::after{
-  content:'';position:absolute;inset:0;border-radius:50%;background:#f97316;
+  content:'';position:absolute;inset:0;border-radius:50%;background:#0f1115;
   z-index:-1;will-change:transform,opacity;
   animation:gzRing 2.4s cubic-bezier(.4,0,.2,1) infinite;
 }
@@ -759,7 +759,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
     <section class="hero">
         <div class="wrap">
             <span class="eyebrow" data-reveal><span class="dot"></span>Междугородний переезд из Караганды под ключ<span class="arr">›</span></span>
-            <h1 data-reveal>Перевезём вашу жизнь <br>в другой город — <em>как для себя</em></h1>
+            <h1 data-reveal>Перевезём вашу жизнь <br>из Караганды в другой город — <em>как для себя</em></h1>
             <p class="lead" data-reveal>Упакуем, разберём, погрузим, довезём и соберём на новом месте. Фиксированная цена в договоре, 20 направлений из Караганды.</p>
             <div class="hero-cta" data-reveal>
                 <a href="https://wa.me/77010120300?text=Здравствуйте! Хочу обсудить переезд по Казахстану из Караганды." target="_blank" rel="noopener" class="cta cta--solid"><i class="fab fa-whatsapp"></i> Написать в WhatsApp</a>
@@ -790,7 +790,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             <div class="block-head" data-reveal>
                 <span class="eyebrow"><span class="dot"></span>Коллекция маршрутов</span>
                 <h2>Выберите направление переезда</h2>
-                <p>Каждый маршрут — под ключ и по фиксированной цене. Листайте коллекцию, поставьте нужный город в центр и закажите переезд.</p>
+                <p>Цена маршрута — ориентир. Точную сумму фиксируем в договоре до погрузки.</p>
             </div>
 
             <div class="stage" id="stage" tabindex="0" aria-roledescription="карусель" aria-label="Маршруты переездов из Караганды">
@@ -800,12 +800,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         <div class="album">
                             <div class="al-mark">GRUZIM · KZ</div>
                             <div class="al-city">Астана</div>
-                            <div class="al-script">the</div>
-                            <div class="al-sub">Platinum Route</div>
+                            <div class="al-sub">Отдельная машина</div>
                             <div class="al-rule">213 км · 1 день</div>
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
-                            <div class="al-price">от ~ 84 500 ₸</div>
-                            <div class="al-foot">Под ключ · фиксированная цена</div>
+                            <div class="al-price">от 84 500 ₸</div>
+                            <div class="al-foot">Под ключ · цена в договоре</div>
                         </div>
                             <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд из Караганды в Астану." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
@@ -813,12 +812,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         <div class="album">
                             <div class="al-mark">GRUZIM · KZ</div>
                             <div class="al-city">Кокшетау</div>
-                            <div class="al-script">the</div>
-                            <div class="al-sub">Platinum Route</div>
+                            <div class="al-sub">Отдельная машина</div>
                             <div class="al-rule">296 км · 1 день</div>
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
-                            <div class="al-price">от ~ 129 000 ₸</div>
-                            <div class="al-foot">Под ключ · фиксированная цена</div>
+                            <div class="al-price">от 129 000 ₸</div>
+                            <div class="al-foot">Под ключ · цена в договоре</div>
                         </div>
                             <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд из Караганды в Кокшетау." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
@@ -826,12 +824,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         <div class="album">
                             <div class="al-mark">GRUZIM · KZ</div>
                             <div class="al-city">Павлодар</div>
-                            <div class="al-script">the</div>
-                            <div class="al-sub">Platinum Route</div>
+                            <div class="al-sub">Отдельная машина</div>
                             <div class="al-rule">438 км · 1–2 дня</div>
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
-                            <div class="al-price">от ~ 190 500 ₸</div>
-                            <div class="al-foot">Под ключ · фиксированная цена</div>
+                            <div class="al-price">от 190 500 ₸</div>
+                            <div class="al-foot">Под ключ · цена в договоре</div>
                         </div>
                             <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд из Караганды в Павлодар." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
@@ -839,11 +836,10 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         <div class="album">
                             <div class="al-mark">GRUZIM · KZ · ХИТ</div>
                             <div class="al-city">Алматы</div>
-                            <div class="al-script">the</div>
-                            <div class="al-sub">Platinum Route</div>
+                            <div class="al-sub">Отдельная машина</div>
                             <div class="al-rule">1000 км · 2–3 дня</div>
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
-                            <div class="al-price">от ~ 419 000 ₸</div>
+                            <div class="al-price">от 419 000 ₸</div>
                             <div class="al-foot">Самый частый маршрут · под ключ</div>
                         </div>
                             <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд из Караганды в Алматы." target="_blank" rel="noopener">Заказать переезд</a></div>
@@ -852,12 +848,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         <div class="album">
                             <div class="al-mark">GRUZIM · KZ</div>
                             <div class="al-city">Шымкент</div>
-                            <div class="al-script">the</div>
-                            <div class="al-sub">Platinum Route</div>
+                            <div class="al-sub">Отдельная машина</div>
                             <div class="al-rule">996 км · 2–3 дня</div>
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
-                            <div class="al-price">от ~ 433 500 ₸</div>
-                            <div class="al-foot">Под ключ · фиксированная цена</div>
+                            <div class="al-price">от 433 500 ₸</div>
+                            <div class="al-foot">Под ключ · цена в договоре</div>
                         </div>
                             <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд из Караганды в Шымкент." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
@@ -865,12 +860,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         <div class="album">
                             <div class="al-mark">GRUZIM · KZ</div>
                             <div class="al-city">Актобе</div>
-                            <div class="al-script">the</div>
-                            <div class="al-sub">Platinum Route</div>
+                            <div class="al-sub">Отдельная машина</div>
                             <div class="al-rule">1009 км · 2–3 дня</div>
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
-                            <div class="al-price">от ~ 480 000 ₸</div>
-                            <div class="al-foot">Под ключ · фиксированная цена</div>
+                            <div class="al-price">от 480 000 ₸</div>
+                            <div class="al-foot">Под ключ · цена в договоре</div>
                         </div>
                             <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд из Караганды в Актобе." target="_blank" rel="noopener">Заказать переезд</a></div>
                     </article>
@@ -878,12 +872,11 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
                         <div class="album">
                             <div class="al-mark">GRUZIM · KZ</div>
                             <div class="al-city">Семей</div>
-                            <div class="al-script">the</div>
-                            <div class="al-sub">Platinum Route</div>
+                            <div class="al-sub">Отдельная машина</div>
                             <div class="al-rule">800 км · 2 дня</div>
                             <div class="al-incl">Включая: упаковка · разбор мебели<br>погрузка · перевозка · выгрузка · сборка</div>
-                            <div class="al-price">от ~ 383 000 ₸</div>
-                            <div class="al-foot">Под ключ · фиксированная цена</div>
+                            <div class="al-price">от 383 000 ₸</div>
+                            <div class="al-foot">Под ключ · цена в договоре</div>
                         </div>
                             <div class="route-cta"><a class="cta cta--solid pill route-order" href="https://wa.me/77010120300?text=Здравствуйте! Интересует переезд из Караганды в Семей." target="_blank" rel="noopener">Заказать переезд</a></div>
         </article>
@@ -1478,7 +1471,7 @@ html.gz-scrolled nav.breadcrumbs{box-shadow:0 6px 18px rgba(15,23,42,.07);}
             var nn = visits();
             var time = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
             var device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? '📱 мобильный' : '💻 десктоп';
-            var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + nn + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Переезд межгород\n' + device + ' · ' + navigator.language;
+            var msg = '👤 <b>Новый посетитель</b>\n━━━━━━━━━━\n🕐 ' + time + '\n📊 Визитов сегодня: ' + nn + '\n↩️ Откуда: ' + GZ.source() + '\n🔗 Страница: Переезд межгород · Караганда\n' + device + ' · ' + navigator.language;
             fetch('https://gruzim-lead.turkestanvshiaza.workers.dev', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id: GZ.cfg.TG_CHAT, text: msg, parse_mode: 'HTML', disable_web_page_preview: true })
